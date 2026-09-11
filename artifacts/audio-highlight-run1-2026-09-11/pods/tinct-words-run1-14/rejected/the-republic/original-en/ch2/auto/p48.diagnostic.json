@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "c815eac41b8bbb4f0db8db66656eb7703c7520de149bdc0c98d114d890222c9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12192820012569427,
+      "alignment_seconds": 8.018314838409424e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And is not a State larger than an individual?",
+        "hotwords": "And, State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And is not a State larger than an individual?",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.11285400390625
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.95703125
+            },
+            {
+              "text": " not",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " State",
+              "start": 1.0,
+              "end": 1.24,
+              "probability": 0.005466461181640625
+            },
+            {
+              "text": " larger",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " than",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " an",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.984375
+            },
+            {
+              "text": " individual?",
+              "start": 1.96,
+              "end": 2.3,
+              "probability": 0.83740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "not",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "State",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "raw": "larger",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "than",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "an",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "individual?",
+          "start": 1.96,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "not",
+        "a",
+        "State",
+        "larger",
+        "than",
+        "an",
+        "individual?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "not",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "a",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "State",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "text": "larger",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "than",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "an",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "individual?",
+          "start": 1.96,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12204810231924057
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28d9a1514fad2c9059cbebc7d1c1b7e12b7a58b23ed009be1450bcb5d7557dd3",
+  "selected_reasons": []
+}

@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "18298aa9a9aee012ead2cb6516b08de6573176020cc15660ee90e75d348bc155",
+  "attempts": [
+    {
+      "asr_seconds": 0.13970108982175589,
+      "alignment_seconds": 8.002854883670807e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What do I care what the jungle thinks he may be dead by now?",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " do",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 0.63,
+              "end": 0.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " care",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.9765625
+            },
+            {
+              "text": " the",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " jungle",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " thinks",
+              "start": 1.47,
+              "end": 1.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 1.93,
+              "end": 2.47,
+              "probability": 0.4169921875
+            },
+            {
+              "text": " may",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dead",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 2.95,
+              "end": 3.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " now?",
+              "start": 3.19,
+              "end": 3.55,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "do",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "I",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "raw": "care",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "what",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "the",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "jungle",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "thinks",
+          "start": 1.47,
+          "end": 1.93
+        },
+        {
+          "raw": "he",
+          "start": 1.93,
+          "end": 2.47
+        },
+        {
+          "raw": "may",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "be",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "dead",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "by",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "raw": "now?",
+          "start": 3.19,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "do",
+        "I",
+        "care",
+        "what",
+        "the",
+        "jungle",
+        "thinks?",
+        "He",
+        "may",
+        "be",
+        "dead",
+        "by",
+        "now.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "do",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "I",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "text": "care",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "what",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "the",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "jungle",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "thinks?",
+          "start": 1.47,
+          "end": 1.93
+        },
+        {
+          "text": "He",
+          "start": 1.93,
+          "end": 2.47
+        },
+        {
+          "text": "may",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "be",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "dead",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "by",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "text": "now.\"",
+          "start": 3.19,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1398238791152835
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd9071a29f5cd50d103e5ebf4092c35555fd7295660d12c1b84099e9dc408afe",
+  "selected_reasons": []
+}

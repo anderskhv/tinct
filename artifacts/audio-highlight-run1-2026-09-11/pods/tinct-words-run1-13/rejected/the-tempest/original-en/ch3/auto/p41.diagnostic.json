@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "2a3bd0a3afe68efe26b315c35a449eb6f0c5536aa14bbd3a00af861dbed9cc15",
+  "attempts": [
+    {
+      "asr_seconds": 0.10330050997436047,
+      "alignment_seconds": 0.00010023394133895636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. He misses not much.",
+        "hotwords": "Antonio, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, He misses not much.",
+          "start": 0.11,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " He",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.01241302490234375
+            },
+            {
+              "text": " misses",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.51904296875
+            },
+            {
+              "text": " not",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " much.",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "He",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "misses",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "not",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "much.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "He",
+        "misses",
+        "not",
+        "much."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "text": "He",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "misses",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "not",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "much.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10344408499076962
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bde2d16891cc25293762cbedca19c9adbb6320851340dfd46650e0a91ab66760",
+  "selected_reasons": []
+}

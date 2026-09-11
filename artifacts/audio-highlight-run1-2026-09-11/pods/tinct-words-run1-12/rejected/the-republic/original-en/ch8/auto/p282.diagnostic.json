@@ -1,0 +1,4005 @@
+{
+  "complete": true,
+  "signature": "52b43c8695fba5dc7a2b69d34bb8aee835f79aa690537973ab9e9b4d00c1c9ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.44950872706249356,
+      "alignment_seconds": 0.00031745387241244316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I said; his life is motley and manifold and an epitome of the lives of many;—he answers to the State which we described as fair and spangled. And many a man and many a woman will take him for their pattern, and many a constitution and many an example of manners is contained in him.",
+        "hotwords": "Yes, I, State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, his life is motley and manifold and an epitome of the lives of many. He answers",
+          "start": 0.05,
+          "end": 6.69,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.10040283203125
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said,",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " life",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " motley",
+              "start": 2.37,
+              "end": 2.87,
+              "probability": 0.921142578125
+            },
+            {
+              "text": " and",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " manifold",
+              "start": 3.09,
+              "end": 3.49,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.93,
+              "probability": 0.4462890625
+            },
+            {
+              "text": " an",
+              "start": 3.93,
+              "end": 4.07,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " epitome",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.63,
+              "end": 4.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lives",
+              "start": 4.75,
+              "end": 5.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 5.03,
+              "end": 5.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " many.",
+              "start": 5.27,
+              "end": 5.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 6.19,
+              "end": 6.35,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " answers",
+              "start": 6.35,
+              "end": 6.69,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " to the State which we described as fair and spangled. And many a man and many a woman",
+          "start": 6.69,
+          "end": 11.93,
+          "words": [
+            {
+              "text": " to",
+              "start": 6.69,
+              "end": 6.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 6.97,
+              "end": 7.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " State",
+              "start": 7.07,
+              "end": 7.37,
+              "probability": 0.214111328125
+            },
+            {
+              "text": " which",
+              "start": 7.37,
+              "end": 7.63,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " we",
+              "start": 7.63,
+              "end": 7.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " described",
+              "start": 7.85,
+              "end": 8.33,
+              "probability": 0.982421875
+            },
+            {
+              "text": " as",
+              "start": 8.33,
+              "end": 8.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fair",
+              "start": 8.63,
+              "end": 8.97,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " and",
+              "start": 8.97,
+              "end": 9.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " spangled.",
+              "start": 9.25,
+              "end": 9.75,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " And",
+              "start": 10.43,
+              "end": 10.55,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " many",
+              "start": 10.55,
+              "end": 10.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 10.71,
+              "end": 10.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 10.87,
+              "end": 11.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 11.15,
+              "end": 11.37,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " many",
+              "start": 11.37,
+              "end": 11.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 11.49,
+              "end": 11.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " woman",
+              "start": 11.71,
+              "end": 11.93,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " will take him for their pattern, and many a constitution and many an example of manners",
+          "start": 11.93,
+          "end": 16.71,
+          "words": [
+            {
+              "text": " will",
+              "start": 11.93,
+              "end": 12.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " take",
+              "start": 12.19,
+              "end": 12.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 12.41,
+              "end": 12.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 12.61,
+              "end": 12.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 12.77,
+              "end": 12.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pattern,",
+              "start": 12.93,
+              "end": 13.33,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 13.75,
+              "end": 13.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " many",
+              "start": 13.93,
+              "end": 14.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 14.09,
+              "end": 14.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " constitution",
+              "start": 14.29,
+              "end": 14.77,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " and",
+              "start": 14.77,
+              "end": 15.35,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " many",
+              "start": 15.35,
+              "end": 15.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 15.57,
+              "end": 15.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " example",
+              "start": 15.73,
+              "end": 16.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 16.13,
+              "end": 16.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " manners",
+              "start": 16.39,
+              "end": 16.71,
+              "probability": 0.970703125
+            }
+          ]
+        },
+        {
+          "text": " is contained in him.",
+          "start": 16.71,
+          "end": 17.99,
+          "words": [
+            {
+              "text": " is",
+              "start": 16.71,
+              "end": 17.01,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " contained",
+              "start": 17.01,
+              "end": 17.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 17.39,
+              "end": 17.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 17.69,
+              "end": 17.99,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "said,",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "his",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "life",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "raw": "is",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "motley",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "raw": "and",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "raw": "manifold",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.93
+        },
+        {
+          "raw": "an",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "raw": "epitome",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "raw": "the",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "raw": "lives",
+          "start": 4.75,
+          "end": 5.03
+        },
+        {
+          "raw": "of",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "raw": "many.",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "raw": "He",
+          "start": 6.19,
+          "end": 6.35
+        },
+        {
+          "raw": "answers",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "raw": "to",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "raw": "the",
+          "start": 6.97,
+          "end": 7.07
+        },
+        {
+          "raw": "State",
+          "start": 7.07,
+          "end": 7.37
+        },
+        {
+          "raw": "which",
+          "start": 7.37,
+          "end": 7.63
+        },
+        {
+          "raw": "we",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "raw": "described",
+          "start": 7.85,
+          "end": 8.33
+        },
+        {
+          "raw": "as",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "raw": "fair",
+          "start": 8.63,
+          "end": 8.97
+        },
+        {
+          "raw": "and",
+          "start": 8.97,
+          "end": 9.25
+        },
+        {
+          "raw": "spangled.",
+          "start": 9.25,
+          "end": 9.75
+        },
+        {
+          "raw": "And",
+          "start": 10.43,
+          "end": 10.55
+        },
+        {
+          "raw": "many",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "raw": "a",
+          "start": 10.71,
+          "end": 10.87
+        },
+        {
+          "raw": "man",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "raw": "and",
+          "start": 11.15,
+          "end": 11.37
+        },
+        {
+          "raw": "many",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "raw": "a",
+          "start": 11.49,
+          "end": 11.71
+        },
+        {
+          "raw": "woman",
+          "start": 11.71,
+          "end": 11.93
+        },
+        {
+          "raw": "will",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "raw": "take",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "raw": "him",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "raw": "for",
+          "start": 12.61,
+          "end": 12.77
+        },
+        {
+          "raw": "their",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "raw": "pattern,",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "raw": "and",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "raw": "many",
+          "start": 13.93,
+          "end": 14.09
+        },
+        {
+          "raw": "a",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "raw": "constitution",
+          "start": 14.29,
+          "end": 14.77
+        },
+        {
+          "raw": "and",
+          "start": 14.77,
+          "end": 15.35
+        },
+        {
+          "raw": "many",
+          "start": 15.35,
+          "end": 15.57
+        },
+        {
+          "raw": "an",
+          "start": 15.57,
+          "end": 15.73
+        },
+        {
+          "raw": "example",
+          "start": 15.73,
+          "end": 16.13
+        },
+        {
+          "raw": "of",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "raw": "manners",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "raw": "is",
+          "start": 16.71,
+          "end": 17.01
+        },
+        {
+          "raw": "contained",
+          "start": 17.01,
+          "end": 17.39
+        },
+        {
+          "raw": "in",
+          "start": 17.39,
+          "end": 17.69
+        },
+        {
+          "raw": "him.",
+          "start": 17.69,
+          "end": 17.99
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said;",
+        "his",
+        "life",
+        "is",
+        "motley",
+        "and",
+        "manifold",
+        "and",
+        "an",
+        "epitome",
+        "of",
+        "the",
+        "lives",
+        "of",
+        "many;—he",
+        "answers",
+        "to",
+        "the",
+        "State",
+        "which",
+        "we",
+        "described",
+        "as",
+        "fair",
+        "and",
+        "spangled.",
+        "And",
+        "many",
+        "a",
+        "man",
+        "and",
+        "many",
+        "a",
+        "woman",
+        "will",
+        "take",
+        "him",
+        "for",
+        "their",
+        "pattern,",
+        "and",
+        "many",
+        "a",
+        "constitution",
+        "and",
+        "many",
+        "an",
+        "example",
+        "of",
+        "manners",
+        "is",
+        "contained",
+        "in",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          56,
+          18,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "said;",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "his",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "life",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "text": "is",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "motley",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "text": "and",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "text": "manifold",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "text": "and",
+          "start": 3.49,
+          "end": 3.93
+        },
+        {
+          "text": "an",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "text": "epitome",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "text": "the",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "text": "lives",
+          "start": 4.75,
+          "end": 5.03
+        },
+        {
+          "text": "of",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "text": "many;—he",
+          "start": 5.27,
+          "end": 5.81
+        },
+        {
+          "text": "answers",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "text": "to",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "text": "the",
+          "start": 6.97,
+          "end": 7.07
+        },
+        {
+          "text": "State",
+          "start": 7.07,
+          "end": 7.37
+        },
+        {
+          "text": "which",
+          "start": 7.37,
+          "end": 7.63
+        },
+        {
+          "text": "we",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "text": "described",
+          "start": 7.85,
+          "end": 8.33
+        },
+        {
+          "text": "as",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "text": "fair",
+          "start": 8.63,
+          "end": 8.97
+        },
+        {
+          "text": "and",
+          "start": 8.97,
+          "end": 9.25
+        },
+        {
+          "text": "spangled.",
+          "start": 9.25,
+          "end": 9.75
+        },
+        {
+          "text": "And",
+          "start": 10.43,
+          "end": 10.55
+        },
+        {
+          "text": "many",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "text": "a",
+          "start": 10.71,
+          "end": 10.87
+        },
+        {
+          "text": "man",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "text": "and",
+          "start": 11.15,
+          "end": 11.37
+        },
+        {
+          "text": "many",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "text": "a",
+          "start": 11.49,
+          "end": 11.71
+        },
+        {
+          "text": "woman",
+          "start": 11.71,
+          "end": 11.93
+        },
+        {
+          "text": "will",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "text": "take",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "text": "him",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "text": "for",
+          "start": 12.61,
+          "end": 12.77
+        },
+        {
+          "text": "their",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "text": "pattern,",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "text": "and",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "text": "many",
+          "start": 13.93,
+          "end": 14.09
+        },
+        {
+          "text": "a",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "text": "constitution",
+          "start": 14.29,
+          "end": 14.77
+        },
+        {
+          "text": "and",
+          "start": 14.77,
+          "end": 15.35
+        },
+        {
+          "text": "many",
+          "start": 15.35,
+          "end": 15.57
+        },
+        {
+          "text": "an",
+          "start": 15.57,
+          "end": 15.73
+        },
+        {
+          "text": "example",
+          "start": 15.73,
+          "end": 16.13
+        },
+        {
+          "text": "of",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "text": "manners",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "text": "is",
+          "start": 16.71,
+          "end": 17.01
+        },
+        {
+          "text": "contained",
+          "start": 17.01,
+          "end": 17.39
+        },
+        {
+          "text": "in",
+          "start": 17.39,
+          "end": 17.69
+        },
+        {
+          "text": "him.",
+          "start": 17.69,
+          "end": 17.99
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 57,
+        "matched_words": 55
+      },
+      "match_ratio": 0.9821428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.4500107681378722
+    },
+    {
+      "asr_seconds": 0.47555713495239615,
+      "alignment_seconds": 0.00031989533454179764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes, I, State"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yes, I said. His life is motley and manifold, and an epitome of the lives of many. He answers",
+          "start": 0.05,
+          "end": 6.69,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.10040283203125
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said.",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " His",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " life",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " motley",
+              "start": 2.37,
+              "end": 2.87,
+              "probability": 0.918701171875
+            },
+            {
+              "text": " and",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " manifold,",
+              "start": 3.09,
+              "end": 3.49,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 3.87,
+              "end": 3.93,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " an",
+              "start": 3.93,
+              "end": 4.07,
+              "probability": 0.98828125
+            },
+            {
+              "text": " epitome",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lives",
+              "start": 4.77,
+              "end": 5.03,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 5.03,
+              "end": 5.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " many.",
+              "start": 5.29,
+              "end": 5.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " answers",
+              "start": 6.35,
+              "end": 6.69,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " to the state which we described as fair and spangled. And many a man and many a woman",
+          "start": 6.69,
+          "end": 11.93,
+          "words": [
+            {
+              "text": " to",
+              "start": 6.69,
+              "end": 6.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 6.97,
+              "end": 7.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " state",
+              "start": 7.09,
+              "end": 7.37,
+              "probability": 0.755859375
+            },
+            {
+              "text": " which",
+              "start": 7.37,
+              "end": 7.65,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " we",
+              "start": 7.65,
+              "end": 7.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " described",
+              "start": 7.85,
+              "end": 8.35,
+              "probability": 0.986328125
+            },
+            {
+              "text": " as",
+              "start": 8.35,
+              "end": 8.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fair",
+              "start": 8.61,
+              "end": 8.97,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " and",
+              "start": 8.97,
+              "end": 9.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spangled.",
+              "start": 9.25,
+              "end": 9.73,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " And",
+              "start": 10.41,
+              "end": 10.55,
+              "probability": 0.978515625
+            },
+            {
+              "text": " many",
+              "start": 10.55,
+              "end": 10.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 10.71,
+              "end": 10.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 10.87,
+              "end": 11.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 11.15,
+              "end": 11.37,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " many",
+              "start": 11.37,
+              "end": 11.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 11.49,
+              "end": 11.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " woman",
+              "start": 11.71,
+              "end": 11.93,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " will take him for their pattern, and many a constitution, and many an example of manners",
+          "start": 11.93,
+          "end": 16.71,
+          "words": [
+            {
+              "text": " will",
+              "start": 11.93,
+              "end": 12.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " take",
+              "start": 12.19,
+              "end": 12.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 12.41,
+              "end": 12.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " for",
+              "start": 12.61,
+              "end": 12.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 12.77,
+              "end": 12.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pattern,",
+              "start": 12.93,
+              "end": 13.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 13.75,
+              "end": 13.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " many",
+              "start": 13.93,
+              "end": 14.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 14.09,
+              "end": 14.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " constitution,",
+              "start": 14.25,
+              "end": 14.77,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " and",
+              "start": 15.29,
+              "end": 15.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " many",
+              "start": 15.35,
+              "end": 15.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 15.57,
+              "end": 15.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " example",
+              "start": 15.73,
+              "end": 16.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 16.13,
+              "end": 16.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " manners",
+              "start": 16.39,
+              "end": 16.71,
+              "probability": 0.98095703125
+            }
+          ]
+        },
+        {
+          "text": " is contained in him.",
+          "start": 16.71,
+          "end": 17.99,
+          "words": [
+            {
+              "text": " is",
+              "start": 16.71,
+              "end": 17.01,
+              "probability": 0.84765625
+            },
+            {
+              "text": " contained",
+              "start": 17.01,
+              "end": 17.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 17.39,
+              "end": 17.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 17.69,
+              "end": 17.99,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "said.",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "His",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "life",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "raw": "is",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "motley",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "raw": "and",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "raw": "manifold,",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 3.93
+        },
+        {
+          "raw": "an",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "raw": "epitome",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "raw": "the",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "lives",
+          "start": 4.77,
+          "end": 5.03
+        },
+        {
+          "raw": "of",
+          "start": 5.03,
+          "end": 5.29
+        },
+        {
+          "raw": "many.",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "raw": "He",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "answers",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "raw": "to",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "raw": "the",
+          "start": 6.97,
+          "end": 7.09
+        },
+        {
+          "raw": "state",
+          "start": 7.09,
+          "end": 7.37
+        },
+        {
+          "raw": "which",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "raw": "we",
+          "start": 7.65,
+          "end": 7.85
+        },
+        {
+          "raw": "described",
+          "start": 7.85,
+          "end": 8.35
+        },
+        {
+          "raw": "as",
+          "start": 8.35,
+          "end": 8.61
+        },
+        {
+          "raw": "fair",
+          "start": 8.61,
+          "end": 8.97
+        },
+        {
+          "raw": "and",
+          "start": 8.97,
+          "end": 9.25
+        },
+        {
+          "raw": "spangled.",
+          "start": 9.25,
+          "end": 9.73
+        },
+        {
+          "raw": "And",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "raw": "many",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "raw": "a",
+          "start": 10.71,
+          "end": 10.87
+        },
+        {
+          "raw": "man",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "raw": "and",
+          "start": 11.15,
+          "end": 11.37
+        },
+        {
+          "raw": "many",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "raw": "a",
+          "start": 11.49,
+          "end": 11.71
+        },
+        {
+          "raw": "woman",
+          "start": 11.71,
+          "end": 11.93
+        },
+        {
+          "raw": "will",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "raw": "take",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "raw": "him",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "raw": "for",
+          "start": 12.61,
+          "end": 12.77
+        },
+        {
+          "raw": "their",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "raw": "pattern,",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "raw": "and",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "raw": "many",
+          "start": 13.93,
+          "end": 14.09
+        },
+        {
+          "raw": "a",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "raw": "constitution,",
+          "start": 14.25,
+          "end": 14.77
+        },
+        {
+          "raw": "and",
+          "start": 15.29,
+          "end": 15.35
+        },
+        {
+          "raw": "many",
+          "start": 15.35,
+          "end": 15.57
+        },
+        {
+          "raw": "an",
+          "start": 15.57,
+          "end": 15.73
+        },
+        {
+          "raw": "example",
+          "start": 15.73,
+          "end": 16.13
+        },
+        {
+          "raw": "of",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "raw": "manners",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "raw": "is",
+          "start": 16.71,
+          "end": 17.01
+        },
+        {
+          "raw": "contained",
+          "start": 17.01,
+          "end": 17.39
+        },
+        {
+          "raw": "in",
+          "start": 17.39,
+          "end": 17.69
+        },
+        {
+          "raw": "him.",
+          "start": 17.69,
+          "end": 17.99
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said;",
+        "his",
+        "life",
+        "is",
+        "motley",
+        "and",
+        "manifold",
+        "and",
+        "an",
+        "epitome",
+        "of",
+        "the",
+        "lives",
+        "of",
+        "many;—he",
+        "answers",
+        "to",
+        "the",
+        "State",
+        "which",
+        "we",
+        "described",
+        "as",
+        "fair",
+        "and",
+        "spangled.",
+        "And",
+        "many",
+        "a",
+        "man",
+        "and",
+        "many",
+        "a",
+        "woman",
+        "will",
+        "take",
+        "him",
+        "for",
+        "their",
+        "pattern,",
+        "and",
+        "many",
+        "a",
+        "constitution",
+        "and",
+        "many",
+        "an",
+        "example",
+        "of",
+        "manners",
+        "is",
+        "contained",
+        "in",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          56,
+          18,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "said;",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "his",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "life",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "text": "is",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "motley",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "text": "and",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "text": "manifold",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "text": "and",
+          "start": 3.87,
+          "end": 3.93
+        },
+        {
+          "text": "an",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "text": "epitome",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "text": "the",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "lives",
+          "start": 4.77,
+          "end": 5.03
+        },
+        {
+          "text": "of",
+          "start": 5.03,
+          "end": 5.29
+        },
+        {
+          "text": "many;—he",
+          "start": 5.29,
+          "end": 5.82
+        },
+        {
+          "text": "answers",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "text": "to",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "text": "the",
+          "start": 6.97,
+          "end": 7.09
+        },
+        {
+          "text": "State",
+          "start": 7.09,
+          "end": 7.37
+        },
+        {
+          "text": "which",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "text": "we",
+          "start": 7.65,
+          "end": 7.85
+        },
+        {
+          "text": "described",
+          "start": 7.85,
+          "end": 8.35
+        },
+        {
+          "text": "as",
+          "start": 8.35,
+          "end": 8.61
+        },
+        {
+          "text": "fair",
+          "start": 8.61,
+          "end": 8.97
+        },
+        {
+          "text": "and",
+          "start": 8.97,
+          "end": 9.25
+        },
+        {
+          "text": "spangled.",
+          "start": 9.25,
+          "end": 9.73
+        },
+        {
+          "text": "And",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "text": "many",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "text": "a",
+          "start": 10.71,
+          "end": 10.87
+        },
+        {
+          "text": "man",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "text": "and",
+          "start": 11.15,
+          "end": 11.37
+        },
+        {
+          "text": "many",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "text": "a",
+          "start": 11.49,
+          "end": 11.71
+        },
+        {
+          "text": "woman",
+          "start": 11.71,
+          "end": 11.93
+        },
+        {
+          "text": "will",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "text": "take",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "text": "him",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "text": "for",
+          "start": 12.61,
+          "end": 12.77
+        },
+        {
+          "text": "their",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "text": "pattern,",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "text": "and",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "text": "many",
+          "start": 13.93,
+          "end": 14.09
+        },
+        {
+          "text": "a",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "text": "constitution",
+          "start": 14.25,
+          "end": 14.77
+        },
+        {
+          "text": "and",
+          "start": 15.29,
+          "end": 15.35
+        },
+        {
+          "text": "many",
+          "start": 15.35,
+          "end": 15.57
+        },
+        {
+          "text": "an",
+          "start": 15.57,
+          "end": 15.73
+        },
+        {
+          "text": "example",
+          "start": 15.73,
+          "end": 16.13
+        },
+        {
+          "text": "of",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "text": "manners",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "text": "is",
+          "start": 16.71,
+          "end": 17.01
+        },
+        {
+          "text": "contained",
+          "start": 17.01,
+          "end": 17.39
+        },
+        {
+          "text": "in",
+          "start": 17.39,
+          "end": 17.69
+        },
+        {
+          "text": "him.",
+          "start": 17.69,
+          "end": 17.99
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 57,
+        "matched_words": 55
+      },
+      "match_ratio": 0.9821428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.47605554619804025
+    },
+    {
+      "asr_seconds": 0.48924595490098,
+      "alignment_seconds": 0.00032251421362161636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, his life is motley and manifold, and an epitome of the lives of many.",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.10040283203125
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said,",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " life",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " motley",
+              "start": 2.37,
+              "end": 2.87,
+              "probability": 0.921142578125
+            },
+            {
+              "text": " and",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " manifold,",
+              "start": 3.09,
+              "end": 3.49,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " and",
+              "start": 3.87,
+              "end": 3.93,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " an",
+              "start": 3.93,
+              "end": 4.07,
+              "probability": 0.984375
+            },
+            {
+              "text": " epitome",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lives",
+              "start": 4.77,
+              "end": 5.03,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 5.03,
+              "end": 5.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " many.",
+              "start": 5.29,
+              "end": 5.47,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " He answers to the state which we described as fair and spangled, and many a man and many",
+          "start": 6.17,
+          "end": 11.49,
+          "words": [
+            {
+              "text": " He",
+              "start": 6.17,
+              "end": 6.35,
+              "probability": 0.986328125
+            },
+            {
+              "text": " answers",
+              "start": 6.35,
+              "end": 6.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 6.69,
+              "end": 6.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 6.97,
+              "end": 7.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " state",
+              "start": 7.07,
+              "end": 7.37,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " which",
+              "start": 7.37,
+              "end": 7.65,
+              "probability": 0.8671875
+            },
+            {
+              "text": " we",
+              "start": 7.65,
+              "end": 7.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " described",
+              "start": 7.85,
+              "end": 8.33,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " as",
+              "start": 8.33,
+              "end": 8.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fair",
+              "start": 8.61,
+              "end": 8.97,
+              "probability": 0.94140625
+            },
+            {
+              "text": " and",
+              "start": 8.97,
+              "end": 9.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " spangled,",
+              "start": 9.25,
+              "end": 9.73,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 10.35,
+              "end": 10.55,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " many",
+              "start": 10.55,
+              "end": 10.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 10.73,
+              "end": 10.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 10.87,
+              "end": 11.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.15,
+              "end": 11.37,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " many",
+              "start": 11.37,
+              "end": 11.49,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " a woman will take him for their pattern, and many a constitution, and many an example of",
+          "start": 11.49,
+          "end": 16.39,
+          "words": [
+            {
+              "text": " a",
+              "start": 11.49,
+              "end": 11.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " woman",
+              "start": 11.71,
+              "end": 11.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " will",
+              "start": 11.93,
+              "end": 12.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " take",
+              "start": 12.19,
+              "end": 12.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 12.41,
+              "end": 12.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 12.61,
+              "end": 12.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 12.77,
+              "end": 12.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pattern,",
+              "start": 12.93,
+              "end": 13.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 13.77,
+              "end": 13.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " many",
+              "start": 13.93,
+              "end": 14.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 14.09,
+              "end": 14.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " constitution,",
+              "start": 14.27,
+              "end": 14.77,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " and",
+              "start": 15.29,
+              "end": 15.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " many",
+              "start": 15.37,
+              "end": 15.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 15.57,
+              "end": 15.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " example",
+              "start": 15.73,
+              "end": 16.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 16.13,
+              "end": 16.39,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " manners is contained in him.",
+          "start": 16.39,
+          "end": 18.01,
+          "words": [
+            {
+              "text": " manners",
+              "start": 16.39,
+              "end": 16.71,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " is",
+              "start": 16.71,
+              "end": 17.01,
+              "probability": 0.87890625
+            },
+            {
+              "text": " contained",
+              "start": 17.01,
+              "end": 17.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 17.41,
+              "end": 17.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 17.69,
+              "end": 18.01,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "said,",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "his",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "life",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "raw": "is",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "motley",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "raw": "and",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "raw": "manifold,",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 3.93
+        },
+        {
+          "raw": "an",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "raw": "epitome",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "raw": "the",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "lives",
+          "start": 4.77,
+          "end": 5.03
+        },
+        {
+          "raw": "of",
+          "start": 5.03,
+          "end": 5.29
+        },
+        {
+          "raw": "many.",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "raw": "He",
+          "start": 6.17,
+          "end": 6.35
+        },
+        {
+          "raw": "answers",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "raw": "to",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "raw": "the",
+          "start": 6.97,
+          "end": 7.07
+        },
+        {
+          "raw": "state",
+          "start": 7.07,
+          "end": 7.37
+        },
+        {
+          "raw": "which",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "raw": "we",
+          "start": 7.65,
+          "end": 7.85
+        },
+        {
+          "raw": "described",
+          "start": 7.85,
+          "end": 8.33
+        },
+        {
+          "raw": "as",
+          "start": 8.33,
+          "end": 8.61
+        },
+        {
+          "raw": "fair",
+          "start": 8.61,
+          "end": 8.97
+        },
+        {
+          "raw": "and",
+          "start": 8.97,
+          "end": 9.25
+        },
+        {
+          "raw": "spangled,",
+          "start": 9.25,
+          "end": 9.73
+        },
+        {
+          "raw": "and",
+          "start": 10.35,
+          "end": 10.55
+        },
+        {
+          "raw": "many",
+          "start": 10.55,
+          "end": 10.73
+        },
+        {
+          "raw": "a",
+          "start": 10.73,
+          "end": 10.87
+        },
+        {
+          "raw": "man",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "raw": "and",
+          "start": 11.15,
+          "end": 11.37
+        },
+        {
+          "raw": "many",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "raw": "a",
+          "start": 11.49,
+          "end": 11.71
+        },
+        {
+          "raw": "woman",
+          "start": 11.71,
+          "end": 11.93
+        },
+        {
+          "raw": "will",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "raw": "take",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "raw": "him",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "raw": "for",
+          "start": 12.61,
+          "end": 12.77
+        },
+        {
+          "raw": "their",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "raw": "pattern,",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "raw": "and",
+          "start": 13.77,
+          "end": 13.93
+        },
+        {
+          "raw": "many",
+          "start": 13.93,
+          "end": 14.09
+        },
+        {
+          "raw": "a",
+          "start": 14.09,
+          "end": 14.27
+        },
+        {
+          "raw": "constitution,",
+          "start": 14.27,
+          "end": 14.77
+        },
+        {
+          "raw": "and",
+          "start": 15.29,
+          "end": 15.37
+        },
+        {
+          "raw": "many",
+          "start": 15.37,
+          "end": 15.57
+        },
+        {
+          "raw": "an",
+          "start": 15.57,
+          "end": 15.73
+        },
+        {
+          "raw": "example",
+          "start": 15.73,
+          "end": 16.13
+        },
+        {
+          "raw": "of",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "raw": "manners",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "raw": "is",
+          "start": 16.71,
+          "end": 17.01
+        },
+        {
+          "raw": "contained",
+          "start": 17.01,
+          "end": 17.41
+        },
+        {
+          "raw": "in",
+          "start": 17.41,
+          "end": 17.69
+        },
+        {
+          "raw": "him.",
+          "start": 17.69,
+          "end": 18.01
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said;",
+        "his",
+        "life",
+        "is",
+        "motley",
+        "and",
+        "manifold",
+        "and",
+        "an",
+        "epitome",
+        "of",
+        "the",
+        "lives",
+        "of",
+        "many;—he",
+        "answers",
+        "to",
+        "the",
+        "State",
+        "which",
+        "we",
+        "described",
+        "as",
+        "fair",
+        "and",
+        "spangled.",
+        "And",
+        "many",
+        "a",
+        "man",
+        "and",
+        "many",
+        "a",
+        "woman",
+        "will",
+        "take",
+        "him",
+        "for",
+        "their",
+        "pattern,",
+        "and",
+        "many",
+        "a",
+        "constitution",
+        "and",
+        "many",
+        "an",
+        "example",
+        "of",
+        "manners",
+        "is",
+        "contained",
+        "in",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          56,
+          18,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "said;",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "his",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "life",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "text": "is",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "motley",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "text": "and",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "text": "manifold",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "text": "and",
+          "start": 3.87,
+          "end": 3.93
+        },
+        {
+          "text": "an",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "text": "epitome",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "text": "the",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "lives",
+          "start": 4.77,
+          "end": 5.03
+        },
+        {
+          "text": "of",
+          "start": 5.03,
+          "end": 5.29
+        },
+        {
+          "text": "many;—he",
+          "start": 5.29,
+          "end": 5.82
+        },
+        {
+          "text": "answers",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "text": "to",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "text": "the",
+          "start": 6.97,
+          "end": 7.07
+        },
+        {
+          "text": "State",
+          "start": 7.07,
+          "end": 7.37
+        },
+        {
+          "text": "which",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "text": "we",
+          "start": 7.65,
+          "end": 7.85
+        },
+        {
+          "text": "described",
+          "start": 7.85,
+          "end": 8.33
+        },
+        {
+          "text": "as",
+          "start": 8.33,
+          "end": 8.61
+        },
+        {
+          "text": "fair",
+          "start": 8.61,
+          "end": 8.97
+        },
+        {
+          "text": "and",
+          "start": 8.97,
+          "end": 9.25
+        },
+        {
+          "text": "spangled.",
+          "start": 9.25,
+          "end": 9.73
+        },
+        {
+          "text": "And",
+          "start": 10.35,
+          "end": 10.55
+        },
+        {
+          "text": "many",
+          "start": 10.55,
+          "end": 10.73
+        },
+        {
+          "text": "a",
+          "start": 10.73,
+          "end": 10.87
+        },
+        {
+          "text": "man",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "text": "and",
+          "start": 11.15,
+          "end": 11.37
+        },
+        {
+          "text": "many",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "text": "a",
+          "start": 11.49,
+          "end": 11.71
+        },
+        {
+          "text": "woman",
+          "start": 11.71,
+          "end": 11.93
+        },
+        {
+          "text": "will",
+          "start": 11.93,
+          "end": 12.19
+        },
+        {
+          "text": "take",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "text": "him",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "text": "for",
+          "start": 12.61,
+          "end": 12.77
+        },
+        {
+          "text": "their",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "text": "pattern,",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "text": "and",
+          "start": 13.77,
+          "end": 13.93
+        },
+        {
+          "text": "many",
+          "start": 13.93,
+          "end": 14.09
+        },
+        {
+          "text": "a",
+          "start": 14.09,
+          "end": 14.27
+        },
+        {
+          "text": "constitution",
+          "start": 14.27,
+          "end": 14.77
+        },
+        {
+          "text": "and",
+          "start": 15.29,
+          "end": 15.37
+        },
+        {
+          "text": "many",
+          "start": 15.37,
+          "end": 15.57
+        },
+        {
+          "text": "an",
+          "start": 15.57,
+          "end": 15.73
+        },
+        {
+          "text": "example",
+          "start": 15.73,
+          "end": 16.13
+        },
+        {
+          "text": "of",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "text": "manners",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "text": "is",
+          "start": 16.71,
+          "end": 17.01
+        },
+        {
+          "text": "contained",
+          "start": 17.01,
+          "end": 17.41
+        },
+        {
+          "text": "in",
+          "start": 17.41,
+          "end": 17.69
+        },
+        {
+          "text": "him.",
+          "start": 17.69,
+          "end": 18.01
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 57,
+        "matched_words": 55
+      },
+      "match_ratio": 0.9821428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.48974970588460565
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64585350e51f35501d70e77f3ed0903d1cb2926911ff6a537354872b77a53477",
+  "selected_reasons": []
+}

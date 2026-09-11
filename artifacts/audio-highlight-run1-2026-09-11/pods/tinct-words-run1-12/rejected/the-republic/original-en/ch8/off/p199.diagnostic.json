@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "bddf359ca96e3a7d471ca03b534243ce2cebfb385af2552d4d174fe3a49d2377",
+  "attempts": [
+    {
+      "asr_seconds": 0.08747618598863482,
+      "alignment_seconds": 7.468834519386292e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, surely.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " surely.",
+              "start": 0.72,
+              "end": 0.96,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "surely.",
+          "start": 0.72,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "surely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "surely.",
+          "start": 0.72,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0875770840793848
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d5490ed964b811daebdb83c94601332c972965664aaef7f7016dac9be583735",
+  "selected_reasons": []
+}

@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "603a96e676a12577e5c7f95d4450a5e23bf7a903d07acc07a24ea72488699574",
+  "attempts": [
+    {
+      "asr_seconds": 0.1592506393790245,
+      "alignment_seconds": 8.017569780349731e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Still he said I do not comprehend you",
+          "start": 0.11,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Still",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " he",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.399658203125
+            },
+            {
+              "text": " said",
+              "start": 0.83,
+              "end": 1.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.59,
+              "probability": 0.47216796875
+            },
+            {
+              "text": " do",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " comprehend",
+              "start": 1.87,
+              "end": 2.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.29,
+              "end": 2.59,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Still",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "he",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "said",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.59
+        },
+        {
+          "raw": "do",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "not",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "comprehend",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "raw": "you",
+          "start": 2.29,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Still,",
+        "he",
+        "said,",
+        "I",
+        "do",
+        "not",
+        "comprehend",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Still,",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "he",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "said,",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.59
+        },
+        {
+          "text": "do",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "not",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "comprehend",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "text": "you.",
+          "start": 2.29,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15936826914548874
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "01adcad67c8e647997978a31673196bdcaea6704f0172d6790709581cf3e8be9",
+  "selected_reasons": []
+}

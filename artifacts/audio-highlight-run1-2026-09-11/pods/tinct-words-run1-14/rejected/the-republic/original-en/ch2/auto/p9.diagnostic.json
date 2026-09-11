@@ -1,0 +1,650 @@
+{
+  "complete": true,
+  "signature": "1bfb9f243d71defccf448e075f3069fc19bd78a9d89534c69f82eafad3b78b6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2580053359270096,
+      "alignment_seconds": 0.0001652166247367859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In the highest class, I replied,—among those goods which he who would be happy desires both for their own sake and for the sake of their results.",
+        "hotwords": "In, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In the highest class, I replied,—among those goods which he who would be happy desires both for their own sake and for the sake of their results.",
+          "start": 0.02,
+          "end": 8.74,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " highest",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " class,",
+              "start": 0.94,
+              "end": 1.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " replied,—among",
+              "start": 1.84,
+              "end": 3.2,
+              "probability": 0.3434512217839559
+            },
+            {
+              "text": " those",
+              "start": 3.2,
+              "end": 3.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " goods",
+              "start": 3.48,
+              "end": 3.78,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " which",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.953125
+            },
+            {
+              "text": " he",
+              "start": 4.08,
+              "end": 4.3,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " who",
+              "start": 4.3,
+              "end": 4.46,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " would",
+              "start": 4.46,
+              "end": 4.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " happy",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " desires",
+              "start": 5.04,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " both",
+              "start": 5.56,
+              "end": 5.88,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " for",
+              "start": 5.88,
+              "end": 6.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 6.1,
+              "end": 6.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own",
+              "start": 6.26,
+              "end": 6.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sake",
+              "start": 6.54,
+              "end": 6.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 6.9,
+              "end": 7.5,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " for",
+              "start": 7.5,
+              "end": 7.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 7.64,
+              "end": 7.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sake",
+              "start": 7.8,
+              "end": 8.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 8.0,
+              "end": 8.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 8.16,
+              "end": 8.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " results.",
+              "start": 8.32,
+              "end": 8.74,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "highest",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "class,",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "raw": "I",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "replied,—among",
+          "start": 1.84,
+          "end": 3.2
+        },
+        {
+          "raw": "those",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "raw": "goods",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "raw": "which",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "he",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "raw": "who",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "raw": "would",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "raw": "be",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "happy",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "desires",
+          "start": 5.04,
+          "end": 5.56
+        },
+        {
+          "raw": "both",
+          "start": 5.56,
+          "end": 5.88
+        },
+        {
+          "raw": "for",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "raw": "their",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "raw": "own",
+          "start": 6.26,
+          "end": 6.54
+        },
+        {
+          "raw": "sake",
+          "start": 6.54,
+          "end": 6.9
+        },
+        {
+          "raw": "and",
+          "start": 6.9,
+          "end": 7.5
+        },
+        {
+          "raw": "for",
+          "start": 7.5,
+          "end": 7.64
+        },
+        {
+          "raw": "the",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "raw": "sake",
+          "start": 7.8,
+          "end": 8.0
+        },
+        {
+          "raw": "of",
+          "start": 8.0,
+          "end": 8.16
+        },
+        {
+          "raw": "their",
+          "start": 8.16,
+          "end": 8.32
+        },
+        {
+          "raw": "results.",
+          "start": 8.32,
+          "end": 8.74
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "the",
+        "highest",
+        "class,",
+        "I",
+        "replied,—among",
+        "those",
+        "goods",
+        "which",
+        "he",
+        "who",
+        "would",
+        "be",
+        "happy",
+        "desires",
+        "both",
+        "for",
+        "their",
+        "own",
+        "sake",
+        "and",
+        "for",
+        "the",
+        "sake",
+        "of",
+        "their",
+        "results."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "highest",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "class,",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "text": "I",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "replied,—among",
+          "start": 1.84,
+          "end": 3.2
+        },
+        {
+          "text": "those",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "text": "goods",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "text": "which",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "he",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "text": "who",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "text": "would",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "text": "be",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "happy",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "desires",
+          "start": 5.04,
+          "end": 5.56
+        },
+        {
+          "text": "both",
+          "start": 5.56,
+          "end": 5.88
+        },
+        {
+          "text": "for",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "text": "their",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "text": "own",
+          "start": 6.26,
+          "end": 6.54
+        },
+        {
+          "text": "sake",
+          "start": 6.54,
+          "end": 6.9
+        },
+        {
+          "text": "and",
+          "start": 6.9,
+          "end": 7.5
+        },
+        {
+          "text": "for",
+          "start": 7.5,
+          "end": 7.64
+        },
+        {
+          "text": "the",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "text": "sake",
+          "start": 7.8,
+          "end": 8.0
+        },
+        {
+          "text": "of",
+          "start": 8.0,
+          "end": 8.16
+        },
+        {
+          "text": "their",
+          "start": 8.16,
+          "end": 8.32
+        },
+        {
+          "text": "results.",
+          "start": 8.32,
+          "end": 8.74
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2582648769021034
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1de83e58cd2ed246cb97d35b4f037c5e29feed71c7454f96346caac1f442683d",
+  "selected_reasons": []
+}

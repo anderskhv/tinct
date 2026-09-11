@@ -1,0 +1,1668 @@
+{
+  "complete": true,
+  "signature": "f6bdc6fec86fb594705976acacd3d51c922d04934130de988948d3f305e3dd59",
+  "attempts": [
+    {
+      "asr_seconds": 0.3833891889080405,
+      "alignment_seconds": 0.000212780199944973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The moon was sinking behind the hills and the lines of trembling monkeys huddled together on the walls and battlements looked like ragged shaky fringes of things. Baloo went down to the tank for a drink and Bagheera began to put his fur in order, as Kaa glided out into the center of the terrace and brought his jaws together with a ringing snap that drew all the monkeys' eyes upon him.",
+        "hotwords": "Baloo, Bagheera, Kaa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The moon was sinking behind the hills and the lines of trembling monkeys huddled together",
+          "start": 0.05,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9375
+            },
+            {
+              "text": " moon",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " was",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sinking",
+              "start": 0.95,
+              "end": 1.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " behind",
+              "start": 1.19,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hills",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.07,
+              "end": 2.67,
+              "probability": 0.36279296875
+            },
+            {
+              "text": " the",
+              "start": 2.67,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lines",
+              "start": 2.77,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.13,
+              "end": 3.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trembling",
+              "start": 3.37,
+              "end": 3.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " monkeys",
+              "start": 3.75,
+              "end": 4.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " huddled",
+              "start": 4.29,
+              "end": 4.71,
+              "probability": 0.986328125
+            },
+            {
+              "text": " together",
+              "start": 4.71,
+              "end": 5.15,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " on the walls and battlements looked like ragged shaky fringes of things. Baloo went down to",
+          "start": 5.15,
+          "end": 10.89,
+          "words": [
+            {
+              "text": " on",
+              "start": 5.15,
+              "end": 5.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.37,
+              "end": 5.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " walls",
+              "start": 5.49,
+              "end": 5.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 5.91,
+              "end": 6.35,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " battlements",
+              "start": 6.35,
+              "end": 6.91,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " looked",
+              "start": 6.91,
+              "end": 7.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " like",
+              "start": 7.13,
+              "end": 7.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ragged",
+              "start": 7.41,
+              "end": 7.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shaky",
+              "start": 7.83,
+              "end": 8.27,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " fringes",
+              "start": 8.27,
+              "end": 8.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 8.67,
+              "end": 8.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " things.",
+              "start": 8.87,
+              "end": 9.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Baloo",
+              "start": 10.25,
+              "end": 10.35,
+              "probability": 0.5244140625
+            },
+            {
+              "text": " went",
+              "start": 10.35,
+              "end": 10.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " down",
+              "start": 10.51,
+              "end": 10.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 10.75,
+              "end": 10.89,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " the tank for a drink and Bagheera began to put his fur in order, as Kaa glided out into",
+          "start": 10.89,
+          "end": 16.09,
+          "words": [
+            {
+              "text": " the",
+              "start": 10.89,
+              "end": 11.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tank",
+              "start": 11.01,
+              "end": 11.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 11.23,
+              "end": 11.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 11.45,
+              "end": 11.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drink",
+              "start": 11.57,
+              "end": 11.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 11.83,
+              "end": 12.41,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " Bagheera",
+              "start": 12.41,
+              "end": 12.89,
+              "probability": 0.9601236979166666
+            },
+            {
+              "text": " began",
+              "start": 12.89,
+              "end": 13.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 13.15,
+              "end": 13.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " put",
+              "start": 13.33,
+              "end": 13.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 13.45,
+              "end": 13.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fur",
+              "start": 13.61,
+              "end": 13.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 13.81,
+              "end": 13.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " order,",
+              "start": 13.99,
+              "end": 14.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 14.81,
+              "end": 15.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Kaa",
+              "start": 15.07,
+              "end": 15.27,
+              "probability": 0.330657958984375
+            },
+            {
+              "text": " glided",
+              "start": 15.27,
+              "end": 15.67,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " out",
+              "start": 15.67,
+              "end": 15.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " into",
+              "start": 15.91,
+              "end": 16.09,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " the center of the terrace and brought his jaws together with a ringing snap that drew",
+          "start": 16.09,
+          "end": 20.53,
+          "words": [
+            {
+              "text": " the",
+              "start": 16.09,
+              "end": 16.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " center",
+              "start": 16.25,
+              "end": 16.49,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " of",
+              "start": 16.49,
+              "end": 16.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.67,
+              "end": 16.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " terrace",
+              "start": 16.79,
+              "end": 17.25,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " and",
+              "start": 17.25,
+              "end": 17.71,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " brought",
+              "start": 17.71,
+              "end": 17.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 17.93,
+              "end": 18.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " jaws",
+              "start": 18.11,
+              "end": 18.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " together",
+              "start": 18.41,
+              "end": 18.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 18.81,
+              "end": 19.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 19.07,
+              "end": 19.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ringing",
+              "start": 19.19,
+              "end": 19.41,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " snap",
+              "start": 19.41,
+              "end": 19.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that",
+              "start": 19.93,
+              "end": 20.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " drew",
+              "start": 20.29,
+              "end": 20.53,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " all the monkeys' eyes upon him.",
+          "start": 20.53,
+          "end": 22.33,
+          "words": [
+            {
+              "text": " all",
+              "start": 20.53,
+              "end": 20.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 20.83,
+              "end": 20.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " monkeys'",
+              "start": 20.99,
+              "end": 21.29,
+              "probability": 0.58056640625
+            },
+            {
+              "text": " eyes",
+              "start": 21.45,
+              "end": 21.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " upon",
+              "start": 21.65,
+              "end": 22.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 22.01,
+              "end": 22.33,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "moon",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "was",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "sinking",
+          "start": 0.95,
+          "end": 1.19
+        },
+        {
+          "raw": "behind",
+          "start": 1.19,
+          "end": 1.61
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "hills",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.67
+        },
+        {
+          "raw": "the",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "raw": "lines",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "raw": "of",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "raw": "trembling",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "raw": "monkeys",
+          "start": 3.75,
+          "end": 4.29
+        },
+        {
+          "raw": "huddled",
+          "start": 4.29,
+          "end": 4.71
+        },
+        {
+          "raw": "together",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "raw": "on",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "raw": "the",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "raw": "walls",
+          "start": 5.49,
+          "end": 5.91
+        },
+        {
+          "raw": "and",
+          "start": 5.91,
+          "end": 6.35
+        },
+        {
+          "raw": "battlements",
+          "start": 6.35,
+          "end": 6.91
+        },
+        {
+          "raw": "looked",
+          "start": 6.91,
+          "end": 7.13
+        },
+        {
+          "raw": "like",
+          "start": 7.13,
+          "end": 7.41
+        },
+        {
+          "raw": "ragged",
+          "start": 7.41,
+          "end": 7.83
+        },
+        {
+          "raw": "shaky",
+          "start": 7.83,
+          "end": 8.27
+        },
+        {
+          "raw": "fringes",
+          "start": 8.27,
+          "end": 8.67
+        },
+        {
+          "raw": "of",
+          "start": 8.67,
+          "end": 8.87
+        },
+        {
+          "raw": "things.",
+          "start": 8.87,
+          "end": 9.23
+        },
+        {
+          "raw": "Baloo",
+          "start": 10.25,
+          "end": 10.35
+        },
+        {
+          "raw": "went",
+          "start": 10.35,
+          "end": 10.51
+        },
+        {
+          "raw": "down",
+          "start": 10.51,
+          "end": 10.75
+        },
+        {
+          "raw": "to",
+          "start": 10.75,
+          "end": 10.89
+        },
+        {
+          "raw": "the",
+          "start": 10.89,
+          "end": 11.01
+        },
+        {
+          "raw": "tank",
+          "start": 11.01,
+          "end": 11.23
+        },
+        {
+          "raw": "for",
+          "start": 11.23,
+          "end": 11.45
+        },
+        {
+          "raw": "a",
+          "start": 11.45,
+          "end": 11.57
+        },
+        {
+          "raw": "drink",
+          "start": 11.57,
+          "end": 11.83
+        },
+        {
+          "raw": "and",
+          "start": 11.83,
+          "end": 12.41
+        },
+        {
+          "raw": "Bagheera",
+          "start": 12.41,
+          "end": 12.89
+        },
+        {
+          "raw": "began",
+          "start": 12.89,
+          "end": 13.15
+        },
+        {
+          "raw": "to",
+          "start": 13.15,
+          "end": 13.33
+        },
+        {
+          "raw": "put",
+          "start": 13.33,
+          "end": 13.45
+        },
+        {
+          "raw": "his",
+          "start": 13.45,
+          "end": 13.61
+        },
+        {
+          "raw": "fur",
+          "start": 13.61,
+          "end": 13.81
+        },
+        {
+          "raw": "in",
+          "start": 13.81,
+          "end": 13.99
+        },
+        {
+          "raw": "order,",
+          "start": 13.99,
+          "end": 14.33
+        },
+        {
+          "raw": "as",
+          "start": 14.81,
+          "end": 15.07
+        },
+        {
+          "raw": "Kaa",
+          "start": 15.07,
+          "end": 15.27
+        },
+        {
+          "raw": "glided",
+          "start": 15.27,
+          "end": 15.67
+        },
+        {
+          "raw": "out",
+          "start": 15.67,
+          "end": 15.91
+        },
+        {
+          "raw": "into",
+          "start": 15.91,
+          "end": 16.09
+        },
+        {
+          "raw": "the",
+          "start": 16.09,
+          "end": 16.25
+        },
+        {
+          "raw": "center",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "raw": "of",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "raw": "the",
+          "start": 16.67,
+          "end": 16.79
+        },
+        {
+          "raw": "terrace",
+          "start": 16.79,
+          "end": 17.25
+        },
+        {
+          "raw": "and",
+          "start": 17.25,
+          "end": 17.71
+        },
+        {
+          "raw": "brought",
+          "start": 17.71,
+          "end": 17.93
+        },
+        {
+          "raw": "his",
+          "start": 17.93,
+          "end": 18.11
+        },
+        {
+          "raw": "jaws",
+          "start": 18.11,
+          "end": 18.41
+        },
+        {
+          "raw": "together",
+          "start": 18.41,
+          "end": 18.81
+        },
+        {
+          "raw": "with",
+          "start": 18.81,
+          "end": 19.07
+        },
+        {
+          "raw": "a",
+          "start": 19.07,
+          "end": 19.19
+        },
+        {
+          "raw": "ringing",
+          "start": 19.19,
+          "end": 19.41
+        },
+        {
+          "raw": "snap",
+          "start": 19.41,
+          "end": 19.93
+        },
+        {
+          "raw": "that",
+          "start": 19.93,
+          "end": 20.29
+        },
+        {
+          "raw": "drew",
+          "start": 20.29,
+          "end": 20.53
+        },
+        {
+          "raw": "all",
+          "start": 20.53,
+          "end": 20.83
+        },
+        {
+          "raw": "the",
+          "start": 20.83,
+          "end": 20.99
+        },
+        {
+          "raw": "monkeys'",
+          "start": 20.99,
+          "end": 21.29
+        },
+        {
+          "raw": "eyes",
+          "start": 21.45,
+          "end": 21.65
+        },
+        {
+          "raw": "upon",
+          "start": 21.65,
+          "end": 22.01
+        },
+        {
+          "raw": "him.",
+          "start": 22.01,
+          "end": 22.33
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "moon",
+        "was",
+        "sinking",
+        "behind",
+        "the",
+        "hills",
+        "and",
+        "the",
+        "lines",
+        "of",
+        "trembling",
+        "monkeys",
+        "huddled",
+        "together",
+        "on",
+        "the",
+        "walls",
+        "and",
+        "battlements",
+        "looked",
+        "like",
+        "ragged",
+        "shaky",
+        "fringes",
+        "of",
+        "things.",
+        "Baloo",
+        "went",
+        "down",
+        "to",
+        "the",
+        "tank",
+        "for",
+        "a",
+        "drink",
+        "and",
+        "Bagheera",
+        "began",
+        "to",
+        "put",
+        "his",
+        "fur",
+        "in",
+        "order,",
+        "as",
+        "Kaa",
+        "glided",
+        "out",
+        "into",
+        "the",
+        "center",
+        "of",
+        "the",
+        "terrace",
+        "and",
+        "brought",
+        "his",
+        "jaws",
+        "together",
+        "with",
+        "a",
+        "ringing",
+        "snap",
+        "that",
+        "drew",
+        "all",
+        "the",
+        "monkeys'",
+        "eyes",
+        "upon",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          72,
+          0,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "moon",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "was",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "text": "sinking",
+          "start": 0.95,
+          "end": 1.19
+        },
+        {
+          "text": "behind",
+          "start": 1.19,
+          "end": 1.61
+        },
+        {
+          "text": "the",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "hills",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "and",
+          "start": 2.07,
+          "end": 2.67
+        },
+        {
+          "text": "the",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "text": "lines",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "text": "of",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "text": "trembling",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "text": "monkeys",
+          "start": 3.75,
+          "end": 4.29
+        },
+        {
+          "text": "huddled",
+          "start": 4.29,
+          "end": 4.71
+        },
+        {
+          "text": "together",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "text": "on",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "text": "the",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "text": "walls",
+          "start": 5.49,
+          "end": 5.91
+        },
+        {
+          "text": "and",
+          "start": 5.91,
+          "end": 6.35
+        },
+        {
+          "text": "battlements",
+          "start": 6.35,
+          "end": 6.91
+        },
+        {
+          "text": "looked",
+          "start": 6.91,
+          "end": 7.13
+        },
+        {
+          "text": "like",
+          "start": 7.13,
+          "end": 7.41
+        },
+        {
+          "text": "ragged",
+          "start": 7.41,
+          "end": 7.83
+        },
+        {
+          "text": "shaky",
+          "start": 7.83,
+          "end": 8.27
+        },
+        {
+          "text": "fringes",
+          "start": 8.27,
+          "end": 8.67
+        },
+        {
+          "text": "of",
+          "start": 8.67,
+          "end": 8.87
+        },
+        {
+          "text": "things.",
+          "start": 8.87,
+          "end": 9.23
+        },
+        {
+          "text": "Baloo",
+          "start": 10.25,
+          "end": 10.35
+        },
+        {
+          "text": "went",
+          "start": 10.35,
+          "end": 10.51
+        },
+        {
+          "text": "down",
+          "start": 10.51,
+          "end": 10.75
+        },
+        {
+          "text": "to",
+          "start": 10.75,
+          "end": 10.89
+        },
+        {
+          "text": "the",
+          "start": 10.89,
+          "end": 11.01
+        },
+        {
+          "text": "tank",
+          "start": 11.01,
+          "end": 11.23
+        },
+        {
+          "text": "for",
+          "start": 11.23,
+          "end": 11.45
+        },
+        {
+          "text": "a",
+          "start": 11.45,
+          "end": 11.57
+        },
+        {
+          "text": "drink",
+          "start": 11.57,
+          "end": 11.83
+        },
+        {
+          "text": "and",
+          "start": 11.83,
+          "end": 12.41
+        },
+        {
+          "text": "Bagheera",
+          "start": 12.41,
+          "end": 12.89
+        },
+        {
+          "text": "began",
+          "start": 12.89,
+          "end": 13.15
+        },
+        {
+          "text": "to",
+          "start": 13.15,
+          "end": 13.33
+        },
+        {
+          "text": "put",
+          "start": 13.33,
+          "end": 13.45
+        },
+        {
+          "text": "his",
+          "start": 13.45,
+          "end": 13.61
+        },
+        {
+          "text": "fur",
+          "start": 13.61,
+          "end": 13.81
+        },
+        {
+          "text": "in",
+          "start": 13.81,
+          "end": 13.99
+        },
+        {
+          "text": "order,",
+          "start": 13.99,
+          "end": 14.33
+        },
+        {
+          "text": "as",
+          "start": 14.81,
+          "end": 15.07
+        },
+        {
+          "text": "Kaa",
+          "start": 15.07,
+          "end": 15.27
+        },
+        {
+          "text": "glided",
+          "start": 15.27,
+          "end": 15.67
+        },
+        {
+          "text": "out",
+          "start": 15.67,
+          "end": 15.91
+        },
+        {
+          "text": "into",
+          "start": 15.91,
+          "end": 16.09
+        },
+        {
+          "text": "the",
+          "start": 16.09,
+          "end": 16.25
+        },
+        {
+          "text": "center",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "text": "of",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "text": "the",
+          "start": 16.67,
+          "end": 16.79
+        },
+        {
+          "text": "terrace",
+          "start": 16.79,
+          "end": 17.25
+        },
+        {
+          "text": "and",
+          "start": 17.25,
+          "end": 17.71
+        },
+        {
+          "text": "brought",
+          "start": 17.71,
+          "end": 17.93
+        },
+        {
+          "text": "his",
+          "start": 17.93,
+          "end": 18.11
+        },
+        {
+          "text": "jaws",
+          "start": 18.11,
+          "end": 18.41
+        },
+        {
+          "text": "together",
+          "start": 18.41,
+          "end": 18.81
+        },
+        {
+          "text": "with",
+          "start": 18.81,
+          "end": 19.07
+        },
+        {
+          "text": "a",
+          "start": 19.07,
+          "end": 19.19
+        },
+        {
+          "text": "ringing",
+          "start": 19.19,
+          "end": 19.41
+        },
+        {
+          "text": "snap",
+          "start": 19.41,
+          "end": 19.93
+        },
+        {
+          "text": "that",
+          "start": 19.93,
+          "end": 20.29
+        },
+        {
+          "text": "drew",
+          "start": 20.29,
+          "end": 20.53
+        },
+        {
+          "text": "all",
+          "start": 20.53,
+          "end": 20.83
+        },
+        {
+          "text": "the",
+          "start": 20.83,
+          "end": 20.99
+        },
+        {
+          "text": "monkeys'",
+          "start": 20.99,
+          "end": 21.29
+        },
+        {
+          "text": "eyes",
+          "start": 21.45,
+          "end": 21.65
+        },
+        {
+          "text": "upon",
+          "start": 21.65,
+          "end": 22.01
+        },
+        {
+          "text": "him.",
+          "start": 22.01,
+          "end": 22.33
+        }
+      ],
+      "stats": {
+        "expected_words": 72,
+        "heard_words": 72,
+        "matched_words": 72
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3837598394602537
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "39f78ca54e1b38d0cf5c6edbdd0fd960b6e8aa3743f60bbd0d4d48036522c713",
+  "selected_reasons": []
+}

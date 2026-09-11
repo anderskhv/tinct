@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "f0360b4dc13bb11cb83b0063e16c80cf6270dcc02e8d8b6f28f233f316e8ca91",
+  "attempts": [
+    {
+      "asr_seconds": 0.16837933100759983,
+      "alignment_seconds": 9.332690387964249e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aye aye, how was I to guess he would play with such dirt? The monkey people faw.",
+          "start": 0.02,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " Aye",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.6207275390625
+            },
+            {
+              "text": " aye,",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.659912109375
+            },
+            {
+              "text": " how",
+              "start": 0.94,
+              "end": 1.02,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " was",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " I",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " to",
+              "start": 1.24,
+              "end": 1.32,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " guess",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.908203125
+            },
+            {
+              "text": " would",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " play",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " such",
+              "start": 2.12,
+              "end": 2.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dirt?",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " The",
+              "start": 3.16,
+              "end": 3.22,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " monkey",
+              "start": 3.22,
+              "end": 3.46,
+              "probability": 0.890625
+            },
+            {
+              "text": " people",
+              "start": 3.46,
+              "end": 3.86,
+              "probability": 0.9453125
+            },
+            {
+              "text": " faw.",
+              "start": 3.86,
+              "end": 4.3,
+              "probability": 0.5159912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aye",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "aye,",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "how",
+          "start": 0.94,
+          "end": 1.02
+        },
+        {
+          "raw": "was",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "raw": "guess",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "he",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "would",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "play",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "with",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "such",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "raw": "dirt?",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "The",
+          "start": 3.16,
+          "end": 3.22
+        },
+        {
+          "raw": "monkey",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "raw": "people",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "raw": "faw.",
+          "start": 3.86,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "\"I--I?",
+        "How",
+        "was",
+        "I",
+        "to",
+        "guess",
+        "he",
+        "would",
+        "play",
+        "with",
+        "such",
+        "dirt.",
+        "The",
+        "Monkey",
+        "People!",
+        "Faugh!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          15,
+          2,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I--I?",
+          "start": 0.0,
+          "end": 0.47
+        },
+        {
+          "text": "How",
+          "start": 0.94,
+          "end": 1.02
+        },
+        {
+          "text": "was",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "I",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "text": "to",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "text": "guess",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "he",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "would",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "play",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "with",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "such",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "text": "dirt.",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "The",
+          "start": 3.16,
+          "end": 3.22
+        },
+        {
+          "text": "Monkey",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "text": "People!",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "text": "Faugh!\"",
+          "start": 3.86,
+          "end": 4.08
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.16851210221648216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "12c31857fa2ad4ba7f0527d7e75faaab9a2a54210dba3d996f499d266e753767",
+  "selected_reasons": []
+}

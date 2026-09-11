@@ -1,0 +1,3019 @@
+{
+  "complete": true,
+  "signature": "ba1e7ed177c88d9bffa824122c0a4c01e22ac777fa166c58e57288920286a718",
+  "attempts": [
+    {
+      "asr_seconds": 0.3746772613376379,
+      "alignment_seconds": 0.00016936566680669785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"On your hind legs!\" squealed Billy. They both reared up facing each other, and I was expecting a furious fight, when a gurgly, rumbly voice, called out of the darkness to the right--\"Children, what are you fighting about there? Be quiet.\"",
+        "hotwords": "On, Billy, They, I, Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " On your hind legs! squealed Billy. They both reared up facing each other, and I was expecting",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " On",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.045654296875
+            },
+            {
+              "text": " your",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " hind",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " legs!",
+              "start": 0.98,
+              "end": 1.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " squealed",
+              "start": 2.04,
+              "end": 2.34,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Billy.",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " They",
+              "start": 3.3,
+              "end": 3.38,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " both",
+              "start": 3.38,
+              "end": 3.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reared",
+              "start": 3.62,
+              "end": 4.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " up",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " facing",
+              "start": 4.18,
+              "end": 4.44,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " each",
+              "start": 4.44,
+              "end": 4.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " other,",
+              "start": 4.74,
+              "end": 4.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 5.26,
+              "end": 5.3,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 5.3,
+              "end": 5.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 5.44,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expecting",
+              "start": 5.58,
+              "end": 6.0,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " a furious fight, when a gurgly, rumbly voice, called out of the darkness to the right-",
+          "start": 6.0,
+          "end": 10.96,
+          "words": [
+            {
+              "text": " a",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " furious",
+              "start": 6.3,
+              "end": 6.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fight,",
+              "start": 6.66,
+              "end": 7.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " when",
+              "start": 7.32,
+              "end": 7.48,
+              "probability": 0.978515625
+            },
+            {
+              "text": " a",
+              "start": 7.48,
+              "end": 7.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gurgly,",
+              "start": 7.64,
+              "end": 8.14,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " rumbly",
+              "start": 8.38,
+              "end": 8.68,
+              "probability": 0.9573567708333334
+            },
+            {
+              "text": " voice,",
+              "start": 8.68,
+              "end": 9.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " called",
+              "start": 9.14,
+              "end": 9.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " out",
+              "start": 9.36,
+              "end": 9.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 9.54,
+              "end": 9.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 9.64,
+              "end": 9.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " darkness",
+              "start": 9.74,
+              "end": 10.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 10.1,
+              "end": 10.34,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 10.34,
+              "end": 10.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " right",
+              "start": 10.42,
+              "end": 10.64,
+              "probability": 0.97705078125
+            },
+            {
+              "text": "-",
+              "start": 10.64,
+              "end": 10.96,
+              "probability": 0.002010345458984375
+            }
+          ]
+        },
+        {
+          "text": " Children, what are you fighting about there? Be quiet.",
+          "start": 10.96,
+          "end": 13.96,
+          "words": [
+            {
+              "text": " Children,",
+              "start": 10.96,
+              "end": 11.36,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " what",
+              "start": 11.82,
+              "end": 11.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " are",
+              "start": 11.86,
+              "end": 11.94,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 11.94,
+              "end": 12.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fighting",
+              "start": 12.1,
+              "end": 12.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 12.3,
+              "end": 12.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " there?",
+              "start": 12.64,
+              "end": 12.96,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Be",
+              "start": 13.52,
+              "end": 13.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " quiet.",
+              "start": 13.62,
+              "end": 13.96,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "On",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "your",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "hind",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "legs!",
+          "start": 0.98,
+          "end": 1.52
+        },
+        {
+          "raw": "squealed",
+          "start": 2.04,
+          "end": 2.34
+        },
+        {
+          "raw": "Billy.",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "They",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "raw": "both",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "raw": "reared",
+          "start": 3.62,
+          "end": 4.0
+        },
+        {
+          "raw": "up",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "facing",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "raw": "each",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "raw": "other,",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.3
+        },
+        {
+          "raw": "I",
+          "start": 5.3,
+          "end": 5.44
+        },
+        {
+          "raw": "was",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "raw": "expecting",
+          "start": 5.58,
+          "end": 6.0
+        },
+        {
+          "raw": "a",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "raw": "furious",
+          "start": 6.3,
+          "end": 6.66
+        },
+        {
+          "raw": "fight,",
+          "start": 6.66,
+          "end": 7.08
+        },
+        {
+          "raw": "when",
+          "start": 7.32,
+          "end": 7.48
+        },
+        {
+          "raw": "a",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "raw": "gurgly,",
+          "start": 7.64,
+          "end": 8.14
+        },
+        {
+          "raw": "rumbly",
+          "start": 8.38,
+          "end": 8.68
+        },
+        {
+          "raw": "voice,",
+          "start": 8.68,
+          "end": 9.02
+        },
+        {
+          "raw": "called",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "raw": "out",
+          "start": 9.36,
+          "end": 9.54
+        },
+        {
+          "raw": "of",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "raw": "the",
+          "start": 9.64,
+          "end": 9.74
+        },
+        {
+          "raw": "darkness",
+          "start": 9.74,
+          "end": 10.1
+        },
+        {
+          "raw": "to",
+          "start": 10.1,
+          "end": 10.34
+        },
+        {
+          "raw": "the",
+          "start": 10.34,
+          "end": 10.42
+        },
+        {
+          "raw": "right",
+          "start": 10.42,
+          "end": 10.64
+        },
+        {
+          "raw": "-",
+          "start": 10.64,
+          "end": 10.96
+        },
+        {
+          "raw": "Children,",
+          "start": 10.96,
+          "end": 11.36
+        },
+        {
+          "raw": "what",
+          "start": 11.82,
+          "end": 11.86
+        },
+        {
+          "raw": "are",
+          "start": 11.86,
+          "end": 11.94
+        },
+        {
+          "raw": "you",
+          "start": 11.94,
+          "end": 12.1
+        },
+        {
+          "raw": "fighting",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "raw": "about",
+          "start": 12.3,
+          "end": 12.64
+        },
+        {
+          "raw": "there?",
+          "start": 12.64,
+          "end": 12.96
+        },
+        {
+          "raw": "Be",
+          "start": 13.52,
+          "end": 13.62
+        },
+        {
+          "raw": "quiet.",
+          "start": 13.62,
+          "end": 13.96
+        }
+      ],
+      "expected_tokens": [
+        "\"On",
+        "your",
+        "hind",
+        "legs!\"",
+        "squealed",
+        "Billy.",
+        "They",
+        "both",
+        "reared",
+        "up",
+        "facing",
+        "each",
+        "other,",
+        "and",
+        "I",
+        "was",
+        "expecting",
+        "a",
+        "furious",
+        "fight,",
+        "when",
+        "a",
+        "gurgly,",
+        "rumbly",
+        "voice,",
+        "called",
+        "out",
+        "of",
+        "the",
+        "darkness",
+        "to",
+        "the",
+        "right--\"Children,",
+        "what",
+        "are",
+        "you",
+        "fighting",
+        "about",
+        "there?",
+        "Be",
+        "quiet.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          35
+        ],
+        [
+          "equal",
+          33,
+          41,
+          35,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          35
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"On",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "your",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "hind",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "legs!\"",
+          "start": 0.98,
+          "end": 1.52
+        },
+        {
+          "text": "squealed",
+          "start": 2.04,
+          "end": 2.34
+        },
+        {
+          "text": "Billy.",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "They",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "text": "both",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "text": "reared",
+          "start": 3.62,
+          "end": 4.0
+        },
+        {
+          "text": "up",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "facing",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "text": "each",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "text": "other,",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.26,
+          "end": 5.3
+        },
+        {
+          "text": "I",
+          "start": 5.3,
+          "end": 5.44
+        },
+        {
+          "text": "was",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "text": "expecting",
+          "start": 5.58,
+          "end": 6.0
+        },
+        {
+          "text": "a",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "text": "furious",
+          "start": 6.3,
+          "end": 6.66
+        },
+        {
+          "text": "fight,",
+          "start": 6.66,
+          "end": 7.08
+        },
+        {
+          "text": "when",
+          "start": 7.32,
+          "end": 7.48
+        },
+        {
+          "text": "a",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "text": "gurgly,",
+          "start": 7.64,
+          "end": 8.14
+        },
+        {
+          "text": "rumbly",
+          "start": 8.38,
+          "end": 8.68
+        },
+        {
+          "text": "voice,",
+          "start": 8.68,
+          "end": 9.02
+        },
+        {
+          "text": "called",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "text": "out",
+          "start": 9.36,
+          "end": 9.54
+        },
+        {
+          "text": "of",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "text": "the",
+          "start": 9.64,
+          "end": 9.74
+        },
+        {
+          "text": "darkness",
+          "start": 9.74,
+          "end": 10.1
+        },
+        {
+          "text": "to",
+          "start": 10.1,
+          "end": 10.34
+        },
+        {
+          "text": "the",
+          "start": 10.34,
+          "end": 10.42
+        },
+        {
+          "text": "right--\"Children,",
+          "start": 10.42,
+          "end": 11.12
+        },
+        {
+          "text": "what",
+          "start": 11.82,
+          "end": 11.86
+        },
+        {
+          "text": "are",
+          "start": 11.86,
+          "end": 11.94
+        },
+        {
+          "text": "you",
+          "start": 11.94,
+          "end": 12.1
+        },
+        {
+          "text": "fighting",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "text": "about",
+          "start": 12.3,
+          "end": 12.64
+        },
+        {
+          "text": "there?",
+          "start": 12.64,
+          "end": 12.96
+        },
+        {
+          "text": "Be",
+          "start": 13.52,
+          "end": 13.62
+        },
+        {
+          "text": "quiet.\"",
+          "start": 13.62,
+          "end": 13.96
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 43,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.3749414663761854
+    },
+    {
+      "asr_seconds": 0.24662233144044876,
+      "alignment_seconds": 0.0001497305929660797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "On, Billy, They, I, Be"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " On your hind legs, squealed Billy. They both reared up facing each other, and I was expecting",
+          "start": 0.02,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " On",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.045684814453125
+            },
+            {
+              "text": " your",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " hind",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " legs,",
+              "start": 0.98,
+              "end": 1.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " squealed",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.9715169270833334
+            },
+            {
+              "text": " Billy.",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " They",
+              "start": 3.26,
+              "end": 3.4,
+              "probability": 0.990234375
+            },
+            {
+              "text": " both",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reared",
+              "start": 3.64,
+              "end": 4.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " up",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " facing",
+              "start": 4.18,
+              "end": 4.44,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " each",
+              "start": 4.44,
+              "end": 4.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " other,",
+              "start": 4.76,
+              "end": 5.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 5.2,
+              "end": 5.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 5.32,
+              "end": 5.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 5.44,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expecting",
+              "start": 5.58,
+              "end": 6.02,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " a furious fight, when a gurgly, rumbly voice called out of the darkness to the right.",
+          "start": 6.02,
+          "end": 10.64,
+          "words": [
+            {
+              "text": " a",
+              "start": 6.02,
+              "end": 6.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " furious",
+              "start": 6.3,
+              "end": 6.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fight,",
+              "start": 6.66,
+              "end": 7.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 7.32,
+              "end": 7.48,
+              "probability": 0.984375
+            },
+            {
+              "text": " a",
+              "start": 7.48,
+              "end": 7.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gurgly,",
+              "start": 7.64,
+              "end": 8.14,
+              "probability": 0.9723307291666666
+            },
+            {
+              "text": " rumbly",
+              "start": 8.38,
+              "end": 8.68,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " voice",
+              "start": 8.68,
+              "end": 9.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " called",
+              "start": 9.0,
+              "end": 9.34,
+              "probability": 0.982421875
+            },
+            {
+              "text": " out",
+              "start": 9.34,
+              "end": 9.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 9.54,
+              "end": 9.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.64,
+              "end": 9.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " darkness",
+              "start": 9.74,
+              "end": 10.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 10.1,
+              "end": 10.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 10.34,
+              "end": 10.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " right.",
+              "start": 10.42,
+              "end": 10.64,
+              "probability": 0.97802734375
+            }
+          ]
+        },
+        {
+          "text": " Children, what are you fighting about there? Be quiet.",
+          "start": 11.2,
+          "end": 13.98,
+          "words": [
+            {
+              "text": " Children,",
+              "start": 11.2,
+              "end": 11.42,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " what",
+              "start": 11.78,
+              "end": 11.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 11.86,
+              "end": 11.96,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 11.96,
+              "end": 12.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fighting",
+              "start": 12.08,
+              "end": 12.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 12.32,
+              "end": 12.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there?",
+              "start": 12.64,
+              "end": 12.96,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Be",
+              "start": 13.52,
+              "end": 13.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " quiet.",
+              "start": 13.62,
+              "end": 13.98,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "On",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "your",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "hind",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "legs,",
+          "start": 0.98,
+          "end": 1.52
+        },
+        {
+          "raw": "squealed",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "raw": "Billy.",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "They",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "raw": "both",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "raw": "reared",
+          "start": 3.64,
+          "end": 4.0
+        },
+        {
+          "raw": "up",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "facing",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "raw": "each",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "raw": "other,",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "raw": "and",
+          "start": 5.2,
+          "end": 5.32
+        },
+        {
+          "raw": "I",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "raw": "was",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "raw": "expecting",
+          "start": 5.58,
+          "end": 6.02
+        },
+        {
+          "raw": "a",
+          "start": 6.02,
+          "end": 6.3
+        },
+        {
+          "raw": "furious",
+          "start": 6.3,
+          "end": 6.66
+        },
+        {
+          "raw": "fight,",
+          "start": 6.66,
+          "end": 7.1
+        },
+        {
+          "raw": "when",
+          "start": 7.32,
+          "end": 7.48
+        },
+        {
+          "raw": "a",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "raw": "gurgly,",
+          "start": 7.64,
+          "end": 8.14
+        },
+        {
+          "raw": "rumbly",
+          "start": 8.38,
+          "end": 8.68
+        },
+        {
+          "raw": "voice",
+          "start": 8.68,
+          "end": 9.0
+        },
+        {
+          "raw": "called",
+          "start": 9.0,
+          "end": 9.34
+        },
+        {
+          "raw": "out",
+          "start": 9.34,
+          "end": 9.54
+        },
+        {
+          "raw": "of",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "raw": "the",
+          "start": 9.64,
+          "end": 9.74
+        },
+        {
+          "raw": "darkness",
+          "start": 9.74,
+          "end": 10.1
+        },
+        {
+          "raw": "to",
+          "start": 10.1,
+          "end": 10.34
+        },
+        {
+          "raw": "the",
+          "start": 10.34,
+          "end": 10.42
+        },
+        {
+          "raw": "right.",
+          "start": 10.42,
+          "end": 10.64
+        },
+        {
+          "raw": "Children,",
+          "start": 11.2,
+          "end": 11.42
+        },
+        {
+          "raw": "what",
+          "start": 11.78,
+          "end": 11.86
+        },
+        {
+          "raw": "are",
+          "start": 11.86,
+          "end": 11.96
+        },
+        {
+          "raw": "you",
+          "start": 11.96,
+          "end": 12.08
+        },
+        {
+          "raw": "fighting",
+          "start": 12.08,
+          "end": 12.32
+        },
+        {
+          "raw": "about",
+          "start": 12.32,
+          "end": 12.64
+        },
+        {
+          "raw": "there?",
+          "start": 12.64,
+          "end": 12.96
+        },
+        {
+          "raw": "Be",
+          "start": 13.52,
+          "end": 13.62
+        },
+        {
+          "raw": "quiet.",
+          "start": 13.62,
+          "end": 13.98
+        }
+      ],
+      "expected_tokens": [
+        "\"On",
+        "your",
+        "hind",
+        "legs!\"",
+        "squealed",
+        "Billy.",
+        "They",
+        "both",
+        "reared",
+        "up",
+        "facing",
+        "each",
+        "other,",
+        "and",
+        "I",
+        "was",
+        "expecting",
+        "a",
+        "furious",
+        "fight,",
+        "when",
+        "a",
+        "gurgly,",
+        "rumbly",
+        "voice,",
+        "called",
+        "out",
+        "of",
+        "the",
+        "darkness",
+        "to",
+        "the",
+        "right--\"Children,",
+        "what",
+        "are",
+        "you",
+        "fighting",
+        "about",
+        "there?",
+        "Be",
+        "quiet.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          41,
+          34,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"On",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "your",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "hind",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "legs!\"",
+          "start": 0.98,
+          "end": 1.52
+        },
+        {
+          "text": "squealed",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "text": "Billy.",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "They",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "text": "both",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "text": "reared",
+          "start": 3.64,
+          "end": 4.0
+        },
+        {
+          "text": "up",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "facing",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "text": "each",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "text": "other,",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "text": "and",
+          "start": 5.2,
+          "end": 5.32
+        },
+        {
+          "text": "I",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "text": "was",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "text": "expecting",
+          "start": 5.58,
+          "end": 6.02
+        },
+        {
+          "text": "a",
+          "start": 6.02,
+          "end": 6.3
+        },
+        {
+          "text": "furious",
+          "start": 6.3,
+          "end": 6.66
+        },
+        {
+          "text": "fight,",
+          "start": 6.66,
+          "end": 7.1
+        },
+        {
+          "text": "when",
+          "start": 7.32,
+          "end": 7.48
+        },
+        {
+          "text": "a",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "text": "gurgly,",
+          "start": 7.64,
+          "end": 8.14
+        },
+        {
+          "text": "rumbly",
+          "start": 8.38,
+          "end": 8.68
+        },
+        {
+          "text": "voice,",
+          "start": 8.68,
+          "end": 9.0
+        },
+        {
+          "text": "called",
+          "start": 9.0,
+          "end": 9.34
+        },
+        {
+          "text": "out",
+          "start": 9.34,
+          "end": 9.54
+        },
+        {
+          "text": "of",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "text": "the",
+          "start": 9.64,
+          "end": 9.74
+        },
+        {
+          "text": "darkness",
+          "start": 9.74,
+          "end": 10.1
+        },
+        {
+          "text": "to",
+          "start": 10.1,
+          "end": 10.34
+        },
+        {
+          "text": "the",
+          "start": 10.34,
+          "end": 10.42
+        },
+        {
+          "text": "right--\"Children,",
+          "start": 10.42,
+          "end": 11.1
+        },
+        {
+          "text": "what",
+          "start": 11.78,
+          "end": 11.86
+        },
+        {
+          "text": "are",
+          "start": 11.86,
+          "end": 11.96
+        },
+        {
+          "text": "you",
+          "start": 11.96,
+          "end": 12.08
+        },
+        {
+          "text": "fighting",
+          "start": 12.08,
+          "end": 12.32
+        },
+        {
+          "text": "about",
+          "start": 12.32,
+          "end": 12.64
+        },
+        {
+          "text": "there?",
+          "start": 12.64,
+          "end": 12.96
+        },
+        {
+          "text": "Be",
+          "start": 13.52,
+          "end": 13.62
+        },
+        {
+          "text": "quiet.\"",
+          "start": 13.62,
+          "end": 13.98
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 42,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.24685213807970285
+    },
+    {
+      "asr_seconds": 0.28685802686959505,
+      "alignment_seconds": 0.00015170592814683914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " \"'On your hind legs,' squealed Billy.",
+          "start": 0.02,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " \"'On",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.48584747314453125
+            },
+            {
+              "text": " your",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " hind",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " legs,'",
+              "start": 0.98,
+              "end": 1.82,
+              "probability": 0.7435302734375
+            },
+            {
+              "text": " squealed",
+              "start": 1.82,
+              "end": 2.34,
+              "probability": 0.9596354166666666
+            },
+            {
+              "text": " Billy.",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.73291015625
+            }
+          ]
+        },
+        {
+          "text": " They both reared up facing each other, and I was expecting a furious fight, when a gurgly,",
+          "start": 3.16,
+          "end": 8.14,
+          "words": [
+            {
+              "text": " They",
+              "start": 3.16,
+              "end": 3.38,
+              "probability": 0.72412109375
+            },
+            {
+              "text": " both",
+              "start": 3.38,
+              "end": 3.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reared",
+              "start": 3.62,
+              "end": 4.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " up",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " facing",
+              "start": 4.18,
+              "end": 4.44,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " each",
+              "start": 4.44,
+              "end": 4.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " other,",
+              "start": 4.76,
+              "end": 4.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 5.22,
+              "end": 5.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 5.32,
+              "end": 5.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 5.44,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expecting",
+              "start": 5.58,
+              "end": 6.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " furious",
+              "start": 6.3,
+              "end": 6.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fight,",
+              "start": 6.66,
+              "end": 7.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 7.34,
+              "end": 7.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 7.48,
+              "end": 7.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gurgly,",
+              "start": 7.64,
+              "end": 8.14,
+              "probability": 0.9710286458333334
+            }
+          ]
+        },
+        {
+          "text": " rumbly voice called out of the darkness to the right.",
+          "start": 8.38,
+          "end": 10.64,
+          "words": [
+            {
+              "text": " rumbly",
+              "start": 8.38,
+              "end": 8.66,
+              "probability": 0.9612630208333334
+            },
+            {
+              "text": " voice",
+              "start": 8.66,
+              "end": 9.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " called",
+              "start": 9.02,
+              "end": 9.34,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " out",
+              "start": 9.34,
+              "end": 9.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 9.54,
+              "end": 9.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 9.64,
+              "end": 9.74,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " darkness",
+              "start": 9.74,
+              "end": 10.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 10.1,
+              "end": 10.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 10.34,
+              "end": 10.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " right.",
+              "start": 10.44,
+              "end": 10.64,
+              "probability": 0.966796875
+            }
+          ]
+        },
+        {
+          "text": " Children, what are you fighting about there?",
+          "start": 11.16,
+          "end": 12.96,
+          "words": [
+            {
+              "text": " Children,",
+              "start": 11.16,
+              "end": 11.4,
+              "probability": 0.06939697265625
+            },
+            {
+              "text": " what",
+              "start": 11.78,
+              "end": 11.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 11.86,
+              "end": 11.96,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 11.96,
+              "end": 12.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fighting",
+              "start": 12.08,
+              "end": 12.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 12.32,
+              "end": 12.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there?",
+              "start": 12.64,
+              "end": 12.96,
+              "probability": 0.98095703125
+            }
+          ]
+        },
+        {
+          "text": " Be quiet.'\"",
+          "start": 13.5,
+          "end": 14.36,
+          "words": [
+            {
+              "text": " Be",
+              "start": 13.5,
+              "end": 13.62,
+              "probability": 0.966796875
+            },
+            {
+              "text": " quiet.'\"",
+              "start": 13.62,
+              "end": 14.36,
+              "probability": 0.6375732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"'On",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "your",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "hind",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "legs,'",
+          "start": 0.98,
+          "end": 1.82
+        },
+        {
+          "raw": "squealed",
+          "start": 1.82,
+          "end": 2.34
+        },
+        {
+          "raw": "Billy.",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "They",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "raw": "both",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "raw": "reared",
+          "start": 3.62,
+          "end": 4.0
+        },
+        {
+          "raw": "up",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "facing",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "raw": "each",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "raw": "other,",
+          "start": 4.76,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.22,
+          "end": 5.32
+        },
+        {
+          "raw": "I",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "raw": "was",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "raw": "expecting",
+          "start": 5.58,
+          "end": 6.0
+        },
+        {
+          "raw": "a",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "raw": "furious",
+          "start": 6.3,
+          "end": 6.66
+        },
+        {
+          "raw": "fight,",
+          "start": 6.66,
+          "end": 7.08
+        },
+        {
+          "raw": "when",
+          "start": 7.34,
+          "end": 7.48
+        },
+        {
+          "raw": "a",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "raw": "gurgly,",
+          "start": 7.64,
+          "end": 8.14
+        },
+        {
+          "raw": "rumbly",
+          "start": 8.38,
+          "end": 8.66
+        },
+        {
+          "raw": "voice",
+          "start": 8.66,
+          "end": 9.02
+        },
+        {
+          "raw": "called",
+          "start": 9.02,
+          "end": 9.34
+        },
+        {
+          "raw": "out",
+          "start": 9.34,
+          "end": 9.54
+        },
+        {
+          "raw": "of",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "raw": "the",
+          "start": 9.64,
+          "end": 9.74
+        },
+        {
+          "raw": "darkness",
+          "start": 9.74,
+          "end": 10.1
+        },
+        {
+          "raw": "to",
+          "start": 10.1,
+          "end": 10.34
+        },
+        {
+          "raw": "the",
+          "start": 10.34,
+          "end": 10.44
+        },
+        {
+          "raw": "right.",
+          "start": 10.44,
+          "end": 10.64
+        },
+        {
+          "raw": "Children,",
+          "start": 11.16,
+          "end": 11.4
+        },
+        {
+          "raw": "what",
+          "start": 11.78,
+          "end": 11.86
+        },
+        {
+          "raw": "are",
+          "start": 11.86,
+          "end": 11.96
+        },
+        {
+          "raw": "you",
+          "start": 11.96,
+          "end": 12.08
+        },
+        {
+          "raw": "fighting",
+          "start": 12.08,
+          "end": 12.32
+        },
+        {
+          "raw": "about",
+          "start": 12.32,
+          "end": 12.64
+        },
+        {
+          "raw": "there?",
+          "start": 12.64,
+          "end": 12.96
+        },
+        {
+          "raw": "Be",
+          "start": 13.5,
+          "end": 13.62
+        },
+        {
+          "raw": "quiet.'\"",
+          "start": 13.62,
+          "end": 14.36
+        }
+      ],
+      "expected_tokens": [
+        "\"On",
+        "your",
+        "hind",
+        "legs!\"",
+        "squealed",
+        "Billy.",
+        "They",
+        "both",
+        "reared",
+        "up",
+        "facing",
+        "each",
+        "other,",
+        "and",
+        "I",
+        "was",
+        "expecting",
+        "a",
+        "furious",
+        "fight,",
+        "when",
+        "a",
+        "gurgly,",
+        "rumbly",
+        "voice,",
+        "called",
+        "out",
+        "of",
+        "the",
+        "darkness",
+        "to",
+        "the",
+        "right--\"Children,",
+        "what",
+        "are",
+        "you",
+        "fighting",
+        "about",
+        "there?",
+        "Be",
+        "quiet.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          41,
+          34,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"On",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "your",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "hind",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "legs!\"",
+          "start": 0.98,
+          "end": 1.82
+        },
+        {
+          "text": "squealed",
+          "start": 1.82,
+          "end": 2.34
+        },
+        {
+          "text": "Billy.",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "They",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "text": "both",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "text": "reared",
+          "start": 3.62,
+          "end": 4.0
+        },
+        {
+          "text": "up",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "facing",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "text": "each",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "text": "other,",
+          "start": 4.76,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.22,
+          "end": 5.32
+        },
+        {
+          "text": "I",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "text": "was",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "text": "expecting",
+          "start": 5.58,
+          "end": 6.0
+        },
+        {
+          "text": "a",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "text": "furious",
+          "start": 6.3,
+          "end": 6.66
+        },
+        {
+          "text": "fight,",
+          "start": 6.66,
+          "end": 7.08
+        },
+        {
+          "text": "when",
+          "start": 7.34,
+          "end": 7.48
+        },
+        {
+          "text": "a",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "text": "gurgly,",
+          "start": 7.64,
+          "end": 8.14
+        },
+        {
+          "text": "rumbly",
+          "start": 8.38,
+          "end": 8.66
+        },
+        {
+          "text": "voice,",
+          "start": 8.66,
+          "end": 9.02
+        },
+        {
+          "text": "called",
+          "start": 9.02,
+          "end": 9.34
+        },
+        {
+          "text": "out",
+          "start": 9.34,
+          "end": 9.54
+        },
+        {
+          "text": "of",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "text": "the",
+          "start": 9.64,
+          "end": 9.74
+        },
+        {
+          "text": "darkness",
+          "start": 9.74,
+          "end": 10.1
+        },
+        {
+          "text": "to",
+          "start": 10.1,
+          "end": 10.34
+        },
+        {
+          "text": "the",
+          "start": 10.34,
+          "end": 10.44
+        },
+        {
+          "text": "right--\"Children,",
+          "start": 10.44,
+          "end": 11.11
+        },
+        {
+          "text": "what",
+          "start": 11.78,
+          "end": 11.86
+        },
+        {
+          "text": "are",
+          "start": 11.86,
+          "end": 11.96
+        },
+        {
+          "text": "you",
+          "start": 11.96,
+          "end": 12.08
+        },
+        {
+          "text": "fighting",
+          "start": 12.08,
+          "end": 12.32
+        },
+        {
+          "text": "about",
+          "start": 12.32,
+          "end": 12.64
+        },
+        {
+          "text": "there?",
+          "start": 12.64,
+          "end": 12.96
+        },
+        {
+          "text": "Be",
+          "start": 13.5,
+          "end": 13.62
+        },
+        {
+          "text": "quiet.\"",
+          "start": 13.62,
+          "end": 14.36
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 42,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.2870897250249982
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b65b8512be092b7d3e75a117fffcab8420b574fa3c0008dfec65f76c8772a17",
+  "selected_reasons": []
+}

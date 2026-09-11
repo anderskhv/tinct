@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e5718da43a51d2008abf932d4eb632c8381abe8f4b5a2b6b8a2547e5d31dd24c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09779471904039383,
+      "alignment_seconds": 9.642820805311203e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'Is set over against another State;'",
+        "hotwords": "Is, State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is set over against another State.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " set",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.187255859375
+            },
+            {
+              "text": " over",
+              "start": 0.77,
+              "end": 1.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " against",
+              "start": 1.03,
+              "end": 1.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " another",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " State.",
+              "start": 1.65,
+              "end": 1.99,
+              "probability": 0.0284271240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "set",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "over",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "raw": "against",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "raw": "another",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "State.",
+          "start": 1.65,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "'Is",
+        "set",
+        "over",
+        "against",
+        "another",
+        "State;'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "set",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "over",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "text": "against",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "text": "another",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "State;'",
+          "start": 1.65,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0979332160204649
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49f3419eb17b3c09d04cf5cf83a8f7c7d2e4dc157970c0721e149a28cc3f8651",
+  "selected_reasons": []
+}

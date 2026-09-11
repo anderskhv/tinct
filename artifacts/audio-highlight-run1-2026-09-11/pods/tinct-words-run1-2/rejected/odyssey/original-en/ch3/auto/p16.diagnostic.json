@@ -1,0 +1,5385 @@
+{
+  "complete": true,
+  "signature": "95053c2d49553412d88dc193553a04690c83c9b75973283236c14bf9c2761ffa",
+  "attempts": [
+    {
+      "asr_seconds": 0.4513949155807495,
+      "alignment_seconds": 0.00033064931631088257,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Nestor son of Neleus,\" answered Telemachus, \"honour to the Achaean name, the Achaeans applaud Orestes and his name will live through all time for he has avenged his father nobly. Would that heaven might grant me to do like vengeance on the insolence of the wicked suitors, who are ill treating me and plotting my ruin; but the gods have no such happiness in store for me and for my father, so we must bear it as best we may.\"",
+        "hotwords": "Nestor, Neleus, Telemachus, Achaean, Achaeans, Orestes, Would"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nestor, Neleus, Orestes, Orestes, Orestes, Orestes, Would",
+          "start": 0.05,
+          "end": 10.81,
+          "words": [
+            {
+              "text": " Nestor,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.56903076171875
+            },
+            {
+              "text": " Neleus,",
+              "start": 0.93,
+              "end": 1.73,
+              "probability": 0.6170247594515482
+            },
+            {
+              "text": " Orestes,",
+              "start": 2.19,
+              "end": 4.73,
+              "probability": 0.31096839904785156
+            },
+            {
+              "text": " Orestes,",
+              "start": 4.89,
+              "end": 5.01,
+              "probability": 0.6510747273763021
+            },
+            {
+              "text": " Orestes,",
+              "start": 5.07,
+              "end": 7.03,
+              "probability": 0.817138671875
+            },
+            {
+              "text": " Orestes,",
+              "start": 7.83,
+              "end": 10.81,
+              "probability": 0.8728841145833334
+            },
+            {
+              "text": " Would",
+              "start": 10.81,
+              "end": 10.81,
+              "probability": 0.00044035911560058594
+            }
+          ]
+        },
+        {
+          "text": " that heaven might grant me to do like vengeance on the insolence of the wicked suitors, who",
+          "start": 10.81,
+          "end": 15.99,
+          "words": [
+            {
+              "text": " that",
+              "start": 10.81,
+              "end": 11.65,
+              "probability": 0.0009503364562988281
+            },
+            {
+              "text": " heaven",
+              "start": 11.65,
+              "end": 12.01,
+              "probability": 0.53857421875
+            },
+            {
+              "text": " might",
+              "start": 12.01,
+              "end": 12.25,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " grant",
+              "start": 12.25,
+              "end": 12.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me",
+              "start": 12.49,
+              "end": 12.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 12.67,
+              "end": 12.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " do",
+              "start": 12.79,
+              "end": 12.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 12.95,
+              "end": 13.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " vengeance",
+              "start": 13.17,
+              "end": 13.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 13.57,
+              "end": 13.83,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 13.83,
+              "end": 13.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " insolence",
+              "start": 13.97,
+              "end": 14.43,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " of",
+              "start": 14.43,
+              "end": 14.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 14.57,
+              "end": 14.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wicked",
+              "start": 14.67,
+              "end": 14.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " suitors,",
+              "start": 14.89,
+              "end": 15.47,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " who",
+              "start": 15.77,
+              "end": 15.99,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " are ill treating me and plotting my ruin, but the gods have no such happiness in store",
+          "start": 15.99,
+          "end": 20.93,
+          "words": [
+            {
+              "text": " are",
+              "start": 15.99,
+              "end": 16.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ill",
+              "start": 16.11,
+              "end": 16.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " treating",
+              "start": 16.37,
+              "end": 16.69,
+              "probability": 0.2205810546875
+            },
+            {
+              "text": " me",
+              "start": 16.69,
+              "end": 16.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 16.95,
+              "end": 17.15,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " plotting",
+              "start": 17.15,
+              "end": 17.41,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " my",
+              "start": 17.41,
+              "end": 17.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ruin,",
+              "start": 17.71,
+              "end": 18.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 18.67,
+              "end": 18.87,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " the",
+              "start": 18.87,
+              "end": 19.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gods",
+              "start": 19.01,
+              "end": 19.27,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " have",
+              "start": 19.27,
+              "end": 19.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 19.53,
+              "end": 19.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " such",
+              "start": 19.75,
+              "end": 19.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " happiness",
+              "start": 19.97,
+              "end": 20.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 20.43,
+              "end": 20.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " store",
+              "start": 20.69,
+              "end": 20.93,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " for me and for my father, so we must bear it as best we may.",
+          "start": 20.93,
+          "end": 24.63,
+          "words": [
+            {
+              "text": " for",
+              "start": 20.93,
+              "end": 21.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 21.17,
+              "end": 21.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 21.37,
+              "end": 21.65,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " for",
+              "start": 21.65,
+              "end": 21.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " my",
+              "start": 21.77,
+              "end": 21.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " father,",
+              "start": 21.97,
+              "end": 22.29,
+              "probability": 0.77734375
+            },
+            {
+              "text": " so",
+              "start": 22.69,
+              "end": 22.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " we",
+              "start": 22.87,
+              "end": 23.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " must",
+              "start": 23.01,
+              "end": 23.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bear",
+              "start": 23.21,
+              "end": 23.51,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " it",
+              "start": 23.51,
+              "end": 23.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 23.73,
+              "end": 23.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " best",
+              "start": 23.89,
+              "end": 24.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " we",
+              "start": 24.09,
+              "end": 24.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " may.",
+              "start": 24.33,
+              "end": 24.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nestor,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Neleus,",
+          "start": 0.93,
+          "end": 1.73
+        },
+        {
+          "raw": "Orestes,",
+          "start": 2.19,
+          "end": 4.73
+        },
+        {
+          "raw": "Orestes,",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "raw": "Orestes,",
+          "start": 5.07,
+          "end": 7.03
+        },
+        {
+          "raw": "Orestes,",
+          "start": 7.83,
+          "end": 10.81
+        },
+        {
+          "raw": "Would",
+          "start": 10.81,
+          "end": 10.81
+        },
+        {
+          "raw": "that",
+          "start": 10.81,
+          "end": 11.65
+        },
+        {
+          "raw": "heaven",
+          "start": 11.65,
+          "end": 12.01
+        },
+        {
+          "raw": "might",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "raw": "grant",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "raw": "me",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "raw": "to",
+          "start": 12.67,
+          "end": 12.79
+        },
+        {
+          "raw": "do",
+          "start": 12.79,
+          "end": 12.95
+        },
+        {
+          "raw": "like",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "raw": "vengeance",
+          "start": 13.17,
+          "end": 13.57
+        },
+        {
+          "raw": "on",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "raw": "the",
+          "start": 13.83,
+          "end": 13.97
+        },
+        {
+          "raw": "insolence",
+          "start": 13.97,
+          "end": 14.43
+        },
+        {
+          "raw": "of",
+          "start": 14.43,
+          "end": 14.57
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.67
+        },
+        {
+          "raw": "wicked",
+          "start": 14.67,
+          "end": 14.89
+        },
+        {
+          "raw": "suitors,",
+          "start": 14.89,
+          "end": 15.47
+        },
+        {
+          "raw": "who",
+          "start": 15.77,
+          "end": 15.99
+        },
+        {
+          "raw": "are",
+          "start": 15.99,
+          "end": 16.11
+        },
+        {
+          "raw": "ill",
+          "start": 16.11,
+          "end": 16.37
+        },
+        {
+          "raw": "treating",
+          "start": 16.37,
+          "end": 16.69
+        },
+        {
+          "raw": "me",
+          "start": 16.69,
+          "end": 16.95
+        },
+        {
+          "raw": "and",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "raw": "plotting",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "raw": "my",
+          "start": 17.41,
+          "end": 17.71
+        },
+        {
+          "raw": "ruin,",
+          "start": 17.71,
+          "end": 18.03
+        },
+        {
+          "raw": "but",
+          "start": 18.67,
+          "end": 18.87
+        },
+        {
+          "raw": "the",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "raw": "gods",
+          "start": 19.01,
+          "end": 19.27
+        },
+        {
+          "raw": "have",
+          "start": 19.27,
+          "end": 19.53
+        },
+        {
+          "raw": "no",
+          "start": 19.53,
+          "end": 19.75
+        },
+        {
+          "raw": "such",
+          "start": 19.75,
+          "end": 19.97
+        },
+        {
+          "raw": "happiness",
+          "start": 19.97,
+          "end": 20.43
+        },
+        {
+          "raw": "in",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "raw": "store",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "raw": "for",
+          "start": 20.93,
+          "end": 21.17
+        },
+        {
+          "raw": "me",
+          "start": 21.17,
+          "end": 21.37
+        },
+        {
+          "raw": "and",
+          "start": 21.37,
+          "end": 21.65
+        },
+        {
+          "raw": "for",
+          "start": 21.65,
+          "end": 21.77
+        },
+        {
+          "raw": "my",
+          "start": 21.77,
+          "end": 21.97
+        },
+        {
+          "raw": "father,",
+          "start": 21.97,
+          "end": 22.29
+        },
+        {
+          "raw": "so",
+          "start": 22.69,
+          "end": 22.87
+        },
+        {
+          "raw": "we",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "raw": "must",
+          "start": 23.01,
+          "end": 23.21
+        },
+        {
+          "raw": "bear",
+          "start": 23.21,
+          "end": 23.51
+        },
+        {
+          "raw": "it",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "raw": "as",
+          "start": 23.73,
+          "end": 23.89
+        },
+        {
+          "raw": "best",
+          "start": 23.89,
+          "end": 24.09
+        },
+        {
+          "raw": "we",
+          "start": 24.09,
+          "end": 24.33
+        },
+        {
+          "raw": "may.",
+          "start": 24.33,
+          "end": 24.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Nestor",
+        "son",
+        "of",
+        "Neleus,\"",
+        "answered",
+        "Telemachus,",
+        "\"honour",
+        "to",
+        "the",
+        "Achaean",
+        "name,",
+        "the",
+        "Achaeans",
+        "applaud",
+        "Orestes",
+        "and",
+        "his",
+        "name",
+        "will",
+        "live",
+        "through",
+        "all",
+        "time",
+        "for",
+        "he",
+        "has",
+        "avenged",
+        "his",
+        "father",
+        "nobly.",
+        "Would",
+        "that",
+        "heaven",
+        "might",
+        "grant",
+        "me",
+        "to",
+        "do",
+        "like",
+        "vengeance",
+        "on",
+        "the",
+        "insolence",
+        "of",
+        "the",
+        "wicked",
+        "suitors,",
+        "who",
+        "are",
+        "ill",
+        "treating",
+        "me",
+        "and",
+        "plotting",
+        "my",
+        "ruin;",
+        "but",
+        "the",
+        "gods",
+        "have",
+        "no",
+        "such",
+        "happiness",
+        "in",
+        "store",
+        "for",
+        "me",
+        "and",
+        "for",
+        "my",
+        "father,",
+        "so",
+        "we",
+        "must",
+        "bear",
+        "it",
+        "as",
+        "best",
+        "we",
+        "may.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          "delete",
+          4,
+          14,
+          2,
+          2
+        ],
+        [
+          "equal",
+          14,
+          15,
+          2,
+          3
+        ],
+        [
+          "replace",
+          15,
+          30,
+          3,
+          6
+        ],
+        [
+          "equal",
+          30,
+          80,
+          6,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "delete",
+          4,
+          14,
+          2,
+          2
+        ],
+        [
+          "replace",
+          15,
+          30,
+          3,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Nestor",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "son",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "text": "of",
+          "start": 0.89,
+          "end": 0.91
+        },
+        {
+          "text": "Neleus,\"",
+          "start": 0.93,
+          "end": 1.73
+        },
+        {
+          "text": "answered",
+          "start": 1.73,
+          "end": 1.96
+        },
+        {
+          "text": "Telemachus,",
+          "start": 1.96,
+          "end": 2.075
+        },
+        {
+          "text": "\"honour",
+          "start": 2.075,
+          "end": 2.133
+        },
+        {
+          "text": "to",
+          "start": 2.133,
+          "end": 2.162
+        },
+        {
+          "text": "the",
+          "start": 2.162,
+          "end": 2.176
+        },
+        {
+          "text": "Achaean",
+          "start": 2.176,
+          "end": 2.183
+        },
+        {
+          "text": "name,",
+          "start": 2.183,
+          "end": 2.186
+        },
+        {
+          "text": "the",
+          "start": 2.186,
+          "end": 2.188
+        },
+        {
+          "text": "Achaeans",
+          "start": 2.188,
+          "end": 2.189
+        },
+        {
+          "text": "applaud",
+          "start": 2.189,
+          "end": 2.189
+        },
+        {
+          "text": "Orestes",
+          "start": 2.19,
+          "end": 4.73
+        },
+        {
+          "text": "and",
+          "start": 4.73,
+          "end": 7.77
+        },
+        {
+          "text": "his",
+          "start": 7.77,
+          "end": 9.29
+        },
+        {
+          "text": "name",
+          "start": 9.29,
+          "end": 10.05
+        },
+        {
+          "text": "will",
+          "start": 10.05,
+          "end": 10.43
+        },
+        {
+          "text": "live",
+          "start": 10.43,
+          "end": 10.62
+        },
+        {
+          "text": "through",
+          "start": 10.62,
+          "end": 10.715
+        },
+        {
+          "text": "all",
+          "start": 10.715,
+          "end": 10.762
+        },
+        {
+          "text": "time",
+          "start": 10.762,
+          "end": 10.786
+        },
+        {
+          "text": "for",
+          "start": 10.786,
+          "end": 10.798
+        },
+        {
+          "text": "he",
+          "start": 10.798,
+          "end": 10.804
+        },
+        {
+          "text": "has",
+          "start": 10.804,
+          "end": 10.807
+        },
+        {
+          "text": "avenged",
+          "start": 10.807,
+          "end": 10.809
+        },
+        {
+          "text": "his",
+          "start": 10.809,
+          "end": 10.809
+        },
+        {
+          "text": "father",
+          "start": 10.809,
+          "end": 10.809
+        },
+        {
+          "text": "nobly.",
+          "start": 10.809,
+          "end": 10.809
+        },
+        {
+          "text": "Would",
+          "start": 10.81,
+          "end": 10.81
+        },
+        {
+          "text": "that",
+          "start": 10.81,
+          "end": 11.65
+        },
+        {
+          "text": "heaven",
+          "start": 11.65,
+          "end": 12.01
+        },
+        {
+          "text": "might",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "text": "grant",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "text": "me",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "text": "to",
+          "start": 12.67,
+          "end": 12.79
+        },
+        {
+          "text": "do",
+          "start": 12.79,
+          "end": 12.95
+        },
+        {
+          "text": "like",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "text": "vengeance",
+          "start": 13.17,
+          "end": 13.57
+        },
+        {
+          "text": "on",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "text": "the",
+          "start": 13.83,
+          "end": 13.97
+        },
+        {
+          "text": "insolence",
+          "start": 13.97,
+          "end": 14.43
+        },
+        {
+          "text": "of",
+          "start": 14.43,
+          "end": 14.57
+        },
+        {
+          "text": "the",
+          "start": 14.57,
+          "end": 14.67
+        },
+        {
+          "text": "wicked",
+          "start": 14.67,
+          "end": 14.89
+        },
+        {
+          "text": "suitors,",
+          "start": 14.89,
+          "end": 15.47
+        },
+        {
+          "text": "who",
+          "start": 15.77,
+          "end": 15.99
+        },
+        {
+          "text": "are",
+          "start": 15.99,
+          "end": 16.11
+        },
+        {
+          "text": "ill",
+          "start": 16.11,
+          "end": 16.37
+        },
+        {
+          "text": "treating",
+          "start": 16.37,
+          "end": 16.69
+        },
+        {
+          "text": "me",
+          "start": 16.69,
+          "end": 16.95
+        },
+        {
+          "text": "and",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "text": "plotting",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "text": "my",
+          "start": 17.41,
+          "end": 17.71
+        },
+        {
+          "text": "ruin;",
+          "start": 17.71,
+          "end": 18.03
+        },
+        {
+          "text": "but",
+          "start": 18.67,
+          "end": 18.87
+        },
+        {
+          "text": "the",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "text": "gods",
+          "start": 19.01,
+          "end": 19.27
+        },
+        {
+          "text": "have",
+          "start": 19.27,
+          "end": 19.53
+        },
+        {
+          "text": "no",
+          "start": 19.53,
+          "end": 19.75
+        },
+        {
+          "text": "such",
+          "start": 19.75,
+          "end": 19.97
+        },
+        {
+          "text": "happiness",
+          "start": 19.97,
+          "end": 20.43
+        },
+        {
+          "text": "in",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "text": "store",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "text": "for",
+          "start": 20.93,
+          "end": 21.17
+        },
+        {
+          "text": "me",
+          "start": 21.17,
+          "end": 21.37
+        },
+        {
+          "text": "and",
+          "start": 21.37,
+          "end": 21.65
+        },
+        {
+          "text": "for",
+          "start": 21.65,
+          "end": 21.77
+        },
+        {
+          "text": "my",
+          "start": 21.77,
+          "end": 21.97
+        },
+        {
+          "text": "father,",
+          "start": 21.97,
+          "end": 22.29
+        },
+        {
+          "text": "so",
+          "start": 22.69,
+          "end": 22.87
+        },
+        {
+          "text": "we",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "text": "must",
+          "start": 23.01,
+          "end": 23.21
+        },
+        {
+          "text": "bear",
+          "start": 23.21,
+          "end": 23.51
+        },
+        {
+          "text": "it",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "text": "as",
+          "start": 23.73,
+          "end": 23.89
+        },
+        {
+          "text": "best",
+          "start": 23.89,
+          "end": 24.09
+        },
+        {
+          "text": "we",
+          "start": 24.09,
+          "end": 24.33
+        },
+        {
+          "text": "may.\"",
+          "start": 24.33,
+          "end": 24.63
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 56,
+        "matched_words": 53
+      },
+      "match_ratio": 0.6625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.45186131447553635
+    },
+    {
+      "asr_seconds": 0.540069155395031,
+      "alignment_seconds": 0.0003824383020401001,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Nestor, Neleus, Telemachus, Achaean, Achaeans, Orestes, Would"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Nester son of Neleus, answered Telemachus, Honor to the Achaean name, the Achaeans applaud",
+          "start": 0.05,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " Nester",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.5091705322265625
+            },
+            {
+              "text": " son",
+              "start": 0.75,
+              "end": 1.03,
+              "probability": 0.353271484375
+            },
+            {
+              "text": " of",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Neleus,",
+              "start": 1.17,
+              "end": 1.77,
+              "probability": 0.6138432820638021
+            },
+            {
+              "text": " answered",
+              "start": 2.17,
+              "end": 2.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Telemachus,",
+              "start": 2.45,
+              "end": 3.11,
+              "probability": 0.8616536458333334
+            },
+            {
+              "text": " Honor",
+              "start": 3.79,
+              "end": 3.89,
+              "probability": 0.3388671875
+            },
+            {
+              "text": " to",
+              "start": 3.89,
+              "end": 4.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Achaean",
+              "start": 4.27,
+              "end": 4.63,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " name,",
+              "start": 4.63,
+              "end": 4.97,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 5.41,
+              "end": 5.51,
+              "probability": 0.576171875
+            },
+            {
+              "text": " Achaeans",
+              "start": 5.51,
+              "end": 5.97,
+              "probability": 0.9552408854166666
+            },
+            {
+              "text": " applaud",
+              "start": 5.97,
+              "end": 6.37,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " Orestes and his name will live through all time for he has avenged his father nobly.",
+          "start": 6.37,
+          "end": 10.71,
+          "words": [
+            {
+              "text": " Orestes",
+              "start": 6.37,
+              "end": 6.93,
+              "probability": 0.9588216145833334
+            },
+            {
+              "text": " and",
+              "start": 6.93,
+              "end": 7.23,
+              "probability": 0.433837890625
+            },
+            {
+              "text": " his",
+              "start": 7.23,
+              "end": 7.37,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " name",
+              "start": 7.37,
+              "end": 7.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " will",
+              "start": 7.65,
+              "end": 7.87,
+              "probability": 0.9296875
+            },
+            {
+              "text": " live",
+              "start": 7.87,
+              "end": 8.07,
+              "probability": 0.97265625
+            },
+            {
+              "text": " through",
+              "start": 8.07,
+              "end": 8.29,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " all",
+              "start": 8.29,
+              "end": 8.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " time",
+              "start": 8.59,
+              "end": 8.95,
+              "probability": 0.990234375
+            },
+            {
+              "text": " for",
+              "start": 8.95,
+              "end": 9.13,
+              "probability": 0.916015625
+            },
+            {
+              "text": " he",
+              "start": 9.13,
+              "end": 9.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " has",
+              "start": 9.25,
+              "end": 9.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " avenged",
+              "start": 9.35,
+              "end": 9.77,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " his",
+              "start": 9.77,
+              "end": 9.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " father",
+              "start": 9.93,
+              "end": 10.19,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " nobly.",
+              "start": 10.19,
+              "end": 10.71,
+              "probability": 0.92724609375
+            }
+          ]
+        },
+        {
+          "text": " Would that heaven might grant me to do like vengeance on the insolence of the wicked suitors,",
+          "start": 11.43,
+          "end": 15.45,
+          "words": [
+            {
+              "text": " Would",
+              "start": 11.43,
+              "end": 11.57,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that",
+              "start": 11.57,
+              "end": 11.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heaven",
+              "start": 11.77,
+              "end": 12.01,
+              "probability": 0.755859375
+            },
+            {
+              "text": " might",
+              "start": 12.01,
+              "end": 12.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " grant",
+              "start": 12.25,
+              "end": 12.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 12.49,
+              "end": 12.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 12.67,
+              "end": 12.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " do",
+              "start": 12.81,
+              "end": 12.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 12.97,
+              "end": 13.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " vengeance",
+              "start": 13.17,
+              "end": 13.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " on",
+              "start": 13.57,
+              "end": 13.83,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 13.83,
+              "end": 13.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " insolence",
+              "start": 13.97,
+              "end": 14.43,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " of",
+              "start": 14.43,
+              "end": 14.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 14.57,
+              "end": 14.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wicked",
+              "start": 14.69,
+              "end": 14.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " suitors,",
+              "start": 14.91,
+              "end": 15.45,
+              "probability": 0.989013671875
+            }
+          ]
+        },
+        {
+          "text": " who are ill-treating me and plotting my ruin, but the gods have no such happiness in store",
+          "start": 15.75,
+          "end": 20.91,
+          "words": [
+            {
+              "text": " who",
+              "start": 15.75,
+              "end": 15.99,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " are",
+              "start": 15.99,
+              "end": 16.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ill",
+              "start": 16.11,
+              "end": 16.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": "-treating",
+              "start": 16.37,
+              "end": 16.69,
+              "probability": 0.830078125
+            },
+            {
+              "text": " me",
+              "start": 16.69,
+              "end": 16.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 16.97,
+              "end": 17.15,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " plotting",
+              "start": 17.15,
+              "end": 17.41,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " my",
+              "start": 17.41,
+              "end": 17.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ruin,",
+              "start": 17.71,
+              "end": 18.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " but",
+              "start": 18.63,
+              "end": 18.87,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " the",
+              "start": 18.87,
+              "end": 19.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gods",
+              "start": 19.01,
+              "end": 19.27,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " have",
+              "start": 19.27,
+              "end": 19.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 19.53,
+              "end": 19.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " such",
+              "start": 19.73,
+              "end": 19.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " happiness",
+              "start": 19.97,
+              "end": 20.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 20.43,
+              "end": 20.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " store",
+              "start": 20.69,
+              "end": 20.91,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " for me and for my father, so we must bear it as best we may.",
+          "start": 20.91,
+          "end": 24.57,
+          "words": [
+            {
+              "text": " for",
+              "start": 20.91,
+              "end": 21.15,
+              "probability": 0.7578125
+            },
+            {
+              "text": " me",
+              "start": 21.15,
+              "end": 21.35,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " and",
+              "start": 21.35,
+              "end": 21.65,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " for",
+              "start": 21.65,
+              "end": 21.77,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " my",
+              "start": 21.77,
+              "end": 21.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " father,",
+              "start": 21.93,
+              "end": 22.29,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " so",
+              "start": 22.67,
+              "end": 22.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " we",
+              "start": 22.87,
+              "end": 23.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " must",
+              "start": 23.01,
+              "end": 23.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bear",
+              "start": 23.19,
+              "end": 23.51,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " it",
+              "start": 23.51,
+              "end": 23.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 23.73,
+              "end": 23.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " best",
+              "start": 23.89,
+              "end": 24.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 24.09,
+              "end": 24.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may.",
+              "start": 24.33,
+              "end": 24.57,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nester",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "son",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "Neleus,",
+          "start": 1.17,
+          "end": 1.77
+        },
+        {
+          "raw": "answered",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "raw": "Telemachus,",
+          "start": 2.45,
+          "end": 3.11
+        },
+        {
+          "raw": "Honor",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "raw": "to",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "raw": "Achaean",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "raw": "name,",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "raw": "the",
+          "start": 5.41,
+          "end": 5.51
+        },
+        {
+          "raw": "Achaeans",
+          "start": 5.51,
+          "end": 5.97
+        },
+        {
+          "raw": "applaud",
+          "start": 5.97,
+          "end": 6.37
+        },
+        {
+          "raw": "Orestes",
+          "start": 6.37,
+          "end": 6.93
+        },
+        {
+          "raw": "and",
+          "start": 6.93,
+          "end": 7.23
+        },
+        {
+          "raw": "his",
+          "start": 7.23,
+          "end": 7.37
+        },
+        {
+          "raw": "name",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "raw": "will",
+          "start": 7.65,
+          "end": 7.87
+        },
+        {
+          "raw": "live",
+          "start": 7.87,
+          "end": 8.07
+        },
+        {
+          "raw": "through",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "raw": "all",
+          "start": 8.29,
+          "end": 8.59
+        },
+        {
+          "raw": "time",
+          "start": 8.59,
+          "end": 8.95
+        },
+        {
+          "raw": "for",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "raw": "he",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "raw": "has",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "raw": "avenged",
+          "start": 9.35,
+          "end": 9.77
+        },
+        {
+          "raw": "his",
+          "start": 9.77,
+          "end": 9.93
+        },
+        {
+          "raw": "father",
+          "start": 9.93,
+          "end": 10.19
+        },
+        {
+          "raw": "nobly.",
+          "start": 10.19,
+          "end": 10.71
+        },
+        {
+          "raw": "Would",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "raw": "that",
+          "start": 11.57,
+          "end": 11.77
+        },
+        {
+          "raw": "heaven",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "raw": "might",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "raw": "grant",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "raw": "me",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "raw": "to",
+          "start": 12.67,
+          "end": 12.81
+        },
+        {
+          "raw": "do",
+          "start": 12.81,
+          "end": 12.97
+        },
+        {
+          "raw": "like",
+          "start": 12.97,
+          "end": 13.17
+        },
+        {
+          "raw": "vengeance",
+          "start": 13.17,
+          "end": 13.57
+        },
+        {
+          "raw": "on",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "raw": "the",
+          "start": 13.83,
+          "end": 13.97
+        },
+        {
+          "raw": "insolence",
+          "start": 13.97,
+          "end": 14.43
+        },
+        {
+          "raw": "of",
+          "start": 14.43,
+          "end": 14.57
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "raw": "wicked",
+          "start": 14.69,
+          "end": 14.91
+        },
+        {
+          "raw": "suitors,",
+          "start": 14.91,
+          "end": 15.45
+        },
+        {
+          "raw": "who",
+          "start": 15.75,
+          "end": 15.99
+        },
+        {
+          "raw": "are",
+          "start": 15.99,
+          "end": 16.11
+        },
+        {
+          "raw": "ill",
+          "start": 16.11,
+          "end": 16.37
+        },
+        {
+          "raw": "-treating",
+          "start": 16.37,
+          "end": 16.69
+        },
+        {
+          "raw": "me",
+          "start": 16.69,
+          "end": 16.97
+        },
+        {
+          "raw": "and",
+          "start": 16.97,
+          "end": 17.15
+        },
+        {
+          "raw": "plotting",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "raw": "my",
+          "start": 17.41,
+          "end": 17.71
+        },
+        {
+          "raw": "ruin,",
+          "start": 17.71,
+          "end": 18.03
+        },
+        {
+          "raw": "but",
+          "start": 18.63,
+          "end": 18.87
+        },
+        {
+          "raw": "the",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "raw": "gods",
+          "start": 19.01,
+          "end": 19.27
+        },
+        {
+          "raw": "have",
+          "start": 19.27,
+          "end": 19.53
+        },
+        {
+          "raw": "no",
+          "start": 19.53,
+          "end": 19.73
+        },
+        {
+          "raw": "such",
+          "start": 19.73,
+          "end": 19.97
+        },
+        {
+          "raw": "happiness",
+          "start": 19.97,
+          "end": 20.43
+        },
+        {
+          "raw": "in",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "raw": "store",
+          "start": 20.69,
+          "end": 20.91
+        },
+        {
+          "raw": "for",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "raw": "me",
+          "start": 21.15,
+          "end": 21.35
+        },
+        {
+          "raw": "and",
+          "start": 21.35,
+          "end": 21.65
+        },
+        {
+          "raw": "for",
+          "start": 21.65,
+          "end": 21.77
+        },
+        {
+          "raw": "my",
+          "start": 21.77,
+          "end": 21.93
+        },
+        {
+          "raw": "father,",
+          "start": 21.93,
+          "end": 22.29
+        },
+        {
+          "raw": "so",
+          "start": 22.67,
+          "end": 22.87
+        },
+        {
+          "raw": "we",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "raw": "must",
+          "start": 23.01,
+          "end": 23.19
+        },
+        {
+          "raw": "bear",
+          "start": 23.19,
+          "end": 23.51
+        },
+        {
+          "raw": "it",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "raw": "as",
+          "start": 23.73,
+          "end": 23.89
+        },
+        {
+          "raw": "best",
+          "start": 23.89,
+          "end": 24.09
+        },
+        {
+          "raw": "we",
+          "start": 24.09,
+          "end": 24.33
+        },
+        {
+          "raw": "may.",
+          "start": 24.33,
+          "end": 24.57
+        }
+      ],
+      "expected_tokens": [
+        "\"Nestor",
+        "son",
+        "of",
+        "Neleus,\"",
+        "answered",
+        "Telemachus,",
+        "\"honour",
+        "to",
+        "the",
+        "Achaean",
+        "name,",
+        "the",
+        "Achaeans",
+        "applaud",
+        "Orestes",
+        "and",
+        "his",
+        "name",
+        "will",
+        "live",
+        "through",
+        "all",
+        "time",
+        "for",
+        "he",
+        "has",
+        "avenged",
+        "his",
+        "father",
+        "nobly.",
+        "Would",
+        "that",
+        "heaven",
+        "might",
+        "grant",
+        "me",
+        "to",
+        "do",
+        "like",
+        "vengeance",
+        "on",
+        "the",
+        "insolence",
+        "of",
+        "the",
+        "wicked",
+        "suitors,",
+        "who",
+        "are",
+        "ill",
+        "treating",
+        "me",
+        "and",
+        "plotting",
+        "my",
+        "ruin;",
+        "but",
+        "the",
+        "gods",
+        "have",
+        "no",
+        "such",
+        "happiness",
+        "in",
+        "store",
+        "for",
+        "me",
+        "and",
+        "for",
+        "my",
+        "father,",
+        "so",
+        "we",
+        "must",
+        "bear",
+        "it",
+        "as",
+        "best",
+        "we",
+        "may.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          80,
+          7,
+          80
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Nestor",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "son",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "text": "of",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "Neleus,\"",
+          "start": 1.17,
+          "end": 1.77
+        },
+        {
+          "text": "answered",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "text": "Telemachus,",
+          "start": 2.45,
+          "end": 3.11
+        },
+        {
+          "text": "\"honour",
+          "start": 3.11,
+          "end": 3.5
+        },
+        {
+          "text": "to",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "text": "Achaean",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "text": "name,",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "text": "the",
+          "start": 5.41,
+          "end": 5.51
+        },
+        {
+          "text": "Achaeans",
+          "start": 5.51,
+          "end": 5.97
+        },
+        {
+          "text": "applaud",
+          "start": 5.97,
+          "end": 6.37
+        },
+        {
+          "text": "Orestes",
+          "start": 6.37,
+          "end": 6.93
+        },
+        {
+          "text": "and",
+          "start": 6.93,
+          "end": 7.23
+        },
+        {
+          "text": "his",
+          "start": 7.23,
+          "end": 7.37
+        },
+        {
+          "text": "name",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "text": "will",
+          "start": 7.65,
+          "end": 7.87
+        },
+        {
+          "text": "live",
+          "start": 7.87,
+          "end": 8.07
+        },
+        {
+          "text": "through",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "text": "all",
+          "start": 8.29,
+          "end": 8.59
+        },
+        {
+          "text": "time",
+          "start": 8.59,
+          "end": 8.95
+        },
+        {
+          "text": "for",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "text": "he",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "text": "has",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "text": "avenged",
+          "start": 9.35,
+          "end": 9.77
+        },
+        {
+          "text": "his",
+          "start": 9.77,
+          "end": 9.93
+        },
+        {
+          "text": "father",
+          "start": 9.93,
+          "end": 10.19
+        },
+        {
+          "text": "nobly.",
+          "start": 10.19,
+          "end": 10.71
+        },
+        {
+          "text": "Would",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "text": "that",
+          "start": 11.57,
+          "end": 11.77
+        },
+        {
+          "text": "heaven",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "text": "might",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "text": "grant",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "text": "me",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "text": "to",
+          "start": 12.67,
+          "end": 12.81
+        },
+        {
+          "text": "do",
+          "start": 12.81,
+          "end": 12.97
+        },
+        {
+          "text": "like",
+          "start": 12.97,
+          "end": 13.17
+        },
+        {
+          "text": "vengeance",
+          "start": 13.17,
+          "end": 13.57
+        },
+        {
+          "text": "on",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "text": "the",
+          "start": 13.83,
+          "end": 13.97
+        },
+        {
+          "text": "insolence",
+          "start": 13.97,
+          "end": 14.43
+        },
+        {
+          "text": "of",
+          "start": 14.43,
+          "end": 14.57
+        },
+        {
+          "text": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "text": "wicked",
+          "start": 14.69,
+          "end": 14.91
+        },
+        {
+          "text": "suitors,",
+          "start": 14.91,
+          "end": 15.45
+        },
+        {
+          "text": "who",
+          "start": 15.75,
+          "end": 15.99
+        },
+        {
+          "text": "are",
+          "start": 15.99,
+          "end": 16.11
+        },
+        {
+          "text": "ill",
+          "start": 16.11,
+          "end": 16.37
+        },
+        {
+          "text": "treating",
+          "start": 16.37,
+          "end": 16.69
+        },
+        {
+          "text": "me",
+          "start": 16.69,
+          "end": 16.97
+        },
+        {
+          "text": "and",
+          "start": 16.97,
+          "end": 17.15
+        },
+        {
+          "text": "plotting",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "text": "my",
+          "start": 17.41,
+          "end": 17.71
+        },
+        {
+          "text": "ruin;",
+          "start": 17.71,
+          "end": 18.03
+        },
+        {
+          "text": "but",
+          "start": 18.63,
+          "end": 18.87
+        },
+        {
+          "text": "the",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "text": "gods",
+          "start": 19.01,
+          "end": 19.27
+        },
+        {
+          "text": "have",
+          "start": 19.27,
+          "end": 19.53
+        },
+        {
+          "text": "no",
+          "start": 19.53,
+          "end": 19.73
+        },
+        {
+          "text": "such",
+          "start": 19.73,
+          "end": 19.97
+        },
+        {
+          "text": "happiness",
+          "start": 19.97,
+          "end": 20.43
+        },
+        {
+          "text": "in",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "text": "store",
+          "start": 20.69,
+          "end": 20.91
+        },
+        {
+          "text": "for",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "text": "me",
+          "start": 21.15,
+          "end": 21.35
+        },
+        {
+          "text": "and",
+          "start": 21.35,
+          "end": 21.65
+        },
+        {
+          "text": "for",
+          "start": 21.65,
+          "end": 21.77
+        },
+        {
+          "text": "my",
+          "start": 21.77,
+          "end": 21.93
+        },
+        {
+          "text": "father,",
+          "start": 21.93,
+          "end": 22.29
+        },
+        {
+          "text": "so",
+          "start": 22.67,
+          "end": 22.87
+        },
+        {
+          "text": "we",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "text": "must",
+          "start": 23.01,
+          "end": 23.19
+        },
+        {
+          "text": "bear",
+          "start": 23.19,
+          "end": 23.51
+        },
+        {
+          "text": "it",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "text": "as",
+          "start": 23.73,
+          "end": 23.89
+        },
+        {
+          "text": "best",
+          "start": 23.89,
+          "end": 24.09
+        },
+        {
+          "text": "we",
+          "start": 24.09,
+          "end": 24.33
+        },
+        {
+          "text": "may.\"",
+          "start": 24.33,
+          "end": 24.57
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 80,
+        "matched_words": 78
+      },
+      "match_ratio": 0.975,
+      "rejection_reasons": [],
+      "seconds": 0.540680468082428
+    },
+    {
+      "asr_seconds": 0.5873809531331062,
+      "alignment_seconds": 0.0003908872604370117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nestor, son of Nelius, answered Telemachus, Honor to the Achaean name, the Achaeans applaud",
+          "start": 0.05,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " Nestor,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.568603515625
+            },
+            {
+              "text": " son",
+              "start": 0.93,
+              "end": 1.03,
+              "probability": 0.9375
+            },
+            {
+              "text": " of",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Nelius,",
+              "start": 1.19,
+              "end": 1.67,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " answered",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Telemachus,",
+              "start": 2.45,
+              "end": 3.11,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " Honor",
+              "start": 3.69,
+              "end": 3.89,
+              "probability": 0.245849609375
+            },
+            {
+              "text": " to",
+              "start": 3.89,
+              "end": 4.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Achaean",
+              "start": 4.27,
+              "end": 4.63,
+              "probability": 0.9488932291666666
+            },
+            {
+              "text": " name,",
+              "start": 4.63,
+              "end": 4.97,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 5.39,
+              "end": 5.53,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " Achaeans",
+              "start": 5.53,
+              "end": 5.97,
+              "probability": 0.9632161458333334
+            },
+            {
+              "text": " applaud",
+              "start": 5.97,
+              "end": 6.37,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " Orestes and his name will live through all time for he has avenged his father nobly.",
+          "start": 6.37,
+          "end": 10.71,
+          "words": [
+            {
+              "text": " Orestes",
+              "start": 6.37,
+              "end": 6.93,
+              "probability": 0.9578450520833334
+            },
+            {
+              "text": " and",
+              "start": 6.93,
+              "end": 7.23,
+              "probability": 0.336181640625
+            },
+            {
+              "text": " his",
+              "start": 7.23,
+              "end": 7.37,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " name",
+              "start": 7.37,
+              "end": 7.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " will",
+              "start": 7.65,
+              "end": 7.87,
+              "probability": 0.904296875
+            },
+            {
+              "text": " live",
+              "start": 7.87,
+              "end": 8.07,
+              "probability": 0.962890625
+            },
+            {
+              "text": " through",
+              "start": 8.07,
+              "end": 8.29,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " all",
+              "start": 8.29,
+              "end": 8.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " time",
+              "start": 8.59,
+              "end": 8.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " for",
+              "start": 8.95,
+              "end": 9.13,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " he",
+              "start": 9.13,
+              "end": 9.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " has",
+              "start": 9.25,
+              "end": 9.35,
+              "probability": 0.9921875
+            },
+            {
+              "text": " avenged",
+              "start": 9.35,
+              "end": 9.77,
+              "probability": 0.98828125
+            },
+            {
+              "text": " his",
+              "start": 9.77,
+              "end": 9.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " father",
+              "start": 9.93,
+              "end": 10.19,
+              "probability": 0.96875
+            },
+            {
+              "text": " nobly.",
+              "start": 10.19,
+              "end": 10.71,
+              "probability": 0.927490234375
+            }
+          ]
+        },
+        {
+          "text": " Would that heaven might grant me to do like vengeance on the insolence of the wicked suitors,",
+          "start": 11.43,
+          "end": 15.45,
+          "words": [
+            {
+              "text": " Would",
+              "start": 11.43,
+              "end": 11.57,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " that",
+              "start": 11.57,
+              "end": 11.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heaven",
+              "start": 11.77,
+              "end": 12.01,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " might",
+              "start": 12.01,
+              "end": 12.25,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " grant",
+              "start": 12.25,
+              "end": 12.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 12.49,
+              "end": 12.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 12.67,
+              "end": 12.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 12.81,
+              "end": 12.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " like",
+              "start": 12.95,
+              "end": 13.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " vengeance",
+              "start": 13.17,
+              "end": 13.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " on",
+              "start": 13.57,
+              "end": 13.83,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 13.83,
+              "end": 13.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " insolence",
+              "start": 13.97,
+              "end": 14.43,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " of",
+              "start": 14.43,
+              "end": 14.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 14.57,
+              "end": 14.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wicked",
+              "start": 14.69,
+              "end": 14.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " suitors,",
+              "start": 14.91,
+              "end": 15.45,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " who are ill-treating me and plotting my ruin, but the gods have no such happiness in store",
+          "start": 15.75,
+          "end": 20.93,
+          "words": [
+            {
+              "text": " who",
+              "start": 15.75,
+              "end": 15.99,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " are",
+              "start": 15.99,
+              "end": 16.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ill",
+              "start": 16.11,
+              "end": 16.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": "-treating",
+              "start": 16.37,
+              "end": 16.69,
+              "probability": 0.8570963541666666
+            },
+            {
+              "text": " me",
+              "start": 16.69,
+              "end": 16.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 16.97,
+              "end": 17.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " plotting",
+              "start": 17.15,
+              "end": 17.41,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " my",
+              "start": 17.41,
+              "end": 17.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ruin,",
+              "start": 17.73,
+              "end": 18.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " but",
+              "start": 18.63,
+              "end": 18.87,
+              "probability": 0.91796875
+            },
+            {
+              "text": " the",
+              "start": 18.87,
+              "end": 19.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gods",
+              "start": 19.01,
+              "end": 19.27,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " have",
+              "start": 19.27,
+              "end": 19.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 19.53,
+              "end": 19.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " such",
+              "start": 19.73,
+              "end": 19.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " happiness",
+              "start": 19.97,
+              "end": 20.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 20.43,
+              "end": 20.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " store",
+              "start": 20.69,
+              "end": 20.93,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " for me and for my father, so we must bear it as best we may.",
+          "start": 20.93,
+          "end": 24.57,
+          "words": [
+            {
+              "text": " for",
+              "start": 20.93,
+              "end": 21.15,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " me",
+              "start": 21.15,
+              "end": 21.35,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 21.35,
+              "end": 21.65,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " for",
+              "start": 21.65,
+              "end": 21.77,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " my",
+              "start": 21.77,
+              "end": 21.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " father,",
+              "start": 21.93,
+              "end": 22.29,
+              "probability": 0.70703125
+            },
+            {
+              "text": " so",
+              "start": 22.63,
+              "end": 22.87,
+              "probability": 0.990234375
+            },
+            {
+              "text": " we",
+              "start": 22.87,
+              "end": 23.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " must",
+              "start": 23.01,
+              "end": 23.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bear",
+              "start": 23.19,
+              "end": 23.51,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " it",
+              "start": 23.51,
+              "end": 23.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 23.73,
+              "end": 23.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " best",
+              "start": 23.89,
+              "end": 24.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 24.07,
+              "end": 24.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " may.",
+              "start": 24.33,
+              "end": 24.57,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nestor,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "son",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "Nelius,",
+          "start": 1.19,
+          "end": 1.67
+        },
+        {
+          "raw": "answered",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "Telemachus,",
+          "start": 2.45,
+          "end": 3.11
+        },
+        {
+          "raw": "Honor",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "raw": "to",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "raw": "Achaean",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "raw": "name,",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "raw": "the",
+          "start": 5.39,
+          "end": 5.53
+        },
+        {
+          "raw": "Achaeans",
+          "start": 5.53,
+          "end": 5.97
+        },
+        {
+          "raw": "applaud",
+          "start": 5.97,
+          "end": 6.37
+        },
+        {
+          "raw": "Orestes",
+          "start": 6.37,
+          "end": 6.93
+        },
+        {
+          "raw": "and",
+          "start": 6.93,
+          "end": 7.23
+        },
+        {
+          "raw": "his",
+          "start": 7.23,
+          "end": 7.37
+        },
+        {
+          "raw": "name",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "raw": "will",
+          "start": 7.65,
+          "end": 7.87
+        },
+        {
+          "raw": "live",
+          "start": 7.87,
+          "end": 8.07
+        },
+        {
+          "raw": "through",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "raw": "all",
+          "start": 8.29,
+          "end": 8.59
+        },
+        {
+          "raw": "time",
+          "start": 8.59,
+          "end": 8.95
+        },
+        {
+          "raw": "for",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "raw": "he",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "raw": "has",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "raw": "avenged",
+          "start": 9.35,
+          "end": 9.77
+        },
+        {
+          "raw": "his",
+          "start": 9.77,
+          "end": 9.93
+        },
+        {
+          "raw": "father",
+          "start": 9.93,
+          "end": 10.19
+        },
+        {
+          "raw": "nobly.",
+          "start": 10.19,
+          "end": 10.71
+        },
+        {
+          "raw": "Would",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "raw": "that",
+          "start": 11.57,
+          "end": 11.77
+        },
+        {
+          "raw": "heaven",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "raw": "might",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "raw": "grant",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "raw": "me",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "raw": "to",
+          "start": 12.67,
+          "end": 12.81
+        },
+        {
+          "raw": "do",
+          "start": 12.81,
+          "end": 12.95
+        },
+        {
+          "raw": "like",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "raw": "vengeance",
+          "start": 13.17,
+          "end": 13.57
+        },
+        {
+          "raw": "on",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "raw": "the",
+          "start": 13.83,
+          "end": 13.97
+        },
+        {
+          "raw": "insolence",
+          "start": 13.97,
+          "end": 14.43
+        },
+        {
+          "raw": "of",
+          "start": 14.43,
+          "end": 14.57
+        },
+        {
+          "raw": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "raw": "wicked",
+          "start": 14.69,
+          "end": 14.91
+        },
+        {
+          "raw": "suitors,",
+          "start": 14.91,
+          "end": 15.45
+        },
+        {
+          "raw": "who",
+          "start": 15.75,
+          "end": 15.99
+        },
+        {
+          "raw": "are",
+          "start": 15.99,
+          "end": 16.11
+        },
+        {
+          "raw": "ill",
+          "start": 16.11,
+          "end": 16.37
+        },
+        {
+          "raw": "-treating",
+          "start": 16.37,
+          "end": 16.69
+        },
+        {
+          "raw": "me",
+          "start": 16.69,
+          "end": 16.97
+        },
+        {
+          "raw": "and",
+          "start": 16.97,
+          "end": 17.15
+        },
+        {
+          "raw": "plotting",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "raw": "my",
+          "start": 17.41,
+          "end": 17.73
+        },
+        {
+          "raw": "ruin,",
+          "start": 17.73,
+          "end": 18.03
+        },
+        {
+          "raw": "but",
+          "start": 18.63,
+          "end": 18.87
+        },
+        {
+          "raw": "the",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "raw": "gods",
+          "start": 19.01,
+          "end": 19.27
+        },
+        {
+          "raw": "have",
+          "start": 19.27,
+          "end": 19.53
+        },
+        {
+          "raw": "no",
+          "start": 19.53,
+          "end": 19.73
+        },
+        {
+          "raw": "such",
+          "start": 19.73,
+          "end": 19.97
+        },
+        {
+          "raw": "happiness",
+          "start": 19.97,
+          "end": 20.43
+        },
+        {
+          "raw": "in",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "raw": "store",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "raw": "for",
+          "start": 20.93,
+          "end": 21.15
+        },
+        {
+          "raw": "me",
+          "start": 21.15,
+          "end": 21.35
+        },
+        {
+          "raw": "and",
+          "start": 21.35,
+          "end": 21.65
+        },
+        {
+          "raw": "for",
+          "start": 21.65,
+          "end": 21.77
+        },
+        {
+          "raw": "my",
+          "start": 21.77,
+          "end": 21.93
+        },
+        {
+          "raw": "father,",
+          "start": 21.93,
+          "end": 22.29
+        },
+        {
+          "raw": "so",
+          "start": 22.63,
+          "end": 22.87
+        },
+        {
+          "raw": "we",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "raw": "must",
+          "start": 23.01,
+          "end": 23.19
+        },
+        {
+          "raw": "bear",
+          "start": 23.19,
+          "end": 23.51
+        },
+        {
+          "raw": "it",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "raw": "as",
+          "start": 23.73,
+          "end": 23.89
+        },
+        {
+          "raw": "best",
+          "start": 23.89,
+          "end": 24.07
+        },
+        {
+          "raw": "we",
+          "start": 24.07,
+          "end": 24.33
+        },
+        {
+          "raw": "may.",
+          "start": 24.33,
+          "end": 24.57
+        }
+      ],
+      "expected_tokens": [
+        "\"Nestor",
+        "son",
+        "of",
+        "Neleus,\"",
+        "answered",
+        "Telemachus,",
+        "\"honour",
+        "to",
+        "the",
+        "Achaean",
+        "name,",
+        "the",
+        "Achaeans",
+        "applaud",
+        "Orestes",
+        "and",
+        "his",
+        "name",
+        "will",
+        "live",
+        "through",
+        "all",
+        "time",
+        "for",
+        "he",
+        "has",
+        "avenged",
+        "his",
+        "father",
+        "nobly.",
+        "Would",
+        "that",
+        "heaven",
+        "might",
+        "grant",
+        "me",
+        "to",
+        "do",
+        "like",
+        "vengeance",
+        "on",
+        "the",
+        "insolence",
+        "of",
+        "the",
+        "wicked",
+        "suitors,",
+        "who",
+        "are",
+        "ill",
+        "treating",
+        "me",
+        "and",
+        "plotting",
+        "my",
+        "ruin;",
+        "but",
+        "the",
+        "gods",
+        "have",
+        "no",
+        "such",
+        "happiness",
+        "in",
+        "store",
+        "for",
+        "me",
+        "and",
+        "for",
+        "my",
+        "father,",
+        "so",
+        "we",
+        "must",
+        "bear",
+        "it",
+        "as",
+        "best",
+        "we",
+        "may.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          80,
+          7,
+          80
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Nestor",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "son",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "text": "of",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "Neleus,\"",
+          "start": 1.19,
+          "end": 1.67
+        },
+        {
+          "text": "answered",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "text": "Telemachus,",
+          "start": 2.45,
+          "end": 3.11
+        },
+        {
+          "text": "\"honour",
+          "start": 3.11,
+          "end": 3.5
+        },
+        {
+          "text": "to",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "text": "Achaean",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "text": "name,",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "text": "the",
+          "start": 5.39,
+          "end": 5.53
+        },
+        {
+          "text": "Achaeans",
+          "start": 5.53,
+          "end": 5.97
+        },
+        {
+          "text": "applaud",
+          "start": 5.97,
+          "end": 6.37
+        },
+        {
+          "text": "Orestes",
+          "start": 6.37,
+          "end": 6.93
+        },
+        {
+          "text": "and",
+          "start": 6.93,
+          "end": 7.23
+        },
+        {
+          "text": "his",
+          "start": 7.23,
+          "end": 7.37
+        },
+        {
+          "text": "name",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "text": "will",
+          "start": 7.65,
+          "end": 7.87
+        },
+        {
+          "text": "live",
+          "start": 7.87,
+          "end": 8.07
+        },
+        {
+          "text": "through",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "text": "all",
+          "start": 8.29,
+          "end": 8.59
+        },
+        {
+          "text": "time",
+          "start": 8.59,
+          "end": 8.95
+        },
+        {
+          "text": "for",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "text": "he",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "text": "has",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "text": "avenged",
+          "start": 9.35,
+          "end": 9.77
+        },
+        {
+          "text": "his",
+          "start": 9.77,
+          "end": 9.93
+        },
+        {
+          "text": "father",
+          "start": 9.93,
+          "end": 10.19
+        },
+        {
+          "text": "nobly.",
+          "start": 10.19,
+          "end": 10.71
+        },
+        {
+          "text": "Would",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "text": "that",
+          "start": 11.57,
+          "end": 11.77
+        },
+        {
+          "text": "heaven",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "text": "might",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "text": "grant",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "text": "me",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "text": "to",
+          "start": 12.67,
+          "end": 12.81
+        },
+        {
+          "text": "do",
+          "start": 12.81,
+          "end": 12.95
+        },
+        {
+          "text": "like",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "text": "vengeance",
+          "start": 13.17,
+          "end": 13.57
+        },
+        {
+          "text": "on",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "text": "the",
+          "start": 13.83,
+          "end": 13.97
+        },
+        {
+          "text": "insolence",
+          "start": 13.97,
+          "end": 14.43
+        },
+        {
+          "text": "of",
+          "start": 14.43,
+          "end": 14.57
+        },
+        {
+          "text": "the",
+          "start": 14.57,
+          "end": 14.69
+        },
+        {
+          "text": "wicked",
+          "start": 14.69,
+          "end": 14.91
+        },
+        {
+          "text": "suitors,",
+          "start": 14.91,
+          "end": 15.45
+        },
+        {
+          "text": "who",
+          "start": 15.75,
+          "end": 15.99
+        },
+        {
+          "text": "are",
+          "start": 15.99,
+          "end": 16.11
+        },
+        {
+          "text": "ill",
+          "start": 16.11,
+          "end": 16.37
+        },
+        {
+          "text": "treating",
+          "start": 16.37,
+          "end": 16.69
+        },
+        {
+          "text": "me",
+          "start": 16.69,
+          "end": 16.97
+        },
+        {
+          "text": "and",
+          "start": 16.97,
+          "end": 17.15
+        },
+        {
+          "text": "plotting",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "text": "my",
+          "start": 17.41,
+          "end": 17.73
+        },
+        {
+          "text": "ruin;",
+          "start": 17.73,
+          "end": 18.03
+        },
+        {
+          "text": "but",
+          "start": 18.63,
+          "end": 18.87
+        },
+        {
+          "text": "the",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "text": "gods",
+          "start": 19.01,
+          "end": 19.27
+        },
+        {
+          "text": "have",
+          "start": 19.27,
+          "end": 19.53
+        },
+        {
+          "text": "no",
+          "start": 19.53,
+          "end": 19.73
+        },
+        {
+          "text": "such",
+          "start": 19.73,
+          "end": 19.97
+        },
+        {
+          "text": "happiness",
+          "start": 19.97,
+          "end": 20.43
+        },
+        {
+          "text": "in",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "text": "store",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "text": "for",
+          "start": 20.93,
+          "end": 21.15
+        },
+        {
+          "text": "me",
+          "start": 21.15,
+          "end": 21.35
+        },
+        {
+          "text": "and",
+          "start": 21.35,
+          "end": 21.65
+        },
+        {
+          "text": "for",
+          "start": 21.65,
+          "end": 21.77
+        },
+        {
+          "text": "my",
+          "start": 21.77,
+          "end": 21.93
+        },
+        {
+          "text": "father,",
+          "start": 21.93,
+          "end": 22.29
+        },
+        {
+          "text": "so",
+          "start": 22.63,
+          "end": 22.87
+        },
+        {
+          "text": "we",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "text": "must",
+          "start": 23.01,
+          "end": 23.19
+        },
+        {
+          "text": "bear",
+          "start": 23.19,
+          "end": 23.51
+        },
+        {
+          "text": "it",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "text": "as",
+          "start": 23.73,
+          "end": 23.89
+        },
+        {
+          "text": "best",
+          "start": 23.89,
+          "end": 24.07
+        },
+        {
+          "text": "we",
+          "start": 24.07,
+          "end": 24.33
+        },
+        {
+          "text": "may.\"",
+          "start": 24.33,
+          "end": 24.57
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 80,
+        "matched_words": 78
+      },
+      "match_ratio": 0.975,
+      "rejection_reasons": [],
+      "seconds": 0.5879990831017494
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "3dbc2453d08a041abd680f2b459097ff58725f05c878c7268bc524308d26a5a7",
+  "selected_reasons": []
+}

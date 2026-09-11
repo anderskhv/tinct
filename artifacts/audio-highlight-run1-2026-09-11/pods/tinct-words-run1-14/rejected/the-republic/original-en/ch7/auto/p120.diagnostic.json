@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "7a0582d912092c8c436a93e91f5f09eaea26ce8273adf89cd06ed64efa5bb28f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13888327032327652,
+      "alignment_seconds": 0.00010804086923599243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You may suppose that they are seen quite close: And here comes the point.",
+        "hotwords": "You, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You may suppose that they are seen quite close. And here comes the point.",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9453125
+            },
+            {
+              "text": " may",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " suppose",
+              "start": 0.66,
+              "end": 1.04,
+              "probability": 0.986328125
+            },
+            {
+              "text": " that",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " they",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " seen",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " quite",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " close.",
+              "start": 2.04,
+              "end": 2.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " And",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.9765625
+            },
+            {
+              "text": " here",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " comes",
+              "start": 3.2,
+              "end": 3.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.46,
+              "end": 3.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " point.",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "may",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "suppose",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "raw": "that",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "raw": "they",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "are",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "seen",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "quite",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "raw": "close.",
+          "start": 2.04,
+          "end": 2.4
+        },
+        {
+          "raw": "And",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "raw": "here",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "comes",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "raw": "the",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "raw": "point.",
+          "start": 3.68,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "may",
+        "suppose",
+        "that",
+        "they",
+        "are",
+        "seen",
+        "quite",
+        "close:",
+        "And",
+        "here",
+        "comes",
+        "the",
+        "point."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "may",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "suppose",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "text": "that",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "text": "they",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "are",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "seen",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "quite",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "text": "close:",
+          "start": 2.04,
+          "end": 2.4
+        },
+        {
+          "text": "And",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "here",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "comes",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "text": "the",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "text": "point.",
+          "start": 3.68,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13904590159654617
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf27045b11640c606f262e2a322bb2163f78a24bc051aef67cffec5af50bfbcf",
+  "selected_reasons": []
+}

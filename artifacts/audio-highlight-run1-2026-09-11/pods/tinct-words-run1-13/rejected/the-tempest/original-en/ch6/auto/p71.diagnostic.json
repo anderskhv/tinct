@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "c28018b9402f3c94309eb8ea53d3b28977ea6283c390419327651f2e3d27826b",
+  "attempts": [
+    {
+      "asr_seconds": 0.17510174703784287,
+      "alignment_seconds": 0.0002216759603470564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. Lead, monster; we'll follow. I would I could see this tabourer; he lays it on.",
+        "hotwords": "Stephano, Lead, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, Lead, monster, we'll follow. I would I could see this tabourer, he lays it on.",
+          "start": 0.56,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.49861907958984375
+            },
+            {
+              "text": " Lead,",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.03973388671875
+            },
+            {
+              "text": " monster,",
+              "start": 1.82,
+              "end": 2.14,
+              "probability": 0.1873779296875
+            },
+            {
+              "text": " we'll",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.4718599319458008
+            },
+            {
+              "text": " follow.",
+              "start": 2.48,
+              "end": 2.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 3.3,
+              "end": 3.36,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " would",
+              "start": 3.36,
+              "end": 3.44,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " I",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.79296875
+            },
+            {
+              "text": " could",
+              "start": 3.56,
+              "end": 3.68,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " see",
+              "start": 3.68,
+              "end": 3.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " this",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tabourer,",
+              "start": 4.08,
+              "end": 4.56,
+              "probability": 0.6071929931640625
+            },
+            {
+              "text": " he",
+              "start": 4.68,
+              "end": 4.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " lays",
+              "start": 4.8,
+              "end": 5.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " it",
+              "start": 5.0,
+              "end": 5.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " on.",
+              "start": 5.18,
+              "end": 5.42,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "Lead,",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "monster,",
+          "start": 1.82,
+          "end": 2.14
+        },
+        {
+          "raw": "we'll",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "follow.",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "raw": "I",
+          "start": 3.3,
+          "end": 3.36
+        },
+        {
+          "raw": "would",
+          "start": 3.36,
+          "end": 3.44
+        },
+        {
+          "raw": "I",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "could",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "raw": "see",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "raw": "this",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "raw": "tabourer,",
+          "start": 4.08,
+          "end": 4.56
+        },
+        {
+          "raw": "he",
+          "start": 4.68,
+          "end": 4.8
+        },
+        {
+          "raw": "lays",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "raw": "it",
+          "start": 5.0,
+          "end": 5.18
+        },
+        {
+          "raw": "on.",
+          "start": 5.18,
+          "end": 5.42
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Lead,",
+        "monster;",
+        "we'll",
+        "follow.",
+        "I",
+        "would",
+        "I",
+        "could",
+        "see",
+        "this",
+        "tabourer;",
+        "he",
+        "lays",
+        "it",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "Lead,",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "monster;",
+          "start": 1.82,
+          "end": 2.14
+        },
+        {
+          "text": "we'll",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "follow.",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "text": "I",
+          "start": 3.3,
+          "end": 3.36
+        },
+        {
+          "text": "would",
+          "start": 3.36,
+          "end": 3.44
+        },
+        {
+          "text": "I",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "could",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "text": "see",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "text": "this",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "text": "tabourer;",
+          "start": 4.08,
+          "end": 4.56
+        },
+        {
+          "text": "he",
+          "start": 4.68,
+          "end": 4.8
+        },
+        {
+          "text": "lays",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "text": "it",
+          "start": 5.0,
+          "end": 5.18
+        },
+        {
+          "text": "on.",
+          "start": 5.18,
+          "end": 5.42
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17543246503919363
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "737c1a036b079d566953936956ff4085d5c5a3ce466534d32070f5074bd32ed8",
+  "selected_reasons": []
+}

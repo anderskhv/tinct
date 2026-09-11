@@ -1,0 +1,490 @@
+{
+  "complete": true,
+  "signature": "2752fa59fe350d44946612f6f43bc77ab4cc1d0deae2ece127ae81b351b81a9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1872815266251564,
+      "alignment_seconds": 0.00012134015560150146,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jason, once let me kiss their lips, once twine mine arms and touch.",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " once",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " let",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " me",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " kiss",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.986328125
+            },
+            {
+              "text": " lips,",
+              "start": 2.08,
+              "end": 2.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " once",
+              "start": 2.5,
+              "end": 2.58,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " twine",
+              "start": 2.58,
+              "end": 2.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mine",
+              "start": 2.9,
+              "end": 3.12,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " arms",
+              "start": 3.12,
+              "end": 3.44,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " touch.",
+              "start": 3.64,
+              "end": 3.92,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Ah, woe is me.",
+          "start": 4.8,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 4.8,
+              "end": 4.86,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " woe",
+              "start": 5.12,
+              "end": 5.24,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " is",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me.",
+              "start": 5.44,
+              "end": 5.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "once",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "let",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "me",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "kiss",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "their",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "lips,",
+          "start": 2.08,
+          "end": 2.34
+        },
+        {
+          "raw": "once",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "raw": "twine",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "raw": "mine",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "raw": "arms",
+          "start": 3.12,
+          "end": 3.44
+        },
+        {
+          "raw": "and",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "touch.",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "raw": "Ah,",
+          "start": 4.8,
+          "end": 4.86
+        },
+        {
+          "raw": "woe",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "raw": "is",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "me.",
+          "start": 5.44,
+          "end": 5.68
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "Once",
+        "let",
+        "me",
+        "kiss",
+        "their",
+        "lips,",
+        "once",
+        "twine",
+        "Mine",
+        "arms",
+        "and",
+        "touch.",
+        ".",
+        ".",
+        ".",
+        "Ah,",
+        "woe",
+        "is",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "delete",
+          13,
+          16,
+          13,
+          13
+        ],
+        [
+          "equal",
+          16,
+          20,
+          13,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          13,
+          16,
+          13,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Once",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "let",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "me",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "kiss",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "their",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "lips,",
+          "start": 2.08,
+          "end": 2.34
+        },
+        {
+          "text": "once",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "text": "twine",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "text": "Mine",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "text": "arms",
+          "start": 3.12,
+          "end": 3.44
+        },
+        {
+          "text": "and",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "touch.",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "text": ".",
+          "start": 3.92,
+          "end": 4.36
+        },
+        {
+          "text": ".",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "text": ".",
+          "start": 4.58,
+          "end": 4.69
+        },
+        {
+          "text": "Ah,",
+          "start": 4.8,
+          "end": 4.86
+        },
+        {
+          "text": "woe",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "text": "is",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "me!",
+          "start": 5.44,
+          "end": 5.68
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.1874573603272438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bec4cf5b1ed0649f0dd8b30e5f713c8b625af0778f76d00ef95265a17a3fec02",
+  "selected_reasons": []
+}

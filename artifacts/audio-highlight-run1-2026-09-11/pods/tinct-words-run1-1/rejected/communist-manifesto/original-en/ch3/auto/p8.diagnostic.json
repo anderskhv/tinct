@@ -1,0 +1,496 @@
+{
+  "complete": true,
+  "signature": "ae8f8a319fe78060245863704594fb9537a11de5aa017f7910149c9ecd1c3198",
+  "attempts": [
+    {
+      "asr_seconds": 0.13123078644275665,
+      "alignment_seconds": 9.035319089889526e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All property relations in the past have continually been subject to historical change consequent upon the change in historical conditions.",
+        "hotwords": "All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All property relations in the past have continually been subject to historical change consequent upon the change in historical conditions.",
+          "start": 0.02,
+          "end": 8.64,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.8359375
+            },
+            {
+              "text": " property",
+              "start": 0.6,
+              "end": 0.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " relations",
+              "start": 0.96,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " past",
+              "start": 1.78,
+              "end": 2.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 2.18,
+              "end": 2.76,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " continually",
+              "start": 2.76,
+              "end": 3.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " been",
+              "start": 3.26,
+              "end": 3.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " subject",
+              "start": 3.58,
+              "end": 4.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.04,
+              "end": 4.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " historical",
+              "start": 4.32,
+              "end": 4.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " change",
+              "start": 4.74,
+              "end": 5.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " consequent",
+              "start": 5.4,
+              "end": 6.34,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " upon",
+              "start": 6.34,
+              "end": 6.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.64,
+              "end": 6.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " change",
+              "start": 6.8,
+              "end": 7.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 7.18,
+              "end": 7.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " historical",
+              "start": 7.58,
+              "end": 8.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " conditions.",
+              "start": 8.0,
+              "end": 8.64,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "property",
+          "start": 0.6,
+          "end": 0.96
+        },
+        {
+          "raw": "relations",
+          "start": 0.96,
+          "end": 1.52
+        },
+        {
+          "raw": "in",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "past",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "raw": "have",
+          "start": 2.18,
+          "end": 2.76
+        },
+        {
+          "raw": "continually",
+          "start": 2.76,
+          "end": 3.26
+        },
+        {
+          "raw": "been",
+          "start": 3.26,
+          "end": 3.58
+        },
+        {
+          "raw": "subject",
+          "start": 3.58,
+          "end": 4.04
+        },
+        {
+          "raw": "to",
+          "start": 4.04,
+          "end": 4.32
+        },
+        {
+          "raw": "historical",
+          "start": 4.32,
+          "end": 4.74
+        },
+        {
+          "raw": "change",
+          "start": 4.74,
+          "end": 5.4
+        },
+        {
+          "raw": "consequent",
+          "start": 5.4,
+          "end": 6.34
+        },
+        {
+          "raw": "upon",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "raw": "the",
+          "start": 6.64,
+          "end": 6.8
+        },
+        {
+          "raw": "change",
+          "start": 6.8,
+          "end": 7.18
+        },
+        {
+          "raw": "in",
+          "start": 7.18,
+          "end": 7.58
+        },
+        {
+          "raw": "historical",
+          "start": 7.58,
+          "end": 8.0
+        },
+        {
+          "raw": "conditions.",
+          "start": 8.0,
+          "end": 8.64
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "property",
+        "relations",
+        "in",
+        "the",
+        "past",
+        "have",
+        "continually",
+        "been",
+        "subject",
+        "to",
+        "historical",
+        "change",
+        "consequent",
+        "upon",
+        "the",
+        "change",
+        "in",
+        "historical",
+        "conditions."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "property",
+          "start": 0.6,
+          "end": 0.96
+        },
+        {
+          "text": "relations",
+          "start": 0.96,
+          "end": 1.52
+        },
+        {
+          "text": "in",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "past",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "text": "have",
+          "start": 2.18,
+          "end": 2.76
+        },
+        {
+          "text": "continually",
+          "start": 2.76,
+          "end": 3.26
+        },
+        {
+          "text": "been",
+          "start": 3.26,
+          "end": 3.58
+        },
+        {
+          "text": "subject",
+          "start": 3.58,
+          "end": 4.04
+        },
+        {
+          "text": "to",
+          "start": 4.04,
+          "end": 4.32
+        },
+        {
+          "text": "historical",
+          "start": 4.32,
+          "end": 4.74
+        },
+        {
+          "text": "change",
+          "start": 4.74,
+          "end": 5.4
+        },
+        {
+          "text": "consequent",
+          "start": 5.4,
+          "end": 6.34
+        },
+        {
+          "text": "upon",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "text": "the",
+          "start": 6.64,
+          "end": 6.8
+        },
+        {
+          "text": "change",
+          "start": 6.8,
+          "end": 7.18
+        },
+        {
+          "text": "in",
+          "start": 7.18,
+          "end": 7.58
+        },
+        {
+          "text": "historical",
+          "start": 7.58,
+          "end": 8.0
+        },
+        {
+          "text": "conditions.",
+          "start": 8.0,
+          "end": 8.64
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13136043399572372
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de9b437039c81ebe7a9da0b2abb2b37c1bab00a27cff2068bf50b459d0f4940d",
+  "selected_reasons": []
+}

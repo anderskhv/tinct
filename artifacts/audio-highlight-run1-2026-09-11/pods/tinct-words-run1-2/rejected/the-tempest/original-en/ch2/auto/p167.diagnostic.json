@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "2c79652518c863c20035aba05070e2f5adfc9364ee50f8781ccab1d3b208d04f",
+  "attempts": [
+    {
+      "asr_seconds": 0.0855383425951004,
+      "alignment_seconds": 6.259232759475708e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. Follow me.",
+        "hotwords": "Prospero, Follow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, Follow me.",
+          "start": 0.08,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.936767578125
+            },
+            {
+              "text": " Follow",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.040069580078125
+            },
+            {
+              "text": " me.",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.6611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Follow",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "me.",
+          "start": 1.34,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Follow",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "Follow",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "me.",
+          "start": 1.34,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08562463521957397
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c6606b8f638978629ac8c88c22ba1d3a68d53fd2ede7010e96900384a3efa93",
+  "selected_reasons": []
+}

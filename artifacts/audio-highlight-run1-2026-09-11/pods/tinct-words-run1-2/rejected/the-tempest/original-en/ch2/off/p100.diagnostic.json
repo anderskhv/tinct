@@ -1,0 +1,384 @@
+{
+  "complete": true,
+  "signature": "0d56022116b8d2e74fd42e4916e328b141c0a1518d2bf7d8455cb7dfcc1c5252",
+  "attempts": [
+    {
+      "asr_seconds": 0.17822343856096268,
+      "alignment_seconds": 0.00012216717004776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero thou poisonous slave got by the devil himself upon thy wicked dam come forth",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Prospero",
+              "start": 0.02,
+              "end": 1.04,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " thou",
+              "start": 1.04,
+              "end": 1.56,
+              "probability": 0.1962890625
+            },
+            {
+              "text": " poisonous",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " slave",
+              "start": 1.94,
+              "end": 2.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " got",
+              "start": 2.48,
+              "end": 3.06,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " by",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " devil",
+              "start": 3.34,
+              "end": 3.56,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " himself",
+              "start": 3.56,
+              "end": 3.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " upon",
+              "start": 3.94,
+              "end": 4.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thy",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " wicked",
+              "start": 4.52,
+              "end": 4.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dam",
+              "start": 4.8,
+              "end": 5.18,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " come",
+              "start": 5.18,
+              "end": 5.6,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " forth",
+              "start": 5.6,
+              "end": 6.0,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "raw": "thou",
+          "start": 1.04,
+          "end": 1.56
+        },
+        {
+          "raw": "poisonous",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "slave",
+          "start": 1.94,
+          "end": 2.48
+        },
+        {
+          "raw": "got",
+          "start": 2.48,
+          "end": 3.06
+        },
+        {
+          "raw": "by",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "devil",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "raw": "himself",
+          "start": 3.56,
+          "end": 3.94
+        },
+        {
+          "raw": "upon",
+          "start": 3.94,
+          "end": 4.32
+        },
+        {
+          "raw": "thy",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "wicked",
+          "start": 4.52,
+          "end": 4.8
+        },
+        {
+          "raw": "dam",
+          "start": 4.8,
+          "end": 5.18
+        },
+        {
+          "raw": "come",
+          "start": 5.18,
+          "end": 5.6
+        },
+        {
+          "raw": "forth",
+          "start": 5.6,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Thou",
+        "poisonous",
+        "slave,",
+        "got",
+        "by",
+        "the",
+        "devil",
+        "himself",
+        "Upon",
+        "thy",
+        "wicked",
+        "dam,",
+        "come",
+        "forth!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "text": "Thou",
+          "start": 1.04,
+          "end": 1.56
+        },
+        {
+          "text": "poisonous",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "slave,",
+          "start": 1.94,
+          "end": 2.48
+        },
+        {
+          "text": "got",
+          "start": 2.48,
+          "end": 3.06
+        },
+        {
+          "text": "by",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "devil",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "text": "himself",
+          "start": 3.56,
+          "end": 3.94
+        },
+        {
+          "text": "Upon",
+          "start": 3.94,
+          "end": 4.32
+        },
+        {
+          "text": "thy",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "wicked",
+          "start": 4.52,
+          "end": 4.8
+        },
+        {
+          "text": "dam,",
+          "start": 4.8,
+          "end": 5.18
+        },
+        {
+          "text": "come",
+          "start": 5.18,
+          "end": 5.6
+        },
+        {
+          "text": "forth!",
+          "start": 5.6,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17840660363435745
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25c47aa60cb41415d6a5ce4a5f04f578040cfc6e2690610e6b5047c365943998",
+  "selected_reasons": []
+}

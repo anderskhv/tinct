@@ -1,0 +1,2313 @@
+{
+  "complete": true,
+  "signature": "1cf4ac57d8c66046c4c7fae17feedd13f39b96ef1736b68773558df6afe9ac07",
+  "attempts": [
+    {
+      "asr_seconds": 0.3524026199011132,
+      "alignment_seconds": 0.0002550890203565359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caliban. I say, by sorcery he got this isle; From me he got it. if thy greatness will Revenge it on him,--for I know thou darest, But this thing dare not,--",
+        "hotwords": "Caliban, I, From, Revenge, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caliban, I say, by sorcery he got this isle, From me he got it. if thy greatness will Revenge it on him,-for I know thou darest, But this thing dare not.",
+          "start": 0.05,
+          "end": 9.79,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " say,",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " sorcery",
+              "start": 1.89,
+              "end": 2.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.927734375
+            },
+            {
+              "text": " got",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " isle,",
+              "start": 2.95,
+              "end": 3.37,
+              "probability": 0.883544921875
+            },
+            {
+              "text": " From",
+              "start": 3.71,
+              "end": 3.79,
+              "probability": 0.0947265625
+            },
+            {
+              "text": " me",
+              "start": 3.79,
+              "end": 4.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " got",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it.",
+              "start": 4.39,
+              "end": 4.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.00970458984375
+            },
+            {
+              "text": " thy",
+              "start": 5.29,
+              "end": 5.47,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " greatness",
+              "start": 5.47,
+              "end": 5.89,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " will",
+              "start": 5.89,
+              "end": 6.17,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Revenge",
+              "start": 6.17,
+              "end": 6.51,
+              "probability": 0.00058746337890625
+            },
+            {
+              "text": " it",
+              "start": 6.51,
+              "end": 6.69,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " on",
+              "start": 6.69,
+              "end": 6.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " him,",
+              "start": 6.79,
+              "end": 6.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": "-for",
+              "start": 7.09,
+              "end": 7.15,
+              "probability": 0.4072336256504059
+            },
+            {
+              "text": " I",
+              "start": 7.15,
+              "end": 7.39,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " know",
+              "start": 7.39,
+              "end": 7.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thou",
+              "start": 7.55,
+              "end": 7.73,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " darest,",
+              "start": 7.73,
+              "end": 8.13,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " But",
+              "start": 8.57,
+              "end": 8.69,
+              "probability": 0.28271484375
+            },
+            {
+              "text": " this",
+              "start": 8.69,
+              "end": 8.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thing",
+              "start": 8.91,
+              "end": 9.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " dare",
+              "start": 9.15,
+              "end": 9.41,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " not.",
+              "start": 9.41,
+              "end": 9.79,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "raw": "say,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "by",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "sorcery",
+          "start": 1.89,
+          "end": 2.27
+        },
+        {
+          "raw": "he",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "raw": "got",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "this",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "isle,",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "raw": "From",
+          "start": 3.71,
+          "end": 3.79
+        },
+        {
+          "raw": "me",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "raw": "he",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "got",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "it.",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "raw": "if",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "thy",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "raw": "greatness",
+          "start": 5.47,
+          "end": 5.89
+        },
+        {
+          "raw": "will",
+          "start": 5.89,
+          "end": 6.17
+        },
+        {
+          "raw": "Revenge",
+          "start": 6.17,
+          "end": 6.51
+        },
+        {
+          "raw": "it",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "raw": "on",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "raw": "him,",
+          "start": 6.79,
+          "end": 6.95
+        },
+        {
+          "raw": "-for",
+          "start": 7.09,
+          "end": 7.15
+        },
+        {
+          "raw": "I",
+          "start": 7.15,
+          "end": 7.39
+        },
+        {
+          "raw": "know",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "raw": "thou",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "raw": "darest,",
+          "start": 7.73,
+          "end": 8.13
+        },
+        {
+          "raw": "But",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "raw": "this",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "raw": "thing",
+          "start": 8.91,
+          "end": 9.15
+        },
+        {
+          "raw": "dare",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "raw": "not.",
+          "start": 9.41,
+          "end": 9.79
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "I",
+        "say,",
+        "by",
+        "sorcery",
+        "he",
+        "got",
+        "this",
+        "isle;",
+        "From",
+        "me",
+        "he",
+        "got",
+        "it.",
+        "if",
+        "thy",
+        "greatness",
+        "will",
+        "Revenge",
+        "it",
+        "on",
+        "him,--for",
+        "I",
+        "know",
+        "thou",
+        "darest,",
+        "But",
+        "this",
+        "thing",
+        "dare",
+        "not,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ],
+        [
+          "equal",
+          22,
+          31,
+          23,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "I",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "text": "say,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "by",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "sorcery",
+          "start": 1.89,
+          "end": 2.27
+        },
+        {
+          "text": "he",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "text": "got",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "this",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "isle;",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "text": "From",
+          "start": 3.71,
+          "end": 3.79
+        },
+        {
+          "text": "me",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "text": "he",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "got",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "it.",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "text": "if",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "thy",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "text": "greatness",
+          "start": 5.47,
+          "end": 5.89
+        },
+        {
+          "text": "will",
+          "start": 5.89,
+          "end": 6.17
+        },
+        {
+          "text": "Revenge",
+          "start": 6.17,
+          "end": 6.51
+        },
+        {
+          "text": "it",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "text": "on",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "text": "him,--for",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "text": "I",
+          "start": 7.15,
+          "end": 7.39
+        },
+        {
+          "text": "know",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "text": "thou",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "text": "darest,",
+          "start": 7.73,
+          "end": 8.13
+        },
+        {
+          "text": "But",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "text": "this",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "text": "thing",
+          "start": 8.91,
+          "end": 9.15
+        },
+        {
+          "text": "dare",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "text": "not,--",
+          "start": 9.41,
+          "end": 9.79
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 32,
+        "matched_words": 30
+      },
+      "match_ratio": 0.967741935483871,
+      "rejection_reasons": [],
+      "seconds": 0.3527849829988554
+    },
+    {
+      "asr_seconds": 0.3573298290139064,
+      "alignment_seconds": 0.00020089594181627035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Caliban, I, From, Revenge, But"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Caliban, I say, By sorcery he got this isle,",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " say,",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " By",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.1639404296875
+            },
+            {
+              "text": " sorcery",
+              "start": 1.87,
+              "end": 2.27,
+              "probability": 0.982421875
+            },
+            {
+              "text": " he",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.880859375
+            },
+            {
+              "text": " got",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " this",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " isle,",
+              "start": 2.95,
+              "end": 3.37,
+              "probability": 0.904541015625
+            }
+          ]
+        },
+        {
+          "text": " From me he got it, If thy greatness will revenge it on him for",
+          "start": 3.67,
+          "end": 7.15,
+          "words": [
+            {
+              "text": " From",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " me",
+              "start": 3.79,
+              "end": 4.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.96875
+            },
+            {
+              "text": " got",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it,",
+              "start": 4.39,
+              "end": 4.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " If",
+              "start": 5.09,
+              "end": 5.29,
+              "probability": 0.953125
+            },
+            {
+              "text": " thy",
+              "start": 5.29,
+              "end": 5.45,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " greatness",
+              "start": 5.45,
+              "end": 5.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 5.87,
+              "end": 6.17,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " revenge",
+              "start": 6.17,
+              "end": 6.51,
+              "probability": 0.95703125
+            },
+            {
+              "text": " it",
+              "start": 6.51,
+              "end": 6.69,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " on",
+              "start": 6.69,
+              "end": 6.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " him",
+              "start": 6.79,
+              "end": 6.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 6.95,
+              "end": 7.15,
+              "probability": 0.77197265625
+            }
+          ]
+        },
+        {
+          "text": " I know thou darest, But this thing dare not.",
+          "start": 7.15,
+          "end": 9.79,
+          "words": [
+            {
+              "text": " I",
+              "start": 7.15,
+              "end": 7.37,
+              "probability": 0.7734375
+            },
+            {
+              "text": " know",
+              "start": 7.37,
+              "end": 7.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thou",
+              "start": 7.55,
+              "end": 7.71,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " darest,",
+              "start": 7.71,
+              "end": 8.13,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " But",
+              "start": 8.59,
+              "end": 8.69,
+              "probability": 0.8828125
+            },
+            {
+              "text": " this",
+              "start": 8.69,
+              "end": 8.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thing",
+              "start": 8.91,
+              "end": 9.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dare",
+              "start": 9.15,
+              "end": 9.41,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " not.",
+              "start": 9.41,
+              "end": 9.79,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "raw": "say,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "By",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "sorcery",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "raw": "he",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "raw": "got",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "this",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "isle,",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "raw": "From",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "me",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "raw": "he",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "got",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "it,",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "raw": "If",
+          "start": 5.09,
+          "end": 5.29
+        },
+        {
+          "raw": "thy",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "raw": "greatness",
+          "start": 5.45,
+          "end": 5.87
+        },
+        {
+          "raw": "will",
+          "start": 5.87,
+          "end": 6.17
+        },
+        {
+          "raw": "revenge",
+          "start": 6.17,
+          "end": 6.51
+        },
+        {
+          "raw": "it",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "raw": "on",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "raw": "him",
+          "start": 6.79,
+          "end": 6.95
+        },
+        {
+          "raw": "for",
+          "start": 6.95,
+          "end": 7.15
+        },
+        {
+          "raw": "I",
+          "start": 7.15,
+          "end": 7.37
+        },
+        {
+          "raw": "know",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "raw": "thou",
+          "start": 7.55,
+          "end": 7.71
+        },
+        {
+          "raw": "darest,",
+          "start": 7.71,
+          "end": 8.13
+        },
+        {
+          "raw": "But",
+          "start": 8.59,
+          "end": 8.69
+        },
+        {
+          "raw": "this",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "raw": "thing",
+          "start": 8.91,
+          "end": 9.15
+        },
+        {
+          "raw": "dare",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "raw": "not.",
+          "start": 9.41,
+          "end": 9.79
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "I",
+        "say,",
+        "by",
+        "sorcery",
+        "he",
+        "got",
+        "this",
+        "isle;",
+        "From",
+        "me",
+        "he",
+        "got",
+        "it.",
+        "if",
+        "thy",
+        "greatness",
+        "will",
+        "Revenge",
+        "it",
+        "on",
+        "him,--for",
+        "I",
+        "know",
+        "thou",
+        "darest,",
+        "But",
+        "this",
+        "thing",
+        "dare",
+        "not,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ],
+        [
+          "equal",
+          22,
+          31,
+          23,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "I",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "text": "say,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "by",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "sorcery",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "text": "he",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "text": "got",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "this",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "isle;",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "text": "From",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "me",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "text": "he",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "got",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "it.",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "text": "if",
+          "start": 5.09,
+          "end": 5.29
+        },
+        {
+          "text": "thy",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "text": "greatness",
+          "start": 5.45,
+          "end": 5.87
+        },
+        {
+          "text": "will",
+          "start": 5.87,
+          "end": 6.17
+        },
+        {
+          "text": "Revenge",
+          "start": 6.17,
+          "end": 6.51
+        },
+        {
+          "text": "it",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "text": "on",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "text": "him,--for",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "text": "I",
+          "start": 7.15,
+          "end": 7.37
+        },
+        {
+          "text": "know",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "text": "thou",
+          "start": 7.55,
+          "end": 7.71
+        },
+        {
+          "text": "darest,",
+          "start": 7.71,
+          "end": 8.13
+        },
+        {
+          "text": "But",
+          "start": 8.59,
+          "end": 8.69
+        },
+        {
+          "text": "this",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "text": "thing",
+          "start": 8.91,
+          "end": 9.15
+        },
+        {
+          "text": "dare",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "text": "not,--",
+          "start": 9.41,
+          "end": 9.79
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 32,
+        "matched_words": 30
+      },
+      "match_ratio": 0.967741935483871,
+      "rejection_reasons": [],
+      "seconds": 0.3576392090180889
+    },
+    {
+      "asr_seconds": 0.3357589769875631,
+      "alignment_seconds": 0.00021491700317710638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caliban, I say, by sorcery he got this isle. From me he got it. If thy greatness will revenge",
+          "start": 0.05,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " say,",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " sorcery",
+              "start": 1.89,
+              "end": 2.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.927734375
+            },
+            {
+              "text": " got",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " isle.",
+              "start": 2.95,
+              "end": 3.37,
+              "probability": 0.883544921875
+            },
+            {
+              "text": " From",
+              "start": 3.71,
+              "end": 3.81,
+              "probability": 0.96484375
+            },
+            {
+              "text": " me",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " got",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 4.39,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " If",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " thy",
+              "start": 5.29,
+              "end": 5.47,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " greatness",
+              "start": 5.47,
+              "end": 5.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 5.89,
+              "end": 6.17,
+              "probability": 0.970703125
+            },
+            {
+              "text": " revenge",
+              "start": 6.17,
+              "end": 6.51,
+              "probability": 0.96337890625
+            }
+          ]
+        },
+        {
+          "text": " it on him for, I know thou darest, but this thing dare not.",
+          "start": 6.51,
+          "end": 9.77,
+          "words": [
+            {
+              "text": " it",
+              "start": 6.51,
+              "end": 6.69,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " on",
+              "start": 6.69,
+              "end": 6.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 6.79,
+              "end": 6.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for,",
+              "start": 6.93,
+              "end": 7.15,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " I",
+              "start": 7.33,
+              "end": 7.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know",
+              "start": 7.39,
+              "end": 7.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thou",
+              "start": 7.55,
+              "end": 7.73,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " darest,",
+              "start": 7.73,
+              "end": 8.11,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " but",
+              "start": 8.59,
+              "end": 8.69,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " this",
+              "start": 8.69,
+              "end": 8.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thing",
+              "start": 8.91,
+              "end": 9.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dare",
+              "start": 9.15,
+              "end": 9.41,
+              "probability": 0.87109375
+            },
+            {
+              "text": " not.",
+              "start": 9.41,
+              "end": 9.77,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "raw": "say,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "by",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "sorcery",
+          "start": 1.89,
+          "end": 2.27
+        },
+        {
+          "raw": "he",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "raw": "got",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "this",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "isle.",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "raw": "From",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "raw": "me",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "raw": "he",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "got",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "it.",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "raw": "If",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "thy",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "raw": "greatness",
+          "start": 5.47,
+          "end": 5.89
+        },
+        {
+          "raw": "will",
+          "start": 5.89,
+          "end": 6.17
+        },
+        {
+          "raw": "revenge",
+          "start": 6.17,
+          "end": 6.51
+        },
+        {
+          "raw": "it",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "raw": "on",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "raw": "him",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "raw": "for,",
+          "start": 6.93,
+          "end": 7.15
+        },
+        {
+          "raw": "I",
+          "start": 7.33,
+          "end": 7.39
+        },
+        {
+          "raw": "know",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "raw": "thou",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "raw": "darest,",
+          "start": 7.73,
+          "end": 8.11
+        },
+        {
+          "raw": "but",
+          "start": 8.59,
+          "end": 8.69
+        },
+        {
+          "raw": "this",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "raw": "thing",
+          "start": 8.91,
+          "end": 9.15
+        },
+        {
+          "raw": "dare",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "raw": "not.",
+          "start": 9.41,
+          "end": 9.77
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "I",
+        "say,",
+        "by",
+        "sorcery",
+        "he",
+        "got",
+        "this",
+        "isle;",
+        "From",
+        "me",
+        "he",
+        "got",
+        "it.",
+        "if",
+        "thy",
+        "greatness",
+        "will",
+        "Revenge",
+        "it",
+        "on",
+        "him,--for",
+        "I",
+        "know",
+        "thou",
+        "darest,",
+        "But",
+        "this",
+        "thing",
+        "dare",
+        "not,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ],
+        [
+          "equal",
+          22,
+          31,
+          23,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "I",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "text": "say,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "by",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "sorcery",
+          "start": 1.89,
+          "end": 2.27
+        },
+        {
+          "text": "he",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "text": "got",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "this",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "isle;",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "text": "From",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "text": "me",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "text": "he",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "got",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "it.",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "text": "if",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "thy",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "text": "greatness",
+          "start": 5.47,
+          "end": 5.89
+        },
+        {
+          "text": "will",
+          "start": 5.89,
+          "end": 6.17
+        },
+        {
+          "text": "Revenge",
+          "start": 6.17,
+          "end": 6.51
+        },
+        {
+          "text": "it",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "text": "on",
+          "start": 6.69,
+          "end": 6.79
+        },
+        {
+          "text": "him,--for",
+          "start": 6.79,
+          "end": 7.06
+        },
+        {
+          "text": "I",
+          "start": 7.33,
+          "end": 7.39
+        },
+        {
+          "text": "know",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "text": "thou",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "text": "darest,",
+          "start": 7.73,
+          "end": 8.11
+        },
+        {
+          "text": "But",
+          "start": 8.59,
+          "end": 8.69
+        },
+        {
+          "text": "this",
+          "start": 8.69,
+          "end": 8.91
+        },
+        {
+          "text": "thing",
+          "start": 8.91,
+          "end": 9.15
+        },
+        {
+          "text": "dare",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "text": "not,--",
+          "start": 9.41,
+          "end": 9.77
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 32,
+        "matched_words": 30
+      },
+      "match_ratio": 0.967741935483871,
+      "rejection_reasons": [],
+      "seconds": 0.3360864380374551
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7491f5e6fb49a88481d394db408d2afef2798012cad1300583147d80f01ccecb",
+  "selected_reasons": []
+}

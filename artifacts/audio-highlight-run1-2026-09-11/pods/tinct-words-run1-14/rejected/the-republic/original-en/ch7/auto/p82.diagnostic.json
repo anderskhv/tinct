@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "0a9cc5ac7affa1b64773488d4a9ff6ac7ecac2f1e3ee676f71d1cb3a2e0a8b56",
+  "attempts": [
+    {
+      "asr_seconds": 0.12322807312011719,
+      "alignment_seconds": 9.223818778991699e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then this new kind of knowledge must have an additional quality?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then this new kind of knowledge must have an additional quality?",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " this",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.900390625
+            },
+            {
+              "text": " new",
+              "start": 0.85,
+              "end": 1.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kind",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " knowledge",
+              "start": 1.43,
+              "end": 1.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " must",
+              "start": 1.85,
+              "end": 2.35,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " have",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " additional",
+              "start": 2.71,
+              "end": 3.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quality?",
+              "start": 3.07,
+              "end": 3.61,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "this",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "new",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "raw": "kind",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "of",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "knowledge",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "raw": "must",
+          "start": 1.85,
+          "end": 2.35
+        },
+        {
+          "raw": "have",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "an",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "additional",
+          "start": 2.71,
+          "end": 3.07
+        },
+        {
+          "raw": "quality?",
+          "start": 3.07,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "this",
+        "new",
+        "kind",
+        "of",
+        "knowledge",
+        "must",
+        "have",
+        "an",
+        "additional",
+        "quality?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "this",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "new",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "text": "kind",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "of",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "knowledge",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "text": "must",
+          "start": 1.85,
+          "end": 2.35
+        },
+        {
+          "text": "have",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "an",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "additional",
+          "start": 2.71,
+          "end": 3.07
+        },
+        {
+          "text": "quality?",
+          "start": 3.07,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12336824834346771
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "342d4a8132b7836f83d561702bb1fa42139920939e8f9210c893c4de596d8ebc",
+  "selected_reasons": []
+}

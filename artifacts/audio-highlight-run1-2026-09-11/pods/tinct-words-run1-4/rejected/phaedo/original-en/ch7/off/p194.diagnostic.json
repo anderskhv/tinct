@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "f9213241375089d144e74427fa7c2b7053b3359715a7ee4f131ea71453ca6d59",
+  "attempts": [
+    {
+      "asr_seconds": 0.08642817847430706,
+      "alignment_seconds": 6.59869983792305e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, he said, of course.",
+          "start": 0.34,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.34,
+              "end": 0.64,
+              "probability": 0.468505859375
+            },
+            {
+              "text": " he",
+              "start": 0.74,
+              "end": 0.82,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " said,",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.1,
+              "end": 1.12,
+              "probability": 0.966796875
+            },
+            {
+              "text": " course.",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.34,
+          "end": 0.64
+        },
+        {
+          "raw": "he",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "raw": "said,",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "of",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "raw": "course.",
+          "start": 1.12,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said,",
+        "of",
+        "course."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.34,
+          "end": 0.64
+        },
+        {
+          "text": "he",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "text": "said,",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "of",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "text": "course.",
+          "start": 1.12,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08652214612811804
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "468fcc22ea9291e7dd695117e813f6395ebb1faf7be179da185bc86012453a52",
+  "selected_reasons": []
+}

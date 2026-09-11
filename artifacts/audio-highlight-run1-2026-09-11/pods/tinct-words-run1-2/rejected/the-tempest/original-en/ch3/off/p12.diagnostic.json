@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "948078a076442a9898e184768fa7b3b3d8c339ccc30bf128810ae51d902f0d68",
+  "attempts": [
+    {
+      "asr_seconds": 0.11536077409982681,
+      "alignment_seconds": 8.199363946914673e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, therefore my lord.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.795166015625
+            },
+            {
+              "text": " therefore",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " my",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.87890625
+            },
+            {
+              "text": " lord.",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.7265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "therefore",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "my",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "raw": "lord.",
+          "start": 1.79,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Therefore,",
+        "my",
+        "lord,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Therefore,",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "my",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "text": "lord,--",
+          "start": 1.79,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1154748871922493
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "24bc480eccab21c9d9536d999399fba95288e15565e72482bf8e3aba355f2ffe",
+  "selected_reasons": []
+}

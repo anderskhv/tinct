@@ -1,0 +1,457 @@
+{
+  "complete": true,
+  "signature": "54199d93ddeb0b4441c0bba75741ace51d7f5c34821b0a9b0e80d9eb3de01bbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.20179206877946854,
+      "alignment_seconds": 9.648501873016357e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, my brave spirit, who was so firm, so constant, that this coil would not infect",
+          "start": 0.5,
+          "end": 5.96,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.5,
+              "end": 0.98,
+              "probability": 0.791748046875
+            },
+            {
+              "text": " my",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " brave",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " spirit,",
+              "start": 1.64,
+              "end": 2.1,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " who",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " was",
+              "start": 2.84,
+              "end": 2.94,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " so",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " firm,",
+              "start": 3.14,
+              "end": 3.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 3.82,
+              "end": 3.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " constant,",
+              "start": 3.9,
+              "end": 4.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 4.64,
+              "end": 4.74,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " this",
+              "start": 4.74,
+              "end": 4.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " coil",
+              "start": 4.96,
+              "end": 5.2,
+              "probability": 0.98828125
+            },
+            {
+              "text": " would",
+              "start": 5.2,
+              "end": 5.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " infect",
+              "start": 5.6,
+              "end": 5.96,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " his reason.",
+          "start": 5.96,
+          "end": 6.56,
+          "words": [
+            {
+              "text": " his",
+              "start": 5.96,
+              "end": 6.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " reason.",
+              "start": 6.18,
+              "end": 6.56,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.5,
+          "end": 0.98
+        },
+        {
+          "raw": "my",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "brave",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "spirit,",
+          "start": 1.64,
+          "end": 2.1
+        },
+        {
+          "raw": "who",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "was",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "raw": "so",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "firm,",
+          "start": 3.14,
+          "end": 3.52
+        },
+        {
+          "raw": "so",
+          "start": 3.82,
+          "end": 3.9
+        },
+        {
+          "raw": "constant,",
+          "start": 3.9,
+          "end": 4.4
+        },
+        {
+          "raw": "that",
+          "start": 4.64,
+          "end": 4.74
+        },
+        {
+          "raw": "this",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "raw": "coil",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "raw": "would",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "raw": "not",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "infect",
+          "start": 5.6,
+          "end": 5.96
+        },
+        {
+          "raw": "his",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "raw": "reason.",
+          "start": 6.18,
+          "end": 6.56
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "My",
+        "brave",
+        "spirit!",
+        "Who",
+        "was",
+        "so",
+        "firm,",
+        "so",
+        "constant,",
+        "that",
+        "this",
+        "coil",
+        "Would",
+        "not",
+        "infect",
+        "his",
+        "reason?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.5,
+          "end": 0.98
+        },
+        {
+          "text": "My",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "brave",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "spirit!",
+          "start": 1.64,
+          "end": 2.1
+        },
+        {
+          "text": "Who",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "was",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "text": "so",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "firm,",
+          "start": 3.14,
+          "end": 3.52
+        },
+        {
+          "text": "so",
+          "start": 3.82,
+          "end": 3.9
+        },
+        {
+          "text": "constant,",
+          "start": 3.9,
+          "end": 4.4
+        },
+        {
+          "text": "that",
+          "start": 4.64,
+          "end": 4.74
+        },
+        {
+          "text": "this",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "text": "coil",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "text": "Would",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "text": "not",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "infect",
+          "start": 5.6,
+          "end": 5.96
+        },
+        {
+          "text": "his",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "text": "reason?",
+          "start": 6.18,
+          "end": 6.56
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20193510502576828
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "33226878f5538b672c6cd3d58cc79fbcdc54e8d8606a752695bfe5a986cdc3b0",
+  "selected_reasons": []
+}

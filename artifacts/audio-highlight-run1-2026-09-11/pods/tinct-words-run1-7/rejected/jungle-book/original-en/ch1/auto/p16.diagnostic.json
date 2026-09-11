@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "4539da853eea6f5b76d7bd130a6a56433abbb6a3ae164ebeff5ff763114708c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.17128984350711107,
+      "alignment_seconds": 0.00010714400559663773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The fool!\" said Father Wolf. \"To begin a night's work with that noise! Does he think that our buck are like his fat Waingunga bullocks?\"",
+        "hotwords": "The, Father, Wolf, To, Does, Waingunga"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The fool! said Father Wolf. To begin a night's work with that noise! Does he think that our",
+          "start": 0.05,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.167236328125
+            },
+            {
+              "text": " fool!",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " said",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Father",
+              "start": 1.55,
+              "end": 1.89,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " Wolf.",
+              "start": 1.89,
+              "end": 2.17,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " To",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " begin",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " night's",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.61578369140625
+            },
+            {
+              "text": " work",
+              "start": 3.55,
+              "end": 3.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 3.75,
+              "end": 3.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 3.95,
+              "end": 4.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " noise!",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Does",
+              "start": 5.05,
+              "end": 5.13,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " he",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " think",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 5.41,
+              "end": 5.55,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " our",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " buck are like his fat Waingunga bullocks?\"",
+          "start": 5.71,
+          "end": 8.33,
+          "words": [
+            {
+              "text": " buck",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " are",
+              "start": 5.91,
+              "end": 6.09,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " like",
+              "start": 6.09,
+              "end": 6.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 6.23,
+              "end": 6.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fat",
+              "start": 6.39,
+              "end": 6.71,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Waingunga",
+              "start": 6.71,
+              "end": 7.41,
+              "probability": 0.6973865032196045
+            },
+            {
+              "text": " bullocks?\"",
+              "start": 7.41,
+              "end": 8.33,
+              "probability": 0.3734029134114583
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "fool!",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "said",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "Father",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "raw": "Wolf.",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "raw": "To",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "begin",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "a",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "night's",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "raw": "work",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "raw": "with",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "raw": "that",
+          "start": 3.95,
+          "end": 4.15
+        },
+        {
+          "raw": "noise!",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "Does",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "raw": "he",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "think",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "that",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "raw": "our",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "buck",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "are",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "raw": "like",
+          "start": 6.09,
+          "end": 6.23
+        },
+        {
+          "raw": "his",
+          "start": 6.23,
+          "end": 6.39
+        },
+        {
+          "raw": "fat",
+          "start": 6.39,
+          "end": 6.71
+        },
+        {
+          "raw": "Waingunga",
+          "start": 6.71,
+          "end": 7.41
+        },
+        {
+          "raw": "bullocks?\"",
+          "start": 7.41,
+          "end": 8.33
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "fool!\"",
+        "said",
+        "Father",
+        "Wolf.",
+        "\"To",
+        "begin",
+        "a",
+        "night's",
+        "work",
+        "with",
+        "that",
+        "noise!",
+        "Does",
+        "he",
+        "think",
+        "that",
+        "our",
+        "buck",
+        "are",
+        "like",
+        "his",
+        "fat",
+        "Waingunga",
+        "bullocks?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "fool!\"",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "said",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "Father",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "text": "Wolf.",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "text": "\"To",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "begin",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "a",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "night's",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "text": "work",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "text": "with",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "text": "that",
+          "start": 3.95,
+          "end": 4.15
+        },
+        {
+          "text": "noise!",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "text": "Does",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "text": "he",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "think",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "text": "that",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "text": "our",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "buck",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "are",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "text": "like",
+          "start": 6.09,
+          "end": 6.23
+        },
+        {
+          "text": "his",
+          "start": 6.23,
+          "end": 6.39
+        },
+        {
+          "text": "fat",
+          "start": 6.39,
+          "end": 6.71
+        },
+        {
+          "text": "Waingunga",
+          "start": 6.71,
+          "end": 7.41
+        },
+        {
+          "text": "bullocks?\"",
+          "start": 7.41,
+          "end": 8.33
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1714581260457635
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6cb1d0d09dc873cafbbaa4ec99a2041c38e6ced7712d952af0735b4a979a9288",
+  "selected_reasons": []
+}

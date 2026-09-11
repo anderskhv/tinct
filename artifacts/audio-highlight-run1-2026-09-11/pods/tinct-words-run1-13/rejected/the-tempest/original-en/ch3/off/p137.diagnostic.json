@@ -1,0 +1,117 @@
+{
+  "complete": true,
+  "signature": "33f5f2c200313501f0c6879d90418eb3dca362d7fb8eb144df0bd3d3c1392e6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10279439191799611,
+      "alignment_seconds": 7.788301445543766e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, Clarable.",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.634765625
+            },
+            {
+              "text": " Clarable.",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.5084228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Clarable.",
+          "start": 1.4,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Claribel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Claribel.",
+          "start": 0.92,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10289850598201156
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8b55f36b825c87619792c84edd666d7976cf95c5406b08bcd70f99dbcfdd63f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

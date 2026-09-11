@@ -1,0 +1,413 @@
+{
+  "complete": true,
+  "signature": "a2a4632d8f3fa7341038a91acb38231c70dee211c8deea2fde5e9143cc1eac05",
+  "attempts": [
+    {
+      "asr_seconds": 0.2202061042189598,
+      "alignment_seconds": 9.93087887763977e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Assuredly not, he said.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Assuredly",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.7277018229166666
+            },
+            {
+              "text": " not,",
+              "start": 0.97,
+              "end": 1.29,
+              "probability": 0.98828125
+            },
+            {
+              "text": " he",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said.",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I have hardly ever known a mathematician who was capable of reasoning.",
+          "start": 2.45,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.45,
+              "end": 2.53,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " have",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hardly",
+              "start": 2.63,
+              "end": 2.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ever",
+              "start": 2.89,
+              "end": 3.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " known",
+              "start": 3.25,
+              "end": 3.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 3.45,
+              "end": 3.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mathematician",
+              "start": 3.63,
+              "end": 4.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " who",
+              "start": 4.03,
+              "end": 4.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 4.55,
+              "end": 4.69,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " capable",
+              "start": 4.69,
+              "end": 5.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.03,
+              "end": 5.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reasoning.",
+              "start": 5.31,
+              "end": 5.71,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Assuredly",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "not,",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "said.",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "raw": "have",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "hardly",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "raw": "ever",
+          "start": 2.89,
+          "end": 3.25
+        },
+        {
+          "raw": "known",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "raw": "a",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "raw": "mathematician",
+          "start": 3.63,
+          "end": 4.03
+        },
+        {
+          "raw": "who",
+          "start": 4.03,
+          "end": 4.55
+        },
+        {
+          "raw": "was",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "raw": "capable",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "raw": "of",
+          "start": 5.03,
+          "end": 5.31
+        },
+        {
+          "raw": "reasoning.",
+          "start": 5.31,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "Assuredly",
+        "not,",
+        "he",
+        "said;",
+        "I",
+        "have",
+        "hardly",
+        "ever",
+        "known",
+        "a",
+        "mathematician",
+        "who",
+        "was",
+        "capable",
+        "of",
+        "reasoning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Assuredly",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "not,",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "he",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "said;",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "I",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "text": "have",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "hardly",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "text": "ever",
+          "start": 2.89,
+          "end": 3.25
+        },
+        {
+          "text": "known",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "text": "a",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "text": "mathematician",
+          "start": 3.63,
+          "end": 4.03
+        },
+        {
+          "text": "who",
+          "start": 4.03,
+          "end": 4.55
+        },
+        {
+          "text": "was",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "text": "capable",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "text": "of",
+          "start": 5.03,
+          "end": 5.31
+        },
+        {
+          "text": "reasoning.",
+          "start": 5.31,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22035688161849976
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a447b7702a984e48e6e9012d1c6949946ca176cca42da33a6ec3ba6319e5ab68",
+  "selected_reasons": []
+}

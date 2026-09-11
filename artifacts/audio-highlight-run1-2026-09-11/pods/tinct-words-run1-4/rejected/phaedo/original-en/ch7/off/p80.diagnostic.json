@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "signature": "29ed71ae71e9e8913e091da1d7991efb2fac63ccc75c750436ec93fc3fdcda27",
+  "attempts": [
+    {
+      "asr_seconds": 0.13918486144393682,
+      "alignment_seconds": 6.213411688804626e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I agree with you, Socrates, he said.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.100341796875
+            },
+            {
+              "text": " agree",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " with",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 0.94,
+              "end": 1.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Socrates,",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " he",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said.",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "agree",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "with",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "you,",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "raw": "Socrates,",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "he",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "said.",
+          "start": 2.12,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "agree",
+        "with",
+        "you,",
+        "Socrates,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "agree",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "with",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "you,",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "text": "Socrates,",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "he",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "said.",
+          "start": 2.12,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13927319459617138
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11919690f2e8a1c4121153c67b4cdee6b396cefb20759dcccf1a8158d41a9f72",
+  "selected_reasons": []
+}

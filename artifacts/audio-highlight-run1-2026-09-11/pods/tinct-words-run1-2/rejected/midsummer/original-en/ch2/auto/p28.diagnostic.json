@@ -1,0 +1,525 @@
+{
+  "complete": true,
+  "signature": "6f8d68fd556ba8b0be8c2af23f71259e5ad79e0c63e44bcfb4a0daeb720418a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.25727468729019165,
+      "alignment_seconds": 0.00013744086027145386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Snug. Have you the lion's part written? Pray you, if it be, give it me, for I am slow of study.",
+        "hotwords": "Snug, Have, Pray, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Snug, Have you the lion's part written? Pray you, if it be, give it me, for I am slow of",
+          "start": 0.48,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Snug,",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " Have",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.042572021484375
+            },
+            {
+              "text": " you",
+              "start": 1.22,
+              "end": 1.3,
+              "probability": 0.281494140625
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.984375
+            },
+            {
+              "text": " lion's",
+              "start": 1.42,
+              "end": 1.82,
+              "probability": 0.669921875
+            },
+            {
+              "text": " part",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " written?",
+              "start": 2.0,
+              "end": 2.34,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Pray",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.942626953125
+            },
+            {
+              "text": " you,",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " if",
+              "start": 3.42,
+              "end": 3.48,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " it",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " be,",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 3.96,
+              "end": 4.04,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " it",
+              "start": 4.04,
+              "end": 4.14,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " me,",
+              "start": 4.14,
+              "end": 4.3,
+              "probability": 0.990234375
+            },
+            {
+              "text": " for",
+              "start": 4.42,
+              "end": 4.5,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " I",
+              "start": 4.5,
+              "end": 4.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " am",
+              "start": 4.62,
+              "end": 4.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " slow",
+              "start": 4.72,
+              "end": 5.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " study.",
+          "start": 5.16,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " study.",
+              "start": 5.16,
+              "end": 5.48,
+              "probability": 0.59130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Snug,",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "Have",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "lion's",
+          "start": 1.42,
+          "end": 1.82
+        },
+        {
+          "raw": "part",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "written?",
+          "start": 2.0,
+          "end": 2.34
+        },
+        {
+          "raw": "Pray",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "you,",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "if",
+          "start": 3.42,
+          "end": 3.48
+        },
+        {
+          "raw": "it",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "be,",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "give",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "raw": "it",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "raw": "me,",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "raw": "for",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "raw": "I",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "raw": "am",
+          "start": 4.62,
+          "end": 4.72
+        },
+        {
+          "raw": "slow",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "study.",
+          "start": 5.16,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "Snug.",
+        "Have",
+        "you",
+        "the",
+        "lion's",
+        "part",
+        "written?",
+        "Pray",
+        "you,",
+        "if",
+        "it",
+        "be,",
+        "give",
+        "it",
+        "me,",
+        "for",
+        "I",
+        "am",
+        "slow",
+        "of",
+        "study."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Snug.",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "Have",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "you",
+          "start": 1.22,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "lion's",
+          "start": 1.42,
+          "end": 1.82
+        },
+        {
+          "text": "part",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "written?",
+          "start": 2.0,
+          "end": 2.34
+        },
+        {
+          "text": "Pray",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "you,",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "if",
+          "start": 3.42,
+          "end": 3.48
+        },
+        {
+          "text": "it",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "be,",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "give",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "text": "it",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "text": "me,",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "text": "for",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "text": "I",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "text": "am",
+          "start": 4.62,
+          "end": 4.72
+        },
+        {
+          "text": "slow",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "text": "of",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "study.",
+          "start": 5.16,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.257487028837204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d775a555579448b96b16d2b778369e54c035cdcb2a16f5aa3e480cf9c7ddfafc",
+  "selected_reasons": []
+}

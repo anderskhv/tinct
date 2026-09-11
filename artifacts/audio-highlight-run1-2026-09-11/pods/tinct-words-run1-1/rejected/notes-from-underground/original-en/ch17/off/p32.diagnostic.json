@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "34ce04b6bfbd10e375c838acc29ad2f1ba4f014095f0daec9f778d76f4635d6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.09943689405918121,
+      "alignment_seconds": 3.945082426071167e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 20",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " 20",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.64697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "20",
+          "start": 0.05,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Twenty.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Twenty.\"",
+          "start": 0.05,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09948820620775223
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cbe4e8ba989c88db8688bc78a08be6cdd09442421f3ee979e3b5050b83076d3a",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "9c83c3efebbc0632753fc5d6d33a74e373a561394e8ee21e90fcbdef17a9f168",
+  "attempts": [
+    {
+      "asr_seconds": 0.1419869028031826,
+      "alignment_seconds": 0.00020082294940948486,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'Do you understand this?' I asked.",
+        "hotwords": "Do, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you understand this?' I asked.",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.32568359375
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " understand",
+              "start": 0.62,
+              "end": 1.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this?'",
+              "start": 1.0,
+              "end": 1.56,
+              "probability": 0.5015602111816406
+            },
+            {
+              "text": " I",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " asked.",
+              "start": 1.76,
+              "end": 2.16,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "understand",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "raw": "this?'",
+          "start": 1.0,
+          "end": 1.56
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "asked.",
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "\"'Do",
+        "you",
+        "understand",
+        "this?'",
+        "I",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"'Do",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "understand",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "text": "this?'",
+          "start": 1.0,
+          "end": 1.56
+        },
+        {
+          "text": "I",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "text": "asked.",
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1422695592045784
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e581ca1ad4a0dfa86a82b9c2ee4e37db0b6c47f661579957e99bdc7efba3687e",
+  "selected_reasons": []
+}

@@ -1,0 +1,496 @@
+{
+  "complete": true,
+  "signature": "63494ec20c1b88b1cff351901def8d8264df517e1b1fa5b3719a425d94e61796",
+  "attempts": [
+    {
+      "asr_seconds": 0.136629618704319,
+      "alignment_seconds": 8.998066186904907e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Quince. That's all one. You shall play it in a mask, and you may speak as small as you will.",
+        "hotwords": "Quince, That's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quince, That's all one. You shall play it in a mask, and you may speak as small as you will.",
+          "start": 0.08,
+          "end": 5.12,
+          "words": [
+            {
+              "text": " Quince,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " That's",
+              "start": 1.04,
+              "end": 1.44,
+              "probability": 0.49195098876953125
+            },
+            {
+              "text": " all",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " one.",
+              "start": 1.58,
+              "end": 1.8,
+              "probability": 0.7734375
+            },
+            {
+              "text": " You",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " shall",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.984375
+            },
+            {
+              "text": " play",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " in",
+              "start": 2.88,
+              "end": 2.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " mask,",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " and",
+              "start": 3.56,
+              "end": 3.62,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " you",
+              "start": 3.62,
+              "end": 3.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " may",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " speak",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " small",
+              "start": 4.18,
+              "end": 4.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 4.48,
+              "end": 4.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 4.66,
+              "end": 4.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will.",
+              "start": 4.82,
+              "end": 5.12,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quince,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "That's",
+          "start": 1.04,
+          "end": 1.44
+        },
+        {
+          "raw": "all",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "one.",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "raw": "You",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "shall",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "play",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "it",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "in",
+          "start": 2.88,
+          "end": 2.94
+        },
+        {
+          "raw": "a",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "raw": "mask,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.56,
+          "end": 3.62
+        },
+        {
+          "raw": "you",
+          "start": 3.62,
+          "end": 3.7
+        },
+        {
+          "raw": "may",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "speak",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "as",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "small",
+          "start": 4.18,
+          "end": 4.48
+        },
+        {
+          "raw": "as",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "raw": "you",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "raw": "will.",
+          "start": 4.82,
+          "end": 5.12
+        }
+      ],
+      "expected_tokens": [
+        "Quince.",
+        "That's",
+        "all",
+        "one.",
+        "You",
+        "shall",
+        "play",
+        "it",
+        "in",
+        "a",
+        "mask,",
+        "and",
+        "you",
+        "may",
+        "speak",
+        "as",
+        "small",
+        "as",
+        "you",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Quince.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "That's",
+          "start": 1.04,
+          "end": 1.44
+        },
+        {
+          "text": "all",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "one.",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "text": "You",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "shall",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "play",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "it",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "in",
+          "start": 2.88,
+          "end": 2.94
+        },
+        {
+          "text": "a",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "mask,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.56,
+          "end": 3.62
+        },
+        {
+          "text": "you",
+          "start": 3.62,
+          "end": 3.7
+        },
+        {
+          "text": "may",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "speak",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "as",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "small",
+          "start": 4.18,
+          "end": 4.48
+        },
+        {
+          "text": "as",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "text": "you",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "text": "will.",
+          "start": 4.82,
+          "end": 5.12
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13676808029413223
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ddac16d9751e1fa73426ac63efdb613432d30582e49676ed160bd01f469d8dfc",
+  "selected_reasons": []
+}

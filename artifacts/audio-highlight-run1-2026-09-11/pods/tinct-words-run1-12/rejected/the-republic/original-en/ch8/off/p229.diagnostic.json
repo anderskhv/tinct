@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "6813300e43055a754876d145b5eee85715dbe245315557e1c65faf742d307607",
+  "attempts": [
+    {
+      "asr_seconds": 0.07473510643467307,
+      "alignment_seconds": 6.381887942552567e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Obviously.",
+          "start": 0.11,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Obviously.",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.65673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Obviously.",
+          "start": 0.11,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "Obviously."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Obviously.",
+          "start": 0.11,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07482076529413462
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bfeba300f7f6d079e98df085b2237ecf0090c59f677c20391a5bbaa7bf57bfa9",
+  "selected_reasons": []
+}

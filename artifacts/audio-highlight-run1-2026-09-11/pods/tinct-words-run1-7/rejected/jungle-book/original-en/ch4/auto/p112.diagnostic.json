@@ -1,0 +1,3742 @@
+{
+  "complete": true,
+  "signature": "5de6cc54c0553dba4de680cb8a02fc38dbbff3a24ca109ce13633da1b0c42305",
+  "attempts": [
+    {
+      "asr_seconds": 6.226854411885142,
+      "alignment_seconds": 0.00028745830059051514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_The Beaches of Lukannon—the winter wheat so tall— The dripping, crinkled lichens, and the sea-fog drenching all! The platforms of our playground, all shining smooth and worn! The Beaches of Lukannon—the home where we were born!_",
+        "hotwords": "Beaches, Lukannon—the"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Beaches of Lukannon—the winter wheat so tall—the dripping, crinkled lichens, and the sea-fog drenching all! The platforms of our playground, all shining smooth and worn! The Beaches of Lukannon—the home where we were born!",
+          "start": 0.02,
+          "end": 13.96,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " Beaches",
+              "start": 0.48,
+              "end": 0.76,
+              "probability": 0.4842987060546875
+            },
+            {
+              "text": " of",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 0.94,
+              "end": 1.96,
+              "probability": 0.22406387329101562
+            },
+            {
+              "text": " winter",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.9453125
+            },
+            {
+              "text": " wheat",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tall—the",
+              "start": 2.84,
+              "end": 3.46,
+              "probability": 0.592132568359375
+            },
+            {
+              "text": " dripping,",
+              "start": 3.46,
+              "end": 3.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " crinkled",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " lichens,",
+              "start": 4.48,
+              "end": 4.98,
+              "probability": 0.962890625
+            },
+            {
+              "text": " and",
+              "start": 5.2,
+              "end": 5.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sea",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.76904296875
+            },
+            {
+              "text": "-fog",
+              "start": 5.6,
+              "end": 5.92,
+              "probability": 0.8382161458333334
+            },
+            {
+              "text": " drenching",
+              "start": 5.92,
+              "end": 6.44,
+              "probability": 0.9453125
+            },
+            {
+              "text": " all!",
+              "start": 6.44,
+              "end": 6.66,
+              "probability": 0.716796875
+            },
+            {
+              "text": " The",
+              "start": 7.28,
+              "end": 7.46,
+              "probability": 0.966796875
+            },
+            {
+              "text": " platforms",
+              "start": 7.46,
+              "end": 7.82,
+              "probability": 0.978515625
+            },
+            {
+              "text": " of",
+              "start": 7.82,
+              "end": 8.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 8.12,
+              "end": 8.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " playground,",
+              "start": 8.24,
+              "end": 8.66,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " all",
+              "start": 9.0,
+              "end": 9.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " shining",
+              "start": 9.18,
+              "end": 9.56,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " smooth",
+              "start": 9.56,
+              "end": 10.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 10.0,
+              "end": 10.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " worn!",
+              "start": 10.32,
+              "end": 10.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " The",
+              "start": 11.18,
+              "end": 11.38,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Beaches",
+              "start": 11.38,
+              "end": 11.62,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " of",
+              "start": 11.62,
+              "end": 11.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 11.88,
+              "end": 12.92,
+              "probability": 0.9600830078125
+            },
+            {
+              "text": " home",
+              "start": 12.92,
+              "end": 13.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " where",
+              "start": 13.12,
+              "end": 13.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " we",
+              "start": 13.36,
+              "end": 13.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 13.52,
+              "end": 13.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " born!",
+              "start": 13.66,
+              "end": 13.96,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " The Beaches of Lukannon—the winter wheat so tall—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all! The beaches of Lukannon—the sea-fog drenching all!",
+          "start": 13.96,
+          "end": 14.48,
+          "words": [
+            {
+              "text": " The",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.0026836395263671875
+            },
+            {
+              "text": " Beaches",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.0012957751750946045
+            },
+            {
+              "text": " of",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.009429931640625
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.01876269280910492
+            },
+            {
+              "text": " winter",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 7.557868957519531e-05
+            },
+            {
+              "text": " wheat",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.00018858909606933594
+            },
+            {
+              "text": " so",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 3.8564205169677734e-05
+            },
+            {
+              "text": " tall—the",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.023362239201863606
+            },
+            {
+              "text": " sea",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.0010652542114257812
+            },
+            {
+              "text": "-fog",
+              "start": 13.96,
+              "end": 13.96,
+              "probability": 0.02619139353434245
+            },
+            {
+              "text": " drenching",
+              "start": 13.96,
+              "end": 13.98,
+              "probability": 0.09941633542378743
+            },
+            {
+              "text": " all!",
+              "start": 13.98,
+              "end": 13.98,
+              "probability": 0.0027904510498046875
+            },
+            {
+              "text": " The",
+              "start": 13.98,
+              "end": 13.98,
+              "probability": 0.1407470703125
+            },
+            {
+              "text": " beaches",
+              "start": 13.98,
+              "end": 13.98,
+              "probability": 0.42228126525878906
+            },
+            {
+              "text": " of",
+              "start": 13.98,
+              "end": 13.98,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 13.98,
+              "end": 13.98,
+              "probability": 0.690948486328125
+            },
+            {
+              "text": " sea",
+              "start": 13.98,
+              "end": 13.98,
+              "probability": 0.0623779296875
+            },
+            {
+              "text": "-fog",
+              "start": 13.98,
+              "end": 13.98,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " drenching",
+              "start": 13.98,
+              "end": 14.1,
+              "probability": 0.9554036458333334
+            },
+            {
+              "text": " all!",
+              "start": 14.1,
+              "end": 14.1,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " The",
+              "start": 14.1,
+              "end": 14.28,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " beaches",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " of",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.8968505859375
+            },
+            {
+              "text": " sea",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.72607421875
+            },
+            {
+              "text": "-fog",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " drenching",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " all!",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " The",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.83203125
+            },
+            {
+              "text": " beaches",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " of",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.9293212890625
+            },
+            {
+              "text": " sea",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.9140625
+            },
+            {
+              "text": "-fog",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.9825846354166666
+            },
+            {
+              "text": " drenching",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.990234375
+            },
+            {
+              "text": " all!",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.96875
+            },
+            {
+              "text": " The",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.8671875
+            },
+            {
+              "text": " beaches",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " of",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " sea",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.94384765625
+            },
+            {
+              "text": "-fog",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.9890950520833334
+            },
+            {
+              "text": " drenching",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.9918619791666666
+            },
+            {
+              "text": " all!",
+              "start": 14.28,
+              "end": 14.28,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " The",
+              "start": 14.28,
+              "end": 14.48,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " beaches",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.874267578125
+            },
+            {
+              "text": " of",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9276123046875
+            },
+            {
+              "text": " sea",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.94677734375
+            },
+            {
+              "text": "-fog",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " drenching",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9933268229166666
+            },
+            {
+              "text": " all!",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " The",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.904296875
+            },
+            {
+              "text": " beaches",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " of",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9251708984375
+            },
+            {
+              "text": " sea",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.943359375
+            },
+            {
+              "text": "-fog",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9928385416666666
+            },
+            {
+              "text": " drenching",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9939778645833334
+            },
+            {
+              "text": " all!",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " The",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " beaches",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.892578125
+            },
+            {
+              "text": " of",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " sea",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.92333984375
+            },
+            {
+              "text": "-fog",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9930013020833334
+            },
+            {
+              "text": " drenching",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9943033854166666
+            },
+            {
+              "text": " all!",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " The",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.921875
+            },
+            {
+              "text": " beaches",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " of",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.912353515625
+            },
+            {
+              "text": " sea",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9052734375
+            },
+            {
+              "text": "-fog",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9930013020833334
+            },
+            {
+              "text": " drenching",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.9943033854166666
+            },
+            {
+              "text": " all!",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.96630859375
+            }
+          ]
+        },
+        {
+          "text": "ico- Beverly Hills, West Virginia.",
+          "start": 14.48,
+          "end": 14.54,
+          "words": [
+            {
+              "text": "ico",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 2.682209014892578e-06
+            },
+            {
+              "text": "-",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.01434326171875
+            },
+            {
+              "text": " Beverly",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 1.150369644165039e-05
+            },
+            {
+              "text": " Hills,",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.826171875
+            },
+            {
+              "text": " West",
+              "start": 14.48,
+              "end": 14.48,
+              "probability": 0.0014371871948242188
+            },
+            {
+              "text": " Virginia.",
+              "start": 14.48,
+              "end": 14.54,
+              "probability": 0.2425537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Beaches",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "raw": "of",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 0.94,
+          "end": 1.96
+        },
+        {
+          "raw": "winter",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "wheat",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "so",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "tall—the",
+          "start": 2.84,
+          "end": 3.46
+        },
+        {
+          "raw": "dripping,",
+          "start": 3.46,
+          "end": 3.84
+        },
+        {
+          "raw": "crinkled",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "lichens,",
+          "start": 4.48,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "raw": "the",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "sea",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "-fog",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "raw": "drenching",
+          "start": 5.92,
+          "end": 6.44
+        },
+        {
+          "raw": "all!",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "raw": "The",
+          "start": 7.28,
+          "end": 7.46
+        },
+        {
+          "raw": "platforms",
+          "start": 7.46,
+          "end": 7.82
+        },
+        {
+          "raw": "of",
+          "start": 7.82,
+          "end": 8.12
+        },
+        {
+          "raw": "our",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "raw": "playground,",
+          "start": 8.24,
+          "end": 8.66
+        },
+        {
+          "raw": "all",
+          "start": 9.0,
+          "end": 9.18
+        },
+        {
+          "raw": "shining",
+          "start": 9.18,
+          "end": 9.56
+        },
+        {
+          "raw": "smooth",
+          "start": 9.56,
+          "end": 10.0
+        },
+        {
+          "raw": "and",
+          "start": 10.0,
+          "end": 10.32
+        },
+        {
+          "raw": "worn!",
+          "start": 10.32,
+          "end": 10.62
+        },
+        {
+          "raw": "The",
+          "start": 11.18,
+          "end": 11.38
+        },
+        {
+          "raw": "Beaches",
+          "start": 11.38,
+          "end": 11.62
+        },
+        {
+          "raw": "of",
+          "start": 11.62,
+          "end": 11.88
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 11.88,
+          "end": 12.92
+        },
+        {
+          "raw": "home",
+          "start": 12.92,
+          "end": 13.12
+        },
+        {
+          "raw": "where",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "raw": "we",
+          "start": 13.36,
+          "end": 13.52
+        },
+        {
+          "raw": "were",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "raw": "born!",
+          "start": 13.66,
+          "end": 13.96
+        },
+        {
+          "raw": "The",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "Beaches",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "of",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "winter",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "wheat",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "so",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "tall—the",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "sea",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "-fog",
+          "start": 13.96,
+          "end": 13.96
+        },
+        {
+          "raw": "drenching",
+          "start": 13.96,
+          "end": 13.98
+        },
+        {
+          "raw": "all!",
+          "start": 13.98,
+          "end": 13.98
+        },
+        {
+          "raw": "The",
+          "start": 13.98,
+          "end": 13.98
+        },
+        {
+          "raw": "beaches",
+          "start": 13.98,
+          "end": 13.98
+        },
+        {
+          "raw": "of",
+          "start": 13.98,
+          "end": 13.98
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 13.98,
+          "end": 13.98
+        },
+        {
+          "raw": "sea",
+          "start": 13.98,
+          "end": 13.98
+        },
+        {
+          "raw": "-fog",
+          "start": 13.98,
+          "end": 13.98
+        },
+        {
+          "raw": "drenching",
+          "start": 13.98,
+          "end": 14.1
+        },
+        {
+          "raw": "all!",
+          "start": 14.1,
+          "end": 14.1
+        },
+        {
+          "raw": "The",
+          "start": 14.1,
+          "end": 14.28
+        },
+        {
+          "raw": "beaches",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "of",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "sea",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "-fog",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "drenching",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "all!",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "The",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "beaches",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "of",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "sea",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "-fog",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "drenching",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "all!",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "The",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "beaches",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "of",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "sea",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "-fog",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "drenching",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "all!",
+          "start": 14.28,
+          "end": 14.28
+        },
+        {
+          "raw": "The",
+          "start": 14.28,
+          "end": 14.48
+        },
+        {
+          "raw": "beaches",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "of",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "sea",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "-fog",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "drenching",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "all!",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "The",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "beaches",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "of",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "sea",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "-fog",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "drenching",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "all!",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "The",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "beaches",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "of",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "sea",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "-fog",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "drenching",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "all!",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "The",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "beaches",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "of",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "sea",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "-fog",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "drenching",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "all!",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "ico",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "-",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "Beverly",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "Hills,",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "West",
+          "start": 14.48,
+          "end": 14.48
+        },
+        {
+          "raw": "Virginia.",
+          "start": 14.48,
+          "end": 14.54
+        }
+      ],
+      "expected_tokens": [
+        "_The",
+        "Beaches",
+        "of",
+        "Lukannon—the",
+        "winter",
+        "wheat",
+        "so",
+        "tall—",
+        "The",
+        "dripping,",
+        "crinkled",
+        "lichens,",
+        "and",
+        "the",
+        "sea-fog",
+        "drenching",
+        "all!",
+        "The",
+        "platforms",
+        "of",
+        "our",
+        "playground,",
+        "all",
+        "shining",
+        "smooth",
+        "and",
+        "worn!",
+        "The",
+        "Beaches",
+        "of",
+        "Lukannon—the",
+        "home",
+        "where",
+        "we",
+        "were",
+        "born!_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          14,
+          8,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          15
+        ],
+        [
+          "equal",
+          15,
+          35,
+          15,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          118
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          15
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          118
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "_The",
+          "start": 0.0,
+          "end": 0.24
+        },
+        {
+          "text": "Beaches",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "of",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "Lukannon—the",
+          "start": 0.94,
+          "end": 1.96
+        },
+        {
+          "text": "winter",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "wheat",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "so",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "tall—",
+          "start": 2.84,
+          "end": 3.15
+        },
+        {
+          "text": "The",
+          "start": 3.15,
+          "end": 3.305
+        },
+        {
+          "text": "dripping,",
+          "start": 3.46,
+          "end": 3.84
+        },
+        {
+          "text": "crinkled",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "lichens,",
+          "start": 4.48,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "text": "the",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "sea-fog",
+          "start": 5.42,
+          "end": 5.67
+        },
+        {
+          "text": "drenching",
+          "start": 5.92,
+          "end": 6.44
+        },
+        {
+          "text": "all!",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "text": "The",
+          "start": 7.28,
+          "end": 7.46
+        },
+        {
+          "text": "platforms",
+          "start": 7.46,
+          "end": 7.82
+        },
+        {
+          "text": "of",
+          "start": 7.82,
+          "end": 8.12
+        },
+        {
+          "text": "our",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "text": "playground,",
+          "start": 8.24,
+          "end": 8.66
+        },
+        {
+          "text": "all",
+          "start": 9.0,
+          "end": 9.18
+        },
+        {
+          "text": "shining",
+          "start": 9.18,
+          "end": 9.56
+        },
+        {
+          "text": "smooth",
+          "start": 9.56,
+          "end": 10.0
+        },
+        {
+          "text": "and",
+          "start": 10.0,
+          "end": 10.32
+        },
+        {
+          "text": "worn!",
+          "start": 10.32,
+          "end": 10.62
+        },
+        {
+          "text": "The",
+          "start": 11.18,
+          "end": 11.38
+        },
+        {
+          "text": "Beaches",
+          "start": 11.38,
+          "end": 11.62
+        },
+        {
+          "text": "of",
+          "start": 11.62,
+          "end": 11.88
+        },
+        {
+          "text": "Lukannon—the",
+          "start": 11.88,
+          "end": 12.92
+        },
+        {
+          "text": "home",
+          "start": 12.92,
+          "end": 13.12
+        },
+        {
+          "text": "where",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "text": "we",
+          "start": 13.36,
+          "end": 13.52
+        },
+        {
+          "text": "were",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "text": "born!_",
+          "start": 13.66,
+          "end": 14.1
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 118,
+        "matched_words": 31
+      },
+      "match_ratio": 0.8611111111111112,
+      "rejection_reasons": [],
+      "seconds": 6.227364445105195
+    },
+    {
+      "asr_seconds": 0.2677055178210139,
+      "alignment_seconds": 0.00016461126506328583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Beaches, Lukannon—the"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Beaches of Lukannon—the winter wheat so tall, the dripping, crinkled lichens, and",
+          "start": 0.02,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " Beaches",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.4680356979370117
+            },
+            {
+              "text": " of",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 0.94,
+              "end": 1.96,
+              "probability": 0.22124099731445312
+            },
+            {
+              "text": " winter",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " wheat",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " so",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " tall,",
+              "start": 2.84,
+              "end": 3.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.46,
+              "probability": 0.765625
+            },
+            {
+              "text": " dripping,",
+              "start": 3.46,
+              "end": 3.86,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " crinkled",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " lichens,",
+              "start": 4.48,
+              "end": 4.98,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " and",
+              "start": 5.26,
+              "end": 5.3,
+              "probability": 0.9775390625
+            }
+          ]
+        },
+        {
+          "text": " the sea-fog drenching all—the platforms of our playground, all shining smooth and",
+          "start": 5.3,
+          "end": 10.3,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sea",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.77587890625
+            },
+            {
+              "text": "-fog",
+              "start": 5.6,
+              "end": 5.92,
+              "probability": 0.8142903645833334
+            },
+            {
+              "text": " drenching",
+              "start": 5.92,
+              "end": 6.44,
+              "probability": 0.9514973958333334
+            },
+            {
+              "text": " all—the",
+              "start": 6.44,
+              "end": 7.46,
+              "probability": 0.5937093098958334
+            },
+            {
+              "text": " platforms",
+              "start": 7.46,
+              "end": 7.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 7.86,
+              "end": 8.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " our",
+              "start": 8.12,
+              "end": 8.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " playground,",
+              "start": 8.24,
+              "end": 8.7,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " all",
+              "start": 8.98,
+              "end": 9.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shining",
+              "start": 9.18,
+              "end": 9.56,
+              "probability": 0.986328125
+            },
+            {
+              "text": " smooth",
+              "start": 9.56,
+              "end": 10.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 10.0,
+              "end": 10.3,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " worn—the Beaches of Lukannon—the home where we were born.",
+          "start": 10.3,
+          "end": 13.98,
+          "words": [
+            {
+              "text": " worn—the",
+              "start": 10.3,
+              "end": 11.38,
+              "probability": 0.7154947916666666
+            },
+            {
+              "text": " Beaches",
+              "start": 11.38,
+              "end": 11.66,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " of",
+              "start": 11.66,
+              "end": 11.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Lukannon—the",
+              "start": 11.88,
+              "end": 12.92,
+              "probability": 0.85516357421875
+            },
+            {
+              "text": " home",
+              "start": 12.92,
+              "end": 13.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " where",
+              "start": 13.12,
+              "end": 13.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " we",
+              "start": 13.36,
+              "end": 13.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " were",
+              "start": 13.52,
+              "end": 13.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " born.",
+              "start": 13.66,
+              "end": 13.98,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beaches",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "of",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 0.94,
+          "end": 1.96
+        },
+        {
+          "raw": "winter",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "raw": "wheat",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "so",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "tall,",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.46
+        },
+        {
+          "raw": "dripping,",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "raw": "crinkled",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "lichens,",
+          "start": 4.48,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.3
+        },
+        {
+          "raw": "the",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "sea",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "-fog",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "raw": "drenching",
+          "start": 5.92,
+          "end": 6.44
+        },
+        {
+          "raw": "all—the",
+          "start": 6.44,
+          "end": 7.46
+        },
+        {
+          "raw": "platforms",
+          "start": 7.46,
+          "end": 7.86
+        },
+        {
+          "raw": "of",
+          "start": 7.86,
+          "end": 8.12
+        },
+        {
+          "raw": "our",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "raw": "playground,",
+          "start": 8.24,
+          "end": 8.7
+        },
+        {
+          "raw": "all",
+          "start": 8.98,
+          "end": 9.18
+        },
+        {
+          "raw": "shining",
+          "start": 9.18,
+          "end": 9.56
+        },
+        {
+          "raw": "smooth",
+          "start": 9.56,
+          "end": 10.0
+        },
+        {
+          "raw": "and",
+          "start": 10.0,
+          "end": 10.3
+        },
+        {
+          "raw": "worn—the",
+          "start": 10.3,
+          "end": 11.38
+        },
+        {
+          "raw": "Beaches",
+          "start": 11.38,
+          "end": 11.66
+        },
+        {
+          "raw": "of",
+          "start": 11.66,
+          "end": 11.88
+        },
+        {
+          "raw": "Lukannon—the",
+          "start": 11.88,
+          "end": 12.92
+        },
+        {
+          "raw": "home",
+          "start": 12.92,
+          "end": 13.12
+        },
+        {
+          "raw": "where",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "raw": "we",
+          "start": 13.36,
+          "end": 13.52
+        },
+        {
+          "raw": "were",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "raw": "born.",
+          "start": 13.66,
+          "end": 13.98
+        }
+      ],
+      "expected_tokens": [
+        "_The",
+        "Beaches",
+        "of",
+        "Lukannon—the",
+        "winter",
+        "wheat",
+        "so",
+        "tall—",
+        "The",
+        "dripping,",
+        "crinkled",
+        "lichens,",
+        "and",
+        "the",
+        "sea-fog",
+        "drenching",
+        "all!",
+        "The",
+        "platforms",
+        "of",
+        "our",
+        "playground,",
+        "all",
+        "shining",
+        "smooth",
+        "and",
+        "worn!",
+        "The",
+        "Beaches",
+        "of",
+        "Lukannon—the",
+        "home",
+        "where",
+        "we",
+        "were",
+        "born!_"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          14,
+          0,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          15
+        ],
+        [
+          "equal",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          16,
+          18,
+          16,
+          17
+        ],
+        [
+          "equal",
+          18,
+          26,
+          17,
+          25
+        ],
+        [
+          "replace",
+          26,
+          28,
+          25,
+          26
+        ],
+        [
+          "equal",
+          28,
+          35,
+          26,
+          33
+        ],
+        [
+          "replace",
+          35,
+          36,
+          33,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          15
+        ],
+        [
+          "replace",
+          16,
+          18,
+          16,
+          17
+        ],
+        [
+          "replace",
+          26,
+          28,
+          25,
+          26
+        ],
+        [
+          "replace",
+          35,
+          36,
+          33,
+          34
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "_The",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "Beaches",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "of",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "Lukannon—the",
+          "start": 0.94,
+          "end": 1.96
+        },
+        {
+          "text": "winter",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "text": "wheat",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "so",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "tall—",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "text": "The",
+          "start": 3.42,
+          "end": 3.46
+        },
+        {
+          "text": "dripping,",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "text": "crinkled",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "lichens,",
+          "start": 4.48,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.26,
+          "end": 5.3
+        },
+        {
+          "text": "the",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "sea-fog",
+          "start": 5.42,
+          "end": 5.67
+        },
+        {
+          "text": "drenching",
+          "start": 5.92,
+          "end": 6.44
+        },
+        {
+          "text": "all!",
+          "start": 6.44,
+          "end": 6.95
+        },
+        {
+          "text": "The",
+          "start": 6.95,
+          "end": 7.205
+        },
+        {
+          "text": "platforms",
+          "start": 7.46,
+          "end": 7.86
+        },
+        {
+          "text": "of",
+          "start": 7.86,
+          "end": 8.12
+        },
+        {
+          "text": "our",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "text": "playground,",
+          "start": 8.24,
+          "end": 8.7
+        },
+        {
+          "text": "all",
+          "start": 8.98,
+          "end": 9.18
+        },
+        {
+          "text": "shining",
+          "start": 9.18,
+          "end": 9.56
+        },
+        {
+          "text": "smooth",
+          "start": 9.56,
+          "end": 10.0
+        },
+        {
+          "text": "and",
+          "start": 10.0,
+          "end": 10.3
+        },
+        {
+          "text": "worn!",
+          "start": 10.3,
+          "end": 10.84
+        },
+        {
+          "text": "The",
+          "start": 10.84,
+          "end": 11.11
+        },
+        {
+          "text": "Beaches",
+          "start": 11.38,
+          "end": 11.66
+        },
+        {
+          "text": "of",
+          "start": 11.66,
+          "end": 11.88
+        },
+        {
+          "text": "Lukannon—the",
+          "start": 11.88,
+          "end": 12.92
+        },
+        {
+          "text": "home",
+          "start": 12.92,
+          "end": 13.12
+        },
+        {
+          "text": "where",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "text": "we",
+          "start": 13.36,
+          "end": 13.52
+        },
+        {
+          "text": "were",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "text": "born!_",
+          "start": 13.66,
+          "end": 13.82
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 34,
+        "matched_words": 29
+      },
+      "match_ratio": 0.8055555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2679405491799116
+    },
+    {
+      "asr_seconds": 0.2967182109132409,
+      "alignment_seconds": 0.0001695798709988594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The beaches of Lucannon, the winter wheat so tall, the dripping, crinkled lichens, and",
+          "start": 0.02,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " beaches",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " of",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Lucannon,",
+              "start": 0.96,
+              "end": 1.36,
+              "probability": 0.5902099609375
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " winter",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " wheat",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tall,",
+              "start": 2.84,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.46,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " dripping,",
+              "start": 3.46,
+              "end": 3.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " crinkled",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.9949544270833334
+            },
+            {
+              "text": " lichens,",
+              "start": 4.48,
+              "end": 4.98,
+              "probability": 0.964599609375
+            },
+            {
+              "text": " and",
+              "start": 5.24,
+              "end": 5.3,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " the sea fog drenching all.",
+          "start": 5.3,
+          "end": 6.68,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sea",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " fog",
+              "start": 5.6,
+              "end": 5.9,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " drenching",
+              "start": 5.9,
+              "end": 6.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " all.",
+              "start": 6.44,
+              "end": 6.68,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " The platforms of our playground, all shining smooth and worn.",
+          "start": 7.34,
+          "end": 10.64,
+          "words": [
+            {
+              "text": " The",
+              "start": 7.34,
+              "end": 7.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " platforms",
+              "start": 7.46,
+              "end": 7.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 7.86,
+              "end": 8.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 8.12,
+              "end": 8.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " playground,",
+              "start": 8.24,
+              "end": 8.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 9.0,
+              "end": 9.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shining",
+              "start": 9.18,
+              "end": 9.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " smooth",
+              "start": 9.56,
+              "end": 10.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 10.02,
+              "end": 10.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " worn.",
+              "start": 10.3,
+              "end": 10.64,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " The beaches of Lucannon, the home where we were born.",
+          "start": 11.24,
+          "end": 13.98,
+          "words": [
+            {
+              "text": " The",
+              "start": 11.24,
+              "end": 11.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " beaches",
+              "start": 11.38,
+              "end": 11.6,
+              "probability": 0.9765625
+            },
+            {
+              "text": " of",
+              "start": 11.6,
+              "end": 11.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Lucannon,",
+              "start": 11.88,
+              "end": 12.34,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " the",
+              "start": 12.76,
+              "end": 12.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " home",
+              "start": 12.92,
+              "end": 13.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " where",
+              "start": 13.12,
+              "end": 13.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " we",
+              "start": 13.36,
+              "end": 13.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " were",
+              "start": 13.52,
+              "end": 13.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " born.",
+              "start": 13.66,
+              "end": 13.98,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "beaches",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "Lucannon,",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "winter",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "wheat",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "so",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "tall,",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.46
+        },
+        {
+          "raw": "dripping,",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "raw": "crinkled",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "lichens,",
+          "start": 4.48,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "raw": "the",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "sea",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "fog",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "raw": "drenching",
+          "start": 5.9,
+          "end": 6.44
+        },
+        {
+          "raw": "all.",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "raw": "The",
+          "start": 7.34,
+          "end": 7.46
+        },
+        {
+          "raw": "platforms",
+          "start": 7.46,
+          "end": 7.86
+        },
+        {
+          "raw": "of",
+          "start": 7.86,
+          "end": 8.12
+        },
+        {
+          "raw": "our",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "raw": "playground,",
+          "start": 8.24,
+          "end": 8.68
+        },
+        {
+          "raw": "all",
+          "start": 9.0,
+          "end": 9.18
+        },
+        {
+          "raw": "shining",
+          "start": 9.18,
+          "end": 9.56
+        },
+        {
+          "raw": "smooth",
+          "start": 9.56,
+          "end": 10.02
+        },
+        {
+          "raw": "and",
+          "start": 10.02,
+          "end": 10.3
+        },
+        {
+          "raw": "worn.",
+          "start": 10.3,
+          "end": 10.64
+        },
+        {
+          "raw": "The",
+          "start": 11.24,
+          "end": 11.38
+        },
+        {
+          "raw": "beaches",
+          "start": 11.38,
+          "end": 11.6
+        },
+        {
+          "raw": "of",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "raw": "Lucannon,",
+          "start": 11.88,
+          "end": 12.34
+        },
+        {
+          "raw": "the",
+          "start": 12.76,
+          "end": 12.92
+        },
+        {
+          "raw": "home",
+          "start": 12.92,
+          "end": 13.12
+        },
+        {
+          "raw": "where",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "raw": "we",
+          "start": 13.36,
+          "end": 13.52
+        },
+        {
+          "raw": "were",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "raw": "born.",
+          "start": 13.66,
+          "end": 13.98
+        }
+      ],
+      "expected_tokens": [
+        "_The",
+        "Beaches",
+        "of",
+        "Lukannon—the",
+        "winter",
+        "wheat",
+        "so",
+        "tall—",
+        "The",
+        "dripping,",
+        "crinkled",
+        "lichens,",
+        "and",
+        "the",
+        "sea-fog",
+        "drenching",
+        "all!",
+        "The",
+        "platforms",
+        "of",
+        "our",
+        "playground,",
+        "all",
+        "shining",
+        "smooth",
+        "and",
+        "worn!",
+        "The",
+        "Beaches",
+        "of",
+        "Lukannon—the",
+        "home",
+        "where",
+        "we",
+        "were",
+        "born!_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          14,
+          5,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ],
+        [
+          "equal",
+          15,
+          30,
+          17,
+          32
+        ],
+        [
+          "replace",
+          30,
+          31,
+          32,
+          34
+        ],
+        [
+          "equal",
+          31,
+          35,
+          34,
+          38
+        ],
+        [
+          "replace",
+          35,
+          36,
+          38,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ],
+        [
+          "replace",
+          30,
+          31,
+          32,
+          34
+        ],
+        [
+          "replace",
+          35,
+          36,
+          38,
+          39
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "_The",
+          "start": 0.0,
+          "end": 0.24
+        },
+        {
+          "text": "Beaches",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "of",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "Lukannon—the",
+          "start": 0.96,
+          "end": 1.46
+        },
+        {
+          "text": "winter",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "wheat",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "so",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "tall—",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "text": "The",
+          "start": 3.42,
+          "end": 3.46
+        },
+        {
+          "text": "dripping,",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "text": "crinkled",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "lichens,",
+          "start": 4.48,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "text": "the",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "sea-fog",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "text": "drenching",
+          "start": 5.9,
+          "end": 6.44
+        },
+        {
+          "text": "all!",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "text": "The",
+          "start": 7.34,
+          "end": 7.46
+        },
+        {
+          "text": "platforms",
+          "start": 7.46,
+          "end": 7.86
+        },
+        {
+          "text": "of",
+          "start": 7.86,
+          "end": 8.12
+        },
+        {
+          "text": "our",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "text": "playground,",
+          "start": 8.24,
+          "end": 8.68
+        },
+        {
+          "text": "all",
+          "start": 9.0,
+          "end": 9.18
+        },
+        {
+          "text": "shining",
+          "start": 9.18,
+          "end": 9.56
+        },
+        {
+          "text": "smooth",
+          "start": 9.56,
+          "end": 10.02
+        },
+        {
+          "text": "and",
+          "start": 10.02,
+          "end": 10.3
+        },
+        {
+          "text": "worn!",
+          "start": 10.3,
+          "end": 10.64
+        },
+        {
+          "text": "The",
+          "start": 11.24,
+          "end": 11.38
+        },
+        {
+          "text": "Beaches",
+          "start": 11.38,
+          "end": 11.6
+        },
+        {
+          "text": "of",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "text": "Lukannon—the",
+          "start": 11.88,
+          "end": 12.4
+        },
+        {
+          "text": "home",
+          "start": 12.92,
+          "end": 13.12
+        },
+        {
+          "text": "where",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "text": "we",
+          "start": 13.36,
+          "end": 13.52
+        },
+        {
+          "text": "were",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "text": "born!_",
+          "start": 13.66,
+          "end": 13.82
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 39,
+        "matched_words": 31
+      },
+      "match_ratio": 0.8611111111111112,
+      "rejection_reasons": [],
+      "seconds": 0.29696428030729294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea46bcb892c0bf6f968f239aa1b8e82795cc04eeaee65258cbc5ab28a3bd3546",
+  "selected_reasons": []
+}

@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "30fb165875ebf8aa7d2ec75a50a9fc758ef96d3bbc9566a8105cc162728dd428",
+  "attempts": [
+    {
+      "asr_seconds": 0.08233136683702469,
+      "alignment_seconds": 7.063895463943481e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A rare reward of his skill.",
+          "start": 0.02,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " rare",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " reward",
+              "start": 0.68,
+              "end": 1.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " his",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " skill.",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "rare",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "reward",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "raw": "of",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "his",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "skill.",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "rare",
+        "reward",
+        "of",
+        "his",
+        "skill!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "rare",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "reward",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "text": "of",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "his",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "skill!",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08243346214294434
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c994c016ae6d7db999284ce8c42850901befe4ddfc0582d06e539ba25df9f23a",
+  "selected_reasons": []
+}

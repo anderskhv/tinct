@@ -1,0 +1,1966 @@
+{
+  "complete": true,
+  "signature": "f32cc7dcc6af5cfb594f3e95c870da1457deb8c28a4f7eb8df3ff529d9c1380a",
+  "attempts": [
+    {
+      "asr_seconds": 0.31409957201685756,
+      "alignment_seconds": 0.00021143595222383738,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alonso. I cannot too much muse Such shapes, such gesture and such sound, expressing, Although they want the use of tongue, a kind Of excellent dumb discourse.",
+        "hotwords": "Alonso, I, Although"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I cannot too much muse Such shapes, such gesture and such sound, expressing, Although they want the use of tongue, a kind Of excellent dumb discourse.",
+          "start": 0.02,
+          "end": 10.04,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.01169586181640625
+            },
+            {
+              "text": " cannot",
+              "start": 0.52,
+              "end": 1.58,
+              "probability": 0.640625
+            },
+            {
+              "text": " too",
+              "start": 1.58,
+              "end": 1.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " much",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " muse",
+              "start": 2.18,
+              "end": 2.46,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Such",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 6.288290023803711e-05
+            },
+            {
+              "text": " shapes,",
+              "start": 2.72,
+              "end": 3.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " such",
+              "start": 3.66,
+              "end": 3.74,
+              "probability": 0.873046875
+            },
+            {
+              "text": " gesture",
+              "start": 3.74,
+              "end": 4.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 4.12,
+              "end": 4.4,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " such",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " sound,",
+              "start": 4.62,
+              "end": 5.08,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " expressing,",
+              "start": 5.3,
+              "end": 5.74,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Although",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.353515625
+            },
+            {
+              "text": " they",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " want",
+              "start": 6.7,
+              "end": 6.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.1,
+              "probability": 0.982421875
+            },
+            {
+              "text": " use",
+              "start": 7.1,
+              "end": 7.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tongue,",
+              "start": 7.48,
+              "end": 7.82,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 8.26,
+              "end": 8.38,
+              "probability": 0.57421875
+            },
+            {
+              "text": " kind",
+              "start": 8.38,
+              "end": 8.54,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Of",
+              "start": 8.54,
+              "end": 8.7,
+              "probability": 0.11541748046875
+            },
+            {
+              "text": " excellent",
+              "start": 8.7,
+              "end": 9.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " dumb",
+              "start": 9.18,
+              "end": 9.52,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " discourse.",
+              "start": 9.52,
+              "end": 10.04,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "cannot",
+          "start": 0.52,
+          "end": 1.58
+        },
+        {
+          "raw": "too",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "raw": "much",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "muse",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "raw": "Such",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "shapes,",
+          "start": 2.72,
+          "end": 3.22
+        },
+        {
+          "raw": "such",
+          "start": 3.66,
+          "end": 3.74
+        },
+        {
+          "raw": "gesture",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "raw": "and",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "raw": "such",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "sound,",
+          "start": 4.62,
+          "end": 5.08
+        },
+        {
+          "raw": "expressing,",
+          "start": 5.3,
+          "end": 5.74
+        },
+        {
+          "raw": "Although",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "they",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "want",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "raw": "use",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "raw": "of",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "tongue,",
+          "start": 7.48,
+          "end": 7.82
+        },
+        {
+          "raw": "a",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "raw": "kind",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "raw": "Of",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "raw": "excellent",
+          "start": 8.7,
+          "end": 9.18
+        },
+        {
+          "raw": "dumb",
+          "start": 9.18,
+          "end": 9.52
+        },
+        {
+          "raw": "discourse.",
+          "start": 9.52,
+          "end": 10.04
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "I",
+        "cannot",
+        "too",
+        "much",
+        "muse",
+        "Such",
+        "shapes,",
+        "such",
+        "gesture",
+        "and",
+        "such",
+        "sound,",
+        "expressing,",
+        "Although",
+        "they",
+        "want",
+        "the",
+        "use",
+        "of",
+        "tongue,",
+        "a",
+        "kind",
+        "Of",
+        "excellent",
+        "dumb",
+        "discourse."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          27,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "cannot",
+          "start": 0.52,
+          "end": 1.58
+        },
+        {
+          "text": "too",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "text": "much",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "muse",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "text": "Such",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "shapes,",
+          "start": 2.72,
+          "end": 3.22
+        },
+        {
+          "text": "such",
+          "start": 3.66,
+          "end": 3.74
+        },
+        {
+          "text": "gesture",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "text": "and",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "text": "such",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "sound,",
+          "start": 4.62,
+          "end": 5.08
+        },
+        {
+          "text": "expressing,",
+          "start": 5.3,
+          "end": 5.74
+        },
+        {
+          "text": "Although",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "text": "they",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "text": "want",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "text": "use",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "text": "of",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "tongue,",
+          "start": 7.48,
+          "end": 7.82
+        },
+        {
+          "text": "a",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "text": "kind",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "text": "Of",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "text": "excellent",
+          "start": 8.7,
+          "end": 9.18
+        },
+        {
+          "text": "dumb",
+          "start": 9.18,
+          "end": 9.52
+        },
+        {
+          "text": "discourse.",
+          "start": 9.52,
+          "end": 10.04
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 0.9629629629629629,
+      "rejection_reasons": [],
+      "seconds": 0.31441691995132715
+    },
+    {
+      "asr_seconds": 0.3269131350098178,
+      "alignment_seconds": 0.0001972750760614872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Alonso, I, Although"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I cannot too much muse such shapes, such gesture and such sound expressing, although",
+          "start": 0.02,
+          "end": 6.5,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.01169586181640625
+            },
+            {
+              "text": " cannot",
+              "start": 0.52,
+              "end": 1.58,
+              "probability": 0.640625
+            },
+            {
+              "text": " too",
+              "start": 1.58,
+              "end": 1.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " much",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " muse",
+              "start": 2.18,
+              "end": 2.46,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " such",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shapes,",
+              "start": 2.72,
+              "end": 3.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 3.64,
+              "end": 3.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " gesture",
+              "start": 3.72,
+              "end": 4.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.12,
+              "end": 4.4,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " such",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sound",
+              "start": 4.62,
+              "end": 5.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expressing,",
+              "start": 5.08,
+              "end": 5.8,
+              "probability": 0.386962890625
+            },
+            {
+              "text": " although",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " they want the use of tongue, a kind of excellent dumb discourse.",
+          "start": 6.5,
+          "end": 10.04,
+          "words": [
+            {
+              "text": " they",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " want",
+              "start": 6.7,
+              "end": 6.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " use",
+              "start": 7.1,
+              "end": 7.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tongue,",
+              "start": 7.48,
+              "end": 7.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 8.26,
+              "end": 8.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " kind",
+              "start": 8.38,
+              "end": 8.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 8.54,
+              "end": 8.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " excellent",
+              "start": 8.7,
+              "end": 9.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dumb",
+              "start": 9.18,
+              "end": 9.52,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " discourse.",
+              "start": 9.52,
+              "end": 10.04,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "cannot",
+          "start": 0.52,
+          "end": 1.58
+        },
+        {
+          "raw": "too",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "raw": "much",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "muse",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "raw": "such",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "shapes,",
+          "start": 2.72,
+          "end": 3.2
+        },
+        {
+          "raw": "such",
+          "start": 3.64,
+          "end": 3.72
+        },
+        {
+          "raw": "gesture",
+          "start": 3.72,
+          "end": 4.12
+        },
+        {
+          "raw": "and",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "raw": "such",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "sound",
+          "start": 4.62,
+          "end": 5.08
+        },
+        {
+          "raw": "expressing,",
+          "start": 5.08,
+          "end": 5.8
+        },
+        {
+          "raw": "although",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "they",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "want",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "raw": "use",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "raw": "of",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "tongue,",
+          "start": 7.48,
+          "end": 7.8
+        },
+        {
+          "raw": "a",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "raw": "kind",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "raw": "of",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "raw": "excellent",
+          "start": 8.7,
+          "end": 9.18
+        },
+        {
+          "raw": "dumb",
+          "start": 9.18,
+          "end": 9.52
+        },
+        {
+          "raw": "discourse.",
+          "start": 9.52,
+          "end": 10.04
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "I",
+        "cannot",
+        "too",
+        "much",
+        "muse",
+        "Such",
+        "shapes,",
+        "such",
+        "gesture",
+        "and",
+        "such",
+        "sound,",
+        "expressing,",
+        "Although",
+        "they",
+        "want",
+        "the",
+        "use",
+        "of",
+        "tongue,",
+        "a",
+        "kind",
+        "Of",
+        "excellent",
+        "dumb",
+        "discourse."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          27,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "cannot",
+          "start": 0.52,
+          "end": 1.58
+        },
+        {
+          "text": "too",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "text": "much",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "muse",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "text": "Such",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "shapes,",
+          "start": 2.72,
+          "end": 3.2
+        },
+        {
+          "text": "such",
+          "start": 3.64,
+          "end": 3.72
+        },
+        {
+          "text": "gesture",
+          "start": 3.72,
+          "end": 4.12
+        },
+        {
+          "text": "and",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "text": "such",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "sound,",
+          "start": 4.62,
+          "end": 5.08
+        },
+        {
+          "text": "expressing,",
+          "start": 5.08,
+          "end": 5.8
+        },
+        {
+          "text": "Although",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "text": "they",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "text": "want",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "text": "use",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "text": "of",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "tongue,",
+          "start": 7.48,
+          "end": 7.8
+        },
+        {
+          "text": "a",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "text": "kind",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "text": "Of",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "text": "excellent",
+          "start": 8.7,
+          "end": 9.18
+        },
+        {
+          "text": "dumb",
+          "start": 9.18,
+          "end": 9.52
+        },
+        {
+          "text": "discourse.",
+          "start": 9.52,
+          "end": 10.04
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 0.9629629629629629,
+      "rejection_reasons": [],
+      "seconds": 0.3272197729675099
+    },
+    {
+      "asr_seconds": 0.32443578098900616,
+      "alignment_seconds": 0.00018075492698699236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alonzo, I cannot too much muse such shapes, such gesture and such sound, expressing, although",
+          "start": 0.02,
+          "end": 6.5,
+          "words": [
+            {
+              "text": " Alonzo,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " cannot",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9765625
+            },
+            {
+              "text": " too",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " much",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " muse",
+              "start": 2.2,
+              "end": 2.46,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " such",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shapes,",
+              "start": 2.72,
+              "end": 3.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 3.64,
+              "end": 3.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gesture",
+              "start": 3.74,
+              "end": 4.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.12,
+              "end": 4.4,
+              "probability": 0.892578125
+            },
+            {
+              "text": " such",
+              "start": 4.4,
+              "end": 4.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sound,",
+              "start": 4.64,
+              "end": 5.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expressing,",
+              "start": 5.28,
+              "end": 5.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " although",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " they want the use of tongue, a kind of excellent dumb discourse.",
+          "start": 6.5,
+          "end": 10.04,
+          "words": [
+            {
+              "text": " they",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " want",
+              "start": 6.7,
+              "end": 6.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " use",
+              "start": 7.1,
+              "end": 7.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tongue,",
+              "start": 7.48,
+              "end": 7.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 8.26,
+              "end": 8.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kind",
+              "start": 8.38,
+              "end": 8.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 8.54,
+              "end": 8.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " excellent",
+              "start": 8.7,
+              "end": 9.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dumb",
+              "start": 9.18,
+              "end": 9.52,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " discourse.",
+              "start": 9.52,
+              "end": 10.04,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonzo,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "cannot",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "too",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "much",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "raw": "muse",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "raw": "such",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "shapes,",
+          "start": 2.72,
+          "end": 3.2
+        },
+        {
+          "raw": "such",
+          "start": 3.64,
+          "end": 3.74
+        },
+        {
+          "raw": "gesture",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "raw": "and",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "raw": "such",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "raw": "sound,",
+          "start": 4.64,
+          "end": 5.08
+        },
+        {
+          "raw": "expressing,",
+          "start": 5.28,
+          "end": 5.76
+        },
+        {
+          "raw": "although",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "they",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "want",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "raw": "use",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "raw": "of",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "tongue,",
+          "start": 7.48,
+          "end": 7.8
+        },
+        {
+          "raw": "a",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "raw": "kind",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "raw": "of",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "raw": "excellent",
+          "start": 8.7,
+          "end": 9.18
+        },
+        {
+          "raw": "dumb",
+          "start": 9.18,
+          "end": 9.52
+        },
+        {
+          "raw": "discourse.",
+          "start": 9.52,
+          "end": 10.04
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "I",
+        "cannot",
+        "too",
+        "much",
+        "muse",
+        "Such",
+        "shapes,",
+        "such",
+        "gesture",
+        "and",
+        "such",
+        "sound,",
+        "expressing,",
+        "Although",
+        "they",
+        "want",
+        "the",
+        "use",
+        "of",
+        "tongue,",
+        "a",
+        "kind",
+        "Of",
+        "excellent",
+        "dumb",
+        "discourse."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          27,
+          1,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "cannot",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "too",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "much",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "text": "muse",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "text": "Such",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "shapes,",
+          "start": 2.72,
+          "end": 3.2
+        },
+        {
+          "text": "such",
+          "start": 3.64,
+          "end": 3.74
+        },
+        {
+          "text": "gesture",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "text": "and",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "text": "such",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "text": "sound,",
+          "start": 4.64,
+          "end": 5.08
+        },
+        {
+          "text": "expressing,",
+          "start": 5.28,
+          "end": 5.76
+        },
+        {
+          "text": "Although",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "text": "they",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "text": "want",
+          "start": 6.7,
+          "end": 6.9
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "text": "use",
+          "start": 7.1,
+          "end": 7.3
+        },
+        {
+          "text": "of",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "tongue,",
+          "start": 7.48,
+          "end": 7.8
+        },
+        {
+          "text": "a",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "text": "kind",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "text": "Of",
+          "start": 8.54,
+          "end": 8.7
+        },
+        {
+          "text": "excellent",
+          "start": 8.7,
+          "end": 9.18
+        },
+        {
+          "text": "dumb",
+          "start": 9.18,
+          "end": 9.52
+        },
+        {
+          "text": "discourse.",
+          "start": 9.52,
+          "end": 10.04
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 26
+      },
+      "match_ratio": 0.9629629629629629,
+      "rejection_reasons": [],
+      "seconds": 0.3247124080080539
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "791319d355525e0482285037159d0b6f9a78a0bf3c6db875e3022fecba47ae68",
+  "selected_reasons": []
+}

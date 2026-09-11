@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "f5e0c49b3a90d8bdca37339565907bec6f1a51ec89006c080e5f7b8712bbd480",
+  "attempts": [
+    {
+      "asr_seconds": 0.16317346692085266,
+      "alignment_seconds": 8.155405521392822e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They are called saviours and helpers, he replied.",
+        "hotwords": "They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They are called saviours and helpers, he replied.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6328125
+            },
+            {
+              "text": " are",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.89453125
+            },
+            {
+              "text": " called",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " saviours",
+              "start": 0.89,
+              "end": 1.37,
+              "probability": 0.55206298828125
+            },
+            {
+              "text": " and",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " helpers,",
+              "start": 1.51,
+              "end": 1.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " replied.",
+              "start": 2.41,
+              "end": 2.79,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "are",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "called",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "raw": "saviours",
+          "start": 0.89,
+          "end": 1.37
+        },
+        {
+          "raw": "and",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "helpers,",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "raw": "he",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "replied.",
+          "start": 2.41,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "are",
+        "called",
+        "saviours",
+        "and",
+        "helpers,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "are",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "called",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "text": "saviours",
+          "start": 0.89,
+          "end": 1.37
+        },
+        {
+          "text": "and",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "helpers,",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "text": "he",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "replied.",
+          "start": 2.41,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16329408437013626
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78fc91708db17e073b319f5970bf53cc75c575a0d851289184601b29c39a0b16",
+  "selected_reasons": []
+}

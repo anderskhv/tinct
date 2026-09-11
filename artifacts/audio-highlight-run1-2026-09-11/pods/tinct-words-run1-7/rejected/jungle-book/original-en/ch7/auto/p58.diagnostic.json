@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "6015c8578c8766833ee145b26f54f438b0ac36501610fa788e1bdb6cd9c83180",
+  "attempts": [
+    {
+      "asr_seconds": 0.13893133495002985,
+      "alignment_seconds": 9.780097752809525e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, go on,\" said Billy. \"Please don't mind me. I suppose you fellows fight standing on your tails?\"",
+        "hotwords": "Oh, Billy, Please, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, go on,\" said Billy. \"'Please don't mind me. I suppose you fellows fight standing on your tails?'\"",
+          "start": 0.02,
+          "end": 6.64,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.051544189453125
+            },
+            {
+              "text": " go",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on,\"",
+              "start": 0.78,
+              "end": 1.28,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " said",
+              "start": 1.28,
+              "end": 1.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Billy.",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.859375
+            },
+            {
+              "text": " \"'Please",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.4932727813720703
+            },
+            {
+              "text": " don't",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " mind",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " me.",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 3.66,
+              "end": 3.82,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " suppose",
+              "start": 3.82,
+              "end": 4.12,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " you",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fellows",
+              "start": 4.32,
+              "end": 4.5,
+              "probability": 0.966796875
+            },
+            {
+              "text": " fight",
+              "start": 4.5,
+              "end": 4.92,
+              "probability": 0.96875
+            },
+            {
+              "text": " standing",
+              "start": 4.92,
+              "end": 5.26,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " on",
+              "start": 5.26,
+              "end": 5.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tails?'\"",
+              "start": 5.56,
+              "end": 6.64,
+              "probability": 0.501983642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "go",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "on,\"",
+          "start": 0.78,
+          "end": 1.28
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "raw": "Billy.",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "\"'Please",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "don't",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "mind",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "me.",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "I",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "raw": "suppose",
+          "start": 3.82,
+          "end": 4.12
+        },
+        {
+          "raw": "you",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "fellows",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "raw": "fight",
+          "start": 4.5,
+          "end": 4.92
+        },
+        {
+          "raw": "standing",
+          "start": 4.92,
+          "end": 5.26
+        },
+        {
+          "raw": "on",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "raw": "your",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "tails?'\"",
+          "start": 5.56,
+          "end": 6.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "go",
+        "on,\"",
+        "said",
+        "Billy.",
+        "\"Please",
+        "don't",
+        "mind",
+        "me.",
+        "I",
+        "suppose",
+        "you",
+        "fellows",
+        "fight",
+        "standing",
+        "on",
+        "your",
+        "tails?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "go",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "on,\"",
+          "start": 0.78,
+          "end": 1.28
+        },
+        {
+          "text": "said",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "text": "Billy.",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "\"Please",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "don't",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "mind",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "me.",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "I",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "text": "suppose",
+          "start": 3.82,
+          "end": 4.12
+        },
+        {
+          "text": "you",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "fellows",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "text": "fight",
+          "start": 4.5,
+          "end": 4.92
+        },
+        {
+          "text": "standing",
+          "start": 4.92,
+          "end": 5.26
+        },
+        {
+          "text": "on",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "text": "your",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "tails?\"",
+          "start": 5.56,
+          "end": 6.64
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13907822500914335
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e9793193d6c83f3f24e5876a69534b0bc6a12cb4822011d8e0f5831a807a26b",
+  "selected_reasons": []
+}

@@ -1,0 +1,139 @@
+{
+  "complete": true,
+  "signature": "f690b08c0e34be0275a040f5f3b8e08012695a8c668dfcc7b8a295edbbc72129",
+  "attempts": [
+    {
+      "asr_seconds": 0.08640753477811813,
+      "alignment_seconds": 6.458163261413574e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Uselessness in war.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Uselessness",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.5652262369791666
+            },
+            {
+              "text": " in",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " war.",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.5927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Uselessness",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "in",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "war.",
+          "start": 1.1,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "Usefulness",
+        "in",
+        "war."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Usefulness",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "in",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "war.",
+          "start": 1.1,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08649478852748871
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7e5347a1bdf82e0666f37210b2285db4e304664b58dc373107ed9d5516541e35",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "0e3ab58d6c22291e8a0345ac5445f33e47e0076799878fc13ededd1bd92536a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.09737868793308735,
+      "alignment_seconds": 8.421298116445541e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. One: tell.",
+        "hotwords": "Sebastian, One"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, One tell.",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.5966796875
+            },
+            {
+              "text": " One",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.343994140625
+            },
+            {
+              "text": " tell.",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.086181640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "One",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "tell.",
+          "start": 1.42,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "One:",
+        "tell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "One:",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "tell.",
+          "start": 1.42,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09749701293185353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "315b6aa2359789e0d8d3106a7dbab4abe6acf1e6758e2cf42f786badc022fdb5",
+  "selected_reasons": []
+}

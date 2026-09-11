@@ -1,0 +1,786 @@
+{
+  "complete": true,
+  "signature": "73fe0b7d46f02127fd4c37399a74871ee834b2eab250e5cada9442387cee4bd5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3094078740105033,
+      "alignment_seconds": 0.00022987602278590202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "These and other kindred characteristics are proper to democracy, which is a charming form of government, full of variety and disorder, and dispensing a sort of equality to equals and unequals alike.",
+        "hotwords": "These"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " These These and other kindred characteristics are proper to democracy, which is a charming form of government, full of variety and disorder, and dispensing a sort of equality to equals and unequals alike.",
+          "start": 0.02,
+          "end": 12.32,
+          "words": [
+            {
+              "text": " These",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " These",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 2.3245811462402344e-06
+            },
+            {
+              "text": " and",
+              "start": 0.9,
+              "end": 0.9,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " other",
+              "start": 0.9,
+              "end": 1.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " kindred",
+              "start": 1.16,
+              "end": 1.52,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " characteristics",
+              "start": 1.52,
+              "end": 2.26,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " are",
+              "start": 2.26,
+              "end": 2.66,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " proper",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " democracy,",
+              "start": 3.22,
+              "end": 3.76,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " which",
+              "start": 4.38,
+              "end": 4.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 4.7,
+              "end": 4.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " charming",
+              "start": 4.84,
+              "end": 5.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " form",
+              "start": 5.16,
+              "end": 5.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 5.58,
+              "end": 5.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " government,",
+              "start": 5.82,
+              "end": 6.26,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " full",
+              "start": 6.78,
+              "end": 6.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 6.98,
+              "end": 7.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " variety",
+              "start": 7.18,
+              "end": 7.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 7.58,
+              "end": 8.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " disorder,",
+              "start": 8.0,
+              "end": 8.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 9.02,
+              "end": 9.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " dispensing",
+              "start": 9.08,
+              "end": 9.7,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 9.7,
+              "end": 9.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sort",
+              "start": 9.82,
+              "end": 9.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 9.96,
+              "end": 10.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " equality",
+              "start": 10.08,
+              "end": 10.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 10.46,
+              "end": 10.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " equals",
+              "start": 10.82,
+              "end": 11.2,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 11.2,
+              "end": 11.48,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " unequals",
+              "start": 11.48,
+              "end": 12.04,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " alike.",
+              "start": 12.04,
+              "end": 12.32,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "These",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "These",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "and",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "raw": "other",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "raw": "kindred",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "raw": "characteristics",
+          "start": 1.52,
+          "end": 2.26
+        },
+        {
+          "raw": "are",
+          "start": 2.26,
+          "end": 2.66
+        },
+        {
+          "raw": "proper",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "to",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "democracy,",
+          "start": 3.22,
+          "end": 3.76
+        },
+        {
+          "raw": "which",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "raw": "is",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "a",
+          "start": 4.7,
+          "end": 4.84
+        },
+        {
+          "raw": "charming",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "raw": "form",
+          "start": 5.16,
+          "end": 5.58
+        },
+        {
+          "raw": "of",
+          "start": 5.58,
+          "end": 5.82
+        },
+        {
+          "raw": "government,",
+          "start": 5.82,
+          "end": 6.26
+        },
+        {
+          "raw": "full",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "raw": "of",
+          "start": 6.98,
+          "end": 7.18
+        },
+        {
+          "raw": "variety",
+          "start": 7.18,
+          "end": 7.58
+        },
+        {
+          "raw": "and",
+          "start": 7.58,
+          "end": 8.0
+        },
+        {
+          "raw": "disorder,",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "raw": "and",
+          "start": 9.02,
+          "end": 9.08
+        },
+        {
+          "raw": "dispensing",
+          "start": 9.08,
+          "end": 9.7
+        },
+        {
+          "raw": "a",
+          "start": 9.7,
+          "end": 9.82
+        },
+        {
+          "raw": "sort",
+          "start": 9.82,
+          "end": 9.96
+        },
+        {
+          "raw": "of",
+          "start": 9.96,
+          "end": 10.08
+        },
+        {
+          "raw": "equality",
+          "start": 10.08,
+          "end": 10.46
+        },
+        {
+          "raw": "to",
+          "start": 10.46,
+          "end": 10.82
+        },
+        {
+          "raw": "equals",
+          "start": 10.82,
+          "end": 11.2
+        },
+        {
+          "raw": "and",
+          "start": 11.2,
+          "end": 11.48
+        },
+        {
+          "raw": "unequals",
+          "start": 11.48,
+          "end": 12.04
+        },
+        {
+          "raw": "alike.",
+          "start": 12.04,
+          "end": 12.32
+        }
+      ],
+      "expected_tokens": [
+        "These",
+        "and",
+        "other",
+        "kindred",
+        "characteristics",
+        "are",
+        "proper",
+        "to",
+        "democracy,",
+        "which",
+        "is",
+        "a",
+        "charming",
+        "form",
+        "of",
+        "government,",
+        "full",
+        "of",
+        "variety",
+        "and",
+        "disorder,",
+        "and",
+        "dispensing",
+        "a",
+        "sort",
+        "of",
+        "equality",
+        "to",
+        "equals",
+        "and",
+        "unequals",
+        "alike."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          32,
+          1,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "These",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "and",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "text": "other",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "text": "kindred",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "text": "characteristics",
+          "start": 1.52,
+          "end": 2.26
+        },
+        {
+          "text": "are",
+          "start": 2.26,
+          "end": 2.66
+        },
+        {
+          "text": "proper",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "to",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "democracy,",
+          "start": 3.22,
+          "end": 3.76
+        },
+        {
+          "text": "which",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "text": "is",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "a",
+          "start": 4.7,
+          "end": 4.84
+        },
+        {
+          "text": "charming",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "text": "form",
+          "start": 5.16,
+          "end": 5.58
+        },
+        {
+          "text": "of",
+          "start": 5.58,
+          "end": 5.82
+        },
+        {
+          "text": "government,",
+          "start": 5.82,
+          "end": 6.26
+        },
+        {
+          "text": "full",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "of",
+          "start": 6.98,
+          "end": 7.18
+        },
+        {
+          "text": "variety",
+          "start": 7.18,
+          "end": 7.58
+        },
+        {
+          "text": "and",
+          "start": 7.58,
+          "end": 8.0
+        },
+        {
+          "text": "disorder,",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "text": "and",
+          "start": 9.02,
+          "end": 9.08
+        },
+        {
+          "text": "dispensing",
+          "start": 9.08,
+          "end": 9.7
+        },
+        {
+          "text": "a",
+          "start": 9.7,
+          "end": 9.82
+        },
+        {
+          "text": "sort",
+          "start": 9.82,
+          "end": 9.96
+        },
+        {
+          "text": "of",
+          "start": 9.96,
+          "end": 10.08
+        },
+        {
+          "text": "equality",
+          "start": 10.08,
+          "end": 10.46
+        },
+        {
+          "text": "to",
+          "start": 10.46,
+          "end": 10.82
+        },
+        {
+          "text": "equals",
+          "start": 10.82,
+          "end": 11.2
+        },
+        {
+          "text": "and",
+          "start": 11.2,
+          "end": 11.48
+        },
+        {
+          "text": "unequals",
+          "start": 11.48,
+          "end": 12.04
+        },
+        {
+          "text": "alike.",
+          "start": 12.04,
+          "end": 12.32
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 33,
+        "matched_words": 32
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3097636681050062
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e2c05a8121a073352e1fbb3d933750d7aba95197012391485be360a927d39a18",
+  "selected_reasons": []
+}

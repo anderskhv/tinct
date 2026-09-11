@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "026c9a20c8c4da2cab8f889eb0f0c16ecd5e95d39e6f300d6d42b3d9b50fff96",
+  "attempts": [
+    {
+      "asr_seconds": 0.0789461862295866,
+      "alignment_seconds": 6.120093166828156e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The soul, he replied.",
+          "start": 0.02,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " soul,",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " he",
+              "start": 0.92,
+              "end": 1.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " replied.",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "soul,",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "he",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "raw": "replied.",
+          "start": 1.0,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "soul,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "soul,",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "he",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "text": "replied.",
+          "start": 1.0,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07903238758444786
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4014cb95f38a269752c4988e400eb8f7906d6d5aa2fe5b35684b0d0f04f8982f",
+  "selected_reasons": []
+}

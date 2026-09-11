@@ -1,0 +1,468 @@
+{
+  "complete": true,
+  "signature": "df9888c9bf5bdbed88a211a0d8ed660cb13b2321d586d1866d7cb9964a2c30b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1850188747048378,
+      "alignment_seconds": 0.00014135241508483887,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " are not the chief elements of temperance, speaking generally, obedience to commanders",
+          "start": 0.05,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " are",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " not",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 0.69,
+              "end": 0.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " chief",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " elements",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " temperance,",
+              "start": 1.73,
+              "end": 2.31,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " speaking",
+              "start": 2.65,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " generally,",
+              "start": 2.99,
+              "end": 3.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " obedience",
+              "start": 4.11,
+              "end": 4.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.43,
+              "end": 4.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " commanders",
+              "start": 4.79,
+              "end": 5.13,
+              "probability": 0.939453125
+            }
+          ]
+        },
+        {
+          "text": " and self-control in sensual pleasures.",
+          "start": 5.13,
+          "end": 7.33,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.13,
+              "end": 5.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " self",
+              "start": 5.55,
+              "end": 5.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "-control",
+              "start": 5.75,
+              "end": 6.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 6.21,
+              "end": 6.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sensual",
+              "start": 6.55,
+              "end": 6.99,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " pleasures.",
+              "start": 6.99,
+              "end": 7.33,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "not",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "the",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "raw": "chief",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "raw": "elements",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "raw": "of",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "temperance,",
+          "start": 1.73,
+          "end": 2.31
+        },
+        {
+          "raw": "speaking",
+          "start": 2.65,
+          "end": 2.99
+        },
+        {
+          "raw": "generally,",
+          "start": 2.99,
+          "end": 3.59
+        },
+        {
+          "raw": "obedience",
+          "start": 4.11,
+          "end": 4.43
+        },
+        {
+          "raw": "to",
+          "start": 4.43,
+          "end": 4.79
+        },
+        {
+          "raw": "commanders",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "raw": "and",
+          "start": 5.13,
+          "end": 5.55
+        },
+        {
+          "raw": "self",
+          "start": 5.55,
+          "end": 5.75
+        },
+        {
+          "raw": "-control",
+          "start": 5.75,
+          "end": 6.21
+        },
+        {
+          "raw": "in",
+          "start": 6.21,
+          "end": 6.55
+        },
+        {
+          "raw": "sensual",
+          "start": 6.55,
+          "end": 6.99
+        },
+        {
+          "raw": "pleasures.",
+          "start": 6.99,
+          "end": 7.33
+        }
+      ],
+      "expected_tokens": [
+        "Are",
+        "not",
+        "the",
+        "chief",
+        "elements",
+        "of",
+        "temperance,",
+        "speaking",
+        "generally,",
+        "obedience",
+        "to",
+        "commanders",
+        "and",
+        "self-control",
+        "in",
+        "sensual",
+        "pleasures?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          17,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "not",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "the",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "text": "chief",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "elements",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "text": "of",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "temperance,",
+          "start": 1.73,
+          "end": 2.31
+        },
+        {
+          "text": "speaking",
+          "start": 2.65,
+          "end": 2.99
+        },
+        {
+          "text": "generally,",
+          "start": 2.99,
+          "end": 3.59
+        },
+        {
+          "text": "obedience",
+          "start": 4.11,
+          "end": 4.43
+        },
+        {
+          "text": "to",
+          "start": 4.43,
+          "end": 4.79
+        },
+        {
+          "text": "commanders",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "text": "and",
+          "start": 5.13,
+          "end": 5.55
+        },
+        {
+          "text": "self-control",
+          "start": 5.55,
+          "end": 5.88
+        },
+        {
+          "text": "in",
+          "start": 6.21,
+          "end": 6.55
+        },
+        {
+          "text": "sensual",
+          "start": 6.55,
+          "end": 6.99
+        },
+        {
+          "text": "pleasures?",
+          "start": 6.99,
+          "end": 7.33
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.1852276474237442
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2ebd43115534f3f306ec8b9fbb00190f495d81b84c47492e1ab6969557f8cee0",
+  "selected_reasons": []
+}

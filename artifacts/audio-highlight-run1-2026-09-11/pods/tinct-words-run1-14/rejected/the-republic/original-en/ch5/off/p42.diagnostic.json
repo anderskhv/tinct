@@ -1,0 +1,369 @@
+{
+  "complete": true,
+  "signature": "d4729a491ca766c91fb59bd2a1335b4827ecda3dc273044111f988d9c3a1bb78",
+  "attempts": [
+    {
+      "asr_seconds": 0.21317213773727417,
+      "alignment_seconds": 0.00011262297630310059,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, indeed,\" he said.",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.2216796875
+            },
+            {
+              "text": " indeed,\"",
+              "start": 0.9,
+              "end": 1.56,
+              "probability": 0.802490234375
+            },
+            {
+              "text": " he",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said.",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " According to present notions, the proposal would be thought ridiculous.",
+          "start": 2.88,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " According",
+              "start": 2.88,
+              "end": 2.9,
+              "probability": 0.697265625
+            },
+            {
+              "text": " to",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " present",
+              "start": 3.18,
+              "end": 3.42,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " notions,",
+              "start": 3.42,
+              "end": 3.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 4.14,
+              "end": 4.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " proposal",
+              "start": 4.18,
+              "end": 4.56,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " would",
+              "start": 4.56,
+              "end": 4.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 4.82,
+              "end": 4.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thought",
+              "start": 4.96,
+              "end": 5.2,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " ridiculous.",
+              "start": 5.2,
+              "end": 5.62,
+              "probability": 0.88916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "indeed,\"",
+          "start": 0.9,
+          "end": 1.56
+        },
+        {
+          "raw": "he",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "said.",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "According",
+          "start": 2.88,
+          "end": 2.9
+        },
+        {
+          "raw": "to",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "present",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "raw": "notions,",
+          "start": 3.42,
+          "end": 3.84
+        },
+        {
+          "raw": "the",
+          "start": 4.14,
+          "end": 4.18
+        },
+        {
+          "raw": "proposal",
+          "start": 4.18,
+          "end": 4.56
+        },
+        {
+          "raw": "would",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "raw": "be",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "raw": "thought",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "raw": "ridiculous.",
+          "start": 5.2,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "indeed,",
+        "he",
+        "said:",
+        "according",
+        "to",
+        "present",
+        "notions",
+        "the",
+        "proposal",
+        "would",
+        "be",
+        "thought",
+        "ridiculous."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "indeed,",
+          "start": 0.9,
+          "end": 1.56
+        },
+        {
+          "text": "he",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "said:",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "text": "according",
+          "start": 2.88,
+          "end": 2.9
+        },
+        {
+          "text": "to",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "text": "present",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "text": "notions",
+          "start": 3.42,
+          "end": 3.84
+        },
+        {
+          "text": "the",
+          "start": 4.14,
+          "end": 4.18
+        },
+        {
+          "text": "proposal",
+          "start": 4.18,
+          "end": 4.56
+        },
+        {
+          "text": "would",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "text": "be",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "text": "thought",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "text": "ridiculous.",
+          "start": 5.2,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21334202587604523
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "43e75d027a4ad4d6446296a94adbf1b9db19355c277c797d3fe490be03014934",
+  "selected_reasons": []
+}

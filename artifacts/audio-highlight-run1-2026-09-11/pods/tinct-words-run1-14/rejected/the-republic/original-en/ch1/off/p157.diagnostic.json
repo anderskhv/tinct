@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "68e20081d44bb96a078a946c4abb5224c94907cde75b7075792b1b1362b68795",
+  "attempts": [
+    {
+      "asr_seconds": 0.07207785546779633,
+      "alignment_seconds": 5.017220973968506e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly not.",
+          "start": 0.08,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Certainly",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " not.",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "not.",
+          "start": 0.68,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "not.",
+          "start": 0.68,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07214852422475815
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "585d04cd9bad80fac865629f82a27da7ba3a152cf38a1c1c7074b3a0a96041a8",
+  "selected_reasons": []
+}

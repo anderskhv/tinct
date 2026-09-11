@@ -1,0 +1,111 @@
+{
+  "complete": true,
+  "signature": "f3da450be433076fc905c378d81aa99b76ba8642a272367e202e003a9d2f14d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12551701813936234,
+      "alignment_seconds": 4.883855581283569e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And,—",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And",
+          "start": 0.02,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.5419921875
+            }
+          ]
+        },
+        {
+          "text": " And",
+          "start": 0.66,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.1131591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "And",
+          "start": 0.66,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "And,—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And,—",
+          "start": 0.02,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12558496743440628
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dd4576dc84659eb4d18fcc2b86b1d2cc4660d37fe6975bf1198576eaed71decb",
+  "selected_reasons": []
+}

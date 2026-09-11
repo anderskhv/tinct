@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "a3756c561e585516fe072c646c99e8d5f246a7f63601791436b0f7f89f8acd45",
+  "attempts": [
+    {
+      "asr_seconds": 0.08965852111577988,
+      "alignment_seconds": 7.170438766479492e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That, he replied, is excellent.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That, he replied, is excellent.",
+          "start": 0.14,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " That,",
+              "start": 0.14,
+              "end": 0.56,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " he",
+              "start": 0.62,
+              "end": 0.7,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " replied,",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " excellent.",
+              "start": 1.34,
+              "end": 1.72,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That,",
+          "start": 0.14,
+          "end": 0.56
+        },
+        {
+          "raw": "he",
+          "start": 0.62,
+          "end": 0.7
+        },
+        {
+          "raw": "replied,",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "excellent.",
+          "start": 1.34,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "That,",
+        "he",
+        "replied,",
+        "is",
+        "excellent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That,",
+          "start": 0.14,
+          "end": 0.56
+        },
+        {
+          "text": "he",
+          "start": 0.62,
+          "end": 0.7
+        },
+        {
+          "text": "replied,",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "is",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "excellent.",
+          "start": 1.34,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08976002037525177
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e0f7ef7b8ea22a16dd376952a5beef6dea4ee7b3d6506b76efa5ae2d0f7931b",
+  "selected_reasons": []
+}

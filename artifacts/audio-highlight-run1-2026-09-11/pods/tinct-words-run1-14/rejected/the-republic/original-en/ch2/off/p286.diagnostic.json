@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "ad1c3e382c472979a8a86ca554041d10997b982837e32f79ad904444ec98b7f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.08234038203954697,
+      "alignment_seconds": 5.061924457550049e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Most certainly.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " certainly.",
+              "start": 0.6,
+              "end": 0.98,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "certainly.",
+          "start": 0.6,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "Most",
+        "certainly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Most",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "certainly.",
+          "start": 0.6,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0824093297123909
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a27bc1453eeb1fcb262a772b76fe044cc9f75d6ad0940727758fae300298d87",
+  "selected_reasons": []
+}

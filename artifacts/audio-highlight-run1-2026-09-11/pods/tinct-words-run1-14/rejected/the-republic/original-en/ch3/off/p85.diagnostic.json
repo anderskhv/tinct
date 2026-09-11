@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "b6bef6271579bc2c19da64239ec26ba670b103d7d49e222bb333bd3bc503d66c",
+  "attempts": [
+    {
+      "asr_seconds": 0.08420734107494354,
+      "alignment_seconds": 6.055086851119995e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They are ill-spoken.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " are",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ill",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.90380859375
+            },
+            {
+              "text": "-spoken.",
+              "start": 0.88,
+              "end": 1.28,
+              "probability": 0.853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "are",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "ill",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "-spoken.",
+          "start": 0.88,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "are",
+        "ill",
+        "spoken."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "are",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "ill",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "spoken.",
+          "start": 0.88,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08429265022277832
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e010259b48f660d45c920f5fe668fc68778523b23907e2cd63da61d1f33a001",
+  "selected_reasons": []
+}

@@ -1,0 +1,5275 @@
+{
+  "complete": true,
+  "signature": "d79e7767ba7ea9177a2dbe3e80d0e08fcda6ae1627ba3a19548dc79c52fa665b",
+  "attempts": [
+    {
+      "asr_seconds": 0.5419251248240471,
+      "alignment_seconds": 0.0003799125552177429,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. Know thus far forth. By accident most strange, bountiful Fortune, Now my dear lady, hath mine enemies Brought to this shore; and by my prescience I find my zenith doth depend upon A most auspicious star, whose influence If now I court not but omit, my fortunes Will ever after droop. Here cease more questions: Thou art inclined to sleep; 'tis a good dulness, And give it way: I know thou canst not choose.",
+        "hotwords": "Prospero, Fortune, Brought, I, If, Will, Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, Know thus far forth. By accident most strange, bountiful Fortune, Now my dear lady, hath mine enemies Brought to this shore. And by my prescience I find my zenith doth depend upon A most auspicious star, whose influence If now I court not but omit, my fortunes Will ever after droop. Here cease more questions, Thou art inclined to sleep,",
+          "start": 0.02,
+          "end": 21.26,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.04,
+              "probability": 0.691162109375
+            },
+            {
+              "text": " Know",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.00872802734375
+            },
+            {
+              "text": " thus",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " far",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " forth.",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " By",
+              "start": 2.88,
+              "end": 3.02,
+              "probability": 0.982421875
+            },
+            {
+              "text": " accident",
+              "start": 3.02,
+              "end": 3.4,
+              "probability": 0.951171875
+            },
+            {
+              "text": " most",
+              "start": 3.4,
+              "end": 3.72,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " strange,",
+              "start": 3.72,
+              "end": 4.34,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " bountiful",
+              "start": 4.66,
+              "end": 4.98,
+              "probability": 0.924072265625
+            },
+            {
+              "text": " Fortune,",
+              "start": 4.98,
+              "end": 5.38,
+              "probability": 0.051513671875
+            },
+            {
+              "text": " Now",
+              "start": 5.8,
+              "end": 5.84,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " my",
+              "start": 5.84,
+              "end": 6.02,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " dear",
+              "start": 6.02,
+              "end": 6.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lady,",
+              "start": 6.18,
+              "end": 6.52,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " hath",
+              "start": 6.72,
+              "end": 6.82,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " mine",
+              "start": 6.82,
+              "end": 7.16,
+              "probability": 0.984375
+            },
+            {
+              "text": " enemies",
+              "start": 7.16,
+              "end": 7.54,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Brought",
+              "start": 7.54,
+              "end": 7.82,
+              "probability": 0.522918701171875
+            },
+            {
+              "text": " to",
+              "start": 7.82,
+              "end": 8.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " shore.",
+              "start": 8.16,
+              "end": 8.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " And",
+              "start": 8.92,
+              "end": 9.12,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " by",
+              "start": 9.12,
+              "end": 9.24,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " my",
+              "start": 9.24,
+              "end": 9.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " prescience",
+              "start": 9.44,
+              "end": 9.82,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 9.82,
+              "end": 10.1,
+              "probability": 0.919921875
+            },
+            {
+              "text": " find",
+              "start": 10.1,
+              "end": 10.32,
+              "probability": 0.982421875
+            },
+            {
+              "text": " my",
+              "start": 10.32,
+              "end": 10.52,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " zenith",
+              "start": 10.52,
+              "end": 10.9,
+              "probability": 0.9332682291666666
+            },
+            {
+              "text": " doth",
+              "start": 10.9,
+              "end": 11.16,
+              "probability": 0.5850830078125
+            },
+            {
+              "text": " depend",
+              "start": 11.16,
+              "end": 11.44,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " upon",
+              "start": 11.44,
+              "end": 11.7,
+              "probability": 0.416259765625
+            },
+            {
+              "text": " A",
+              "start": 11.7,
+              "end": 11.82,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " most",
+              "start": 11.82,
+              "end": 12.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " auspicious",
+              "start": 12.04,
+              "end": 12.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " star,",
+              "start": 12.56,
+              "end": 12.96,
+              "probability": 0.8984375
+            },
+            {
+              "text": " whose",
+              "start": 13.34,
+              "end": 13.54,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " influence",
+              "start": 13.54,
+              "end": 13.96,
+              "probability": 0.962890625
+            },
+            {
+              "text": " If",
+              "start": 13.96,
+              "end": 14.26,
+              "probability": 0.397705078125
+            },
+            {
+              "text": " now",
+              "start": 14.26,
+              "end": 14.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 14.5,
+              "end": 14.72,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " court",
+              "start": 14.72,
+              "end": 14.92,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " not",
+              "start": 14.92,
+              "end": 15.14,
+              "probability": 0.935546875
+            },
+            {
+              "text": " but",
+              "start": 15.14,
+              "end": 15.3,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " omit,",
+              "start": 15.3,
+              "end": 15.62,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " my",
+              "start": 15.92,
+              "end": 16.06,
+              "probability": 0.305908203125
+            },
+            {
+              "text": " fortunes",
+              "start": 16.06,
+              "end": 16.44,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " Will",
+              "start": 16.44,
+              "end": 16.64,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " ever",
+              "start": 16.64,
+              "end": 16.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " after",
+              "start": 16.88,
+              "end": 17.2,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " droop.",
+              "start": 17.2,
+              "end": 17.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Here",
+              "start": 18.24,
+              "end": 18.42,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " cease",
+              "start": 18.42,
+              "end": 18.66,
+              "probability": 0.962890625
+            },
+            {
+              "text": " more",
+              "start": 18.66,
+              "end": 18.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " questions,",
+              "start": 18.96,
+              "end": 19.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Thou",
+              "start": 20.0,
+              "end": 20.08,
+              "probability": 0.63671875
+            },
+            {
+              "text": " art",
+              "start": 20.08,
+              "end": 20.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " inclined",
+              "start": 20.38,
+              "end": 20.72,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " to",
+              "start": 20.72,
+              "end": 20.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sleep,",
+              "start": 20.98,
+              "end": 21.26,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Tease a good dulness, And give it way. I know thou canst not choose.",
+          "start": 21.66,
+          "end": 25.16,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 21.66,
+              "end": 22.02,
+              "probability": 0.7342529296875
+            },
+            {
+              "text": " a",
+              "start": 22.02,
+              "end": 22.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " good",
+              "start": 22.12,
+              "end": 22.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " dulness,",
+              "start": 22.24,
+              "end": 22.7,
+              "probability": 0.5417683919270834
+            },
+            {
+              "text": " And",
+              "start": 22.8,
+              "end": 22.92,
+              "probability": 0.0294036865234375
+            },
+            {
+              "text": " give",
+              "start": 22.92,
+              "end": 23.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 23.06,
+              "end": 23.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " way.",
+              "start": 23.18,
+              "end": 23.38,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " I",
+              "start": 23.8,
+              "end": 23.92,
+              "probability": 0.974609375
+            },
+            {
+              "text": " know",
+              "start": 23.92,
+              "end": 24.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thou",
+              "start": 24.04,
+              "end": 24.22,
+              "probability": 0.5537109375
+            },
+            {
+              "text": " canst",
+              "start": 24.22,
+              "end": 24.64,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " not",
+              "start": 24.64,
+              "end": 24.84,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " choose.",
+              "start": 24.84,
+              "end": 25.16,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "raw": "Know",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "thus",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "far",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "raw": "forth.",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "By",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "raw": "accident",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "raw": "most",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "raw": "strange,",
+          "start": 3.72,
+          "end": 4.34
+        },
+        {
+          "raw": "bountiful",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "raw": "Fortune,",
+          "start": 4.98,
+          "end": 5.38
+        },
+        {
+          "raw": "Now",
+          "start": 5.8,
+          "end": 5.84
+        },
+        {
+          "raw": "my",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "raw": "dear",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "raw": "lady,",
+          "start": 6.18,
+          "end": 6.52
+        },
+        {
+          "raw": "hath",
+          "start": 6.72,
+          "end": 6.82
+        },
+        {
+          "raw": "mine",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "raw": "enemies",
+          "start": 7.16,
+          "end": 7.54
+        },
+        {
+          "raw": "Brought",
+          "start": 7.54,
+          "end": 7.82
+        },
+        {
+          "raw": "to",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "raw": "this",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "shore.",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "raw": "And",
+          "start": 8.92,
+          "end": 9.12
+        },
+        {
+          "raw": "by",
+          "start": 9.12,
+          "end": 9.24
+        },
+        {
+          "raw": "my",
+          "start": 9.24,
+          "end": 9.44
+        },
+        {
+          "raw": "prescience",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "raw": "I",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "raw": "find",
+          "start": 10.1,
+          "end": 10.32
+        },
+        {
+          "raw": "my",
+          "start": 10.32,
+          "end": 10.52
+        },
+        {
+          "raw": "zenith",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "raw": "doth",
+          "start": 10.9,
+          "end": 11.16
+        },
+        {
+          "raw": "depend",
+          "start": 11.16,
+          "end": 11.44
+        },
+        {
+          "raw": "upon",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "raw": "A",
+          "start": 11.7,
+          "end": 11.82
+        },
+        {
+          "raw": "most",
+          "start": 11.82,
+          "end": 12.04
+        },
+        {
+          "raw": "auspicious",
+          "start": 12.04,
+          "end": 12.56
+        },
+        {
+          "raw": "star,",
+          "start": 12.56,
+          "end": 12.96
+        },
+        {
+          "raw": "whose",
+          "start": 13.34,
+          "end": 13.54
+        },
+        {
+          "raw": "influence",
+          "start": 13.54,
+          "end": 13.96
+        },
+        {
+          "raw": "If",
+          "start": 13.96,
+          "end": 14.26
+        },
+        {
+          "raw": "now",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "raw": "I",
+          "start": 14.5,
+          "end": 14.72
+        },
+        {
+          "raw": "court",
+          "start": 14.72,
+          "end": 14.92
+        },
+        {
+          "raw": "not",
+          "start": 14.92,
+          "end": 15.14
+        },
+        {
+          "raw": "but",
+          "start": 15.14,
+          "end": 15.3
+        },
+        {
+          "raw": "omit,",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "raw": "my",
+          "start": 15.92,
+          "end": 16.06
+        },
+        {
+          "raw": "fortunes",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "raw": "Will",
+          "start": 16.44,
+          "end": 16.64
+        },
+        {
+          "raw": "ever",
+          "start": 16.64,
+          "end": 16.88
+        },
+        {
+          "raw": "after",
+          "start": 16.88,
+          "end": 17.2
+        },
+        {
+          "raw": "droop.",
+          "start": 17.2,
+          "end": 17.56
+        },
+        {
+          "raw": "Here",
+          "start": 18.24,
+          "end": 18.42
+        },
+        {
+          "raw": "cease",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "raw": "more",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "raw": "questions,",
+          "start": 18.96,
+          "end": 19.42
+        },
+        {
+          "raw": "Thou",
+          "start": 20.0,
+          "end": 20.08
+        },
+        {
+          "raw": "art",
+          "start": 20.08,
+          "end": 20.38
+        },
+        {
+          "raw": "inclined",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "raw": "to",
+          "start": 20.72,
+          "end": 20.98
+        },
+        {
+          "raw": "sleep,",
+          "start": 20.98,
+          "end": 21.26
+        },
+        {
+          "raw": "Tease",
+          "start": 21.66,
+          "end": 22.02
+        },
+        {
+          "raw": "a",
+          "start": 22.02,
+          "end": 22.12
+        },
+        {
+          "raw": "good",
+          "start": 22.12,
+          "end": 22.24
+        },
+        {
+          "raw": "dulness,",
+          "start": 22.24,
+          "end": 22.7
+        },
+        {
+          "raw": "And",
+          "start": 22.8,
+          "end": 22.92
+        },
+        {
+          "raw": "give",
+          "start": 22.92,
+          "end": 23.06
+        },
+        {
+          "raw": "it",
+          "start": 23.06,
+          "end": 23.18
+        },
+        {
+          "raw": "way.",
+          "start": 23.18,
+          "end": 23.38
+        },
+        {
+          "raw": "I",
+          "start": 23.8,
+          "end": 23.92
+        },
+        {
+          "raw": "know",
+          "start": 23.92,
+          "end": 24.04
+        },
+        {
+          "raw": "thou",
+          "start": 24.04,
+          "end": 24.22
+        },
+        {
+          "raw": "canst",
+          "start": 24.22,
+          "end": 24.64
+        },
+        {
+          "raw": "not",
+          "start": 24.64,
+          "end": 24.84
+        },
+        {
+          "raw": "choose.",
+          "start": 24.84,
+          "end": 25.16
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Know",
+        "thus",
+        "far",
+        "forth.",
+        "By",
+        "accident",
+        "most",
+        "strange,",
+        "bountiful",
+        "Fortune,",
+        "Now",
+        "my",
+        "dear",
+        "lady,",
+        "hath",
+        "mine",
+        "enemies",
+        "Brought",
+        "to",
+        "this",
+        "shore;",
+        "and",
+        "by",
+        "my",
+        "prescience",
+        "I",
+        "find",
+        "my",
+        "zenith",
+        "doth",
+        "depend",
+        "upon",
+        "A",
+        "most",
+        "auspicious",
+        "star,",
+        "whose",
+        "influence",
+        "If",
+        "now",
+        "I",
+        "court",
+        "not",
+        "but",
+        "omit,",
+        "my",
+        "fortunes",
+        "Will",
+        "ever",
+        "after",
+        "droop.",
+        "Here",
+        "cease",
+        "more",
+        "questions:",
+        "Thou",
+        "art",
+        "inclined",
+        "to",
+        "sleep;",
+        "'tis",
+        "a",
+        "good",
+        "dulness,",
+        "And",
+        "give",
+        "it",
+        "way:",
+        "I",
+        "know",
+        "thou",
+        "canst",
+        "not",
+        "choose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          61,
+          0,
+          61
+        ],
+        [
+          "replace",
+          61,
+          62,
+          61,
+          62
+        ],
+        [
+          "equal",
+          62,
+          75,
+          62,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          61,
+          62,
+          61,
+          62
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "text": "Know",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "thus",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "far",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "text": "forth.",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "By",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "text": "accident",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "text": "most",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "text": "strange,",
+          "start": 3.72,
+          "end": 4.34
+        },
+        {
+          "text": "bountiful",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "text": "Fortune,",
+          "start": 4.98,
+          "end": 5.38
+        },
+        {
+          "text": "Now",
+          "start": 5.8,
+          "end": 5.84
+        },
+        {
+          "text": "my",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "text": "dear",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "text": "lady,",
+          "start": 6.18,
+          "end": 6.52
+        },
+        {
+          "text": "hath",
+          "start": 6.72,
+          "end": 6.82
+        },
+        {
+          "text": "mine",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "text": "enemies",
+          "start": 7.16,
+          "end": 7.54
+        },
+        {
+          "text": "Brought",
+          "start": 7.54,
+          "end": 7.82
+        },
+        {
+          "text": "to",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "text": "this",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "shore;",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "text": "and",
+          "start": 8.92,
+          "end": 9.12
+        },
+        {
+          "text": "by",
+          "start": 9.12,
+          "end": 9.24
+        },
+        {
+          "text": "my",
+          "start": 9.24,
+          "end": 9.44
+        },
+        {
+          "text": "prescience",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "text": "I",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "text": "find",
+          "start": 10.1,
+          "end": 10.32
+        },
+        {
+          "text": "my",
+          "start": 10.32,
+          "end": 10.52
+        },
+        {
+          "text": "zenith",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "text": "doth",
+          "start": 10.9,
+          "end": 11.16
+        },
+        {
+          "text": "depend",
+          "start": 11.16,
+          "end": 11.44
+        },
+        {
+          "text": "upon",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "text": "A",
+          "start": 11.7,
+          "end": 11.82
+        },
+        {
+          "text": "most",
+          "start": 11.82,
+          "end": 12.04
+        },
+        {
+          "text": "auspicious",
+          "start": 12.04,
+          "end": 12.56
+        },
+        {
+          "text": "star,",
+          "start": 12.56,
+          "end": 12.96
+        },
+        {
+          "text": "whose",
+          "start": 13.34,
+          "end": 13.54
+        },
+        {
+          "text": "influence",
+          "start": 13.54,
+          "end": 13.96
+        },
+        {
+          "text": "If",
+          "start": 13.96,
+          "end": 14.26
+        },
+        {
+          "text": "now",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "text": "I",
+          "start": 14.5,
+          "end": 14.72
+        },
+        {
+          "text": "court",
+          "start": 14.72,
+          "end": 14.92
+        },
+        {
+          "text": "not",
+          "start": 14.92,
+          "end": 15.14
+        },
+        {
+          "text": "but",
+          "start": 15.14,
+          "end": 15.3
+        },
+        {
+          "text": "omit,",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "text": "my",
+          "start": 15.92,
+          "end": 16.06
+        },
+        {
+          "text": "fortunes",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "text": "Will",
+          "start": 16.44,
+          "end": 16.64
+        },
+        {
+          "text": "ever",
+          "start": 16.64,
+          "end": 16.88
+        },
+        {
+          "text": "after",
+          "start": 16.88,
+          "end": 17.2
+        },
+        {
+          "text": "droop.",
+          "start": 17.2,
+          "end": 17.56
+        },
+        {
+          "text": "Here",
+          "start": 18.24,
+          "end": 18.42
+        },
+        {
+          "text": "cease",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "text": "more",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "text": "questions:",
+          "start": 18.96,
+          "end": 19.42
+        },
+        {
+          "text": "Thou",
+          "start": 20.0,
+          "end": 20.08
+        },
+        {
+          "text": "art",
+          "start": 20.08,
+          "end": 20.38
+        },
+        {
+          "text": "inclined",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "text": "to",
+          "start": 20.72,
+          "end": 20.98
+        },
+        {
+          "text": "sleep;",
+          "start": 20.98,
+          "end": 21.26
+        },
+        {
+          "text": "'tis",
+          "start": 21.26,
+          "end": 21.64
+        },
+        {
+          "text": "a",
+          "start": 22.02,
+          "end": 22.12
+        },
+        {
+          "text": "good",
+          "start": 22.12,
+          "end": 22.24
+        },
+        {
+          "text": "dulness,",
+          "start": 22.24,
+          "end": 22.7
+        },
+        {
+          "text": "And",
+          "start": 22.8,
+          "end": 22.92
+        },
+        {
+          "text": "give",
+          "start": 22.92,
+          "end": 23.06
+        },
+        {
+          "text": "it",
+          "start": 23.06,
+          "end": 23.18
+        },
+        {
+          "text": "way:",
+          "start": 23.18,
+          "end": 23.38
+        },
+        {
+          "text": "I",
+          "start": 23.8,
+          "end": 23.92
+        },
+        {
+          "text": "know",
+          "start": 23.92,
+          "end": 24.04
+        },
+        {
+          "text": "thou",
+          "start": 24.04,
+          "end": 24.22
+        },
+        {
+          "text": "canst",
+          "start": 24.22,
+          "end": 24.64
+        },
+        {
+          "text": "not",
+          "start": 24.64,
+          "end": 24.84
+        },
+        {
+          "text": "choose.",
+          "start": 24.84,
+          "end": 25.16
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 75,
+        "matched_words": 74
+      },
+      "match_ratio": 0.9866666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.5424762889742851
+    },
+    {
+      "asr_seconds": 0.4654831141233444,
+      "alignment_seconds": 0.0002825930714607239,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Prospero, Fortune, Brought, I, If, Will, Here"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Prospero, Know thus far forth, By accident most strange, bountiful Fortune,",
+          "start": 0.02,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.04,
+              "probability": 0.691162109375
+            },
+            {
+              "text": " Know",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.00872802734375
+            },
+            {
+              "text": " thus",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " far",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " forth,",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " By",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " accident",
+              "start": 3.0,
+              "end": 3.4,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " most",
+              "start": 3.4,
+              "end": 3.72,
+              "probability": 0.87109375
+            },
+            {
+              "text": " strange,",
+              "start": 3.72,
+              "end": 4.34,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " bountiful",
+              "start": 4.66,
+              "end": 4.98,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " Fortune,",
+              "start": 4.98,
+              "end": 5.38,
+              "probability": 0.0546875
+            }
+          ]
+        },
+        {
+          "text": " Now my dear lady, Hath mine enemies brought to this shore,",
+          "start": 5.76,
+          "end": 8.42,
+          "words": [
+            {
+              "text": " Now",
+              "start": 5.76,
+              "end": 5.84,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " my",
+              "start": 5.84,
+              "end": 6.02,
+              "probability": 0.8046875
+            },
+            {
+              "text": " dear",
+              "start": 6.02,
+              "end": 6.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lady,",
+              "start": 6.18,
+              "end": 6.52,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " Hath",
+              "start": 6.72,
+              "end": 6.82,
+              "probability": 0.2391357421875
+            },
+            {
+              "text": " mine",
+              "start": 6.82,
+              "end": 7.16,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " enemies",
+              "start": 7.16,
+              "end": 7.5,
+              "probability": 0.984375
+            },
+            {
+              "text": " brought",
+              "start": 7.5,
+              "end": 7.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 7.82,
+              "end": 8.02,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " this",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " shore,",
+              "start": 8.16,
+              "end": 8.42,
+              "probability": 0.95703125
+            }
+          ]
+        },
+        {
+          "text": " And by my prescience I find my zenith Doth depend upon a most auspicious star,",
+          "start": 8.88,
+          "end": 12.94,
+          "words": [
+            {
+              "text": " And",
+              "start": 8.88,
+              "end": 9.12,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " by",
+              "start": 9.12,
+              "end": 9.24,
+              "probability": 0.978515625
+            },
+            {
+              "text": " my",
+              "start": 9.24,
+              "end": 9.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " prescience",
+              "start": 9.44,
+              "end": 9.82,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 9.82,
+              "end": 10.1,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " find",
+              "start": 10.1,
+              "end": 10.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 10.32,
+              "end": 10.52,
+              "probability": 0.716796875
+            },
+            {
+              "text": " zenith",
+              "start": 10.52,
+              "end": 10.9,
+              "probability": 0.9547526041666666
+            },
+            {
+              "text": " Doth",
+              "start": 10.9,
+              "end": 11.14,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " depend",
+              "start": 11.14,
+              "end": 11.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " upon",
+              "start": 11.44,
+              "end": 11.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 11.7,
+              "end": 11.84,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " most",
+              "start": 11.84,
+              "end": 12.04,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " auspicious",
+              "start": 12.04,
+              "end": 12.56,
+              "probability": 0.978759765625
+            },
+            {
+              "text": " star,",
+              "start": 12.56,
+              "end": 12.94,
+              "probability": 0.58544921875
+            }
+          ]
+        },
+        {
+          "text": " Whose influence if now I court not but omit My fortunes will ever after droop.",
+          "start": 13.3,
+          "end": 17.56,
+          "words": [
+            {
+              "text": " Whose",
+              "start": 13.3,
+              "end": 13.56,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " influence",
+              "start": 13.56,
+              "end": 14.0,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " if",
+              "start": 14.0,
+              "end": 14.28,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " now",
+              "start": 14.28,
+              "end": 14.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 14.5,
+              "end": 14.72,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " court",
+              "start": 14.72,
+              "end": 14.92,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " not",
+              "start": 14.92,
+              "end": 15.14,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " but",
+              "start": 15.14,
+              "end": 15.3,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " omit",
+              "start": 15.3,
+              "end": 15.62,
+              "probability": 0.962890625
+            },
+            {
+              "text": " My",
+              "start": 15.62,
+              "end": 16.04,
+              "probability": 0.452880859375
+            },
+            {
+              "text": " fortunes",
+              "start": 16.04,
+              "end": 16.44,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " will",
+              "start": 16.44,
+              "end": 16.64,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " ever",
+              "start": 16.64,
+              "end": 16.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " after",
+              "start": 16.88,
+              "end": 17.2,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " droop.",
+              "start": 17.2,
+              "end": 17.56,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " Here cease more questions, Thou art inclined to sleep,",
+          "start": 18.24,
+          "end": 21.26,
+          "words": [
+            {
+              "text": " Here",
+              "start": 18.24,
+              "end": 18.42,
+              "probability": 0.94921875
+            },
+            {
+              "text": " cease",
+              "start": 18.42,
+              "end": 18.66,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " more",
+              "start": 18.66,
+              "end": 18.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " questions,",
+              "start": 18.96,
+              "end": 19.44,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Thou",
+              "start": 20.0,
+              "end": 20.1,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " art",
+              "start": 20.1,
+              "end": 20.38,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " inclined",
+              "start": 20.38,
+              "end": 20.72,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " to",
+              "start": 20.72,
+              "end": 20.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sleep,",
+              "start": 20.98,
+              "end": 21.26,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Tease a good dullness and give it way, I know thou canst not choose.",
+          "start": 21.86,
+          "end": 25.16,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 21.86,
+              "end": 22.02,
+              "probability": 0.843505859375
+            },
+            {
+              "text": " a",
+              "start": 22.02,
+              "end": 22.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " good",
+              "start": 22.12,
+              "end": 22.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " dullness",
+              "start": 22.24,
+              "end": 22.68,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 22.68,
+              "end": 22.94,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " give",
+              "start": 22.94,
+              "end": 23.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it",
+              "start": 23.06,
+              "end": 23.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " way,",
+              "start": 23.18,
+              "end": 23.38,
+              "probability": 0.923828125
+            },
+            {
+              "text": " I",
+              "start": 23.76,
+              "end": 23.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " know",
+              "start": 23.92,
+              "end": 24.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thou",
+              "start": 24.06,
+              "end": 24.24,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " canst",
+              "start": 24.24,
+              "end": 24.62,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " not",
+              "start": 24.62,
+              "end": 24.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " choose.",
+              "start": 24.86,
+              "end": 25.16,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "raw": "Know",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "thus",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "far",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "raw": "forth,",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "By",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "accident",
+          "start": 3.0,
+          "end": 3.4
+        },
+        {
+          "raw": "most",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "raw": "strange,",
+          "start": 3.72,
+          "end": 4.34
+        },
+        {
+          "raw": "bountiful",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "raw": "Fortune,",
+          "start": 4.98,
+          "end": 5.38
+        },
+        {
+          "raw": "Now",
+          "start": 5.76,
+          "end": 5.84
+        },
+        {
+          "raw": "my",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "raw": "dear",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "raw": "lady,",
+          "start": 6.18,
+          "end": 6.52
+        },
+        {
+          "raw": "Hath",
+          "start": 6.72,
+          "end": 6.82
+        },
+        {
+          "raw": "mine",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "raw": "enemies",
+          "start": 7.16,
+          "end": 7.5
+        },
+        {
+          "raw": "brought",
+          "start": 7.5,
+          "end": 7.82
+        },
+        {
+          "raw": "to",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "raw": "this",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "shore,",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "raw": "And",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "raw": "by",
+          "start": 9.12,
+          "end": 9.24
+        },
+        {
+          "raw": "my",
+          "start": 9.24,
+          "end": 9.44
+        },
+        {
+          "raw": "prescience",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "raw": "I",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "raw": "find",
+          "start": 10.1,
+          "end": 10.32
+        },
+        {
+          "raw": "my",
+          "start": 10.32,
+          "end": 10.52
+        },
+        {
+          "raw": "zenith",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "raw": "Doth",
+          "start": 10.9,
+          "end": 11.14
+        },
+        {
+          "raw": "depend",
+          "start": 11.14,
+          "end": 11.44
+        },
+        {
+          "raw": "upon",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "raw": "a",
+          "start": 11.7,
+          "end": 11.84
+        },
+        {
+          "raw": "most",
+          "start": 11.84,
+          "end": 12.04
+        },
+        {
+          "raw": "auspicious",
+          "start": 12.04,
+          "end": 12.56
+        },
+        {
+          "raw": "star,",
+          "start": 12.56,
+          "end": 12.94
+        },
+        {
+          "raw": "Whose",
+          "start": 13.3,
+          "end": 13.56
+        },
+        {
+          "raw": "influence",
+          "start": 13.56,
+          "end": 14.0
+        },
+        {
+          "raw": "if",
+          "start": 14.0,
+          "end": 14.28
+        },
+        {
+          "raw": "now",
+          "start": 14.28,
+          "end": 14.5
+        },
+        {
+          "raw": "I",
+          "start": 14.5,
+          "end": 14.72
+        },
+        {
+          "raw": "court",
+          "start": 14.72,
+          "end": 14.92
+        },
+        {
+          "raw": "not",
+          "start": 14.92,
+          "end": 15.14
+        },
+        {
+          "raw": "but",
+          "start": 15.14,
+          "end": 15.3
+        },
+        {
+          "raw": "omit",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "raw": "My",
+          "start": 15.62,
+          "end": 16.04
+        },
+        {
+          "raw": "fortunes",
+          "start": 16.04,
+          "end": 16.44
+        },
+        {
+          "raw": "will",
+          "start": 16.44,
+          "end": 16.64
+        },
+        {
+          "raw": "ever",
+          "start": 16.64,
+          "end": 16.88
+        },
+        {
+          "raw": "after",
+          "start": 16.88,
+          "end": 17.2
+        },
+        {
+          "raw": "droop.",
+          "start": 17.2,
+          "end": 17.56
+        },
+        {
+          "raw": "Here",
+          "start": 18.24,
+          "end": 18.42
+        },
+        {
+          "raw": "cease",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "raw": "more",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "raw": "questions,",
+          "start": 18.96,
+          "end": 19.44
+        },
+        {
+          "raw": "Thou",
+          "start": 20.0,
+          "end": 20.1
+        },
+        {
+          "raw": "art",
+          "start": 20.1,
+          "end": 20.38
+        },
+        {
+          "raw": "inclined",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "raw": "to",
+          "start": 20.72,
+          "end": 20.98
+        },
+        {
+          "raw": "sleep,",
+          "start": 20.98,
+          "end": 21.26
+        },
+        {
+          "raw": "Tease",
+          "start": 21.86,
+          "end": 22.02
+        },
+        {
+          "raw": "a",
+          "start": 22.02,
+          "end": 22.12
+        },
+        {
+          "raw": "good",
+          "start": 22.12,
+          "end": 22.24
+        },
+        {
+          "raw": "dullness",
+          "start": 22.24,
+          "end": 22.68
+        },
+        {
+          "raw": "and",
+          "start": 22.68,
+          "end": 22.94
+        },
+        {
+          "raw": "give",
+          "start": 22.94,
+          "end": 23.06
+        },
+        {
+          "raw": "it",
+          "start": 23.06,
+          "end": 23.18
+        },
+        {
+          "raw": "way,",
+          "start": 23.18,
+          "end": 23.38
+        },
+        {
+          "raw": "I",
+          "start": 23.76,
+          "end": 23.92
+        },
+        {
+          "raw": "know",
+          "start": 23.92,
+          "end": 24.06
+        },
+        {
+          "raw": "thou",
+          "start": 24.06,
+          "end": 24.24
+        },
+        {
+          "raw": "canst",
+          "start": 24.24,
+          "end": 24.62
+        },
+        {
+          "raw": "not",
+          "start": 24.62,
+          "end": 24.86
+        },
+        {
+          "raw": "choose.",
+          "start": 24.86,
+          "end": 25.16
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Know",
+        "thus",
+        "far",
+        "forth.",
+        "By",
+        "accident",
+        "most",
+        "strange,",
+        "bountiful",
+        "Fortune,",
+        "Now",
+        "my",
+        "dear",
+        "lady,",
+        "hath",
+        "mine",
+        "enemies",
+        "Brought",
+        "to",
+        "this",
+        "shore;",
+        "and",
+        "by",
+        "my",
+        "prescience",
+        "I",
+        "find",
+        "my",
+        "zenith",
+        "doth",
+        "depend",
+        "upon",
+        "A",
+        "most",
+        "auspicious",
+        "star,",
+        "whose",
+        "influence",
+        "If",
+        "now",
+        "I",
+        "court",
+        "not",
+        "but",
+        "omit,",
+        "my",
+        "fortunes",
+        "Will",
+        "ever",
+        "after",
+        "droop.",
+        "Here",
+        "cease",
+        "more",
+        "questions:",
+        "Thou",
+        "art",
+        "inclined",
+        "to",
+        "sleep;",
+        "'tis",
+        "a",
+        "good",
+        "dulness,",
+        "And",
+        "give",
+        "it",
+        "way:",
+        "I",
+        "know",
+        "thou",
+        "canst",
+        "not",
+        "choose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          61,
+          0,
+          61
+        ],
+        [
+          "replace",
+          61,
+          62,
+          61,
+          62
+        ],
+        [
+          "equal",
+          62,
+          64,
+          62,
+          64
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ],
+        [
+          "equal",
+          65,
+          75,
+          65,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          61,
+          62,
+          61,
+          62
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "text": "Know",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "thus",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "far",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "text": "forth.",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "By",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "accident",
+          "start": 3.0,
+          "end": 3.4
+        },
+        {
+          "text": "most",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "text": "strange,",
+          "start": 3.72,
+          "end": 4.34
+        },
+        {
+          "text": "bountiful",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "text": "Fortune,",
+          "start": 4.98,
+          "end": 5.38
+        },
+        {
+          "text": "Now",
+          "start": 5.76,
+          "end": 5.84
+        },
+        {
+          "text": "my",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "text": "dear",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "text": "lady,",
+          "start": 6.18,
+          "end": 6.52
+        },
+        {
+          "text": "hath",
+          "start": 6.72,
+          "end": 6.82
+        },
+        {
+          "text": "mine",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "text": "enemies",
+          "start": 7.16,
+          "end": 7.5
+        },
+        {
+          "text": "Brought",
+          "start": 7.5,
+          "end": 7.82
+        },
+        {
+          "text": "to",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "text": "this",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "shore;",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "text": "and",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "text": "by",
+          "start": 9.12,
+          "end": 9.24
+        },
+        {
+          "text": "my",
+          "start": 9.24,
+          "end": 9.44
+        },
+        {
+          "text": "prescience",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "text": "I",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "text": "find",
+          "start": 10.1,
+          "end": 10.32
+        },
+        {
+          "text": "my",
+          "start": 10.32,
+          "end": 10.52
+        },
+        {
+          "text": "zenith",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "text": "doth",
+          "start": 10.9,
+          "end": 11.14
+        },
+        {
+          "text": "depend",
+          "start": 11.14,
+          "end": 11.44
+        },
+        {
+          "text": "upon",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "text": "A",
+          "start": 11.7,
+          "end": 11.84
+        },
+        {
+          "text": "most",
+          "start": 11.84,
+          "end": 12.04
+        },
+        {
+          "text": "auspicious",
+          "start": 12.04,
+          "end": 12.56
+        },
+        {
+          "text": "star,",
+          "start": 12.56,
+          "end": 12.94
+        },
+        {
+          "text": "whose",
+          "start": 13.3,
+          "end": 13.56
+        },
+        {
+          "text": "influence",
+          "start": 13.56,
+          "end": 14.0
+        },
+        {
+          "text": "If",
+          "start": 14.0,
+          "end": 14.28
+        },
+        {
+          "text": "now",
+          "start": 14.28,
+          "end": 14.5
+        },
+        {
+          "text": "I",
+          "start": 14.5,
+          "end": 14.72
+        },
+        {
+          "text": "court",
+          "start": 14.72,
+          "end": 14.92
+        },
+        {
+          "text": "not",
+          "start": 14.92,
+          "end": 15.14
+        },
+        {
+          "text": "but",
+          "start": 15.14,
+          "end": 15.3
+        },
+        {
+          "text": "omit,",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "text": "my",
+          "start": 15.62,
+          "end": 16.04
+        },
+        {
+          "text": "fortunes",
+          "start": 16.04,
+          "end": 16.44
+        },
+        {
+          "text": "Will",
+          "start": 16.44,
+          "end": 16.64
+        },
+        {
+          "text": "ever",
+          "start": 16.64,
+          "end": 16.88
+        },
+        {
+          "text": "after",
+          "start": 16.88,
+          "end": 17.2
+        },
+        {
+          "text": "droop.",
+          "start": 17.2,
+          "end": 17.56
+        },
+        {
+          "text": "Here",
+          "start": 18.24,
+          "end": 18.42
+        },
+        {
+          "text": "cease",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "text": "more",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "text": "questions:",
+          "start": 18.96,
+          "end": 19.44
+        },
+        {
+          "text": "Thou",
+          "start": 20.0,
+          "end": 20.1
+        },
+        {
+          "text": "art",
+          "start": 20.1,
+          "end": 20.38
+        },
+        {
+          "text": "inclined",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "text": "to",
+          "start": 20.72,
+          "end": 20.98
+        },
+        {
+          "text": "sleep;",
+          "start": 20.98,
+          "end": 21.26
+        },
+        {
+          "text": "'tis",
+          "start": 21.26,
+          "end": 21.64
+        },
+        {
+          "text": "a",
+          "start": 22.02,
+          "end": 22.12
+        },
+        {
+          "text": "good",
+          "start": 22.12,
+          "end": 22.24
+        },
+        {
+          "text": "dulness,",
+          "start": 22.24,
+          "end": 22.46
+        },
+        {
+          "text": "And",
+          "start": 22.68,
+          "end": 22.94
+        },
+        {
+          "text": "give",
+          "start": 22.94,
+          "end": 23.06
+        },
+        {
+          "text": "it",
+          "start": 23.06,
+          "end": 23.18
+        },
+        {
+          "text": "way:",
+          "start": 23.18,
+          "end": 23.38
+        },
+        {
+          "text": "I",
+          "start": 23.76,
+          "end": 23.92
+        },
+        {
+          "text": "know",
+          "start": 23.92,
+          "end": 24.06
+        },
+        {
+          "text": "thou",
+          "start": 24.06,
+          "end": 24.24
+        },
+        {
+          "text": "canst",
+          "start": 24.24,
+          "end": 24.62
+        },
+        {
+          "text": "not",
+          "start": 24.62,
+          "end": 24.86
+        },
+        {
+          "text": "choose.",
+          "start": 24.86,
+          "end": 25.16
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 75,
+        "matched_words": 73
+      },
+      "match_ratio": 0.9733333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.46592453122138977
+    },
+    {
+      "asr_seconds": 0.49680957943201065,
+      "alignment_seconds": 0.000301949679851532,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, know thus far forth. By accident most strange, bountiful fortune, now my dear",
+          "start": 0.02,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.04,
+              "probability": 0.691162109375
+            },
+            {
+              "text": " know",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " thus",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " far",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " forth.",
+              "start": 1.98,
+              "end": 2.3,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " By",
+              "start": 2.88,
+              "end": 3.02,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " accident",
+              "start": 3.02,
+              "end": 3.4,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " most",
+              "start": 3.4,
+              "end": 3.72,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " strange,",
+              "start": 3.72,
+              "end": 4.34,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " bountiful",
+              "start": 4.64,
+              "end": 4.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fortune,",
+              "start": 4.98,
+              "end": 5.4,
+              "probability": 0.982421875
+            },
+            {
+              "text": " now",
+              "start": 5.76,
+              "end": 5.84,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " my",
+              "start": 5.84,
+              "end": 6.02,
+              "probability": 0.767578125
+            },
+            {
+              "text": " dear",
+              "start": 6.02,
+              "end": 6.2,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " lady hath mine enemies brought to this shore. And by my prescience I find my zenith doth",
+          "start": 6.2,
+          "end": 11.14,
+          "words": [
+            {
+              "text": " lady",
+              "start": 6.2,
+              "end": 6.52,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " hath",
+              "start": 6.52,
+              "end": 6.82,
+              "probability": 0.418701171875
+            },
+            {
+              "text": " mine",
+              "start": 6.82,
+              "end": 7.16,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " enemies",
+              "start": 7.16,
+              "end": 7.54,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " brought",
+              "start": 7.54,
+              "end": 7.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 7.82,
+              "end": 8.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " shore.",
+              "start": 8.16,
+              "end": 8.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " And",
+              "start": 8.94,
+              "end": 9.12,
+              "probability": 0.97265625
+            },
+            {
+              "text": " by",
+              "start": 9.12,
+              "end": 9.26,
+              "probability": 0.986328125
+            },
+            {
+              "text": " my",
+              "start": 9.26,
+              "end": 9.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " prescience",
+              "start": 9.44,
+              "end": 9.82,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " I",
+              "start": 9.82,
+              "end": 10.08,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " find",
+              "start": 10.08,
+              "end": 10.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 10.32,
+              "end": 10.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " zenith",
+              "start": 10.52,
+              "end": 10.9,
+              "probability": 0.9830729166666666
+            },
+            {
+              "text": " doth",
+              "start": 10.9,
+              "end": 11.14,
+              "probability": 0.990966796875
+            }
+          ]
+        },
+        {
+          "text": " depend upon a most auspicious star, whose influence if now I court not but omit my fortunes",
+          "start": 11.14,
+          "end": 16.44,
+          "words": [
+            {
+              "text": " depend",
+              "start": 11.14,
+              "end": 11.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " upon",
+              "start": 11.44,
+              "end": 11.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 11.7,
+              "end": 11.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " most",
+              "start": 11.84,
+              "end": 12.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " auspicious",
+              "start": 12.04,
+              "end": 12.54,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " star,",
+              "start": 12.54,
+              "end": 12.96,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " whose",
+              "start": 13.36,
+              "end": 13.54,
+              "probability": 0.796875
+            },
+            {
+              "text": " influence",
+              "start": 13.54,
+              "end": 14.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 14.0,
+              "end": 14.26,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " now",
+              "start": 14.26,
+              "end": 14.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 14.5,
+              "end": 14.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " court",
+              "start": 14.7,
+              "end": 14.92,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " not",
+              "start": 14.92,
+              "end": 15.14,
+              "probability": 0.94921875
+            },
+            {
+              "text": " but",
+              "start": 15.14,
+              "end": 15.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " omit",
+              "start": 15.3,
+              "end": 15.64,
+              "probability": 0.958984375
+            },
+            {
+              "text": " my",
+              "start": 15.64,
+              "end": 16.06,
+              "probability": 0.71875
+            },
+            {
+              "text": " fortunes",
+              "start": 16.06,
+              "end": 16.44,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " will ever after droop. Here cease more questions. Thou art inclined to sleep. Tease a good dullness",
+          "start": 16.44,
+          "end": 22.7,
+          "words": [
+            {
+              "text": " will",
+              "start": 16.44,
+              "end": 16.64,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " ever",
+              "start": 16.64,
+              "end": 16.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after",
+              "start": 16.9,
+              "end": 17.22,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " droop.",
+              "start": 17.22,
+              "end": 17.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Here",
+              "start": 18.22,
+              "end": 18.42,
+              "probability": 0.97265625
+            },
+            {
+              "text": " cease",
+              "start": 18.42,
+              "end": 18.66,
+              "probability": 0.96484375
+            },
+            {
+              "text": " more",
+              "start": 18.66,
+              "end": 18.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " questions.",
+              "start": 18.96,
+              "end": 19.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Thou",
+              "start": 20.0,
+              "end": 20.1,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " art",
+              "start": 20.1,
+              "end": 20.38,
+              "probability": 0.98828125
+            },
+            {
+              "text": " inclined",
+              "start": 20.38,
+              "end": 20.72,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " to",
+              "start": 20.72,
+              "end": 20.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sleep.",
+              "start": 20.98,
+              "end": 21.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Tease",
+              "start": 21.9,
+              "end": 22.02,
+              "probability": 0.89453125
+            },
+            {
+              "text": " a",
+              "start": 22.02,
+              "end": 22.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good",
+              "start": 22.1,
+              "end": 22.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dullness",
+              "start": 22.24,
+              "end": 22.7,
+              "probability": 0.986572265625
+            }
+          ]
+        },
+        {
+          "text": " and give it way. I know thou canst not choose.",
+          "start": 22.7,
+          "end": 25.16,
+          "words": [
+            {
+              "text": " and",
+              "start": 22.7,
+              "end": 22.9,
+              "probability": 0.798828125
+            },
+            {
+              "text": " give",
+              "start": 22.9,
+              "end": 23.06,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " it",
+              "start": 23.06,
+              "end": 23.18,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " way.",
+              "start": 23.18,
+              "end": 23.4,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " I",
+              "start": 23.82,
+              "end": 23.92,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " know",
+              "start": 23.92,
+              "end": 24.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thou",
+              "start": 24.04,
+              "end": 24.24,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " canst",
+              "start": 24.24,
+              "end": 24.64,
+              "probability": 0.95703125
+            },
+            {
+              "text": " not",
+              "start": 24.64,
+              "end": 24.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " choose.",
+              "start": 24.86,
+              "end": 25.16,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "raw": "know",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "thus",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "far",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "forth.",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "raw": "By",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "raw": "accident",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "raw": "most",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "raw": "strange,",
+          "start": 3.72,
+          "end": 4.34
+        },
+        {
+          "raw": "bountiful",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "raw": "fortune,",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "raw": "now",
+          "start": 5.76,
+          "end": 5.84
+        },
+        {
+          "raw": "my",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "raw": "dear",
+          "start": 6.02,
+          "end": 6.2
+        },
+        {
+          "raw": "lady",
+          "start": 6.2,
+          "end": 6.52
+        },
+        {
+          "raw": "hath",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "raw": "mine",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "raw": "enemies",
+          "start": 7.16,
+          "end": 7.54
+        },
+        {
+          "raw": "brought",
+          "start": 7.54,
+          "end": 7.82
+        },
+        {
+          "raw": "to",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "raw": "this",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "shore.",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "raw": "And",
+          "start": 8.94,
+          "end": 9.12
+        },
+        {
+          "raw": "by",
+          "start": 9.12,
+          "end": 9.26
+        },
+        {
+          "raw": "my",
+          "start": 9.26,
+          "end": 9.44
+        },
+        {
+          "raw": "prescience",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "raw": "I",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "raw": "find",
+          "start": 10.08,
+          "end": 10.32
+        },
+        {
+          "raw": "my",
+          "start": 10.32,
+          "end": 10.52
+        },
+        {
+          "raw": "zenith",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "raw": "doth",
+          "start": 10.9,
+          "end": 11.14
+        },
+        {
+          "raw": "depend",
+          "start": 11.14,
+          "end": 11.44
+        },
+        {
+          "raw": "upon",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "raw": "a",
+          "start": 11.7,
+          "end": 11.84
+        },
+        {
+          "raw": "most",
+          "start": 11.84,
+          "end": 12.04
+        },
+        {
+          "raw": "auspicious",
+          "start": 12.04,
+          "end": 12.54
+        },
+        {
+          "raw": "star,",
+          "start": 12.54,
+          "end": 12.96
+        },
+        {
+          "raw": "whose",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "raw": "influence",
+          "start": 13.54,
+          "end": 14.0
+        },
+        {
+          "raw": "if",
+          "start": 14.0,
+          "end": 14.26
+        },
+        {
+          "raw": "now",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "raw": "I",
+          "start": 14.5,
+          "end": 14.7
+        },
+        {
+          "raw": "court",
+          "start": 14.7,
+          "end": 14.92
+        },
+        {
+          "raw": "not",
+          "start": 14.92,
+          "end": 15.14
+        },
+        {
+          "raw": "but",
+          "start": 15.14,
+          "end": 15.3
+        },
+        {
+          "raw": "omit",
+          "start": 15.3,
+          "end": 15.64
+        },
+        {
+          "raw": "my",
+          "start": 15.64,
+          "end": 16.06
+        },
+        {
+          "raw": "fortunes",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "raw": "will",
+          "start": 16.44,
+          "end": 16.64
+        },
+        {
+          "raw": "ever",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "raw": "after",
+          "start": 16.9,
+          "end": 17.22
+        },
+        {
+          "raw": "droop.",
+          "start": 17.22,
+          "end": 17.56
+        },
+        {
+          "raw": "Here",
+          "start": 18.22,
+          "end": 18.42
+        },
+        {
+          "raw": "cease",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "raw": "more",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "raw": "questions.",
+          "start": 18.96,
+          "end": 19.44
+        },
+        {
+          "raw": "Thou",
+          "start": 20.0,
+          "end": 20.1
+        },
+        {
+          "raw": "art",
+          "start": 20.1,
+          "end": 20.38
+        },
+        {
+          "raw": "inclined",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "raw": "to",
+          "start": 20.72,
+          "end": 20.98
+        },
+        {
+          "raw": "sleep.",
+          "start": 20.98,
+          "end": 21.26
+        },
+        {
+          "raw": "Tease",
+          "start": 21.9,
+          "end": 22.02
+        },
+        {
+          "raw": "a",
+          "start": 22.02,
+          "end": 22.1
+        },
+        {
+          "raw": "good",
+          "start": 22.1,
+          "end": 22.24
+        },
+        {
+          "raw": "dullness",
+          "start": 22.24,
+          "end": 22.7
+        },
+        {
+          "raw": "and",
+          "start": 22.7,
+          "end": 22.9
+        },
+        {
+          "raw": "give",
+          "start": 22.9,
+          "end": 23.06
+        },
+        {
+          "raw": "it",
+          "start": 23.06,
+          "end": 23.18
+        },
+        {
+          "raw": "way.",
+          "start": 23.18,
+          "end": 23.4
+        },
+        {
+          "raw": "I",
+          "start": 23.82,
+          "end": 23.92
+        },
+        {
+          "raw": "know",
+          "start": 23.92,
+          "end": 24.04
+        },
+        {
+          "raw": "thou",
+          "start": 24.04,
+          "end": 24.24
+        },
+        {
+          "raw": "canst",
+          "start": 24.24,
+          "end": 24.64
+        },
+        {
+          "raw": "not",
+          "start": 24.64,
+          "end": 24.86
+        },
+        {
+          "raw": "choose.",
+          "start": 24.86,
+          "end": 25.16
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Know",
+        "thus",
+        "far",
+        "forth.",
+        "By",
+        "accident",
+        "most",
+        "strange,",
+        "bountiful",
+        "Fortune,",
+        "Now",
+        "my",
+        "dear",
+        "lady,",
+        "hath",
+        "mine",
+        "enemies",
+        "Brought",
+        "to",
+        "this",
+        "shore;",
+        "and",
+        "by",
+        "my",
+        "prescience",
+        "I",
+        "find",
+        "my",
+        "zenith",
+        "doth",
+        "depend",
+        "upon",
+        "A",
+        "most",
+        "auspicious",
+        "star,",
+        "whose",
+        "influence",
+        "If",
+        "now",
+        "I",
+        "court",
+        "not",
+        "but",
+        "omit,",
+        "my",
+        "fortunes",
+        "Will",
+        "ever",
+        "after",
+        "droop.",
+        "Here",
+        "cease",
+        "more",
+        "questions:",
+        "Thou",
+        "art",
+        "inclined",
+        "to",
+        "sleep;",
+        "'tis",
+        "a",
+        "good",
+        "dulness,",
+        "And",
+        "give",
+        "it",
+        "way:",
+        "I",
+        "know",
+        "thou",
+        "canst",
+        "not",
+        "choose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          61,
+          0,
+          61
+        ],
+        [
+          "replace",
+          61,
+          62,
+          61,
+          62
+        ],
+        [
+          "equal",
+          62,
+          64,
+          62,
+          64
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ],
+        [
+          "equal",
+          65,
+          75,
+          65,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          61,
+          62,
+          61,
+          62
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "text": "Know",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "thus",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "far",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "forth.",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "By",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "text": "accident",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "text": "most",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "text": "strange,",
+          "start": 3.72,
+          "end": 4.34
+        },
+        {
+          "text": "bountiful",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "text": "Fortune,",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "text": "Now",
+          "start": 5.76,
+          "end": 5.84
+        },
+        {
+          "text": "my",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "text": "dear",
+          "start": 6.02,
+          "end": 6.2
+        },
+        {
+          "text": "lady,",
+          "start": 6.2,
+          "end": 6.52
+        },
+        {
+          "text": "hath",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "text": "mine",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "text": "enemies",
+          "start": 7.16,
+          "end": 7.54
+        },
+        {
+          "text": "Brought",
+          "start": 7.54,
+          "end": 7.82
+        },
+        {
+          "text": "to",
+          "start": 7.82,
+          "end": 8.02
+        },
+        {
+          "text": "this",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "shore;",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "text": "and",
+          "start": 8.94,
+          "end": 9.12
+        },
+        {
+          "text": "by",
+          "start": 9.12,
+          "end": 9.26
+        },
+        {
+          "text": "my",
+          "start": 9.26,
+          "end": 9.44
+        },
+        {
+          "text": "prescience",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "text": "I",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "text": "find",
+          "start": 10.08,
+          "end": 10.32
+        },
+        {
+          "text": "my",
+          "start": 10.32,
+          "end": 10.52
+        },
+        {
+          "text": "zenith",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "text": "doth",
+          "start": 10.9,
+          "end": 11.14
+        },
+        {
+          "text": "depend",
+          "start": 11.14,
+          "end": 11.44
+        },
+        {
+          "text": "upon",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "text": "A",
+          "start": 11.7,
+          "end": 11.84
+        },
+        {
+          "text": "most",
+          "start": 11.84,
+          "end": 12.04
+        },
+        {
+          "text": "auspicious",
+          "start": 12.04,
+          "end": 12.54
+        },
+        {
+          "text": "star,",
+          "start": 12.54,
+          "end": 12.96
+        },
+        {
+          "text": "whose",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "text": "influence",
+          "start": 13.54,
+          "end": 14.0
+        },
+        {
+          "text": "If",
+          "start": 14.0,
+          "end": 14.26
+        },
+        {
+          "text": "now",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "text": "I",
+          "start": 14.5,
+          "end": 14.7
+        },
+        {
+          "text": "court",
+          "start": 14.7,
+          "end": 14.92
+        },
+        {
+          "text": "not",
+          "start": 14.92,
+          "end": 15.14
+        },
+        {
+          "text": "but",
+          "start": 15.14,
+          "end": 15.3
+        },
+        {
+          "text": "omit,",
+          "start": 15.3,
+          "end": 15.64
+        },
+        {
+          "text": "my",
+          "start": 15.64,
+          "end": 16.06
+        },
+        {
+          "text": "fortunes",
+          "start": 16.06,
+          "end": 16.44
+        },
+        {
+          "text": "Will",
+          "start": 16.44,
+          "end": 16.64
+        },
+        {
+          "text": "ever",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "text": "after",
+          "start": 16.9,
+          "end": 17.22
+        },
+        {
+          "text": "droop.",
+          "start": 17.22,
+          "end": 17.56
+        },
+        {
+          "text": "Here",
+          "start": 18.22,
+          "end": 18.42
+        },
+        {
+          "text": "cease",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "text": "more",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "text": "questions:",
+          "start": 18.96,
+          "end": 19.44
+        },
+        {
+          "text": "Thou",
+          "start": 20.0,
+          "end": 20.1
+        },
+        {
+          "text": "art",
+          "start": 20.1,
+          "end": 20.38
+        },
+        {
+          "text": "inclined",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "text": "to",
+          "start": 20.72,
+          "end": 20.98
+        },
+        {
+          "text": "sleep;",
+          "start": 20.98,
+          "end": 21.26
+        },
+        {
+          "text": "'tis",
+          "start": 21.26,
+          "end": 21.64
+        },
+        {
+          "text": "a",
+          "start": 22.02,
+          "end": 22.1
+        },
+        {
+          "text": "good",
+          "start": 22.1,
+          "end": 22.24
+        },
+        {
+          "text": "dulness,",
+          "start": 22.24,
+          "end": 22.47
+        },
+        {
+          "text": "And",
+          "start": 22.7,
+          "end": 22.9
+        },
+        {
+          "text": "give",
+          "start": 22.9,
+          "end": 23.06
+        },
+        {
+          "text": "it",
+          "start": 23.06,
+          "end": 23.18
+        },
+        {
+          "text": "way:",
+          "start": 23.18,
+          "end": 23.4
+        },
+        {
+          "text": "I",
+          "start": 23.82,
+          "end": 23.92
+        },
+        {
+          "text": "know",
+          "start": 23.92,
+          "end": 24.04
+        },
+        {
+          "text": "thou",
+          "start": 24.04,
+          "end": 24.24
+        },
+        {
+          "text": "canst",
+          "start": 24.24,
+          "end": 24.64
+        },
+        {
+          "text": "not",
+          "start": 24.64,
+          "end": 24.86
+        },
+        {
+          "text": "choose.",
+          "start": 24.86,
+          "end": 25.16
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 75,
+        "matched_words": 73
+      },
+      "match_ratio": 0.9733333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.4972718060016632
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac5accfa72fb0038d47721f78e9758dec99717bb5a94bb1925006b56e0d3f0db",
+  "selected_reasons": []
+}

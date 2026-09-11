@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "62abbd5d7d3f6cc6d20ea0128576441aaec8085c69dab6990a37322c42e2452e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14686213433742523,
+      "alignment_seconds": 9.099394083023071e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miranda, sir have pity, I'll be his surety.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " sir",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " have",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " pity,",
+              "start": 1.55,
+              "end": 1.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I'll",
+              "start": 2.07,
+              "end": 2.13,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " be",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " surety.",
+              "start": 2.41,
+              "end": 2.87,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "sir",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "have",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "pity,",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "raw": "I'll",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "raw": "be",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "his",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "surety.",
+          "start": 2.41,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "Sir,",
+        "have",
+        "pity;",
+        "I'll",
+        "be",
+        "his",
+        "surety."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Sir,",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "have",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "pity;",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "text": "I'll",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "text": "be",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "his",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "surety.",
+          "start": 2.41,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14698977768421173
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eb2a4960862f8933bd860a91546be0fe88eb1ce44f309fb7603ef093c628c271",
+  "selected_reasons": []
+}

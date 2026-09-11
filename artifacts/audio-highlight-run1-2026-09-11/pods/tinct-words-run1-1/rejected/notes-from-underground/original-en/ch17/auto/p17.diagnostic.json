@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "4b7951e84d0d8a97a12adcda8b6213396fb762c27345887d43e2c7f77303bc46",
+  "attempts": [
+    {
+      "asr_seconds": 0.10372401773929596,
+      "alignment_seconds": 3.790855407714844e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where?\"",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where?",
+          "start": 0.02,
+          "end": 0.64,
+          "words": [
+            {
+              "text": " Where?",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.55712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where?",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Where?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Where?\"",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10377413779497147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9072ab669a15ca9a64ddd077b508e53f34aadee3d65326938f305968b96e411e",
+  "selected_reasons": []
+}

@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "78ac37daca00925753ee93906fed7202f66e80ed5aa561c8b3bd3bcf7ecfc2bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2908759340643883,
+      "alignment_seconds": 0.00025892630219459534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Repeat them,\" she murmured in a heartbroken tone.",
+          "start": 0.02,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Repeat",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.0104827880859375
+            },
+            {
+              "text": " them,\"",
+              "start": 0.72,
+              "end": 1.34,
+              "probability": 0.6834716796875
+            },
+            {
+              "text": " she",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " murmured",
+              "start": 1.54,
+              "end": 1.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.9453125
+            },
+            {
+              "text": " a",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heartbroken",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " tone.",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I want, I want something, something, too, to live with.",
+          "start": 3.7,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.007778167724609375
+            },
+            {
+              "text": " want,",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 4.24,
+              "end": 4.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " want",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " something,",
+              "start": 4.58,
+              "end": 5.0,
+              "probability": 0.869140625
+            },
+            {
+              "text": " something,",
+              "start": 5.2,
+              "end": 5.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " too,",
+              "start": 5.7,
+              "end": 5.76,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " to",
+              "start": 5.84,
+              "end": 5.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " live",
+              "start": 5.9,
+              "end": 6.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with.",
+              "start": 6.06,
+              "end": 6.32,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Repeat",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "them,\"",
+          "start": 0.72,
+          "end": 1.34
+        },
+        {
+          "raw": "she",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "murmured",
+          "start": 1.54,
+          "end": 1.94
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "raw": "heartbroken",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "raw": "tone.",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "I",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "want,",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "I",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "raw": "want",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "something,",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "raw": "something,",
+          "start": 5.2,
+          "end": 5.36
+        },
+        {
+          "raw": "too,",
+          "start": 5.7,
+          "end": 5.76
+        },
+        {
+          "raw": "to",
+          "start": 5.84,
+          "end": 5.9
+        },
+        {
+          "raw": "live",
+          "start": 5.9,
+          "end": 6.06
+        },
+        {
+          "raw": "with.",
+          "start": 6.06,
+          "end": 6.32
+        }
+      ],
+      "expected_tokens": [
+        "\"'Repeat",
+        "them,'",
+        "she",
+        "murmured",
+        "in",
+        "a",
+        "heart-broken",
+        "tone.",
+        "'I",
+        "want—I",
+        "want—something—something—to—to",
+        "live",
+        "with.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          16
+        ],
+        [
+          "equal",
+          11,
+          13,
+          16,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          11,
+          9,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"'Repeat",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "them,'",
+          "start": 0.72,
+          "end": 1.34
+        },
+        {
+          "text": "she",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "murmured",
+          "start": 1.54,
+          "end": 1.94
+        },
+        {
+          "text": "in",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "a",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "heart-broken",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "text": "tone.",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "'I",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "want—I",
+          "start": 3.88,
+          "end": 4.89
+        },
+        {
+          "text": "want—something—something—to—to",
+          "start": 4.89,
+          "end": 5.395
+        },
+        {
+          "text": "live",
+          "start": 5.9,
+          "end": 6.06
+        },
+        {
+          "text": "with.'",
+          "start": 6.06,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 18,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29126298800110817
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4fa36cd6cf8e5c7bb7a2f34aef6128e5552ce820b938f8380e16132768be93a4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "538fd51de9c22bee2b3874e8f94a986afaace68b26b2d6d86db23916a4bdec34",
+  "attempts": [
+    {
+      "asr_seconds": 0.09510894864797592,
+      "alignment_seconds": 6.596744060516357e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It ought not to be.",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It ought not to be.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " ought",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " be.",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "ought",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "not",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "be.",
+          "start": 1.0,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "ought",
+        "not",
+        "to",
+        "be."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "ought",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "not",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "to",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "be.",
+          "start": 1.0,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0952027291059494
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35680229cf561d13d9cb060eb9c01fe8a21338b522a123931f32772956c80617",
+  "selected_reasons": []
+}

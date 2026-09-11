@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "a2089a0be65d01ee35207b1035a2376d4db635e025b5b07be0bf8d22fd2c79fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.13109174370765686,
+      "alignment_seconds": 8.636713027954102e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First, he says, it must be with reverence.",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " he",
+              "start": 0.92,
+              "end": 1.0,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " says,",
+              "start": 1.0,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.953125
+            },
+            {
+              "text": " must",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reverence.",
+              "start": 2.2,
+              "end": 2.6,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "he",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "raw": "says,",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "raw": "it",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "must",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "be",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "with",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "reverence.",
+          "start": 2.2,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "First,",
+        "He",
+        "says,",
+        "it",
+        "must",
+        "be",
+        "with",
+        "reverence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "First,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "He",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "text": "says,",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "text": "it",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "must",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "be",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "with",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "reverence.",
+          "start": 2.2,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1312159299850464
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7a941616cac0e190654744d13232f8a9d47dea0928c916f6d0d8939a978fabc",
+  "selected_reasons": []
+}

@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "1448535f160d9f00208fa6d95e43c932e41993ec52800f2ee37b3c907061122d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11094073206186295,
+      "alignment_seconds": 7.154792547225952e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jason. How? It was not my hand that murdered them.",
+        "hotwords": "Jason, How, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jason, How? It was not my hand that murdered them.",
+          "start": 0.02,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.7265625
+            },
+            {
+              "text": " How?",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.01605224609375
+            },
+            {
+              "text": " It",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " was",
+              "start": 2.0,
+              "end": 2.08,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " not",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hand",
+              "start": 2.4,
+              "end": 2.64,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " that",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " murdered",
+              "start": 2.82,
+              "end": 3.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " them.",
+              "start": 3.06,
+              "end": 3.42,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "How?",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "It",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "was",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "raw": "not",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "my",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "hand",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "raw": "that",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "murdered",
+          "start": 2.82,
+          "end": 3.06
+        },
+        {
+          "raw": "them.",
+          "start": 3.06,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "How?",
+        "It",
+        "was",
+        "not",
+        "my",
+        "hand",
+        "that",
+        "murdered",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "How?",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "It",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "was",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "text": "not",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "my",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "hand",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "text": "that",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "murdered",
+          "start": 2.82,
+          "end": 3.06
+        },
+        {
+          "text": "them.",
+          "start": 3.06,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11104680597782135
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "94080cefe69a569e05c831272fee0559630a6157f29a28f46c5dd6a6b22efeea",
+  "selected_reasons": []
+}

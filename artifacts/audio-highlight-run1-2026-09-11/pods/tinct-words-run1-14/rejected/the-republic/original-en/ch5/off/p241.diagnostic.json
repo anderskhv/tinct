@@ -1,0 +1,161 @@
+{
+  "complete": true,
+  "signature": "18be8a43815c1508691d14b8ed7e9c1fd008e3caeb9d8828179cac0049600c6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.08246125280857086,
+      "alignment_seconds": 6.759911775588989e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what in hours?",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " what",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " in",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " hours?",
+              "start": 0.79,
+              "end": 1.09,
+              "probability": 0.689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "in",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "hours?",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "what",
+        "in",
+        "ours?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "in",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "ours?",
+          "start": 0.79,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08255460858345032
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "42365f402a527cb31497cd480f9c92c39b605f73b0fc5dc0f8dc7f4c66bd18dc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

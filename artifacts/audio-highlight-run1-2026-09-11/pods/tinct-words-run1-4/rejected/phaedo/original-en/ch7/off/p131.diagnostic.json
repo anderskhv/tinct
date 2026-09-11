@@ -1,0 +1,449 @@
+{
+  "complete": true,
+  "signature": "849eba60b3ca70fbce66412846cd0061430b1b8ae075ffc0ee43ddefbdd99b69",
+  "attempts": [
+    {
+      "asr_seconds": 0.13915914669632912,
+      "alignment_seconds": 9.641889482736588e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " PHADO, certainly, etch-a-crates, and such was the feeling of the whole company at the",
+          "start": 1.05,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " PHADO,",
+              "start": 1.05,
+              "end": 1.49,
+              "probability": 0.6324869791666666
+            },
+            {
+              "text": " certainly,",
+              "start": 1.95,
+              "end": 2.33,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " etch",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.6943359375
+            },
+            {
+              "text": "-a",
+              "start": 2.81,
+              "end": 2.85,
+              "probability": 0.8681640625
+            },
+            {
+              "text": "-crates,",
+              "start": 2.85,
+              "end": 3.17,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " and",
+              "start": 3.65,
+              "end": 3.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " such",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 3.95,
+              "end": 4.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feeling",
+              "start": 4.33,
+              "end": 4.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.53,
+              "end": 4.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.75,
+              "end": 4.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whole",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " company",
+              "start": 5.05,
+              "end": 5.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " at",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.77,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " time.",
+          "start": 5.77,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " time.",
+              "start": 5.77,
+              "end": 6.13,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "PHADO,",
+          "start": 1.05,
+          "end": 1.49
+        },
+        {
+          "raw": "certainly,",
+          "start": 1.95,
+          "end": 2.33
+        },
+        {
+          "raw": "etch",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "-a",
+          "start": 2.81,
+          "end": 2.85
+        },
+        {
+          "raw": "-crates,",
+          "start": 2.85,
+          "end": 3.17
+        },
+        {
+          "raw": "and",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "raw": "such",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "was",
+          "start": 3.95,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "feeling",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "raw": "of",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "raw": "the",
+          "start": 4.75,
+          "end": 4.83
+        },
+        {
+          "raw": "whole",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "company",
+          "start": 5.05,
+          "end": 5.41
+        },
+        {
+          "raw": "at",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "raw": "time.",
+          "start": 5.77,
+          "end": 6.13
+        }
+      ],
+      "expected_tokens": [
+        "Phaedo:",
+        "Certainly,",
+        "Echecrates;",
+        "and",
+        "such",
+        "was",
+        "the",
+        "feeling",
+        "of",
+        "the",
+        "whole",
+        "company",
+        "at",
+        "the",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "equal",
+          3,
+          15,
+          5,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Phaedo:",
+          "start": 0.0,
+          "end": 0.975
+        },
+        {
+          "text": "Certainly,",
+          "start": 1.95,
+          "end": 2.33
+        },
+        {
+          "text": "Echecrates;",
+          "start": 2.33,
+          "end": 2.99
+        },
+        {
+          "text": "and",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "text": "such",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "was",
+          "start": 3.95,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "text": "feeling",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "text": "of",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "text": "the",
+          "start": 4.75,
+          "end": 4.83
+        },
+        {
+          "text": "whole",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "text": "company",
+          "start": 5.05,
+          "end": 5.41
+        },
+        {
+          "text": "at",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "text": "time.",
+          "start": 5.77,
+          "end": 6.13
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.13929748628288507
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a65ce4254c69038cefd06f4cce3f6c8068c0e51e450a22e091eb8593c0277623",
+  "selected_reasons": []
+}

@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "3677ff4d01a742403357f02fa43f4fe3ac42d4168493ac519126951233c4571b",
+  "attempts": [
+    {
+      "asr_seconds": 0.07653867453336716,
+      "alignment_seconds": 5.332380533218384e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Just so.",
+        "hotwords": "Just"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Just so.",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " so.",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "so.",
+          "start": 0.55,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "Just",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Just",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "so.",
+          "start": 0.55,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07661204040050507
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72379b3919201e046f92e568ebd272809de415b9cc26f6a8bb679bccb7accc44",
+  "selected_reasons": []
+}

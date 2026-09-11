@@ -1,0 +1,701 @@
+{
+  "complete": true,
+  "signature": "e876d35e9f2a942824a7acc068ec173d6bce51902dd40e8892b3879313c9668f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2364896684885025,
+      "alignment_seconds": 0.00019064545631408691,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The enquiry, I said, has yet to be made, whether such a community be found possible—as among other animals, so also among men—and if possible, in what way possible?",
+        "hotwords": "The, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The enquiry, I said, has yet to be made, whether such a community be found possible—as among",
+          "start": 0.02,
+          "end": 6.42,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.5615234375
+            },
+            {
+              "text": " enquiry,",
+              "start": 0.52,
+              "end": 1.16,
+              "probability": 0.5020503997802734
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said,",
+              "start": 1.34,
+              "end": 1.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " has",
+              "start": 1.98,
+              "end": 2.16,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " yet",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " made,",
+              "start": 2.64,
+              "end": 3.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whether",
+              "start": 3.38,
+              "end": 3.5,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " such",
+              "start": 3.5,
+              "end": 3.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " community",
+              "start": 3.98,
+              "end": 4.26,
+              "probability": 0.912109375
+            },
+            {
+              "text": " be",
+              "start": 4.26,
+              "end": 4.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found",
+              "start": 4.64,
+              "end": 4.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " possible—as",
+              "start": 4.96,
+              "end": 6.2,
+              "probability": 0.6988932291666666
+            },
+            {
+              "text": " among",
+              "start": 6.2,
+              "end": 6.42,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " other animals, so also among men—and if possible, in what way possible?",
+          "start": 6.42,
+          "end": 10.78,
+          "words": [
+            {
+              "text": " other",
+              "start": 6.42,
+              "end": 6.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " animals,",
+              "start": 6.74,
+              "end": 7.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 7.42,
+              "end": 7.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " also",
+              "start": 7.56,
+              "end": 7.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " among",
+              "start": 7.9,
+              "end": 8.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " men—and",
+              "start": 8.12,
+              "end": 9.02,
+              "probability": 0.749267578125
+            },
+            {
+              "text": " if",
+              "start": 9.02,
+              "end": 9.18,
+              "probability": 0.5146484375
+            },
+            {
+              "text": " possible,",
+              "start": 9.18,
+              "end": 9.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 9.84,
+              "end": 9.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 9.94,
+              "end": 10.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way",
+              "start": 10.14,
+              "end": 10.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " possible?",
+              "start": 10.32,
+              "end": 10.78,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "enquiry,",
+          "start": 0.52,
+          "end": 1.16
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "said,",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "raw": "has",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "raw": "yet",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "be",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "made,",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "raw": "whether",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "raw": "such",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "raw": "a",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "community",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "raw": "be",
+          "start": 4.26,
+          "end": 4.64
+        },
+        {
+          "raw": "found",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "raw": "possible—as",
+          "start": 4.96,
+          "end": 6.2
+        },
+        {
+          "raw": "among",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "raw": "other",
+          "start": 6.42,
+          "end": 6.74
+        },
+        {
+          "raw": "animals,",
+          "start": 6.74,
+          "end": 7.2
+        },
+        {
+          "raw": "so",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "raw": "also",
+          "start": 7.56,
+          "end": 7.9
+        },
+        {
+          "raw": "among",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "raw": "men—and",
+          "start": 8.12,
+          "end": 9.02
+        },
+        {
+          "raw": "if",
+          "start": 9.02,
+          "end": 9.18
+        },
+        {
+          "raw": "possible,",
+          "start": 9.18,
+          "end": 9.58
+        },
+        {
+          "raw": "in",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "raw": "what",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "raw": "way",
+          "start": 10.14,
+          "end": 10.32
+        },
+        {
+          "raw": "possible?",
+          "start": 10.32,
+          "end": 10.78
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "enquiry,",
+        "I",
+        "said,",
+        "has",
+        "yet",
+        "to",
+        "be",
+        "made,",
+        "whether",
+        "such",
+        "a",
+        "community",
+        "be",
+        "found",
+        "possible—as",
+        "among",
+        "other",
+        "animals,",
+        "so",
+        "also",
+        "among",
+        "men—and",
+        "if",
+        "possible,",
+        "in",
+        "what",
+        "way",
+        "possible?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "enquiry,",
+          "start": 0.52,
+          "end": 1.16
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "said,",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "text": "has",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "text": "yet",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "to",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "be",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "made,",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "text": "whether",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "text": "such",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "text": "a",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "community",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "text": "be",
+          "start": 4.26,
+          "end": 4.64
+        },
+        {
+          "text": "found",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "text": "possible—as",
+          "start": 4.96,
+          "end": 6.2
+        },
+        {
+          "text": "among",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "text": "other",
+          "start": 6.42,
+          "end": 6.74
+        },
+        {
+          "text": "animals,",
+          "start": 6.74,
+          "end": 7.2
+        },
+        {
+          "text": "so",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "text": "also",
+          "start": 7.56,
+          "end": 7.9
+        },
+        {
+          "text": "among",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "text": "men—and",
+          "start": 8.12,
+          "end": 9.02
+        },
+        {
+          "text": "if",
+          "start": 9.02,
+          "end": 9.18
+        },
+        {
+          "text": "possible,",
+          "start": 9.18,
+          "end": 9.58
+        },
+        {
+          "text": "in",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "text": "what",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "text": "way",
+          "start": 10.14,
+          "end": 10.32
+        },
+        {
+          "text": "possible?",
+          "start": 10.32,
+          "end": 10.78
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23679238557815552
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48341bb5aeb7168aa1983b33428043c9dd6b27437e89428c3e2d800f852458a6",
+  "selected_reasons": []
+}

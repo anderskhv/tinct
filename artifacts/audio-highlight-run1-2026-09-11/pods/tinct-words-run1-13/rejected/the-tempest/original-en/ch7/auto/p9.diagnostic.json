@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "cbce6e2f4218cd54de3c82efd7a997cf5901dc94caf9c492991e1da7ccacf673",
+  "attempts": [
+    {
+      "asr_seconds": 0.10877888707909733,
+      "alignment_seconds": 8.831196464598179e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. Marvellous sweet music!",
+        "hotwords": "Gonzalo, Marvellous"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, Marvellous sweet music!",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " Marvellous",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.6660626729329427
+            },
+            {
+              "text": " sweet",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.07330322265625
+            },
+            {
+              "text": " music!",
+              "start": 1.95,
+              "end": 2.31,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Marvellous",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "sweet",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "music!",
+          "start": 1.95,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Marvellous",
+        "sweet",
+        "music!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Marvellous",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "sweet",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "music!",
+          "start": 1.95,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10890495008789003
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e1e5aec47590a101e58aa8bb7ad56b13d5e2b35217360d91bd523104bd0a1ac",
+  "selected_reasons": []
+}

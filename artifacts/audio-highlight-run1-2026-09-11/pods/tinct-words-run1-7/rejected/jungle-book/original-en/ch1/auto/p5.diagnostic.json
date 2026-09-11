@@ -1,0 +1,980 @@
+{
+  "complete": true,
+  "signature": "3bd14931bc7c2bfda1247605b5aded88223495fd8788ed119b3eeaa596f4ce2f",
+  "attempts": [
+    {
+      "asr_seconds": 0.21330384444445372,
+      "alignment_seconds": 0.00014711357653141022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"All thanks for this good meal,\" he said, licking his lips. \"How beautiful are the noble children! How large are their eyes! And so young too! Indeed, indeed, I might have remembered that the children of kings are men from the beginning.\"",
+        "hotwords": "All, How, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All thanks for this good meal, he said, licking his lips. How beautiful are the noble children! How large are their eyes! And so young too! Indeed, indeed, I might have remembered that the children of kings are men from the beginning.",
+          "start": 0.02,
+          "end": 13.7,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.10430908203125
+            },
+            {
+              "text": " thanks",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " for",
+              "start": 0.88,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " meal,",
+              "start": 1.5,
+              "end": 1.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.966796875
+            },
+            {
+              "text": " said,",
+              "start": 2.4,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " licking",
+              "start": 3.12,
+              "end": 3.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 3.22,
+              "end": 3.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lips.",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " How",
+              "start": 4.44,
+              "end": 4.62,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " beautiful",
+              "start": 4.62,
+              "end": 4.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 4.92,
+              "end": 5.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 5.28,
+              "end": 5.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " noble",
+              "start": 5.4,
+              "end": 5.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " children!",
+              "start": 5.72,
+              "end": 6.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " How",
+              "start": 6.72,
+              "end": 6.88,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " large",
+              "start": 6.88,
+              "end": 7.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 7.22,
+              "end": 7.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 7.4,
+              "end": 7.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " eyes!",
+              "start": 7.52,
+              "end": 7.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " And",
+              "start": 8.3,
+              "end": 8.42,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " so",
+              "start": 8.42,
+              "end": 8.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " young",
+              "start": 8.66,
+              "end": 8.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " too!",
+              "start": 8.9,
+              "end": 9.22,
+              "probability": 0.51220703125
+            },
+            {
+              "text": " Indeed,",
+              "start": 9.74,
+              "end": 10.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " indeed,",
+              "start": 10.28,
+              "end": 10.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 10.72,
+              "end": 10.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " might",
+              "start": 10.78,
+              "end": 10.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 10.92,
+              "end": 11.04,
+              "probability": 0.9765625
+            },
+            {
+              "text": " remembered",
+              "start": 11.04,
+              "end": 11.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 11.44,
+              "end": 11.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 11.7,
+              "end": 11.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " children",
+              "start": 11.84,
+              "end": 12.04,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " of",
+              "start": 12.04,
+              "end": 12.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kings",
+              "start": 12.32,
+              "end": 12.52,
+              "probability": 0.953125
+            },
+            {
+              "text": " are",
+              "start": 12.52,
+              "end": 12.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " men",
+              "start": 12.78,
+              "end": 13.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 13.04,
+              "end": 13.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 13.26,
+              "end": 13.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beginning.",
+              "start": 13.38,
+              "end": 13.7,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "thanks",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "for",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "raw": "this",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "good",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "meal,",
+          "start": 1.5,
+          "end": 1.94
+        },
+        {
+          "raw": "he",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "said,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "raw": "licking",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "raw": "his",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "raw": "lips.",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "How",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "raw": "beautiful",
+          "start": 4.62,
+          "end": 4.92
+        },
+        {
+          "raw": "are",
+          "start": 4.92,
+          "end": 5.28
+        },
+        {
+          "raw": "the",
+          "start": 5.28,
+          "end": 5.4
+        },
+        {
+          "raw": "noble",
+          "start": 5.4,
+          "end": 5.72
+        },
+        {
+          "raw": "children!",
+          "start": 5.72,
+          "end": 6.18
+        },
+        {
+          "raw": "How",
+          "start": 6.72,
+          "end": 6.88
+        },
+        {
+          "raw": "large",
+          "start": 6.88,
+          "end": 7.22
+        },
+        {
+          "raw": "are",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "raw": "their",
+          "start": 7.4,
+          "end": 7.52
+        },
+        {
+          "raw": "eyes!",
+          "start": 7.52,
+          "end": 7.86
+        },
+        {
+          "raw": "And",
+          "start": 8.3,
+          "end": 8.42
+        },
+        {
+          "raw": "so",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "raw": "young",
+          "start": 8.66,
+          "end": 8.9
+        },
+        {
+          "raw": "too!",
+          "start": 8.9,
+          "end": 9.22
+        },
+        {
+          "raw": "Indeed,",
+          "start": 9.74,
+          "end": 10.04
+        },
+        {
+          "raw": "indeed,",
+          "start": 10.28,
+          "end": 10.42
+        },
+        {
+          "raw": "I",
+          "start": 10.72,
+          "end": 10.78
+        },
+        {
+          "raw": "might",
+          "start": 10.78,
+          "end": 10.92
+        },
+        {
+          "raw": "have",
+          "start": 10.92,
+          "end": 11.04
+        },
+        {
+          "raw": "remembered",
+          "start": 11.04,
+          "end": 11.44
+        },
+        {
+          "raw": "that",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "raw": "the",
+          "start": 11.7,
+          "end": 11.84
+        },
+        {
+          "raw": "children",
+          "start": 11.84,
+          "end": 12.04
+        },
+        {
+          "raw": "of",
+          "start": 12.04,
+          "end": 12.32
+        },
+        {
+          "raw": "kings",
+          "start": 12.32,
+          "end": 12.52
+        },
+        {
+          "raw": "are",
+          "start": 12.52,
+          "end": 12.78
+        },
+        {
+          "raw": "men",
+          "start": 12.78,
+          "end": 13.04
+        },
+        {
+          "raw": "from",
+          "start": 13.04,
+          "end": 13.26
+        },
+        {
+          "raw": "the",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "raw": "beginning.",
+          "start": 13.38,
+          "end": 13.7
+        }
+      ],
+      "expected_tokens": [
+        "\"All",
+        "thanks",
+        "for",
+        "this",
+        "good",
+        "meal,\"",
+        "he",
+        "said,",
+        "licking",
+        "his",
+        "lips.",
+        "\"How",
+        "beautiful",
+        "are",
+        "the",
+        "noble",
+        "children!",
+        "How",
+        "large",
+        "are",
+        "their",
+        "eyes!",
+        "And",
+        "so",
+        "young",
+        "too!",
+        "Indeed,",
+        "indeed,",
+        "I",
+        "might",
+        "have",
+        "remembered",
+        "that",
+        "the",
+        "children",
+        "of",
+        "kings",
+        "are",
+        "men",
+        "from",
+        "the",
+        "beginning.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "thanks",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "for",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "text": "this",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "good",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "meal,\"",
+          "start": 1.5,
+          "end": 1.94
+        },
+        {
+          "text": "he",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "said,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "text": "licking",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "text": "his",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "text": "lips.",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "\"How",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "text": "beautiful",
+          "start": 4.62,
+          "end": 4.92
+        },
+        {
+          "text": "are",
+          "start": 4.92,
+          "end": 5.28
+        },
+        {
+          "text": "the",
+          "start": 5.28,
+          "end": 5.4
+        },
+        {
+          "text": "noble",
+          "start": 5.4,
+          "end": 5.72
+        },
+        {
+          "text": "children!",
+          "start": 5.72,
+          "end": 6.18
+        },
+        {
+          "text": "How",
+          "start": 6.72,
+          "end": 6.88
+        },
+        {
+          "text": "large",
+          "start": 6.88,
+          "end": 7.22
+        },
+        {
+          "text": "are",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "text": "their",
+          "start": 7.4,
+          "end": 7.52
+        },
+        {
+          "text": "eyes!",
+          "start": 7.52,
+          "end": 7.86
+        },
+        {
+          "text": "And",
+          "start": 8.3,
+          "end": 8.42
+        },
+        {
+          "text": "so",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "text": "young",
+          "start": 8.66,
+          "end": 8.9
+        },
+        {
+          "text": "too!",
+          "start": 8.9,
+          "end": 9.22
+        },
+        {
+          "text": "Indeed,",
+          "start": 9.74,
+          "end": 10.04
+        },
+        {
+          "text": "indeed,",
+          "start": 10.28,
+          "end": 10.42
+        },
+        {
+          "text": "I",
+          "start": 10.72,
+          "end": 10.78
+        },
+        {
+          "text": "might",
+          "start": 10.78,
+          "end": 10.92
+        },
+        {
+          "text": "have",
+          "start": 10.92,
+          "end": 11.04
+        },
+        {
+          "text": "remembered",
+          "start": 11.04,
+          "end": 11.44
+        },
+        {
+          "text": "that",
+          "start": 11.44,
+          "end": 11.7
+        },
+        {
+          "text": "the",
+          "start": 11.7,
+          "end": 11.84
+        },
+        {
+          "text": "children",
+          "start": 11.84,
+          "end": 12.04
+        },
+        {
+          "text": "of",
+          "start": 12.04,
+          "end": 12.32
+        },
+        {
+          "text": "kings",
+          "start": 12.32,
+          "end": 12.52
+        },
+        {
+          "text": "are",
+          "start": 12.52,
+          "end": 12.78
+        },
+        {
+          "text": "men",
+          "start": 12.78,
+          "end": 13.04
+        },
+        {
+          "text": "from",
+          "start": 13.04,
+          "end": 13.26
+        },
+        {
+          "text": "the",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "text": "beginning.\"",
+          "start": 13.38,
+          "end": 13.7
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21353499498218298
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "190516717ed168f3dfc2d7f94459d3e0543bb6fff247281c686b787f4b828883",
+  "selected_reasons": []
+}

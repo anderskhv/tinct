@@ -1,0 +1,1800 @@
+{
+  "complete": true,
+  "signature": "a5e9247c8b6a13fca5995055ddf6d487c86f730d652cb6198ff24f85e5360b81",
+  "attempts": [
+    {
+      "asr_seconds": 0.6131033729761839,
+      "alignment_seconds": 0.00039996206760406494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I said; and men of this stamp will be covetous of money, like those who live in oligarchies; they will have, a fierce secret longing after gold and silver, which they will hoard in dark places, having magazines and treasuries of their own for the deposit and concealment of them; also castles which are just nests for their eggs, and in which they will spend large sums on their wives, or on any others whom they please.",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, and men of this stamp will be covetous of money, like those who live in oligarchies,",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.137939453125
+            },
+            {
+              "text": " I",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said,",
+              "start": 0.93,
+              "end": 1.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " men",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 1.99,
+              "end": 2.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " stamp",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " will",
+              "start": 2.55,
+              "end": 2.69,
+              "probability": 0.98828125
+            },
+            {
+              "text": " be",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " covetous",
+              "start": 2.85,
+              "end": 3.27,
+              "probability": 0.9851888020833334
+            },
+            {
+              "text": " of",
+              "start": 3.27,
+              "end": 3.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " money,",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " like",
+              "start": 4.05,
+              "end": 4.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " those",
+              "start": 4.25,
+              "end": 4.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " who",
+              "start": 4.49,
+              "end": 4.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " live",
+              "start": 4.73,
+              "end": 4.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.85,
+              "end": 5.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " oligarchies,",
+              "start": 5.05,
+              "end": 5.69,
+              "probability": 0.9886067708333334
+            }
+          ]
+        },
+        {
+          "text": " they will have, a fierce secret longing after gold and silver, which they will hoard in dark",
+          "start": 6.09,
+          "end": 11.39,
+          "words": [
+            {
+              "text": " they",
+              "start": 6.09,
+              "end": 6.29,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " will",
+              "start": 6.29,
+              "end": 6.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have,",
+              "start": 6.45,
+              "end": 6.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 7.09,
+              "end": 7.29,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " fierce",
+              "start": 7.29,
+              "end": 7.49,
+              "probability": 0.98046875
+            },
+            {
+              "text": " secret",
+              "start": 7.49,
+              "end": 7.99,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " longing",
+              "start": 7.99,
+              "end": 8.35,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " after",
+              "start": 8.35,
+              "end": 8.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gold",
+              "start": 8.75,
+              "end": 9.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 9.05,
+              "end": 9.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " silver,",
+              "start": 9.33,
+              "end": 9.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 10.11,
+              "end": 10.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 10.29,
+              "end": 10.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 10.47,
+              "end": 10.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hoard",
+              "start": 10.63,
+              "end": 10.91,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 10.91,
+              "end": 11.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dark",
+              "start": 11.17,
+              "end": 11.39,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " places, having magazines and treasuries of their own for the deposit and concealment of",
+          "start": 11.39,
+          "end": 16.31,
+          "words": [
+            {
+              "text": " places,",
+              "start": 11.39,
+              "end": 11.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " having",
+              "start": 12.49,
+              "end": 12.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " magazines",
+              "start": 12.73,
+              "end": 13.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 13.29,
+              "end": 13.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " treasuries",
+              "start": 13.71,
+              "end": 14.07,
+              "probability": 0.9733072916666666
+            },
+            {
+              "text": " of",
+              "start": 14.07,
+              "end": 14.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 14.23,
+              "end": 14.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 14.35,
+              "end": 14.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 14.63,
+              "end": 14.83,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 14.83,
+              "end": 14.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deposit",
+              "start": 14.95,
+              "end": 15.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 15.37,
+              "end": 15.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " concealment",
+              "start": 15.69,
+              "end": 16.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 16.21,
+              "end": 16.31,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " them, also castles which are just nests for their eggs, and in which they will spend large",
+          "start": 16.31,
+          "end": 21.57,
+          "words": [
+            {
+              "text": " them,",
+              "start": 16.31,
+              "end": 16.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " also",
+              "start": 17.17,
+              "end": 17.49,
+              "probability": 0.984375
+            },
+            {
+              "text": " castles",
+              "start": 17.49,
+              "end": 17.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 17.89,
+              "end": 18.21,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " are",
+              "start": 18.21,
+              "end": 18.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " just",
+              "start": 18.33,
+              "end": 18.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " nests",
+              "start": 18.53,
+              "end": 18.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 18.83,
+              "end": 19.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 19.05,
+              "end": 19.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eggs,",
+              "start": 19.19,
+              "end": 19.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 20.03,
+              "end": 20.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 20.19,
+              "end": 20.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 20.27,
+              "end": 20.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " they",
+              "start": 20.47,
+              "end": 20.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will",
+              "start": 20.67,
+              "end": 20.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spend",
+              "start": 20.83,
+              "end": 21.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " large",
+              "start": 21.13,
+              "end": 21.57,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " sums on their wives, or on any others whom they please.",
+          "start": 21.57,
+          "end": 24.69,
+          "words": [
+            {
+              "text": " sums",
+              "start": 21.57,
+              "end": 21.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 21.87,
+              "end": 22.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 22.11,
+              "end": 22.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wives,",
+              "start": 22.23,
+              "end": 22.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " or",
+              "start": 23.05,
+              "end": 23.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 23.23,
+              "end": 23.43,
+              "probability": 0.986328125
+            },
+            {
+              "text": " any",
+              "start": 23.43,
+              "end": 23.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " others",
+              "start": 23.67,
+              "end": 23.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " whom",
+              "start": 23.97,
+              "end": 24.19,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " they",
+              "start": 24.19,
+              "end": 24.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " please.",
+              "start": 24.39,
+              "end": 24.69,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "said,",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "men",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "of",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "raw": "this",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "stamp",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "raw": "will",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "raw": "be",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "covetous",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "raw": "of",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "raw": "money,",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "like",
+          "start": 4.05,
+          "end": 4.25
+        },
+        {
+          "raw": "those",
+          "start": 4.25,
+          "end": 4.49
+        },
+        {
+          "raw": "who",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "raw": "live",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "raw": "in",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "raw": "oligarchies,",
+          "start": 5.05,
+          "end": 5.69
+        },
+        {
+          "raw": "they",
+          "start": 6.09,
+          "end": 6.29
+        },
+        {
+          "raw": "will",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "raw": "have,",
+          "start": 6.45,
+          "end": 6.77
+        },
+        {
+          "raw": "a",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "raw": "fierce",
+          "start": 7.29,
+          "end": 7.49
+        },
+        {
+          "raw": "secret",
+          "start": 7.49,
+          "end": 7.99
+        },
+        {
+          "raw": "longing",
+          "start": 7.99,
+          "end": 8.35
+        },
+        {
+          "raw": "after",
+          "start": 8.35,
+          "end": 8.75
+        },
+        {
+          "raw": "gold",
+          "start": 8.75,
+          "end": 9.05
+        },
+        {
+          "raw": "and",
+          "start": 9.05,
+          "end": 9.33
+        },
+        {
+          "raw": "silver,",
+          "start": 9.33,
+          "end": 9.67
+        },
+        {
+          "raw": "which",
+          "start": 10.11,
+          "end": 10.29
+        },
+        {
+          "raw": "they",
+          "start": 10.29,
+          "end": 10.47
+        },
+        {
+          "raw": "will",
+          "start": 10.47,
+          "end": 10.63
+        },
+        {
+          "raw": "hoard",
+          "start": 10.63,
+          "end": 10.91
+        },
+        {
+          "raw": "in",
+          "start": 10.91,
+          "end": 11.17
+        },
+        {
+          "raw": "dark",
+          "start": 11.17,
+          "end": 11.39
+        },
+        {
+          "raw": "places,",
+          "start": 11.39,
+          "end": 11.87
+        },
+        {
+          "raw": "having",
+          "start": 12.49,
+          "end": 12.73
+        },
+        {
+          "raw": "magazines",
+          "start": 12.73,
+          "end": 13.29
+        },
+        {
+          "raw": "and",
+          "start": 13.29,
+          "end": 13.71
+        },
+        {
+          "raw": "treasuries",
+          "start": 13.71,
+          "end": 14.07
+        },
+        {
+          "raw": "of",
+          "start": 14.07,
+          "end": 14.23
+        },
+        {
+          "raw": "their",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "raw": "own",
+          "start": 14.35,
+          "end": 14.63
+        },
+        {
+          "raw": "for",
+          "start": 14.63,
+          "end": 14.83
+        },
+        {
+          "raw": "the",
+          "start": 14.83,
+          "end": 14.95
+        },
+        {
+          "raw": "deposit",
+          "start": 14.95,
+          "end": 15.37
+        },
+        {
+          "raw": "and",
+          "start": 15.37,
+          "end": 15.69
+        },
+        {
+          "raw": "concealment",
+          "start": 15.69,
+          "end": 16.21
+        },
+        {
+          "raw": "of",
+          "start": 16.21,
+          "end": 16.31
+        },
+        {
+          "raw": "them,",
+          "start": 16.31,
+          "end": 16.59
+        },
+        {
+          "raw": "also",
+          "start": 17.17,
+          "end": 17.49
+        },
+        {
+          "raw": "castles",
+          "start": 17.49,
+          "end": 17.89
+        },
+        {
+          "raw": "which",
+          "start": 17.89,
+          "end": 18.21
+        },
+        {
+          "raw": "are",
+          "start": 18.21,
+          "end": 18.33
+        },
+        {
+          "raw": "just",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "raw": "nests",
+          "start": 18.53,
+          "end": 18.83
+        },
+        {
+          "raw": "for",
+          "start": 18.83,
+          "end": 19.05
+        },
+        {
+          "raw": "their",
+          "start": 19.05,
+          "end": 19.19
+        },
+        {
+          "raw": "eggs,",
+          "start": 19.19,
+          "end": 19.59
+        },
+        {
+          "raw": "and",
+          "start": 20.03,
+          "end": 20.19
+        },
+        {
+          "raw": "in",
+          "start": 20.19,
+          "end": 20.27
+        },
+        {
+          "raw": "which",
+          "start": 20.27,
+          "end": 20.47
+        },
+        {
+          "raw": "they",
+          "start": 20.47,
+          "end": 20.67
+        },
+        {
+          "raw": "will",
+          "start": 20.67,
+          "end": 20.83
+        },
+        {
+          "raw": "spend",
+          "start": 20.83,
+          "end": 21.13
+        },
+        {
+          "raw": "large",
+          "start": 21.13,
+          "end": 21.57
+        },
+        {
+          "raw": "sums",
+          "start": 21.57,
+          "end": 21.87
+        },
+        {
+          "raw": "on",
+          "start": 21.87,
+          "end": 22.11
+        },
+        {
+          "raw": "their",
+          "start": 22.11,
+          "end": 22.23
+        },
+        {
+          "raw": "wives,",
+          "start": 22.23,
+          "end": 22.59
+        },
+        {
+          "raw": "or",
+          "start": 23.05,
+          "end": 23.23
+        },
+        {
+          "raw": "on",
+          "start": 23.23,
+          "end": 23.43
+        },
+        {
+          "raw": "any",
+          "start": 23.43,
+          "end": 23.67
+        },
+        {
+          "raw": "others",
+          "start": 23.67,
+          "end": 23.97
+        },
+        {
+          "raw": "whom",
+          "start": 23.97,
+          "end": 24.19
+        },
+        {
+          "raw": "they",
+          "start": 24.19,
+          "end": 24.39
+        },
+        {
+          "raw": "please.",
+          "start": 24.39,
+          "end": 24.69
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said;",
+        "and",
+        "men",
+        "of",
+        "this",
+        "stamp",
+        "will",
+        "be",
+        "covetous",
+        "of",
+        "money,",
+        "like",
+        "those",
+        "who",
+        "live",
+        "in",
+        "oligarchies;",
+        "they",
+        "will",
+        "have,",
+        "a",
+        "fierce",
+        "secret",
+        "longing",
+        "after",
+        "gold",
+        "and",
+        "silver,",
+        "which",
+        "they",
+        "will",
+        "hoard",
+        "in",
+        "dark",
+        "places,",
+        "having",
+        "magazines",
+        "and",
+        "treasuries",
+        "of",
+        "their",
+        "own",
+        "for",
+        "the",
+        "deposit",
+        "and",
+        "concealment",
+        "of",
+        "them;",
+        "also",
+        "castles",
+        "which",
+        "are",
+        "just",
+        "nests",
+        "for",
+        "their",
+        "eggs,",
+        "and",
+        "in",
+        "which",
+        "they",
+        "will",
+        "spend",
+        "large",
+        "sums",
+        "on",
+        "their",
+        "wives,",
+        "or",
+        "on",
+        "any",
+        "others",
+        "whom",
+        "they",
+        "please."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          78,
+          0,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "said;",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "men",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "of",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "this",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "stamp",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "text": "will",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "text": "be",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "covetous",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "text": "of",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "text": "money,",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "like",
+          "start": 4.05,
+          "end": 4.25
+        },
+        {
+          "text": "those",
+          "start": 4.25,
+          "end": 4.49
+        },
+        {
+          "text": "who",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "text": "live",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "text": "in",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "text": "oligarchies;",
+          "start": 5.05,
+          "end": 5.69
+        },
+        {
+          "text": "they",
+          "start": 6.09,
+          "end": 6.29
+        },
+        {
+          "text": "will",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "text": "have,",
+          "start": 6.45,
+          "end": 6.77
+        },
+        {
+          "text": "a",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "text": "fierce",
+          "start": 7.29,
+          "end": 7.49
+        },
+        {
+          "text": "secret",
+          "start": 7.49,
+          "end": 7.99
+        },
+        {
+          "text": "longing",
+          "start": 7.99,
+          "end": 8.35
+        },
+        {
+          "text": "after",
+          "start": 8.35,
+          "end": 8.75
+        },
+        {
+          "text": "gold",
+          "start": 8.75,
+          "end": 9.05
+        },
+        {
+          "text": "and",
+          "start": 9.05,
+          "end": 9.33
+        },
+        {
+          "text": "silver,",
+          "start": 9.33,
+          "end": 9.67
+        },
+        {
+          "text": "which",
+          "start": 10.11,
+          "end": 10.29
+        },
+        {
+          "text": "they",
+          "start": 10.29,
+          "end": 10.47
+        },
+        {
+          "text": "will",
+          "start": 10.47,
+          "end": 10.63
+        },
+        {
+          "text": "hoard",
+          "start": 10.63,
+          "end": 10.91
+        },
+        {
+          "text": "in",
+          "start": 10.91,
+          "end": 11.17
+        },
+        {
+          "text": "dark",
+          "start": 11.17,
+          "end": 11.39
+        },
+        {
+          "text": "places,",
+          "start": 11.39,
+          "end": 11.87
+        },
+        {
+          "text": "having",
+          "start": 12.49,
+          "end": 12.73
+        },
+        {
+          "text": "magazines",
+          "start": 12.73,
+          "end": 13.29
+        },
+        {
+          "text": "and",
+          "start": 13.29,
+          "end": 13.71
+        },
+        {
+          "text": "treasuries",
+          "start": 13.71,
+          "end": 14.07
+        },
+        {
+          "text": "of",
+          "start": 14.07,
+          "end": 14.23
+        },
+        {
+          "text": "their",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "text": "own",
+          "start": 14.35,
+          "end": 14.63
+        },
+        {
+          "text": "for",
+          "start": 14.63,
+          "end": 14.83
+        },
+        {
+          "text": "the",
+          "start": 14.83,
+          "end": 14.95
+        },
+        {
+          "text": "deposit",
+          "start": 14.95,
+          "end": 15.37
+        },
+        {
+          "text": "and",
+          "start": 15.37,
+          "end": 15.69
+        },
+        {
+          "text": "concealment",
+          "start": 15.69,
+          "end": 16.21
+        },
+        {
+          "text": "of",
+          "start": 16.21,
+          "end": 16.31
+        },
+        {
+          "text": "them;",
+          "start": 16.31,
+          "end": 16.59
+        },
+        {
+          "text": "also",
+          "start": 17.17,
+          "end": 17.49
+        },
+        {
+          "text": "castles",
+          "start": 17.49,
+          "end": 17.89
+        },
+        {
+          "text": "which",
+          "start": 17.89,
+          "end": 18.21
+        },
+        {
+          "text": "are",
+          "start": 18.21,
+          "end": 18.33
+        },
+        {
+          "text": "just",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "text": "nests",
+          "start": 18.53,
+          "end": 18.83
+        },
+        {
+          "text": "for",
+          "start": 18.83,
+          "end": 19.05
+        },
+        {
+          "text": "their",
+          "start": 19.05,
+          "end": 19.19
+        },
+        {
+          "text": "eggs,",
+          "start": 19.19,
+          "end": 19.59
+        },
+        {
+          "text": "and",
+          "start": 20.03,
+          "end": 20.19
+        },
+        {
+          "text": "in",
+          "start": 20.19,
+          "end": 20.27
+        },
+        {
+          "text": "which",
+          "start": 20.27,
+          "end": 20.47
+        },
+        {
+          "text": "they",
+          "start": 20.47,
+          "end": 20.67
+        },
+        {
+          "text": "will",
+          "start": 20.67,
+          "end": 20.83
+        },
+        {
+          "text": "spend",
+          "start": 20.83,
+          "end": 21.13
+        },
+        {
+          "text": "large",
+          "start": 21.13,
+          "end": 21.57
+        },
+        {
+          "text": "sums",
+          "start": 21.57,
+          "end": 21.87
+        },
+        {
+          "text": "on",
+          "start": 21.87,
+          "end": 22.11
+        },
+        {
+          "text": "their",
+          "start": 22.11,
+          "end": 22.23
+        },
+        {
+          "text": "wives,",
+          "start": 22.23,
+          "end": 22.59
+        },
+        {
+          "text": "or",
+          "start": 23.05,
+          "end": 23.23
+        },
+        {
+          "text": "on",
+          "start": 23.23,
+          "end": 23.43
+        },
+        {
+          "text": "any",
+          "start": 23.43,
+          "end": 23.67
+        },
+        {
+          "text": "others",
+          "start": 23.67,
+          "end": 23.97
+        },
+        {
+          "text": "whom",
+          "start": 23.97,
+          "end": 24.19
+        },
+        {
+          "text": "they",
+          "start": 24.19,
+          "end": 24.39
+        },
+        {
+          "text": "please.",
+          "start": 24.39,
+          "end": 24.69
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 78,
+        "matched_words": 78
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6137342411093414
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66a2d1571972ae712e4aca114a6e9a4e36d82aeb2804af0e82b0903497823835",
+  "selected_reasons": []
+}

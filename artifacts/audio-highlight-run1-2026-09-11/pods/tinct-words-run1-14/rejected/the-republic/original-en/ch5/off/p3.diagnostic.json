@@ -1,0 +1,241 @@
+{
+  "complete": true,
+  "signature": "9041670a12f0a36dbd8a16c501155dcfaf67de21394244cf5a130514fd755b9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1134660392999649,
+      "alignment_seconds": 7.817894220352173e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly not, said a Dementis, raising his voice.",
+          "start": 0.08,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Certainly",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.50927734375
+            },
+            {
+              "text": " not,",
+              "start": 0.66,
+              "end": 1.06,
+              "probability": 0.984375
+            },
+            {
+              "text": " said",
+              "start": 1.38,
+              "end": 1.46,
+              "probability": 0.861328125
+            },
+            {
+              "text": " a",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.42529296875
+            },
+            {
+              "text": " Dementis,",
+              "start": 1.56,
+              "end": 2.12,
+              "probability": 0.518310546875
+            },
+            {
+              "text": " raising",
+              "start": 2.24,
+              "end": 2.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 2.46,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voice.",
+              "start": 2.76,
+              "end": 3.04,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "not,",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "raw": "said",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "raw": "a",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "Dementis,",
+          "start": 1.56,
+          "end": 2.12
+        },
+        {
+          "raw": "raising",
+          "start": 2.24,
+          "end": 2.46
+        },
+        {
+          "raw": "his",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "raw": "voice.",
+          "start": 2.76,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "not,",
+        "said",
+        "Adeimantus,",
+        "raising",
+        "his",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          7,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "not,",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "text": "said",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "Adeimantus,",
+          "start": 1.46,
+          "end": 1.85
+        },
+        {
+          "text": "raising",
+          "start": 2.24,
+          "end": 2.46
+        },
+        {
+          "text": "his",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "text": "voice.",
+          "start": 2.76,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.11357623338699341
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a3846911293aef4e8f5df7249957306b8718e8f0325f6e8cda245d7e2bbee13",
+  "selected_reasons": []
+}

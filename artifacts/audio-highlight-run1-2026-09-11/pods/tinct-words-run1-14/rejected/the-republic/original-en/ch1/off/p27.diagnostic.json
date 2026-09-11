@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "e3e1dfdb1eb4d5069d3d1852e6b03ea38b5ba4fd4dff78cf37cb0f0074597431",
+  "attempts": [
+    {
+      "asr_seconds": 0.08567961305379868,
+      "alignment_seconds": 6.61313533782959e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is true. He said",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.4384765625
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " true.",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " He",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " said",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "true.",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "raw": "He",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "said",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "true,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "true,",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "text": "he",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "said.",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08577436953783035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d8de5ec568b7c4eb4d70ce2ea5f5bc18bd15130fa6ab3db6217eab0003279550",
+  "selected_reasons": []
+}

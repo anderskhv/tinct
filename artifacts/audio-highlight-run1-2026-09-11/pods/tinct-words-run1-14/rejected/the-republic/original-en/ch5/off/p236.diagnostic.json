@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "signature": "e58a68556fefcf9dfea4f35e027ef990f23756f73ccbff22232c0ab2237a9b1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10574781894683838,
+      "alignment_seconds": 8.159130811691284e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " their maintainers and foster fathers.",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " their",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " maintainers",
+              "start": 0.52,
+              "end": 1.12,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " and",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " foster",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fathers.",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "their",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "maintainers",
+          "start": 0.52,
+          "end": 1.12
+        },
+        {
+          "raw": "and",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "foster",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "fathers.",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Their",
+        "maintainers",
+        "and",
+        "foster-fathers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Their",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "maintainers",
+          "start": 0.52,
+          "end": 1.12
+        },
+        {
+          "text": "and",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "foster-fathers.",
+          "start": 1.28,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1058569997549057
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2462b41415a9b28084593790dee60908076799a8b2d8af9133129206830a9653",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

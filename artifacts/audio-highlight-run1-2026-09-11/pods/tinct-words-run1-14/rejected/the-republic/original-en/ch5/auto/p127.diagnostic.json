@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "4402f0168b29fe45cde74ec1d86caa76285bfbb18edd8251b15065a8d93a455d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14999207854270935,
+      "alignment_seconds": 8.582323789596558e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And will not their wives be the best women?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And will not their wives be the best women?",
+          "start": 0.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.509765625
+            },
+            {
+              "text": " will",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " not",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wives",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " best",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " women?",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "not",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "their",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "wives",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "be",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "best",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "women?",
+          "start": 1.9,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "will",
+        "not",
+        "their",
+        "wives",
+        "be",
+        "the",
+        "best",
+        "women?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "not",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "their",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "wives",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "be",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "best",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "women?",
+          "start": 1.9,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15011944621801376
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9846402ccb2be8ba10e414c2f9556152a57bd5600ff124a6183320b7baf29a69",
+  "selected_reasons": []
+}

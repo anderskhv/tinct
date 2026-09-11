@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "88bd6a71313aba10ad940b10b6e5df9e974917fa016ec80fa0233b43244256fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.07893366971984506,
+      "alignment_seconds": 7.735798135399818e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Anything but well.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Anything",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " but",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " well.",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.92822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anything",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "but",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "well.",
+          "start": 0.92,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Anything",
+        "but",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Anything",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "but",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "well.",
+          "start": 0.92,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07904267776757479
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66fd423bbb97d4a4935553748b146578ea78aa921a79a2830d646fcf92e02ff3",
+  "selected_reasons": []
+}

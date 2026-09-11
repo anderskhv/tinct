@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "1005e5a9a6101aabfccf4e017cad2dbff251fd062e42753aff1e307f376fa000",
+  "attempts": [
+    {
+      "asr_seconds": 0.08131878823041916,
+      "alignment_seconds": 8.915364742279053e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In English, thus.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.2276611328125
+            },
+            {
+              "text": " English,",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thus.",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "English,",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "thus.",
+          "start": 0.91,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "English",
+        "thus:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "English",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "thus:",
+          "start": 0.91,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08143556863069534
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4561b9baf4c0f41d5f8c94285fae758fe52582d85eac0a4934e0f71a0389ce5f",
+  "selected_reasons": []
+}

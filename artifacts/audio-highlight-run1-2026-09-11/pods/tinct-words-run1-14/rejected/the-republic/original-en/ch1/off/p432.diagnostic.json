@@ -1,0 +1,538 @@
+{
+  "complete": true,
+  "signature": "73e7fc75d997bfa40cf41ce42949056c5b01d31c4fe5153d9868f8f99875c8ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.21147485077381134,
+      "alignment_seconds": 0.00011568516492843628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Feast away in triumph and take your fill of the argument. I will not oppose you lest I should displease the company",
+          "start": 0.05,
+          "end": 6.85,
+          "words": [
+            {
+              "text": " Feast",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.685546875
+            },
+            {
+              "text": " away",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " triumph",
+              "start": 1.15,
+              "end": 1.55,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 2.13,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " take",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fill",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " argument.",
+              "start": 3.01,
+              "end": 3.37,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 3.89,
+              "end": 4.13,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " will",
+              "start": 4.13,
+              "end": 4.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 4.25,
+              "end": 4.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " oppose",
+              "start": 4.43,
+              "end": 4.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 4.75,
+              "end": 5.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lest",
+              "start": 5.13,
+              "end": 5.51,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " I",
+              "start": 5.51,
+              "end": 5.73,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " should",
+              "start": 5.73,
+              "end": 5.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " displease",
+              "start": 5.89,
+              "end": 6.27,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " the",
+              "start": 6.27,
+              "end": 6.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " company",
+              "start": 6.49,
+              "end": 6.85,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Feast",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "away",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "raw": "in",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "triumph",
+          "start": 1.15,
+          "end": 1.55
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 2.13
+        },
+        {
+          "raw": "take",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "raw": "your",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "fill",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "of",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "argument.",
+          "start": 3.01,
+          "end": 3.37
+        },
+        {
+          "raw": "I",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "raw": "will",
+          "start": 4.13,
+          "end": 4.25
+        },
+        {
+          "raw": "not",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "raw": "oppose",
+          "start": 4.43,
+          "end": 4.75
+        },
+        {
+          "raw": "you",
+          "start": 4.75,
+          "end": 5.13
+        },
+        {
+          "raw": "lest",
+          "start": 5.13,
+          "end": 5.51
+        },
+        {
+          "raw": "I",
+          "start": 5.51,
+          "end": 5.73
+        },
+        {
+          "raw": "should",
+          "start": 5.73,
+          "end": 5.89
+        },
+        {
+          "raw": "displease",
+          "start": 5.89,
+          "end": 6.27
+        },
+        {
+          "raw": "the",
+          "start": 6.27,
+          "end": 6.49
+        },
+        {
+          "raw": "company",
+          "start": 6.49,
+          "end": 6.85
+        }
+      ],
+      "expected_tokens": [
+        "Feast",
+        "away",
+        "in",
+        "triumph,",
+        "and",
+        "take",
+        "your",
+        "fill",
+        "of",
+        "the",
+        "argument;",
+        "I",
+        "will",
+        "not",
+        "oppose",
+        "you,",
+        "lest",
+        "I",
+        "should",
+        "displease",
+        "the",
+        "company."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Feast",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "away",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "text": "in",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "triumph,",
+          "start": 1.15,
+          "end": 1.55
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 2.13
+        },
+        {
+          "text": "take",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "your",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "fill",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "of",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "the",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "argument;",
+          "start": 3.01,
+          "end": 3.37
+        },
+        {
+          "text": "I",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "text": "will",
+          "start": 4.13,
+          "end": 4.25
+        },
+        {
+          "text": "not",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "text": "oppose",
+          "start": 4.43,
+          "end": 4.75
+        },
+        {
+          "text": "you,",
+          "start": 4.75,
+          "end": 5.13
+        },
+        {
+          "text": "lest",
+          "start": 5.13,
+          "end": 5.51
+        },
+        {
+          "text": "I",
+          "start": 5.51,
+          "end": 5.73
+        },
+        {
+          "text": "should",
+          "start": 5.73,
+          "end": 5.89
+        },
+        {
+          "text": "displease",
+          "start": 5.89,
+          "end": 6.27
+        },
+        {
+          "text": "the",
+          "start": 6.27,
+          "end": 6.49
+        },
+        {
+          "text": "company.",
+          "start": 6.49,
+          "end": 6.85
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2116553857922554
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c32599bc4e4b9604329cd49a91ce7aec1c2445f5b62211b6310139d5552debde",
+  "selected_reasons": []
+}

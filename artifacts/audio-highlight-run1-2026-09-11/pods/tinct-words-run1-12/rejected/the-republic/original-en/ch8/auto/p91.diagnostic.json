@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "a370388e7af7e58133b24db093513fe0460252b1d77197dde5340c7dcc4ad79e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09367040311917663,
+      "alignment_seconds": 8.014915511012077e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They do so.",
+        "hotwords": "They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They do so.",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " do",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so.",
+              "start": 0.67,
+              "end": 0.93,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "so.",
+          "start": 0.67,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "do",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "do",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "so.",
+          "start": 0.67,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09378056088462472
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "083a35b8d5f436a53b008aeaed63d0367836b4f2b80b2faefe23370d00ddbfdb",
+  "selected_reasons": []
+}

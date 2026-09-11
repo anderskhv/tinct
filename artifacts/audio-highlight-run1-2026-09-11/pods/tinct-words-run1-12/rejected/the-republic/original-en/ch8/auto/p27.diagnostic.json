@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "7e8c1b1da35354fafa474a33ed5c952b7e92711d611df3f647c39e6d0bba448d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11271557724103332,
+      "alignment_seconds": 0.0001003192737698555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, and we may assume that they answer truly.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, and we may assume that they answer truly.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " and",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.990234375
+            },
+            {
+              "text": " we",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " may",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " assume",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.958984375
+            },
+            {
+              "text": " they",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " answer",
+              "start": 2.03,
+              "end": 2.33,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " truly.",
+              "start": 2.33,
+              "end": 2.75,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "and",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "we",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "may",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "assume",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "that",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "they",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "answer",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "raw": "truly.",
+          "start": 2.33,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "and",
+        "we",
+        "may",
+        "assume",
+        "that",
+        "they",
+        "answer",
+        "truly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "and",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "we",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "may",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "assume",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "that",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "they",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "text": "answer",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "text": "truly.",
+          "start": 2.33,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11286339489743114
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b7adea9bd8af286a4acb70efd35560143fc7c2e024287ead64e00c8c597fd7b",
+  "selected_reasons": []
+}

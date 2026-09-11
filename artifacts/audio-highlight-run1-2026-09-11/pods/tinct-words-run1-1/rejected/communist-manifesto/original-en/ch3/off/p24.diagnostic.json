@@ -1,0 +1,450 @@
+{
+  "complete": true,
+  "signature": "9e200a7bd24fe5cdd983205fe4aa162cf8a382c6c1f322fbbcced72f16eb7b2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.16442769765853882,
+      "alignment_seconds": 8.596479892730713e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buy freedom is meant under the present bourgeois conditions of production, free trade, free",
+          "start": 0.05,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " Buy",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.255859375
+            },
+            {
+              "text": " freedom",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " is",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " meant",
+              "start": 1.09,
+              "end": 1.43,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " under",
+              "start": 1.43,
+              "end": 2.03,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " the",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " present",
+              "start": 2.19,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bourgeois",
+              "start": 2.47,
+              "end": 2.85,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " conditions",
+              "start": 2.85,
+              "end": 3.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.35,
+              "end": 3.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " production,",
+              "start": 3.63,
+              "end": 4.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " free",
+              "start": 4.67,
+              "end": 4.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " trade,",
+              "start": 4.77,
+              "end": 5.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " free",
+              "start": 5.73,
+              "end": 5.83,
+              "probability": 0.9833984375
+            }
+          ]
+        },
+        {
+          "text": " selling and buying.",
+          "start": 5.83,
+          "end": 6.77,
+          "words": [
+            {
+              "text": " selling",
+              "start": 5.83,
+              "end": 6.21,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " and",
+              "start": 6.21,
+              "end": 6.43,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " buying.",
+              "start": 6.43,
+              "end": 6.77,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buy",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "freedom",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "is",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "meant",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "raw": "under",
+          "start": 1.43,
+          "end": 2.03
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "present",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "raw": "bourgeois",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "raw": "conditions",
+          "start": 2.85,
+          "end": 3.35
+        },
+        {
+          "raw": "of",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "raw": "production,",
+          "start": 3.63,
+          "end": 4.09
+        },
+        {
+          "raw": "free",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "raw": "trade,",
+          "start": 4.77,
+          "end": 5.27
+        },
+        {
+          "raw": "free",
+          "start": 5.73,
+          "end": 5.83
+        },
+        {
+          "raw": "selling",
+          "start": 5.83,
+          "end": 6.21
+        },
+        {
+          "raw": "and",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "raw": "buying.",
+          "start": 6.43,
+          "end": 6.77
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "freedom",
+        "is",
+        "meant,",
+        "under",
+        "the",
+        "present",
+        "bourgeois",
+        "conditions",
+        "of",
+        "production,",
+        "free",
+        "trade,",
+        "free",
+        "selling",
+        "and",
+        "buying."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.0,
+          "end": 0.275
+        },
+        {
+          "text": "freedom",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "is",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "meant,",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "text": "under",
+          "start": 1.43,
+          "end": 2.03
+        },
+        {
+          "text": "the",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "present",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "text": "bourgeois",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "text": "conditions",
+          "start": 2.85,
+          "end": 3.35
+        },
+        {
+          "text": "of",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "text": "production,",
+          "start": 3.63,
+          "end": 4.09
+        },
+        {
+          "text": "free",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "text": "trade,",
+          "start": 4.77,
+          "end": 5.27
+        },
+        {
+          "text": "free",
+          "start": 5.73,
+          "end": 5.83
+        },
+        {
+          "text": "selling",
+          "start": 5.83,
+          "end": 6.21
+        },
+        {
+          "text": "and",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "text": "buying.",
+          "start": 6.43,
+          "end": 6.77
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.16455268114805222
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3369863c88edf3b7924f7010dfbfabb9b8a7289f67c4f154cbd3a5e02dd68177",
+  "selected_reasons": []
+}

@@ -1,0 +1,464 @@
+{
+  "complete": true,
+  "signature": "00c2d2663b602b0f9deccd81eb5fb9b934bd0516e007451ebe3aa94aad5663f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.16327524930238724,
+      "alignment_seconds": 8.562207221984863e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 154.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " 154.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.7451171875
+            }
+          ]
+        },
+        {
+          "text": " Objection, evasion, joyous distrust, and love of irony are signs of health.",
+          "start": 2.43,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Objection,",
+              "start": 2.43,
+              "end": 2.85,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " evasion,",
+              "start": 3.11,
+              "end": 3.45,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " joyous",
+              "start": 3.91,
+              "end": 4.23,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " distrust,",
+              "start": 4.23,
+              "end": 4.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 5.07,
+              "end": 5.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " love",
+              "start": 5.15,
+              "end": 5.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 5.37,
+              "end": 5.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " irony",
+              "start": 5.53,
+              "end": 5.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 5.87,
+              "end": 6.15,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " signs",
+              "start": 6.15,
+              "end": 6.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 6.47,
+              "end": 6.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " health.",
+              "start": 6.67,
+              "end": 6.93,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Everything absolute belongs to pathology.",
+          "start": 7.47,
+          "end": 9.53,
+          "words": [
+            {
+              "text": " Everything",
+              "start": 7.47,
+              "end": 7.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " absolute",
+              "start": 7.83,
+              "end": 8.37,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " belongs",
+              "start": 8.37,
+              "end": 8.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 8.85,
+              "end": 9.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pathology.",
+              "start": 9.19,
+              "end": 9.53,
+              "probability": 0.94189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "154.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Objection,",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "raw": "evasion,",
+          "start": 3.11,
+          "end": 3.45
+        },
+        {
+          "raw": "joyous",
+          "start": 3.91,
+          "end": 4.23
+        },
+        {
+          "raw": "distrust,",
+          "start": 4.23,
+          "end": 4.67
+        },
+        {
+          "raw": "and",
+          "start": 5.07,
+          "end": 5.15
+        },
+        {
+          "raw": "love",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "raw": "of",
+          "start": 5.37,
+          "end": 5.53
+        },
+        {
+          "raw": "irony",
+          "start": 5.53,
+          "end": 5.87
+        },
+        {
+          "raw": "are",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "raw": "signs",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "raw": "of",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "raw": "health.",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "raw": "Everything",
+          "start": 7.47,
+          "end": 7.83
+        },
+        {
+          "raw": "absolute",
+          "start": 7.83,
+          "end": 8.37
+        },
+        {
+          "raw": "belongs",
+          "start": 8.37,
+          "end": 8.85
+        },
+        {
+          "raw": "to",
+          "start": 8.85,
+          "end": 9.19
+        },
+        {
+          "raw": "pathology.",
+          "start": 9.19,
+          "end": 9.53
+        }
+      ],
+      "expected_tokens": [
+        "154.",
+        "Objection,",
+        "evasion,",
+        "joyous",
+        "distrust,",
+        "and",
+        "love",
+        "of",
+        "irony",
+        "are",
+        "signs",
+        "of",
+        "health;",
+        "everything",
+        "absolute",
+        "belongs",
+        "to",
+        "pathology."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "154.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Objection,",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "text": "evasion,",
+          "start": 3.11,
+          "end": 3.45
+        },
+        {
+          "text": "joyous",
+          "start": 3.91,
+          "end": 4.23
+        },
+        {
+          "text": "distrust,",
+          "start": 4.23,
+          "end": 4.67
+        },
+        {
+          "text": "and",
+          "start": 5.07,
+          "end": 5.15
+        },
+        {
+          "text": "love",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "text": "of",
+          "start": 5.37,
+          "end": 5.53
+        },
+        {
+          "text": "irony",
+          "start": 5.53,
+          "end": 5.87
+        },
+        {
+          "text": "are",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "text": "signs",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "text": "of",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "text": "health;",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "text": "everything",
+          "start": 7.47,
+          "end": 7.83
+        },
+        {
+          "text": "absolute",
+          "start": 7.83,
+          "end": 8.37
+        },
+        {
+          "text": "belongs",
+          "start": 8.37,
+          "end": 8.85
+        },
+        {
+          "text": "to",
+          "start": 8.85,
+          "end": 9.19
+        },
+        {
+          "text": "pathology.",
+          "start": 9.19,
+          "end": 9.53
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1633966788649559
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b553d6fcec2716e6ed1b1ddcb93ee1e477b1b4bc875cd08670ae3e9bd681625",
+  "selected_reasons": []
+}

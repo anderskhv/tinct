@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "bccd3199c58ffb87f513fc7802df442d5de743f5de16f96761d8c9f97c1be7f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.08511663228273392,
+      "alignment_seconds": 6.236881017684937e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That has been admitted",
+          "start": 0.05,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " has",
+              "start": 0.57,
+              "end": 0.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " been",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " admitted",
+              "start": 0.91,
+              "end": 1.29,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "has",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "raw": "been",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "admitted",
+          "start": 0.91,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "has",
+        "been",
+        "admitted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "has",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "text": "been",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "text": "admitted.",
+          "start": 0.91,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08520476520061493
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "117244ce47c8fc6fd78331e3a200980b19f1f772562e68b2e43aefa30e80bff5",
+  "selected_reasons": []
+}

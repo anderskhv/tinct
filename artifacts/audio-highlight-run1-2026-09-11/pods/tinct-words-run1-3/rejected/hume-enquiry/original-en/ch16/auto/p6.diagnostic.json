@@ -1,0 +1,1691 @@
+{
+  "complete": true,
+  "signature": "e8d7fa9ce31ed692b463101ecf03c0dcf920800ae91ab9ccb8de9c030d192216",
+  "attempts": [
+    {
+      "asr_seconds": 0.3751232251524925,
+      "alignment_seconds": 0.00020590424537658691,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "103. It seems then, say I, that you leave politics entirely out of the question, and never suppose, that a wise magistrate can justly be jealous of certain tenets of philosophy, such as those of Epicurus, which, denying a divine existence, and consequently a providence and a future state, seem to loosen, in a great measure, the ties of morality, and may be supposed, for that reason, pernicious to the peace of civil society.",
+        "hotwords": "It, I, Epicurus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 103. It seems then, say I, that you leave politics entirely out of the question, and never suppose,",
+          "start": 0.05,
+          "end": 7.47,
+          "words": [
+            {
+              "text": " 103.",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " It",
+              "start": 1.99,
+              "end": 2.13,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " seems",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " then,",
+              "start": 2.37,
+              "end": 2.71,
+              "probability": 0.576171875
+            },
+            {
+              "text": " say",
+              "start": 2.99,
+              "end": 3.11,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " I,",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " that",
+              "start": 3.59,
+              "end": 3.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 3.69,
+              "end": 3.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " leave",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " politics",
+              "start": 4.09,
+              "end": 4.65,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " entirely",
+              "start": 4.65,
+              "end": 5.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " out",
+              "start": 5.13,
+              "end": 5.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.55,
+              "end": 5.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " question,",
+              "start": 5.77,
+              "end": 6.11,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 6.53,
+              "end": 6.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " never",
+              "start": 6.73,
+              "end": 6.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " suppose,",
+              "start": 6.97,
+              "end": 7.47,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " that a wise magistrate can justly be jealous of certain tenets of philosophy, such as those of Epicurus, which, denying a divine existence, and consequently a providence and a future state, seem to loosen, in a great measure, the ties of morality, and may be supposed, for that reason, pernicious to the peace of civil society.",
+          "start": 7.77,
+          "end": 26.77,
+          "words": [
+            {
+              "text": " that",
+              "start": 7.77,
+              "end": 8.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 8.03,
+              "end": 8.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wise",
+              "start": 8.13,
+              "end": 8.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " magistrate",
+              "start": 8.45,
+              "end": 9.01,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " can",
+              "start": 9.01,
+              "end": 9.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " justly",
+              "start": 9.27,
+              "end": 9.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 9.69,
+              "end": 9.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " jealous",
+              "start": 9.87,
+              "end": 10.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 10.13,
+              "end": 10.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " certain",
+              "start": 10.43,
+              "end": 10.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tenets",
+              "start": 10.73,
+              "end": 10.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 10.99,
+              "end": 11.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " philosophy,",
+              "start": 11.27,
+              "end": 11.71,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " such",
+              "start": 12.35,
+              "end": 12.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " as",
+              "start": 12.59,
+              "end": 12.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " those",
+              "start": 12.75,
+              "end": 12.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 12.97,
+              "end": 13.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Epicurus,",
+              "start": 13.17,
+              "end": 13.65,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " which,",
+              "start": 13.85,
+              "end": 14.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " denying",
+              "start": 14.43,
+              "end": 14.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 14.75,
+              "end": 14.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " divine",
+              "start": 14.97,
+              "end": 15.29,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " existence,",
+              "start": 15.29,
+              "end": 15.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 16.33,
+              "end": 16.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " consequently",
+              "start": 16.45,
+              "end": 16.95,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " a",
+              "start": 16.95,
+              "end": 17.25,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " providence",
+              "start": 17.25,
+              "end": 17.65,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " and",
+              "start": 17.65,
+              "end": 17.89,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " a",
+              "start": 17.89,
+              "end": 17.99,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " future",
+              "start": 17.99,
+              "end": 18.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " state,",
+              "start": 18.29,
+              "end": 18.71,
+              "probability": 0.955078125
+            },
+            {
+              "text": " seem",
+              "start": 19.25,
+              "end": 19.41,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " to",
+              "start": 19.41,
+              "end": 19.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " loosen,",
+              "start": 19.61,
+              "end": 19.95,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 20.13,
+              "end": 20.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 20.31,
+              "end": 20.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " great",
+              "start": 20.41,
+              "end": 20.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " measure,",
+              "start": 20.59,
+              "end": 21.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 21.33,
+              "end": 21.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ties",
+              "start": 21.55,
+              "end": 21.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 21.79,
+              "end": 21.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " morality,",
+              "start": 21.99,
+              "end": 22.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 22.75,
+              "end": 22.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " may",
+              "start": 22.87,
+              "end": 23.01,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " be",
+              "start": 23.01,
+              "end": 23.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " supposed,",
+              "start": 23.19,
+              "end": 23.65,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " for",
+              "start": 23.89,
+              "end": 24.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 24.03,
+              "end": 24.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reason,",
+              "start": 24.21,
+              "end": 24.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pernicious",
+              "start": 24.89,
+              "end": 25.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 25.21,
+              "end": 25.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 25.47,
+              "end": 25.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " peace",
+              "start": 25.57,
+              "end": 25.75,
+              "probability": 0.8984375
+            },
+            {
+              "text": " of",
+              "start": 25.75,
+              "end": 25.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " civil",
+              "start": 25.95,
+              "end": 26.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " society.",
+              "start": 26.21,
+              "end": 26.77,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "103.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "It",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "raw": "seems",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "then,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "raw": "say",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "raw": "I,",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "raw": "that",
+          "start": 3.59,
+          "end": 3.69
+        },
+        {
+          "raw": "you",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "raw": "leave",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "politics",
+          "start": 4.09,
+          "end": 4.65
+        },
+        {
+          "raw": "entirely",
+          "start": 4.65,
+          "end": 5.13
+        },
+        {
+          "raw": "out",
+          "start": 5.13,
+          "end": 5.55
+        },
+        {
+          "raw": "of",
+          "start": 5.55,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "raw": "question,",
+          "start": 5.77,
+          "end": 6.11
+        },
+        {
+          "raw": "and",
+          "start": 6.53,
+          "end": 6.73
+        },
+        {
+          "raw": "never",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "raw": "suppose,",
+          "start": 6.97,
+          "end": 7.47
+        },
+        {
+          "raw": "that",
+          "start": 7.77,
+          "end": 8.03
+        },
+        {
+          "raw": "a",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "raw": "wise",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "raw": "magistrate",
+          "start": 8.45,
+          "end": 9.01
+        },
+        {
+          "raw": "can",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "raw": "justly",
+          "start": 9.27,
+          "end": 9.69
+        },
+        {
+          "raw": "be",
+          "start": 9.69,
+          "end": 9.87
+        },
+        {
+          "raw": "jealous",
+          "start": 9.87,
+          "end": 10.13
+        },
+        {
+          "raw": "of",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "raw": "certain",
+          "start": 10.43,
+          "end": 10.73
+        },
+        {
+          "raw": "tenets",
+          "start": 10.73,
+          "end": 10.99
+        },
+        {
+          "raw": "of",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "raw": "philosophy,",
+          "start": 11.27,
+          "end": 11.71
+        },
+        {
+          "raw": "such",
+          "start": 12.35,
+          "end": 12.59
+        },
+        {
+          "raw": "as",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "raw": "those",
+          "start": 12.75,
+          "end": 12.97
+        },
+        {
+          "raw": "of",
+          "start": 12.97,
+          "end": 13.17
+        },
+        {
+          "raw": "Epicurus,",
+          "start": 13.17,
+          "end": 13.65
+        },
+        {
+          "raw": "which,",
+          "start": 13.85,
+          "end": 14.07
+        },
+        {
+          "raw": "denying",
+          "start": 14.43,
+          "end": 14.75
+        },
+        {
+          "raw": "a",
+          "start": 14.75,
+          "end": 14.97
+        },
+        {
+          "raw": "divine",
+          "start": 14.97,
+          "end": 15.29
+        },
+        {
+          "raw": "existence,",
+          "start": 15.29,
+          "end": 15.75
+        },
+        {
+          "raw": "and",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "raw": "consequently",
+          "start": 16.45,
+          "end": 16.95
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.25
+        },
+        {
+          "raw": "providence",
+          "start": 17.25,
+          "end": 17.65
+        },
+        {
+          "raw": "and",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "raw": "a",
+          "start": 17.89,
+          "end": 17.99
+        },
+        {
+          "raw": "future",
+          "start": 17.99,
+          "end": 18.29
+        },
+        {
+          "raw": "state,",
+          "start": 18.29,
+          "end": 18.71
+        },
+        {
+          "raw": "seem",
+          "start": 19.25,
+          "end": 19.41
+        },
+        {
+          "raw": "to",
+          "start": 19.41,
+          "end": 19.61
+        },
+        {
+          "raw": "loosen,",
+          "start": 19.61,
+          "end": 19.95
+        },
+        {
+          "raw": "in",
+          "start": 20.13,
+          "end": 20.31
+        },
+        {
+          "raw": "a",
+          "start": 20.31,
+          "end": 20.41
+        },
+        {
+          "raw": "great",
+          "start": 20.41,
+          "end": 20.59
+        },
+        {
+          "raw": "measure,",
+          "start": 20.59,
+          "end": 21.01
+        },
+        {
+          "raw": "the",
+          "start": 21.33,
+          "end": 21.55
+        },
+        {
+          "raw": "ties",
+          "start": 21.55,
+          "end": 21.79
+        },
+        {
+          "raw": "of",
+          "start": 21.79,
+          "end": 21.99
+        },
+        {
+          "raw": "morality,",
+          "start": 21.99,
+          "end": 22.29
+        },
+        {
+          "raw": "and",
+          "start": 22.75,
+          "end": 22.87
+        },
+        {
+          "raw": "may",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "raw": "be",
+          "start": 23.01,
+          "end": 23.19
+        },
+        {
+          "raw": "supposed,",
+          "start": 23.19,
+          "end": 23.65
+        },
+        {
+          "raw": "for",
+          "start": 23.89,
+          "end": 24.03
+        },
+        {
+          "raw": "that",
+          "start": 24.03,
+          "end": 24.21
+        },
+        {
+          "raw": "reason,",
+          "start": 24.21,
+          "end": 24.53
+        },
+        {
+          "raw": "pernicious",
+          "start": 24.89,
+          "end": 25.21
+        },
+        {
+          "raw": "to",
+          "start": 25.21,
+          "end": 25.47
+        },
+        {
+          "raw": "the",
+          "start": 25.47,
+          "end": 25.57
+        },
+        {
+          "raw": "peace",
+          "start": 25.57,
+          "end": 25.75
+        },
+        {
+          "raw": "of",
+          "start": 25.75,
+          "end": 25.95
+        },
+        {
+          "raw": "civil",
+          "start": 25.95,
+          "end": 26.21
+        },
+        {
+          "raw": "society.",
+          "start": 26.21,
+          "end": 26.77
+        }
+      ],
+      "expected_tokens": [
+        "103.",
+        "It",
+        "seems",
+        "then,",
+        "say",
+        "I,",
+        "that",
+        "you",
+        "leave",
+        "politics",
+        "entirely",
+        "out",
+        "of",
+        "the",
+        "question,",
+        "and",
+        "never",
+        "suppose,",
+        "that",
+        "a",
+        "wise",
+        "magistrate",
+        "can",
+        "justly",
+        "be",
+        "jealous",
+        "of",
+        "certain",
+        "tenets",
+        "of",
+        "philosophy,",
+        "such",
+        "as",
+        "those",
+        "of",
+        "Epicurus,",
+        "which,",
+        "denying",
+        "a",
+        "divine",
+        "existence,",
+        "and",
+        "consequently",
+        "a",
+        "providence",
+        "and",
+        "a",
+        "future",
+        "state,",
+        "seem",
+        "to",
+        "loosen,",
+        "in",
+        "a",
+        "great",
+        "measure,",
+        "the",
+        "ties",
+        "of",
+        "morality,",
+        "and",
+        "may",
+        "be",
+        "supposed,",
+        "for",
+        "that",
+        "reason,",
+        "pernicious",
+        "to",
+        "the",
+        "peace",
+        "of",
+        "civil",
+        "society."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          74,
+          0,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "103.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "It",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "seems",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "then,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "text": "say",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "text": "I,",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "text": "that",
+          "start": 3.59,
+          "end": 3.69
+        },
+        {
+          "text": "you",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "text": "leave",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "text": "politics",
+          "start": 4.09,
+          "end": 4.65
+        },
+        {
+          "text": "entirely",
+          "start": 4.65,
+          "end": 5.13
+        },
+        {
+          "text": "out",
+          "start": 5.13,
+          "end": 5.55
+        },
+        {
+          "text": "of",
+          "start": 5.55,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "text": "question,",
+          "start": 5.77,
+          "end": 6.11
+        },
+        {
+          "text": "and",
+          "start": 6.53,
+          "end": 6.73
+        },
+        {
+          "text": "never",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "text": "suppose,",
+          "start": 6.97,
+          "end": 7.47
+        },
+        {
+          "text": "that",
+          "start": 7.77,
+          "end": 8.03
+        },
+        {
+          "text": "a",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "text": "wise",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "text": "magistrate",
+          "start": 8.45,
+          "end": 9.01
+        },
+        {
+          "text": "can",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "text": "justly",
+          "start": 9.27,
+          "end": 9.69
+        },
+        {
+          "text": "be",
+          "start": 9.69,
+          "end": 9.87
+        },
+        {
+          "text": "jealous",
+          "start": 9.87,
+          "end": 10.13
+        },
+        {
+          "text": "of",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "text": "certain",
+          "start": 10.43,
+          "end": 10.73
+        },
+        {
+          "text": "tenets",
+          "start": 10.73,
+          "end": 10.99
+        },
+        {
+          "text": "of",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "text": "philosophy,",
+          "start": 11.27,
+          "end": 11.71
+        },
+        {
+          "text": "such",
+          "start": 12.35,
+          "end": 12.59
+        },
+        {
+          "text": "as",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "text": "those",
+          "start": 12.75,
+          "end": 12.97
+        },
+        {
+          "text": "of",
+          "start": 12.97,
+          "end": 13.17
+        },
+        {
+          "text": "Epicurus,",
+          "start": 13.17,
+          "end": 13.65
+        },
+        {
+          "text": "which,",
+          "start": 13.85,
+          "end": 14.07
+        },
+        {
+          "text": "denying",
+          "start": 14.43,
+          "end": 14.75
+        },
+        {
+          "text": "a",
+          "start": 14.75,
+          "end": 14.97
+        },
+        {
+          "text": "divine",
+          "start": 14.97,
+          "end": 15.29
+        },
+        {
+          "text": "existence,",
+          "start": 15.29,
+          "end": 15.75
+        },
+        {
+          "text": "and",
+          "start": 16.33,
+          "end": 16.45
+        },
+        {
+          "text": "consequently",
+          "start": 16.45,
+          "end": 16.95
+        },
+        {
+          "text": "a",
+          "start": 16.95,
+          "end": 17.25
+        },
+        {
+          "text": "providence",
+          "start": 17.25,
+          "end": 17.65
+        },
+        {
+          "text": "and",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "text": "a",
+          "start": 17.89,
+          "end": 17.99
+        },
+        {
+          "text": "future",
+          "start": 17.99,
+          "end": 18.29
+        },
+        {
+          "text": "state,",
+          "start": 18.29,
+          "end": 18.71
+        },
+        {
+          "text": "seem",
+          "start": 19.25,
+          "end": 19.41
+        },
+        {
+          "text": "to",
+          "start": 19.41,
+          "end": 19.61
+        },
+        {
+          "text": "loosen,",
+          "start": 19.61,
+          "end": 19.95
+        },
+        {
+          "text": "in",
+          "start": 20.13,
+          "end": 20.31
+        },
+        {
+          "text": "a",
+          "start": 20.31,
+          "end": 20.41
+        },
+        {
+          "text": "great",
+          "start": 20.41,
+          "end": 20.59
+        },
+        {
+          "text": "measure,",
+          "start": 20.59,
+          "end": 21.01
+        },
+        {
+          "text": "the",
+          "start": 21.33,
+          "end": 21.55
+        },
+        {
+          "text": "ties",
+          "start": 21.55,
+          "end": 21.79
+        },
+        {
+          "text": "of",
+          "start": 21.79,
+          "end": 21.99
+        },
+        {
+          "text": "morality,",
+          "start": 21.99,
+          "end": 22.29
+        },
+        {
+          "text": "and",
+          "start": 22.75,
+          "end": 22.87
+        },
+        {
+          "text": "may",
+          "start": 22.87,
+          "end": 23.01
+        },
+        {
+          "text": "be",
+          "start": 23.01,
+          "end": 23.19
+        },
+        {
+          "text": "supposed,",
+          "start": 23.19,
+          "end": 23.65
+        },
+        {
+          "text": "for",
+          "start": 23.89,
+          "end": 24.03
+        },
+        {
+          "text": "that",
+          "start": 24.03,
+          "end": 24.21
+        },
+        {
+          "text": "reason,",
+          "start": 24.21,
+          "end": 24.53
+        },
+        {
+          "text": "pernicious",
+          "start": 24.89,
+          "end": 25.21
+        },
+        {
+          "text": "to",
+          "start": 25.21,
+          "end": 25.47
+        },
+        {
+          "text": "the",
+          "start": 25.47,
+          "end": 25.57
+        },
+        {
+          "text": "peace",
+          "start": 25.57,
+          "end": 25.75
+        },
+        {
+          "text": "of",
+          "start": 25.75,
+          "end": 25.95
+        },
+        {
+          "text": "civil",
+          "start": 25.95,
+          "end": 26.21
+        },
+        {
+          "text": "society.",
+          "start": 26.21,
+          "end": 26.77
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 74,
+        "matched_words": 74
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3754422068595886
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc887110cc14f0b275db57cdc67f50a51fb21ac3b870b574a1e1b0e190da5092",
+  "selected_reasons": []
+}

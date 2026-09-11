@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "c59e5a8bda3d57d2dd81f0c3baf38fa9d00251c732e2cd0e53813b1106a624a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.0735648050904274,
+      "alignment_seconds": 5.618482828140259e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In what way?",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " what",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " way?",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "what",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "way?",
+          "start": 0.68,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "what",
+        "way?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "what",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "way?",
+          "start": 0.68,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07364341616630554
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "792c211c0ea2bc2b5d4798eea4fa849197e1de6b14149e40f1dd67cefe85b6e1",
+  "selected_reasons": []
+}

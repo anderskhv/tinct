@@ -1,0 +1,7293 @@
+{
+  "complete": true,
+  "signature": "b933deca60e01393fc541e8cf4c545043d178b69b0529507d355be9b624657d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.6086332630075049,
+      "alignment_seconds": 0.002492478000931442,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Suddenly round the corner of the house a group of men appeared, as though they had come up from the ground. They waded waist-deep in the grass, in a compact body, bearing an improvised stretcher in their midst. Instantly, in the emptiness of the landscape, a cry arose whose shrillness pierced the still air like a sharp arrow flying straight to the very heart of the land; and, as if by enchantment, streams of human beings—of naked human beings—with spears in their hands, with bows, with shields, with wild glances and savage movements, were poured into the clearing by the dark-faced and pensive forest. The bushes shook, the grass swayed for a time, and then everything stood still in attentive immobility.",
+        "hotwords": "Suddenly, Instantly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Suddenly, Instantly,",
+          "start": 10.63,
+          "end": 13.43,
+          "words": [
+            {
+              "text": " Suddenly,",
+              "start": 10.63,
+              "end": 12.03,
+              "probability": 0.046844482421875
+            },
+            {
+              "text": " Instantly,",
+              "start": 12.03,
+              "end": 13.43,
+              "probability": 0.5000000298023224
+            }
+          ]
+        },
+        {
+          "text": " Instantly, Instantly, Instantly, Instantly,",
+          "start": 37.89,
+          "end": 41.99,
+          "words": [
+            {
+              "text": " Instantly,",
+              "start": 37.89,
+              "end": 39.29,
+              "probability": 0.49477481842041016
+            },
+            {
+              "text": " Instantly,",
+              "start": 39.29,
+              "end": 40.69,
+              "probability": 0.49169921875
+            },
+            {
+              "text": " Instantly,",
+              "start": 40.73,
+              "end": 40.87,
+              "probability": 0.51995849609375
+            },
+            {
+              "text": " Instantly,",
+              "start": 40.87,
+              "end": 41.99,
+              "probability": 0.571044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Suddenly,",
+          "start": 10.63,
+          "end": 12.03
+        },
+        {
+          "raw": "Instantly,",
+          "start": 12.03,
+          "end": 13.43
+        },
+        {
+          "raw": "Instantly,",
+          "start": 37.89,
+          "end": 39.29
+        },
+        {
+          "raw": "Instantly,",
+          "start": 39.29,
+          "end": 40.69
+        },
+        {
+          "raw": "Instantly,",
+          "start": 40.73,
+          "end": 40.87
+        },
+        {
+          "raw": "Instantly,",
+          "start": 40.87,
+          "end": 41.99
+        }
+      ],
+      "expected_tokens": [
+        "\"Suddenly",
+        "round",
+        "the",
+        "corner",
+        "of",
+        "the",
+        "house",
+        "a",
+        "group",
+        "of",
+        "men",
+        "appeared,",
+        "as",
+        "though",
+        "they",
+        "had",
+        "come",
+        "up",
+        "from",
+        "the",
+        "ground.",
+        "They",
+        "waded",
+        "waist-deep",
+        "in",
+        "the",
+        "grass,",
+        "in",
+        "a",
+        "compact",
+        "body,",
+        "bearing",
+        "an",
+        "improvised",
+        "stretcher",
+        "in",
+        "their",
+        "midst.",
+        "Instantly,",
+        "in",
+        "the",
+        "emptiness",
+        "of",
+        "the",
+        "landscape,",
+        "a",
+        "cry",
+        "arose",
+        "whose",
+        "shrillness",
+        "pierced",
+        "the",
+        "still",
+        "air",
+        "like",
+        "a",
+        "sharp",
+        "arrow",
+        "flying",
+        "straight",
+        "to",
+        "the",
+        "very",
+        "heart",
+        "of",
+        "the",
+        "land;",
+        "and,",
+        "as",
+        "if",
+        "by",
+        "enchantment,",
+        "streams",
+        "of",
+        "human",
+        "beings—of",
+        "naked",
+        "human",
+        "beings—with",
+        "spears",
+        "in",
+        "their",
+        "hands,",
+        "with",
+        "bows,",
+        "with",
+        "shields,",
+        "with",
+        "wild",
+        "glances",
+        "and",
+        "savage",
+        "movements,",
+        "were",
+        "poured",
+        "into",
+        "the",
+        "clearing",
+        "by",
+        "the",
+        "dark-faced",
+        "and",
+        "pensive",
+        "forest.",
+        "The",
+        "bushes",
+        "shook,",
+        "the",
+        "grass",
+        "swayed",
+        "for",
+        "a",
+        "time,",
+        "and",
+        "then",
+        "everything",
+        "stood",
+        "still",
+        "in",
+        "attentive",
+        "immobility."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          38,
+          1,
+          1
+        ],
+        [
+          "equal",
+          38,
+          39,
+          1,
+          2
+        ],
+        [
+          "replace",
+          39,
+          121,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 87,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 88,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 89,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 91,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 92,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 93,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 94,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 95,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 96,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 97,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 98,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 99,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 100,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 101,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 102,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 103,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 104,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 105,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 106,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 107,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 108,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 109,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 110,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 111,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 112,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 113,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 114,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 115,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 116,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 117,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 118,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 119,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 120,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          38,
+          1,
+          1
+        ],
+        [
+          "replace",
+          39,
+          121,
+          2,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Suddenly",
+          "start": 10.63,
+          "end": 12.03
+        },
+        {
+          "text": "round",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "the",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "corner",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "of",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "the",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "house",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "a",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "group",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "of",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "men",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "appeared,",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "as",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "though",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "they",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "had",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "come",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "up",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "from",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "the",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "ground.",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "They",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "waded",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "waist-deep",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "in",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "the",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "grass,",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "in",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "a",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "compact",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "body,",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "bearing",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "an",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "improvised",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "stretcher",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "in",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "their",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "midst.",
+          "start": 12.03,
+          "end": 12.03
+        },
+        {
+          "text": "Instantly,",
+          "start": 12.03,
+          "end": 13.43
+        },
+        {
+          "text": "in",
+          "start": 13.43,
+          "end": 27.71
+        },
+        {
+          "text": "the",
+          "start": 27.71,
+          "end": 34.85
+        },
+        {
+          "text": "emptiness",
+          "start": 34.85,
+          "end": 38.42
+        },
+        {
+          "text": "of",
+          "start": 38.42,
+          "end": 40.205
+        },
+        {
+          "text": "the",
+          "start": 40.205,
+          "end": 41.097
+        },
+        {
+          "text": "landscape,",
+          "start": 41.097,
+          "end": 41.544
+        },
+        {
+          "text": "a",
+          "start": 41.544,
+          "end": 41.767
+        },
+        {
+          "text": "cry",
+          "start": 41.767,
+          "end": 41.879
+        },
+        {
+          "text": "arose",
+          "start": 41.879,
+          "end": 41.934
+        },
+        {
+          "text": "whose",
+          "start": 41.934,
+          "end": 41.962
+        },
+        {
+          "text": "shrillness",
+          "start": 41.962,
+          "end": 41.976
+        },
+        {
+          "text": "pierced",
+          "start": 41.976,
+          "end": 41.983
+        },
+        {
+          "text": "the",
+          "start": 41.983,
+          "end": 41.986
+        },
+        {
+          "text": "still",
+          "start": 41.986,
+          "end": 41.988
+        },
+        {
+          "text": "air",
+          "start": 41.988,
+          "end": 41.989
+        },
+        {
+          "text": "like",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "a",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "sharp",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "arrow",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "flying",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "straight",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "to",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "the",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "very",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "heart",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "of",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "the",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "land;",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "and,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "as",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "if",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "by",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "enchantment,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "streams",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "of",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "human",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "beings—of",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "naked",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "human",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "beings—with",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "spears",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "in",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "their",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "hands,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "with",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "bows,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "with",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "shields,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "with",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "wild",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "glances",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "and",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "savage",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "movements,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "were",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "poured",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "into",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "the",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "clearing",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "by",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "the",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "dark-faced",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "and",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "pensive",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "forest.",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "The",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "bushes",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "shook,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "the",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "grass",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "swayed",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "for",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "a",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "time,",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "and",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "then",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "everything",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "stood",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "still",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "in",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "attentive",
+          "start": 41.989,
+          "end": 41.989
+        },
+        {
+          "text": "immobility.",
+          "start": 41.989,
+          "end": 41.989
+        }
+      ],
+      "stats": {
+        "expected_words": 121,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.01652892561983471,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6112685679981951
+    },
+    {
+      "asr_seconds": 1.1173552040127106,
+      "alignment_seconds": 0.003323679993627593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Suddenly, Instantly"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " round the corner of the house, a group of men appeared, as though they had come up from",
+          "start": 0.11,
+          "end": 4.89,
+          "words": [
+            {
+              "text": " round",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.0004146099090576172
+            },
+            {
+              "text": " the",
+              "start": 0.71,
+              "end": 1.17,
+              "probability": 0.919921875
+            },
+            {
+              "text": " corner",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.970703125
+            },
+            {
+              "text": " of",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " house,",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " a",
+              "start": 2.21,
+              "end": 2.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " group",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.43,
+              "end": 2.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " men",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " appeared,",
+              "start": 2.77,
+              "end": 3.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " as",
+              "start": 3.69,
+              "end": 3.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " though",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " they",
+              "start": 4.01,
+              "end": 4.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " had",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " come",
+              "start": 4.35,
+              "end": 4.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 4.71,
+              "end": 4.89,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " the ground. They waded waist-deep in the grass, in a compact body, bearing an improvised stretcher",
+          "start": 4.89,
+          "end": 11.27,
+          "words": [
+            {
+              "text": " the",
+              "start": 4.89,
+              "end": 5.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ground.",
+              "start": 5.01,
+              "end": 5.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " They",
+              "start": 6.05,
+              "end": 6.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " waded",
+              "start": 6.25,
+              "end": 6.57,
+              "probability": 0.786376953125
+            },
+            {
+              "text": " waist",
+              "start": 6.57,
+              "end": 6.91,
+              "probability": 0.94384765625
+            },
+            {
+              "text": "-deep",
+              "start": 6.91,
+              "end": 7.19,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " in",
+              "start": 7.19,
+              "end": 7.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 7.39,
+              "end": 7.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grass,",
+              "start": 7.49,
+              "end": 7.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 8.21,
+              "end": 8.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 8.29,
+              "end": 8.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " compact",
+              "start": 8.45,
+              "end": 8.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " body,",
+              "start": 8.83,
+              "end": 9.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bearing",
+              "start": 9.77,
+              "end": 9.91,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " an",
+              "start": 9.91,
+              "end": 10.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " improvised",
+              "start": 10.11,
+              "end": 10.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " stretcher",
+              "start": 10.73,
+              "end": 11.27,
+              "probability": 0.995361328125
+            }
+          ]
+        },
+        {
+          "text": " in their midst. Instantly, in the emptiness of the landscape,",
+          "start": 11.27,
+          "end": 15.13,
+          "words": [
+            {
+              "text": " in",
+              "start": 11.27,
+              "end": 11.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 11.43,
+              "end": 11.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " midst.",
+              "start": 11.57,
+              "end": 11.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Instantly,",
+              "start": 13.05,
+              "end": 13.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 13.79,
+              "end": 13.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 13.93,
+              "end": 14.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " emptiness",
+              "start": 14.03,
+              "end": 14.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 14.33,
+              "end": 14.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 14.55,
+              "end": 14.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " landscape,",
+              "start": 14.67,
+              "end": 15.13,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " a cry arose whose shrillness pierced the still air like a sharp arrow flying straight to",
+          "start": 15.65,
+          "end": 19.85,
+          "words": [
+            {
+              "text": " a",
+              "start": 15.65,
+              "end": 15.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cry",
+              "start": 15.75,
+              "end": 15.97,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " arose",
+              "start": 15.97,
+              "end": 16.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whose",
+              "start": 16.29,
+              "end": 16.59,
+              "probability": 0.951171875
+            },
+            {
+              "text": " shrillness",
+              "start": 16.59,
+              "end": 17.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pierced",
+              "start": 17.09,
+              "end": 17.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 17.33,
+              "end": 17.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " still",
+              "start": 17.61,
+              "end": 17.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " air",
+              "start": 17.81,
+              "end": 18.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " like",
+              "start": 18.05,
+              "end": 18.23,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 18.23,
+              "end": 18.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sharp",
+              "start": 18.43,
+              "end": 18.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " arrow",
+              "start": 18.63,
+              "end": 18.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flying",
+              "start": 18.95,
+              "end": 19.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " straight",
+              "start": 19.31,
+              "end": 19.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 19.67,
+              "end": 19.85,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " the very heart of the land, and as if by enchantment, streams of human beings, of naked human beings,",
+          "start": 19.85,
+          "end": 25.77,
+          "words": [
+            {
+              "text": " the",
+              "start": 19.85,
+              "end": 19.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " very",
+              "start": 19.95,
+              "end": 20.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " heart",
+              "start": 20.17,
+              "end": 20.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 20.39,
+              "end": 20.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 20.49,
+              "end": 20.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " land,",
+              "start": 20.61,
+              "end": 20.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 21.47,
+              "end": 21.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " as",
+              "start": 21.69,
+              "end": 21.83,
+              "probability": 0.9375
+            },
+            {
+              "text": " if",
+              "start": 21.83,
+              "end": 21.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 21.99,
+              "end": 22.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " enchantment,",
+              "start": 22.15,
+              "end": 22.63,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " streams",
+              "start": 23.29,
+              "end": 23.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 23.39,
+              "end": 23.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " human",
+              "start": 23.63,
+              "end": 23.87,
+              "probability": 0.98046875
+            },
+            {
+              "text": " beings,",
+              "start": 23.87,
+              "end": 24.35,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 24.51,
+              "end": 24.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " naked",
+              "start": 24.61,
+              "end": 24.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " human",
+              "start": 24.89,
+              "end": 25.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beings,",
+              "start": 25.25,
+              "end": 25.77,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " with spears in their hands, with bows, with shields, with wild glances and savage movements,",
+          "start": 25.77,
+          "end": 31.43,
+          "words": [
+            {
+              "text": " with",
+              "start": 25.77,
+              "end": 26.37,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " spears",
+              "start": 26.37,
+              "end": 26.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " in",
+              "start": 26.71,
+              "end": 26.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " their",
+              "start": 26.95,
+              "end": 27.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hands,",
+              "start": 27.09,
+              "end": 27.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 27.83,
+              "end": 27.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bows,",
+              "start": 27.93,
+              "end": 28.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " with",
+              "start": 28.55,
+              "end": 28.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shields,",
+              "start": 28.61,
+              "end": 28.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 29.39,
+              "end": 29.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wild",
+              "start": 29.49,
+              "end": 29.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " glances",
+              "start": 29.85,
+              "end": 30.33,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 30.33,
+              "end": 30.59,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " savage",
+              "start": 30.59,
+              "end": 30.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " movements,",
+              "start": 30.89,
+              "end": 31.43,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " were poured into the clearing by the dark-faced and pensive forest. The bushes shook, the grass",
+          "start": 31.75,
+          "end": 37.33,
+          "words": [
+            {
+              "text": " were",
+              "start": 31.75,
+              "end": 31.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " poured",
+              "start": 31.89,
+              "end": 32.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " into",
+              "start": 32.17,
+              "end": 32.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 32.39,
+              "end": 32.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " clearing",
+              "start": 32.53,
+              "end": 32.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 32.85,
+              "end": 33.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 33.07,
+              "end": 33.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dark",
+              "start": 33.23,
+              "end": 33.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": "-faced",
+              "start": 33.47,
+              "end": 33.83,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " and",
+              "start": 33.83,
+              "end": 34.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pensive",
+              "start": 34.09,
+              "end": 34.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forest.",
+              "start": 34.41,
+              "end": 34.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " The",
+              "start": 35.61,
+              "end": 35.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bushes",
+              "start": 35.83,
+              "end": 36.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shook,",
+              "start": 36.05,
+              "end": 36.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 36.93,
+              "end": 37.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " grass",
+              "start": 37.05,
+              "end": 37.33,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " swayed for a time, and then everything stood still in attentive immobility.",
+          "start": 37.33,
+          "end": 41.29,
+          "words": [
+            {
+              "text": " swayed",
+              "start": 37.33,
+              "end": 37.71,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 37.71,
+              "end": 37.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 37.95,
+              "end": 38.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " time,",
+              "start": 38.07,
+              "end": 38.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 38.73,
+              "end": 38.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " then",
+              "start": 38.89,
+              "end": 39.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " everything",
+              "start": 39.03,
+              "end": 39.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " stood",
+              "start": 39.39,
+              "end": 39.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " still",
+              "start": 39.71,
+              "end": 40.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 40.05,
+              "end": 40.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " attentive",
+              "start": 40.23,
+              "end": 40.59,
+              "probability": 0.927734375
+            },
+            {
+              "text": " immobility.",
+              "start": 40.59,
+              "end": 41.29,
+              "probability": 0.9952799479166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "round",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 1.17
+        },
+        {
+          "raw": "corner",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "house,",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "raw": "a",
+          "start": 2.21,
+          "end": 2.25
+        },
+        {
+          "raw": "group",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "of",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "raw": "men",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "appeared,",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "raw": "as",
+          "start": 3.69,
+          "end": 3.81
+        },
+        {
+          "raw": "though",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "raw": "they",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "raw": "had",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "come",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "raw": "up",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "from",
+          "start": 4.71,
+          "end": 4.89
+        },
+        {
+          "raw": "the",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "raw": "ground.",
+          "start": 5.01,
+          "end": 5.33
+        },
+        {
+          "raw": "They",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "raw": "waded",
+          "start": 6.25,
+          "end": 6.57
+        },
+        {
+          "raw": "waist",
+          "start": 6.57,
+          "end": 6.91
+        },
+        {
+          "raw": "-deep",
+          "start": 6.91,
+          "end": 7.19
+        },
+        {
+          "raw": "in",
+          "start": 7.19,
+          "end": 7.39
+        },
+        {
+          "raw": "the",
+          "start": 7.39,
+          "end": 7.49
+        },
+        {
+          "raw": "grass,",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "raw": "in",
+          "start": 8.21,
+          "end": 8.29
+        },
+        {
+          "raw": "a",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "raw": "compact",
+          "start": 8.45,
+          "end": 8.83
+        },
+        {
+          "raw": "body,",
+          "start": 8.83,
+          "end": 9.29
+        },
+        {
+          "raw": "bearing",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "raw": "an",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "raw": "improvised",
+          "start": 10.11,
+          "end": 10.73
+        },
+        {
+          "raw": "stretcher",
+          "start": 10.73,
+          "end": 11.27
+        },
+        {
+          "raw": "in",
+          "start": 11.27,
+          "end": 11.43
+        },
+        {
+          "raw": "their",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "raw": "midst.",
+          "start": 11.57,
+          "end": 11.95
+        },
+        {
+          "raw": "Instantly,",
+          "start": 13.05,
+          "end": 13.49
+        },
+        {
+          "raw": "in",
+          "start": 13.79,
+          "end": 13.93
+        },
+        {
+          "raw": "the",
+          "start": 13.93,
+          "end": 14.03
+        },
+        {
+          "raw": "emptiness",
+          "start": 14.03,
+          "end": 14.33
+        },
+        {
+          "raw": "of",
+          "start": 14.33,
+          "end": 14.55
+        },
+        {
+          "raw": "the",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "raw": "landscape,",
+          "start": 14.67,
+          "end": 15.13
+        },
+        {
+          "raw": "a",
+          "start": 15.65,
+          "end": 15.75
+        },
+        {
+          "raw": "cry",
+          "start": 15.75,
+          "end": 15.97
+        },
+        {
+          "raw": "arose",
+          "start": 15.97,
+          "end": 16.29
+        },
+        {
+          "raw": "whose",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "raw": "shrillness",
+          "start": 16.59,
+          "end": 17.09
+        },
+        {
+          "raw": "pierced",
+          "start": 17.09,
+          "end": 17.33
+        },
+        {
+          "raw": "the",
+          "start": 17.33,
+          "end": 17.61
+        },
+        {
+          "raw": "still",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "raw": "air",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "raw": "like",
+          "start": 18.05,
+          "end": 18.23
+        },
+        {
+          "raw": "a",
+          "start": 18.23,
+          "end": 18.43
+        },
+        {
+          "raw": "sharp",
+          "start": 18.43,
+          "end": 18.63
+        },
+        {
+          "raw": "arrow",
+          "start": 18.63,
+          "end": 18.95
+        },
+        {
+          "raw": "flying",
+          "start": 18.95,
+          "end": 19.31
+        },
+        {
+          "raw": "straight",
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "raw": "to",
+          "start": 19.67,
+          "end": 19.85
+        },
+        {
+          "raw": "the",
+          "start": 19.85,
+          "end": 19.95
+        },
+        {
+          "raw": "very",
+          "start": 19.95,
+          "end": 20.17
+        },
+        {
+          "raw": "heart",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "raw": "of",
+          "start": 20.39,
+          "end": 20.49
+        },
+        {
+          "raw": "the",
+          "start": 20.49,
+          "end": 20.61
+        },
+        {
+          "raw": "land,",
+          "start": 20.61,
+          "end": 20.93
+        },
+        {
+          "raw": "and",
+          "start": 21.47,
+          "end": 21.69
+        },
+        {
+          "raw": "as",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "raw": "if",
+          "start": 21.83,
+          "end": 21.99
+        },
+        {
+          "raw": "by",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "raw": "enchantment,",
+          "start": 22.15,
+          "end": 22.63
+        },
+        {
+          "raw": "streams",
+          "start": 23.29,
+          "end": 23.39
+        },
+        {
+          "raw": "of",
+          "start": 23.39,
+          "end": 23.63
+        },
+        {
+          "raw": "human",
+          "start": 23.63,
+          "end": 23.87
+        },
+        {
+          "raw": "beings,",
+          "start": 23.87,
+          "end": 24.35
+        },
+        {
+          "raw": "of",
+          "start": 24.51,
+          "end": 24.61
+        },
+        {
+          "raw": "naked",
+          "start": 24.61,
+          "end": 24.89
+        },
+        {
+          "raw": "human",
+          "start": 24.89,
+          "end": 25.25
+        },
+        {
+          "raw": "beings,",
+          "start": 25.25,
+          "end": 25.77
+        },
+        {
+          "raw": "with",
+          "start": 25.77,
+          "end": 26.37
+        },
+        {
+          "raw": "spears",
+          "start": 26.37,
+          "end": 26.71
+        },
+        {
+          "raw": "in",
+          "start": 26.71,
+          "end": 26.95
+        },
+        {
+          "raw": "their",
+          "start": 26.95,
+          "end": 27.09
+        },
+        {
+          "raw": "hands,",
+          "start": 27.09,
+          "end": 27.49
+        },
+        {
+          "raw": "with",
+          "start": 27.83,
+          "end": 27.93
+        },
+        {
+          "raw": "bows,",
+          "start": 27.93,
+          "end": 28.25
+        },
+        {
+          "raw": "with",
+          "start": 28.55,
+          "end": 28.61
+        },
+        {
+          "raw": "shields,",
+          "start": 28.61,
+          "end": 28.99
+        },
+        {
+          "raw": "with",
+          "start": 29.39,
+          "end": 29.49
+        },
+        {
+          "raw": "wild",
+          "start": 29.49,
+          "end": 29.85
+        },
+        {
+          "raw": "glances",
+          "start": 29.85,
+          "end": 30.33
+        },
+        {
+          "raw": "and",
+          "start": 30.33,
+          "end": 30.59
+        },
+        {
+          "raw": "savage",
+          "start": 30.59,
+          "end": 30.89
+        },
+        {
+          "raw": "movements,",
+          "start": 30.89,
+          "end": 31.43
+        },
+        {
+          "raw": "were",
+          "start": 31.75,
+          "end": 31.89
+        },
+        {
+          "raw": "poured",
+          "start": 31.89,
+          "end": 32.17
+        },
+        {
+          "raw": "into",
+          "start": 32.17,
+          "end": 32.39
+        },
+        {
+          "raw": "the",
+          "start": 32.39,
+          "end": 32.53
+        },
+        {
+          "raw": "clearing",
+          "start": 32.53,
+          "end": 32.85
+        },
+        {
+          "raw": "by",
+          "start": 32.85,
+          "end": 33.07
+        },
+        {
+          "raw": "the",
+          "start": 33.07,
+          "end": 33.23
+        },
+        {
+          "raw": "dark",
+          "start": 33.23,
+          "end": 33.47
+        },
+        {
+          "raw": "-faced",
+          "start": 33.47,
+          "end": 33.83
+        },
+        {
+          "raw": "and",
+          "start": 33.83,
+          "end": 34.09
+        },
+        {
+          "raw": "pensive",
+          "start": 34.09,
+          "end": 34.41
+        },
+        {
+          "raw": "forest.",
+          "start": 34.41,
+          "end": 34.89
+        },
+        {
+          "raw": "The",
+          "start": 35.61,
+          "end": 35.83
+        },
+        {
+          "raw": "bushes",
+          "start": 35.83,
+          "end": 36.05
+        },
+        {
+          "raw": "shook,",
+          "start": 36.05,
+          "end": 36.47
+        },
+        {
+          "raw": "the",
+          "start": 36.93,
+          "end": 37.05
+        },
+        {
+          "raw": "grass",
+          "start": 37.05,
+          "end": 37.33
+        },
+        {
+          "raw": "swayed",
+          "start": 37.33,
+          "end": 37.71
+        },
+        {
+          "raw": "for",
+          "start": 37.71,
+          "end": 37.95
+        },
+        {
+          "raw": "a",
+          "start": 37.95,
+          "end": 38.07
+        },
+        {
+          "raw": "time,",
+          "start": 38.07,
+          "end": 38.35
+        },
+        {
+          "raw": "and",
+          "start": 38.73,
+          "end": 38.89
+        },
+        {
+          "raw": "then",
+          "start": 38.89,
+          "end": 39.03
+        },
+        {
+          "raw": "everything",
+          "start": 39.03,
+          "end": 39.39
+        },
+        {
+          "raw": "stood",
+          "start": 39.39,
+          "end": 39.71
+        },
+        {
+          "raw": "still",
+          "start": 39.71,
+          "end": 40.05
+        },
+        {
+          "raw": "in",
+          "start": 40.05,
+          "end": 40.23
+        },
+        {
+          "raw": "attentive",
+          "start": 40.23,
+          "end": 40.59
+        },
+        {
+          "raw": "immobility.",
+          "start": 40.59,
+          "end": 41.29
+        }
+      ],
+      "expected_tokens": [
+        "\"Suddenly",
+        "round",
+        "the",
+        "corner",
+        "of",
+        "the",
+        "house",
+        "a",
+        "group",
+        "of",
+        "men",
+        "appeared,",
+        "as",
+        "though",
+        "they",
+        "had",
+        "come",
+        "up",
+        "from",
+        "the",
+        "ground.",
+        "They",
+        "waded",
+        "waist-deep",
+        "in",
+        "the",
+        "grass,",
+        "in",
+        "a",
+        "compact",
+        "body,",
+        "bearing",
+        "an",
+        "improvised",
+        "stretcher",
+        "in",
+        "their",
+        "midst.",
+        "Instantly,",
+        "in",
+        "the",
+        "emptiness",
+        "of",
+        "the",
+        "landscape,",
+        "a",
+        "cry",
+        "arose",
+        "whose",
+        "shrillness",
+        "pierced",
+        "the",
+        "still",
+        "air",
+        "like",
+        "a",
+        "sharp",
+        "arrow",
+        "flying",
+        "straight",
+        "to",
+        "the",
+        "very",
+        "heart",
+        "of",
+        "the",
+        "land;",
+        "and,",
+        "as",
+        "if",
+        "by",
+        "enchantment,",
+        "streams",
+        "of",
+        "human",
+        "beings—of",
+        "naked",
+        "human",
+        "beings—with",
+        "spears",
+        "in",
+        "their",
+        "hands,",
+        "with",
+        "bows,",
+        "with",
+        "shields,",
+        "with",
+        "wild",
+        "glances",
+        "and",
+        "savage",
+        "movements,",
+        "were",
+        "poured",
+        "into",
+        "the",
+        "clearing",
+        "by",
+        "the",
+        "dark-faced",
+        "and",
+        "pensive",
+        "forest.",
+        "The",
+        "bushes",
+        "shook,",
+        "the",
+        "grass",
+        "swayed",
+        "for",
+        "a",
+        "time,",
+        "and",
+        "then",
+        "everything",
+        "stood",
+        "still",
+        "in",
+        "attentive",
+        "immobility."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          23,
+          0,
+          22
+        ],
+        [
+          "replace",
+          23,
+          24,
+          22,
+          24
+        ],
+        [
+          "equal",
+          24,
+          75,
+          24,
+          75
+        ],
+        [
+          "replace",
+          75,
+          76,
+          75,
+          77
+        ],
+        [
+          "equal",
+          76,
+          78,
+          77,
+          79
+        ],
+        [
+          "replace",
+          78,
+          79,
+          79,
+          81
+        ],
+        [
+          "equal",
+          79,
+          100,
+          81,
+          102
+        ],
+        [
+          "replace",
+          100,
+          101,
+          102,
+          104
+        ],
+        [
+          "equal",
+          101,
+          121,
+          104,
+          124
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 100,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 123
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          23,
+          24,
+          22,
+          24
+        ],
+        [
+          "replace",
+          75,
+          76,
+          75,
+          77
+        ],
+        [
+          "replace",
+          78,
+          79,
+          79,
+          81
+        ],
+        [
+          "replace",
+          100,
+          101,
+          102,
+          104
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Suddenly",
+          "start": 0.0,
+          "end": 0.055
+        },
+        {
+          "text": "round",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 1.17
+        },
+        {
+          "text": "corner",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "of",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "the",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "house",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "text": "a",
+          "start": 2.21,
+          "end": 2.25
+        },
+        {
+          "text": "group",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "of",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "text": "men",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "appeared,",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "text": "as",
+          "start": 3.69,
+          "end": 3.81
+        },
+        {
+          "text": "though",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "text": "they",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "text": "had",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "come",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "text": "up",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "from",
+          "start": 4.71,
+          "end": 4.89
+        },
+        {
+          "text": "the",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "text": "ground.",
+          "start": 5.01,
+          "end": 5.33
+        },
+        {
+          "text": "They",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "text": "waded",
+          "start": 6.25,
+          "end": 6.57
+        },
+        {
+          "text": "waist-deep",
+          "start": 6.57,
+          "end": 6.88
+        },
+        {
+          "text": "in",
+          "start": 7.19,
+          "end": 7.39
+        },
+        {
+          "text": "the",
+          "start": 7.39,
+          "end": 7.49
+        },
+        {
+          "text": "grass,",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "text": "in",
+          "start": 8.21,
+          "end": 8.29
+        },
+        {
+          "text": "a",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "text": "compact",
+          "start": 8.45,
+          "end": 8.83
+        },
+        {
+          "text": "body,",
+          "start": 8.83,
+          "end": 9.29
+        },
+        {
+          "text": "bearing",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "text": "an",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "text": "improvised",
+          "start": 10.11,
+          "end": 10.73
+        },
+        {
+          "text": "stretcher",
+          "start": 10.73,
+          "end": 11.27
+        },
+        {
+          "text": "in",
+          "start": 11.27,
+          "end": 11.43
+        },
+        {
+          "text": "their",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "text": "midst.",
+          "start": 11.57,
+          "end": 11.95
+        },
+        {
+          "text": "Instantly,",
+          "start": 13.05,
+          "end": 13.49
+        },
+        {
+          "text": "in",
+          "start": 13.79,
+          "end": 13.93
+        },
+        {
+          "text": "the",
+          "start": 13.93,
+          "end": 14.03
+        },
+        {
+          "text": "emptiness",
+          "start": 14.03,
+          "end": 14.33
+        },
+        {
+          "text": "of",
+          "start": 14.33,
+          "end": 14.55
+        },
+        {
+          "text": "the",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "text": "landscape,",
+          "start": 14.67,
+          "end": 15.13
+        },
+        {
+          "text": "a",
+          "start": 15.65,
+          "end": 15.75
+        },
+        {
+          "text": "cry",
+          "start": 15.75,
+          "end": 15.97
+        },
+        {
+          "text": "arose",
+          "start": 15.97,
+          "end": 16.29
+        },
+        {
+          "text": "whose",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "text": "shrillness",
+          "start": 16.59,
+          "end": 17.09
+        },
+        {
+          "text": "pierced",
+          "start": 17.09,
+          "end": 17.33
+        },
+        {
+          "text": "the",
+          "start": 17.33,
+          "end": 17.61
+        },
+        {
+          "text": "still",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "text": "air",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "text": "like",
+          "start": 18.05,
+          "end": 18.23
+        },
+        {
+          "text": "a",
+          "start": 18.23,
+          "end": 18.43
+        },
+        {
+          "text": "sharp",
+          "start": 18.43,
+          "end": 18.63
+        },
+        {
+          "text": "arrow",
+          "start": 18.63,
+          "end": 18.95
+        },
+        {
+          "text": "flying",
+          "start": 18.95,
+          "end": 19.31
+        },
+        {
+          "text": "straight",
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "text": "to",
+          "start": 19.67,
+          "end": 19.85
+        },
+        {
+          "text": "the",
+          "start": 19.85,
+          "end": 19.95
+        },
+        {
+          "text": "very",
+          "start": 19.95,
+          "end": 20.17
+        },
+        {
+          "text": "heart",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "text": "of",
+          "start": 20.39,
+          "end": 20.49
+        },
+        {
+          "text": "the",
+          "start": 20.49,
+          "end": 20.61
+        },
+        {
+          "text": "land;",
+          "start": 20.61,
+          "end": 20.93
+        },
+        {
+          "text": "and,",
+          "start": 21.47,
+          "end": 21.69
+        },
+        {
+          "text": "as",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "text": "if",
+          "start": 21.83,
+          "end": 21.99
+        },
+        {
+          "text": "by",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "text": "enchantment,",
+          "start": 22.15,
+          "end": 22.63
+        },
+        {
+          "text": "streams",
+          "start": 23.29,
+          "end": 23.39
+        },
+        {
+          "text": "of",
+          "start": 23.39,
+          "end": 23.63
+        },
+        {
+          "text": "human",
+          "start": 23.63,
+          "end": 23.87
+        },
+        {
+          "text": "beings—of",
+          "start": 23.87,
+          "end": 24.24
+        },
+        {
+          "text": "naked",
+          "start": 24.61,
+          "end": 24.89
+        },
+        {
+          "text": "human",
+          "start": 24.89,
+          "end": 25.25
+        },
+        {
+          "text": "beings—with",
+          "start": 25.25,
+          "end": 25.81
+        },
+        {
+          "text": "spears",
+          "start": 26.37,
+          "end": 26.71
+        },
+        {
+          "text": "in",
+          "start": 26.71,
+          "end": 26.95
+        },
+        {
+          "text": "their",
+          "start": 26.95,
+          "end": 27.09
+        },
+        {
+          "text": "hands,",
+          "start": 27.09,
+          "end": 27.49
+        },
+        {
+          "text": "with",
+          "start": 27.83,
+          "end": 27.93
+        },
+        {
+          "text": "bows,",
+          "start": 27.93,
+          "end": 28.25
+        },
+        {
+          "text": "with",
+          "start": 28.55,
+          "end": 28.61
+        },
+        {
+          "text": "shields,",
+          "start": 28.61,
+          "end": 28.99
+        },
+        {
+          "text": "with",
+          "start": 29.39,
+          "end": 29.49
+        },
+        {
+          "text": "wild",
+          "start": 29.49,
+          "end": 29.85
+        },
+        {
+          "text": "glances",
+          "start": 29.85,
+          "end": 30.33
+        },
+        {
+          "text": "and",
+          "start": 30.33,
+          "end": 30.59
+        },
+        {
+          "text": "savage",
+          "start": 30.59,
+          "end": 30.89
+        },
+        {
+          "text": "movements,",
+          "start": 30.89,
+          "end": 31.43
+        },
+        {
+          "text": "were",
+          "start": 31.75,
+          "end": 31.89
+        },
+        {
+          "text": "poured",
+          "start": 31.89,
+          "end": 32.17
+        },
+        {
+          "text": "into",
+          "start": 32.17,
+          "end": 32.39
+        },
+        {
+          "text": "the",
+          "start": 32.39,
+          "end": 32.53
+        },
+        {
+          "text": "clearing",
+          "start": 32.53,
+          "end": 32.85
+        },
+        {
+          "text": "by",
+          "start": 32.85,
+          "end": 33.07
+        },
+        {
+          "text": "the",
+          "start": 33.07,
+          "end": 33.23
+        },
+        {
+          "text": "dark-faced",
+          "start": 33.23,
+          "end": 33.53
+        },
+        {
+          "text": "and",
+          "start": 33.83,
+          "end": 34.09
+        },
+        {
+          "text": "pensive",
+          "start": 34.09,
+          "end": 34.41
+        },
+        {
+          "text": "forest.",
+          "start": 34.41,
+          "end": 34.89
+        },
+        {
+          "text": "The",
+          "start": 35.61,
+          "end": 35.83
+        },
+        {
+          "text": "bushes",
+          "start": 35.83,
+          "end": 36.05
+        },
+        {
+          "text": "shook,",
+          "start": 36.05,
+          "end": 36.47
+        },
+        {
+          "text": "the",
+          "start": 36.93,
+          "end": 37.05
+        },
+        {
+          "text": "grass",
+          "start": 37.05,
+          "end": 37.33
+        },
+        {
+          "text": "swayed",
+          "start": 37.33,
+          "end": 37.71
+        },
+        {
+          "text": "for",
+          "start": 37.71,
+          "end": 37.95
+        },
+        {
+          "text": "a",
+          "start": 37.95,
+          "end": 38.07
+        },
+        {
+          "text": "time,",
+          "start": 38.07,
+          "end": 38.35
+        },
+        {
+          "text": "and",
+          "start": 38.73,
+          "end": 38.89
+        },
+        {
+          "text": "then",
+          "start": 38.89,
+          "end": 39.03
+        },
+        {
+          "text": "everything",
+          "start": 39.03,
+          "end": 39.39
+        },
+        {
+          "text": "stood",
+          "start": 39.39,
+          "end": 39.71
+        },
+        {
+          "text": "still",
+          "start": 39.71,
+          "end": 40.05
+        },
+        {
+          "text": "in",
+          "start": 40.05,
+          "end": 40.23
+        },
+        {
+          "text": "attentive",
+          "start": 40.23,
+          "end": 40.59
+        },
+        {
+          "text": "immobility.",
+          "start": 40.59,
+          "end": 41.29
+        }
+      ],
+      "stats": {
+        "expected_words": 121,
+        "heard_words": 124,
+        "matched_words": 116
+      },
+      "match_ratio": 0.9586776859504132,
+      "rejection_reasons": [],
+      "seconds": 1.121939956996357
+    },
+    {
+      "asr_seconds": 1.2375052869901992,
+      "alignment_seconds": 0.0032448700221721083,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Suddenly round the corner of the house a group of men appeared, as though they had come up",
+          "start": 0.11,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " Suddenly",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.04718017578125
+            },
+            {
+              "text": " round",
+              "start": 0.69,
+              "end": 1.03,
+              "probability": 0.568359375
+            },
+            {
+              "text": " the",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " corner",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " house",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.98046875
+            },
+            {
+              "text": " a",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " group",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " men",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " appeared,",
+              "start": 2.77,
+              "end": 3.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 3.71,
+              "end": 3.81,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " though",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 4.01,
+              "end": 4.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " had",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " come",
+              "start": 4.35,
+              "end": 4.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " from the ground.",
+          "start": 4.71,
+          "end": 5.33,
+          "words": [
+            {
+              "text": " from",
+              "start": 4.71,
+              "end": 4.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.89,
+              "end": 5.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ground.",
+              "start": 5.01,
+              "end": 5.33,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " They waded waist-deep in the grass, in a compact body, bearing an improvised stretcher in their",
+          "start": 6.07,
+          "end": 11.57,
+          "words": [
+            {
+              "text": " They",
+              "start": 6.07,
+              "end": 6.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " waded",
+              "start": 6.25,
+              "end": 6.57,
+              "probability": 0.795654296875
+            },
+            {
+              "text": " waist",
+              "start": 6.57,
+              "end": 6.91,
+              "probability": 0.94580078125
+            },
+            {
+              "text": "-deep",
+              "start": 6.91,
+              "end": 7.19,
+              "probability": 0.816162109375
+            },
+            {
+              "text": " in",
+              "start": 7.19,
+              "end": 7.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 7.39,
+              "end": 7.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grass,",
+              "start": 7.47,
+              "end": 7.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 8.21,
+              "end": 8.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 8.29,
+              "end": 8.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " compact",
+              "start": 8.43,
+              "end": 8.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " body,",
+              "start": 8.83,
+              "end": 9.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bearing",
+              "start": 9.79,
+              "end": 9.91,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " an",
+              "start": 9.91,
+              "end": 10.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " improvised",
+              "start": 10.11,
+              "end": 10.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stretcher",
+              "start": 10.71,
+              "end": 11.27,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " in",
+              "start": 11.27,
+              "end": 11.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 11.43,
+              "end": 11.57,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " midst.",
+          "start": 11.57,
+          "end": 11.95,
+          "words": [
+            {
+              "text": " midst.",
+              "start": 11.57,
+              "end": 11.95,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Instantly, in the emptiness of the landscape, a cry arose whose shrillness pierced the still",
+          "start": 13.03,
+          "end": 17.81,
+          "words": [
+            {
+              "text": " Instantly,",
+              "start": 13.03,
+              "end": 13.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 13.79,
+              "end": 13.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.93,
+              "end": 14.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " emptiness",
+              "start": 14.03,
+              "end": 14.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 14.33,
+              "end": 14.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 14.55,
+              "end": 14.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " landscape,",
+              "start": 14.67,
+              "end": 15.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 15.65,
+              "end": 15.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " cry",
+              "start": 15.75,
+              "end": 15.97,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " arose",
+              "start": 15.97,
+              "end": 16.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whose",
+              "start": 16.29,
+              "end": 16.59,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " shrillness",
+              "start": 16.59,
+              "end": 17.09,
+              "probability": 0.9972330729166666
+            },
+            {
+              "text": " pierced",
+              "start": 17.09,
+              "end": 17.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 17.33,
+              "end": 17.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " still",
+              "start": 17.61,
+              "end": 17.81,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " air like a sharp arrow flying straight to the very heart of the land.",
+          "start": 17.81,
+          "end": 20.93,
+          "words": [
+            {
+              "text": " air",
+              "start": 17.81,
+              "end": 18.05,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " like",
+              "start": 18.05,
+              "end": 18.23,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " a",
+              "start": 18.23,
+              "end": 18.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sharp",
+              "start": 18.43,
+              "end": 18.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " arrow",
+              "start": 18.63,
+              "end": 18.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flying",
+              "start": 18.95,
+              "end": 19.31,
+              "probability": 0.990234375
+            },
+            {
+              "text": " straight",
+              "start": 19.31,
+              "end": 19.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 19.67,
+              "end": 19.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 19.85,
+              "end": 19.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 19.95,
+              "end": 20.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heart",
+              "start": 20.17,
+              "end": 20.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 20.39,
+              "end": 20.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 20.49,
+              "end": 20.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " land.",
+              "start": 20.61,
+              "end": 20.93,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " And as if by enchantment, streams of human beings, of naked human beings, with spears",
+          "start": 21.53,
+          "end": 26.71,
+          "words": [
+            {
+              "text": " And",
+              "start": 21.53,
+              "end": 21.69,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " as",
+              "start": 21.69,
+              "end": 21.83,
+              "probability": 0.884765625
+            },
+            {
+              "text": " if",
+              "start": 21.83,
+              "end": 21.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 21.99,
+              "end": 22.15,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " enchantment,",
+              "start": 22.15,
+              "end": 22.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " streams",
+              "start": 23.29,
+              "end": 23.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 23.39,
+              "end": 23.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " human",
+              "start": 23.63,
+              "end": 23.87,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " beings,",
+              "start": 23.87,
+              "end": 24.37,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 24.51,
+              "end": 24.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " naked",
+              "start": 24.61,
+              "end": 24.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " human",
+              "start": 24.91,
+              "end": 25.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " beings,",
+              "start": 25.25,
+              "end": 25.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " with",
+              "start": 26.17,
+              "end": 26.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " spears",
+              "start": 26.39,
+              "end": 26.71,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " in their hands, with bows, with shields, with wild glances and savage movements, were poured",
+          "start": 26.71,
+          "end": 32.17,
+          "words": [
+            {
+              "text": " in",
+              "start": 26.71,
+              "end": 26.93,
+              "probability": 0.4091796875
+            },
+            {
+              "text": " their",
+              "start": 26.93,
+              "end": 27.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hands,",
+              "start": 27.07,
+              "end": 27.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 27.79,
+              "end": 27.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bows,",
+              "start": 27.93,
+              "end": 28.27,
+              "probability": 0.9921875
+            },
+            {
+              "text": " with",
+              "start": 28.55,
+              "end": 28.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shields,",
+              "start": 28.61,
+              "end": 28.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 29.37,
+              "end": 29.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wild",
+              "start": 29.49,
+              "end": 29.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " glances",
+              "start": 29.85,
+              "end": 30.31,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 30.31,
+              "end": 30.59,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " savage",
+              "start": 30.59,
+              "end": 30.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " movements,",
+              "start": 30.87,
+              "end": 31.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " were",
+              "start": 31.75,
+              "end": 31.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " poured",
+              "start": 31.89,
+              "end": 32.17,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " into the clearing by the dark-faced and pensive forest.",
+          "start": 32.17,
+          "end": 34.89,
+          "words": [
+            {
+              "text": " into",
+              "start": 32.17,
+              "end": 32.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 32.39,
+              "end": 32.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clearing",
+              "start": 32.53,
+              "end": 32.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 32.85,
+              "end": 33.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 33.07,
+              "end": 33.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dark",
+              "start": 33.21,
+              "end": 33.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "-faced",
+              "start": 33.47,
+              "end": 33.83,
+              "probability": 0.962646484375
+            },
+            {
+              "text": " and",
+              "start": 33.83,
+              "end": 34.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pensive",
+              "start": 34.09,
+              "end": 34.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " forest.",
+              "start": 34.39,
+              "end": 34.89,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " The bushes shook, the grass swayed for a time, and then everything stood still in attentive",
+          "start": 35.59,
+          "end": 40.61,
+          "words": [
+            {
+              "text": " The",
+              "start": 35.59,
+              "end": 35.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bushes",
+              "start": 35.83,
+              "end": 36.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shook,",
+              "start": 36.07,
+              "end": 36.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 36.89,
+              "end": 37.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " grass",
+              "start": 37.05,
+              "end": 37.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " swayed",
+              "start": 37.33,
+              "end": 37.69,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " for",
+              "start": 37.69,
+              "end": 37.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 37.95,
+              "end": 38.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " time,",
+              "start": 38.07,
+              "end": 38.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 38.71,
+              "end": 38.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then",
+              "start": 38.89,
+              "end": 39.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " everything",
+              "start": 39.03,
+              "end": 39.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stood",
+              "start": 39.39,
+              "end": 39.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " still",
+              "start": 39.71,
+              "end": 40.05,
+              "probability": 1.0
+            },
+            {
+              "text": " in",
+              "start": 40.05,
+              "end": 40.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " attentive",
+              "start": 40.23,
+              "end": 40.61,
+              "probability": 0.927734375
+            }
+          ]
+        },
+        {
+          "text": " immobility.",
+          "start": 40.61,
+          "end": 41.29,
+          "words": [
+            {
+              "text": " immobility.",
+              "start": 40.61,
+              "end": 41.29,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Suddenly",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "round",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "corner",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "the",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "house",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "raw": "a",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "group",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "of",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "men",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "appeared,",
+          "start": 2.77,
+          "end": 3.23
+        },
+        {
+          "raw": "as",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "raw": "though",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "raw": "they",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "raw": "had",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "come",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "raw": "up",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "from",
+          "start": 4.71,
+          "end": 4.89
+        },
+        {
+          "raw": "the",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "raw": "ground.",
+          "start": 5.01,
+          "end": 5.33
+        },
+        {
+          "raw": "They",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "raw": "waded",
+          "start": 6.25,
+          "end": 6.57
+        },
+        {
+          "raw": "waist",
+          "start": 6.57,
+          "end": 6.91
+        },
+        {
+          "raw": "-deep",
+          "start": 6.91,
+          "end": 7.19
+        },
+        {
+          "raw": "in",
+          "start": 7.19,
+          "end": 7.39
+        },
+        {
+          "raw": "the",
+          "start": 7.39,
+          "end": 7.47
+        },
+        {
+          "raw": "grass,",
+          "start": 7.47,
+          "end": 7.77
+        },
+        {
+          "raw": "in",
+          "start": 8.21,
+          "end": 8.29
+        },
+        {
+          "raw": "a",
+          "start": 8.29,
+          "end": 8.43
+        },
+        {
+          "raw": "compact",
+          "start": 8.43,
+          "end": 8.83
+        },
+        {
+          "raw": "body,",
+          "start": 8.83,
+          "end": 9.31
+        },
+        {
+          "raw": "bearing",
+          "start": 9.79,
+          "end": 9.91
+        },
+        {
+          "raw": "an",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "raw": "improvised",
+          "start": 10.11,
+          "end": 10.71
+        },
+        {
+          "raw": "stretcher",
+          "start": 10.71,
+          "end": 11.27
+        },
+        {
+          "raw": "in",
+          "start": 11.27,
+          "end": 11.43
+        },
+        {
+          "raw": "their",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "raw": "midst.",
+          "start": 11.57,
+          "end": 11.95
+        },
+        {
+          "raw": "Instantly,",
+          "start": 13.03,
+          "end": 13.49
+        },
+        {
+          "raw": "in",
+          "start": 13.79,
+          "end": 13.93
+        },
+        {
+          "raw": "the",
+          "start": 13.93,
+          "end": 14.03
+        },
+        {
+          "raw": "emptiness",
+          "start": 14.03,
+          "end": 14.33
+        },
+        {
+          "raw": "of",
+          "start": 14.33,
+          "end": 14.55
+        },
+        {
+          "raw": "the",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "raw": "landscape,",
+          "start": 14.67,
+          "end": 15.15
+        },
+        {
+          "raw": "a",
+          "start": 15.65,
+          "end": 15.75
+        },
+        {
+          "raw": "cry",
+          "start": 15.75,
+          "end": 15.97
+        },
+        {
+          "raw": "arose",
+          "start": 15.97,
+          "end": 16.29
+        },
+        {
+          "raw": "whose",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "raw": "shrillness",
+          "start": 16.59,
+          "end": 17.09
+        },
+        {
+          "raw": "pierced",
+          "start": 17.09,
+          "end": 17.33
+        },
+        {
+          "raw": "the",
+          "start": 17.33,
+          "end": 17.61
+        },
+        {
+          "raw": "still",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "raw": "air",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "raw": "like",
+          "start": 18.05,
+          "end": 18.23
+        },
+        {
+          "raw": "a",
+          "start": 18.23,
+          "end": 18.43
+        },
+        {
+          "raw": "sharp",
+          "start": 18.43,
+          "end": 18.63
+        },
+        {
+          "raw": "arrow",
+          "start": 18.63,
+          "end": 18.95
+        },
+        {
+          "raw": "flying",
+          "start": 18.95,
+          "end": 19.31
+        },
+        {
+          "raw": "straight",
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "raw": "to",
+          "start": 19.67,
+          "end": 19.85
+        },
+        {
+          "raw": "the",
+          "start": 19.85,
+          "end": 19.95
+        },
+        {
+          "raw": "very",
+          "start": 19.95,
+          "end": 20.17
+        },
+        {
+          "raw": "heart",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "raw": "of",
+          "start": 20.39,
+          "end": 20.49
+        },
+        {
+          "raw": "the",
+          "start": 20.49,
+          "end": 20.61
+        },
+        {
+          "raw": "land.",
+          "start": 20.61,
+          "end": 20.93
+        },
+        {
+          "raw": "And",
+          "start": 21.53,
+          "end": 21.69
+        },
+        {
+          "raw": "as",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "raw": "if",
+          "start": 21.83,
+          "end": 21.99
+        },
+        {
+          "raw": "by",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "raw": "enchantment,",
+          "start": 22.15,
+          "end": 22.63
+        },
+        {
+          "raw": "streams",
+          "start": 23.29,
+          "end": 23.39
+        },
+        {
+          "raw": "of",
+          "start": 23.39,
+          "end": 23.63
+        },
+        {
+          "raw": "human",
+          "start": 23.63,
+          "end": 23.87
+        },
+        {
+          "raw": "beings,",
+          "start": 23.87,
+          "end": 24.37
+        },
+        {
+          "raw": "of",
+          "start": 24.51,
+          "end": 24.61
+        },
+        {
+          "raw": "naked",
+          "start": 24.61,
+          "end": 24.91
+        },
+        {
+          "raw": "human",
+          "start": 24.91,
+          "end": 25.25
+        },
+        {
+          "raw": "beings,",
+          "start": 25.25,
+          "end": 25.77
+        },
+        {
+          "raw": "with",
+          "start": 26.17,
+          "end": 26.39
+        },
+        {
+          "raw": "spears",
+          "start": 26.39,
+          "end": 26.71
+        },
+        {
+          "raw": "in",
+          "start": 26.71,
+          "end": 26.93
+        },
+        {
+          "raw": "their",
+          "start": 26.93,
+          "end": 27.07
+        },
+        {
+          "raw": "hands,",
+          "start": 27.07,
+          "end": 27.51
+        },
+        {
+          "raw": "with",
+          "start": 27.79,
+          "end": 27.93
+        },
+        {
+          "raw": "bows,",
+          "start": 27.93,
+          "end": 28.27
+        },
+        {
+          "raw": "with",
+          "start": 28.55,
+          "end": 28.61
+        },
+        {
+          "raw": "shields,",
+          "start": 28.61,
+          "end": 28.97
+        },
+        {
+          "raw": "with",
+          "start": 29.37,
+          "end": 29.49
+        },
+        {
+          "raw": "wild",
+          "start": 29.49,
+          "end": 29.85
+        },
+        {
+          "raw": "glances",
+          "start": 29.85,
+          "end": 30.31
+        },
+        {
+          "raw": "and",
+          "start": 30.31,
+          "end": 30.59
+        },
+        {
+          "raw": "savage",
+          "start": 30.59,
+          "end": 30.87
+        },
+        {
+          "raw": "movements,",
+          "start": 30.87,
+          "end": 31.41
+        },
+        {
+          "raw": "were",
+          "start": 31.75,
+          "end": 31.89
+        },
+        {
+          "raw": "poured",
+          "start": 31.89,
+          "end": 32.17
+        },
+        {
+          "raw": "into",
+          "start": 32.17,
+          "end": 32.39
+        },
+        {
+          "raw": "the",
+          "start": 32.39,
+          "end": 32.53
+        },
+        {
+          "raw": "clearing",
+          "start": 32.53,
+          "end": 32.85
+        },
+        {
+          "raw": "by",
+          "start": 32.85,
+          "end": 33.07
+        },
+        {
+          "raw": "the",
+          "start": 33.07,
+          "end": 33.21
+        },
+        {
+          "raw": "dark",
+          "start": 33.21,
+          "end": 33.47
+        },
+        {
+          "raw": "-faced",
+          "start": 33.47,
+          "end": 33.83
+        },
+        {
+          "raw": "and",
+          "start": 33.83,
+          "end": 34.09
+        },
+        {
+          "raw": "pensive",
+          "start": 34.09,
+          "end": 34.39
+        },
+        {
+          "raw": "forest.",
+          "start": 34.39,
+          "end": 34.89
+        },
+        {
+          "raw": "The",
+          "start": 35.59,
+          "end": 35.83
+        },
+        {
+          "raw": "bushes",
+          "start": 35.83,
+          "end": 36.07
+        },
+        {
+          "raw": "shook,",
+          "start": 36.07,
+          "end": 36.47
+        },
+        {
+          "raw": "the",
+          "start": 36.89,
+          "end": 37.05
+        },
+        {
+          "raw": "grass",
+          "start": 37.05,
+          "end": 37.33
+        },
+        {
+          "raw": "swayed",
+          "start": 37.33,
+          "end": 37.69
+        },
+        {
+          "raw": "for",
+          "start": 37.69,
+          "end": 37.95
+        },
+        {
+          "raw": "a",
+          "start": 37.95,
+          "end": 38.07
+        },
+        {
+          "raw": "time,",
+          "start": 38.07,
+          "end": 38.35
+        },
+        {
+          "raw": "and",
+          "start": 38.71,
+          "end": 38.89
+        },
+        {
+          "raw": "then",
+          "start": 38.89,
+          "end": 39.03
+        },
+        {
+          "raw": "everything",
+          "start": 39.03,
+          "end": 39.39
+        },
+        {
+          "raw": "stood",
+          "start": 39.39,
+          "end": 39.71
+        },
+        {
+          "raw": "still",
+          "start": 39.71,
+          "end": 40.05
+        },
+        {
+          "raw": "in",
+          "start": 40.05,
+          "end": 40.23
+        },
+        {
+          "raw": "attentive",
+          "start": 40.23,
+          "end": 40.61
+        },
+        {
+          "raw": "immobility.",
+          "start": 40.61,
+          "end": 41.29
+        }
+      ],
+      "expected_tokens": [
+        "\"Suddenly",
+        "round",
+        "the",
+        "corner",
+        "of",
+        "the",
+        "house",
+        "a",
+        "group",
+        "of",
+        "men",
+        "appeared,",
+        "as",
+        "though",
+        "they",
+        "had",
+        "come",
+        "up",
+        "from",
+        "the",
+        "ground.",
+        "They",
+        "waded",
+        "waist-deep",
+        "in",
+        "the",
+        "grass,",
+        "in",
+        "a",
+        "compact",
+        "body,",
+        "bearing",
+        "an",
+        "improvised",
+        "stretcher",
+        "in",
+        "their",
+        "midst.",
+        "Instantly,",
+        "in",
+        "the",
+        "emptiness",
+        "of",
+        "the",
+        "landscape,",
+        "a",
+        "cry",
+        "arose",
+        "whose",
+        "shrillness",
+        "pierced",
+        "the",
+        "still",
+        "air",
+        "like",
+        "a",
+        "sharp",
+        "arrow",
+        "flying",
+        "straight",
+        "to",
+        "the",
+        "very",
+        "heart",
+        "of",
+        "the",
+        "land;",
+        "and,",
+        "as",
+        "if",
+        "by",
+        "enchantment,",
+        "streams",
+        "of",
+        "human",
+        "beings—of",
+        "naked",
+        "human",
+        "beings—with",
+        "spears",
+        "in",
+        "their",
+        "hands,",
+        "with",
+        "bows,",
+        "with",
+        "shields,",
+        "with",
+        "wild",
+        "glances",
+        "and",
+        "savage",
+        "movements,",
+        "were",
+        "poured",
+        "into",
+        "the",
+        "clearing",
+        "by",
+        "the",
+        "dark-faced",
+        "and",
+        "pensive",
+        "forest.",
+        "The",
+        "bushes",
+        "shook,",
+        "the",
+        "grass",
+        "swayed",
+        "for",
+        "a",
+        "time,",
+        "and",
+        "then",
+        "everything",
+        "stood",
+        "still",
+        "in",
+        "attentive",
+        "immobility."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          75,
+          25,
+          76
+        ],
+        [
+          "replace",
+          75,
+          76,
+          76,
+          78
+        ],
+        [
+          "equal",
+          76,
+          78,
+          78,
+          80
+        ],
+        [
+          "replace",
+          78,
+          79,
+          80,
+          82
+        ],
+        [
+          "equal",
+          79,
+          100,
+          82,
+          103
+        ],
+        [
+          "replace",
+          100,
+          101,
+          103,
+          105
+        ],
+        [
+          "equal",
+          101,
+          121,
+          105,
+          125
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 100,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 124
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "replace",
+          75,
+          76,
+          76,
+          78
+        ],
+        [
+          "replace",
+          78,
+          79,
+          80,
+          82
+        ],
+        [
+          "replace",
+          100,
+          101,
+          103,
+          105
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Suddenly",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "round",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "text": "the",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "corner",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "of",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "the",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "house",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "text": "a",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "group",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "of",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "men",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "appeared,",
+          "start": 2.77,
+          "end": 3.23
+        },
+        {
+          "text": "as",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "text": "though",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "text": "they",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "text": "had",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "come",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "text": "up",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "from",
+          "start": 4.71,
+          "end": 4.89
+        },
+        {
+          "text": "the",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "text": "ground.",
+          "start": 5.01,
+          "end": 5.33
+        },
+        {
+          "text": "They",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "text": "waded",
+          "start": 6.25,
+          "end": 6.57
+        },
+        {
+          "text": "waist-deep",
+          "start": 6.57,
+          "end": 6.88
+        },
+        {
+          "text": "in",
+          "start": 7.19,
+          "end": 7.39
+        },
+        {
+          "text": "the",
+          "start": 7.39,
+          "end": 7.47
+        },
+        {
+          "text": "grass,",
+          "start": 7.47,
+          "end": 7.77
+        },
+        {
+          "text": "in",
+          "start": 8.21,
+          "end": 8.29
+        },
+        {
+          "text": "a",
+          "start": 8.29,
+          "end": 8.43
+        },
+        {
+          "text": "compact",
+          "start": 8.43,
+          "end": 8.83
+        },
+        {
+          "text": "body,",
+          "start": 8.83,
+          "end": 9.31
+        },
+        {
+          "text": "bearing",
+          "start": 9.79,
+          "end": 9.91
+        },
+        {
+          "text": "an",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "text": "improvised",
+          "start": 10.11,
+          "end": 10.71
+        },
+        {
+          "text": "stretcher",
+          "start": 10.71,
+          "end": 11.27
+        },
+        {
+          "text": "in",
+          "start": 11.27,
+          "end": 11.43
+        },
+        {
+          "text": "their",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "text": "midst.",
+          "start": 11.57,
+          "end": 11.95
+        },
+        {
+          "text": "Instantly,",
+          "start": 13.03,
+          "end": 13.49
+        },
+        {
+          "text": "in",
+          "start": 13.79,
+          "end": 13.93
+        },
+        {
+          "text": "the",
+          "start": 13.93,
+          "end": 14.03
+        },
+        {
+          "text": "emptiness",
+          "start": 14.03,
+          "end": 14.33
+        },
+        {
+          "text": "of",
+          "start": 14.33,
+          "end": 14.55
+        },
+        {
+          "text": "the",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "text": "landscape,",
+          "start": 14.67,
+          "end": 15.15
+        },
+        {
+          "text": "a",
+          "start": 15.65,
+          "end": 15.75
+        },
+        {
+          "text": "cry",
+          "start": 15.75,
+          "end": 15.97
+        },
+        {
+          "text": "arose",
+          "start": 15.97,
+          "end": 16.29
+        },
+        {
+          "text": "whose",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "text": "shrillness",
+          "start": 16.59,
+          "end": 17.09
+        },
+        {
+          "text": "pierced",
+          "start": 17.09,
+          "end": 17.33
+        },
+        {
+          "text": "the",
+          "start": 17.33,
+          "end": 17.61
+        },
+        {
+          "text": "still",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "text": "air",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "text": "like",
+          "start": 18.05,
+          "end": 18.23
+        },
+        {
+          "text": "a",
+          "start": 18.23,
+          "end": 18.43
+        },
+        {
+          "text": "sharp",
+          "start": 18.43,
+          "end": 18.63
+        },
+        {
+          "text": "arrow",
+          "start": 18.63,
+          "end": 18.95
+        },
+        {
+          "text": "flying",
+          "start": 18.95,
+          "end": 19.31
+        },
+        {
+          "text": "straight",
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "text": "to",
+          "start": 19.67,
+          "end": 19.85
+        },
+        {
+          "text": "the",
+          "start": 19.85,
+          "end": 19.95
+        },
+        {
+          "text": "very",
+          "start": 19.95,
+          "end": 20.17
+        },
+        {
+          "text": "heart",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "text": "of",
+          "start": 20.39,
+          "end": 20.49
+        },
+        {
+          "text": "the",
+          "start": 20.49,
+          "end": 20.61
+        },
+        {
+          "text": "land;",
+          "start": 20.61,
+          "end": 20.93
+        },
+        {
+          "text": "and,",
+          "start": 21.53,
+          "end": 21.69
+        },
+        {
+          "text": "as",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "text": "if",
+          "start": 21.83,
+          "end": 21.99
+        },
+        {
+          "text": "by",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "text": "enchantment,",
+          "start": 22.15,
+          "end": 22.63
+        },
+        {
+          "text": "streams",
+          "start": 23.29,
+          "end": 23.39
+        },
+        {
+          "text": "of",
+          "start": 23.39,
+          "end": 23.63
+        },
+        {
+          "text": "human",
+          "start": 23.63,
+          "end": 23.87
+        },
+        {
+          "text": "beings—of",
+          "start": 23.87,
+          "end": 24.24
+        },
+        {
+          "text": "naked",
+          "start": 24.61,
+          "end": 24.91
+        },
+        {
+          "text": "human",
+          "start": 24.91,
+          "end": 25.25
+        },
+        {
+          "text": "beings—with",
+          "start": 25.25,
+          "end": 25.82
+        },
+        {
+          "text": "spears",
+          "start": 26.39,
+          "end": 26.71
+        },
+        {
+          "text": "in",
+          "start": 26.71,
+          "end": 26.93
+        },
+        {
+          "text": "their",
+          "start": 26.93,
+          "end": 27.07
+        },
+        {
+          "text": "hands,",
+          "start": 27.07,
+          "end": 27.51
+        },
+        {
+          "text": "with",
+          "start": 27.79,
+          "end": 27.93
+        },
+        {
+          "text": "bows,",
+          "start": 27.93,
+          "end": 28.27
+        },
+        {
+          "text": "with",
+          "start": 28.55,
+          "end": 28.61
+        },
+        {
+          "text": "shields,",
+          "start": 28.61,
+          "end": 28.97
+        },
+        {
+          "text": "with",
+          "start": 29.37,
+          "end": 29.49
+        },
+        {
+          "text": "wild",
+          "start": 29.49,
+          "end": 29.85
+        },
+        {
+          "text": "glances",
+          "start": 29.85,
+          "end": 30.31
+        },
+        {
+          "text": "and",
+          "start": 30.31,
+          "end": 30.59
+        },
+        {
+          "text": "savage",
+          "start": 30.59,
+          "end": 30.87
+        },
+        {
+          "text": "movements,",
+          "start": 30.87,
+          "end": 31.41
+        },
+        {
+          "text": "were",
+          "start": 31.75,
+          "end": 31.89
+        },
+        {
+          "text": "poured",
+          "start": 31.89,
+          "end": 32.17
+        },
+        {
+          "text": "into",
+          "start": 32.17,
+          "end": 32.39
+        },
+        {
+          "text": "the",
+          "start": 32.39,
+          "end": 32.53
+        },
+        {
+          "text": "clearing",
+          "start": 32.53,
+          "end": 32.85
+        },
+        {
+          "text": "by",
+          "start": 32.85,
+          "end": 33.07
+        },
+        {
+          "text": "the",
+          "start": 33.07,
+          "end": 33.21
+        },
+        {
+          "text": "dark-faced",
+          "start": 33.21,
+          "end": 33.52
+        },
+        {
+          "text": "and",
+          "start": 33.83,
+          "end": 34.09
+        },
+        {
+          "text": "pensive",
+          "start": 34.09,
+          "end": 34.39
+        },
+        {
+          "text": "forest.",
+          "start": 34.39,
+          "end": 34.89
+        },
+        {
+          "text": "The",
+          "start": 35.59,
+          "end": 35.83
+        },
+        {
+          "text": "bushes",
+          "start": 35.83,
+          "end": 36.07
+        },
+        {
+          "text": "shook,",
+          "start": 36.07,
+          "end": 36.47
+        },
+        {
+          "text": "the",
+          "start": 36.89,
+          "end": 37.05
+        },
+        {
+          "text": "grass",
+          "start": 37.05,
+          "end": 37.33
+        },
+        {
+          "text": "swayed",
+          "start": 37.33,
+          "end": 37.69
+        },
+        {
+          "text": "for",
+          "start": 37.69,
+          "end": 37.95
+        },
+        {
+          "text": "a",
+          "start": 37.95,
+          "end": 38.07
+        },
+        {
+          "text": "time,",
+          "start": 38.07,
+          "end": 38.35
+        },
+        {
+          "text": "and",
+          "start": 38.71,
+          "end": 38.89
+        },
+        {
+          "text": "then",
+          "start": 38.89,
+          "end": 39.03
+        },
+        {
+          "text": "everything",
+          "start": 39.03,
+          "end": 39.39
+        },
+        {
+          "text": "stood",
+          "start": 39.39,
+          "end": 39.71
+        },
+        {
+          "text": "still",
+          "start": 39.71,
+          "end": 40.05
+        },
+        {
+          "text": "in",
+          "start": 40.05,
+          "end": 40.23
+        },
+        {
+          "text": "attentive",
+          "start": 40.23,
+          "end": 40.61
+        },
+        {
+          "text": "immobility.",
+          "start": 40.61,
+          "end": 41.29
+        }
+      ],
+      "stats": {
+        "expected_words": 121,
+        "heard_words": 125,
+        "matched_words": 117
+      },
+      "match_ratio": 0.9669421487603306,
+      "rejection_reasons": [],
+      "seconds": 1.2425214129907545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f762acaec63e1a17f91c4f19f377dafc252852c0410adc895cd6643e747a0850",
+  "selected_reasons": []
+}

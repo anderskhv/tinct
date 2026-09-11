@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "3153705c1abdbd50eed53d251cad4ac052a1bd5737da7cc87fa4586355380138",
+  "attempts": [
+    {
+      "asr_seconds": 0.14148665964603424,
+      "alignment_seconds": 0.00010056048631668091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What is that you are saying? he asked.",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What is that you are saying? he asked.",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.175537109375
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " you",
+              "start": 0.82,
+              "end": 0.92,
+              "probability": 0.984375
+            },
+            {
+              "text": " are",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " saying?",
+              "start": 1.04,
+              "end": 1.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.417236328125
+            },
+            {
+              "text": " asked.",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "that",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "you",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "raw": "are",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "saying?",
+          "start": 1.04,
+          "end": 1.34
+        },
+        {
+          "raw": "he",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "asked.",
+          "start": 1.82,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "is",
+        "that",
+        "you",
+        "are",
+        "saying?",
+        "he",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "that",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "you",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "text": "are",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "saying?",
+          "start": 1.04,
+          "end": 1.34
+        },
+        {
+          "text": "he",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "asked.",
+          "start": 1.82,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14163179695606232
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d277e0f23cbc4a2a68a6c544265310f7c055f453916065a545cb801d63c0c335",
+  "selected_reasons": []
+}

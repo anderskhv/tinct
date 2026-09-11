@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "375b366b2208418fb07450c3e68c7da06964ceb86a10ec0b55f84d8ec31214a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20280508697032928,
+      "alignment_seconds": 0.00012069195508956909,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To them, I said, the truth would be literally nothing but the shadows of the images.",
+        "hotwords": "To, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To them, I said, the truth would be literally nothing but the shadows of the images.",
+          "start": 0.02,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " them,",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.986328125
+            },
+            {
+              "text": " said,",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " truth",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " would",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " literally",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nothing",
+              "start": 2.96,
+              "end": 3.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 3.32,
+              "end": 3.66,
+              "probability": 0.947265625
+            },
+            {
+              "text": " the",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shadows",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.12,
+              "end": 4.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 4.4,
+              "end": 4.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " images.",
+              "start": 4.52,
+              "end": 4.84,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "them,",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "said,",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "truth",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "raw": "would",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "be",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "literally",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "nothing",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "raw": "but",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "shadows",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "raw": "of",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "raw": "the",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "raw": "images.",
+          "start": 4.52,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "them,",
+        "I",
+        "said,",
+        "the",
+        "truth",
+        "would",
+        "be",
+        "literally",
+        "nothing",
+        "but",
+        "the",
+        "shadows",
+        "of",
+        "the",
+        "images."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "them,",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "said,",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "truth",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "text": "would",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "text": "be",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "literally",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "nothing",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "text": "but",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "text": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "shadows",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "text": "of",
+          "start": 4.12,
+          "end": 4.4
+        },
+        {
+          "text": "the",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "text": "images.",
+          "start": 4.52,
+          "end": 4.84
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20298618078231812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44e87182807c4a26d2e696e6a47d6de6b12b52a823cef996a1c4c30e4c33c103",
+  "selected_reasons": []
+}

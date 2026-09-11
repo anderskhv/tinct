@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "67e8a8b6741881dd822c754d0cc345d285114e3667f23848a600169936d78bea",
+  "attempts": [
+    {
+      "asr_seconds": 0.07509473897516727,
+      "alignment_seconds": 6.012432277202606e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Not in the least.",
+        "hotwords": "Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not in the least.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.810546875
+            },
+            {
+              "text": " in",
+              "start": 0.58,
+              "end": 0.68,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " least.",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "in",
+          "start": 0.58,
+          "end": 0.68
+        },
+        {
+          "raw": "the",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "least.",
+          "start": 0.78,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "in",
+        "the",
+        "least."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "in",
+          "start": 0.58,
+          "end": 0.68
+        },
+        {
+          "text": "the",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "least.",
+          "start": 0.78,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07518101669847965
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "766226844eb4c2ba80427e78b18621e816bf5ca8eab9dbc779fccc5337e5a8db",
+  "selected_reasons": []
+}

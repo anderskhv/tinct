@@ -1,0 +1,495 @@
+{
+  "complete": true,
+  "signature": "eda2a2dd428dd1ea2441d42df2adfe420d9b11b3cad07289905802016dedc029",
+  "attempts": [
+    {
+      "asr_seconds": 0.19865868985652924,
+      "alignment_seconds": 0.00014041364192962646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And if merchandise is to be carried over the sea, skilful sailors will also be needed, and in considerable numbers?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And if merchandise is to be carried over the sea, skilful sailors will also be needed, and in considerable numbers?",
+          "start": 0.05,
+          "end": 6.97,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.78125
+            },
+            {
+              "text": " if",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " merchandise",
+              "start": 0.63,
+              "end": 1.07,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 1.07,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " carried",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " over",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sea,",
+              "start": 2.47,
+              "end": 2.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " skilful",
+              "start": 3.51,
+              "end": 3.77,
+              "probability": 0.6739044189453125
+            },
+            {
+              "text": " sailors",
+              "start": 3.77,
+              "end": 4.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " also",
+              "start": 4.45,
+              "end": 4.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 4.77,
+              "end": 4.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " needed,",
+              "start": 4.97,
+              "end": 5.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.65,
+              "end": 5.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 5.89,
+              "end": 6.03,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " considerable",
+              "start": 6.03,
+              "end": 6.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " numbers?",
+              "start": 6.43,
+              "end": 6.97,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "merchandise",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "raw": "is",
+          "start": 1.07,
+          "end": 1.55
+        },
+        {
+          "raw": "to",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "be",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "carried",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "over",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "the",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "sea,",
+          "start": 2.47,
+          "end": 2.83
+        },
+        {
+          "raw": "skilful",
+          "start": 3.51,
+          "end": 3.77
+        },
+        {
+          "raw": "sailors",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "raw": "will",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "also",
+          "start": 4.45,
+          "end": 4.77
+        },
+        {
+          "raw": "be",
+          "start": 4.77,
+          "end": 4.97
+        },
+        {
+          "raw": "needed,",
+          "start": 4.97,
+          "end": 5.29
+        },
+        {
+          "raw": "and",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "raw": "in",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "raw": "considerable",
+          "start": 6.03,
+          "end": 6.43
+        },
+        {
+          "raw": "numbers?",
+          "start": 6.43,
+          "end": 6.97
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "if",
+        "merchandise",
+        "is",
+        "to",
+        "be",
+        "carried",
+        "over",
+        "the",
+        "sea,",
+        "skilful",
+        "sailors",
+        "will",
+        "also",
+        "be",
+        "needed,",
+        "and",
+        "in",
+        "considerable",
+        "numbers?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "merchandise",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "text": "is",
+          "start": 1.07,
+          "end": 1.55
+        },
+        {
+          "text": "to",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "be",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "carried",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "text": "over",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "the",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "sea,",
+          "start": 2.47,
+          "end": 2.83
+        },
+        {
+          "text": "skilful",
+          "start": 3.51,
+          "end": 3.77
+        },
+        {
+          "text": "sailors",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "text": "will",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "text": "also",
+          "start": 4.45,
+          "end": 4.77
+        },
+        {
+          "text": "be",
+          "start": 4.77,
+          "end": 4.97
+        },
+        {
+          "text": "needed,",
+          "start": 4.97,
+          "end": 5.29
+        },
+        {
+          "text": "and",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "text": "in",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "text": "considerable",
+          "start": 6.03,
+          "end": 6.43
+        },
+        {
+          "text": "numbers?",
+          "start": 6.43,
+          "end": 6.97
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19887129217386246
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dd9b74d8f39eb02742407bb6b6e096e0b19d01c586fa640fc8f7ab181125687a",
+  "selected_reasons": []
+}

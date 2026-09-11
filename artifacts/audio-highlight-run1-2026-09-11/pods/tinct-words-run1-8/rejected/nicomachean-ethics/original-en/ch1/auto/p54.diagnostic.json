@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "277aff394d474ada01355d6da4e75993fef5c165746da114903082e84c19159e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1751604974269867,
+      "alignment_seconds": 0.00011278968304395676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And further, the points required in Happiness are found in combination in our account of it.",
+        "hotwords": "And, Happiness"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And further, the points required in Happiness are found in combination in our account of it.",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6103515625
+            },
+            {
+              "text": " further,",
+              "start": 0.53,
+              "end": 0.85,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " the",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " points",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " required",
+              "start": 1.69,
+              "end": 2.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Happiness",
+              "start": 2.39,
+              "end": 2.81,
+              "probability": 0.0360107421875
+            },
+            {
+              "text": " are",
+              "start": 2.81,
+              "end": 3.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " found",
+              "start": 3.21,
+              "end": 3.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " combination",
+              "start": 3.69,
+              "end": 4.17,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " in",
+              "start": 4.17,
+              "end": 4.65,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " our",
+              "start": 4.65,
+              "end": 4.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " account",
+              "start": 4.77,
+              "end": 5.05,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " of",
+              "start": 5.05,
+              "end": 5.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 5.25,
+              "end": 5.41,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "further,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "points",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "required",
+          "start": 1.69,
+          "end": 2.17
+        },
+        {
+          "raw": "in",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "Happiness",
+          "start": 2.39,
+          "end": 2.81
+        },
+        {
+          "raw": "are",
+          "start": 2.81,
+          "end": 3.21
+        },
+        {
+          "raw": "found",
+          "start": 3.21,
+          "end": 3.49
+        },
+        {
+          "raw": "in",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "combination",
+          "start": 3.69,
+          "end": 4.17
+        },
+        {
+          "raw": "in",
+          "start": 4.17,
+          "end": 4.65
+        },
+        {
+          "raw": "our",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "raw": "account",
+          "start": 4.77,
+          "end": 5.05
+        },
+        {
+          "raw": "of",
+          "start": 5.05,
+          "end": 5.25
+        },
+        {
+          "raw": "it.",
+          "start": 5.25,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "further,",
+        "the",
+        "points",
+        "required",
+        "in",
+        "Happiness",
+        "are",
+        "found",
+        "in",
+        "combination",
+        "in",
+        "our",
+        "account",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "further,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "points",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "required",
+          "start": 1.69,
+          "end": 2.17
+        },
+        {
+          "text": "in",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "Happiness",
+          "start": 2.39,
+          "end": 2.81
+        },
+        {
+          "text": "are",
+          "start": 2.81,
+          "end": 3.21
+        },
+        {
+          "text": "found",
+          "start": 3.21,
+          "end": 3.49
+        },
+        {
+          "text": "in",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "combination",
+          "start": 3.69,
+          "end": 4.17
+        },
+        {
+          "text": "in",
+          "start": 4.17,
+          "end": 4.65
+        },
+        {
+          "text": "our",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "text": "account",
+          "start": 4.77,
+          "end": 5.05
+        },
+        {
+          "text": "of",
+          "start": 5.05,
+          "end": 5.25
+        },
+        {
+          "text": "it.",
+          "start": 5.25,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17532963724806905
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "89d2236edc67119ef03f90266aa891ff9820f9ab63a412a26d7e557ac508a84e",
+  "selected_reasons": []
+}

@@ -1,0 +1,2463 @@
+{
+  "complete": true,
+  "signature": "59c58c26d4b5431ce936e1a22f0a61150312f17f10f28a32d2b8479ed3a9dfb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.31288589211180806,
+      "alignment_seconds": 0.0001965588890016079,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Well, we are to enquire concerning Excellence, _i.e._ Human Excellence of course, because it was the Chief Good of Man and the Happiness of Man that we were enquiring of just now.",
+        "hotwords": "Well, Excellence, Human, Chief, Good, Man, Happiness"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, we are to enquire concerning Excellence, i.e. Human Excellence of course, because it",
+          "start": 0.02,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " we",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " enquire",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.536224365234375
+            },
+            {
+              "text": " concerning",
+              "start": 1.62,
+              "end": 2.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Excellence,",
+              "start": 2.26,
+              "end": 2.8,
+              "probability": 0.0024871826171875
+            },
+            {
+              "text": " i",
+              "start": 3.54,
+              "end": 3.58,
+              "probability": 0.86767578125
+            },
+            {
+              "text": ".e.",
+              "start": 3.58,
+              "end": 3.8,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " Human",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.34033203125
+            },
+            {
+              "text": " Excellence",
+              "start": 4.14,
+              "end": 4.56,
+              "probability": 0.912109375
+            },
+            {
+              "text": " of",
+              "start": 4.56,
+              "end": 4.84,
+              "probability": 0.29296875
+            },
+            {
+              "text": " course,",
+              "start": 4.84,
+              "end": 5.14,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " because",
+              "start": 5.7,
+              "end": 5.92,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it",
+              "start": 5.92,
+              "end": 6.02,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " was the Chief Good of Man and the Happiness of Man that we were enquiring of just now.",
+          "start": 6.02,
+          "end": 10.94,
+          "words": [
+            {
+              "text": " was",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.14,
+              "end": 6.32,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Chief",
+              "start": 6.32,
+              "end": 6.6,
+              "probability": 0.329345703125
+            },
+            {
+              "text": " Good",
+              "start": 6.6,
+              "end": 6.84,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " of",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Man",
+              "start": 7.0,
+              "end": 7.32,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " and",
+              "start": 7.32,
+              "end": 7.9,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " the",
+              "start": 7.9,
+              "end": 8.0,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Happiness",
+              "start": 8.0,
+              "end": 8.34,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " of",
+              "start": 8.34,
+              "end": 8.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Man",
+              "start": 8.62,
+              "end": 8.94,
+              "probability": 0.958984375
+            },
+            {
+              "text": " that",
+              "start": 8.94,
+              "end": 9.16,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " we",
+              "start": 9.16,
+              "end": 9.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 9.32,
+              "end": 9.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " enquiring",
+              "start": 9.46,
+              "end": 10.08,
+              "probability": 0.635986328125
+            },
+            {
+              "text": " of",
+              "start": 10.08,
+              "end": 10.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " just",
+              "start": 10.36,
+              "end": 10.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " now.",
+              "start": 10.56,
+              "end": 10.94,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "we",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "are",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "enquire",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "raw": "concerning",
+          "start": 1.62,
+          "end": 2.26
+        },
+        {
+          "raw": "Excellence,",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "raw": "i",
+          "start": 3.54,
+          "end": 3.58
+        },
+        {
+          "raw": ".e.",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "raw": "Human",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "Excellence",
+          "start": 4.14,
+          "end": 4.56
+        },
+        {
+          "raw": "of",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "raw": "course,",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "raw": "because",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "raw": "it",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "raw": "was",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "the",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "raw": "Chief",
+          "start": 6.32,
+          "end": 6.6
+        },
+        {
+          "raw": "Good",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "Man",
+          "start": 7.0,
+          "end": 7.32
+        },
+        {
+          "raw": "and",
+          "start": 7.32,
+          "end": 7.9
+        },
+        {
+          "raw": "the",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "raw": "Happiness",
+          "start": 8.0,
+          "end": 8.34
+        },
+        {
+          "raw": "of",
+          "start": 8.34,
+          "end": 8.62
+        },
+        {
+          "raw": "Man",
+          "start": 8.62,
+          "end": 8.94
+        },
+        {
+          "raw": "that",
+          "start": 8.94,
+          "end": 9.16
+        },
+        {
+          "raw": "we",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "raw": "were",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "raw": "enquiring",
+          "start": 9.46,
+          "end": 10.08
+        },
+        {
+          "raw": "of",
+          "start": 10.08,
+          "end": 10.36
+        },
+        {
+          "raw": "just",
+          "start": 10.36,
+          "end": 10.56
+        },
+        {
+          "raw": "now.",
+          "start": 10.56,
+          "end": 10.94
+        }
+      ],
+      "expected_tokens": [
+        "Well,",
+        "we",
+        "are",
+        "to",
+        "enquire",
+        "concerning",
+        "Excellence,",
+        "_i.e._",
+        "Human",
+        "Excellence",
+        "of",
+        "course,",
+        "because",
+        "it",
+        "was",
+        "the",
+        "Chief",
+        "Good",
+        "of",
+        "Man",
+        "and",
+        "the",
+        "Happiness",
+        "of",
+        "Man",
+        "that",
+        "we",
+        "were",
+        "enquiring",
+        "of",
+        "just",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          32,
+          9,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "we",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "are",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "to",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "enquire",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "text": "concerning",
+          "start": 1.62,
+          "end": 2.26
+        },
+        {
+          "text": "Excellence,",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "text": "_i.e._",
+          "start": 2.8,
+          "end": 3.38
+        },
+        {
+          "text": "Human",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "Excellence",
+          "start": 4.14,
+          "end": 4.56
+        },
+        {
+          "text": "of",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "text": "course,",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "text": "because",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "text": "it",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "text": "was",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "the",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "text": "Chief",
+          "start": 6.32,
+          "end": 6.6
+        },
+        {
+          "text": "Good",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "text": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "Man",
+          "start": 7.0,
+          "end": 7.32
+        },
+        {
+          "text": "and",
+          "start": 7.32,
+          "end": 7.9
+        },
+        {
+          "text": "the",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "text": "Happiness",
+          "start": 8.0,
+          "end": 8.34
+        },
+        {
+          "text": "of",
+          "start": 8.34,
+          "end": 8.62
+        },
+        {
+          "text": "Man",
+          "start": 8.62,
+          "end": 8.94
+        },
+        {
+          "text": "that",
+          "start": 8.94,
+          "end": 9.16
+        },
+        {
+          "text": "we",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "text": "were",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "text": "enquiring",
+          "start": 9.46,
+          "end": 10.08
+        },
+        {
+          "text": "of",
+          "start": 10.08,
+          "end": 10.36
+        },
+        {
+          "text": "just",
+          "start": 10.36,
+          "end": 10.56
+        },
+        {
+          "text": "now.",
+          "start": 10.56,
+          "end": 10.94
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 33,
+        "matched_words": 31
+      },
+      "match_ratio": 0.96875,
+      "rejection_reasons": [],
+      "seconds": 0.31318214116618037
+    },
+    {
+      "asr_seconds": 0.3036538800224662,
+      "alignment_seconds": 0.00021171895787119865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Well, Excellence, Human, Chief, Good, Man, Happiness"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Well, we are to inquire concerning excellence, i.e. human excellence, of course, because",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " we",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " inquire",
+              "start": 1.16,
+              "end": 1.6,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " concerning",
+              "start": 1.6,
+              "end": 2.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " excellence,",
+              "start": 2.26,
+              "end": 2.86,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " i",
+              "start": 3.52,
+              "end": 3.58,
+              "probability": 0.9150390625
+            },
+            {
+              "text": ".e.",
+              "start": 3.58,
+              "end": 3.8,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " human",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.9765625
+            },
+            {
+              "text": " excellence,",
+              "start": 4.14,
+              "end": 4.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 4.76,
+              "end": 4.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " course,",
+              "start": 4.84,
+              "end": 5.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " because",
+              "start": 5.62,
+              "end": 5.92,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " it was the chief good of man and the happiness of man that we were inquiring of just now.",
+          "start": 5.92,
+          "end": 10.96,
+          "words": [
+            {
+              "text": " it",
+              "start": 5.92,
+              "end": 6.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.14,
+              "end": 6.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " chief",
+              "start": 6.32,
+              "end": 6.6,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " good",
+              "start": 6.6,
+              "end": 6.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " man",
+              "start": 7.0,
+              "end": 7.34,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 7.34,
+              "end": 7.9,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " the",
+              "start": 7.9,
+              "end": 8.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " happiness",
+              "start": 8.0,
+              "end": 8.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 8.38,
+              "end": 8.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " man",
+              "start": 8.62,
+              "end": 8.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 8.94,
+              "end": 9.16,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " we",
+              "start": 9.16,
+              "end": 9.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 9.32,
+              "end": 9.46,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " inquiring",
+              "start": 9.46,
+              "end": 10.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 10.06,
+              "end": 10.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " just",
+              "start": 10.34,
+              "end": 10.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " now.",
+              "start": 10.56,
+              "end": 10.96,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "we",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "are",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "inquire",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "raw": "concerning",
+          "start": 1.6,
+          "end": 2.26
+        },
+        {
+          "raw": "excellence,",
+          "start": 2.26,
+          "end": 2.86
+        },
+        {
+          "raw": "i",
+          "start": 3.52,
+          "end": 3.58
+        },
+        {
+          "raw": ".e.",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "raw": "human",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "excellence,",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "raw": "of",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "raw": "course,",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "raw": "because",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "raw": "it",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "raw": "was",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "the",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "raw": "chief",
+          "start": 6.32,
+          "end": 6.6
+        },
+        {
+          "raw": "good",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "man",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "raw": "and",
+          "start": 7.34,
+          "end": 7.9
+        },
+        {
+          "raw": "the",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "raw": "happiness",
+          "start": 8.0,
+          "end": 8.38
+        },
+        {
+          "raw": "of",
+          "start": 8.38,
+          "end": 8.62
+        },
+        {
+          "raw": "man",
+          "start": 8.62,
+          "end": 8.94
+        },
+        {
+          "raw": "that",
+          "start": 8.94,
+          "end": 9.16
+        },
+        {
+          "raw": "we",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "raw": "were",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "raw": "inquiring",
+          "start": 9.46,
+          "end": 10.06
+        },
+        {
+          "raw": "of",
+          "start": 10.06,
+          "end": 10.34
+        },
+        {
+          "raw": "just",
+          "start": 10.34,
+          "end": 10.56
+        },
+        {
+          "raw": "now.",
+          "start": 10.56,
+          "end": 10.96
+        }
+      ],
+      "expected_tokens": [
+        "Well,",
+        "we",
+        "are",
+        "to",
+        "enquire",
+        "concerning",
+        "Excellence,",
+        "_i.e._",
+        "Human",
+        "Excellence",
+        "of",
+        "course,",
+        "because",
+        "it",
+        "was",
+        "the",
+        "Chief",
+        "Good",
+        "of",
+        "Man",
+        "and",
+        "the",
+        "Happiness",
+        "of",
+        "Man",
+        "that",
+        "we",
+        "were",
+        "enquiring",
+        "of",
+        "just",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          28,
+          9,
+          29
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ],
+        [
+          "equal",
+          29,
+          32,
+          30,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "we",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "are",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "to",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "enquire",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "concerning",
+          "start": 1.6,
+          "end": 2.26
+        },
+        {
+          "text": "Excellence,",
+          "start": 2.26,
+          "end": 2.86
+        },
+        {
+          "text": "_i.e._",
+          "start": 2.86,
+          "end": 3.41
+        },
+        {
+          "text": "Human",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "Excellence",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "text": "of",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "text": "course,",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "text": "because",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "text": "it",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "text": "was",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "the",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "text": "Chief",
+          "start": 6.32,
+          "end": 6.6
+        },
+        {
+          "text": "Good",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "text": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "Man",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "text": "and",
+          "start": 7.34,
+          "end": 7.9
+        },
+        {
+          "text": "the",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "text": "Happiness",
+          "start": 8.0,
+          "end": 8.38
+        },
+        {
+          "text": "of",
+          "start": 8.38,
+          "end": 8.62
+        },
+        {
+          "text": "Man",
+          "start": 8.62,
+          "end": 8.94
+        },
+        {
+          "text": "that",
+          "start": 8.94,
+          "end": 9.16
+        },
+        {
+          "text": "we",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "text": "were",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "text": "enquiring",
+          "start": 9.46,
+          "end": 9.76
+        },
+        {
+          "text": "of",
+          "start": 10.06,
+          "end": 10.34
+        },
+        {
+          "text": "just",
+          "start": 10.34,
+          "end": 10.56
+        },
+        {
+          "text": "now.",
+          "start": 10.56,
+          "end": 10.96
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 33,
+        "matched_words": 29
+      },
+      "match_ratio": 0.90625,
+      "rejection_reasons": [],
+      "seconds": 0.3039651089347899
+    },
+    {
+      "asr_seconds": 0.2954535549506545,
+      "alignment_seconds": 0.00020821020007133484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well, we are to inquire concerning excellence, i.e. human excellence, of course, because",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " we",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " inquire",
+              "start": 1.16,
+              "end": 1.6,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " concerning",
+              "start": 1.6,
+              "end": 2.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " excellence,",
+              "start": 2.26,
+              "end": 2.86,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " i",
+              "start": 3.52,
+              "end": 3.58,
+              "probability": 0.9150390625
+            },
+            {
+              "text": ".e.",
+              "start": 3.58,
+              "end": 3.8,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " human",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.9765625
+            },
+            {
+              "text": " excellence,",
+              "start": 4.14,
+              "end": 4.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 4.76,
+              "end": 4.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " course,",
+              "start": 4.84,
+              "end": 5.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " because",
+              "start": 5.62,
+              "end": 5.92,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " it was the chief good of man and the happiness of man that we were inquiring of just now.",
+          "start": 5.92,
+          "end": 10.96,
+          "words": [
+            {
+              "text": " it",
+              "start": 5.92,
+              "end": 6.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.14,
+              "end": 6.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " chief",
+              "start": 6.32,
+              "end": 6.6,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " good",
+              "start": 6.6,
+              "end": 6.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " man",
+              "start": 7.0,
+              "end": 7.34,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 7.34,
+              "end": 7.9,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " the",
+              "start": 7.9,
+              "end": 8.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " happiness",
+              "start": 8.0,
+              "end": 8.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 8.38,
+              "end": 8.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " man",
+              "start": 8.62,
+              "end": 8.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 8.94,
+              "end": 9.16,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " we",
+              "start": 9.16,
+              "end": 9.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 9.32,
+              "end": 9.46,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " inquiring",
+              "start": 9.46,
+              "end": 10.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 10.06,
+              "end": 10.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " just",
+              "start": 10.34,
+              "end": 10.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " now.",
+              "start": 10.56,
+              "end": 10.96,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "we",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "are",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "inquire",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "raw": "concerning",
+          "start": 1.6,
+          "end": 2.26
+        },
+        {
+          "raw": "excellence,",
+          "start": 2.26,
+          "end": 2.86
+        },
+        {
+          "raw": "i",
+          "start": 3.52,
+          "end": 3.58
+        },
+        {
+          "raw": ".e.",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "raw": "human",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "excellence,",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "raw": "of",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "raw": "course,",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "raw": "because",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "raw": "it",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "raw": "was",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "the",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "raw": "chief",
+          "start": 6.32,
+          "end": 6.6
+        },
+        {
+          "raw": "good",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "man",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "raw": "and",
+          "start": 7.34,
+          "end": 7.9
+        },
+        {
+          "raw": "the",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "raw": "happiness",
+          "start": 8.0,
+          "end": 8.38
+        },
+        {
+          "raw": "of",
+          "start": 8.38,
+          "end": 8.62
+        },
+        {
+          "raw": "man",
+          "start": 8.62,
+          "end": 8.94
+        },
+        {
+          "raw": "that",
+          "start": 8.94,
+          "end": 9.16
+        },
+        {
+          "raw": "we",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "raw": "were",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "raw": "inquiring",
+          "start": 9.46,
+          "end": 10.06
+        },
+        {
+          "raw": "of",
+          "start": 10.06,
+          "end": 10.34
+        },
+        {
+          "raw": "just",
+          "start": 10.34,
+          "end": 10.56
+        },
+        {
+          "raw": "now.",
+          "start": 10.56,
+          "end": 10.96
+        }
+      ],
+      "expected_tokens": [
+        "Well,",
+        "we",
+        "are",
+        "to",
+        "enquire",
+        "concerning",
+        "Excellence,",
+        "_i.e._",
+        "Human",
+        "Excellence",
+        "of",
+        "course,",
+        "because",
+        "it",
+        "was",
+        "the",
+        "Chief",
+        "Good",
+        "of",
+        "Man",
+        "and",
+        "the",
+        "Happiness",
+        "of",
+        "Man",
+        "that",
+        "we",
+        "were",
+        "enquiring",
+        "of",
+        "just",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          28,
+          9,
+          29
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ],
+        [
+          "equal",
+          29,
+          32,
+          30,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "we",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "are",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "to",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "enquire",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "concerning",
+          "start": 1.6,
+          "end": 2.26
+        },
+        {
+          "text": "Excellence,",
+          "start": 2.26,
+          "end": 2.86
+        },
+        {
+          "text": "_i.e._",
+          "start": 2.86,
+          "end": 3.41
+        },
+        {
+          "text": "Human",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "Excellence",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "text": "of",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "text": "course,",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "text": "because",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "text": "it",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "text": "was",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "the",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "text": "Chief",
+          "start": 6.32,
+          "end": 6.6
+        },
+        {
+          "text": "Good",
+          "start": 6.6,
+          "end": 6.84
+        },
+        {
+          "text": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "Man",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "text": "and",
+          "start": 7.34,
+          "end": 7.9
+        },
+        {
+          "text": "the",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "text": "Happiness",
+          "start": 8.0,
+          "end": 8.38
+        },
+        {
+          "text": "of",
+          "start": 8.38,
+          "end": 8.62
+        },
+        {
+          "text": "Man",
+          "start": 8.62,
+          "end": 8.94
+        },
+        {
+          "text": "that",
+          "start": 8.94,
+          "end": 9.16
+        },
+        {
+          "text": "we",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "text": "were",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "text": "enquiring",
+          "start": 9.46,
+          "end": 9.76
+        },
+        {
+          "text": "of",
+          "start": 10.06,
+          "end": 10.34
+        },
+        {
+          "text": "just",
+          "start": 10.34,
+          "end": 10.56
+        },
+        {
+          "text": "now.",
+          "start": 10.56,
+          "end": 10.96
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 33,
+        "matched_words": 29
+      },
+      "match_ratio": 0.90625,
+      "rejection_reasons": [],
+      "seconds": 0.29575850488618016
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ec6fa0d5b657ac880e69ddda5c6bb557b25d91dbb2c4c7dc60140f8dd54df92b",
+  "selected_reasons": []
+}

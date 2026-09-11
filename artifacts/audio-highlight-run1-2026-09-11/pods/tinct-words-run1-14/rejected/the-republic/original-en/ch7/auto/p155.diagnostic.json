@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "74f5c8993bcc75af40a5c7f369500a12082094c36b75f1c6ca8170dbc79a3430",
+  "attempts": [
+    {
+      "asr_seconds": 0.09983444213867188,
+      "alignment_seconds": 7.294118404388428e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, in a very remarkable manner.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, in a very remarkable manner.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " in",
+              "start": 1.01,
+              "end": 1.15,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " remarkable",
+              "start": 1.45,
+              "end": 1.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " manner.",
+              "start": 1.91,
+              "end": 2.39,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "in",
+          "start": 1.01,
+          "end": 1.15
+        },
+        {
+          "raw": "a",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "very",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "remarkable",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "raw": "manner.",
+          "start": 1.91,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "in",
+        "a",
+        "very",
+        "remarkable",
+        "manner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "in",
+          "start": 1.01,
+          "end": 1.15
+        },
+        {
+          "text": "a",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "very",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "remarkable",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "text": "manner.",
+          "start": 1.91,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09993990510702133
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac0b009a3f2972d4cbf2ed4327159eeb5d6adac96c763d3d948bc19c58b89af6",
+  "selected_reasons": []
+}

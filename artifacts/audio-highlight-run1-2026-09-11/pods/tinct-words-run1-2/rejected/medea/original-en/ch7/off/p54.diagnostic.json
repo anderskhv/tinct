@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "d4aee8ecd164e63e921f5d941b007ea6b890c4bd2d6caa7744af75a476353506",
+  "attempts": [
+    {
+      "asr_seconds": 0.1225195899605751,
+      "alignment_seconds": 6.80685043334961e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Medea, go thou and lay thy bride to sleep.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.755859375
+            },
+            {
+              "text": " go",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.83984375
+            },
+            {
+              "text": " thou",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " lay",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thy",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bride",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " to",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sleep.",
+              "start": 2.53,
+              "end": 2.85,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "go",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "thou",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "lay",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "thy",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "bride",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "sleep.",
+          "start": 2.53,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Go",
+        "thou,",
+        "and",
+        "lay",
+        "thy",
+        "bride",
+        "to",
+        "sleep."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Go",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "thou,",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "lay",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "thy",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "bride",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "to",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "sleep.",
+          "start": 2.53,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12261994183063507
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9684d3f2dc1091158bff186c562a98243b899511ffe7cb0f8b6a14c2c1999199",
+  "selected_reasons": []
+}

@@ -1,0 +1,650 @@
+{
+  "complete": true,
+  "signature": "dbe4ef9a2a1916df85a5016ee303b20ee0b80c4ad94215cd39ba39c81f7265eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.23749926686286926,
+      "alignment_seconds": 0.00017532706260681152,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To another, I replied, I might have a difficulty in explaining; but I am sure that you will admit a proposition which I am about to make.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To another, I replied, I might have a difficulty in explaining, but I am sure that you will admit a proposition which I am about to make.",
+          "start": 0.0,
+          "end": 8.0,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " another,",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " replied,",
+              "start": 1.22,
+              "end": 1.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.2685546875
+            },
+            {
+              "text": " might",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " difficulty",
+              "start": 2.8,
+              "end": 3.14,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 3.14,
+              "end": 3.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " explaining,",
+              "start": 3.4,
+              "end": 3.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 4.66,
+              "end": 4.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " am",
+              "start": 4.78,
+              "end": 4.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sure",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 5.16,
+              "end": 5.36,
+              "probability": 0.986328125
+            },
+            {
+              "text": " you",
+              "start": 5.36,
+              "end": 5.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 5.52,
+              "end": 5.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " admit",
+              "start": 5.66,
+              "end": 5.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " proposition",
+              "start": 6.08,
+              "end": 6.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " which",
+              "start": 6.56,
+              "end": 6.96,
+              "probability": 0.9296875
+            },
+            {
+              "text": " I",
+              "start": 6.96,
+              "end": 7.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " am",
+              "start": 7.18,
+              "end": 7.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " about",
+              "start": 7.32,
+              "end": 7.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 7.54,
+              "end": 7.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " make.",
+              "start": 7.74,
+              "end": 8.0,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "another,",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "raw": "replied,",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "raw": "I",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "might",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "have",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "a",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "difficulty",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "raw": "in",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "raw": "explaining,",
+          "start": 3.4,
+          "end": 3.84
+        },
+        {
+          "raw": "but",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "I",
+          "start": 4.66,
+          "end": 4.78
+        },
+        {
+          "raw": "am",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "raw": "sure",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "that",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "raw": "you",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "raw": "will",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "raw": "admit",
+          "start": 5.66,
+          "end": 5.92
+        },
+        {
+          "raw": "a",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "proposition",
+          "start": 6.08,
+          "end": 6.56
+        },
+        {
+          "raw": "which",
+          "start": 6.56,
+          "end": 6.96
+        },
+        {
+          "raw": "I",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "raw": "am",
+          "start": 7.18,
+          "end": 7.32
+        },
+        {
+          "raw": "about",
+          "start": 7.32,
+          "end": 7.54
+        },
+        {
+          "raw": "to",
+          "start": 7.54,
+          "end": 7.74
+        },
+        {
+          "raw": "make.",
+          "start": 7.74,
+          "end": 8.0
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "another,",
+        "I",
+        "replied,",
+        "I",
+        "might",
+        "have",
+        "a",
+        "difficulty",
+        "in",
+        "explaining;",
+        "but",
+        "I",
+        "am",
+        "sure",
+        "that",
+        "you",
+        "will",
+        "admit",
+        "a",
+        "proposition",
+        "which",
+        "I",
+        "am",
+        "about",
+        "to",
+        "make."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "another,",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "text": "replied,",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "text": "I",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "might",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "have",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "a",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "difficulty",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "text": "in",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "text": "explaining;",
+          "start": 3.4,
+          "end": 3.84
+        },
+        {
+          "text": "but",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "I",
+          "start": 4.66,
+          "end": 4.78
+        },
+        {
+          "text": "am",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "text": "sure",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "text": "that",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "text": "you",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "text": "will",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "text": "admit",
+          "start": 5.66,
+          "end": 5.92
+        },
+        {
+          "text": "a",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "proposition",
+          "start": 6.08,
+          "end": 6.56
+        },
+        {
+          "text": "which",
+          "start": 6.56,
+          "end": 6.96
+        },
+        {
+          "text": "I",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "text": "am",
+          "start": 7.18,
+          "end": 7.32
+        },
+        {
+          "text": "about",
+          "start": 7.32,
+          "end": 7.54
+        },
+        {
+          "text": "to",
+          "start": 7.54,
+          "end": 7.74
+        },
+        {
+          "text": "make.",
+          "start": 7.74,
+          "end": 8.0
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2377675175666809
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a7695ef714977c24a4e9dd57b13073937de7e7e567c40a8bddf1f44fc047f90",
+  "selected_reasons": []
+}

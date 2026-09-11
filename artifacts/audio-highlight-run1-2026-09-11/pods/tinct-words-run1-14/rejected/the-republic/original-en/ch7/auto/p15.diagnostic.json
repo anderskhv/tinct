@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "ec506bdd5282433c6f7603614b741217ac8f51afc39b7a4f4f7339239649e400",
+  "attempts": [
+    {
+      "asr_seconds": 0.07811456173658371,
+      "alignment_seconds": 5.323439836502075e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Far truer.",
+        "hotwords": "Far"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Far truer.",
+          "start": 0.08,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Far",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.489990234375
+            },
+            {
+              "text": " truer.",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.9091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Far",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "truer.",
+          "start": 0.6,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Far",
+        "truer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Far",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "truer.",
+          "start": 0.6,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07818660885095596
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce6840d133f99cd61105c13a4e032851a6eb1fd234d1b0c31b8a1fce1a713945",
+  "selected_reasons": []
+}

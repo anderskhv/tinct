@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "ce3a17091be59d102e6f8b139a5edaf3c0e552ad6e16c5bf7421a0d0899c1da9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22772391885519028,
+      "alignment_seconds": 0.00012620538473129272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'Lest the mansions grim and squalid which the gods abhor should be seen both of mortals and immortals.'",
+        "hotwords": "Lest"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lest the mansions grim and squalid which the gods abhor should be seen both of mortals and immortals.",
+          "start": 0.05,
+          "end": 6.29,
+          "words": [
+            {
+              "text": " Lest",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mansions",
+              "start": 0.81,
+              "end": 1.31,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " grim",
+              "start": 1.31,
+              "end": 1.69,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " and",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " squalid",
+              "start": 1.99,
+              "end": 2.47,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " which",
+              "start": 2.47,
+              "end": 2.89,
+              "probability": 0.09344482421875
+            },
+            {
+              "text": " the",
+              "start": 2.89,
+              "end": 3.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gods",
+              "start": 3.09,
+              "end": 3.31,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " abhor",
+              "start": 3.31,
+              "end": 3.69,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " should",
+              "start": 3.69,
+              "end": 4.01,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " be",
+              "start": 4.01,
+              "end": 4.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seen",
+              "start": 4.13,
+              "end": 4.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " both",
+              "start": 4.43,
+              "end": 4.67,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " of",
+              "start": 4.67,
+              "end": 4.87,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " mortals",
+              "start": 4.87,
+              "end": 5.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 5.21,
+              "end": 5.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " immortals.",
+              "start": 5.67,
+              "end": 6.29,
+              "probability": 0.9664713541666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lest",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "mansions",
+          "start": 0.81,
+          "end": 1.31
+        },
+        {
+          "raw": "grim",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "raw": "and",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "squalid",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "raw": "which",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "raw": "gods",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "raw": "abhor",
+          "start": 3.31,
+          "end": 3.69
+        },
+        {
+          "raw": "should",
+          "start": 3.69,
+          "end": 4.01
+        },
+        {
+          "raw": "be",
+          "start": 4.01,
+          "end": 4.13
+        },
+        {
+          "raw": "seen",
+          "start": 4.13,
+          "end": 4.43
+        },
+        {
+          "raw": "both",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "raw": "of",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "raw": "mortals",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "raw": "and",
+          "start": 5.21,
+          "end": 5.67
+        },
+        {
+          "raw": "immortals.",
+          "start": 5.67,
+          "end": 6.29
+        }
+      ],
+      "expected_tokens": [
+        "'Lest",
+        "the",
+        "mansions",
+        "grim",
+        "and",
+        "squalid",
+        "which",
+        "the",
+        "gods",
+        "abhor",
+        "should",
+        "be",
+        "seen",
+        "both",
+        "of",
+        "mortals",
+        "and",
+        "immortals.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'Lest",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "mansions",
+          "start": 0.81,
+          "end": 1.31
+        },
+        {
+          "text": "grim",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "text": "and",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "squalid",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "text": "which",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "text": "the",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "text": "gods",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "text": "abhor",
+          "start": 3.31,
+          "end": 3.69
+        },
+        {
+          "text": "should",
+          "start": 3.69,
+          "end": 4.01
+        },
+        {
+          "text": "be",
+          "start": 4.01,
+          "end": 4.13
+        },
+        {
+          "text": "seen",
+          "start": 4.13,
+          "end": 4.43
+        },
+        {
+          "text": "both",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "text": "of",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "text": "mortals",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "text": "and",
+          "start": 5.21,
+          "end": 5.67
+        },
+        {
+          "text": "immortals.'",
+          "start": 5.67,
+          "end": 6.29
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22791633009910583
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5d19c0b496629c8d4cefa8f4df4b697a613086651f081279db9e5a65a1f72cc",
+  "selected_reasons": []
+}

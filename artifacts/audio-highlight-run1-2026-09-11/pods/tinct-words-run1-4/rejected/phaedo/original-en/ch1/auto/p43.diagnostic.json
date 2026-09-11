@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "256c93e776d0cbdf4d66ccecbad4151559d7e6e3445b4a837804c38ae049b116",
+  "attempts": [
+    {
+      "asr_seconds": 3.4821361182257533,
+      "alignment_seconds": 7.330439984798431e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I quite agree, said Cebes.",
+        "hotwords": "Yes, I, Cebes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I quite agree, said Cebes",
+          "start": 0.02,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.1378173828125
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " quite",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " agree,",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " said",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Cebes",
+              "start": 1.6,
+              "end": 2.1,
+              "probability": 0.37463633219401044
+            }
+          ]
+        },
+        {
+          "text": " Yes, I quite agree, said Cebes. Yes, I quite agree, said Cebes",
+          "start": 2.1,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 2.1,
+              "end": 2.62,
+              "probability": 0.0011701583862304688
+            },
+            {
+              "text": " I",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.11248779296875
+            },
+            {
+              "text": " quite",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 6.496906280517578e-05
+            },
+            {
+              "text": " agree,",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.13134765625
+            },
+            {
+              "text": " said",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 5.424022674560547e-05
+            },
+            {
+              "text": " Cebes.",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.0031687418619791665
+            },
+            {
+              "text": " Yes,",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.038726806640625
+            },
+            {
+              "text": " I",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.515625
+            },
+            {
+              "text": " quite",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.1490478515625
+            },
+            {
+              "text": " agree,",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.96875
+            },
+            {
+              "text": " said",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " Cebes",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.7979329427083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.8
+        },
+        {
+          "raw": "quite",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "agree,",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "said",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "Cebes",
+          "start": 1.6,
+          "end": 2.1
+        },
+        {
+          "raw": "Yes,",
+          "start": 2.1,
+          "end": 2.62
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "quite",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "agree,",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "said",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "Cebes.",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "Yes,",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "quite",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "agree,",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "said",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "Cebes",
+          "start": 2.62,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "quite",
+        "agree,",
+        "said",
+        "Cebes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.8
+        },
+        {
+          "text": "quite",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "agree,",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "said",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "Cebes.",
+          "start": 1.6,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 18,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.482253024354577
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e1a0bd614c17ced330ca99d657e32c51e93c9bc10447539f1bb6ef9e79a0659",
+  "selected_reasons": []
+}

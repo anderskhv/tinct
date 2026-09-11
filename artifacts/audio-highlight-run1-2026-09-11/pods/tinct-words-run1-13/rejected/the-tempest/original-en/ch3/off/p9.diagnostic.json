@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "f8ba8fef48456ad2a81f63d129bb96085bd61363e8a8a6419ceb583dfb00d08a",
+  "attempts": [
+    {
+      "asr_seconds": 0.08640098699834198,
+      "alignment_seconds": 8.335302118211985e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, a dollar.",
+          "start": 0.08,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " a",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " dollar.",
+              "start": 1.4,
+              "end": 1.68,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "dollar.",
+          "start": 1.4,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "A",
+        "dollar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "A",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "dollar.",
+          "start": 1.4,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08651979104615748
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8b664aae4abad7e251549f800d57dc27bfcd81d73cc188f0a5ff163337d6dd7f",
+  "selected_reasons": []
+}

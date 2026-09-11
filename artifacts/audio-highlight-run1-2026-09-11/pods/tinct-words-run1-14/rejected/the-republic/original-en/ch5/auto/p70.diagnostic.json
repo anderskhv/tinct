@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "14898b31a8fb4c15baac72295c99c400028514427b233d073d12d0006e739640",
+  "attempts": [
+    {
+      "asr_seconds": 0.17315563559532166,
+      "alignment_seconds": 8.980929851531982e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Why, no, he said, that was never considered by us.",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, no, he said, that was never considered by us.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.11474609375
+            },
+            {
+              "text": " no,",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " he",
+              "start": 0.97,
+              "end": 1.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " said,",
+              "start": 1.05,
+              "end": 1.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.95703125
+            },
+            {
+              "text": " was",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " never",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " considered",
+              "start": 2.31,
+              "end": 2.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us.",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "no,",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "he",
+          "start": 0.97,
+          "end": 1.05
+        },
+        {
+          "raw": "said,",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "raw": "that",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "raw": "was",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "never",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "considered",
+          "start": 2.31,
+          "end": 2.67
+        },
+        {
+          "raw": "by",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "us.",
+          "start": 2.91,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Why,",
+        "no,",
+        "he",
+        "said,",
+        "that",
+        "was",
+        "never",
+        "considered",
+        "by",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Why,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "no,",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "text": "he",
+          "start": 0.97,
+          "end": 1.05
+        },
+        {
+          "text": "said,",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "text": "that",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "text": "was",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "text": "never",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "considered",
+          "start": 2.31,
+          "end": 2.67
+        },
+        {
+          "text": "by",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "us.",
+          "start": 2.91,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1732887104153633
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f44d114cc612c5e97a3390574541ffb38e9774956d55cdc58d4caf845317c5d",
+  "selected_reasons": []
+}

@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "9b5897d593bbd542a6d223e0582743d470090fe72a5d439024f85e892033a0c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.08962415903806686,
+      "alignment_seconds": 6.617605686187744e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No one will deny that.",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " one",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.9765625
+            },
+            {
+              "text": " will",
+              "start": 0.74,
+              "end": 0.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deny",
+              "start": 0.86,
+              "end": 1.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that.",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "one",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "will",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "raw": "deny",
+          "start": 0.86,
+          "end": 1.08
+        },
+        {
+          "raw": "that.",
+          "start": 1.08,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "No",
+        "one",
+        "will",
+        "deny",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "one",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "will",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "text": "deny",
+          "start": 0.86,
+          "end": 1.08
+        },
+        {
+          "text": "that.",
+          "start": 1.08,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08971762657165527
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cb6abafa9883459e06ee1c616f20c7a50414e9f7eccbd4185fdd6e434224422",
+  "selected_reasons": []
+}

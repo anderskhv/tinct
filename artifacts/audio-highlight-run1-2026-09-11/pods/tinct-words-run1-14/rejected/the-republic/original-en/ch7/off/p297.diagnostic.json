@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "89c54e644976d4dbe8b27cbeb95ea2197355a47cbc8a1dd3ecd4d1c9205944ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.096342071890831,
+      "alignment_seconds": 7.273256778717041e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is very true, he said.",
+          "start": 0.14,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.40869140625
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " very",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " true,",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said.",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "very",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "true,",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "said.",
+          "start": 1.48,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "very",
+        "true,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "very",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "true,",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "text": "he",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "said.",
+          "start": 1.48,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09644580632448196
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d9b9b59298ae1c0f80d415546b5e77c9a0c5990e1d797c666240c93254fb372",
+  "selected_reasons": []
+}

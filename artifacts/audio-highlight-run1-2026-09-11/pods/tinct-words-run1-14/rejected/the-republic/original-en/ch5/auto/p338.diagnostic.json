@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "33d6171b147e63f62c996b903b5ac40adb6f45b7e3feae52e37b904546d45861",
+  "attempts": [
+    {
+      "asr_seconds": 0.08943615108728409,
+      "alignment_seconds": 4.9442052841186523e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agreed.",
+        "hotwords": "Agreed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agreed.",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Agreed.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.82470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agreed.",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "Agreed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Agreed.",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08950190246105194
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34d441f3415a47b7dd59760b8edc1a636f0104573e86e09d4e220f801bc4d961",
+  "selected_reasons": []
+}

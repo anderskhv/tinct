@@ -1,0 +1,545 @@
+{
+  "complete": true,
+  "signature": "3bb01f448806c504727ff8656ad50d6ca1ce7ff9329b281389399c68052fe69c",
+  "attempts": [
+    {
+      "asr_seconds": 0.21490702033042908,
+      "alignment_seconds": 0.00014661997556686401,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I should rather say that those who elevate astronomy into philosophy",
+          "start": 0.08,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " should",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " rather",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " say",
+              "start": 0.9,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.98828125
+            },
+            {
+              "text": " those",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " who",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " elevate",
+              "start": 1.94,
+              "end": 2.34,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " astronomy",
+              "start": 2.34,
+              "end": 2.9,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " into",
+              "start": 2.9,
+              "end": 3.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " philosophy",
+              "start": 3.28,
+              "end": 3.92,
+              "probability": 0.9833984375
+            }
+          ]
+        },
+        {
+          "text": " appear to me to make us look downwards and not upwards.",
+          "start": 3.92,
+          "end": 7.42,
+          "words": [
+            {
+              "text": " appear",
+              "start": 3.92,
+              "end": 4.72,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " to",
+              "start": 4.72,
+              "end": 4.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 4.9,
+              "end": 5.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 5.02,
+              "end": 5.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " make",
+              "start": 5.16,
+              "end": 5.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " us",
+              "start": 5.32,
+              "end": 5.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " look",
+              "start": 5.48,
+              "end": 5.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " downwards",
+              "start": 5.66,
+              "end": 6.18,
+              "probability": 0.982421875
+            },
+            {
+              "text": " and",
+              "start": 6.18,
+              "end": 6.82,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " not",
+              "start": 6.82,
+              "end": 7.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " upwards.",
+              "start": 7.02,
+              "end": 7.42,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "should",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "rather",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "say",
+          "start": 0.9,
+          "end": 1.26
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "those",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "who",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "elevate",
+          "start": 1.94,
+          "end": 2.34
+        },
+        {
+          "raw": "astronomy",
+          "start": 2.34,
+          "end": 2.9
+        },
+        {
+          "raw": "into",
+          "start": 2.9,
+          "end": 3.28
+        },
+        {
+          "raw": "philosophy",
+          "start": 3.28,
+          "end": 3.92
+        },
+        {
+          "raw": "appear",
+          "start": 3.92,
+          "end": 4.72
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.9
+        },
+        {
+          "raw": "me",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "raw": "to",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "raw": "make",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "raw": "us",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "raw": "look",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "raw": "downwards",
+          "start": 5.66,
+          "end": 6.18
+        },
+        {
+          "raw": "and",
+          "start": 6.18,
+          "end": 6.82
+        },
+        {
+          "raw": "not",
+          "start": 6.82,
+          "end": 7.02
+        },
+        {
+          "raw": "upwards.",
+          "start": 7.02,
+          "end": 7.42
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "should",
+        "rather",
+        "say",
+        "that",
+        "those",
+        "who",
+        "elevate",
+        "astronomy",
+        "into",
+        "philosophy",
+        "appear",
+        "to",
+        "me",
+        "to",
+        "make",
+        "us",
+        "look",
+        "downwards",
+        "and",
+        "not",
+        "upwards."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "should",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "rather",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "say",
+          "start": 0.9,
+          "end": 1.26
+        },
+        {
+          "text": "that",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "those",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "who",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "elevate",
+          "start": 1.94,
+          "end": 2.34
+        },
+        {
+          "text": "astronomy",
+          "start": 2.34,
+          "end": 2.9
+        },
+        {
+          "text": "into",
+          "start": 2.9,
+          "end": 3.28
+        },
+        {
+          "text": "philosophy",
+          "start": 3.28,
+          "end": 3.92
+        },
+        {
+          "text": "appear",
+          "start": 3.92,
+          "end": 4.72
+        },
+        {
+          "text": "to",
+          "start": 4.72,
+          "end": 4.9
+        },
+        {
+          "text": "me",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "text": "to",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "text": "make",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "text": "us",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "text": "look",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "text": "downwards",
+          "start": 5.66,
+          "end": 6.18
+        },
+        {
+          "text": "and",
+          "start": 6.18,
+          "end": 6.82
+        },
+        {
+          "text": "not",
+          "start": 6.82,
+          "end": 7.02
+        },
+        {
+          "text": "upwards.",
+          "start": 7.02,
+          "end": 7.42
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21512660384178162
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c800b8bef04833de06fdbc787625f0a00108b8633d719007615a6dd5af71f80b",
+  "selected_reasons": []
+}

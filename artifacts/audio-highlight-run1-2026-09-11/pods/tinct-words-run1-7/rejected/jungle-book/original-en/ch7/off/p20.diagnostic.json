@@ -1,0 +1,490 @@
+{
+  "complete": true,
+  "signature": "d44cdb39a616102e68cfa32bc66156cd0ac22c6cf4226abfbc134d9cab724ccb",
+  "attempts": [
+    {
+      "asr_seconds": 0.14347205124795437,
+      "alignment_seconds": 9.584985673427582e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The gun bullocks lay down together and began chewing the cud, but the young mule huddled",
+          "start": 0.02,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " gun",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " bullocks",
+              "start": 0.68,
+              "end": 1.1,
+              "probability": 0.6119384765625
+            },
+            {
+              "text": " lay",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " down",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " together",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.0,
+              "end": 2.5,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " began",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " chewing",
+              "start": 2.74,
+              "end": 3.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cud,",
+              "start": 3.3,
+              "end": 3.66,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " but",
+              "start": 4.08,
+              "end": 4.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 4.26,
+              "end": 4.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " young",
+              "start": 4.42,
+              "end": 4.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mule",
+              "start": 4.66,
+              "end": 5.14,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " huddled",
+              "start": 5.14,
+              "end": 5.48,
+              "probability": 0.990478515625
+            }
+          ]
+        },
+        {
+          "text": " close to Billy.",
+          "start": 5.48,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " close",
+              "start": 5.48,
+              "end": 5.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 5.8,
+              "end": 6.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Billy.",
+              "start": 6.02,
+              "end": 6.18,
+              "probability": 0.86669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "gun",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "bullocks",
+          "start": 0.68,
+          "end": 1.1
+        },
+        {
+          "raw": "lay",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "down",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "raw": "together",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.5
+        },
+        {
+          "raw": "began",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "chewing",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "cud,",
+          "start": 3.3,
+          "end": 3.66
+        },
+        {
+          "raw": "but",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "raw": "the",
+          "start": 4.26,
+          "end": 4.42
+        },
+        {
+          "raw": "young",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "raw": "mule",
+          "start": 4.66,
+          "end": 5.14
+        },
+        {
+          "raw": "huddled",
+          "start": 5.14,
+          "end": 5.48
+        },
+        {
+          "raw": "close",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "raw": "to",
+          "start": 5.8,
+          "end": 6.02
+        },
+        {
+          "raw": "Billy.",
+          "start": 6.02,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "gun-bullocks",
+        "lay",
+        "down",
+        "together",
+        "and",
+        "began",
+        "chewing",
+        "the",
+        "cud,",
+        "but",
+        "the",
+        "young",
+        "mule",
+        "huddled",
+        "close",
+        "to",
+        "Billy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          18,
+          3,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "gun-bullocks",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "lay",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "text": "down",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "text": "together",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "and",
+          "start": 2.0,
+          "end": 2.5
+        },
+        {
+          "text": "began",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "chewing",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "text": "the",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "cud,",
+          "start": 3.3,
+          "end": 3.66
+        },
+        {
+          "text": "but",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "text": "the",
+          "start": 4.26,
+          "end": 4.42
+        },
+        {
+          "text": "young",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "text": "mule",
+          "start": 4.66,
+          "end": 5.14
+        },
+        {
+          "text": "huddled",
+          "start": 5.14,
+          "end": 5.48
+        },
+        {
+          "text": "close",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "text": "to",
+          "start": 5.8,
+          "end": 6.02
+        },
+        {
+          "text": "Billy.",
+          "start": 6.02,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.14362361747771502
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9cb133957380ca99ca10d0dca2cbfdb0014ffa4922219ebc2527bbe8eb7a387e",
+  "selected_reasons": []
+}

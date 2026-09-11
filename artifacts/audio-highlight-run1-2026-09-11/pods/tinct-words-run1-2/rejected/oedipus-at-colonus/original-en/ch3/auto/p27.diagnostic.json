@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "9e03b0fba67481deadea6d80a65de2e1dca32fed5d3920ef735db721e5d91be1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12244076281785965,
+      "alignment_seconds": 7.64206051826477e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ismene. The gods, who once abased, uplift thee now.",
+        "hotwords": "Ismene, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ismene, The gods, who once abased, uplift thee now.",
+          "start": 0.02,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " The",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.029052734375
+            },
+            {
+              "text": " gods,",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.307861328125
+            },
+            {
+              "text": " who",
+              "start": 1.78,
+              "end": 1.84,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " once",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " abased,",
+              "start": 2.0,
+              "end": 2.46,
+              "probability": 0.962890625
+            },
+            {
+              "text": " uplift",
+              "start": 2.58,
+              "end": 2.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thee",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " now.",
+              "start": 3.02,
+              "end": 3.3,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "The",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "gods,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "who",
+          "start": 1.78,
+          "end": 1.84
+        },
+        {
+          "raw": "once",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "abased,",
+          "start": 2.0,
+          "end": 2.46
+        },
+        {
+          "raw": "uplift",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "raw": "thee",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "now.",
+          "start": 3.02,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "The",
+        "gods,",
+        "who",
+        "once",
+        "abased,",
+        "uplift",
+        "thee",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "The",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "gods,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "who",
+          "start": 1.78,
+          "end": 1.84
+        },
+        {
+          "text": "once",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "abased,",
+          "start": 2.0,
+          "end": 2.46
+        },
+        {
+          "text": "uplift",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "text": "thee",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "now.",
+          "start": 3.02,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12255178391933441
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a349925a3d42547cec2606fd78b9acaad5b9df0331bb6b38e284e1def7484c52",
+  "selected_reasons": []
+}

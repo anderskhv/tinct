@@ -1,0 +1,3646 @@
+{
+  "complete": true,
+  "signature": "38eff05c5756f58bdba1c11ea3ac3c72494a474e78574eea186cde74f0f5a996",
+  "attempts": [
+    {
+      "asr_seconds": 0.9991998374462128,
+      "alignment_seconds": 0.0006983280181884766,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The other case is, When a king makes himself the dependent of another, and subjects his kingdom which his ancestors left him, and the people put free into his hands, to the dominion of another: for however perhaps it may not be his intention to prejudice the people; yet because he has hereby lost the principal part of regal dignity, viz. to be next and immediately under God, supreme in his kingdom; and also because he betrayed or forced his people, whose liberty he ought to have carefully preserved, into the power and dominion of a foreign nation. By this, as it were, alienation of his kingdom, he himself loses the power he had in it before, without transferring any the least right to those on whom he would have bestowed it; and so by this act sets the people free, and leaves them at their own disposal. One example of this is to be found in the Scotch Annals.",
+        "hotwords": "When, God, One, Scotch, Annals"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The other case is, When a king makes himself the dependent of another, and subjects his kingdom",
+          "start": 0.02,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " other",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " case",
+              "start": 0.74,
+              "end": 1.02,
+              "probability": 0.94921875
+            },
+            {
+              "text": " is,",
+              "start": 1.02,
+              "end": 1.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " When",
+              "start": 1.84,
+              "end": 1.9,
+              "probability": 0.0167694091796875
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " king",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " makes",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " himself",
+              "start": 2.56,
+              "end": 2.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " dependent",
+              "start": 3.2,
+              "end": 3.54,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " of",
+              "start": 3.54,
+              "end": 3.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " another,",
+              "start": 3.84,
+              "end": 4.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.43359375
+            },
+            {
+              "text": " subjects",
+              "start": 4.76,
+              "end": 5.1,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " his",
+              "start": 5.1,
+              "end": 5.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " kingdom",
+              "start": 5.42,
+              "end": 5.74,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " which his ancestors left him, and the people put free into his hands, to the dominion of",
+          "start": 5.74,
+          "end": 10.92,
+          "words": [
+            {
+              "text": " which",
+              "start": 5.74,
+              "end": 6.02,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " his",
+              "start": 6.02,
+              "end": 6.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ancestors",
+              "start": 6.18,
+              "end": 6.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " left",
+              "start": 6.64,
+              "end": 7.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 7.06,
+              "end": 7.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 7.76,
+              "end": 7.92,
+              "probability": 0.83984375
+            },
+            {
+              "text": " the",
+              "start": 7.92,
+              "end": 8.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " people",
+              "start": 8.02,
+              "end": 8.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " put",
+              "start": 8.3,
+              "end": 8.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " free",
+              "start": 8.54,
+              "end": 8.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " into",
+              "start": 8.86,
+              "end": 9.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " his",
+              "start": 9.1,
+              "end": 9.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hands,",
+              "start": 9.28,
+              "end": 9.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 10.06,
+              "end": 10.2,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 10.2,
+              "end": 10.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dominion",
+              "start": 10.32,
+              "end": 10.6,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 10.6,
+              "end": 10.92,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " another. For however perhaps it may not be his intention to prejudice the people, yet",
+          "start": 10.92,
+          "end": 16.16,
+          "words": [
+            {
+              "text": " another.",
+              "start": 10.92,
+              "end": 11.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " For",
+              "start": 11.82,
+              "end": 12.08,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " however",
+              "start": 12.08,
+              "end": 12.38,
+              "probability": 0.759765625
+            },
+            {
+              "text": " perhaps",
+              "start": 12.38,
+              "end": 12.88,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " it",
+              "start": 12.88,
+              "end": 13.14,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " may",
+              "start": 13.14,
+              "end": 13.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 13.26,
+              "end": 13.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 13.5,
+              "end": 13.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 13.68,
+              "end": 13.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " intention",
+              "start": 13.82,
+              "end": 14.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 14.2,
+              "end": 14.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " prejudice",
+              "start": 14.58,
+              "end": 14.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 14.84,
+              "end": 15.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " people,",
+              "start": 15.14,
+              "end": 15.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yet",
+              "start": 16.0,
+              "end": 16.16,
+              "probability": 0.9833984375
+            }
+          ]
+        },
+        {
+          "text": " because he has hereby lost the principal part of regal dignity, viz. to be next and immediately",
+          "start": 16.16,
+          "end": 22.18,
+          "words": [
+            {
+              "text": " because",
+              "start": 16.16,
+              "end": 16.42,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " he",
+              "start": 16.42,
+              "end": 16.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " has",
+              "start": 16.58,
+              "end": 16.72,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " hereby",
+              "start": 16.72,
+              "end": 16.94,
+              "probability": 0.951171875
+            },
+            {
+              "text": " lost",
+              "start": 16.94,
+              "end": 17.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 17.32,
+              "end": 17.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " principal",
+              "start": 17.58,
+              "end": 17.82,
+              "probability": 0.89453125
+            },
+            {
+              "text": " part",
+              "start": 17.82,
+              "end": 18.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 18.26,
+              "end": 18.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " regal",
+              "start": 18.5,
+              "end": 18.86,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " dignity,",
+              "start": 18.86,
+              "end": 19.42,
+              "probability": 0.986328125
+            },
+            {
+              "text": " viz.",
+              "start": 19.9,
+              "end": 19.96,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " to",
+              "start": 20.76,
+              "end": 21.22,
+              "probability": 0.0946044921875
+            },
+            {
+              "text": " be",
+              "start": 21.22,
+              "end": 21.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " next",
+              "start": 21.34,
+              "end": 21.66,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 21.66,
+              "end": 21.86,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " immediately",
+              "start": 21.86,
+              "end": 22.18,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " under God, supreme in his kingdom, and also because he betrayed or forced his people,",
+          "start": 22.18,
+          "end": 27.4,
+          "words": [
+            {
+              "text": " under",
+              "start": 22.18,
+              "end": 22.62,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " God,",
+              "start": 22.62,
+              "end": 23.0,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " supreme",
+              "start": 23.66,
+              "end": 23.74,
+              "probability": 0.95703125
+            },
+            {
+              "text": " in",
+              "start": 23.74,
+              "end": 23.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 23.96,
+              "end": 24.12,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " kingdom,",
+              "start": 24.12,
+              "end": 24.46,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 25.02,
+              "end": 25.12,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " also",
+              "start": 25.12,
+              "end": 25.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " because",
+              "start": 25.38,
+              "end": 25.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 25.66,
+              "end": 25.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " betrayed",
+              "start": 25.82,
+              "end": 26.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " or",
+              "start": 26.2,
+              "end": 26.58,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " forced",
+              "start": 26.58,
+              "end": 26.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 26.84,
+              "end": 27.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " people,",
+              "start": 27.04,
+              "end": 27.4,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " whose liberty he ought to have carefully preserved, into the power and dominion of",
+          "start": 27.4,
+          "end": 31.94,
+          "words": [
+            {
+              "text": " whose",
+              "start": 27.4,
+              "end": 27.96,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " liberty",
+              "start": 27.96,
+              "end": 28.32,
+              "probability": 0.984375
+            },
+            {
+              "text": " he",
+              "start": 28.32,
+              "end": 28.56,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " ought",
+              "start": 28.56,
+              "end": 28.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 28.7,
+              "end": 28.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 28.86,
+              "end": 29.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " carefully",
+              "start": 29.0,
+              "end": 29.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " preserved,",
+              "start": 29.4,
+              "end": 30.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " into",
+              "start": 30.52,
+              "end": 30.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 30.68,
+              "end": 30.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " power",
+              "start": 30.84,
+              "end": 31.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 31.14,
+              "end": 31.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dominion",
+              "start": 31.36,
+              "end": 31.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 31.68,
+              "end": 31.94,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " a foreign nation. By this, as it were, alienation of his kingdom, he himself loses the power",
+          "start": 31.94,
+          "end": 38.32,
+          "words": [
+            {
+              "text": " a",
+              "start": 31.94,
+              "end": 32.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " foreign",
+              "start": 32.06,
+              "end": 32.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " nation.",
+              "start": 32.3,
+              "end": 32.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " By",
+              "start": 33.52,
+              "end": 33.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " this,",
+              "start": 33.72,
+              "end": 34.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 34.36,
+              "end": 34.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 34.52,
+              "end": 34.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were,",
+              "start": 34.62,
+              "end": 34.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " alienation",
+              "start": 35.22,
+              "end": 35.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 35.5,
+              "end": 35.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 35.92,
+              "end": 36.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " kingdom,",
+              "start": 36.06,
+              "end": 36.36,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " he",
+              "start": 36.9,
+              "end": 37.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 37.02,
+              "end": 37.34,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " loses",
+              "start": 37.34,
+              "end": 37.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 37.76,
+              "end": 38.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " power",
+              "start": 38.04,
+              "end": 38.32,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " he had in it before, without transferring any the least right to those on whom he would",
+          "start": 38.32,
+          "end": 42.68,
+          "words": [
+            {
+              "text": " he",
+              "start": 38.32,
+              "end": 38.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " had",
+              "start": 38.54,
+              "end": 38.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 38.72,
+              "end": 38.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 38.82,
+              "end": 38.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " before,",
+              "start": 38.94,
+              "end": 39.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " without",
+              "start": 39.7,
+              "end": 39.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " transferring",
+              "start": 39.9,
+              "end": 40.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " any",
+              "start": 40.46,
+              "end": 40.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 40.78,
+              "end": 40.94,
+              "probability": 0.935546875
+            },
+            {
+              "text": " least",
+              "start": 40.94,
+              "end": 41.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " right",
+              "start": 41.18,
+              "end": 41.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 41.46,
+              "end": 41.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " those",
+              "start": 41.7,
+              "end": 41.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 41.92,
+              "end": 42.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whom",
+              "start": 42.12,
+              "end": 42.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 42.32,
+              "end": 42.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " would",
+              "start": 42.54,
+              "end": 42.68,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " have bestowed it, and so by this act sets the people free, and leaves them at their",
+          "start": 42.68,
+          "end": 47.28,
+          "words": [
+            {
+              "text": " have",
+              "start": 42.68,
+              "end": 42.78,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " bestowed",
+              "start": 42.78,
+              "end": 43.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it,",
+              "start": 43.1,
+              "end": 43.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 43.8,
+              "end": 44.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 44.0,
+              "end": 44.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 44.16,
+              "end": 44.32,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " this",
+              "start": 44.32,
+              "end": 44.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " act",
+              "start": 44.56,
+              "end": 44.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " sets",
+              "start": 44.84,
+              "end": 45.06,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 45.06,
+              "end": 45.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " people",
+              "start": 45.28,
+              "end": 45.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " free,",
+              "start": 45.54,
+              "end": 45.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 46.34,
+              "end": 46.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " leaves",
+              "start": 46.46,
+              "end": 46.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 46.68,
+              "end": 46.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 46.96,
+              "end": 47.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 47.12,
+              "end": 47.28,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " own disposal. One example of this is to be found in the",
+          "start": 47.28,
+          "end": 51.78,
+          "words": [
+            {
+              "text": " own",
+              "start": 47.28,
+              "end": 47.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " disposal.",
+              "start": 47.54,
+              "end": 48.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " One",
+              "start": 49.26,
+              "end": 49.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " example",
+              "start": 49.5,
+              "end": 49.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 49.84,
+              "end": 50.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 50.12,
+              "end": 50.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 50.34,
+              "end": 50.76,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " to",
+              "start": 50.76,
+              "end": 50.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 50.9,
+              "end": 51.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " found",
+              "start": 51.04,
+              "end": 51.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 51.32,
+              "end": 51.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 51.54,
+              "end": 51.78,
+              "probability": 0.8427734375
+            }
+          ]
+        },
+        {
+          "text": " Scotch Annals.",
+          "start": 51.78,
+          "end": 52.44,
+          "words": [
+            {
+              "text": " Scotch",
+              "start": 51.78,
+              "end": 51.96,
+              "probability": 9.894371032714844e-05
+            },
+            {
+              "text": " Annals.",
+              "start": 51.96,
+              "end": 52.44,
+              "probability": 0.6685791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "other",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "case",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "raw": "is,",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "raw": "When",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "king",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "makes",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "himself",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "dependent",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.84
+        },
+        {
+          "raw": "another,",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "raw": "and",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "subjects",
+          "start": 4.76,
+          "end": 5.1
+        },
+        {
+          "raw": "his",
+          "start": 5.1,
+          "end": 5.42
+        },
+        {
+          "raw": "kingdom",
+          "start": 5.42,
+          "end": 5.74
+        },
+        {
+          "raw": "which",
+          "start": 5.74,
+          "end": 6.02
+        },
+        {
+          "raw": "his",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "raw": "ancestors",
+          "start": 6.18,
+          "end": 6.64
+        },
+        {
+          "raw": "left",
+          "start": 6.64,
+          "end": 7.06
+        },
+        {
+          "raw": "him,",
+          "start": 7.06,
+          "end": 7.36
+        },
+        {
+          "raw": "and",
+          "start": 7.76,
+          "end": 7.92
+        },
+        {
+          "raw": "the",
+          "start": 7.92,
+          "end": 8.02
+        },
+        {
+          "raw": "people",
+          "start": 8.02,
+          "end": 8.3
+        },
+        {
+          "raw": "put",
+          "start": 8.3,
+          "end": 8.54
+        },
+        {
+          "raw": "free",
+          "start": 8.54,
+          "end": 8.86
+        },
+        {
+          "raw": "into",
+          "start": 8.86,
+          "end": 9.1
+        },
+        {
+          "raw": "his",
+          "start": 9.1,
+          "end": 9.28
+        },
+        {
+          "raw": "hands,",
+          "start": 9.28,
+          "end": 9.74
+        },
+        {
+          "raw": "to",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "raw": "the",
+          "start": 10.2,
+          "end": 10.32
+        },
+        {
+          "raw": "dominion",
+          "start": 10.32,
+          "end": 10.6
+        },
+        {
+          "raw": "of",
+          "start": 10.6,
+          "end": 10.92
+        },
+        {
+          "raw": "another.",
+          "start": 10.92,
+          "end": 11.28
+        },
+        {
+          "raw": "For",
+          "start": 11.82,
+          "end": 12.08
+        },
+        {
+          "raw": "however",
+          "start": 12.08,
+          "end": 12.38
+        },
+        {
+          "raw": "perhaps",
+          "start": 12.38,
+          "end": 12.88
+        },
+        {
+          "raw": "it",
+          "start": 12.88,
+          "end": 13.14
+        },
+        {
+          "raw": "may",
+          "start": 13.14,
+          "end": 13.26
+        },
+        {
+          "raw": "not",
+          "start": 13.26,
+          "end": 13.5
+        },
+        {
+          "raw": "be",
+          "start": 13.5,
+          "end": 13.68
+        },
+        {
+          "raw": "his",
+          "start": 13.68,
+          "end": 13.82
+        },
+        {
+          "raw": "intention",
+          "start": 13.82,
+          "end": 14.2
+        },
+        {
+          "raw": "to",
+          "start": 14.2,
+          "end": 14.58
+        },
+        {
+          "raw": "prejudice",
+          "start": 14.58,
+          "end": 14.84
+        },
+        {
+          "raw": "the",
+          "start": 14.84,
+          "end": 15.14
+        },
+        {
+          "raw": "people,",
+          "start": 15.14,
+          "end": 15.44
+        },
+        {
+          "raw": "yet",
+          "start": 16.0,
+          "end": 16.16
+        },
+        {
+          "raw": "because",
+          "start": 16.16,
+          "end": 16.42
+        },
+        {
+          "raw": "he",
+          "start": 16.42,
+          "end": 16.58
+        },
+        {
+          "raw": "has",
+          "start": 16.58,
+          "end": 16.72
+        },
+        {
+          "raw": "hereby",
+          "start": 16.72,
+          "end": 16.94
+        },
+        {
+          "raw": "lost",
+          "start": 16.94,
+          "end": 17.32
+        },
+        {
+          "raw": "the",
+          "start": 17.32,
+          "end": 17.58
+        },
+        {
+          "raw": "principal",
+          "start": 17.58,
+          "end": 17.82
+        },
+        {
+          "raw": "part",
+          "start": 17.82,
+          "end": 18.26
+        },
+        {
+          "raw": "of",
+          "start": 18.26,
+          "end": 18.5
+        },
+        {
+          "raw": "regal",
+          "start": 18.5,
+          "end": 18.86
+        },
+        {
+          "raw": "dignity,",
+          "start": 18.86,
+          "end": 19.42
+        },
+        {
+          "raw": "viz.",
+          "start": 19.9,
+          "end": 19.96
+        },
+        {
+          "raw": "to",
+          "start": 20.76,
+          "end": 21.22
+        },
+        {
+          "raw": "be",
+          "start": 21.22,
+          "end": 21.34
+        },
+        {
+          "raw": "next",
+          "start": 21.34,
+          "end": 21.66
+        },
+        {
+          "raw": "and",
+          "start": 21.66,
+          "end": 21.86
+        },
+        {
+          "raw": "immediately",
+          "start": 21.86,
+          "end": 22.18
+        },
+        {
+          "raw": "under",
+          "start": 22.18,
+          "end": 22.62
+        },
+        {
+          "raw": "God,",
+          "start": 22.62,
+          "end": 23.0
+        },
+        {
+          "raw": "supreme",
+          "start": 23.66,
+          "end": 23.74
+        },
+        {
+          "raw": "in",
+          "start": 23.74,
+          "end": 23.96
+        },
+        {
+          "raw": "his",
+          "start": 23.96,
+          "end": 24.12
+        },
+        {
+          "raw": "kingdom,",
+          "start": 24.12,
+          "end": 24.46
+        },
+        {
+          "raw": "and",
+          "start": 25.02,
+          "end": 25.12
+        },
+        {
+          "raw": "also",
+          "start": 25.12,
+          "end": 25.38
+        },
+        {
+          "raw": "because",
+          "start": 25.38,
+          "end": 25.66
+        },
+        {
+          "raw": "he",
+          "start": 25.66,
+          "end": 25.82
+        },
+        {
+          "raw": "betrayed",
+          "start": 25.82,
+          "end": 26.2
+        },
+        {
+          "raw": "or",
+          "start": 26.2,
+          "end": 26.58
+        },
+        {
+          "raw": "forced",
+          "start": 26.58,
+          "end": 26.84
+        },
+        {
+          "raw": "his",
+          "start": 26.84,
+          "end": 27.04
+        },
+        {
+          "raw": "people,",
+          "start": 27.04,
+          "end": 27.4
+        },
+        {
+          "raw": "whose",
+          "start": 27.4,
+          "end": 27.96
+        },
+        {
+          "raw": "liberty",
+          "start": 27.96,
+          "end": 28.32
+        },
+        {
+          "raw": "he",
+          "start": 28.32,
+          "end": 28.56
+        },
+        {
+          "raw": "ought",
+          "start": 28.56,
+          "end": 28.7
+        },
+        {
+          "raw": "to",
+          "start": 28.7,
+          "end": 28.86
+        },
+        {
+          "raw": "have",
+          "start": 28.86,
+          "end": 29.0
+        },
+        {
+          "raw": "carefully",
+          "start": 29.0,
+          "end": 29.4
+        },
+        {
+          "raw": "preserved,",
+          "start": 29.4,
+          "end": 30.0
+        },
+        {
+          "raw": "into",
+          "start": 30.52,
+          "end": 30.68
+        },
+        {
+          "raw": "the",
+          "start": 30.68,
+          "end": 30.84
+        },
+        {
+          "raw": "power",
+          "start": 30.84,
+          "end": 31.14
+        },
+        {
+          "raw": "and",
+          "start": 31.14,
+          "end": 31.36
+        },
+        {
+          "raw": "dominion",
+          "start": 31.36,
+          "end": 31.68
+        },
+        {
+          "raw": "of",
+          "start": 31.68,
+          "end": 31.94
+        },
+        {
+          "raw": "a",
+          "start": 31.94,
+          "end": 32.06
+        },
+        {
+          "raw": "foreign",
+          "start": 32.06,
+          "end": 32.3
+        },
+        {
+          "raw": "nation.",
+          "start": 32.3,
+          "end": 32.76
+        },
+        {
+          "raw": "By",
+          "start": 33.52,
+          "end": 33.72
+        },
+        {
+          "raw": "this,",
+          "start": 33.72,
+          "end": 34.04
+        },
+        {
+          "raw": "as",
+          "start": 34.36,
+          "end": 34.52
+        },
+        {
+          "raw": "it",
+          "start": 34.52,
+          "end": 34.62
+        },
+        {
+          "raw": "were,",
+          "start": 34.62,
+          "end": 34.86
+        },
+        {
+          "raw": "alienation",
+          "start": 35.22,
+          "end": 35.5
+        },
+        {
+          "raw": "of",
+          "start": 35.5,
+          "end": 35.92
+        },
+        {
+          "raw": "his",
+          "start": 35.92,
+          "end": 36.06
+        },
+        {
+          "raw": "kingdom,",
+          "start": 36.06,
+          "end": 36.36
+        },
+        {
+          "raw": "he",
+          "start": 36.9,
+          "end": 37.02
+        },
+        {
+          "raw": "himself",
+          "start": 37.02,
+          "end": 37.34
+        },
+        {
+          "raw": "loses",
+          "start": 37.34,
+          "end": 37.76
+        },
+        {
+          "raw": "the",
+          "start": 37.76,
+          "end": 38.04
+        },
+        {
+          "raw": "power",
+          "start": 38.04,
+          "end": 38.32
+        },
+        {
+          "raw": "he",
+          "start": 38.32,
+          "end": 38.54
+        },
+        {
+          "raw": "had",
+          "start": 38.54,
+          "end": 38.72
+        },
+        {
+          "raw": "in",
+          "start": 38.72,
+          "end": 38.82
+        },
+        {
+          "raw": "it",
+          "start": 38.82,
+          "end": 38.94
+        },
+        {
+          "raw": "before,",
+          "start": 38.94,
+          "end": 39.28
+        },
+        {
+          "raw": "without",
+          "start": 39.7,
+          "end": 39.9
+        },
+        {
+          "raw": "transferring",
+          "start": 39.9,
+          "end": 40.46
+        },
+        {
+          "raw": "any",
+          "start": 40.46,
+          "end": 40.78
+        },
+        {
+          "raw": "the",
+          "start": 40.78,
+          "end": 40.94
+        },
+        {
+          "raw": "least",
+          "start": 40.94,
+          "end": 41.18
+        },
+        {
+          "raw": "right",
+          "start": 41.18,
+          "end": 41.46
+        },
+        {
+          "raw": "to",
+          "start": 41.46,
+          "end": 41.7
+        },
+        {
+          "raw": "those",
+          "start": 41.7,
+          "end": 41.92
+        },
+        {
+          "raw": "on",
+          "start": 41.92,
+          "end": 42.12
+        },
+        {
+          "raw": "whom",
+          "start": 42.12,
+          "end": 42.32
+        },
+        {
+          "raw": "he",
+          "start": 42.32,
+          "end": 42.54
+        },
+        {
+          "raw": "would",
+          "start": 42.54,
+          "end": 42.68
+        },
+        {
+          "raw": "have",
+          "start": 42.68,
+          "end": 42.78
+        },
+        {
+          "raw": "bestowed",
+          "start": 42.78,
+          "end": 43.1
+        },
+        {
+          "raw": "it,",
+          "start": 43.1,
+          "end": 43.44
+        },
+        {
+          "raw": "and",
+          "start": 43.8,
+          "end": 44.0
+        },
+        {
+          "raw": "so",
+          "start": 44.0,
+          "end": 44.16
+        },
+        {
+          "raw": "by",
+          "start": 44.16,
+          "end": 44.32
+        },
+        {
+          "raw": "this",
+          "start": 44.32,
+          "end": 44.56
+        },
+        {
+          "raw": "act",
+          "start": 44.56,
+          "end": 44.84
+        },
+        {
+          "raw": "sets",
+          "start": 44.84,
+          "end": 45.06
+        },
+        {
+          "raw": "the",
+          "start": 45.06,
+          "end": 45.28
+        },
+        {
+          "raw": "people",
+          "start": 45.28,
+          "end": 45.54
+        },
+        {
+          "raw": "free,",
+          "start": 45.54,
+          "end": 45.9
+        },
+        {
+          "raw": "and",
+          "start": 46.34,
+          "end": 46.46
+        },
+        {
+          "raw": "leaves",
+          "start": 46.46,
+          "end": 46.68
+        },
+        {
+          "raw": "them",
+          "start": 46.68,
+          "end": 46.96
+        },
+        {
+          "raw": "at",
+          "start": 46.96,
+          "end": 47.12
+        },
+        {
+          "raw": "their",
+          "start": 47.12,
+          "end": 47.28
+        },
+        {
+          "raw": "own",
+          "start": 47.28,
+          "end": 47.54
+        },
+        {
+          "raw": "disposal.",
+          "start": 47.54,
+          "end": 48.06
+        },
+        {
+          "raw": "One",
+          "start": 49.26,
+          "end": 49.5
+        },
+        {
+          "raw": "example",
+          "start": 49.5,
+          "end": 49.84
+        },
+        {
+          "raw": "of",
+          "start": 49.84,
+          "end": 50.12
+        },
+        {
+          "raw": "this",
+          "start": 50.12,
+          "end": 50.34
+        },
+        {
+          "raw": "is",
+          "start": 50.34,
+          "end": 50.76
+        },
+        {
+          "raw": "to",
+          "start": 50.76,
+          "end": 50.9
+        },
+        {
+          "raw": "be",
+          "start": 50.9,
+          "end": 51.04
+        },
+        {
+          "raw": "found",
+          "start": 51.04,
+          "end": 51.32
+        },
+        {
+          "raw": "in",
+          "start": 51.32,
+          "end": 51.54
+        },
+        {
+          "raw": "the",
+          "start": 51.54,
+          "end": 51.78
+        },
+        {
+          "raw": "Scotch",
+          "start": 51.78,
+          "end": 51.96
+        },
+        {
+          "raw": "Annals.",
+          "start": 51.96,
+          "end": 52.44
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "other",
+        "case",
+        "is,",
+        "When",
+        "a",
+        "king",
+        "makes",
+        "himself",
+        "the",
+        "dependent",
+        "of",
+        "another,",
+        "and",
+        "subjects",
+        "his",
+        "kingdom",
+        "which",
+        "his",
+        "ancestors",
+        "left",
+        "him,",
+        "and",
+        "the",
+        "people",
+        "put",
+        "free",
+        "into",
+        "his",
+        "hands,",
+        "to",
+        "the",
+        "dominion",
+        "of",
+        "another:",
+        "for",
+        "however",
+        "perhaps",
+        "it",
+        "may",
+        "not",
+        "be",
+        "his",
+        "intention",
+        "to",
+        "prejudice",
+        "the",
+        "people;",
+        "yet",
+        "because",
+        "he",
+        "has",
+        "hereby",
+        "lost",
+        "the",
+        "principal",
+        "part",
+        "of",
+        "regal",
+        "dignity,",
+        "viz.",
+        "to",
+        "be",
+        "next",
+        "and",
+        "immediately",
+        "under",
+        "God,",
+        "supreme",
+        "in",
+        "his",
+        "kingdom;",
+        "and",
+        "also",
+        "because",
+        "he",
+        "betrayed",
+        "or",
+        "forced",
+        "his",
+        "people,",
+        "whose",
+        "liberty",
+        "he",
+        "ought",
+        "to",
+        "have",
+        "carefully",
+        "preserved,",
+        "into",
+        "the",
+        "power",
+        "and",
+        "dominion",
+        "of",
+        "a",
+        "foreign",
+        "nation.",
+        "By",
+        "this,",
+        "as",
+        "it",
+        "were,",
+        "alienation",
+        "of",
+        "his",
+        "kingdom,",
+        "he",
+        "himself",
+        "loses",
+        "the",
+        "power",
+        "he",
+        "had",
+        "in",
+        "it",
+        "before,",
+        "without",
+        "transferring",
+        "any",
+        "the",
+        "least",
+        "right",
+        "to",
+        "those",
+        "on",
+        "whom",
+        "he",
+        "would",
+        "have",
+        "bestowed",
+        "it;",
+        "and",
+        "so",
+        "by",
+        "this",
+        "act",
+        "sets",
+        "the",
+        "people",
+        "free,",
+        "and",
+        "leaves",
+        "them",
+        "at",
+        "their",
+        "own",
+        "disposal.",
+        "One",
+        "example",
+        "of",
+        "this",
+        "is",
+        "to",
+        "be",
+        "found",
+        "in",
+        "the",
+        "Scotch",
+        "Annals."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          160,
+          0,
+          160
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 122,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 123,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 124,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 125,
+          "source": "observed",
+          "heard_index": 125
+        },
+        {
+          "index": 126,
+          "source": "observed",
+          "heard_index": 126
+        },
+        {
+          "index": 127,
+          "source": "observed",
+          "heard_index": 127
+        },
+        {
+          "index": 128,
+          "source": "observed",
+          "heard_index": 128
+        },
+        {
+          "index": 129,
+          "source": "observed",
+          "heard_index": 129
+        },
+        {
+          "index": 130,
+          "source": "observed",
+          "heard_index": 130
+        },
+        {
+          "index": 131,
+          "source": "observed",
+          "heard_index": 131
+        },
+        {
+          "index": 132,
+          "source": "observed",
+          "heard_index": 132
+        },
+        {
+          "index": 133,
+          "source": "observed",
+          "heard_index": 133
+        },
+        {
+          "index": 134,
+          "source": "observed",
+          "heard_index": 134
+        },
+        {
+          "index": 135,
+          "source": "observed",
+          "heard_index": 135
+        },
+        {
+          "index": 136,
+          "source": "observed",
+          "heard_index": 136
+        },
+        {
+          "index": 137,
+          "source": "observed",
+          "heard_index": 137
+        },
+        {
+          "index": 138,
+          "source": "observed",
+          "heard_index": 138
+        },
+        {
+          "index": 139,
+          "source": "observed",
+          "heard_index": 139
+        },
+        {
+          "index": 140,
+          "source": "observed",
+          "heard_index": 140
+        },
+        {
+          "index": 141,
+          "source": "observed",
+          "heard_index": 141
+        },
+        {
+          "index": 142,
+          "source": "observed",
+          "heard_index": 142
+        },
+        {
+          "index": 143,
+          "source": "observed",
+          "heard_index": 143
+        },
+        {
+          "index": 144,
+          "source": "observed",
+          "heard_index": 144
+        },
+        {
+          "index": 145,
+          "source": "observed",
+          "heard_index": 145
+        },
+        {
+          "index": 146,
+          "source": "observed",
+          "heard_index": 146
+        },
+        {
+          "index": 147,
+          "source": "observed",
+          "heard_index": 147
+        },
+        {
+          "index": 148,
+          "source": "observed",
+          "heard_index": 148
+        },
+        {
+          "index": 149,
+          "source": "observed",
+          "heard_index": 149
+        },
+        {
+          "index": 150,
+          "source": "observed",
+          "heard_index": 150
+        },
+        {
+          "index": 151,
+          "source": "observed",
+          "heard_index": 151
+        },
+        {
+          "index": 152,
+          "source": "observed",
+          "heard_index": 152
+        },
+        {
+          "index": 153,
+          "source": "observed",
+          "heard_index": 153
+        },
+        {
+          "index": 154,
+          "source": "observed",
+          "heard_index": 154
+        },
+        {
+          "index": 155,
+          "source": "observed",
+          "heard_index": 155
+        },
+        {
+          "index": 156,
+          "source": "observed",
+          "heard_index": 156
+        },
+        {
+          "index": 157,
+          "source": "observed",
+          "heard_index": 157
+        },
+        {
+          "index": 158,
+          "source": "observed",
+          "heard_index": 158
+        },
+        {
+          "index": 159,
+          "source": "observed",
+          "heard_index": 159
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "other",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "case",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "text": "is,",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "text": "When",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "king",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "text": "makes",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "himself",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "dependent",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "text": "of",
+          "start": 3.54,
+          "end": 3.84
+        },
+        {
+          "text": "another,",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "text": "and",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "subjects",
+          "start": 4.76,
+          "end": 5.1
+        },
+        {
+          "text": "his",
+          "start": 5.1,
+          "end": 5.42
+        },
+        {
+          "text": "kingdom",
+          "start": 5.42,
+          "end": 5.74
+        },
+        {
+          "text": "which",
+          "start": 5.74,
+          "end": 6.02
+        },
+        {
+          "text": "his",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "text": "ancestors",
+          "start": 6.18,
+          "end": 6.64
+        },
+        {
+          "text": "left",
+          "start": 6.64,
+          "end": 7.06
+        },
+        {
+          "text": "him,",
+          "start": 7.06,
+          "end": 7.36
+        },
+        {
+          "text": "and",
+          "start": 7.76,
+          "end": 7.92
+        },
+        {
+          "text": "the",
+          "start": 7.92,
+          "end": 8.02
+        },
+        {
+          "text": "people",
+          "start": 8.02,
+          "end": 8.3
+        },
+        {
+          "text": "put",
+          "start": 8.3,
+          "end": 8.54
+        },
+        {
+          "text": "free",
+          "start": 8.54,
+          "end": 8.86
+        },
+        {
+          "text": "into",
+          "start": 8.86,
+          "end": 9.1
+        },
+        {
+          "text": "his",
+          "start": 9.1,
+          "end": 9.28
+        },
+        {
+          "text": "hands,",
+          "start": 9.28,
+          "end": 9.74
+        },
+        {
+          "text": "to",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "text": "the",
+          "start": 10.2,
+          "end": 10.32
+        },
+        {
+          "text": "dominion",
+          "start": 10.32,
+          "end": 10.6
+        },
+        {
+          "text": "of",
+          "start": 10.6,
+          "end": 10.92
+        },
+        {
+          "text": "another:",
+          "start": 10.92,
+          "end": 11.28
+        },
+        {
+          "text": "for",
+          "start": 11.82,
+          "end": 12.08
+        },
+        {
+          "text": "however",
+          "start": 12.08,
+          "end": 12.38
+        },
+        {
+          "text": "perhaps",
+          "start": 12.38,
+          "end": 12.88
+        },
+        {
+          "text": "it",
+          "start": 12.88,
+          "end": 13.14
+        },
+        {
+          "text": "may",
+          "start": 13.14,
+          "end": 13.26
+        },
+        {
+          "text": "not",
+          "start": 13.26,
+          "end": 13.5
+        },
+        {
+          "text": "be",
+          "start": 13.5,
+          "end": 13.68
+        },
+        {
+          "text": "his",
+          "start": 13.68,
+          "end": 13.82
+        },
+        {
+          "text": "intention",
+          "start": 13.82,
+          "end": 14.2
+        },
+        {
+          "text": "to",
+          "start": 14.2,
+          "end": 14.58
+        },
+        {
+          "text": "prejudice",
+          "start": 14.58,
+          "end": 14.84
+        },
+        {
+          "text": "the",
+          "start": 14.84,
+          "end": 15.14
+        },
+        {
+          "text": "people;",
+          "start": 15.14,
+          "end": 15.44
+        },
+        {
+          "text": "yet",
+          "start": 16.0,
+          "end": 16.16
+        },
+        {
+          "text": "because",
+          "start": 16.16,
+          "end": 16.42
+        },
+        {
+          "text": "he",
+          "start": 16.42,
+          "end": 16.58
+        },
+        {
+          "text": "has",
+          "start": 16.58,
+          "end": 16.72
+        },
+        {
+          "text": "hereby",
+          "start": 16.72,
+          "end": 16.94
+        },
+        {
+          "text": "lost",
+          "start": 16.94,
+          "end": 17.32
+        },
+        {
+          "text": "the",
+          "start": 17.32,
+          "end": 17.58
+        },
+        {
+          "text": "principal",
+          "start": 17.58,
+          "end": 17.82
+        },
+        {
+          "text": "part",
+          "start": 17.82,
+          "end": 18.26
+        },
+        {
+          "text": "of",
+          "start": 18.26,
+          "end": 18.5
+        },
+        {
+          "text": "regal",
+          "start": 18.5,
+          "end": 18.86
+        },
+        {
+          "text": "dignity,",
+          "start": 18.86,
+          "end": 19.42
+        },
+        {
+          "text": "viz.",
+          "start": 19.9,
+          "end": 19.96
+        },
+        {
+          "text": "to",
+          "start": 20.76,
+          "end": 21.22
+        },
+        {
+          "text": "be",
+          "start": 21.22,
+          "end": 21.34
+        },
+        {
+          "text": "next",
+          "start": 21.34,
+          "end": 21.66
+        },
+        {
+          "text": "and",
+          "start": 21.66,
+          "end": 21.86
+        },
+        {
+          "text": "immediately",
+          "start": 21.86,
+          "end": 22.18
+        },
+        {
+          "text": "under",
+          "start": 22.18,
+          "end": 22.62
+        },
+        {
+          "text": "God,",
+          "start": 22.62,
+          "end": 23.0
+        },
+        {
+          "text": "supreme",
+          "start": 23.66,
+          "end": 23.74
+        },
+        {
+          "text": "in",
+          "start": 23.74,
+          "end": 23.96
+        },
+        {
+          "text": "his",
+          "start": 23.96,
+          "end": 24.12
+        },
+        {
+          "text": "kingdom;",
+          "start": 24.12,
+          "end": 24.46
+        },
+        {
+          "text": "and",
+          "start": 25.02,
+          "end": 25.12
+        },
+        {
+          "text": "also",
+          "start": 25.12,
+          "end": 25.38
+        },
+        {
+          "text": "because",
+          "start": 25.38,
+          "end": 25.66
+        },
+        {
+          "text": "he",
+          "start": 25.66,
+          "end": 25.82
+        },
+        {
+          "text": "betrayed",
+          "start": 25.82,
+          "end": 26.2
+        },
+        {
+          "text": "or",
+          "start": 26.2,
+          "end": 26.58
+        },
+        {
+          "text": "forced",
+          "start": 26.58,
+          "end": 26.84
+        },
+        {
+          "text": "his",
+          "start": 26.84,
+          "end": 27.04
+        },
+        {
+          "text": "people,",
+          "start": 27.04,
+          "end": 27.4
+        },
+        {
+          "text": "whose",
+          "start": 27.4,
+          "end": 27.96
+        },
+        {
+          "text": "liberty",
+          "start": 27.96,
+          "end": 28.32
+        },
+        {
+          "text": "he",
+          "start": 28.32,
+          "end": 28.56
+        },
+        {
+          "text": "ought",
+          "start": 28.56,
+          "end": 28.7
+        },
+        {
+          "text": "to",
+          "start": 28.7,
+          "end": 28.86
+        },
+        {
+          "text": "have",
+          "start": 28.86,
+          "end": 29.0
+        },
+        {
+          "text": "carefully",
+          "start": 29.0,
+          "end": 29.4
+        },
+        {
+          "text": "preserved,",
+          "start": 29.4,
+          "end": 30.0
+        },
+        {
+          "text": "into",
+          "start": 30.52,
+          "end": 30.68
+        },
+        {
+          "text": "the",
+          "start": 30.68,
+          "end": 30.84
+        },
+        {
+          "text": "power",
+          "start": 30.84,
+          "end": 31.14
+        },
+        {
+          "text": "and",
+          "start": 31.14,
+          "end": 31.36
+        },
+        {
+          "text": "dominion",
+          "start": 31.36,
+          "end": 31.68
+        },
+        {
+          "text": "of",
+          "start": 31.68,
+          "end": 31.94
+        },
+        {
+          "text": "a",
+          "start": 31.94,
+          "end": 32.06
+        },
+        {
+          "text": "foreign",
+          "start": 32.06,
+          "end": 32.3
+        },
+        {
+          "text": "nation.",
+          "start": 32.3,
+          "end": 32.76
+        },
+        {
+          "text": "By",
+          "start": 33.52,
+          "end": 33.72
+        },
+        {
+          "text": "this,",
+          "start": 33.72,
+          "end": 34.04
+        },
+        {
+          "text": "as",
+          "start": 34.36,
+          "end": 34.52
+        },
+        {
+          "text": "it",
+          "start": 34.52,
+          "end": 34.62
+        },
+        {
+          "text": "were,",
+          "start": 34.62,
+          "end": 34.86
+        },
+        {
+          "text": "alienation",
+          "start": 35.22,
+          "end": 35.5
+        },
+        {
+          "text": "of",
+          "start": 35.5,
+          "end": 35.92
+        },
+        {
+          "text": "his",
+          "start": 35.92,
+          "end": 36.06
+        },
+        {
+          "text": "kingdom,",
+          "start": 36.06,
+          "end": 36.36
+        },
+        {
+          "text": "he",
+          "start": 36.9,
+          "end": 37.02
+        },
+        {
+          "text": "himself",
+          "start": 37.02,
+          "end": 37.34
+        },
+        {
+          "text": "loses",
+          "start": 37.34,
+          "end": 37.76
+        },
+        {
+          "text": "the",
+          "start": 37.76,
+          "end": 38.04
+        },
+        {
+          "text": "power",
+          "start": 38.04,
+          "end": 38.32
+        },
+        {
+          "text": "he",
+          "start": 38.32,
+          "end": 38.54
+        },
+        {
+          "text": "had",
+          "start": 38.54,
+          "end": 38.72
+        },
+        {
+          "text": "in",
+          "start": 38.72,
+          "end": 38.82
+        },
+        {
+          "text": "it",
+          "start": 38.82,
+          "end": 38.94
+        },
+        {
+          "text": "before,",
+          "start": 38.94,
+          "end": 39.28
+        },
+        {
+          "text": "without",
+          "start": 39.7,
+          "end": 39.9
+        },
+        {
+          "text": "transferring",
+          "start": 39.9,
+          "end": 40.46
+        },
+        {
+          "text": "any",
+          "start": 40.46,
+          "end": 40.78
+        },
+        {
+          "text": "the",
+          "start": 40.78,
+          "end": 40.94
+        },
+        {
+          "text": "least",
+          "start": 40.94,
+          "end": 41.18
+        },
+        {
+          "text": "right",
+          "start": 41.18,
+          "end": 41.46
+        },
+        {
+          "text": "to",
+          "start": 41.46,
+          "end": 41.7
+        },
+        {
+          "text": "those",
+          "start": 41.7,
+          "end": 41.92
+        },
+        {
+          "text": "on",
+          "start": 41.92,
+          "end": 42.12
+        },
+        {
+          "text": "whom",
+          "start": 42.12,
+          "end": 42.32
+        },
+        {
+          "text": "he",
+          "start": 42.32,
+          "end": 42.54
+        },
+        {
+          "text": "would",
+          "start": 42.54,
+          "end": 42.68
+        },
+        {
+          "text": "have",
+          "start": 42.68,
+          "end": 42.78
+        },
+        {
+          "text": "bestowed",
+          "start": 42.78,
+          "end": 43.1
+        },
+        {
+          "text": "it;",
+          "start": 43.1,
+          "end": 43.44
+        },
+        {
+          "text": "and",
+          "start": 43.8,
+          "end": 44.0
+        },
+        {
+          "text": "so",
+          "start": 44.0,
+          "end": 44.16
+        },
+        {
+          "text": "by",
+          "start": 44.16,
+          "end": 44.32
+        },
+        {
+          "text": "this",
+          "start": 44.32,
+          "end": 44.56
+        },
+        {
+          "text": "act",
+          "start": 44.56,
+          "end": 44.84
+        },
+        {
+          "text": "sets",
+          "start": 44.84,
+          "end": 45.06
+        },
+        {
+          "text": "the",
+          "start": 45.06,
+          "end": 45.28
+        },
+        {
+          "text": "people",
+          "start": 45.28,
+          "end": 45.54
+        },
+        {
+          "text": "free,",
+          "start": 45.54,
+          "end": 45.9
+        },
+        {
+          "text": "and",
+          "start": 46.34,
+          "end": 46.46
+        },
+        {
+          "text": "leaves",
+          "start": 46.46,
+          "end": 46.68
+        },
+        {
+          "text": "them",
+          "start": 46.68,
+          "end": 46.96
+        },
+        {
+          "text": "at",
+          "start": 46.96,
+          "end": 47.12
+        },
+        {
+          "text": "their",
+          "start": 47.12,
+          "end": 47.28
+        },
+        {
+          "text": "own",
+          "start": 47.28,
+          "end": 47.54
+        },
+        {
+          "text": "disposal.",
+          "start": 47.54,
+          "end": 48.06
+        },
+        {
+          "text": "One",
+          "start": 49.26,
+          "end": 49.5
+        },
+        {
+          "text": "example",
+          "start": 49.5,
+          "end": 49.84
+        },
+        {
+          "text": "of",
+          "start": 49.84,
+          "end": 50.12
+        },
+        {
+          "text": "this",
+          "start": 50.12,
+          "end": 50.34
+        },
+        {
+          "text": "is",
+          "start": 50.34,
+          "end": 50.76
+        },
+        {
+          "text": "to",
+          "start": 50.76,
+          "end": 50.9
+        },
+        {
+          "text": "be",
+          "start": 50.9,
+          "end": 51.04
+        },
+        {
+          "text": "found",
+          "start": 51.04,
+          "end": 51.32
+        },
+        {
+          "text": "in",
+          "start": 51.32,
+          "end": 51.54
+        },
+        {
+          "text": "the",
+          "start": 51.54,
+          "end": 51.78
+        },
+        {
+          "text": "Scotch",
+          "start": 51.78,
+          "end": 51.96
+        },
+        {
+          "text": "Annals.",
+          "start": 51.96,
+          "end": 52.44
+        }
+      ],
+      "stats": {
+        "expected_words": 160,
+        "heard_words": 160,
+        "matched_words": 160
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0002268701791763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6c4ca4ab89d8438cb5fc968e017de1b6cadc61c52151ec34f1c605d545a6d9a",
+  "selected_reasons": []
+}

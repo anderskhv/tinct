@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "signature": "e2d7e0ad83872d135f11064bb0ce4a076c604847329e3d6901e49c7cd9a886de",
+  "attempts": [
+    {
+      "asr_seconds": 0.07894490659236908,
+      "alignment_seconds": 4.025548696517944e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who's",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Who's",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.65380859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who's",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "Whose?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Whose?",
+          "start": 0.0,
+          "end": 0.415
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07900092750787735
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08bee9e165d39adf5950bbc8f06cf27f46724a861a947e01cce9eb7ea5abda57",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "a24e609629950d43754281a4ffcb6c22856c8c57457078937150aa217084fcf0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1287386640906334,
+      "alignment_seconds": 7.711350917816162e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " P.H.A.D.O. No, they were said to be an angina.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " P",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.3798828125
+            },
+            {
+              "text": ".H",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.527099609375
+            },
+            {
+              "text": ".A",
+              "start": 0.75,
+              "end": 0.87,
+              "probability": 0.982421875
+            },
+            {
+              "text": ".D",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.7003173828125
+            },
+            {
+              "text": ".O.",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.888916015625
+            },
+            {
+              "text": " No,",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.90234375
+            },
+            {
+              "text": " they",
+              "start": 2.07,
+              "end": 2.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " were",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.358154296875
+            },
+            {
+              "text": " angina.",
+              "start": 2.77,
+              "end": 3.21,
+              "probability": 0.55352783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": ".H",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": ".A",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "raw": ".D",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": ".O.",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "No,",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "they",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "raw": "were",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "said",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "to",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "be",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "an",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "angina.",
+          "start": 2.77,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Phaedo:",
+        "No,",
+        "they",
+        "were",
+        "said",
+        "to",
+        "be",
+        "in",
+        "Aegina."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ],
+        [
+          "equal",
+          1,
+          7,
+          5,
+          11
+        ],
+        [
+          "replace",
+          7,
+          9,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ],
+        [
+          "replace",
+          7,
+          9,
+          11,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Phaedo:",
+          "start": 0.0,
+          "end": 0.845
+        },
+        {
+          "text": "No,",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "they",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "text": "were",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "said",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "to",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "be",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "in",
+          "start": 2.63,
+          "end": 2.92
+        },
+        {
+          "text": "Aegina.",
+          "start": 2.92,
+          "end": 3.065
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 13,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12884912732988596
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5817451cbaf2515a99d6a94db306ce6ad2f92ab6a8eb6524f2b0834ae08b6542",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "6ca6c4a9477be4a69639d3a0c12d6f83b2932d16ec3c8bb72c0cb141fdbd9249",
+  "attempts": [
+    {
+      "asr_seconds": 0.1050929669290781,
+      "alignment_seconds": 0.00011900498066097498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, no marrying among his subjects.",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " no",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " marrying",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " among",
+              "start": 1.8,
+              "end": 2.08,
+              "probability": 0.44580078125
+            },
+            {
+              "text": " his",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " subjects.",
+              "start": 2.26,
+              "end": 2.64,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "no",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "marrying",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "among",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "raw": "his",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "subjects.",
+          "start": 2.26,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "No",
+        "marrying",
+        "'mong",
+        "his",
+        "subjects?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "No",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "marrying",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "'mong",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "his",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "subjects?",
+          "start": 2.26,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10525573301129043
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "edb895cf747a6a85d5b26898ab9d2002b8817ff868d14b80f7841acbd7ac5867",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

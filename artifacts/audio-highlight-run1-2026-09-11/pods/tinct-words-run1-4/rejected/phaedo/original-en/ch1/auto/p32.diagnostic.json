@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "02ed43afe5f493708cffad2ccad9ff59a3e43f105d438102ef1f8affce06c5bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.11168735846877098,
+      "alignment_seconds": 6.088335067033768e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I think that he is, said Simmias.",
+        "hotwords": "I, Simmias"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I think that he is, said Simmias.",
+          "start": 0.08,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.1202392578125
+            },
+            {
+              "text": " think",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " he",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is,",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Simmias.",
+              "start": 1.66,
+              "end": 2.08,
+              "probability": 0.5353037516276041
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "think",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "that",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "he",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "is,",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "raw": "said",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "Simmias.",
+          "start": 1.66,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "think",
+        "that",
+        "he",
+        "is,",
+        "said",
+        "Simmias."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "think",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "that",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "he",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "is,",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "text": "said",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "Simmias.",
+          "start": 1.66,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11177107226103544
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9080432934e1363910cb93cf3b52eda66ee3bb1bc02207e6e0e507ed69bdcc76",
+  "selected_reasons": []
+}

@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "9dbbd48f980dfbfc4a928ed6f09f18fccb4cb0609fe81b16f816319877ae08e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2012806087732315,
+      "alignment_seconds": 0.00012067705392837524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Would you say that all men are equal in excellence, or is one man better than another?",
+        "hotwords": "Would"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Would you say that all men are equal in excellence, or is one man better than another?",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Would",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9140625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " all",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " men",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " equal",
+              "start": 1.89,
+              "end": 2.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " excellence,",
+              "start": 2.41,
+              "end": 2.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " or",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 3.53,
+              "end": 3.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " one",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 3.99,
+              "end": 4.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " better",
+              "start": 4.27,
+              "end": 4.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 4.51,
+              "end": 4.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " another?",
+              "start": 4.77,
+              "end": 5.03,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Would",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "say",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "that",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "all",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "men",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "are",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "equal",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "raw": "in",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "excellence,",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "raw": "or",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "is",
+          "start": 3.53,
+          "end": 3.73
+        },
+        {
+          "raw": "one",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "man",
+          "start": 3.99,
+          "end": 4.27
+        },
+        {
+          "raw": "better",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "raw": "than",
+          "start": 4.51,
+          "end": 4.77
+        },
+        {
+          "raw": "another?",
+          "start": 4.77,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "Would",
+        "you",
+        "say",
+        "that",
+        "all",
+        "men",
+        "are",
+        "equal",
+        "in",
+        "excellence,",
+        "or",
+        "is",
+        "one",
+        "man",
+        "better",
+        "than",
+        "another?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Would",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "say",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "that",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "all",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "men",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "are",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "equal",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "text": "in",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "excellence,",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "text": "or",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "is",
+          "start": 3.53,
+          "end": 3.73
+        },
+        {
+          "text": "one",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "man",
+          "start": 3.99,
+          "end": 4.27
+        },
+        {
+          "text": "better",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "text": "than",
+          "start": 4.51,
+          "end": 4.77
+        },
+        {
+          "text": "another?",
+          "start": 4.77,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20146465301513672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1035fecbb1a418e8629979dc0fd4a2790669ae3964e214defa912dda8854b177",
+  "selected_reasons": []
+}

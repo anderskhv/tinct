@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "366ed692eabaace92e4d8501d5c33cd8715177bb528cb00b883851515c9478d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.07730595767498016,
+      "alignment_seconds": 5.774199962615967e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is certain.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " certain.",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "certain.",
+          "start": 0.67,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "certain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "certain.",
+          "start": 0.67,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07738634943962097
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6884bf8750d4891af469e4e97584a550f14e4c7d21543bccbc1050116271fd63",
+  "selected_reasons": []
+}

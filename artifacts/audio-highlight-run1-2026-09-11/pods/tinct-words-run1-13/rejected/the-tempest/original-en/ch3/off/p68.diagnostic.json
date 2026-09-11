@@ -1,0 +1,494 @@
+{
+  "complete": true,
+  "signature": "ec9105ad19bc5d2c6cc821dbca21a59ce3601f275de254e4d88fbc6b2a2cadfa",
+  "attempts": [
+    {
+      "asr_seconds": 0.19287021702621132,
+      "alignment_seconds": 0.00024106900673359632,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo is not sir my doublet as fresh as the first day. I wore it. I mean in a sort",
+          "start": 0.05,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " Gonzalo",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.841064453125
+            },
+            {
+              "text": " is",
+              "start": 0.91,
+              "end": 1.49,
+              "probability": 0.318359375
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sir",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.705078125
+            },
+            {
+              "text": " my",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " doublet",
+              "start": 2.15,
+              "end": 2.55,
+              "probability": 0.952392578125
+            },
+            {
+              "text": " as",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " fresh",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " first",
+              "start": 3.27,
+              "end": 3.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " day.",
+              "start": 3.49,
+              "end": 3.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 3.85,
+              "end": 3.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wore",
+              "start": 3.89,
+              "end": 4.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it.",
+              "start": 4.09,
+              "end": 4.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 4.41,
+              "end": 4.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " mean",
+              "start": 4.85,
+              "end": 5.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 5.05,
+              "end": 5.21,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " a",
+              "start": 5.21,
+              "end": 5.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sort",
+              "start": 5.31,
+              "end": 5.57,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "is",
+          "start": 0.91,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "sir",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "my",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "doublet",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "raw": "as",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "fresh",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "as",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "raw": "the",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "first",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "raw": "day.",
+          "start": 3.49,
+          "end": 3.75
+        },
+        {
+          "raw": "I",
+          "start": 3.85,
+          "end": 3.89
+        },
+        {
+          "raw": "wore",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "raw": "it.",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "raw": "I",
+          "start": 4.41,
+          "end": 4.85
+        },
+        {
+          "raw": "mean",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "raw": "in",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "raw": "a",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "raw": "sort",
+          "start": 5.31,
+          "end": 5.57
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Is",
+        "not,",
+        "sir,",
+        "my",
+        "doublet",
+        "as",
+        "fresh",
+        "as",
+        "the",
+        "first",
+        "day",
+        "I",
+        "wore",
+        "it?",
+        "I",
+        "mean,",
+        "in",
+        "a",
+        "sort."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Is",
+          "start": 0.91,
+          "end": 1.49
+        },
+        {
+          "text": "not,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "sir,",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "my",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "doublet",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "text": "as",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "fresh",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "as",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "text": "the",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "first",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "text": "day",
+          "start": 3.49,
+          "end": 3.75
+        },
+        {
+          "text": "I",
+          "start": 3.85,
+          "end": 3.89
+        },
+        {
+          "text": "wore",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "text": "it?",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "text": "I",
+          "start": 4.41,
+          "end": 4.85
+        },
+        {
+          "text": "mean,",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "text": "in",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "text": "a",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "text": "sort.",
+          "start": 5.31,
+          "end": 5.57
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19323976105079055
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "277b182c52f3ae69418afd50b6d8df2fde93d2d845d1b602e89df5bb4360d594",
+  "selected_reasons": []
+}

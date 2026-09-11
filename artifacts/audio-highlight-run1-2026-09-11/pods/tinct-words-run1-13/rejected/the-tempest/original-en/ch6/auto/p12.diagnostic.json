@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "c45327f68f1c2a948fcfb97a461ad1a06dd35e78f1748571c03cca4719b3ffee",
+  "attempts": [
+    {
+      "asr_seconds": 0.1460914449999109,
+      "alignment_seconds": 0.00014446396380662918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caliban. Lo, how he mocks me! wilt thou let him, my lord?",
+        "hotwords": "Caliban, Lo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caliban, Lo, how he mocks me! wilt thou let him, my lord?",
+          "start": 0.48,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.6243896484375
+            },
+            {
+              "text": " Lo,",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.083740234375
+            },
+            {
+              "text": " how",
+              "start": 1.48,
+              "end": 1.56,
+              "probability": 0.955078125
+            },
+            {
+              "text": " he",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " mocks",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me!",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " wilt",
+              "start": 2.66,
+              "end": 2.74,
+              "probability": 0.58001708984375
+            },
+            {
+              "text": " thou",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " let",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " him,",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " my",
+              "start": 3.28,
+              "end": 3.38,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " lord?",
+              "start": 3.38,
+              "end": 3.58,
+              "probability": 0.841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "how",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "raw": "he",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "mocks",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "me!",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "wilt",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "raw": "thou",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "let",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "him,",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "my",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "raw": "lord?",
+          "start": 3.38,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "Lo,",
+        "how",
+        "he",
+        "mocks",
+        "me!",
+        "wilt",
+        "thou",
+        "let",
+        "him,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "Lo,",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "how",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "text": "he",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "text": "mocks",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "me!",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "wilt",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "text": "thou",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "let",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "him,",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "my",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "text": "lord?",
+          "start": 3.38,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14631018205545843
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a8828215927b6dd0a5263b8accda6454ddb8d828c10560feaed49728e36f594",
+  "selected_reasons": []
+}

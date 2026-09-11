@@ -1,0 +1,346 @@
+{
+  "complete": true,
+  "signature": "c56c6f87c7c35ff94ca3240d6825caa405de2f42b920894ddb14542b62840f65",
+  "attempts": [
+    {
+      "asr_seconds": 0.1690862774848938,
+      "alignment_seconds": 0.00012523680925369263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " for the life-giving daughters of Inachuz, the River of Argus.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " for",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.490478515625
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " life",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.98095703125
+            },
+            {
+              "text": "-giving",
+              "start": 0.89,
+              "end": 1.17,
+              "probability": 0.921630859375
+            },
+            {
+              "text": " daughters",
+              "start": 1.17,
+              "end": 1.57,
+              "probability": 0.951171875
+            },
+            {
+              "text": " of",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Inachuz,",
+              "start": 1.83,
+              "end": 2.27,
+              "probability": 0.4768473307291667
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": " River",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.469970703125
+            },
+            {
+              "text": " of",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Argus.",
+              "start": 2.93,
+              "end": 3.43,
+              "probability": 0.91796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "for",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "life",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "raw": "-giving",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "raw": "daughters",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "raw": "Inachuz,",
+          "start": 1.83,
+          "end": 2.27
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "raw": "River",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "Argus.",
+          "start": 2.93,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "'For",
+        "the",
+        "life-giving",
+        "daughters",
+        "of",
+        "Inachus",
+        "the",
+        "river",
+        "of",
+        "Argos;'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "'For",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "life-giving",
+          "start": 0.63,
+          "end": 0.9
+        },
+        {
+          "text": "daughters",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "text": "of",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "text": "Inachus",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "text": "river",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "of",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "Argos;'",
+          "start": 2.93,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16925811022520065
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f55a015511da5dc4817f0cb6e195191b531f9b7592cbedc891ac678b1a3493b3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

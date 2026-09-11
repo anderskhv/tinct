@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "4042a9af3327dbfb666d723df6b5aa6a2c13d3c2f19bcb2a06b8cea658e29679",
+  "attempts": [
+    {
+      "asr_seconds": 0.15557297901250422,
+      "alignment_seconds": 0.0001077139750123024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. Now, forward with your tale. Prithee, stand farther off.",
+        "hotwords": "Stephano, Now, Prithee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, Now, forward with your tale. Prithee, stand farther off.",
+          "start": 0.08,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.4969635009765625
+            },
+            {
+              "text": " Now,",
+              "start": 1.28,
+              "end": 1.58,
+              "probability": 0.01558685302734375
+            },
+            {
+              "text": " forward",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " with",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " your",
+              "start": 2.1,
+              "end": 2.22,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " tale.",
+              "start": 2.22,
+              "end": 2.54,
+              "probability": 0.01061248779296875
+            },
+            {
+              "text": " Prithee,",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.7035319010416666
+            },
+            {
+              "text": " stand",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.828125
+            },
+            {
+              "text": " farther",
+              "start": 3.46,
+              "end": 3.78,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " off.",
+              "start": 3.78,
+              "end": 4.12,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Now,",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "raw": "forward",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "with",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "your",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "raw": "tale.",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "raw": "Prithee,",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "stand",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "farther",
+          "start": 3.46,
+          "end": 3.78
+        },
+        {
+          "raw": "off.",
+          "start": 3.78,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Now,",
+        "forward",
+        "with",
+        "your",
+        "tale.",
+        "Prithee,",
+        "stand",
+        "farther",
+        "off."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Now,",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "text": "forward",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "with",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "your",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "text": "tale.",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "text": "Prithee,",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "stand",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "farther",
+          "start": 3.46,
+          "end": 3.78
+        },
+        {
+          "text": "off.",
+          "start": 3.78,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15573131397832185
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "81d53aef43cac54dffacfb8898071fea8cc7d3ea4493724ca00d6aab1c2bc420",
+  "selected_reasons": []
+}

@@ -1,0 +1,1426 @@
+{
+  "complete": true,
+  "signature": "0e0d544c5eb6c199eae6dd865f1942703af32df9e828af31d102b2afb6d185b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.303490549325943,
+      "alignment_seconds": 0.00020071864128112793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ismene. Howe'er that be, 'tis for this cause alone That Creon comes to thee—and comes anon.",
+        "hotwords": "Ismene, Howe'er, Creon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ismene, Howe'er that be,",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.4630533854166667
+            },
+            {
+              "text": " Howe",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 1.1920928955078125e-06
+            },
+            {
+              "text": "'er",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.497802734375
+            },
+            {
+              "text": " that",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " be,",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.89794921875
+            }
+          ]
+        },
+        {
+          "text": " Tis for this cause alone That Creon comes to thee—and comes anon.",
+          "start": 2.0,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 2.0,
+              "end": 2.8,
+              "probability": 0.1162261962890625
+            },
+            {
+              "text": " for",
+              "start": 2.8,
+              "end": 2.94,
+              "probability": 0.978515625
+            },
+            {
+              "text": " this",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cause",
+              "start": 3.12,
+              "end": 3.36,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " alone",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " That",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.018402099609375
+            },
+            {
+              "text": " Creon",
+              "start": 3.92,
+              "end": 4.3,
+              "probability": 0.58251953125
+            },
+            {
+              "text": " comes",
+              "start": 4.3,
+              "end": 4.54,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " to",
+              "start": 4.54,
+              "end": 4.72,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thee—and",
+              "start": 4.72,
+              "end": 5.32,
+              "probability": 0.4849561055501302
+            },
+            {
+              "text": " comes",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " anon.",
+              "start": 5.58,
+              "end": 5.94,
+              "probability": 0.936279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Howe",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "'er",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "that",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "be,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "Tis",
+          "start": 2.0,
+          "end": 2.8
+        },
+        {
+          "raw": "for",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "raw": "this",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "cause",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "raw": "alone",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "That",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "Creon",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "raw": "comes",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "raw": "to",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "raw": "thee—and",
+          "start": 4.72,
+          "end": 5.32
+        },
+        {
+          "raw": "comes",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "anon.",
+          "start": 5.58,
+          "end": 5.94
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Howe'er",
+        "that",
+        "be,",
+        "'tis",
+        "for",
+        "this",
+        "cause",
+        "alone",
+        "That",
+        "Creon",
+        "comes",
+        "to",
+        "thee—and",
+        "comes",
+        "anon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          16,
+          3,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Howe'er",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "that",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "be,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "'tis",
+          "start": 2.0,
+          "end": 2.8
+        },
+        {
+          "text": "for",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "text": "this",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "cause",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "text": "alone",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "text": "That",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "Creon",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "text": "comes",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "text": "to",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "text": "thee—and",
+          "start": 4.72,
+          "end": 5.32
+        },
+        {
+          "text": "comes",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "anon.",
+          "start": 5.58,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3037716895341873
+    },
+    {
+      "asr_seconds": 0.2004922851920128,
+      "alignment_seconds": 0.00017309188842773438,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ismene, Howe'er, Creon"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ismene, Howe'er that be, tease for this cause alone that Creon comes to thee, and comes anon.",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.4630533854166667
+            },
+            {
+              "text": " Howe",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 1.1920928955078125e-06
+            },
+            {
+              "text": "'er",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.497802734375
+            },
+            {
+              "text": " that",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " be,",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.8984375
+            },
+            {
+              "text": " tease",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " for",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " this",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " cause",
+              "start": 3.12,
+              "end": 3.34,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " alone",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " that",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " Creon",
+              "start": 3.92,
+              "end": 4.3,
+              "probability": 0.7105712890625
+            },
+            {
+              "text": " comes",
+              "start": 4.3,
+              "end": 4.54,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " to",
+              "start": 4.54,
+              "end": 4.72,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thee,",
+              "start": 4.72,
+              "end": 4.98,
+              "probability": 0.9765625
+            },
+            {
+              "text": " and",
+              "start": 5.22,
+              "end": 5.32,
+              "probability": 0.92578125
+            },
+            {
+              "text": " comes",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.958984375
+            },
+            {
+              "text": " anon.",
+              "start": 5.58,
+              "end": 5.92,
+              "probability": 0.942626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Howe",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "'er",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "that",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "be,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "tease",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "for",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "this",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "cause",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "raw": "alone",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "that",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "Creon",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "raw": "comes",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "raw": "to",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "raw": "thee,",
+          "start": 4.72,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.22,
+          "end": 5.32
+        },
+        {
+          "raw": "comes",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "anon.",
+          "start": 5.58,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Howe'er",
+        "that",
+        "be,",
+        "'tis",
+        "for",
+        "this",
+        "cause",
+        "alone",
+        "That",
+        "Creon",
+        "comes",
+        "to",
+        "thee—and",
+        "comes",
+        "anon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          13,
+          6,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ],
+        [
+          "equal",
+          14,
+          16,
+          16,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Howe'er",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "that",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "be,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "'tis",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "text": "for",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "this",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "cause",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "text": "alone",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "That",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "Creon",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "text": "comes",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "text": "to",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "text": "thee—and",
+          "start": 4.72,
+          "end": 5.02
+        },
+        {
+          "text": "comes",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "anon.",
+          "start": 5.58,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20073401182889938
+    },
+    {
+      "asr_seconds": 0.21096307784318924,
+      "alignment_seconds": 0.0001293569803237915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ismene, how ere that be?",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.4630533854166667
+            },
+            {
+              "text": " how",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.974609375
+            },
+            {
+              "text": " ere",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.867431640625
+            },
+            {
+              "text": " that",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " be?",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " Tease for this cause alone that Creon comes to thee and comes anon.",
+          "start": 2.62,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 2.62,
+              "end": 2.82,
+              "probability": 0.755859375
+            },
+            {
+              "text": " for",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " this",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cause",
+              "start": 3.12,
+              "end": 3.34,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " alone",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " that",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " Creon",
+              "start": 3.92,
+              "end": 4.3,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " comes",
+              "start": 4.3,
+              "end": 4.54,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 4.54,
+              "end": 4.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thee",
+              "start": 4.72,
+              "end": 4.98,
+              "probability": 0.96875
+            },
+            {
+              "text": " and",
+              "start": 4.98,
+              "end": 5.32,
+              "probability": 0.46142578125
+            },
+            {
+              "text": " comes",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " anon.",
+              "start": 5.58,
+              "end": 5.92,
+              "probability": 0.951416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "how",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "ere",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "that",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "be?",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "Tease",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "raw": "for",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "this",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "cause",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "raw": "alone",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "that",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "Creon",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "raw": "comes",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "raw": "to",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "raw": "thee",
+          "start": 4.72,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "raw": "comes",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "anon.",
+          "start": 5.58,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Howe'er",
+        "that",
+        "be,",
+        "'tis",
+        "for",
+        "this",
+        "cause",
+        "alone",
+        "That",
+        "Creon",
+        "comes",
+        "to",
+        "thee—and",
+        "comes",
+        "anon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          13,
+          6,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ],
+        [
+          "equal",
+          14,
+          16,
+          16,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Howe'er",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "text": "that",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "be,",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "'tis",
+          "start": 2.0,
+          "end": 2.41
+        },
+        {
+          "text": "for",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "this",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "cause",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "text": "alone",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "That",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "Creon",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "text": "comes",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "text": "to",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "text": "thee—and",
+          "start": 4.72,
+          "end": 5.02
+        },
+        {
+          "text": "comes",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "anon.",
+          "start": 5.58,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21114398539066315
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b9eb3eeed4031450d61f9851c35765b6d1622e5065a0d4f55c412033518e96c7",
+  "selected_reasons": []
+}

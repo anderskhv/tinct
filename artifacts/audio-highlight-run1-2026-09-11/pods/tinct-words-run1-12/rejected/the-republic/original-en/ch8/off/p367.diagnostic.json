@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "093059fcaa0fa03bee20421cfaba1921be8a678f392a2b7e5b3ebde1ab0fdd88",
+  "attempts": [
+    {
+      "asr_seconds": 0.0849433010444045,
+      "alignment_seconds": 6.401911377906799e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Inevitably.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Inevitably.",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.7819010416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Inevitably.",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "Inevitably."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Inevitably.",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08502615010365844
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f0a7d236f01906019ad11412bc49be6c26010e3dfaf824d2020a0655e747f98",
+  "selected_reasons": []
+}

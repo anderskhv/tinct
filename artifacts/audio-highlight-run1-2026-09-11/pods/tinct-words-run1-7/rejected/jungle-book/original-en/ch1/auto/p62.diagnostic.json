@@ -1,0 +1,4266 @@
+{
+  "complete": true,
+  "signature": "2162ae2995016ecad9cd02119efd3c84115bd3aedd33fa2bae019e434f6c3bbc",
+  "attempts": [
+    {
+      "asr_seconds": 0.5187756298109889,
+      "alignment_seconds": 0.00019290205091238022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There was a clamor of scores of voices, saying: \"What matter? He will die in the winter rains. He will scorch in the sun. What harm can a naked frog do us? Let him run with the Pack. Where is the bull, Bagheera? Let him be accepted.\" And then came Akela's deep bay, crying: \"Look well--look well, O Wolves!\"",
+        "hotwords": "There, What, He, Let, Pack, Where, Bagheera, And, Akela's, Look, O, Wolves"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There was a clamor of scores of voices, saying,",
+          "start": 0.02,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.94140625
+            },
+            {
+              "text": " was",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " clamor",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.774169921875
+            },
+            {
+              "text": " of",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " scores",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voices,",
+              "start": 1.76,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " saying,",
+              "start": 2.1,
+              "end": 2.54,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " What matter? He will die in the winter rains. He will scorch in the sun. What harm can a",
+          "start": 2.54,
+          "end": 7.76,
+          "words": [
+            {
+              "text": " What",
+              "start": 2.54,
+              "end": 3.26,
+              "probability": 0.2135009765625
+            },
+            {
+              "text": " matter?",
+              "start": 3.26,
+              "end": 3.56,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " He",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " will",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " die",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 4.36,
+              "end": 4.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " winter",
+              "start": 4.46,
+              "end": 4.74,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " rains.",
+              "start": 4.74,
+              "end": 5.12,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " He",
+              "start": 5.46,
+              "end": 5.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " scorch",
+              "start": 5.64,
+              "end": 6.02,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.14,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sun.",
+              "start": 6.26,
+              "end": 6.46,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " What",
+              "start": 7.06,
+              "end": 7.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " harm",
+              "start": 7.16,
+              "end": 7.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " can",
+              "start": 7.44,
+              "end": 7.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 7.64,
+              "end": 7.76,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " naked frog do us? Let him run with the Pack. Where is the bull, Bagheera? Let him be accepted.\"",
+          "start": 7.76,
+          "end": 13.8,
+          "words": [
+            {
+              "text": " naked",
+              "start": 7.76,
+              "end": 8.02,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " frog",
+              "start": 8.02,
+              "end": 8.36,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " do",
+              "start": 8.36,
+              "end": 8.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " us?",
+              "start": 8.62,
+              "end": 8.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Let",
+              "start": 9.28,
+              "end": 9.4,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " him",
+              "start": 9.4,
+              "end": 9.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " run",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 9.68,
+              "end": 9.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 9.86,
+              "end": 9.98,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Pack.",
+              "start": 9.98,
+              "end": 10.24,
+              "probability": 0.01419830322265625
+            },
+            {
+              "text": " Where",
+              "start": 10.72,
+              "end": 10.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 10.86,
+              "end": 11.0,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 11.0,
+              "end": 11.18,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " bull,",
+              "start": 11.18,
+              "end": 11.44,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " Bagheera?",
+              "start": 11.68,
+              "end": 12.02,
+              "probability": 0.9573567708333334
+            },
+            {
+              "text": " Let",
+              "start": 12.42,
+              "end": 12.52,
+              "probability": 0.984375
+            },
+            {
+              "text": " him",
+              "start": 12.52,
+              "end": 12.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 12.64,
+              "end": 12.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " accepted.\"",
+              "start": 12.76,
+              "end": 13.8,
+              "probability": 0.75634765625
+            }
+          ]
+        },
+        {
+          "text": " And then came Akela's deep bay, crying, Look well, look well, O Wolves!",
+          "start": 13.8,
+          "end": 17.96,
+          "words": [
+            {
+              "text": " And",
+              "start": 13.8,
+              "end": 14.04,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " then",
+              "start": 14.04,
+              "end": 14.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " came",
+              "start": 14.2,
+              "end": 14.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Akela's",
+              "start": 14.46,
+              "end": 15.04,
+              "probability": 0.6564865112304688
+            },
+            {
+              "text": " deep",
+              "start": 15.04,
+              "end": 15.2,
+              "probability": 0.810546875
+            },
+            {
+              "text": " bay,",
+              "start": 15.2,
+              "end": 15.54,
+              "probability": 0.869140625
+            },
+            {
+              "text": " crying,",
+              "start": 15.7,
+              "end": 15.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Look",
+              "start": 16.52,
+              "end": 16.64,
+              "probability": 0.004474639892578125
+            },
+            {
+              "text": " well,",
+              "start": 16.64,
+              "end": 16.86,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " look",
+              "start": 17.02,
+              "end": 17.06,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " well,",
+              "start": 17.06,
+              "end": 17.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " O",
+              "start": 17.64,
+              "end": 17.64,
+              "probability": 0.372802734375
+            },
+            {
+              "text": " Wolves!",
+              "start": 17.64,
+              "end": 17.96,
+              "probability": 0.73291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "clamor",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "scores",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "voices,",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "raw": "saying,",
+          "start": 2.1,
+          "end": 2.54
+        },
+        {
+          "raw": "What",
+          "start": 2.54,
+          "end": 3.26
+        },
+        {
+          "raw": "matter?",
+          "start": 3.26,
+          "end": 3.56
+        },
+        {
+          "raw": "He",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "will",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "die",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "raw": "in",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "raw": "winter",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "raw": "rains.",
+          "start": 4.74,
+          "end": 5.12
+        },
+        {
+          "raw": "He",
+          "start": 5.46,
+          "end": 5.5
+        },
+        {
+          "raw": "will",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "scorch",
+          "start": 5.64,
+          "end": 6.02
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "the",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "raw": "sun.",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "raw": "What",
+          "start": 7.06,
+          "end": 7.16
+        },
+        {
+          "raw": "harm",
+          "start": 7.16,
+          "end": 7.44
+        },
+        {
+          "raw": "can",
+          "start": 7.44,
+          "end": 7.64
+        },
+        {
+          "raw": "a",
+          "start": 7.64,
+          "end": 7.76
+        },
+        {
+          "raw": "naked",
+          "start": 7.76,
+          "end": 8.02
+        },
+        {
+          "raw": "frog",
+          "start": 8.02,
+          "end": 8.36
+        },
+        {
+          "raw": "do",
+          "start": 8.36,
+          "end": 8.62
+        },
+        {
+          "raw": "us?",
+          "start": 8.62,
+          "end": 8.88
+        },
+        {
+          "raw": "Let",
+          "start": 9.28,
+          "end": 9.4
+        },
+        {
+          "raw": "him",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "raw": "run",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "with",
+          "start": 9.68,
+          "end": 9.86
+        },
+        {
+          "raw": "the",
+          "start": 9.86,
+          "end": 9.98
+        },
+        {
+          "raw": "Pack.",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "raw": "Where",
+          "start": 10.72,
+          "end": 10.86
+        },
+        {
+          "raw": "is",
+          "start": 10.86,
+          "end": 11.0
+        },
+        {
+          "raw": "the",
+          "start": 11.0,
+          "end": 11.18
+        },
+        {
+          "raw": "bull,",
+          "start": 11.18,
+          "end": 11.44
+        },
+        {
+          "raw": "Bagheera?",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "raw": "Let",
+          "start": 12.42,
+          "end": 12.52
+        },
+        {
+          "raw": "him",
+          "start": 12.52,
+          "end": 12.64
+        },
+        {
+          "raw": "be",
+          "start": 12.64,
+          "end": 12.76
+        },
+        {
+          "raw": "accepted.\"",
+          "start": 12.76,
+          "end": 13.8
+        },
+        {
+          "raw": "And",
+          "start": 13.8,
+          "end": 14.04
+        },
+        {
+          "raw": "then",
+          "start": 14.04,
+          "end": 14.2
+        },
+        {
+          "raw": "came",
+          "start": 14.2,
+          "end": 14.46
+        },
+        {
+          "raw": "Akela's",
+          "start": 14.46,
+          "end": 15.04
+        },
+        {
+          "raw": "deep",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "raw": "bay,",
+          "start": 15.2,
+          "end": 15.54
+        },
+        {
+          "raw": "crying,",
+          "start": 15.7,
+          "end": 15.94
+        },
+        {
+          "raw": "Look",
+          "start": 16.52,
+          "end": 16.64
+        },
+        {
+          "raw": "well,",
+          "start": 16.64,
+          "end": 16.86
+        },
+        {
+          "raw": "look",
+          "start": 17.02,
+          "end": 17.06
+        },
+        {
+          "raw": "well,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "raw": "O",
+          "start": 17.64,
+          "end": 17.64
+        },
+        {
+          "raw": "Wolves!",
+          "start": 17.64,
+          "end": 17.96
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "clamor",
+        "of",
+        "scores",
+        "of",
+        "voices,",
+        "saying:",
+        "\"What",
+        "matter?",
+        "He",
+        "will",
+        "die",
+        "in",
+        "the",
+        "winter",
+        "rains.",
+        "He",
+        "will",
+        "scorch",
+        "in",
+        "the",
+        "sun.",
+        "What",
+        "harm",
+        "can",
+        "a",
+        "naked",
+        "frog",
+        "do",
+        "us?",
+        "Let",
+        "him",
+        "run",
+        "with",
+        "the",
+        "Pack.",
+        "Where",
+        "is",
+        "the",
+        "bull,",
+        "Bagheera?",
+        "Let",
+        "him",
+        "be",
+        "accepted.\"",
+        "And",
+        "then",
+        "came",
+        "Akela's",
+        "deep",
+        "bay,",
+        "crying:",
+        "\"Look",
+        "well--look",
+        "well,",
+        "O",
+        "Wolves!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          55,
+          0,
+          55
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          57
+        ],
+        [
+          "equal",
+          56,
+          59,
+          57,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          55,
+          56,
+          55,
+          57
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "a",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "clamor",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "scores",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "of",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "voices,",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "text": "saying:",
+          "start": 2.1,
+          "end": 2.54
+        },
+        {
+          "text": "\"What",
+          "start": 2.54,
+          "end": 3.26
+        },
+        {
+          "text": "matter?",
+          "start": 3.26,
+          "end": 3.56
+        },
+        {
+          "text": "He",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "text": "will",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "text": "die",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "text": "in",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "text": "winter",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "text": "rains.",
+          "start": 4.74,
+          "end": 5.12
+        },
+        {
+          "text": "He",
+          "start": 5.46,
+          "end": 5.5
+        },
+        {
+          "text": "will",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "scorch",
+          "start": 5.64,
+          "end": 6.02
+        },
+        {
+          "text": "in",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "the",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "text": "sun.",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "text": "What",
+          "start": 7.06,
+          "end": 7.16
+        },
+        {
+          "text": "harm",
+          "start": 7.16,
+          "end": 7.44
+        },
+        {
+          "text": "can",
+          "start": 7.44,
+          "end": 7.64
+        },
+        {
+          "text": "a",
+          "start": 7.64,
+          "end": 7.76
+        },
+        {
+          "text": "naked",
+          "start": 7.76,
+          "end": 8.02
+        },
+        {
+          "text": "frog",
+          "start": 8.02,
+          "end": 8.36
+        },
+        {
+          "text": "do",
+          "start": 8.36,
+          "end": 8.62
+        },
+        {
+          "text": "us?",
+          "start": 8.62,
+          "end": 8.88
+        },
+        {
+          "text": "Let",
+          "start": 9.28,
+          "end": 9.4
+        },
+        {
+          "text": "him",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "text": "run",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "text": "with",
+          "start": 9.68,
+          "end": 9.86
+        },
+        {
+          "text": "the",
+          "start": 9.86,
+          "end": 9.98
+        },
+        {
+          "text": "Pack.",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "text": "Where",
+          "start": 10.72,
+          "end": 10.86
+        },
+        {
+          "text": "is",
+          "start": 10.86,
+          "end": 11.0
+        },
+        {
+          "text": "the",
+          "start": 11.0,
+          "end": 11.18
+        },
+        {
+          "text": "bull,",
+          "start": 11.18,
+          "end": 11.44
+        },
+        {
+          "text": "Bagheera?",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "text": "Let",
+          "start": 12.42,
+          "end": 12.52
+        },
+        {
+          "text": "him",
+          "start": 12.52,
+          "end": 12.64
+        },
+        {
+          "text": "be",
+          "start": 12.64,
+          "end": 12.76
+        },
+        {
+          "text": "accepted.\"",
+          "start": 12.76,
+          "end": 13.8
+        },
+        {
+          "text": "And",
+          "start": 13.8,
+          "end": 14.04
+        },
+        {
+          "text": "then",
+          "start": 14.04,
+          "end": 14.2
+        },
+        {
+          "text": "came",
+          "start": 14.2,
+          "end": 14.46
+        },
+        {
+          "text": "Akela's",
+          "start": 14.46,
+          "end": 15.04
+        },
+        {
+          "text": "deep",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "text": "bay,",
+          "start": 15.2,
+          "end": 15.54
+        },
+        {
+          "text": "crying:",
+          "start": 15.7,
+          "end": 15.94
+        },
+        {
+          "text": "\"Look",
+          "start": 16.52,
+          "end": 16.64
+        },
+        {
+          "text": "well--look",
+          "start": 16.64,
+          "end": 16.85
+        },
+        {
+          "text": "well,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "text": "O",
+          "start": 17.64,
+          "end": 17.64
+        },
+        {
+          "text": "Wolves!\"",
+          "start": 17.64,
+          "end": 17.96
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 60,
+        "matched_words": 58
+      },
+      "match_ratio": 0.9830508474576272,
+      "rejection_reasons": [],
+      "seconds": 0.519087609834969
+    },
+    {
+      "asr_seconds": 0.3720292644575238,
+      "alignment_seconds": 0.00020413566380739212,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "There, What, He, Let, Pack, Where, Bagheera, And, Akela's, Look, O, Wolves"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " There was a clamour of scores of voices, saying, What matter, he will die in the winter rains,",
+          "start": 0.02,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " was",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " clamour",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.696533203125
+            },
+            {
+              "text": " of",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " scores",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voices,",
+              "start": 1.74,
+              "end": 2.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " saying,",
+              "start": 2.12,
+              "end": 2.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " What",
+              "start": 3.08,
+              "end": 3.26,
+              "probability": 0.049896240234375
+            },
+            {
+              "text": " matter,",
+              "start": 3.26,
+              "end": 3.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " he",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " will",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " die",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 4.36,
+              "end": 4.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " winter",
+              "start": 4.46,
+              "end": 4.74,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " rains,",
+              "start": 4.74,
+              "end": 5.1,
+              "probability": 0.9677734375
+            }
+          ]
+        },
+        {
+          "text": " He will scorch in the sun, What harm can a naked frog do us?",
+          "start": 5.44,
+          "end": 8.94,
+          "words": [
+            {
+              "text": " He",
+              "start": 5.44,
+              "end": 5.5,
+              "probability": 0.450439453125
+            },
+            {
+              "text": " will",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " scorch",
+              "start": 5.64,
+              "end": 6.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.14,
+              "end": 6.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sun,",
+              "start": 6.24,
+              "end": 6.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " What",
+              "start": 6.94,
+              "end": 7.16,
+              "probability": 0.828125
+            },
+            {
+              "text": " harm",
+              "start": 7.16,
+              "end": 7.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " can",
+              "start": 7.44,
+              "end": 7.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 7.64,
+              "end": 7.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " naked",
+              "start": 7.76,
+              "end": 8.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " frog",
+              "start": 8.0,
+              "end": 8.36,
+              "probability": 0.95703125
+            },
+            {
+              "text": " do",
+              "start": 8.36,
+              "end": 8.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " us?",
+              "start": 8.64,
+              "end": 8.94,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Let him run with the pack, Where is the bull, Bagheera?",
+          "start": 9.28,
+          "end": 12.02,
+          "words": [
+            {
+              "text": " Let",
+              "start": 9.28,
+              "end": 9.4,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " him",
+              "start": 9.4,
+              "end": 9.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " run",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 9.68,
+              "end": 9.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 9.84,
+              "end": 9.98,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " pack,",
+              "start": 9.98,
+              "end": 10.24,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Where",
+              "start": 10.68,
+              "end": 10.86,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " is",
+              "start": 10.86,
+              "end": 11.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 11.0,
+              "end": 11.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bull,",
+              "start": 11.18,
+              "end": 11.44,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Bagheera?",
+              "start": 11.68,
+              "end": 12.02,
+              "probability": 0.9422200520833334
+            }
+          ]
+        },
+        {
+          "text": " Let him be accepted.",
+          "start": 12.42,
+          "end": 13.18,
+          "words": [
+            {
+              "text": " Let",
+              "start": 12.42,
+              "end": 12.52,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " him",
+              "start": 12.52,
+              "end": 12.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 12.64,
+              "end": 12.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " accepted.",
+              "start": 12.76,
+              "end": 13.18,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " And then came Akela's deep bay, crying, Look well, look well, O, Wolves.",
+          "start": 13.88,
+          "end": 17.98,
+          "words": [
+            {
+              "text": " And",
+              "start": 13.88,
+              "end": 14.04,
+              "probability": 0.978515625
+            },
+            {
+              "text": " then",
+              "start": 14.04,
+              "end": 14.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " came",
+              "start": 14.2,
+              "end": 14.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Akela's",
+              "start": 14.46,
+              "end": 15.04,
+              "probability": 0.6590773264567057
+            },
+            {
+              "text": " deep",
+              "start": 15.04,
+              "end": 15.18,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " bay,",
+              "start": 15.18,
+              "end": 15.56,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " crying,",
+              "start": 15.74,
+              "end": 15.98,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Look",
+              "start": 16.54,
+              "end": 16.64,
+              "probability": 0.93359375
+            },
+            {
+              "text": " well,",
+              "start": 16.64,
+              "end": 16.86,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " look",
+              "start": 17.02,
+              "end": 17.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " well,",
+              "start": 17.06,
+              "end": 17.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " O,",
+              "start": 17.56,
+              "end": 17.64,
+              "probability": 0.5546875
+            },
+            {
+              "text": " Wolves.",
+              "start": 17.66,
+              "end": 17.98,
+              "probability": 0.25732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "clamour",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "scores",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "voices,",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "raw": "saying,",
+          "start": 2.12,
+          "end": 2.54
+        },
+        {
+          "raw": "What",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "raw": "matter,",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "raw": "he",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "will",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "die",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "raw": "in",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "raw": "winter",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "raw": "rains,",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "raw": "He",
+          "start": 5.44,
+          "end": 5.5
+        },
+        {
+          "raw": "will",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "scorch",
+          "start": 5.64,
+          "end": 6.02
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "the",
+          "start": 6.14,
+          "end": 6.24
+        },
+        {
+          "raw": "sun,",
+          "start": 6.24,
+          "end": 6.46
+        },
+        {
+          "raw": "What",
+          "start": 6.94,
+          "end": 7.16
+        },
+        {
+          "raw": "harm",
+          "start": 7.16,
+          "end": 7.44
+        },
+        {
+          "raw": "can",
+          "start": 7.44,
+          "end": 7.64
+        },
+        {
+          "raw": "a",
+          "start": 7.64,
+          "end": 7.76
+        },
+        {
+          "raw": "naked",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "raw": "frog",
+          "start": 8.0,
+          "end": 8.36
+        },
+        {
+          "raw": "do",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "raw": "us?",
+          "start": 8.64,
+          "end": 8.94
+        },
+        {
+          "raw": "Let",
+          "start": 9.28,
+          "end": 9.4
+        },
+        {
+          "raw": "him",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "raw": "run",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "with",
+          "start": 9.68,
+          "end": 9.84
+        },
+        {
+          "raw": "the",
+          "start": 9.84,
+          "end": 9.98
+        },
+        {
+          "raw": "pack,",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "raw": "Where",
+          "start": 10.68,
+          "end": 10.86
+        },
+        {
+          "raw": "is",
+          "start": 10.86,
+          "end": 11.0
+        },
+        {
+          "raw": "the",
+          "start": 11.0,
+          "end": 11.18
+        },
+        {
+          "raw": "bull,",
+          "start": 11.18,
+          "end": 11.44
+        },
+        {
+          "raw": "Bagheera?",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "raw": "Let",
+          "start": 12.42,
+          "end": 12.52
+        },
+        {
+          "raw": "him",
+          "start": 12.52,
+          "end": 12.64
+        },
+        {
+          "raw": "be",
+          "start": 12.64,
+          "end": 12.76
+        },
+        {
+          "raw": "accepted.",
+          "start": 12.76,
+          "end": 13.18
+        },
+        {
+          "raw": "And",
+          "start": 13.88,
+          "end": 14.04
+        },
+        {
+          "raw": "then",
+          "start": 14.04,
+          "end": 14.2
+        },
+        {
+          "raw": "came",
+          "start": 14.2,
+          "end": 14.46
+        },
+        {
+          "raw": "Akela's",
+          "start": 14.46,
+          "end": 15.04
+        },
+        {
+          "raw": "deep",
+          "start": 15.04,
+          "end": 15.18
+        },
+        {
+          "raw": "bay,",
+          "start": 15.18,
+          "end": 15.56
+        },
+        {
+          "raw": "crying,",
+          "start": 15.74,
+          "end": 15.98
+        },
+        {
+          "raw": "Look",
+          "start": 16.54,
+          "end": 16.64
+        },
+        {
+          "raw": "well,",
+          "start": 16.64,
+          "end": 16.86
+        },
+        {
+          "raw": "look",
+          "start": 17.02,
+          "end": 17.06
+        },
+        {
+          "raw": "well,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "raw": "O,",
+          "start": 17.56,
+          "end": 17.64
+        },
+        {
+          "raw": "Wolves.",
+          "start": 17.66,
+          "end": 17.98
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "clamor",
+        "of",
+        "scores",
+        "of",
+        "voices,",
+        "saying:",
+        "\"What",
+        "matter?",
+        "He",
+        "will",
+        "die",
+        "in",
+        "the",
+        "winter",
+        "rains.",
+        "He",
+        "will",
+        "scorch",
+        "in",
+        "the",
+        "sun.",
+        "What",
+        "harm",
+        "can",
+        "a",
+        "naked",
+        "frog",
+        "do",
+        "us?",
+        "Let",
+        "him",
+        "run",
+        "with",
+        "the",
+        "Pack.",
+        "Where",
+        "is",
+        "the",
+        "bull,",
+        "Bagheera?",
+        "Let",
+        "him",
+        "be",
+        "accepted.\"",
+        "And",
+        "then",
+        "came",
+        "Akela's",
+        "deep",
+        "bay,",
+        "crying:",
+        "\"Look",
+        "well--look",
+        "well,",
+        "O",
+        "Wolves!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          55,
+          4,
+          55
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          57
+        ],
+        [
+          "equal",
+          56,
+          59,
+          57,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          57
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "a",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "clamor",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "scores",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "of",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "voices,",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "text": "saying:",
+          "start": 2.12,
+          "end": 2.54
+        },
+        {
+          "text": "\"What",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "text": "matter?",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "text": "He",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "text": "will",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "text": "die",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "text": "in",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "text": "winter",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "text": "rains.",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "text": "He",
+          "start": 5.44,
+          "end": 5.5
+        },
+        {
+          "text": "will",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "scorch",
+          "start": 5.64,
+          "end": 6.02
+        },
+        {
+          "text": "in",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "the",
+          "start": 6.14,
+          "end": 6.24
+        },
+        {
+          "text": "sun.",
+          "start": 6.24,
+          "end": 6.46
+        },
+        {
+          "text": "What",
+          "start": 6.94,
+          "end": 7.16
+        },
+        {
+          "text": "harm",
+          "start": 7.16,
+          "end": 7.44
+        },
+        {
+          "text": "can",
+          "start": 7.44,
+          "end": 7.64
+        },
+        {
+          "text": "a",
+          "start": 7.64,
+          "end": 7.76
+        },
+        {
+          "text": "naked",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "text": "frog",
+          "start": 8.0,
+          "end": 8.36
+        },
+        {
+          "text": "do",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "text": "us?",
+          "start": 8.64,
+          "end": 8.94
+        },
+        {
+          "text": "Let",
+          "start": 9.28,
+          "end": 9.4
+        },
+        {
+          "text": "him",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "text": "run",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "text": "with",
+          "start": 9.68,
+          "end": 9.84
+        },
+        {
+          "text": "the",
+          "start": 9.84,
+          "end": 9.98
+        },
+        {
+          "text": "Pack.",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "text": "Where",
+          "start": 10.68,
+          "end": 10.86
+        },
+        {
+          "text": "is",
+          "start": 10.86,
+          "end": 11.0
+        },
+        {
+          "text": "the",
+          "start": 11.0,
+          "end": 11.18
+        },
+        {
+          "text": "bull,",
+          "start": 11.18,
+          "end": 11.44
+        },
+        {
+          "text": "Bagheera?",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "text": "Let",
+          "start": 12.42,
+          "end": 12.52
+        },
+        {
+          "text": "him",
+          "start": 12.52,
+          "end": 12.64
+        },
+        {
+          "text": "be",
+          "start": 12.64,
+          "end": 12.76
+        },
+        {
+          "text": "accepted.\"",
+          "start": 12.76,
+          "end": 13.18
+        },
+        {
+          "text": "And",
+          "start": 13.88,
+          "end": 14.04
+        },
+        {
+          "text": "then",
+          "start": 14.04,
+          "end": 14.2
+        },
+        {
+          "text": "came",
+          "start": 14.2,
+          "end": 14.46
+        },
+        {
+          "text": "Akela's",
+          "start": 14.46,
+          "end": 15.04
+        },
+        {
+          "text": "deep",
+          "start": 15.04,
+          "end": 15.18
+        },
+        {
+          "text": "bay,",
+          "start": 15.18,
+          "end": 15.56
+        },
+        {
+          "text": "crying:",
+          "start": 15.74,
+          "end": 15.98
+        },
+        {
+          "text": "\"Look",
+          "start": 16.54,
+          "end": 16.64
+        },
+        {
+          "text": "well--look",
+          "start": 16.64,
+          "end": 16.85
+        },
+        {
+          "text": "well,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "text": "O",
+          "start": 17.56,
+          "end": 17.64
+        },
+        {
+          "text": "Wolves!\"",
+          "start": 17.66,
+          "end": 17.98
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 60,
+        "matched_words": 57
+      },
+      "match_ratio": 0.9661016949152542,
+      "rejection_reasons": [],
+      "seconds": 0.3723448012024164
+    },
+    {
+      "asr_seconds": 0.29484550282359123,
+      "alignment_seconds": 0.00020001549273729324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There was a clamor of scores of voices saying what matter he will die in the winter rains",
+          "start": 0.02,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " was",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " clamor",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.773193359375
+            },
+            {
+              "text": " of",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " scores",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voices",
+              "start": 1.76,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " saying",
+              "start": 2.1,
+              "end": 2.54,
+              "probability": 0.419921875
+            },
+            {
+              "text": " what",
+              "start": 2.54,
+              "end": 3.26,
+              "probability": 0.16455078125
+            },
+            {
+              "text": " matter",
+              "start": 3.26,
+              "end": 3.6,
+              "probability": 0.986328125
+            },
+            {
+              "text": " he",
+              "start": 3.6,
+              "end": 3.9,
+              "probability": 0.88671875
+            },
+            {
+              "text": " will",
+              "start": 3.9,
+              "end": 4.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die",
+              "start": 4.02,
+              "end": 4.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 4.24,
+              "end": 4.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.36,
+              "end": 4.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " winter",
+              "start": 4.46,
+              "end": 4.74,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " rains",
+              "start": 4.74,
+              "end": 5.16,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " He will scorch in the Sun. What harm can a naked frog do us? Let him run with the pack",
+          "start": 5.16,
+          "end": 10.28,
+          "words": [
+            {
+              "text": " He",
+              "start": 5.16,
+              "end": 5.5,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " will",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " scorch",
+              "start": 5.64,
+              "end": 6.02,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " in",
+              "start": 6.02,
+              "end": 6.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 6.12,
+              "end": 6.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Sun.",
+              "start": 6.24,
+              "end": 6.5,
+              "probability": 0.58251953125
+            },
+            {
+              "text": " What",
+              "start": 6.94,
+              "end": 7.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " harm",
+              "start": 7.16,
+              "end": 7.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " can",
+              "start": 7.46,
+              "end": 7.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 7.64,
+              "end": 7.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " naked",
+              "start": 7.74,
+              "end": 8.0,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " frog",
+              "start": 8.0,
+              "end": 8.38,
+              "probability": 0.9375
+            },
+            {
+              "text": " do",
+              "start": 8.38,
+              "end": 8.64,
+              "probability": 0.95703125
+            },
+            {
+              "text": " us?",
+              "start": 8.64,
+              "end": 8.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Let",
+              "start": 9.18,
+              "end": 9.4,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " him",
+              "start": 9.4,
+              "end": 9.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " run",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 9.68,
+              "end": 9.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 9.84,
+              "end": 9.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pack",
+              "start": 9.96,
+              "end": 10.28,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " Where is the bull Bagheera? Let him be accepted and then came Aikla's deep bay crying. Look well. Look well. Oh wolves",
+          "start": 10.28,
+          "end": 18.02,
+          "words": [
+            {
+              "text": " Where",
+              "start": 10.28,
+              "end": 10.86,
+              "probability": 0.1522216796875
+            },
+            {
+              "text": " is",
+              "start": 10.86,
+              "end": 11.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 11.0,
+              "end": 11.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bull",
+              "start": 11.16,
+              "end": 11.44,
+              "probability": 0.734375
+            },
+            {
+              "text": " Bagheera?",
+              "start": 11.44,
+              "end": 12.06,
+              "probability": 0.7874348958333334
+            },
+            {
+              "text": " Let",
+              "start": 12.36,
+              "end": 12.52,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " him",
+              "start": 12.52,
+              "end": 12.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 12.64,
+              "end": 12.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " accepted",
+              "start": 12.76,
+              "end": 13.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 13.24,
+              "end": 14.04,
+              "probability": 0.62109375
+            },
+            {
+              "text": " then",
+              "start": 14.04,
+              "end": 14.18,
+              "probability": 0.9140625
+            },
+            {
+              "text": " came",
+              "start": 14.18,
+              "end": 14.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Aikla's",
+              "start": 14.46,
+              "end": 15.02,
+              "probability": 0.601348876953125
+            },
+            {
+              "text": " deep",
+              "start": 15.02,
+              "end": 15.2,
+              "probability": 0.921875
+            },
+            {
+              "text": " bay",
+              "start": 15.2,
+              "end": 15.54,
+              "probability": 0.47802734375
+            },
+            {
+              "text": " crying.",
+              "start": 15.54,
+              "end": 16.04,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Look",
+              "start": 16.12,
+              "end": 16.64,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " well.",
+              "start": 16.64,
+              "end": 16.86,
+              "probability": 0.875
+            },
+            {
+              "text": " Look",
+              "start": 16.86,
+              "end": 17.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " well.",
+              "start": 17.08,
+              "end": 17.34,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Oh",
+              "start": 17.34,
+              "end": 17.64,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " wolves",
+              "start": 17.64,
+              "end": 18.02,
+              "probability": 0.947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "clamor",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "scores",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "voices",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "raw": "saying",
+          "start": 2.1,
+          "end": 2.54
+        },
+        {
+          "raw": "what",
+          "start": 2.54,
+          "end": 3.26
+        },
+        {
+          "raw": "matter",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "raw": "he",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "raw": "will",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "raw": "die",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "raw": "in",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "raw": "winter",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "raw": "rains",
+          "start": 4.74,
+          "end": 5.16
+        },
+        {
+          "raw": "He",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "raw": "will",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "scorch",
+          "start": 5.64,
+          "end": 6.02
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "raw": "the",
+          "start": 6.12,
+          "end": 6.24
+        },
+        {
+          "raw": "Sun.",
+          "start": 6.24,
+          "end": 6.5
+        },
+        {
+          "raw": "What",
+          "start": 6.94,
+          "end": 7.16
+        },
+        {
+          "raw": "harm",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "raw": "can",
+          "start": 7.46,
+          "end": 7.64
+        },
+        {
+          "raw": "a",
+          "start": 7.64,
+          "end": 7.74
+        },
+        {
+          "raw": "naked",
+          "start": 7.74,
+          "end": 8.0
+        },
+        {
+          "raw": "frog",
+          "start": 8.0,
+          "end": 8.38
+        },
+        {
+          "raw": "do",
+          "start": 8.38,
+          "end": 8.64
+        },
+        {
+          "raw": "us?",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "raw": "Let",
+          "start": 9.18,
+          "end": 9.4
+        },
+        {
+          "raw": "him",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "raw": "run",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "with",
+          "start": 9.68,
+          "end": 9.84
+        },
+        {
+          "raw": "the",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "raw": "pack",
+          "start": 9.96,
+          "end": 10.28
+        },
+        {
+          "raw": "Where",
+          "start": 10.28,
+          "end": 10.86
+        },
+        {
+          "raw": "is",
+          "start": 10.86,
+          "end": 11.0
+        },
+        {
+          "raw": "the",
+          "start": 11.0,
+          "end": 11.16
+        },
+        {
+          "raw": "bull",
+          "start": 11.16,
+          "end": 11.44
+        },
+        {
+          "raw": "Bagheera?",
+          "start": 11.44,
+          "end": 12.06
+        },
+        {
+          "raw": "Let",
+          "start": 12.36,
+          "end": 12.52
+        },
+        {
+          "raw": "him",
+          "start": 12.52,
+          "end": 12.64
+        },
+        {
+          "raw": "be",
+          "start": 12.64,
+          "end": 12.76
+        },
+        {
+          "raw": "accepted",
+          "start": 12.76,
+          "end": 13.24
+        },
+        {
+          "raw": "and",
+          "start": 13.24,
+          "end": 14.04
+        },
+        {
+          "raw": "then",
+          "start": 14.04,
+          "end": 14.18
+        },
+        {
+          "raw": "came",
+          "start": 14.18,
+          "end": 14.46
+        },
+        {
+          "raw": "Aikla's",
+          "start": 14.46,
+          "end": 15.02
+        },
+        {
+          "raw": "deep",
+          "start": 15.02,
+          "end": 15.2
+        },
+        {
+          "raw": "bay",
+          "start": 15.2,
+          "end": 15.54
+        },
+        {
+          "raw": "crying.",
+          "start": 15.54,
+          "end": 16.04
+        },
+        {
+          "raw": "Look",
+          "start": 16.12,
+          "end": 16.64
+        },
+        {
+          "raw": "well.",
+          "start": 16.64,
+          "end": 16.86
+        },
+        {
+          "raw": "Look",
+          "start": 16.86,
+          "end": 17.08
+        },
+        {
+          "raw": "well.",
+          "start": 17.08,
+          "end": 17.34
+        },
+        {
+          "raw": "Oh",
+          "start": 17.34,
+          "end": 17.64
+        },
+        {
+          "raw": "wolves",
+          "start": 17.64,
+          "end": 18.02
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "clamor",
+        "of",
+        "scores",
+        "of",
+        "voices,",
+        "saying:",
+        "\"What",
+        "matter?",
+        "He",
+        "will",
+        "die",
+        "in",
+        "the",
+        "winter",
+        "rains.",
+        "He",
+        "will",
+        "scorch",
+        "in",
+        "the",
+        "sun.",
+        "What",
+        "harm",
+        "can",
+        "a",
+        "naked",
+        "frog",
+        "do",
+        "us?",
+        "Let",
+        "him",
+        "run",
+        "with",
+        "the",
+        "Pack.",
+        "Where",
+        "is",
+        "the",
+        "bull,",
+        "Bagheera?",
+        "Let",
+        "him",
+        "be",
+        "accepted.\"",
+        "And",
+        "then",
+        "came",
+        "Akela's",
+        "deep",
+        "bay,",
+        "crying:",
+        "\"Look",
+        "well--look",
+        "well,",
+        "O",
+        "Wolves!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          50,
+          0,
+          50
+        ],
+        [
+          "replace",
+          50,
+          51,
+          50,
+          51
+        ],
+        [
+          "equal",
+          51,
+          55,
+          51,
+          55
+        ],
+        [
+          "delete",
+          55,
+          56,
+          55,
+          55
+        ],
+        [
+          "equal",
+          56,
+          57,
+          55,
+          56
+        ],
+        [
+          "replace",
+          57,
+          58,
+          56,
+          59
+        ],
+        [
+          "equal",
+          58,
+          59,
+          59,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          50,
+          51,
+          50,
+          51
+        ],
+        [
+          "delete",
+          55,
+          56,
+          55,
+          55
+        ],
+        [
+          "replace",
+          57,
+          58,
+          56,
+          59
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "a",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "clamor",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "scores",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "of",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "voices,",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "text": "saying:",
+          "start": 2.1,
+          "end": 2.54
+        },
+        {
+          "text": "\"What",
+          "start": 2.54,
+          "end": 3.26
+        },
+        {
+          "text": "matter?",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "text": "He",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "text": "will",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "text": "die",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "text": "in",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.36,
+          "end": 4.46
+        },
+        {
+          "text": "winter",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "text": "rains.",
+          "start": 4.74,
+          "end": 5.16
+        },
+        {
+          "text": "He",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "text": "will",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "scorch",
+          "start": 5.64,
+          "end": 6.02
+        },
+        {
+          "text": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "text": "the",
+          "start": 6.12,
+          "end": 6.24
+        },
+        {
+          "text": "sun.",
+          "start": 6.24,
+          "end": 6.5
+        },
+        {
+          "text": "What",
+          "start": 6.94,
+          "end": 7.16
+        },
+        {
+          "text": "harm",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "text": "can",
+          "start": 7.46,
+          "end": 7.64
+        },
+        {
+          "text": "a",
+          "start": 7.64,
+          "end": 7.74
+        },
+        {
+          "text": "naked",
+          "start": 7.74,
+          "end": 8.0
+        },
+        {
+          "text": "frog",
+          "start": 8.0,
+          "end": 8.38
+        },
+        {
+          "text": "do",
+          "start": 8.38,
+          "end": 8.64
+        },
+        {
+          "text": "us?",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "text": "Let",
+          "start": 9.18,
+          "end": 9.4
+        },
+        {
+          "text": "him",
+          "start": 9.4,
+          "end": 9.52
+        },
+        {
+          "text": "run",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "text": "with",
+          "start": 9.68,
+          "end": 9.84
+        },
+        {
+          "text": "the",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "text": "Pack.",
+          "start": 9.96,
+          "end": 10.28
+        },
+        {
+          "text": "Where",
+          "start": 10.28,
+          "end": 10.86
+        },
+        {
+          "text": "is",
+          "start": 10.86,
+          "end": 11.0
+        },
+        {
+          "text": "the",
+          "start": 11.0,
+          "end": 11.16
+        },
+        {
+          "text": "bull,",
+          "start": 11.16,
+          "end": 11.44
+        },
+        {
+          "text": "Bagheera?",
+          "start": 11.44,
+          "end": 12.06
+        },
+        {
+          "text": "Let",
+          "start": 12.36,
+          "end": 12.52
+        },
+        {
+          "text": "him",
+          "start": 12.52,
+          "end": 12.64
+        },
+        {
+          "text": "be",
+          "start": 12.64,
+          "end": 12.76
+        },
+        {
+          "text": "accepted.\"",
+          "start": 12.76,
+          "end": 13.24
+        },
+        {
+          "text": "And",
+          "start": 13.24,
+          "end": 14.04
+        },
+        {
+          "text": "then",
+          "start": 14.04,
+          "end": 14.18
+        },
+        {
+          "text": "came",
+          "start": 14.18,
+          "end": 14.46
+        },
+        {
+          "text": "Akela's",
+          "start": 14.46,
+          "end": 14.74
+        },
+        {
+          "text": "deep",
+          "start": 15.02,
+          "end": 15.2
+        },
+        {
+          "text": "bay,",
+          "start": 15.2,
+          "end": 15.54
+        },
+        {
+          "text": "crying:",
+          "start": 15.54,
+          "end": 16.04
+        },
+        {
+          "text": "\"Look",
+          "start": 16.12,
+          "end": 16.64
+        },
+        {
+          "text": "well--look",
+          "start": 16.64,
+          "end": 16.64
+        },
+        {
+          "text": "well,",
+          "start": 16.64,
+          "end": 16.86
+        },
+        {
+          "text": "O",
+          "start": 16.86,
+          "end": 17.25
+        },
+        {
+          "text": "Wolves!\"",
+          "start": 17.64,
+          "end": 18.02
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 60,
+        "matched_words": 56
+      },
+      "match_ratio": 0.9491525423728814,
+      "rejection_reasons": [],
+      "seconds": 0.2951573561877012
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0e8f512dbc03c1ab81087f050f9ce18ec2491f8f5f325367affb7e9322fca347",
+  "selected_reasons": []
+}

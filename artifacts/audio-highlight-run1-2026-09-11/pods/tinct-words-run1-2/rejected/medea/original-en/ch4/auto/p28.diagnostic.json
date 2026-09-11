@@ -1,0 +1,834 @@
+{
+  "complete": true,
+  "signature": "0abbad238dc62b8fd95de166a16eaeb282c861aefdf19973755661d7405d4d12",
+  "attempts": [
+    {
+      "asr_seconds": 0.16298805177211761,
+      "alignment_seconds": 7.595866918563843e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aegeus. Prayed heaven for children--the same search alway.",
+        "hotwords": "Aegeus, Prayed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aegeus, Prayed heaven for children-the same search alway.",
+          "start": 0.11,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Aegeus,",
+              "start": 0.11,
+              "end": 0.99,
+              "probability": 0.6495513916015625
+            },
+            {
+              "text": " Prayed",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.4198417663574219
+            },
+            {
+              "text": " heaven",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.42529296875
+            },
+            {
+              "text": " for",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " children",
+              "start": 2.01,
+              "end": 2.33,
+              "probability": 0.95263671875
+            },
+            {
+              "text": "-the",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.14267170429229736
+            },
+            {
+              "text": " same",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " search",
+              "start": 2.81,
+              "end": 3.11,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " alway.",
+              "start": 3.11,
+              "end": 3.59,
+              "probability": 0.5234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegeus,",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "raw": "Prayed",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "heaven",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "for",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "children",
+          "start": 2.01,
+          "end": 2.33
+        },
+        {
+          "raw": "-the",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "same",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "search",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "raw": "alway.",
+          "start": 3.11,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Prayed",
+        "heaven",
+        "for",
+        "children--the",
+        "same",
+        "search",
+        "alway."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "text": "Prayed",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "heaven",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "for",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "children--the",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "text": "same",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "search",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "text": "alway.",
+          "start": 3.11,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.16309508681297302
+    },
+    {
+      "asr_seconds": 0.11687391251325607,
+      "alignment_seconds": 7.906556129455566e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Aegeus, Prayed"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Heaven for Children the Same Search All Way.",
+          "start": 0.11,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Heaven",
+              "start": 0.11,
+              "end": 0.91,
+              "probability": 2.7418136596679688e-06
+            },
+            {
+              "text": " for",
+              "start": 0.91,
+              "end": 1.99,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " Children",
+              "start": 1.99,
+              "end": 2.33,
+              "probability": 0.382568359375
+            },
+            {
+              "text": " the",
+              "start": 2.33,
+              "end": 2.55,
+              "probability": 0.451171875
+            },
+            {
+              "text": " Same",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.11871337890625
+            },
+            {
+              "text": " Search",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " All",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " Way.",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.80322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Heaven",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "raw": "for",
+          "start": 0.91,
+          "end": 1.99
+        },
+        {
+          "raw": "Children",
+          "start": 1.99,
+          "end": 2.33
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "raw": "Same",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "Search",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "raw": "All",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "raw": "Way.",
+          "start": 3.37,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Prayed",
+        "heaven",
+        "for",
+        "children--the",
+        "same",
+        "search",
+        "alway."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          4,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          2,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          4,
+          5,
+          2,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.055
+        },
+        {
+          "text": "Prayed",
+          "start": 0.055,
+          "end": 0.083
+        },
+        {
+          "text": "heaven",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "text": "for",
+          "start": 0.91,
+          "end": 1.99
+        },
+        {
+          "text": "children--the",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "same",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "search",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "text": "alway.",
+          "start": 3.09,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11698196083307266
+    },
+    {
+      "asr_seconds": 0.11436670273542404,
+      "alignment_seconds": 8.340924978256226e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Egeus, prayed heaven for children the same search all way.",
+          "start": 0.11,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Egeus,",
+              "start": 0.11,
+              "end": 0.97,
+              "probability": 0.5040283203125
+            },
+            {
+              "text": " prayed",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " heaven",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.8046875
+            },
+            {
+              "text": " for",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " children",
+              "start": 2.01,
+              "end": 2.33,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " same",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " search",
+              "start": 2.81,
+              "end": 3.13,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " all",
+              "start": 3.13,
+              "end": 3.35,
+              "probability": 0.42529296875
+            },
+            {
+              "text": " way.",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Egeus,",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "raw": "prayed",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "heaven",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "for",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "children",
+          "start": 2.01,
+          "end": 2.33
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "same",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "search",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "raw": "all",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "raw": "way.",
+          "start": 3.35,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Prayed",
+        "heaven",
+        "for",
+        "children--the",
+        "same",
+        "search",
+        "alway."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.655
+        },
+        {
+          "text": "Prayed",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "heaven",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "for",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "children--the",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "text": "same",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "search",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "text": "alway.",
+          "start": 3.13,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11448203027248383
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cfe7d8ab7077778d559c5de375fecb11e617736aa58f26354081d48494d291c9",
+  "selected_reasons": []
+}

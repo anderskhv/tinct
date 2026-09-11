@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "e745b775d9e1aeaccfce64d0ec960a71587aa0bdd7df6bb2abf263378092de54",
+  "attempts": [
+    {
+      "asr_seconds": 0.07643875479698181,
+      "alignment_seconds": 5.743652582168579e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " At what age?",
+          "start": 0.14,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.787109375
+            },
+            {
+              "text": " what",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " age?",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "what",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "age?",
+          "start": 0.64,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "At",
+        "what",
+        "age?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "At",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "what",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "age?",
+          "start": 0.64,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07651820033788681
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "28f54b0b7251b05bbe2f0add49fd4024eb4ad53aeec039428bb2cd970c9e7935",
+  "selected_reasons": []
+}

@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "9228043b535a838080d9e1b745b13fb0d7270af35a56c235a0bb102131adff9d",
+  "attempts": [
+    {
+      "asr_seconds": 0.15937825699802488,
+      "alignment_seconds": 0.00014728400856256485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. [Aside to Antonio] The next advantage Will we take throughly.",
+        "hotwords": "Sebastian, Aside, Antonio, The, Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, Aside to Antonio, The next advantage Will we take throughly.",
+          "start": 0.08,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " Aside",
+              "start": 1.52,
+              "end": 1.86,
+              "probability": 0.046295166015625
+            },
+            {
+              "text": " to",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Antonio,",
+              "start": 2.08,
+              "end": 2.54,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " The",
+              "start": 2.92,
+              "end": 2.94,
+              "probability": 0.1790771484375
+            },
+            {
+              "text": " next",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " advantage",
+              "start": 3.16,
+              "end": 3.64,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Will",
+              "start": 3.64,
+              "end": 3.92,
+              "probability": 0.0217132568359375
+            },
+            {
+              "text": " we",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " take",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " throughly.",
+              "start": 4.24,
+              "end": 4.76,
+              "probability": 0.590087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "Aside",
+          "start": 1.52,
+          "end": 1.86
+        },
+        {
+          "raw": "to",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "Antonio,",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "raw": "The",
+          "start": 2.92,
+          "end": 2.94
+        },
+        {
+          "raw": "next",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "advantage",
+          "start": 3.16,
+          "end": 3.64
+        },
+        {
+          "raw": "Will",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "raw": "we",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "take",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "throughly.",
+          "start": 4.24,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "[Aside",
+        "to",
+        "Antonio]",
+        "The",
+        "next",
+        "advantage",
+        "Will",
+        "we",
+        "take",
+        "throughly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "[Aside",
+          "start": 1.52,
+          "end": 1.86
+        },
+        {
+          "text": "to",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "Antonio]",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "text": "The",
+          "start": 2.92,
+          "end": 2.94
+        },
+        {
+          "text": "next",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "advantage",
+          "start": 3.16,
+          "end": 3.64
+        },
+        {
+          "text": "Will",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "text": "we",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "take",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "throughly.",
+          "start": 4.24,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15959463198669255
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "283c5a0c141cb60bb855a6ef5bf1529eec3fee05b669ec91adc63e021d053263",
+  "selected_reasons": []
+}

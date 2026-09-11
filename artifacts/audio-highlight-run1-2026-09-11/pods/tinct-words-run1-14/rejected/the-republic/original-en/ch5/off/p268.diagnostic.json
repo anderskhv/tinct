@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "d8121345d6fdcfe2a97c760401322b55d5474225cf4dddd5affa1cf4be9a0f24",
+  "attempts": [
+    {
+      "asr_seconds": 0.08519691973924637,
+      "alignment_seconds": 6.341934204101562e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Of course they will.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " course",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " they",
+              "start": 0.75,
+              "end": 1.01,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " will.",
+              "start": 1.01,
+              "end": 1.25,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "course",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "they",
+          "start": 0.75,
+          "end": 1.01
+        },
+        {
+          "raw": "will.",
+          "start": 1.01,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "course",
+        "they",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "course",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "they",
+          "start": 0.75,
+          "end": 1.01
+        },
+        {
+          "text": "will.",
+          "start": 1.01,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08528511226177216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fda47d066b331ccfbc245d141b8e7b99dcb4f1ee072bed6d2c05444035c48fc8",
+  "selected_reasons": []
+}

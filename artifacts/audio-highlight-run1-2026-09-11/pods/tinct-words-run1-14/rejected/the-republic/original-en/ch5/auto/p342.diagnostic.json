@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "d1723f8ed2fe8427d755af438e5fb6d4710c748154f214ad743424d6ef7e846a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15108517557382584,
+      "alignment_seconds": 8.82074236869812e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'seats of precedence, and meats and full cups;'"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Seats of precedence, and meats and full cups.",
+          "start": 0.11,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Seats",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.61895751953125
+            },
+            {
+              "text": " of",
+              "start": 0.67,
+              "end": 0.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " precedence,",
+              "start": 0.81,
+              "end": 1.23,
+              "probability": 0.3564453125
+            },
+            {
+              "text": " and",
+              "start": 1.71,
+              "end": 1.77,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " meats",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.962890625
+            },
+            {
+              "text": " and",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.418701171875
+            },
+            {
+              "text": " full",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " cups.",
+              "start": 2.43,
+              "end": 2.79,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seats",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "of",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "raw": "precedence,",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.71,
+          "end": 1.77
+        },
+        {
+          "raw": "meats",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "and",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "full",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "cups.",
+          "start": 2.43,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "'seats",
+        "of",
+        "precedence,",
+        "and",
+        "meats",
+        "and",
+        "full",
+        "cups;'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'seats",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "of",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "text": "precedence,",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.71,
+          "end": 1.77
+        },
+        {
+          "text": "meats",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "and",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "full",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "cups;'",
+          "start": 2.43,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15122158080339432
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0cab109bfdd0f3a762086b99958a9bbf60b8a51206416ea45206ed684bb9620",
+  "selected_reasons": []
+}

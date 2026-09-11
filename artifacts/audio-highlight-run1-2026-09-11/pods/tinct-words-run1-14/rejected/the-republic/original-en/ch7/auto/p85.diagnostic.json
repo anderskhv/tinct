@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "8ff7f1b745df96696779ad2cceda749fbcb7f32cc0c0ba23feedd6de1f7a6dbd",
+  "attempts": [
+    {
+      "asr_seconds": 0.09361228346824646,
+      "alignment_seconds": 5.735456943511963e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, if possible.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, if possible.",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " if",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " possible.",
+              "start": 1.0,
+              "end": 1.4,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "if",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "possible.",
+          "start": 1.0,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "if",
+        "possible."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "if",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "possible.",
+          "start": 1.0,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09369178861379623
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ffdde06bea26f142f5e7218ff0ccd67a31db7a12693d768ee26d8233ada5ed79",
+  "selected_reasons": []
+}

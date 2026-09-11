@@ -1,0 +1,340 @@
+{
+  "complete": true,
+  "signature": "5b4f2cf35e56d22fd3ca078247a0349e21f8db0b79107ee35ff1039d78c61186",
+  "attempts": [
+    {
+      "asr_seconds": 0.16187985241413116,
+      "alignment_seconds": 0.00010807067155838013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and is not life to be reckoned among the ends of the soul.",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " not",
+              "start": 0.63,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " to",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reckoned",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " among",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ends",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " soul.",
+              "start": 2.73,
+              "end": 2.99,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "raw": "life",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "to",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "be",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "reckoned",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "raw": "among",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "ends",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "of",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "the",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "soul.",
+          "start": 2.73,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "not",
+        "life",
+        "to",
+        "be",
+        "reckoned",
+        "among",
+        "the",
+        "ends",
+        "of",
+        "the",
+        "soul?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "not",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "text": "life",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "text": "to",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "be",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "reckoned",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "text": "among",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "text": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "ends",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "of",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "the",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "soul?",
+          "start": 2.73,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16203910112380981
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "662b8dc9fc8fd24cfa3cbc6ce3496bae42e20abbaa6450a4853c57d6fd35bb04",
+  "selected_reasons": []
+}

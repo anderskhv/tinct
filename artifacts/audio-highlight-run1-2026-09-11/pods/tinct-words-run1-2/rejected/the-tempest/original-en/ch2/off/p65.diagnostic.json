@@ -1,0 +1,281 @@
+{
+  "complete": true,
+  "signature": "4837d707ae7e283e4c6b12ca878cea293173dc6a7a7f2a51f270b78e36f8ec1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1764153242111206,
+      "alignment_seconds": 0.00014321506023406982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, how now?",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 0.98,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " how",
+              "start": 1.08,
+              "end": 1.12,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " now?",
+              "start": 1.12,
+              "end": 1.46,
+              "probability": 0.9677734375
+            }
+          ]
+        },
+        {
+          "text": " Moody, what is thou canst demand?",
+          "start": 1.82,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Moody,",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " what",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " is",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thou",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " canst",
+              "start": 2.9,
+              "end": 3.28,
+              "probability": 0.875244140625
+            },
+            {
+              "text": " demand?",
+              "start": 3.28,
+              "end": 3.58,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "raw": "how",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "raw": "now?",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "raw": "Moody,",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "what",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "is",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "thou",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "canst",
+          "start": 2.9,
+          "end": 3.28
+        },
+        {
+          "raw": "demand?",
+          "start": 3.28,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "How",
+        "now?",
+        "moody?",
+        "What",
+        "is't",
+        "thou",
+        "canst",
+        "demand?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "text": "How",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "text": "now?",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "text": "moody?",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "What",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "is't",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "thou",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "canst",
+          "start": 2.9,
+          "end": 3.28
+        },
+        {
+          "text": "demand?",
+          "start": 3.28,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1766187846660614
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "22464a47771fa5d2647a0204821877527b483aba4b724030fe0ce654dfa15b52",
+  "selected_reasons": []
+}

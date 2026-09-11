@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "a05e5540e1ec8e16b0367300e81f792ea12c59dbbcef31680c3c962068e8d4e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18123837187886238,
+      "alignment_seconds": 8.652452379465103e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No man's cub can run with the people of the jungle,\" howled Shere Khan. \"Give him to me!\"",
+        "hotwords": "No, Shere, Khan, Give"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No man's cub can run with the people of the jungle,\" howled Shere Khan.",
+          "start": 0.02,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.256103515625
+            },
+            {
+              "text": " man's",
+              "start": 0.6,
+              "end": 1.06,
+              "probability": 0.963134765625
+            },
+            {
+              "text": " cub",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " can",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " run",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " people",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " jungle,\"",
+              "start": 2.42,
+              "end": 3.28,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " howled",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " Shere",
+              "start": 3.42,
+              "end": 3.7,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " Khan.",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " Give him to me.",
+          "start": 4.6,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " Give",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.0090789794921875
+            },
+            {
+              "text": " him",
+              "start": 4.74,
+              "end": 4.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me.",
+              "start": 5.08,
+              "end": 5.3,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "man's",
+          "start": 0.6,
+          "end": 1.06
+        },
+        {
+          "raw": "cub",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "can",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "run",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "with",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "people",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "jungle,\"",
+          "start": 2.42,
+          "end": 3.28
+        },
+        {
+          "raw": "howled",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "Shere",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "raw": "Khan.",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "Give",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "him",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "raw": "to",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "me.",
+          "start": 5.08,
+          "end": 5.3
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "man's",
+        "cub",
+        "can",
+        "run",
+        "with",
+        "the",
+        "people",
+        "of",
+        "the",
+        "jungle,\"",
+        "howled",
+        "Shere",
+        "Khan.",
+        "\"Give",
+        "him",
+        "to",
+        "me!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "man's",
+          "start": 0.6,
+          "end": 1.06
+        },
+        {
+          "text": "cub",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "can",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "run",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "with",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "the",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "people",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "the",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "jungle,\"",
+          "start": 2.42,
+          "end": 3.28
+        },
+        {
+          "text": "howled",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "Shere",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "text": "Khan.",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "\"Give",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "him",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "text": "to",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "me!\"",
+          "start": 5.08,
+          "end": 5.3
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18136562034487724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "878e385b6c5fa1b5fdf2dee6055c90c60174b1dce80b2d237643b502812fb487",
+  "selected_reasons": []
+}

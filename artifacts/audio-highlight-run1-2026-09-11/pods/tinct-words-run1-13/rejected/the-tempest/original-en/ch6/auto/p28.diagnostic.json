@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "1d12670a19227555bd8cb0dd784ed52657ca8cc764cf574f2020d61f3fa2ae42",
+  "attempts": [
+    {
+      "asr_seconds": 0.1503539620898664,
+      "alignment_seconds": 0.0001596449874341488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. How now shall this be compassed? Canst thou bring me to the party?",
+        "hotwords": "Stephano, How, Canst"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, How now shall this be compassed? Canst thou bring me to the party?",
+          "start": 0.62,
+          "end": 4.28,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.62,
+              "end": 0.98,
+              "probability": 0.49617767333984375
+            },
+            {
+              "text": " How",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.0176239013671875
+            },
+            {
+              "text": " now",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.947265625
+            },
+            {
+              "text": " shall",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.939453125
+            },
+            {
+              "text": " this",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.9609375
+            },
+            {
+              "text": " compassed?",
+              "start": 2.2,
+              "end": 2.72,
+              "probability": 0.599365234375
+            },
+            {
+              "text": " Canst",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " thou",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " bring",
+              "start": 3.52,
+              "end": 3.7,
+              "probability": 0.98828125
+            },
+            {
+              "text": " me",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.84,
+              "end": 3.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " party?",
+              "start": 4.02,
+              "end": 4.28,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "raw": "How",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "now",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "shall",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "this",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "be",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "compassed?",
+          "start": 2.2,
+          "end": 2.72
+        },
+        {
+          "raw": "Canst",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "thou",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "bring",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "raw": "me",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "to",
+          "start": 3.84,
+          "end": 3.92
+        },
+        {
+          "raw": "the",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "party?",
+          "start": 4.02,
+          "end": 4.28
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "How",
+        "now",
+        "shall",
+        "this",
+        "be",
+        "compassed?",
+        "Canst",
+        "thou",
+        "bring",
+        "me",
+        "to",
+        "the",
+        "party?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "text": "How",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "now",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "shall",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "this",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "be",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "compassed?",
+          "start": 2.2,
+          "end": 2.72
+        },
+        {
+          "text": "Canst",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "thou",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "bring",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "text": "me",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "to",
+          "start": 3.84,
+          "end": 3.92
+        },
+        {
+          "text": "the",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "text": "party?",
+          "start": 4.02,
+          "end": 4.28
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1505973890889436
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5ae3e85f68d30240940ea9846a7da082f14ab832c78fe60c098299fa86053e8",
+  "selected_reasons": []
+}

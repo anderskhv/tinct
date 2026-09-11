@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "8ac147bd585f0bee38ec20fa91abce5bb216094282c770dd85d02194c8121a8a",
+  "attempts": [
+    {
+      "asr_seconds": 0.07824086165055633,
+      "alignment_seconds": 5.831895396113396e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He must",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " must",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "must",
+          "start": 0.55,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "must."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "must.",
+          "start": 0.55,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0783214308321476
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bfacf1eb319f1d9cf2b58fcb419dead22dd751fda0f93c57ec85a1fafdb4367f",
+  "selected_reasons": []
+}

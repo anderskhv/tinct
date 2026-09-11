@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "0dfa9f548e01835034c252d4a68a5bbe49690c43f7d9105e53804024f97de224",
+  "attempts": [
+    {
+      "asr_seconds": 0.08493094891309738,
+      "alignment_seconds": 6.607919931411743e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " that we may safely affirm.",
+          "start": 0.02,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " that",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " we",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " may",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " safely",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " affirm.",
+              "start": 1.04,
+              "end": 1.42,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "that",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "we",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "may",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "safely",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "affirm.",
+          "start": 1.04,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "we",
+        "may",
+        "safely",
+        "affirm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "we",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "may",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "safely",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "affirm.",
+          "start": 1.04,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08502443879842758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b87883299a2bd85e3dbb838f87288dff5ead248ffad132288e6632950fdea237",
+  "selected_reasons": []
+}

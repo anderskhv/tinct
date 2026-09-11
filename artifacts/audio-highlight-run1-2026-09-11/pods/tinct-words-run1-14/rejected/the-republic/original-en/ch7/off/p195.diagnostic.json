@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "6dfd51a1232fae799ee9cbf1485a1617acbf0d38b0e6d2b83367a5b93487b7de",
+  "attempts": [
+    {
+      "asr_seconds": 0.08275894075632095,
+      "alignment_seconds": 5.561113357543945e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Of what kind, he said.",
+          "start": 0.08,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.30712890625
+            },
+            {
+              "text": " what",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.91796875
+            },
+            {
+              "text": " kind,",
+              "start": 0.66,
+              "end": 1.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " said.",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "what",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "kind,",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "said.",
+          "start": 1.42,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "what",
+        "kind?",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "what",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "kind?",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "text": "he",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "said.",
+          "start": 1.42,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08283715695142746
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed99d447c5931596f966b317474d1762ffbe697e1a9c2f5dd1d022189f91f0be",
+  "selected_reasons": []
+}

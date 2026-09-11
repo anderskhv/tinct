@@ -1,0 +1,745 @@
+{
+  "complete": true,
+  "signature": "d2bcf7bda95362b2c5dae1d52e609ef33f988962cd3c906b215f8a06fa140a80",
+  "attempts": [
+    {
+      "asr_seconds": 0.21613566298037767,
+      "alignment_seconds": 0.00012036412954330444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There was a long silence, and then one of the gun bullocks lifted up his big head and said, \"This is very foolish indeed. There is only one way of fighting.\"",
+        "hotwords": "There, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There was a long silence, and then one of the gun bullocks lifted up his big head and said,",
+          "start": 0.02,
+          "end": 5.12,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " was",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " long",
+              "start": 0.74,
+              "end": 1.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " silence,",
+              "start": 1.02,
+              "end": 1.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " then",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " one",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gun",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " bullocks",
+              "start": 2.98,
+              "end": 3.46,
+              "probability": 0.538543701171875
+            },
+            {
+              "text": " lifted",
+              "start": 3.46,
+              "end": 3.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 3.8,
+              "end": 4.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " big",
+              "start": 4.18,
+              "end": 4.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " head",
+              "start": 4.38,
+              "end": 4.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.66,
+              "end": 4.86,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " said,",
+              "start": 4.86,
+              "end": 5.12,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " This is very foolish indeed. There is only one way of fighting.",
+          "start": 5.12,
+          "end": 9.32,
+          "words": [
+            {
+              "text": " This",
+              "start": 5.12,
+              "end": 5.82,
+              "probability": 0.342529296875
+            },
+            {
+              "text": " is",
+              "start": 5.82,
+              "end": 6.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " very",
+              "start": 6.0,
+              "end": 6.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " foolish",
+              "start": 6.32,
+              "end": 6.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " indeed.",
+              "start": 6.8,
+              "end": 7.22,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " There",
+              "start": 7.9,
+              "end": 8.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 8.0,
+              "end": 8.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " only",
+              "start": 8.12,
+              "end": 8.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 8.36,
+              "end": 8.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " way",
+              "start": 8.66,
+              "end": 8.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 8.84,
+              "end": 9.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fighting.",
+              "start": 9.02,
+              "end": 9.32,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "long",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "raw": "silence,",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "raw": "and",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "raw": "then",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "one",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "gun",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "raw": "bullocks",
+          "start": 2.98,
+          "end": 3.46
+        },
+        {
+          "raw": "lifted",
+          "start": 3.46,
+          "end": 3.8
+        },
+        {
+          "raw": "up",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "raw": "his",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "big",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "raw": "head",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "raw": "said,",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "raw": "This",
+          "start": 5.12,
+          "end": 5.82
+        },
+        {
+          "raw": "is",
+          "start": 5.82,
+          "end": 6.0
+        },
+        {
+          "raw": "very",
+          "start": 6.0,
+          "end": 6.32
+        },
+        {
+          "raw": "foolish",
+          "start": 6.32,
+          "end": 6.8
+        },
+        {
+          "raw": "indeed.",
+          "start": 6.8,
+          "end": 7.22
+        },
+        {
+          "raw": "There",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "raw": "is",
+          "start": 8.0,
+          "end": 8.12
+        },
+        {
+          "raw": "only",
+          "start": 8.12,
+          "end": 8.36
+        },
+        {
+          "raw": "one",
+          "start": 8.36,
+          "end": 8.66
+        },
+        {
+          "raw": "way",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "raw": "of",
+          "start": 8.84,
+          "end": 9.02
+        },
+        {
+          "raw": "fighting.",
+          "start": 9.02,
+          "end": 9.32
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "long",
+        "silence,",
+        "and",
+        "then",
+        "one",
+        "of",
+        "the",
+        "gun",
+        "bullocks",
+        "lifted",
+        "up",
+        "his",
+        "big",
+        "head",
+        "and",
+        "said,",
+        "\"This",
+        "is",
+        "very",
+        "foolish",
+        "indeed.",
+        "There",
+        "is",
+        "only",
+        "one",
+        "way",
+        "of",
+        "fighting.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "a",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "long",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "text": "silence,",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "text": "and",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "text": "then",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "one",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "of",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "text": "the",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "gun",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "text": "bullocks",
+          "start": 2.98,
+          "end": 3.46
+        },
+        {
+          "text": "lifted",
+          "start": 3.46,
+          "end": 3.8
+        },
+        {
+          "text": "up",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "text": "his",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "big",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "text": "head",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "text": "and",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "text": "said,",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "text": "\"This",
+          "start": 5.12,
+          "end": 5.82
+        },
+        {
+          "text": "is",
+          "start": 5.82,
+          "end": 6.0
+        },
+        {
+          "text": "very",
+          "start": 6.0,
+          "end": 6.32
+        },
+        {
+          "text": "foolish",
+          "start": 6.32,
+          "end": 6.8
+        },
+        {
+          "text": "indeed.",
+          "start": 6.8,
+          "end": 7.22
+        },
+        {
+          "text": "There",
+          "start": 7.9,
+          "end": 8.0
+        },
+        {
+          "text": "is",
+          "start": 8.0,
+          "end": 8.12
+        },
+        {
+          "text": "only",
+          "start": 8.12,
+          "end": 8.36
+        },
+        {
+          "text": "one",
+          "start": 8.36,
+          "end": 8.66
+        },
+        {
+          "text": "way",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "text": "of",
+          "start": 8.84,
+          "end": 9.02
+        },
+        {
+          "text": "fighting.\"",
+          "start": 9.02,
+          "end": 9.32
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 31,
+        "matched_words": 31
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21632075402885675
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f292cf4e9f67d58b92d8624c2edc32f369fcebeec6a12befbb6762186a5644c1",
+  "selected_reasons": []
+}

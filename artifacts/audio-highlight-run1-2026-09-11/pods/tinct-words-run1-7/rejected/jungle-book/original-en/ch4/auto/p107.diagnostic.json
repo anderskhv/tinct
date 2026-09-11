@@ -1,0 +1,159 @@
+{
+  "complete": true,
+  "signature": "d9586d950f965b6bf1947fb56bc94ddf711947537f14deba7235f4e61e19e4de",
+  "attempts": [
+    {
+      "asr_seconds": 2.2974163899198174,
+      "alignment_seconds": 6.98976218700409e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lukannon",
+        "hotwords": "Lukannon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lukannon Lukannon Lukannon Lukannon Lukannon Luk Miles",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Lukannon",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.04412841796875
+            },
+            {
+              "text": " Lukannon",
+              "start": 0.83,
+              "end": 1.53,
+              "probability": 0.28149551153182983
+            },
+            {
+              "text": " Lukannon",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.501708984375
+            },
+            {
+              "text": " Lukannon",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " Lukannon",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " Luk",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Miles",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 3.802776336669922e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lukannon",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Lukannon",
+          "start": 0.83,
+          "end": 1.53
+        },
+        {
+          "raw": "Lukannon",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Lukannon",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Lukannon",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Luk",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "Miles",
+          "start": 1.53,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "Lukannon"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          7
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Lukannon",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 7,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.2975277602672577
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16d98cd74b95b8a32f6d524fb756c19de40f3c2e7a99059f85a4c3e2ce888f53",
+  "selected_reasons": []
+}

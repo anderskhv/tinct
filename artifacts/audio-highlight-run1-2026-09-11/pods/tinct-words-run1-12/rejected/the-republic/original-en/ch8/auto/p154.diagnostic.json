@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "37231cae523677c30ce89ae396eca9289911417c8742f74c471168d0656a15ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.12821567663922906,
+      "alignment_seconds": 0.00014257756993174553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You see that he is not a man of cultivation, I said.",
+        "hotwords": "You, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You see that he is not a man of cultivation, I said.",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.312255859375
+            },
+            {
+              "text": " see",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " he",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " is",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cultivation,",
+              "start": 1.93,
+              "end": 2.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " said.",
+              "start": 2.93,
+              "end": 3.25,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "see",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "that",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "he",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "is",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "not",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "man",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "of",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "cultivation,",
+          "start": 1.93,
+          "end": 2.45
+        },
+        {
+          "raw": "I",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "raw": "said.",
+          "start": 2.93,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "see",
+        "that",
+        "he",
+        "is",
+        "not",
+        "a",
+        "man",
+        "of",
+        "cultivation,",
+        "I",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "see",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "that",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "he",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "is",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "not",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "a",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "man",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "of",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "cultivation,",
+          "start": 1.93,
+          "end": 2.45
+        },
+        {
+          "text": "I",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "text": "said.",
+          "start": 2.93,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12842592364177108
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ed77fdb29b685a8cacb9ea67f443811e850a590c250adacee14f019e41bc0b52",
+  "selected_reasons": []
+}

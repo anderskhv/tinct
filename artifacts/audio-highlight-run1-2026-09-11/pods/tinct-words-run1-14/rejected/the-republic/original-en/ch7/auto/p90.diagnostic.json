@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "078eee0b7604894545bc1af25db993368c3575f3d9654345eb785d2b12f95282",
+  "attempts": [
+    {
+      "asr_seconds": 0.1363743096590042,
+      "alignment_seconds": 9.956210851669312e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then that is not the knowledge which we are seeking to discover?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then that is not the knowledge which we are seeking to discover?",
+          "start": 0.02,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " that",
+              "start": 0.66,
+              "end": 1.06,
+              "probability": 0.3818359375
+            },
+            {
+              "text": " is",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " knowledge",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 1.9,
+              "end": 2.26,
+              "probability": 0.80859375
+            },
+            {
+              "text": " we",
+              "start": 2.26,
+              "end": 2.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seeking",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " discover?",
+              "start": 2.96,
+              "end": 3.36,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "that",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "raw": "is",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "not",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "knowledge",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "raw": "which",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "raw": "we",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "raw": "are",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "seeking",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "to",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "raw": "discover?",
+          "start": 2.96,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "that",
+        "is",
+        "not",
+        "the",
+        "knowledge",
+        "which",
+        "we",
+        "are",
+        "seeking",
+        "to",
+        "discover?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "that",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "text": "is",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "not",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "knowledge",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "text": "which",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "text": "we",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "text": "are",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "seeking",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "to",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "discover?",
+          "start": 2.96,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13652372360229492
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a254510ce66388c9e27e0d7017d9557bfdcc3a431c9463f53c8b031337ab9910",
+  "selected_reasons": []
+}

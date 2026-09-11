@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "ba3778e411244107130f2b36b39c7a0a61fb4fe6c4bfcbc64d7ae5f2e080f65e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17211071401834488,
+      "alignment_seconds": 0.00012205541133880615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The true lie is hated not only by the gods, but also by men?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The true lie is hated not only by the gods, but also by men?",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.89453125
+            },
+            {
+              "text": " true",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lie",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hated",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " only",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gods,",
+              "start": 2.23,
+              "end": 2.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " but",
+              "start": 3.09,
+              "end": 3.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " also",
+              "start": 3.17,
+              "end": 3.49,
+              "probability": 1.0
+            },
+            {
+              "text": " by",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " men?",
+              "start": 3.69,
+              "end": 3.91,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "true",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "lie",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "is",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "hated",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "not",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "only",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "by",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "the",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "gods,",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "raw": "but",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "raw": "also",
+          "start": 3.17,
+          "end": 3.49
+        },
+        {
+          "raw": "by",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "men?",
+          "start": 3.69,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "true",
+        "lie",
+        "is",
+        "hated",
+        "not",
+        "only",
+        "by",
+        "the",
+        "gods,",
+        "but",
+        "also",
+        "by",
+        "men?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "true",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "lie",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "is",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "hated",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "not",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "only",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "by",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "the",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "gods,",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "text": "but",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "text": "also",
+          "start": 3.17,
+          "end": 3.49
+        },
+        {
+          "text": "by",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "men?",
+          "start": 3.69,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17229212820529938
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbaf74ba595b464d3815c1856847add4af4a9b64c68821e87b3a1316354d7e99",
+  "selected_reasons": []
+}

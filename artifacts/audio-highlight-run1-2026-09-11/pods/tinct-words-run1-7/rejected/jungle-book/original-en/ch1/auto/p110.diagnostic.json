@@ -1,0 +1,2336 @@
+{
+  "complete": true,
+  "signature": "ca448e7ae9f722f5be081e415accba01ac2d182fbdfb125bcda8a6c1125b3f0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20619330741465092,
+      "alignment_seconds": 0.000141889788210392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No. Why should I fear? I remember now--if it is not a dream--how, before I was a Wolf, I lay beside the Red Flower, and it was warm and pleasant.\"",
+        "hotwords": "No, Why, I, Wolf, Red, Flower"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No. Why should I fear? I remember now if it is not a dream-how, before I was a Wolf, I lay beside the Red Flower, and it was warm and pleasant.",
+          "start": 0.05,
+          "end": 8.93,
+          "words": [
+            {
+              "text": " No.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " Why",
+              "start": 0.91,
+              "end": 1.05,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " should",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fear?",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " remember",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " now",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " if",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " it",
+              "start": 3.13,
+              "end": 3.23,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " not",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dream",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.9521484375
+            },
+            {
+              "text": "-how,",
+              "start": 3.93,
+              "end": 4.21,
+              "probability": 0.5648193359375
+            },
+            {
+              "text": " before",
+              "start": 4.41,
+              "end": 4.65,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " I",
+              "start": 4.65,
+              "end": 4.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 4.87,
+              "end": 5.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.01,
+              "end": 5.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Wolf,",
+              "start": 5.15,
+              "end": 5.37,
+              "probability": 0.0275115966796875
+            },
+            {
+              "text": " I",
+              "start": 5.89,
+              "end": 5.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lay",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " beside",
+              "start": 6.15,
+              "end": 6.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.47,
+              "end": 6.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Red",
+              "start": 6.67,
+              "end": 6.83,
+              "probability": 0.163818359375
+            },
+            {
+              "text": " Flower,",
+              "start": 6.83,
+              "end": 7.17,
+              "probability": 0.95703125
+            },
+            {
+              "text": " and",
+              "start": 7.67,
+              "end": 7.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 7.73,
+              "end": 7.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 7.83,
+              "end": 7.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " warm",
+              "start": 7.95,
+              "end": 8.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 8.35,
+              "end": 8.63,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " pleasant.",
+              "start": 8.63,
+              "end": 8.93,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Why",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "raw": "should",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "fear?",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "remember",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "now",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "if",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "it",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "raw": "is",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "not",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "a",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "dream",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "raw": "-how,",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "raw": "before",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "raw": "I",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "raw": "was",
+          "start": 4.87,
+          "end": 5.01
+        },
+        {
+          "raw": "a",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "raw": "Wolf,",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "raw": "I",
+          "start": 5.89,
+          "end": 5.97
+        },
+        {
+          "raw": "lay",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "beside",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "raw": "the",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "raw": "Red",
+          "start": 6.67,
+          "end": 6.83
+        },
+        {
+          "raw": "Flower,",
+          "start": 6.83,
+          "end": 7.17
+        },
+        {
+          "raw": "and",
+          "start": 7.67,
+          "end": 7.73
+        },
+        {
+          "raw": "it",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "raw": "was",
+          "start": 7.83,
+          "end": 7.95
+        },
+        {
+          "raw": "warm",
+          "start": 7.95,
+          "end": 8.35
+        },
+        {
+          "raw": "and",
+          "start": 8.35,
+          "end": 8.63
+        },
+        {
+          "raw": "pleasant.",
+          "start": 8.63,
+          "end": 8.93
+        }
+      ],
+      "expected_tokens": [
+        "\"No.",
+        "Why",
+        "should",
+        "I",
+        "fear?",
+        "I",
+        "remember",
+        "now--if",
+        "it",
+        "is",
+        "not",
+        "a",
+        "dream--how,",
+        "before",
+        "I",
+        "was",
+        "a",
+        "Wolf,",
+        "I",
+        "lay",
+        "beside",
+        "the",
+        "Red",
+        "Flower,",
+        "and",
+        "it",
+        "was",
+        "warm",
+        "and",
+        "pleasant.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          12,
+          9,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "equal",
+          13,
+          30,
+          15,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Why",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "text": "should",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "fear?",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "remember",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "now--if",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "it",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "text": "is",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "not",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "a",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "dream--how,",
+          "start": 3.67,
+          "end": 4.04
+        },
+        {
+          "text": "before",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "text": "I",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "text": "was",
+          "start": 4.87,
+          "end": 5.01
+        },
+        {
+          "text": "a",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "text": "Wolf,",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "text": "I",
+          "start": 5.89,
+          "end": 5.97
+        },
+        {
+          "text": "lay",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "beside",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "text": "the",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "text": "Red",
+          "start": 6.67,
+          "end": 6.83
+        },
+        {
+          "text": "Flower,",
+          "start": 6.83,
+          "end": 7.17
+        },
+        {
+          "text": "and",
+          "start": 7.67,
+          "end": 7.73
+        },
+        {
+          "text": "it",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "text": "was",
+          "start": 7.83,
+          "end": 7.95
+        },
+        {
+          "text": "warm",
+          "start": 7.95,
+          "end": 8.35
+        },
+        {
+          "text": "and",
+          "start": 8.35,
+          "end": 8.63
+        },
+        {
+          "text": "pleasant.\"",
+          "start": 8.63,
+          "end": 8.93
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 32,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.20639873016625643
+    },
+    {
+      "asr_seconds": 0.1953434506431222,
+      "alignment_seconds": 0.00013752654194831848,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "No, Why, I, Wolf, Red, Flower"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " No, why should I fear? I remember now if it is not a dream how before I was a wolf",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " why",
+              "start": 0.87,
+              "end": 1.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " should",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fear?",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.31,
+              "end": 2.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " remember",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " now",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " if",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.919921875
+            },
+            {
+              "text": " it",
+              "start": 3.13,
+              "end": 3.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.986328125
+            },
+            {
+              "text": " not",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dream",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " how",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " before",
+              "start": 4.19,
+              "end": 4.67,
+              "probability": 0.2315673828125
+            },
+            {
+              "text": " I",
+              "start": 4.67,
+              "end": 4.85,
+              "probability": 0.978515625
+            },
+            {
+              "text": " was",
+              "start": 4.85,
+              "end": 5.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.01,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wolf",
+              "start": 5.15,
+              "end": 5.47,
+              "probability": 0.9736328125
+            }
+          ]
+        },
+        {
+          "text": " I lay beside the red flower, and it was warm and pleasant",
+          "start": 5.47,
+          "end": 8.95,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.47,
+              "end": 5.97,
+              "probability": 0.751953125
+            },
+            {
+              "text": " lay",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.978515625
+            },
+            {
+              "text": " beside",
+              "start": 6.15,
+              "end": 6.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 6.47,
+              "end": 6.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " red",
+              "start": 6.67,
+              "end": 6.83,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " flower,",
+              "start": 6.83,
+              "end": 7.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 7.27,
+              "end": 7.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 7.73,
+              "end": 7.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 7.83,
+              "end": 7.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " warm",
+              "start": 7.93,
+              "end": 8.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 8.37,
+              "end": 8.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pleasant",
+              "start": 8.63,
+              "end": 8.95,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "why",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "raw": "should",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "fear?",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "raw": "remember",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "now",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "if",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "it",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "raw": "is",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "not",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "a",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "dream",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "raw": "how",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "raw": "before",
+          "start": 4.19,
+          "end": 4.67
+        },
+        {
+          "raw": "I",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "raw": "was",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "raw": "a",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "raw": "wolf",
+          "start": 5.15,
+          "end": 5.47
+        },
+        {
+          "raw": "I",
+          "start": 5.47,
+          "end": 5.97
+        },
+        {
+          "raw": "lay",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "beside",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "raw": "the",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "raw": "red",
+          "start": 6.67,
+          "end": 6.83
+        },
+        {
+          "raw": "flower,",
+          "start": 6.83,
+          "end": 7.27
+        },
+        {
+          "raw": "and",
+          "start": 7.27,
+          "end": 7.73
+        },
+        {
+          "raw": "it",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "raw": "was",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "raw": "warm",
+          "start": 7.93,
+          "end": 8.37
+        },
+        {
+          "raw": "and",
+          "start": 8.37,
+          "end": 8.63
+        },
+        {
+          "raw": "pleasant",
+          "start": 8.63,
+          "end": 8.95
+        }
+      ],
+      "expected_tokens": [
+        "\"No.",
+        "Why",
+        "should",
+        "I",
+        "fear?",
+        "I",
+        "remember",
+        "now--if",
+        "it",
+        "is",
+        "not",
+        "a",
+        "dream--how,",
+        "before",
+        "I",
+        "was",
+        "a",
+        "Wolf,",
+        "I",
+        "lay",
+        "beside",
+        "the",
+        "Red",
+        "Flower,",
+        "and",
+        "it",
+        "was",
+        "warm",
+        "and",
+        "pleasant.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          12,
+          9,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "equal",
+          13,
+          30,
+          15,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Why",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "text": "should",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "fear?",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "text": "remember",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "now--if",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "it",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "text": "is",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "not",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "a",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "dream--how,",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "text": "before",
+          "start": 4.19,
+          "end": 4.67
+        },
+        {
+          "text": "I",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "text": "was",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "text": "a",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "text": "Wolf,",
+          "start": 5.15,
+          "end": 5.47
+        },
+        {
+          "text": "I",
+          "start": 5.47,
+          "end": 5.97
+        },
+        {
+          "text": "lay",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "beside",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "text": "the",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "text": "Red",
+          "start": 6.67,
+          "end": 6.83
+        },
+        {
+          "text": "Flower,",
+          "start": 6.83,
+          "end": 7.27
+        },
+        {
+          "text": "and",
+          "start": 7.27,
+          "end": 7.73
+        },
+        {
+          "text": "it",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "text": "was",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "text": "warm",
+          "start": 7.93,
+          "end": 8.37
+        },
+        {
+          "text": "and",
+          "start": 8.37,
+          "end": 8.63
+        },
+        {
+          "text": "pleasant.\"",
+          "start": 8.63,
+          "end": 8.95
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 32,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.1955458903685212
+    },
+    {
+      "asr_seconds": 0.190966060385108,
+      "alignment_seconds": 0.00013606809079647064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, why should I fear? I remember now if it is not a dream how before I was a wolf",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " why",
+              "start": 0.87,
+              "end": 1.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " should",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fear?",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.31,
+              "end": 2.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " remember",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " now",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " if",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.919921875
+            },
+            {
+              "text": " it",
+              "start": 3.13,
+              "end": 3.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.986328125
+            },
+            {
+              "text": " not",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dream",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " how",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " before",
+              "start": 4.19,
+              "end": 4.67,
+              "probability": 0.2315673828125
+            },
+            {
+              "text": " I",
+              "start": 4.67,
+              "end": 4.85,
+              "probability": 0.978515625
+            },
+            {
+              "text": " was",
+              "start": 4.85,
+              "end": 5.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.01,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wolf",
+              "start": 5.15,
+              "end": 5.47,
+              "probability": 0.9736328125
+            }
+          ]
+        },
+        {
+          "text": " I lay beside the red flower and it was warm and pleasant",
+          "start": 5.47,
+          "end": 8.95,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.47,
+              "end": 5.97,
+              "probability": 0.751953125
+            },
+            {
+              "text": " lay",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.978515625
+            },
+            {
+              "text": " beside",
+              "start": 6.15,
+              "end": 6.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 6.47,
+              "end": 6.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " red",
+              "start": 6.67,
+              "end": 6.83,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " flower",
+              "start": 6.83,
+              "end": 7.25,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 7.25,
+              "end": 7.73,
+              "probability": 0.599609375
+            },
+            {
+              "text": " it",
+              "start": 7.73,
+              "end": 7.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 7.83,
+              "end": 7.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " warm",
+              "start": 7.93,
+              "end": 8.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 8.35,
+              "end": 8.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pleasant",
+              "start": 8.63,
+              "end": 8.95,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "why",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "raw": "should",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "fear?",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "raw": "remember",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "now",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "if",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "it",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "raw": "is",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "not",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "a",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "dream",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "raw": "how",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "raw": "before",
+          "start": 4.19,
+          "end": 4.67
+        },
+        {
+          "raw": "I",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "raw": "was",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "raw": "a",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "raw": "wolf",
+          "start": 5.15,
+          "end": 5.47
+        },
+        {
+          "raw": "I",
+          "start": 5.47,
+          "end": 5.97
+        },
+        {
+          "raw": "lay",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "beside",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "raw": "the",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "raw": "red",
+          "start": 6.67,
+          "end": 6.83
+        },
+        {
+          "raw": "flower",
+          "start": 6.83,
+          "end": 7.25
+        },
+        {
+          "raw": "and",
+          "start": 7.25,
+          "end": 7.73
+        },
+        {
+          "raw": "it",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "raw": "was",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "raw": "warm",
+          "start": 7.93,
+          "end": 8.35
+        },
+        {
+          "raw": "and",
+          "start": 8.35,
+          "end": 8.63
+        },
+        {
+          "raw": "pleasant",
+          "start": 8.63,
+          "end": 8.95
+        }
+      ],
+      "expected_tokens": [
+        "\"No.",
+        "Why",
+        "should",
+        "I",
+        "fear?",
+        "I",
+        "remember",
+        "now--if",
+        "it",
+        "is",
+        "not",
+        "a",
+        "dream--how,",
+        "before",
+        "I",
+        "was",
+        "a",
+        "Wolf,",
+        "I",
+        "lay",
+        "beside",
+        "the",
+        "Red",
+        "Flower,",
+        "and",
+        "it",
+        "was",
+        "warm",
+        "and",
+        "pleasant.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          12,
+          9,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "equal",
+          13,
+          30,
+          15,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Why",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "text": "should",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "fear?",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "text": "remember",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "now--if",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "it",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "text": "is",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "not",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "a",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "dream--how,",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "text": "before",
+          "start": 4.19,
+          "end": 4.67
+        },
+        {
+          "text": "I",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "text": "was",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "text": "a",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "text": "Wolf,",
+          "start": 5.15,
+          "end": 5.47
+        },
+        {
+          "text": "I",
+          "start": 5.47,
+          "end": 5.97
+        },
+        {
+          "text": "lay",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "beside",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "text": "the",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "text": "Red",
+          "start": 6.67,
+          "end": 6.83
+        },
+        {
+          "text": "Flower,",
+          "start": 6.83,
+          "end": 7.25
+        },
+        {
+          "text": "and",
+          "start": 7.25,
+          "end": 7.73
+        },
+        {
+          "text": "it",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "text": "was",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "text": "warm",
+          "start": 7.93,
+          "end": 8.35
+        },
+        {
+          "text": "and",
+          "start": 8.35,
+          "end": 8.63
+        },
+        {
+          "text": "pleasant.\"",
+          "start": 8.63,
+          "end": 8.95
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 32,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.1911721732467413
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32efdd1e5c16c87e4443665be4ae2ea57851ba3e289874c55c4144da4def4dcb",
+  "selected_reasons": []
+}

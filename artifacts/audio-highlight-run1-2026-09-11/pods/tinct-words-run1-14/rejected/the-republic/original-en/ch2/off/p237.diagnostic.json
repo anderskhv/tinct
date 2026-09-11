@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "bd947bcc4c4809df2a5158da9ddeb9dc46177c9127825fa68958613d99892e89",
+  "attempts": [
+    {
+      "asr_seconds": 0.24182768166065216,
+      "alignment_seconds": 0.00011373311281204224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A fault which is most serious, I said.",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.308837890625
+            },
+            {
+              "text": " fault",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " which",
+              "start": 0.72,
+              "end": 0.88,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " is",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " most",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " serious,",
+              "start": 1.24,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said.",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " The fault of telling a lie, and what is more, a bad lie.",
+          "start": 2.78,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " The",
+              "start": 2.78,
+              "end": 2.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " fault",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.08,
+              "end": 3.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " telling",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.48,
+              "end": 3.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lie,",
+              "start": 3.64,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 4.12,
+              "end": 4.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " what",
+              "start": 4.26,
+              "end": 4.46,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " is",
+              "start": 4.46,
+              "end": 4.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more,",
+              "start": 4.56,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.96,
+              "end": 5.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bad",
+              "start": 5.02,
+              "end": 5.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lie.",
+              "start": 5.2,
+              "end": 5.5,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "fault",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "which",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "raw": "is",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "most",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "serious,",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "raw": "I",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "said.",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "The",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "raw": "fault",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "of",
+          "start": 3.08,
+          "end": 3.22
+        },
+        {
+          "raw": "telling",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "a",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "raw": "lie,",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "raw": "and",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "raw": "what",
+          "start": 4.26,
+          "end": 4.46
+        },
+        {
+          "raw": "is",
+          "start": 4.46,
+          "end": 4.56
+        },
+        {
+          "raw": "more,",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "raw": "a",
+          "start": 4.96,
+          "end": 5.02
+        },
+        {
+          "raw": "bad",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "raw": "lie.",
+          "start": 5.2,
+          "end": 5.5
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "fault",
+        "which",
+        "is",
+        "most",
+        "serious,",
+        "I",
+        "said;",
+        "the",
+        "fault",
+        "of",
+        "telling",
+        "a",
+        "lie,",
+        "and,",
+        "what",
+        "is",
+        "more,",
+        "a",
+        "bad",
+        "lie."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "fault",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "which",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "text": "is",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "most",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "serious,",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "text": "I",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "said;",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "the",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "text": "fault",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "of",
+          "start": 3.08,
+          "end": 3.22
+        },
+        {
+          "text": "telling",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "a",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "text": "lie,",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "text": "and,",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "text": "what",
+          "start": 4.26,
+          "end": 4.46
+        },
+        {
+          "text": "is",
+          "start": 4.46,
+          "end": 4.56
+        },
+        {
+          "text": "more,",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "text": "a",
+          "start": 4.96,
+          "end": 5.02
+        },
+        {
+          "text": "bad",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "text": "lie.",
+          "start": 5.2,
+          "end": 5.5
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24200186133384705
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "996473cd13f194a96994e179dc8154102cf82448711141c99565da8e46565dc6",
+  "selected_reasons": []
+}

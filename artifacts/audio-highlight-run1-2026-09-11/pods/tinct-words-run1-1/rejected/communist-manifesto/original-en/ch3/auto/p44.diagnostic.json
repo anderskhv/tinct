@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "813cf206579d660e88b170586da67efb14763b35fdbfb16133d8fd54bd406b1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1321084350347519,
+      "alignment_seconds": 7.048994302749634e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But you Communists would introduce community of women, screams the whole bourgeoisie in chorus.",
+        "hotwords": "But, Communists"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But you Communists would introduce community of women, screams the whole bourgeoisie in chorus.",
+          "start": 0.08,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.48,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " you",
+              "start": 0.48,
+              "end": 0.62,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Communists",
+              "start": 0.62,
+              "end": 1.02,
+              "probability": 0.218505859375
+            },
+            {
+              "text": " would",
+              "start": 1.02,
+              "end": 1.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " introduce",
+              "start": 1.42,
+              "end": 1.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " community",
+              "start": 1.84,
+              "end": 2.28,
+              "probability": 0.916015625
+            },
+            {
+              "text": " of",
+              "start": 2.28,
+              "end": 2.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " women,",
+              "start": 2.56,
+              "end": 2.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " screams",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.951171875
+            },
+            {
+              "text": " the",
+              "start": 3.76,
+              "end": 4.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whole",
+              "start": 4.0,
+              "end": 4.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bourgeoisie",
+              "start": 4.22,
+              "end": 4.72,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " in",
+              "start": 4.72,
+              "end": 5.1,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " chorus.",
+              "start": 5.1,
+              "end": 5.44,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "raw": "you",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "raw": "Communists",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "raw": "would",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "raw": "introduce",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "raw": "community",
+          "start": 1.84,
+          "end": 2.28
+        },
+        {
+          "raw": "of",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "raw": "women,",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "raw": "screams",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "raw": "the",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "raw": "whole",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "raw": "bourgeoisie",
+          "start": 4.22,
+          "end": 4.72
+        },
+        {
+          "raw": "in",
+          "start": 4.72,
+          "end": 5.1
+        },
+        {
+          "raw": "chorus.",
+          "start": 5.1,
+          "end": 5.44
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "you",
+        "Communists",
+        "would",
+        "introduce",
+        "community",
+        "of",
+        "women,",
+        "screams",
+        "the",
+        "whole",
+        "bourgeoisie",
+        "in",
+        "chorus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "text": "you",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "text": "Communists",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "text": "would",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "text": "introduce",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "text": "community",
+          "start": 1.84,
+          "end": 2.28
+        },
+        {
+          "text": "of",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "text": "women,",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "text": "screams",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "text": "the",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "text": "whole",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "text": "bourgeoisie",
+          "start": 4.22,
+          "end": 4.72
+        },
+        {
+          "text": "in",
+          "start": 4.72,
+          "end": 5.1
+        },
+        {
+          "text": "chorus.",
+          "start": 5.1,
+          "end": 5.44
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13220905512571335
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "62fe2c4aeec23fead907a790895fef6c4d67c2f66d2aca326b10ee097bde7f6e",
+  "selected_reasons": []
+}

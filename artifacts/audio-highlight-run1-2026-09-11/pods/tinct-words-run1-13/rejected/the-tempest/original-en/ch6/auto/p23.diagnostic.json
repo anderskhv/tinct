@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "05d826ec9267a9ef9775bd268edbace9587c8568b52cef7c07cf4d50931f3539",
+  "attempts": [
+    {
+      "asr_seconds": 0.11318862996995449,
+      "alignment_seconds": 9.966304060071707e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Trinculo. Why, I said nothing.",
+        "hotwords": "Trinculo, Why, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trinculo, Why, I said nothing.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Trinculo,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6836751302083334
+            },
+            {
+              "text": " Why,",
+              "start": 1.13,
+              "end": 1.45,
+              "probability": 0.03857421875
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.61,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " said",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " nothing.",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.78857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trinculo,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Why,",
+          "start": 1.13,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.61
+        },
+        {
+          "raw": "said",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "nothing.",
+          "start": 1.75,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Trinculo.",
+        "Why,",
+        "I",
+        "said",
+        "nothing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Trinculo.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Why,",
+          "start": 1.13,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.61,
+          "end": 1.61
+        },
+        {
+          "text": "said",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "nothing.",
+          "start": 1.75,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11333104397635907
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47141b4dedc2bac24847b1e67b947a703c5762bc7104936edc2469d4a4427248",
+  "selected_reasons": []
+}

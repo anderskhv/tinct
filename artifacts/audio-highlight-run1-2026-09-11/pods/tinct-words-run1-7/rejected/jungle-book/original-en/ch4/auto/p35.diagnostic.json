@@ -1,0 +1,7568 @@
+{
+  "complete": true,
+  "signature": "9ec700a7aeec428e004c886ac30f59208f95850443e8f499cc2e3c2fa7bf071f",
+  "attempts": [
+    {
+      "asr_seconds": 0.29856094997376204,
+      "alignment_seconds": 0.0003543635830283165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I didn't get it,\" said Kotick. \"It grew.\" And just as he was going to roll the speaker over, a couple of black-haired men with flat red faces came from behind a sand dune, and Kotick, who had never seen a man before, coughed and lowered his head. The holluschickie just bundled off a few yards and sat staring stupidly. The men were no less than Kerick Booterin, the chief of the seal-hunters on the island, and Patalamon, his son. They came from the little village not half a mile from the sea nurseries, and they were deciding what seals they would drive up to the killing pens--for the seals were driven just like sheep--to be turned into seal-skin jackets later on.",
+        "hotwords": "I, Kotick, Kerick, Booterin, Patalamon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I didn't get it,\" said Kotick.",
+          "start": 23.71,
+          "end": 28.99,
+          "words": [
+            {
+              "text": " I",
+              "start": 23.71,
+              "end": 25.11,
+              "probability": 0.25439453125
+            },
+            {
+              "text": " didn't",
+              "start": 25.11,
+              "end": 26.51,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " get",
+              "start": 26.51,
+              "end": 26.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it,\"",
+              "start": 26.51,
+              "end": 27.95,
+              "probability": 0.678955078125
+            },
+            {
+              "text": " said",
+              "start": 27.95,
+              "end": 28.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Kotick.",
+              "start": 28.15,
+              "end": 28.99,
+              "probability": 0.727783203125
+            }
+          ]
+        },
+        {
+          "text": " I didn't get it,\" said Kotick.",
+          "start": 28.99,
+          "end": 37.59,
+          "words": [
+            {
+              "text": " I",
+              "start": 28.99,
+              "end": 29.69,
+              "probability": 0.00015044212341308594
+            },
+            {
+              "text": " didn't",
+              "start": 29.69,
+              "end": 31.55,
+              "probability": 0.49778175354003906
+            },
+            {
+              "text": " get",
+              "start": 31.55,
+              "end": 31.71,
+              "probability": 0.036041259765625
+            },
+            {
+              "text": " it,\"",
+              "start": 31.71,
+              "end": 32.17,
+              "probability": 0.12209796905517578
+            },
+            {
+              "text": " said",
+              "start": 32.17,
+              "end": 32.19,
+              "probability": 0.203369140625
+            },
+            {
+              "text": " Kotick.",
+              "start": 32.19,
+              "end": 37.59,
+              "probability": 0.008670777082443237
+            }
+          ]
+        },
+        {
+          "text": " I didn't get it,\" said Kotick.",
+          "start": 37.59,
+          "end": 39.05,
+          "words": [
+            {
+              "text": " I",
+              "start": 37.59,
+              "end": 38.35,
+              "probability": 0.0002579689025878906
+            },
+            {
+              "text": " didn't",
+              "start": 38.35,
+              "end": 39.05,
+              "probability": 0.4977381229400635
+            },
+            {
+              "text": " get",
+              "start": 39.05,
+              "end": 39.05,
+              "probability": 0.060394287109375
+            },
+            {
+              "text": " it,\"",
+              "start": 39.05,
+              "end": 39.05,
+              "probability": 0.013099879026412964
+            },
+            {
+              "text": " said",
+              "start": 39.05,
+              "end": 39.05,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " Kotick.",
+              "start": 39.05,
+              "end": 39.05,
+              "probability": 0.014451593160629272
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 23.71,
+          "end": 25.11
+        },
+        {
+          "raw": "didn't",
+          "start": 25.11,
+          "end": 26.51
+        },
+        {
+          "raw": "get",
+          "start": 26.51,
+          "end": 26.51
+        },
+        {
+          "raw": "it,\"",
+          "start": 26.51,
+          "end": 27.95
+        },
+        {
+          "raw": "said",
+          "start": 27.95,
+          "end": 28.15
+        },
+        {
+          "raw": "Kotick.",
+          "start": 28.15,
+          "end": 28.99
+        },
+        {
+          "raw": "I",
+          "start": 28.99,
+          "end": 29.69
+        },
+        {
+          "raw": "didn't",
+          "start": 29.69,
+          "end": 31.55
+        },
+        {
+          "raw": "get",
+          "start": 31.55,
+          "end": 31.71
+        },
+        {
+          "raw": "it,\"",
+          "start": 31.71,
+          "end": 32.17
+        },
+        {
+          "raw": "said",
+          "start": 32.17,
+          "end": 32.19
+        },
+        {
+          "raw": "Kotick.",
+          "start": 32.19,
+          "end": 37.59
+        },
+        {
+          "raw": "I",
+          "start": 37.59,
+          "end": 38.35
+        },
+        {
+          "raw": "didn't",
+          "start": 38.35,
+          "end": 39.05
+        },
+        {
+          "raw": "get",
+          "start": 39.05,
+          "end": 39.05
+        },
+        {
+          "raw": "it,\"",
+          "start": 39.05,
+          "end": 39.05
+        },
+        {
+          "raw": "said",
+          "start": 39.05,
+          "end": 39.05
+        },
+        {
+          "raw": "Kotick.",
+          "start": 39.05,
+          "end": 39.05
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "didn't",
+        "get",
+        "it,\"",
+        "said",
+        "Kotick.",
+        "\"It",
+        "grew.\"",
+        "And",
+        "just",
+        "as",
+        "he",
+        "was",
+        "going",
+        "to",
+        "roll",
+        "the",
+        "speaker",
+        "over,",
+        "a",
+        "couple",
+        "of",
+        "black-haired",
+        "men",
+        "with",
+        "flat",
+        "red",
+        "faces",
+        "came",
+        "from",
+        "behind",
+        "a",
+        "sand",
+        "dune,",
+        "and",
+        "Kotick,",
+        "who",
+        "had",
+        "never",
+        "seen",
+        "a",
+        "man",
+        "before,",
+        "coughed",
+        "and",
+        "lowered",
+        "his",
+        "head.",
+        "The",
+        "holluschickie",
+        "just",
+        "bundled",
+        "off",
+        "a",
+        "few",
+        "yards",
+        "and",
+        "sat",
+        "staring",
+        "stupidly.",
+        "The",
+        "men",
+        "were",
+        "no",
+        "less",
+        "than",
+        "Kerick",
+        "Booterin,",
+        "the",
+        "chief",
+        "of",
+        "the",
+        "seal-hunters",
+        "on",
+        "the",
+        "island,",
+        "and",
+        "Patalamon,",
+        "his",
+        "son.",
+        "They",
+        "came",
+        "from",
+        "the",
+        "little",
+        "village",
+        "not",
+        "half",
+        "a",
+        "mile",
+        "from",
+        "the",
+        "sea",
+        "nurseries,",
+        "and",
+        "they",
+        "were",
+        "deciding",
+        "what",
+        "seals",
+        "they",
+        "would",
+        "drive",
+        "up",
+        "to",
+        "the",
+        "killing",
+        "pens--for",
+        "the",
+        "seals",
+        "were",
+        "driven",
+        "just",
+        "like",
+        "sheep--to",
+        "be",
+        "turned",
+        "into",
+        "seal-skin",
+        "jackets",
+        "later",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          9
+        ],
+        [
+          "equal",
+          6,
+          7,
+          9,
+          10
+        ],
+        [
+          "replace",
+          7,
+          35,
+          10,
+          11
+        ],
+        [
+          "equal",
+          35,
+          36,
+          11,
+          12
+        ],
+        [
+          "replace",
+          36,
+          122,
+          12,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 87,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 88,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 89,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 91,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 92,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 93,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 94,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 95,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 96,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 97,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 98,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 99,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 100,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 101,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 102,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 103,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 104,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 105,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 106,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 107,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 108,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 109,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 110,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 111,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 112,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 113,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 114,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 115,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 116,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 117,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 118,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 119,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 120,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 121,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          9
+        ],
+        [
+          "replace",
+          7,
+          35,
+          10,
+          11
+        ],
+        [
+          "replace",
+          36,
+          122,
+          12,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 23.71,
+          "end": 25.11
+        },
+        {
+          "text": "didn't",
+          "start": 25.11,
+          "end": 26.51
+        },
+        {
+          "text": "get",
+          "start": 26.51,
+          "end": 26.51
+        },
+        {
+          "text": "it,\"",
+          "start": 26.51,
+          "end": 27.95
+        },
+        {
+          "text": "said",
+          "start": 27.95,
+          "end": 28.15
+        },
+        {
+          "text": "Kotick.",
+          "start": 28.15,
+          "end": 28.99
+        },
+        {
+          "text": "\"It",
+          "start": 31.71,
+          "end": 32.17
+        },
+        {
+          "text": "grew.\"",
+          "start": 32.17,
+          "end": 32.18
+        },
+        {
+          "text": "And",
+          "start": 32.18,
+          "end": 32.185
+        },
+        {
+          "text": "just",
+          "start": 32.185,
+          "end": 32.188
+        },
+        {
+          "text": "as",
+          "start": 32.188,
+          "end": 32.189
+        },
+        {
+          "text": "he",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "was",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "going",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "to",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "roll",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "the",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "speaker",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "over,",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "a",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "couple",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "of",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "black-haired",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "men",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "with",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "flat",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "red",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "faces",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "came",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "from",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "behind",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "a",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "sand",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "dune,",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "and",
+          "start": 32.189,
+          "end": 32.189
+        },
+        {
+          "text": "Kotick,",
+          "start": 32.19,
+          "end": 37.59
+        },
+        {
+          "text": "who",
+          "start": 37.59,
+          "end": 38.32
+        },
+        {
+          "text": "had",
+          "start": 38.32,
+          "end": 38.685
+        },
+        {
+          "text": "never",
+          "start": 38.685,
+          "end": 38.867
+        },
+        {
+          "text": "seen",
+          "start": 38.867,
+          "end": 38.959
+        },
+        {
+          "text": "a",
+          "start": 38.959,
+          "end": 39.005
+        },
+        {
+          "text": "man",
+          "start": 39.005,
+          "end": 39.028
+        },
+        {
+          "text": "before,",
+          "start": 39.028,
+          "end": 39.039
+        },
+        {
+          "text": "coughed",
+          "start": 39.039,
+          "end": 39.044
+        },
+        {
+          "text": "and",
+          "start": 39.044,
+          "end": 39.047
+        },
+        {
+          "text": "lowered",
+          "start": 39.047,
+          "end": 39.048
+        },
+        {
+          "text": "his",
+          "start": 39.048,
+          "end": 39.049
+        },
+        {
+          "text": "head.",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "The",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "holluschickie",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "just",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "bundled",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "off",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "a",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "few",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "yards",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "and",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "sat",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "staring",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "stupidly.",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "The",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "men",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "were",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "no",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "less",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "than",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "Kerick",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "Booterin,",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "the",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "chief",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "of",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "the",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "seal-hunters",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "on",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "the",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "island,",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "and",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "Patalamon,",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "his",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "son.",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "They",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "came",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "from",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "the",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "little",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "village",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "not",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "half",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "a",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "mile",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "from",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "the",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "sea",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "nurseries,",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "and",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "they",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "were",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "deciding",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "what",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "seals",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "they",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "would",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "drive",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "up",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "to",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "the",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "killing",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "pens--for",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "the",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "seals",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "were",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "driven",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "just",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "like",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "sheep--to",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "be",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "turned",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "into",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "seal-skin",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "jackets",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "later",
+          "start": 39.049,
+          "end": 39.049
+        },
+        {
+          "text": "on.",
+          "start": 39.049,
+          "end": 39.049
+        }
+      ],
+      "stats": {
+        "expected_words": 122,
+        "heard_words": 18,
+        "matched_words": 8
+      },
+      "match_ratio": 0.06557377049180328,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2989581674337387
+    },
+    {
+      "asr_seconds": 0.6413396270945668,
+      "alignment_seconds": 0.0004387684166431427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Kotick, Kerick, Booterin, Patalamon"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I didn't get it, said Kotick. It grew.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.47,
+              "probability": 0.255126953125
+            },
+            {
+              "text": " didn't",
+              "start": 0.47,
+              "end": 0.71,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " get",
+              "start": 0.71,
+              "end": 0.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it,",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Kotick.",
+              "start": 1.51,
+              "end": 1.93,
+              "probability": 0.679443359375
+            },
+            {
+              "text": " It",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " grew.",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " And just as he was going to roll the speaker over, a couple of black-haired men with flat",
+          "start": 3.69,
+          "end": 7.55,
+          "words": [
+            {
+              "text": " And",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " just",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.9453125
+            },
+            {
+              "text": " as",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 4.11,
+              "end": 4.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " going",
+              "start": 4.29,
+              "end": 4.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.43,
+              "end": 4.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " roll",
+              "start": 4.57,
+              "end": 4.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.75,
+              "end": 4.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " speaker",
+              "start": 4.93,
+              "end": 5.19,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " over,",
+              "start": 5.19,
+              "end": 5.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 5.93,
+              "end": 6.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " couple",
+              "start": 6.01,
+              "end": 6.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 6.19,
+              "end": 6.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " black",
+              "start": 6.45,
+              "end": 6.61,
+              "probability": 0.97216796875
+            },
+            {
+              "text": "-haired",
+              "start": 6.61,
+              "end": 6.81,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " men",
+              "start": 6.81,
+              "end": 7.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 7.09,
+              "end": 7.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " flat",
+              "start": 7.29,
+              "end": 7.55,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " red faces came from behind a sand dune, and Kotick, who had never seen a man before, coughed",
+          "start": 7.55,
+          "end": 12.93,
+          "words": [
+            {
+              "text": " red",
+              "start": 7.55,
+              "end": 7.77,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " faces",
+              "start": 7.77,
+              "end": 8.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " came",
+              "start": 8.23,
+              "end": 8.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 8.49,
+              "end": 8.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " behind",
+              "start": 8.69,
+              "end": 8.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 8.95,
+              "end": 9.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sand",
+              "start": 9.09,
+              "end": 9.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dune,",
+              "start": 9.35,
+              "end": 9.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 10.03,
+              "end": 10.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Kotick,",
+              "start": 10.19,
+              "end": 10.61,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " who",
+              "start": 10.77,
+              "end": 10.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " had",
+              "start": 10.95,
+              "end": 11.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " never",
+              "start": 11.05,
+              "end": 11.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seen",
+              "start": 11.27,
+              "end": 11.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 11.53,
+              "end": 11.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 11.69,
+              "end": 11.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before,",
+              "start": 11.83,
+              "end": 12.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " coughed",
+              "start": 12.69,
+              "end": 12.93,
+              "probability": 0.9918619791666666
+            }
+          ]
+        },
+        {
+          "text": " and lowered his head. The holoskicky just bundled off a few yards and sat staring stupidly.",
+          "start": 12.93,
+          "end": 18.25,
+          "words": [
+            {
+              "text": " and",
+              "start": 12.93,
+              "end": 13.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lowered",
+              "start": 13.13,
+              "end": 13.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 13.37,
+              "end": 13.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head.",
+              "start": 13.61,
+              "end": 13.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 14.53,
+              "end": 14.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " holoskicky",
+              "start": 14.65,
+              "end": 15.13,
+              "probability": 0.38031005859375
+            },
+            {
+              "text": " just",
+              "start": 15.13,
+              "end": 15.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " bundled",
+              "start": 15.41,
+              "end": 15.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " off",
+              "start": 15.71,
+              "end": 15.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 15.99,
+              "end": 16.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " few",
+              "start": 16.13,
+              "end": 16.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " yards",
+              "start": 16.27,
+              "end": 16.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 16.63,
+              "end": 16.87,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sat",
+              "start": 16.87,
+              "end": 17.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " staring",
+              "start": 17.07,
+              "end": 17.49,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " stupidly.",
+              "start": 17.49,
+              "end": 18.25,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " The men were no less than Kerick Booterin, the chief of the seal hunters on the island,",
+          "start": 18.65,
+          "end": 23.01,
+          "words": [
+            {
+              "text": " The",
+              "start": 18.65,
+              "end": 18.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " men",
+              "start": 18.83,
+              "end": 18.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " were",
+              "start": 18.97,
+              "end": 19.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " no",
+              "start": 19.13,
+              "end": 19.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " less",
+              "start": 19.29,
+              "end": 19.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 19.53,
+              "end": 19.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Kerick",
+              "start": 19.81,
+              "end": 20.15,
+              "probability": 0.1024932861328125
+            },
+            {
+              "text": " Booterin,",
+              "start": 20.15,
+              "end": 20.65,
+              "probability": 0.6019287109375
+            },
+            {
+              "text": " the",
+              "start": 21.01,
+              "end": 21.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " chief",
+              "start": 21.13,
+              "end": 21.35,
+              "probability": 0.69140625
+            },
+            {
+              "text": " of",
+              "start": 21.35,
+              "end": 21.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 21.55,
+              "end": 21.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " seal",
+              "start": 21.69,
+              "end": 21.91,
+              "probability": 0.33203125
+            },
+            {
+              "text": " hunters",
+              "start": 21.91,
+              "end": 22.29,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " on",
+              "start": 22.29,
+              "end": 22.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 22.51,
+              "end": 22.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " island,",
+              "start": 22.65,
+              "end": 23.01,
+              "probability": 0.96435546875
+            }
+          ]
+        },
+        {
+          "text": " and Patalamon, his son. They came from the little village not half a mile from the sea",
+          "start": 23.39,
+          "end": 28.49,
+          "words": [
+            {
+              "text": " and",
+              "start": 23.39,
+              "end": 23.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Patalamon,",
+              "start": 23.57,
+              "end": 24.01,
+              "probability": 0.11222330729166667
+            },
+            {
+              "text": " his",
+              "start": 24.19,
+              "end": 24.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " son.",
+              "start": 24.31,
+              "end": 24.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " They",
+              "start": 25.59,
+              "end": 25.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " came",
+              "start": 25.81,
+              "end": 26.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 26.05,
+              "end": 26.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 26.25,
+              "end": 26.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " little",
+              "start": 26.41,
+              "end": 26.59,
+              "probability": 0.986328125
+            },
+            {
+              "text": " village",
+              "start": 26.59,
+              "end": 26.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " not",
+              "start": 26.97,
+              "end": 27.29,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " half",
+              "start": 27.29,
+              "end": 27.53,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 27.53,
+              "end": 27.63,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " mile",
+              "start": 27.63,
+              "end": 27.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 27.87,
+              "end": 28.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 28.11,
+              "end": 28.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sea",
+              "start": 28.27,
+              "end": 28.49,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " nurseries, and they were deciding what seals they would drive up to the killing pens for.",
+          "start": 28.49,
+          "end": 33.25,
+          "words": [
+            {
+              "text": " nurseries,",
+              "start": 28.49,
+              "end": 29.07,
+              "probability": 0.858642578125
+            },
+            {
+              "text": " and",
+              "start": 29.57,
+              "end": 29.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " they",
+              "start": 29.71,
+              "end": 29.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " were",
+              "start": 29.83,
+              "end": 29.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " deciding",
+              "start": 29.95,
+              "end": 30.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 30.33,
+              "end": 30.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seals",
+              "start": 30.65,
+              "end": 31.05,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " they",
+              "start": 31.05,
+              "end": 31.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " would",
+              "start": 31.37,
+              "end": 31.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " drive",
+              "start": 31.51,
+              "end": 31.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up",
+              "start": 31.83,
+              "end": 32.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 32.07,
+              "end": 32.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 32.19,
+              "end": 32.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " killing",
+              "start": 32.33,
+              "end": 32.61,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " pens",
+              "start": 32.61,
+              "end": 32.89,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " for.",
+              "start": 32.89,
+              "end": 33.25,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " The seals were driven just like sheep to be turned into sealskin jackets later on.",
+          "start": 33.69,
+          "end": 38.47,
+          "words": [
+            {
+              "text": " The",
+              "start": 33.69,
+              "end": 33.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " seals",
+              "start": 33.79,
+              "end": 34.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " were",
+              "start": 34.11,
+              "end": 34.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " driven",
+              "start": 34.37,
+              "end": 34.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " just",
+              "start": 34.71,
+              "end": 35.01,
+              "probability": 0.84765625
+            },
+            {
+              "text": " like",
+              "start": 35.01,
+              "end": 35.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sheep",
+              "start": 35.27,
+              "end": 35.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 35.55,
+              "end": 35.75,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " be",
+              "start": 35.75,
+              "end": 35.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turned",
+              "start": 35.91,
+              "end": 36.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 36.23,
+              "end": 36.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sealskin",
+              "start": 36.55,
+              "end": 37.19,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " jackets",
+              "start": 37.19,
+              "end": 37.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " later",
+              "start": 37.71,
+              "end": 38.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " on.",
+              "start": 38.03,
+              "end": 38.47,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.47
+        },
+        {
+          "raw": "didn't",
+          "start": 0.47,
+          "end": 0.71
+        },
+        {
+          "raw": "get",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "raw": "it,",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "said",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "raw": "Kotick.",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "raw": "It",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "grew.",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "And",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "just",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "as",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "he",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "raw": "was",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "going",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "raw": "to",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "raw": "roll",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "raw": "the",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "raw": "speaker",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "raw": "over,",
+          "start": 5.19,
+          "end": 5.59
+        },
+        {
+          "raw": "a",
+          "start": 5.93,
+          "end": 6.01
+        },
+        {
+          "raw": "couple",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "raw": "of",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "raw": "black",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "raw": "-haired",
+          "start": 6.61,
+          "end": 6.81
+        },
+        {
+          "raw": "men",
+          "start": 6.81,
+          "end": 7.09
+        },
+        {
+          "raw": "with",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "raw": "flat",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "raw": "red",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "raw": "faces",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "raw": "came",
+          "start": 8.23,
+          "end": 8.49
+        },
+        {
+          "raw": "from",
+          "start": 8.49,
+          "end": 8.69
+        },
+        {
+          "raw": "behind",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "raw": "a",
+          "start": 8.95,
+          "end": 9.09
+        },
+        {
+          "raw": "sand",
+          "start": 9.09,
+          "end": 9.35
+        },
+        {
+          "raw": "dune,",
+          "start": 9.35,
+          "end": 9.65
+        },
+        {
+          "raw": "and",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "raw": "Kotick,",
+          "start": 10.19,
+          "end": 10.61
+        },
+        {
+          "raw": "who",
+          "start": 10.77,
+          "end": 10.95
+        },
+        {
+          "raw": "had",
+          "start": 10.95,
+          "end": 11.05
+        },
+        {
+          "raw": "never",
+          "start": 11.05,
+          "end": 11.27
+        },
+        {
+          "raw": "seen",
+          "start": 11.27,
+          "end": 11.53
+        },
+        {
+          "raw": "a",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "raw": "man",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "raw": "before,",
+          "start": 11.83,
+          "end": 12.29
+        },
+        {
+          "raw": "coughed",
+          "start": 12.69,
+          "end": 12.93
+        },
+        {
+          "raw": "and",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "raw": "lowered",
+          "start": 13.13,
+          "end": 13.37
+        },
+        {
+          "raw": "his",
+          "start": 13.37,
+          "end": 13.61
+        },
+        {
+          "raw": "head.",
+          "start": 13.61,
+          "end": 13.87
+        },
+        {
+          "raw": "The",
+          "start": 14.53,
+          "end": 14.65
+        },
+        {
+          "raw": "holoskicky",
+          "start": 14.65,
+          "end": 15.13
+        },
+        {
+          "raw": "just",
+          "start": 15.13,
+          "end": 15.41
+        },
+        {
+          "raw": "bundled",
+          "start": 15.41,
+          "end": 15.71
+        },
+        {
+          "raw": "off",
+          "start": 15.71,
+          "end": 15.99
+        },
+        {
+          "raw": "a",
+          "start": 15.99,
+          "end": 16.13
+        },
+        {
+          "raw": "few",
+          "start": 16.13,
+          "end": 16.27
+        },
+        {
+          "raw": "yards",
+          "start": 16.27,
+          "end": 16.63
+        },
+        {
+          "raw": "and",
+          "start": 16.63,
+          "end": 16.87
+        },
+        {
+          "raw": "sat",
+          "start": 16.87,
+          "end": 17.07
+        },
+        {
+          "raw": "staring",
+          "start": 17.07,
+          "end": 17.49
+        },
+        {
+          "raw": "stupidly.",
+          "start": 17.49,
+          "end": 18.25
+        },
+        {
+          "raw": "The",
+          "start": 18.65,
+          "end": 18.83
+        },
+        {
+          "raw": "men",
+          "start": 18.83,
+          "end": 18.97
+        },
+        {
+          "raw": "were",
+          "start": 18.97,
+          "end": 19.13
+        },
+        {
+          "raw": "no",
+          "start": 19.13,
+          "end": 19.29
+        },
+        {
+          "raw": "less",
+          "start": 19.29,
+          "end": 19.53
+        },
+        {
+          "raw": "than",
+          "start": 19.53,
+          "end": 19.81
+        },
+        {
+          "raw": "Kerick",
+          "start": 19.81,
+          "end": 20.15
+        },
+        {
+          "raw": "Booterin,",
+          "start": 20.15,
+          "end": 20.65
+        },
+        {
+          "raw": "the",
+          "start": 21.01,
+          "end": 21.13
+        },
+        {
+          "raw": "chief",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "raw": "of",
+          "start": 21.35,
+          "end": 21.55
+        },
+        {
+          "raw": "the",
+          "start": 21.55,
+          "end": 21.69
+        },
+        {
+          "raw": "seal",
+          "start": 21.69,
+          "end": 21.91
+        },
+        {
+          "raw": "hunters",
+          "start": 21.91,
+          "end": 22.29
+        },
+        {
+          "raw": "on",
+          "start": 22.29,
+          "end": 22.51
+        },
+        {
+          "raw": "the",
+          "start": 22.51,
+          "end": 22.65
+        },
+        {
+          "raw": "island,",
+          "start": 22.65,
+          "end": 23.01
+        },
+        {
+          "raw": "and",
+          "start": 23.39,
+          "end": 23.57
+        },
+        {
+          "raw": "Patalamon,",
+          "start": 23.57,
+          "end": 24.01
+        },
+        {
+          "raw": "his",
+          "start": 24.19,
+          "end": 24.31
+        },
+        {
+          "raw": "son.",
+          "start": 24.31,
+          "end": 24.59
+        },
+        {
+          "raw": "They",
+          "start": 25.59,
+          "end": 25.81
+        },
+        {
+          "raw": "came",
+          "start": 25.81,
+          "end": 26.05
+        },
+        {
+          "raw": "from",
+          "start": 26.05,
+          "end": 26.25
+        },
+        {
+          "raw": "the",
+          "start": 26.25,
+          "end": 26.41
+        },
+        {
+          "raw": "little",
+          "start": 26.41,
+          "end": 26.59
+        },
+        {
+          "raw": "village",
+          "start": 26.59,
+          "end": 26.97
+        },
+        {
+          "raw": "not",
+          "start": 26.97,
+          "end": 27.29
+        },
+        {
+          "raw": "half",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "raw": "a",
+          "start": 27.53,
+          "end": 27.63
+        },
+        {
+          "raw": "mile",
+          "start": 27.63,
+          "end": 27.87
+        },
+        {
+          "raw": "from",
+          "start": 27.87,
+          "end": 28.11
+        },
+        {
+          "raw": "the",
+          "start": 28.11,
+          "end": 28.27
+        },
+        {
+          "raw": "sea",
+          "start": 28.27,
+          "end": 28.49
+        },
+        {
+          "raw": "nurseries,",
+          "start": 28.49,
+          "end": 29.07
+        },
+        {
+          "raw": "and",
+          "start": 29.57,
+          "end": 29.71
+        },
+        {
+          "raw": "they",
+          "start": 29.71,
+          "end": 29.83
+        },
+        {
+          "raw": "were",
+          "start": 29.83,
+          "end": 29.95
+        },
+        {
+          "raw": "deciding",
+          "start": 29.95,
+          "end": 30.33
+        },
+        {
+          "raw": "what",
+          "start": 30.33,
+          "end": 30.65
+        },
+        {
+          "raw": "seals",
+          "start": 30.65,
+          "end": 31.05
+        },
+        {
+          "raw": "they",
+          "start": 31.05,
+          "end": 31.37
+        },
+        {
+          "raw": "would",
+          "start": 31.37,
+          "end": 31.51
+        },
+        {
+          "raw": "drive",
+          "start": 31.51,
+          "end": 31.83
+        },
+        {
+          "raw": "up",
+          "start": 31.83,
+          "end": 32.07
+        },
+        {
+          "raw": "to",
+          "start": 32.07,
+          "end": 32.19
+        },
+        {
+          "raw": "the",
+          "start": 32.19,
+          "end": 32.33
+        },
+        {
+          "raw": "killing",
+          "start": 32.33,
+          "end": 32.61
+        },
+        {
+          "raw": "pens",
+          "start": 32.61,
+          "end": 32.89
+        },
+        {
+          "raw": "for.",
+          "start": 32.89,
+          "end": 33.25
+        },
+        {
+          "raw": "The",
+          "start": 33.69,
+          "end": 33.79
+        },
+        {
+          "raw": "seals",
+          "start": 33.79,
+          "end": 34.11
+        },
+        {
+          "raw": "were",
+          "start": 34.11,
+          "end": 34.37
+        },
+        {
+          "raw": "driven",
+          "start": 34.37,
+          "end": 34.71
+        },
+        {
+          "raw": "just",
+          "start": 34.71,
+          "end": 35.01
+        },
+        {
+          "raw": "like",
+          "start": 35.01,
+          "end": 35.27
+        },
+        {
+          "raw": "sheep",
+          "start": 35.27,
+          "end": 35.55
+        },
+        {
+          "raw": "to",
+          "start": 35.55,
+          "end": 35.75
+        },
+        {
+          "raw": "be",
+          "start": 35.75,
+          "end": 35.91
+        },
+        {
+          "raw": "turned",
+          "start": 35.91,
+          "end": 36.23
+        },
+        {
+          "raw": "into",
+          "start": 36.23,
+          "end": 36.55
+        },
+        {
+          "raw": "sealskin",
+          "start": 36.55,
+          "end": 37.19
+        },
+        {
+          "raw": "jackets",
+          "start": 37.19,
+          "end": 37.71
+        },
+        {
+          "raw": "later",
+          "start": 37.71,
+          "end": 38.03
+        },
+        {
+          "raw": "on.",
+          "start": 38.03,
+          "end": 38.47
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "didn't",
+        "get",
+        "it,\"",
+        "said",
+        "Kotick.",
+        "\"It",
+        "grew.\"",
+        "And",
+        "just",
+        "as",
+        "he",
+        "was",
+        "going",
+        "to",
+        "roll",
+        "the",
+        "speaker",
+        "over,",
+        "a",
+        "couple",
+        "of",
+        "black-haired",
+        "men",
+        "with",
+        "flat",
+        "red",
+        "faces",
+        "came",
+        "from",
+        "behind",
+        "a",
+        "sand",
+        "dune,",
+        "and",
+        "Kotick,",
+        "who",
+        "had",
+        "never",
+        "seen",
+        "a",
+        "man",
+        "before,",
+        "coughed",
+        "and",
+        "lowered",
+        "his",
+        "head.",
+        "The",
+        "holluschickie",
+        "just",
+        "bundled",
+        "off",
+        "a",
+        "few",
+        "yards",
+        "and",
+        "sat",
+        "staring",
+        "stupidly.",
+        "The",
+        "men",
+        "were",
+        "no",
+        "less",
+        "than",
+        "Kerick",
+        "Booterin,",
+        "the",
+        "chief",
+        "of",
+        "the",
+        "seal-hunters",
+        "on",
+        "the",
+        "island,",
+        "and",
+        "Patalamon,",
+        "his",
+        "son.",
+        "They",
+        "came",
+        "from",
+        "the",
+        "little",
+        "village",
+        "not",
+        "half",
+        "a",
+        "mile",
+        "from",
+        "the",
+        "sea",
+        "nurseries,",
+        "and",
+        "they",
+        "were",
+        "deciding",
+        "what",
+        "seals",
+        "they",
+        "would",
+        "drive",
+        "up",
+        "to",
+        "the",
+        "killing",
+        "pens--for",
+        "the",
+        "seals",
+        "were",
+        "driven",
+        "just",
+        "like",
+        "sheep--to",
+        "be",
+        "turned",
+        "into",
+        "seal-skin",
+        "jackets",
+        "later",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "equal",
+          23,
+          49,
+          24,
+          50
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          51
+        ],
+        [
+          "equal",
+          50,
+          72,
+          51,
+          73
+        ],
+        [
+          "replace",
+          72,
+          73,
+          73,
+          75
+        ],
+        [
+          "equal",
+          73,
+          107,
+          75,
+          109
+        ],
+        [
+          "replace",
+          107,
+          108,
+          109,
+          111
+        ],
+        [
+          "equal",
+          108,
+          114,
+          111,
+          117
+        ],
+        [
+          "replace",
+          114,
+          115,
+          117,
+          119
+        ],
+        [
+          "equal",
+          115,
+          122,
+          119,
+          126
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 107,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 114,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 125
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          51
+        ],
+        [
+          "replace",
+          72,
+          73,
+          73,
+          75
+        ],
+        [
+          "replace",
+          107,
+          108,
+          109,
+          111
+        ],
+        [
+          "replace",
+          114,
+          115,
+          117,
+          119
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.47
+        },
+        {
+          "text": "didn't",
+          "start": 0.47,
+          "end": 0.71
+        },
+        {
+          "text": "get",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "text": "it,\"",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "said",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "text": "Kotick.",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "text": "\"It",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "grew.\"",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "text": "And",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "just",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "as",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "he",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "text": "was",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "text": "going",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "text": "to",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "text": "roll",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "text": "the",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "text": "speaker",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "text": "over,",
+          "start": 5.19,
+          "end": 5.59
+        },
+        {
+          "text": "a",
+          "start": 5.93,
+          "end": 6.01
+        },
+        {
+          "text": "couple",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "text": "of",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "text": "black-haired",
+          "start": 6.45,
+          "end": 6.63
+        },
+        {
+          "text": "men",
+          "start": 6.81,
+          "end": 7.09
+        },
+        {
+          "text": "with",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "text": "flat",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "text": "red",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "text": "faces",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "text": "came",
+          "start": 8.23,
+          "end": 8.49
+        },
+        {
+          "text": "from",
+          "start": 8.49,
+          "end": 8.69
+        },
+        {
+          "text": "behind",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "text": "a",
+          "start": 8.95,
+          "end": 9.09
+        },
+        {
+          "text": "sand",
+          "start": 9.09,
+          "end": 9.35
+        },
+        {
+          "text": "dune,",
+          "start": 9.35,
+          "end": 9.65
+        },
+        {
+          "text": "and",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "text": "Kotick,",
+          "start": 10.19,
+          "end": 10.61
+        },
+        {
+          "text": "who",
+          "start": 10.77,
+          "end": 10.95
+        },
+        {
+          "text": "had",
+          "start": 10.95,
+          "end": 11.05
+        },
+        {
+          "text": "never",
+          "start": 11.05,
+          "end": 11.27
+        },
+        {
+          "text": "seen",
+          "start": 11.27,
+          "end": 11.53
+        },
+        {
+          "text": "a",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "text": "man",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "text": "before,",
+          "start": 11.83,
+          "end": 12.29
+        },
+        {
+          "text": "coughed",
+          "start": 12.69,
+          "end": 12.93
+        },
+        {
+          "text": "and",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "text": "lowered",
+          "start": 13.13,
+          "end": 13.37
+        },
+        {
+          "text": "his",
+          "start": 13.37,
+          "end": 13.61
+        },
+        {
+          "text": "head.",
+          "start": 13.61,
+          "end": 13.87
+        },
+        {
+          "text": "The",
+          "start": 14.53,
+          "end": 14.65
+        },
+        {
+          "text": "holluschickie",
+          "start": 14.65,
+          "end": 14.89
+        },
+        {
+          "text": "just",
+          "start": 15.13,
+          "end": 15.41
+        },
+        {
+          "text": "bundled",
+          "start": 15.41,
+          "end": 15.71
+        },
+        {
+          "text": "off",
+          "start": 15.71,
+          "end": 15.99
+        },
+        {
+          "text": "a",
+          "start": 15.99,
+          "end": 16.13
+        },
+        {
+          "text": "few",
+          "start": 16.13,
+          "end": 16.27
+        },
+        {
+          "text": "yards",
+          "start": 16.27,
+          "end": 16.63
+        },
+        {
+          "text": "and",
+          "start": 16.63,
+          "end": 16.87
+        },
+        {
+          "text": "sat",
+          "start": 16.87,
+          "end": 17.07
+        },
+        {
+          "text": "staring",
+          "start": 17.07,
+          "end": 17.49
+        },
+        {
+          "text": "stupidly.",
+          "start": 17.49,
+          "end": 18.25
+        },
+        {
+          "text": "The",
+          "start": 18.65,
+          "end": 18.83
+        },
+        {
+          "text": "men",
+          "start": 18.83,
+          "end": 18.97
+        },
+        {
+          "text": "were",
+          "start": 18.97,
+          "end": 19.13
+        },
+        {
+          "text": "no",
+          "start": 19.13,
+          "end": 19.29
+        },
+        {
+          "text": "less",
+          "start": 19.29,
+          "end": 19.53
+        },
+        {
+          "text": "than",
+          "start": 19.53,
+          "end": 19.81
+        },
+        {
+          "text": "Kerick",
+          "start": 19.81,
+          "end": 20.15
+        },
+        {
+          "text": "Booterin,",
+          "start": 20.15,
+          "end": 20.65
+        },
+        {
+          "text": "the",
+          "start": 21.01,
+          "end": 21.13
+        },
+        {
+          "text": "chief",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "text": "of",
+          "start": 21.35,
+          "end": 21.55
+        },
+        {
+          "text": "the",
+          "start": 21.55,
+          "end": 21.69
+        },
+        {
+          "text": "seal-hunters",
+          "start": 21.69,
+          "end": 21.99
+        },
+        {
+          "text": "on",
+          "start": 22.29,
+          "end": 22.51
+        },
+        {
+          "text": "the",
+          "start": 22.51,
+          "end": 22.65
+        },
+        {
+          "text": "island,",
+          "start": 22.65,
+          "end": 23.01
+        },
+        {
+          "text": "and",
+          "start": 23.39,
+          "end": 23.57
+        },
+        {
+          "text": "Patalamon,",
+          "start": 23.57,
+          "end": 24.01
+        },
+        {
+          "text": "his",
+          "start": 24.19,
+          "end": 24.31
+        },
+        {
+          "text": "son.",
+          "start": 24.31,
+          "end": 24.59
+        },
+        {
+          "text": "They",
+          "start": 25.59,
+          "end": 25.81
+        },
+        {
+          "text": "came",
+          "start": 25.81,
+          "end": 26.05
+        },
+        {
+          "text": "from",
+          "start": 26.05,
+          "end": 26.25
+        },
+        {
+          "text": "the",
+          "start": 26.25,
+          "end": 26.41
+        },
+        {
+          "text": "little",
+          "start": 26.41,
+          "end": 26.59
+        },
+        {
+          "text": "village",
+          "start": 26.59,
+          "end": 26.97
+        },
+        {
+          "text": "not",
+          "start": 26.97,
+          "end": 27.29
+        },
+        {
+          "text": "half",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "text": "a",
+          "start": 27.53,
+          "end": 27.63
+        },
+        {
+          "text": "mile",
+          "start": 27.63,
+          "end": 27.87
+        },
+        {
+          "text": "from",
+          "start": 27.87,
+          "end": 28.11
+        },
+        {
+          "text": "the",
+          "start": 28.11,
+          "end": 28.27
+        },
+        {
+          "text": "sea",
+          "start": 28.27,
+          "end": 28.49
+        },
+        {
+          "text": "nurseries,",
+          "start": 28.49,
+          "end": 29.07
+        },
+        {
+          "text": "and",
+          "start": 29.57,
+          "end": 29.71
+        },
+        {
+          "text": "they",
+          "start": 29.71,
+          "end": 29.83
+        },
+        {
+          "text": "were",
+          "start": 29.83,
+          "end": 29.95
+        },
+        {
+          "text": "deciding",
+          "start": 29.95,
+          "end": 30.33
+        },
+        {
+          "text": "what",
+          "start": 30.33,
+          "end": 30.65
+        },
+        {
+          "text": "seals",
+          "start": 30.65,
+          "end": 31.05
+        },
+        {
+          "text": "they",
+          "start": 31.05,
+          "end": 31.37
+        },
+        {
+          "text": "would",
+          "start": 31.37,
+          "end": 31.51
+        },
+        {
+          "text": "drive",
+          "start": 31.51,
+          "end": 31.83
+        },
+        {
+          "text": "up",
+          "start": 31.83,
+          "end": 32.07
+        },
+        {
+          "text": "to",
+          "start": 32.07,
+          "end": 32.19
+        },
+        {
+          "text": "the",
+          "start": 32.19,
+          "end": 32.33
+        },
+        {
+          "text": "killing",
+          "start": 32.33,
+          "end": 32.61
+        },
+        {
+          "text": "pens--for",
+          "start": 32.61,
+          "end": 33.15
+        },
+        {
+          "text": "the",
+          "start": 33.69,
+          "end": 33.79
+        },
+        {
+          "text": "seals",
+          "start": 33.79,
+          "end": 34.11
+        },
+        {
+          "text": "were",
+          "start": 34.11,
+          "end": 34.37
+        },
+        {
+          "text": "driven",
+          "start": 34.37,
+          "end": 34.71
+        },
+        {
+          "text": "just",
+          "start": 34.71,
+          "end": 35.01
+        },
+        {
+          "text": "like",
+          "start": 35.01,
+          "end": 35.27
+        },
+        {
+          "text": "sheep--to",
+          "start": 35.27,
+          "end": 35.51
+        },
+        {
+          "text": "be",
+          "start": 35.75,
+          "end": 35.91
+        },
+        {
+          "text": "turned",
+          "start": 35.91,
+          "end": 36.23
+        },
+        {
+          "text": "into",
+          "start": 36.23,
+          "end": 36.55
+        },
+        {
+          "text": "seal-skin",
+          "start": 36.55,
+          "end": 37.19
+        },
+        {
+          "text": "jackets",
+          "start": 37.19,
+          "end": 37.71
+        },
+        {
+          "text": "later",
+          "start": 37.71,
+          "end": 38.03
+        },
+        {
+          "text": "on.",
+          "start": 38.03,
+          "end": 38.47
+        }
+      ],
+      "stats": {
+        "expected_words": 122,
+        "heard_words": 126,
+        "matched_words": 117
+      },
+      "match_ratio": 0.9590163934426229,
+      "rejection_reasons": [],
+      "seconds": 0.641998989507556
+    },
+    {
+      "asr_seconds": 0.6788984928280115,
+      "alignment_seconds": 0.00046116579324007034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I didn't get it, said Kotick. It grew. And just as he was going to roll the speaker over,",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.47,
+              "probability": 0.255126953125
+            },
+            {
+              "text": " didn't",
+              "start": 0.47,
+              "end": 0.71,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " get",
+              "start": 0.71,
+              "end": 0.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it,",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Kotick.",
+              "start": 1.51,
+              "end": 1.93,
+              "probability": 0.679443359375
+            },
+            {
+              "text": " It",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " grew.",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " And",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " just",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.9453125
+            },
+            {
+              "text": " as",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 4.11,
+              "end": 4.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " going",
+              "start": 4.29,
+              "end": 4.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.43,
+              "end": 4.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " roll",
+              "start": 4.57,
+              "end": 4.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.75,
+              "end": 4.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " speaker",
+              "start": 4.93,
+              "end": 5.19,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " over,",
+              "start": 5.19,
+              "end": 5.59,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " a couple of black-haired men with flat red faces came from behind a sand dune, and Kotick,",
+          "start": 5.93,
+          "end": 10.61,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.93,
+              "end": 6.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " couple",
+              "start": 6.01,
+              "end": 6.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 6.19,
+              "end": 6.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " black",
+              "start": 6.45,
+              "end": 6.61,
+              "probability": 0.97216796875
+            },
+            {
+              "text": "-haired",
+              "start": 6.61,
+              "end": 6.81,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " men",
+              "start": 6.81,
+              "end": 7.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 7.09,
+              "end": 7.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " flat",
+              "start": 7.29,
+              "end": 7.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " red",
+              "start": 7.55,
+              "end": 7.77,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " faces",
+              "start": 7.77,
+              "end": 8.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " came",
+              "start": 8.23,
+              "end": 8.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 8.49,
+              "end": 8.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " behind",
+              "start": 8.69,
+              "end": 8.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 8.95,
+              "end": 9.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sand",
+              "start": 9.09,
+              "end": 9.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dune,",
+              "start": 9.35,
+              "end": 9.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 10.03,
+              "end": 10.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Kotick,",
+              "start": 10.19,
+              "end": 10.61,
+              "probability": 0.996337890625
+            }
+          ]
+        },
+        {
+          "text": " who had never seen a man before, coughed and lowered his head. The holoskicky just bundled",
+          "start": 10.77,
+          "end": 15.71,
+          "words": [
+            {
+              "text": " who",
+              "start": 10.77,
+              "end": 10.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " had",
+              "start": 10.95,
+              "end": 11.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " never",
+              "start": 11.05,
+              "end": 11.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seen",
+              "start": 11.27,
+              "end": 11.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 11.53,
+              "end": 11.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 11.69,
+              "end": 11.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before,",
+              "start": 11.83,
+              "end": 12.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " coughed",
+              "start": 12.69,
+              "end": 12.93,
+              "probability": 0.9918619791666666
+            },
+            {
+              "text": " and",
+              "start": 12.93,
+              "end": 13.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lowered",
+              "start": 13.13,
+              "end": 13.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 13.37,
+              "end": 13.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head.",
+              "start": 13.61,
+              "end": 13.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 14.53,
+              "end": 14.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " holoskicky",
+              "start": 14.65,
+              "end": 15.13,
+              "probability": 0.381134033203125
+            },
+            {
+              "text": " just",
+              "start": 15.13,
+              "end": 15.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bundled",
+              "start": 15.41,
+              "end": 15.71,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " off a few yards and sat staring stupidly. The men were no less than Karak Buterin,",
+          "start": 15.71,
+          "end": 20.63,
+          "words": [
+            {
+              "text": " off",
+              "start": 15.71,
+              "end": 15.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 15.99,
+              "end": 16.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " few",
+              "start": 16.13,
+              "end": 16.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " yards",
+              "start": 16.27,
+              "end": 16.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 16.63,
+              "end": 16.87,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sat",
+              "start": 16.87,
+              "end": 17.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " staring",
+              "start": 17.07,
+              "end": 17.49,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " stupidly.",
+              "start": 17.49,
+              "end": 18.25,
+              "probability": 0.98828125
+            },
+            {
+              "text": " The",
+              "start": 18.65,
+              "end": 18.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " men",
+              "start": 18.83,
+              "end": 18.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " were",
+              "start": 18.97,
+              "end": 19.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " no",
+              "start": 19.13,
+              "end": 19.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " less",
+              "start": 19.29,
+              "end": 19.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 19.53,
+              "end": 19.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Karak",
+              "start": 19.81,
+              "end": 20.15,
+              "probability": 0.63232421875
+            },
+            {
+              "text": " Buterin,",
+              "start": 20.15,
+              "end": 20.63,
+              "probability": 0.737060546875
+            }
+          ]
+        },
+        {
+          "text": " the chief of the Seal Hunters on the island, and Padelaman, his son.",
+          "start": 21.01,
+          "end": 24.61,
+          "words": [
+            {
+              "text": " the",
+              "start": 21.01,
+              "end": 21.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " chief",
+              "start": 21.13,
+              "end": 21.35,
+              "probability": 0.71484375
+            },
+            {
+              "text": " of",
+              "start": 21.35,
+              "end": 21.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 21.55,
+              "end": 21.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Seal",
+              "start": 21.69,
+              "end": 21.91,
+              "probability": 0.5263671875
+            },
+            {
+              "text": " Hunters",
+              "start": 21.91,
+              "end": 22.27,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " on",
+              "start": 22.27,
+              "end": 22.51,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 22.51,
+              "end": 22.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " island,",
+              "start": 22.65,
+              "end": 23.01,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " and",
+              "start": 23.37,
+              "end": 23.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Padelaman,",
+              "start": 23.57,
+              "end": 24.01,
+              "probability": 0.5248209635416666
+            },
+            {
+              "text": " his",
+              "start": 24.19,
+              "end": 24.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " son.",
+              "start": 24.31,
+              "end": 24.61,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " They came from the little village not half a mile from the sea nurseries,",
+          "start": 25.23,
+          "end": 29.01,
+          "words": [
+            {
+              "text": " They",
+              "start": 25.23,
+              "end": 25.79,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " came",
+              "start": 25.79,
+              "end": 26.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 26.03,
+              "end": 26.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 26.27,
+              "end": 26.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " little",
+              "start": 26.39,
+              "end": 26.59,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " village",
+              "start": 26.59,
+              "end": 26.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 26.99,
+              "end": 27.29,
+              "probability": 0.654296875
+            },
+            {
+              "text": " half",
+              "start": 27.29,
+              "end": 27.53,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 27.53,
+              "end": 27.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " mile",
+              "start": 27.65,
+              "end": 27.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 27.89,
+              "end": 28.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 28.11,
+              "end": 28.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sea",
+              "start": 28.25,
+              "end": 28.47,
+              "probability": 0.9453125
+            },
+            {
+              "text": " nurseries,",
+              "start": 28.47,
+              "end": 29.01,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " and they were deciding what seals they would drive up to the killing pens for. The seals",
+          "start": 29.39,
+          "end": 34.11,
+          "words": [
+            {
+              "text": " and",
+              "start": 29.39,
+              "end": 29.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " they",
+              "start": 29.71,
+              "end": 29.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 29.83,
+              "end": 29.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deciding",
+              "start": 29.95,
+              "end": 30.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what",
+              "start": 30.35,
+              "end": 30.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " seals",
+              "start": 30.65,
+              "end": 31.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 31.05,
+              "end": 31.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " would",
+              "start": 31.37,
+              "end": 31.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " drive",
+              "start": 31.53,
+              "end": 31.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 31.83,
+              "end": 32.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 32.07,
+              "end": 32.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 32.19,
+              "end": 32.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " killing",
+              "start": 32.33,
+              "end": 32.61,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " pens",
+              "start": 32.61,
+              "end": 32.89,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " for.",
+              "start": 32.89,
+              "end": 33.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " The",
+              "start": 33.69,
+              "end": 33.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " seals",
+              "start": 33.79,
+              "end": 34.11,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " were driven just like sheep to be turned into sealskin jackets later on.",
+          "start": 34.11,
+          "end": 38.47,
+          "words": [
+            {
+              "text": " were",
+              "start": 34.11,
+              "end": 34.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " driven",
+              "start": 34.37,
+              "end": 34.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " just",
+              "start": 34.71,
+              "end": 35.03,
+              "probability": 0.91015625
+            },
+            {
+              "text": " like",
+              "start": 35.03,
+              "end": 35.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sheep",
+              "start": 35.27,
+              "end": 35.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 35.55,
+              "end": 35.75,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be",
+              "start": 35.75,
+              "end": 35.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " turned",
+              "start": 35.93,
+              "end": 36.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 36.23,
+              "end": 36.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sealskin",
+              "start": 36.55,
+              "end": 37.19,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " jackets",
+              "start": 37.19,
+              "end": 37.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " later",
+              "start": 37.73,
+              "end": 38.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on.",
+              "start": 38.03,
+              "end": 38.47,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.47
+        },
+        {
+          "raw": "didn't",
+          "start": 0.47,
+          "end": 0.71
+        },
+        {
+          "raw": "get",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "raw": "it,",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "said",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "Kotick.",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "raw": "It",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "grew.",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "And",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "just",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "as",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "he",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "raw": "was",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "going",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "raw": "to",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "raw": "roll",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "raw": "the",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "raw": "speaker",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "raw": "over,",
+          "start": 5.19,
+          "end": 5.59
+        },
+        {
+          "raw": "a",
+          "start": 5.93,
+          "end": 6.01
+        },
+        {
+          "raw": "couple",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "raw": "of",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "raw": "black",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "raw": "-haired",
+          "start": 6.61,
+          "end": 6.81
+        },
+        {
+          "raw": "men",
+          "start": 6.81,
+          "end": 7.09
+        },
+        {
+          "raw": "with",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "raw": "flat",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "raw": "red",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "raw": "faces",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "raw": "came",
+          "start": 8.23,
+          "end": 8.49
+        },
+        {
+          "raw": "from",
+          "start": 8.49,
+          "end": 8.69
+        },
+        {
+          "raw": "behind",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "raw": "a",
+          "start": 8.95,
+          "end": 9.09
+        },
+        {
+          "raw": "sand",
+          "start": 9.09,
+          "end": 9.35
+        },
+        {
+          "raw": "dune,",
+          "start": 9.35,
+          "end": 9.65
+        },
+        {
+          "raw": "and",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "raw": "Kotick,",
+          "start": 10.19,
+          "end": 10.61
+        },
+        {
+          "raw": "who",
+          "start": 10.77,
+          "end": 10.95
+        },
+        {
+          "raw": "had",
+          "start": 10.95,
+          "end": 11.05
+        },
+        {
+          "raw": "never",
+          "start": 11.05,
+          "end": 11.27
+        },
+        {
+          "raw": "seen",
+          "start": 11.27,
+          "end": 11.53
+        },
+        {
+          "raw": "a",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "raw": "man",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "raw": "before,",
+          "start": 11.83,
+          "end": 12.29
+        },
+        {
+          "raw": "coughed",
+          "start": 12.69,
+          "end": 12.93
+        },
+        {
+          "raw": "and",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "raw": "lowered",
+          "start": 13.13,
+          "end": 13.37
+        },
+        {
+          "raw": "his",
+          "start": 13.37,
+          "end": 13.61
+        },
+        {
+          "raw": "head.",
+          "start": 13.61,
+          "end": 13.87
+        },
+        {
+          "raw": "The",
+          "start": 14.53,
+          "end": 14.65
+        },
+        {
+          "raw": "holoskicky",
+          "start": 14.65,
+          "end": 15.13
+        },
+        {
+          "raw": "just",
+          "start": 15.13,
+          "end": 15.41
+        },
+        {
+          "raw": "bundled",
+          "start": 15.41,
+          "end": 15.71
+        },
+        {
+          "raw": "off",
+          "start": 15.71,
+          "end": 15.99
+        },
+        {
+          "raw": "a",
+          "start": 15.99,
+          "end": 16.13
+        },
+        {
+          "raw": "few",
+          "start": 16.13,
+          "end": 16.27
+        },
+        {
+          "raw": "yards",
+          "start": 16.27,
+          "end": 16.63
+        },
+        {
+          "raw": "and",
+          "start": 16.63,
+          "end": 16.87
+        },
+        {
+          "raw": "sat",
+          "start": 16.87,
+          "end": 17.07
+        },
+        {
+          "raw": "staring",
+          "start": 17.07,
+          "end": 17.49
+        },
+        {
+          "raw": "stupidly.",
+          "start": 17.49,
+          "end": 18.25
+        },
+        {
+          "raw": "The",
+          "start": 18.65,
+          "end": 18.83
+        },
+        {
+          "raw": "men",
+          "start": 18.83,
+          "end": 18.97
+        },
+        {
+          "raw": "were",
+          "start": 18.97,
+          "end": 19.13
+        },
+        {
+          "raw": "no",
+          "start": 19.13,
+          "end": 19.29
+        },
+        {
+          "raw": "less",
+          "start": 19.29,
+          "end": 19.53
+        },
+        {
+          "raw": "than",
+          "start": 19.53,
+          "end": 19.81
+        },
+        {
+          "raw": "Karak",
+          "start": 19.81,
+          "end": 20.15
+        },
+        {
+          "raw": "Buterin,",
+          "start": 20.15,
+          "end": 20.63
+        },
+        {
+          "raw": "the",
+          "start": 21.01,
+          "end": 21.13
+        },
+        {
+          "raw": "chief",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "raw": "of",
+          "start": 21.35,
+          "end": 21.55
+        },
+        {
+          "raw": "the",
+          "start": 21.55,
+          "end": 21.69
+        },
+        {
+          "raw": "Seal",
+          "start": 21.69,
+          "end": 21.91
+        },
+        {
+          "raw": "Hunters",
+          "start": 21.91,
+          "end": 22.27
+        },
+        {
+          "raw": "on",
+          "start": 22.27,
+          "end": 22.51
+        },
+        {
+          "raw": "the",
+          "start": 22.51,
+          "end": 22.65
+        },
+        {
+          "raw": "island,",
+          "start": 22.65,
+          "end": 23.01
+        },
+        {
+          "raw": "and",
+          "start": 23.37,
+          "end": 23.57
+        },
+        {
+          "raw": "Padelaman,",
+          "start": 23.57,
+          "end": 24.01
+        },
+        {
+          "raw": "his",
+          "start": 24.19,
+          "end": 24.31
+        },
+        {
+          "raw": "son.",
+          "start": 24.31,
+          "end": 24.61
+        },
+        {
+          "raw": "They",
+          "start": 25.23,
+          "end": 25.79
+        },
+        {
+          "raw": "came",
+          "start": 25.79,
+          "end": 26.03
+        },
+        {
+          "raw": "from",
+          "start": 26.03,
+          "end": 26.27
+        },
+        {
+          "raw": "the",
+          "start": 26.27,
+          "end": 26.39
+        },
+        {
+          "raw": "little",
+          "start": 26.39,
+          "end": 26.59
+        },
+        {
+          "raw": "village",
+          "start": 26.59,
+          "end": 26.99
+        },
+        {
+          "raw": "not",
+          "start": 26.99,
+          "end": 27.29
+        },
+        {
+          "raw": "half",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "raw": "a",
+          "start": 27.53,
+          "end": 27.65
+        },
+        {
+          "raw": "mile",
+          "start": 27.65,
+          "end": 27.89
+        },
+        {
+          "raw": "from",
+          "start": 27.89,
+          "end": 28.11
+        },
+        {
+          "raw": "the",
+          "start": 28.11,
+          "end": 28.25
+        },
+        {
+          "raw": "sea",
+          "start": 28.25,
+          "end": 28.47
+        },
+        {
+          "raw": "nurseries,",
+          "start": 28.47,
+          "end": 29.01
+        },
+        {
+          "raw": "and",
+          "start": 29.39,
+          "end": 29.71
+        },
+        {
+          "raw": "they",
+          "start": 29.71,
+          "end": 29.83
+        },
+        {
+          "raw": "were",
+          "start": 29.83,
+          "end": 29.95
+        },
+        {
+          "raw": "deciding",
+          "start": 29.95,
+          "end": 30.35
+        },
+        {
+          "raw": "what",
+          "start": 30.35,
+          "end": 30.65
+        },
+        {
+          "raw": "seals",
+          "start": 30.65,
+          "end": 31.05
+        },
+        {
+          "raw": "they",
+          "start": 31.05,
+          "end": 31.37
+        },
+        {
+          "raw": "would",
+          "start": 31.37,
+          "end": 31.53
+        },
+        {
+          "raw": "drive",
+          "start": 31.53,
+          "end": 31.83
+        },
+        {
+          "raw": "up",
+          "start": 31.83,
+          "end": 32.07
+        },
+        {
+          "raw": "to",
+          "start": 32.07,
+          "end": 32.19
+        },
+        {
+          "raw": "the",
+          "start": 32.19,
+          "end": 32.33
+        },
+        {
+          "raw": "killing",
+          "start": 32.33,
+          "end": 32.61
+        },
+        {
+          "raw": "pens",
+          "start": 32.61,
+          "end": 32.89
+        },
+        {
+          "raw": "for.",
+          "start": 32.89,
+          "end": 33.25
+        },
+        {
+          "raw": "The",
+          "start": 33.69,
+          "end": 33.79
+        },
+        {
+          "raw": "seals",
+          "start": 33.79,
+          "end": 34.11
+        },
+        {
+          "raw": "were",
+          "start": 34.11,
+          "end": 34.37
+        },
+        {
+          "raw": "driven",
+          "start": 34.37,
+          "end": 34.71
+        },
+        {
+          "raw": "just",
+          "start": 34.71,
+          "end": 35.03
+        },
+        {
+          "raw": "like",
+          "start": 35.03,
+          "end": 35.27
+        },
+        {
+          "raw": "sheep",
+          "start": 35.27,
+          "end": 35.55
+        },
+        {
+          "raw": "to",
+          "start": 35.55,
+          "end": 35.75
+        },
+        {
+          "raw": "be",
+          "start": 35.75,
+          "end": 35.93
+        },
+        {
+          "raw": "turned",
+          "start": 35.93,
+          "end": 36.23
+        },
+        {
+          "raw": "into",
+          "start": 36.23,
+          "end": 36.55
+        },
+        {
+          "raw": "sealskin",
+          "start": 36.55,
+          "end": 37.19
+        },
+        {
+          "raw": "jackets",
+          "start": 37.19,
+          "end": 37.73
+        },
+        {
+          "raw": "later",
+          "start": 37.73,
+          "end": 38.03
+        },
+        {
+          "raw": "on.",
+          "start": 38.03,
+          "end": 38.47
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "didn't",
+        "get",
+        "it,\"",
+        "said",
+        "Kotick.",
+        "\"It",
+        "grew.\"",
+        "And",
+        "just",
+        "as",
+        "he",
+        "was",
+        "going",
+        "to",
+        "roll",
+        "the",
+        "speaker",
+        "over,",
+        "a",
+        "couple",
+        "of",
+        "black-haired",
+        "men",
+        "with",
+        "flat",
+        "red",
+        "faces",
+        "came",
+        "from",
+        "behind",
+        "a",
+        "sand",
+        "dune,",
+        "and",
+        "Kotick,",
+        "who",
+        "had",
+        "never",
+        "seen",
+        "a",
+        "man",
+        "before,",
+        "coughed",
+        "and",
+        "lowered",
+        "his",
+        "head.",
+        "The",
+        "holluschickie",
+        "just",
+        "bundled",
+        "off",
+        "a",
+        "few",
+        "yards",
+        "and",
+        "sat",
+        "staring",
+        "stupidly.",
+        "The",
+        "men",
+        "were",
+        "no",
+        "less",
+        "than",
+        "Kerick",
+        "Booterin,",
+        "the",
+        "chief",
+        "of",
+        "the",
+        "seal-hunters",
+        "on",
+        "the",
+        "island,",
+        "and",
+        "Patalamon,",
+        "his",
+        "son.",
+        "They",
+        "came",
+        "from",
+        "the",
+        "little",
+        "village",
+        "not",
+        "half",
+        "a",
+        "mile",
+        "from",
+        "the",
+        "sea",
+        "nurseries,",
+        "and",
+        "they",
+        "were",
+        "deciding",
+        "what",
+        "seals",
+        "they",
+        "would",
+        "drive",
+        "up",
+        "to",
+        "the",
+        "killing",
+        "pens--for",
+        "the",
+        "seals",
+        "were",
+        "driven",
+        "just",
+        "like",
+        "sheep--to",
+        "be",
+        "turned",
+        "into",
+        "seal-skin",
+        "jackets",
+        "later",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "equal",
+          23,
+          49,
+          24,
+          50
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          51
+        ],
+        [
+          "equal",
+          50,
+          66,
+          51,
+          67
+        ],
+        [
+          "replace",
+          66,
+          68,
+          67,
+          69
+        ],
+        [
+          "equal",
+          68,
+          72,
+          69,
+          73
+        ],
+        [
+          "replace",
+          72,
+          73,
+          73,
+          75
+        ],
+        [
+          "equal",
+          73,
+          77,
+          75,
+          79
+        ],
+        [
+          "replace",
+          77,
+          78,
+          79,
+          80
+        ],
+        [
+          "equal",
+          78,
+          107,
+          80,
+          109
+        ],
+        [
+          "replace",
+          107,
+          108,
+          109,
+          111
+        ],
+        [
+          "equal",
+          108,
+          114,
+          111,
+          117
+        ],
+        [
+          "replace",
+          114,
+          115,
+          117,
+          119
+        ],
+        [
+          "equal",
+          115,
+          122,
+          119,
+          126
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 107,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 114,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 125
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          51
+        ],
+        [
+          "replace",
+          66,
+          68,
+          67,
+          69
+        ],
+        [
+          "replace",
+          72,
+          73,
+          73,
+          75
+        ],
+        [
+          "replace",
+          77,
+          78,
+          79,
+          80
+        ],
+        [
+          "replace",
+          107,
+          108,
+          109,
+          111
+        ],
+        [
+          "replace",
+          114,
+          115,
+          117,
+          119
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.47
+        },
+        {
+          "text": "didn't",
+          "start": 0.47,
+          "end": 0.71
+        },
+        {
+          "text": "get",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "text": "it,\"",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "said",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "Kotick.",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "text": "\"It",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "grew.\"",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "text": "And",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "just",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "as",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "he",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "text": "was",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "text": "going",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "text": "to",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "text": "roll",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "text": "the",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "text": "speaker",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "text": "over,",
+          "start": 5.19,
+          "end": 5.59
+        },
+        {
+          "text": "a",
+          "start": 5.93,
+          "end": 6.01
+        },
+        {
+          "text": "couple",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "text": "of",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "text": "black-haired",
+          "start": 6.45,
+          "end": 6.63
+        },
+        {
+          "text": "men",
+          "start": 6.81,
+          "end": 7.09
+        },
+        {
+          "text": "with",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "text": "flat",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "text": "red",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "text": "faces",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "text": "came",
+          "start": 8.23,
+          "end": 8.49
+        },
+        {
+          "text": "from",
+          "start": 8.49,
+          "end": 8.69
+        },
+        {
+          "text": "behind",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "text": "a",
+          "start": 8.95,
+          "end": 9.09
+        },
+        {
+          "text": "sand",
+          "start": 9.09,
+          "end": 9.35
+        },
+        {
+          "text": "dune,",
+          "start": 9.35,
+          "end": 9.65
+        },
+        {
+          "text": "and",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "text": "Kotick,",
+          "start": 10.19,
+          "end": 10.61
+        },
+        {
+          "text": "who",
+          "start": 10.77,
+          "end": 10.95
+        },
+        {
+          "text": "had",
+          "start": 10.95,
+          "end": 11.05
+        },
+        {
+          "text": "never",
+          "start": 11.05,
+          "end": 11.27
+        },
+        {
+          "text": "seen",
+          "start": 11.27,
+          "end": 11.53
+        },
+        {
+          "text": "a",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "text": "man",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "text": "before,",
+          "start": 11.83,
+          "end": 12.29
+        },
+        {
+          "text": "coughed",
+          "start": 12.69,
+          "end": 12.93
+        },
+        {
+          "text": "and",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "text": "lowered",
+          "start": 13.13,
+          "end": 13.37
+        },
+        {
+          "text": "his",
+          "start": 13.37,
+          "end": 13.61
+        },
+        {
+          "text": "head.",
+          "start": 13.61,
+          "end": 13.87
+        },
+        {
+          "text": "The",
+          "start": 14.53,
+          "end": 14.65
+        },
+        {
+          "text": "holluschickie",
+          "start": 14.65,
+          "end": 14.89
+        },
+        {
+          "text": "just",
+          "start": 15.13,
+          "end": 15.41
+        },
+        {
+          "text": "bundled",
+          "start": 15.41,
+          "end": 15.71
+        },
+        {
+          "text": "off",
+          "start": 15.71,
+          "end": 15.99
+        },
+        {
+          "text": "a",
+          "start": 15.99,
+          "end": 16.13
+        },
+        {
+          "text": "few",
+          "start": 16.13,
+          "end": 16.27
+        },
+        {
+          "text": "yards",
+          "start": 16.27,
+          "end": 16.63
+        },
+        {
+          "text": "and",
+          "start": 16.63,
+          "end": 16.87
+        },
+        {
+          "text": "sat",
+          "start": 16.87,
+          "end": 17.07
+        },
+        {
+          "text": "staring",
+          "start": 17.07,
+          "end": 17.49
+        },
+        {
+          "text": "stupidly.",
+          "start": 17.49,
+          "end": 18.25
+        },
+        {
+          "text": "The",
+          "start": 18.65,
+          "end": 18.83
+        },
+        {
+          "text": "men",
+          "start": 18.83,
+          "end": 18.97
+        },
+        {
+          "text": "were",
+          "start": 18.97,
+          "end": 19.13
+        },
+        {
+          "text": "no",
+          "start": 19.13,
+          "end": 19.29
+        },
+        {
+          "text": "less",
+          "start": 19.29,
+          "end": 19.53
+        },
+        {
+          "text": "than",
+          "start": 19.53,
+          "end": 19.81
+        },
+        {
+          "text": "Kerick",
+          "start": 19.81,
+          "end": 20.41
+        },
+        {
+          "text": "Booterin,",
+          "start": 20.41,
+          "end": 20.71
+        },
+        {
+          "text": "the",
+          "start": 21.01,
+          "end": 21.13
+        },
+        {
+          "text": "chief",
+          "start": 21.13,
+          "end": 21.35
+        },
+        {
+          "text": "of",
+          "start": 21.35,
+          "end": 21.55
+        },
+        {
+          "text": "the",
+          "start": 21.55,
+          "end": 21.69
+        },
+        {
+          "text": "seal-hunters",
+          "start": 21.69,
+          "end": 21.98
+        },
+        {
+          "text": "on",
+          "start": 22.27,
+          "end": 22.51
+        },
+        {
+          "text": "the",
+          "start": 22.51,
+          "end": 22.65
+        },
+        {
+          "text": "island,",
+          "start": 22.65,
+          "end": 23.01
+        },
+        {
+          "text": "and",
+          "start": 23.37,
+          "end": 23.57
+        },
+        {
+          "text": "Patalamon,",
+          "start": 23.57,
+          "end": 23.88
+        },
+        {
+          "text": "his",
+          "start": 24.19,
+          "end": 24.31
+        },
+        {
+          "text": "son.",
+          "start": 24.31,
+          "end": 24.61
+        },
+        {
+          "text": "They",
+          "start": 25.23,
+          "end": 25.79
+        },
+        {
+          "text": "came",
+          "start": 25.79,
+          "end": 26.03
+        },
+        {
+          "text": "from",
+          "start": 26.03,
+          "end": 26.27
+        },
+        {
+          "text": "the",
+          "start": 26.27,
+          "end": 26.39
+        },
+        {
+          "text": "little",
+          "start": 26.39,
+          "end": 26.59
+        },
+        {
+          "text": "village",
+          "start": 26.59,
+          "end": 26.99
+        },
+        {
+          "text": "not",
+          "start": 26.99,
+          "end": 27.29
+        },
+        {
+          "text": "half",
+          "start": 27.29,
+          "end": 27.53
+        },
+        {
+          "text": "a",
+          "start": 27.53,
+          "end": 27.65
+        },
+        {
+          "text": "mile",
+          "start": 27.65,
+          "end": 27.89
+        },
+        {
+          "text": "from",
+          "start": 27.89,
+          "end": 28.11
+        },
+        {
+          "text": "the",
+          "start": 28.11,
+          "end": 28.25
+        },
+        {
+          "text": "sea",
+          "start": 28.25,
+          "end": 28.47
+        },
+        {
+          "text": "nurseries,",
+          "start": 28.47,
+          "end": 29.01
+        },
+        {
+          "text": "and",
+          "start": 29.39,
+          "end": 29.71
+        },
+        {
+          "text": "they",
+          "start": 29.71,
+          "end": 29.83
+        },
+        {
+          "text": "were",
+          "start": 29.83,
+          "end": 29.95
+        },
+        {
+          "text": "deciding",
+          "start": 29.95,
+          "end": 30.35
+        },
+        {
+          "text": "what",
+          "start": 30.35,
+          "end": 30.65
+        },
+        {
+          "text": "seals",
+          "start": 30.65,
+          "end": 31.05
+        },
+        {
+          "text": "they",
+          "start": 31.05,
+          "end": 31.37
+        },
+        {
+          "text": "would",
+          "start": 31.37,
+          "end": 31.53
+        },
+        {
+          "text": "drive",
+          "start": 31.53,
+          "end": 31.83
+        },
+        {
+          "text": "up",
+          "start": 31.83,
+          "end": 32.07
+        },
+        {
+          "text": "to",
+          "start": 32.07,
+          "end": 32.19
+        },
+        {
+          "text": "the",
+          "start": 32.19,
+          "end": 32.33
+        },
+        {
+          "text": "killing",
+          "start": 32.33,
+          "end": 32.61
+        },
+        {
+          "text": "pens--for",
+          "start": 32.61,
+          "end": 33.15
+        },
+        {
+          "text": "the",
+          "start": 33.69,
+          "end": 33.79
+        },
+        {
+          "text": "seals",
+          "start": 33.79,
+          "end": 34.11
+        },
+        {
+          "text": "were",
+          "start": 34.11,
+          "end": 34.37
+        },
+        {
+          "text": "driven",
+          "start": 34.37,
+          "end": 34.71
+        },
+        {
+          "text": "just",
+          "start": 34.71,
+          "end": 35.03
+        },
+        {
+          "text": "like",
+          "start": 35.03,
+          "end": 35.27
+        },
+        {
+          "text": "sheep--to",
+          "start": 35.27,
+          "end": 35.51
+        },
+        {
+          "text": "be",
+          "start": 35.75,
+          "end": 35.93
+        },
+        {
+          "text": "turned",
+          "start": 35.93,
+          "end": 36.23
+        },
+        {
+          "text": "into",
+          "start": 36.23,
+          "end": 36.55
+        },
+        {
+          "text": "seal-skin",
+          "start": 36.55,
+          "end": 37.19
+        },
+        {
+          "text": "jackets",
+          "start": 37.19,
+          "end": 37.73
+        },
+        {
+          "text": "later",
+          "start": 37.73,
+          "end": 38.03
+        },
+        {
+          "text": "on.",
+          "start": 38.03,
+          "end": 38.47
+        }
+      ],
+      "stats": {
+        "expected_words": 122,
+        "heard_words": 126,
+        "matched_words": 114
+      },
+      "match_ratio": 0.9344262295081968,
+      "rejection_reasons": [],
+      "seconds": 0.6795716704800725
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "2e3231bba23a2aa48c127128db26743dd1f3ac296ad1d97fac502d469d008b56",
+  "selected_reasons": []
+}

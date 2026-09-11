@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "21da628e9833b85004f763373e4896b3f9164b358bbd99b281560b8943a54d99",
+  "attempts": [
+    {
+      "asr_seconds": 0.09235057700425386,
+      "alignment_seconds": 0.00012838700786232948,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Assuredly, he said.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " Assuredly,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.921875
+            },
+            {
+              "text": " he",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said.",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Assuredly,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "said.",
+          "start": 1.17,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "Assuredly,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Assuredly,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "he",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "said.",
+          "start": 1.17,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09252835297957063
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9164064bd5fb12be3a16639cbf92004ff0753d8820992032ea84284b1220d0dd",
+  "selected_reasons": []
+}

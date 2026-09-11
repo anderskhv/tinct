@@ -1,0 +1,5218 @@
+{
+  "complete": true,
+  "signature": "da50e015016e68dfd73f2983f4f092675a3e58181f84081170f83c19faa2a711",
+  "attempts": [
+    {
+      "asr_seconds": 0.2335057258605957,
+      "alignment_seconds": 0.00025191158056259155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Other Women. A Mother slew her babes in days of yore, One, only one, from dawn to eventide, Ino, god-maddened, whom the Queen of Heaven Set frenzied, flying to the dark: and she Cast her for sorrow to the wide salt sea, Forth from those rooms of murder unforgiven, Wild-footed from a white crag of the shore, And clasping still her children twain, she died. O Love of Woman, charged with sorrow sore, What hast thou wrought upon us? What beside Resteth to tremble for?",
+        "hotwords": "Other, Women, Mother, Ino, Queen, Heaven, Set, Cast, Forth, Wild-footed, O, Love, Woman, What, Resteth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O Love of Woman, charged with sorrow sore, What hast thou wrought upon us? What beside Resteth to tremble for?",
+          "start": 20.34,
+          "end": 26.98,
+          "words": [
+            {
+              "text": " O",
+              "start": 20.34,
+              "end": 20.9,
+              "probability": 0.002712249755859375
+            },
+            {
+              "text": " Love",
+              "start": 20.9,
+              "end": 21.46,
+              "probability": 0.1556396484375
+            },
+            {
+              "text": " of",
+              "start": 21.46,
+              "end": 21.58,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Woman,",
+              "start": 21.58,
+              "end": 21.9,
+              "probability": 0.763671875
+            },
+            {
+              "text": " charged",
+              "start": 22.16,
+              "end": 22.32,
+              "probability": 0.488525390625
+            },
+            {
+              "text": " with",
+              "start": 22.32,
+              "end": 22.68,
+              "probability": 0.9609375
+            },
+            {
+              "text": " sorrow",
+              "start": 22.68,
+              "end": 23.02,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " sore,",
+              "start": 23.02,
+              "end": 23.34,
+              "probability": 0.404541015625
+            },
+            {
+              "text": " What",
+              "start": 23.54,
+              "end": 23.62,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " hast",
+              "start": 23.62,
+              "end": 23.86,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thou",
+              "start": 23.86,
+              "end": 24.12,
+              "probability": 0.98046875
+            },
+            {
+              "text": " wrought",
+              "start": 24.12,
+              "end": 24.28,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " upon",
+              "start": 24.28,
+              "end": 24.54,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " us?",
+              "start": 24.54,
+              "end": 24.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " What",
+              "start": 25.26,
+              "end": 25.4,
+              "probability": 0.833984375
+            },
+            {
+              "text": " beside",
+              "start": 25.4,
+              "end": 25.7,
+              "probability": 0.916015625
+            },
+            {
+              "text": " Resteth",
+              "start": 25.7,
+              "end": 26.14,
+              "probability": 0.452056884765625
+            },
+            {
+              "text": " to",
+              "start": 26.14,
+              "end": 26.32,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " tremble",
+              "start": 26.32,
+              "end": 26.68,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " for?",
+              "start": 26.68,
+              "end": 26.98,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 20.34,
+          "end": 20.9
+        },
+        {
+          "raw": "Love",
+          "start": 20.9,
+          "end": 21.46
+        },
+        {
+          "raw": "of",
+          "start": 21.46,
+          "end": 21.58
+        },
+        {
+          "raw": "Woman,",
+          "start": 21.58,
+          "end": 21.9
+        },
+        {
+          "raw": "charged",
+          "start": 22.16,
+          "end": 22.32
+        },
+        {
+          "raw": "with",
+          "start": 22.32,
+          "end": 22.68
+        },
+        {
+          "raw": "sorrow",
+          "start": 22.68,
+          "end": 23.02
+        },
+        {
+          "raw": "sore,",
+          "start": 23.02,
+          "end": 23.34
+        },
+        {
+          "raw": "What",
+          "start": 23.54,
+          "end": 23.62
+        },
+        {
+          "raw": "hast",
+          "start": 23.62,
+          "end": 23.86
+        },
+        {
+          "raw": "thou",
+          "start": 23.86,
+          "end": 24.12
+        },
+        {
+          "raw": "wrought",
+          "start": 24.12,
+          "end": 24.28
+        },
+        {
+          "raw": "upon",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "raw": "us?",
+          "start": 24.54,
+          "end": 24.8
+        },
+        {
+          "raw": "What",
+          "start": 25.26,
+          "end": 25.4
+        },
+        {
+          "raw": "beside",
+          "start": 25.4,
+          "end": 25.7
+        },
+        {
+          "raw": "Resteth",
+          "start": 25.7,
+          "end": 26.14
+        },
+        {
+          "raw": "to",
+          "start": 26.14,
+          "end": 26.32
+        },
+        {
+          "raw": "tremble",
+          "start": 26.32,
+          "end": 26.68
+        },
+        {
+          "raw": "for?",
+          "start": 26.68,
+          "end": 26.98
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Other",
+        "Women.",
+        "A",
+        "Mother",
+        "slew",
+        "her",
+        "babes",
+        "in",
+        "days",
+        "of",
+        "yore,",
+        "One,",
+        "only",
+        "one,",
+        "from",
+        "dawn",
+        "to",
+        "eventide,",
+        "Ino,",
+        "god-maddened,",
+        "whom",
+        "the",
+        "Queen",
+        "of",
+        "Heaven",
+        "Set",
+        "frenzied,",
+        "flying",
+        "to",
+        "the",
+        "dark:",
+        "and",
+        "she",
+        "Cast",
+        "her",
+        "for",
+        "sorrow",
+        "to",
+        "the",
+        "wide",
+        "salt",
+        "sea,",
+        "Forth",
+        "from",
+        "those",
+        "rooms",
+        "of",
+        "murder",
+        "unforgiven,",
+        "Wild-footed",
+        "from",
+        "a",
+        "white",
+        "crag",
+        "of",
+        "the",
+        "shore,",
+        "And",
+        "clasping",
+        "still",
+        "her",
+        "children",
+        "twain,",
+        "she",
+        "died.",
+        "O",
+        "Love",
+        "of",
+        "Woman,",
+        "charged",
+        "with",
+        "sorrow",
+        "sore,",
+        "What",
+        "hast",
+        "thou",
+        "wrought",
+        "upon",
+        "us?",
+        "What",
+        "beside",
+        "Resteth",
+        "to",
+        "tremble",
+        "for?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          66,
+          0,
+          0
+        ],
+        [
+          "equal",
+          66,
+          86,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          66,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 10.17
+        },
+        {
+          "text": "Other",
+          "start": 10.17,
+          "end": 15.255
+        },
+        {
+          "text": "Women.",
+          "start": 15.255,
+          "end": 17.797
+        },
+        {
+          "text": "A",
+          "start": 17.797,
+          "end": 19.069
+        },
+        {
+          "text": "Mother",
+          "start": 19.069,
+          "end": 19.704
+        },
+        {
+          "text": "slew",
+          "start": 19.704,
+          "end": 20.022
+        },
+        {
+          "text": "her",
+          "start": 20.022,
+          "end": 20.181
+        },
+        {
+          "text": "babes",
+          "start": 20.181,
+          "end": 20.261
+        },
+        {
+          "text": "in",
+          "start": 20.261,
+          "end": 20.3
+        },
+        {
+          "text": "days",
+          "start": 20.3,
+          "end": 20.32
+        },
+        {
+          "text": "of",
+          "start": 20.32,
+          "end": 20.33
+        },
+        {
+          "text": "yore,",
+          "start": 20.33,
+          "end": 20.335
+        },
+        {
+          "text": "One,",
+          "start": 20.335,
+          "end": 20.337
+        },
+        {
+          "text": "only",
+          "start": 20.337,
+          "end": 20.338
+        },
+        {
+          "text": "one,",
+          "start": 20.338,
+          "end": 20.339
+        },
+        {
+          "text": "from",
+          "start": 20.339,
+          "end": 20.34
+        },
+        {
+          "text": "dawn",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "to",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "eventide,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "Ino,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "god-maddened,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "whom",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "the",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "Queen",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "of",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "Heaven",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "Set",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "frenzied,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "flying",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "to",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "the",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "dark:",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "and",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "she",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "Cast",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "her",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "for",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "sorrow",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "to",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "the",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "wide",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "salt",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "sea,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "Forth",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "from",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "those",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "rooms",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "of",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "murder",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "unforgiven,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "Wild-footed",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "from",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "a",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "white",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "crag",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "of",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "the",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "shore,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "And",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "clasping",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "still",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "her",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "children",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "twain,",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "she",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "died.",
+          "start": 20.34,
+          "end": 20.34
+        },
+        {
+          "text": "O",
+          "start": 20.34,
+          "end": 20.9
+        },
+        {
+          "text": "Love",
+          "start": 20.9,
+          "end": 21.46
+        },
+        {
+          "text": "of",
+          "start": 21.46,
+          "end": 21.58
+        },
+        {
+          "text": "Woman,",
+          "start": 21.58,
+          "end": 21.9
+        },
+        {
+          "text": "charged",
+          "start": 22.16,
+          "end": 22.32
+        },
+        {
+          "text": "with",
+          "start": 22.32,
+          "end": 22.68
+        },
+        {
+          "text": "sorrow",
+          "start": 22.68,
+          "end": 23.02
+        },
+        {
+          "text": "sore,",
+          "start": 23.02,
+          "end": 23.34
+        },
+        {
+          "text": "What",
+          "start": 23.54,
+          "end": 23.62
+        },
+        {
+          "text": "hast",
+          "start": 23.62,
+          "end": 23.86
+        },
+        {
+          "text": "thou",
+          "start": 23.86,
+          "end": 24.12
+        },
+        {
+          "text": "wrought",
+          "start": 24.12,
+          "end": 24.28
+        },
+        {
+          "text": "upon",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "text": "us?",
+          "start": 24.54,
+          "end": 24.8
+        },
+        {
+          "text": "What",
+          "start": 25.26,
+          "end": 25.4
+        },
+        {
+          "text": "beside",
+          "start": 25.4,
+          "end": 25.7
+        },
+        {
+          "text": "Resteth",
+          "start": 25.7,
+          "end": 26.14
+        },
+        {
+          "text": "to",
+          "start": 26.14,
+          "end": 26.32
+        },
+        {
+          "text": "tremble",
+          "start": 26.32,
+          "end": 26.68
+        },
+        {
+          "text": "for?",
+          "start": 26.68,
+          "end": 26.98
+        }
+      ],
+      "stats": {
+        "expected_words": 86,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.23255813953488372,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23380717635154724
+    },
+    {
+      "asr_seconds": 2.6139368936419487,
+      "alignment_seconds": 0.0003506466746330261,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Other, Women, Mother, Ino, Queen, Heaven, Set, Cast, Forth, Wild-footed, O, Love, Woman, What, Resteth"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The Other, Women. A mother slew her babes in days of yore one, only one from dawn to",
+          "start": 0.02,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.462890625
+            },
+            {
+              "text": " Other,",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.260986328125
+            },
+            {
+              "text": " Women.",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.494384765625
+            },
+            {
+              "text": " A",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.939453125
+            },
+            {
+              "text": " mother",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " slew",
+              "start": 1.82,
+              "end": 2.12,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " her",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.98046875
+            },
+            {
+              "text": " babes",
+              "start": 2.32,
+              "end": 2.7,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " in",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " days",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " of",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " yore",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.910400390625
+            },
+            {
+              "text": " one,",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " only",
+              "start": 4.02,
+              "end": 4.18,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " one",
+              "start": 4.18,
+              "end": 4.44,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " from",
+              "start": 4.44,
+              "end": 4.7,
+              "probability": 0.94921875
+            },
+            {
+              "text": " dawn",
+              "start": 4.7,
+              "end": 4.94,
+              "probability": 0.94921875
+            },
+            {
+              "text": " to",
+              "start": 4.94,
+              "end": 5.18,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " eventide, Ino, God-maddened, whom the Queen of Heaven set frenzied, flying to the dark.",
+          "start": 5.18,
+          "end": 10.0,
+          "words": [
+            {
+              "text": " eventide,",
+              "start": 5.18,
+              "end": 5.8,
+              "probability": 0.751953125
+            },
+            {
+              "text": " Ino,",
+              "start": 6.1,
+              "end": 6.32,
+              "probability": 0.379730224609375
+            },
+            {
+              "text": " God",
+              "start": 6.4,
+              "end": 6.62,
+              "probability": 0.6796875
+            },
+            {
+              "text": "-maddened,",
+              "start": 6.62,
+              "end": 7.04,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " whom",
+              "start": 7.42,
+              "end": 7.52,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " the",
+              "start": 7.52,
+              "end": 7.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Queen",
+              "start": 7.68,
+              "end": 7.84,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " of",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Heaven",
+              "start": 7.98,
+              "end": 8.2,
+              "probability": 0.923828125
+            },
+            {
+              "text": " set",
+              "start": 8.2,
+              "end": 8.52,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " frenzied,",
+              "start": 8.52,
+              "end": 9.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " flying",
+              "start": 9.22,
+              "end": 9.4,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 9.4,
+              "end": 9.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 9.66,
+              "end": 9.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dark.",
+              "start": 9.78,
+              "end": 10.0,
+              "probability": 0.90869140625
+            }
+          ]
+        },
+        {
+          "text": " And she cast her for sorrow to the wide salt sea, forth from those rooms of murder unforgiven,",
+          "start": 10.6,
+          "end": 15.18,
+          "words": [
+            {
+              "text": " And",
+              "start": 10.6,
+              "end": 10.72,
+              "probability": 0.984375
+            },
+            {
+              "text": " she",
+              "start": 10.72,
+              "end": 10.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " cast",
+              "start": 10.88,
+              "end": 11.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 11.08,
+              "end": 11.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 11.28,
+              "end": 11.44,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " sorrow",
+              "start": 11.44,
+              "end": 11.66,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 11.66,
+              "end": 11.84,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " the",
+              "start": 11.84,
+              "end": 11.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wide",
+              "start": 11.96,
+              "end": 12.2,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " salt",
+              "start": 12.2,
+              "end": 12.46,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " sea,",
+              "start": 12.46,
+              "end": 12.86,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " forth",
+              "start": 13.38,
+              "end": 13.42,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " from",
+              "start": 13.42,
+              "end": 13.64,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " those",
+              "start": 13.64,
+              "end": 13.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " rooms",
+              "start": 13.82,
+              "end": 14.04,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 14.04,
+              "end": 14.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " murder",
+              "start": 14.26,
+              "end": 14.5,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " unforgiven,",
+              "start": 14.5,
+              "end": 15.18,
+              "probability": 0.95556640625
+            }
+          ]
+        },
+        {
+          "text": " wild-footed from a white crag of the shore, and clasping still her children twain, she",
+          "start": 15.62,
+          "end": 20.02,
+          "words": [
+            {
+              "text": " wild",
+              "start": 15.62,
+              "end": 15.8,
+              "probability": 0.962890625
+            },
+            {
+              "text": "-footed",
+              "start": 15.8,
+              "end": 16.02,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " from",
+              "start": 16.02,
+              "end": 16.26,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " a",
+              "start": 16.26,
+              "end": 16.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " white",
+              "start": 16.38,
+              "end": 16.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " crag",
+              "start": 16.56,
+              "end": 16.82,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 16.82,
+              "end": 16.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 16.94,
+              "end": 17.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shore,",
+              "start": 17.08,
+              "end": 17.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 17.68,
+              "end": 17.82,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " clasping",
+              "start": 17.82,
+              "end": 18.28,
+              "probability": 0.904052734375
+            },
+            {
+              "text": " still",
+              "start": 18.28,
+              "end": 18.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " her",
+              "start": 18.52,
+              "end": 18.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " children",
+              "start": 18.72,
+              "end": 19.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " twain,",
+              "start": 19.1,
+              "end": 19.62,
+              "probability": 0.834228515625
+            },
+            {
+              "text": " she",
+              "start": 19.86,
+              "end": 20.02,
+              "probability": 0.9560546875
+            }
+          ]
+        },
+        {
+          "text": " died. O Love of Woman, charged with sorrow sore, what hast thou wrought upon us? What",
+          "start": 20.02,
+          "end": 27.64,
+          "words": [
+            {
+              "text": " died.",
+              "start": 20.02,
+              "end": 20.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " O",
+              "start": 21.14,
+              "end": 21.28,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " Love",
+              "start": 21.28,
+              "end": 21.46,
+              "probability": 0.30419921875
+            },
+            {
+              "text": " of",
+              "start": 21.46,
+              "end": 21.6,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Woman,",
+              "start": 21.6,
+              "end": 21.86,
+              "probability": 0.775390625
+            },
+            {
+              "text": " charged",
+              "start": 22.22,
+              "end": 22.34,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " with",
+              "start": 22.34,
+              "end": 22.7,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sorrow",
+              "start": 22.7,
+              "end": 23.04,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " sore,",
+              "start": 23.04,
+              "end": 23.34,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " what",
+              "start": 23.54,
+              "end": 23.62,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " hast",
+              "start": 23.62,
+              "end": 23.84,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thou",
+              "start": 23.84,
+              "end": 24.12,
+              "probability": 0.982421875
+            },
+            {
+              "text": " wrought",
+              "start": 24.12,
+              "end": 24.28,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " upon",
+              "start": 24.28,
+              "end": 24.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " us?",
+              "start": 24.54,
+              "end": 24.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " What",
+              "start": 27.2,
+              "end": 27.64,
+              "probability": 0.91015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Other,",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "Women.",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "A",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "mother",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "slew",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "raw": "her",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "babes",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "raw": "in",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "days",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "of",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "yore",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "one,",
+          "start": 3.36,
+          "end": 3.66
+        },
+        {
+          "raw": "only",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "raw": "one",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "raw": "from",
+          "start": 4.44,
+          "end": 4.7
+        },
+        {
+          "raw": "dawn",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "raw": "to",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "raw": "eventide,",
+          "start": 5.18,
+          "end": 5.8
+        },
+        {
+          "raw": "Ino,",
+          "start": 6.1,
+          "end": 6.32
+        },
+        {
+          "raw": "God",
+          "start": 6.4,
+          "end": 6.62
+        },
+        {
+          "raw": "-maddened,",
+          "start": 6.62,
+          "end": 7.04
+        },
+        {
+          "raw": "whom",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "raw": "the",
+          "start": 7.52,
+          "end": 7.68
+        },
+        {
+          "raw": "Queen",
+          "start": 7.68,
+          "end": 7.84
+        },
+        {
+          "raw": "of",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "Heaven",
+          "start": 7.98,
+          "end": 8.2
+        },
+        {
+          "raw": "set",
+          "start": 8.2,
+          "end": 8.52
+        },
+        {
+          "raw": "frenzied,",
+          "start": 8.52,
+          "end": 9.0
+        },
+        {
+          "raw": "flying",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "raw": "to",
+          "start": 9.4,
+          "end": 9.66
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "raw": "dark.",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "raw": "And",
+          "start": 10.6,
+          "end": 10.72
+        },
+        {
+          "raw": "she",
+          "start": 10.72,
+          "end": 10.88
+        },
+        {
+          "raw": "cast",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "raw": "her",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "raw": "for",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "raw": "sorrow",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "raw": "to",
+          "start": 11.66,
+          "end": 11.84
+        },
+        {
+          "raw": "the",
+          "start": 11.84,
+          "end": 11.96
+        },
+        {
+          "raw": "wide",
+          "start": 11.96,
+          "end": 12.2
+        },
+        {
+          "raw": "salt",
+          "start": 12.2,
+          "end": 12.46
+        },
+        {
+          "raw": "sea,",
+          "start": 12.46,
+          "end": 12.86
+        },
+        {
+          "raw": "forth",
+          "start": 13.38,
+          "end": 13.42
+        },
+        {
+          "raw": "from",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "raw": "those",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "raw": "rooms",
+          "start": 13.82,
+          "end": 14.04
+        },
+        {
+          "raw": "of",
+          "start": 14.04,
+          "end": 14.26
+        },
+        {
+          "raw": "murder",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "raw": "unforgiven,",
+          "start": 14.5,
+          "end": 15.18
+        },
+        {
+          "raw": "wild",
+          "start": 15.62,
+          "end": 15.8
+        },
+        {
+          "raw": "-footed",
+          "start": 15.8,
+          "end": 16.02
+        },
+        {
+          "raw": "from",
+          "start": 16.02,
+          "end": 16.26
+        },
+        {
+          "raw": "a",
+          "start": 16.26,
+          "end": 16.38
+        },
+        {
+          "raw": "white",
+          "start": 16.38,
+          "end": 16.56
+        },
+        {
+          "raw": "crag",
+          "start": 16.56,
+          "end": 16.82
+        },
+        {
+          "raw": "of",
+          "start": 16.82,
+          "end": 16.94
+        },
+        {
+          "raw": "the",
+          "start": 16.94,
+          "end": 17.08
+        },
+        {
+          "raw": "shore,",
+          "start": 17.08,
+          "end": 17.28
+        },
+        {
+          "raw": "and",
+          "start": 17.68,
+          "end": 17.82
+        },
+        {
+          "raw": "clasping",
+          "start": 17.82,
+          "end": 18.28
+        },
+        {
+          "raw": "still",
+          "start": 18.28,
+          "end": 18.52
+        },
+        {
+          "raw": "her",
+          "start": 18.52,
+          "end": 18.72
+        },
+        {
+          "raw": "children",
+          "start": 18.72,
+          "end": 19.1
+        },
+        {
+          "raw": "twain,",
+          "start": 19.1,
+          "end": 19.62
+        },
+        {
+          "raw": "she",
+          "start": 19.86,
+          "end": 20.02
+        },
+        {
+          "raw": "died.",
+          "start": 20.02,
+          "end": 20.34
+        },
+        {
+          "raw": "O",
+          "start": 21.14,
+          "end": 21.28
+        },
+        {
+          "raw": "Love",
+          "start": 21.28,
+          "end": 21.46
+        },
+        {
+          "raw": "of",
+          "start": 21.46,
+          "end": 21.6
+        },
+        {
+          "raw": "Woman,",
+          "start": 21.6,
+          "end": 21.86
+        },
+        {
+          "raw": "charged",
+          "start": 22.22,
+          "end": 22.34
+        },
+        {
+          "raw": "with",
+          "start": 22.34,
+          "end": 22.7
+        },
+        {
+          "raw": "sorrow",
+          "start": 22.7,
+          "end": 23.04
+        },
+        {
+          "raw": "sore,",
+          "start": 23.04,
+          "end": 23.34
+        },
+        {
+          "raw": "what",
+          "start": 23.54,
+          "end": 23.62
+        },
+        {
+          "raw": "hast",
+          "start": 23.62,
+          "end": 23.84
+        },
+        {
+          "raw": "thou",
+          "start": 23.84,
+          "end": 24.12
+        },
+        {
+          "raw": "wrought",
+          "start": 24.12,
+          "end": 24.28
+        },
+        {
+          "raw": "upon",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "raw": "us?",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "raw": "What",
+          "start": 27.2,
+          "end": 27.64
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Other",
+        "Women.",
+        "A",
+        "Mother",
+        "slew",
+        "her",
+        "babes",
+        "in",
+        "days",
+        "of",
+        "yore,",
+        "One,",
+        "only",
+        "one,",
+        "from",
+        "dawn",
+        "to",
+        "eventide,",
+        "Ino,",
+        "god-maddened,",
+        "whom",
+        "the",
+        "Queen",
+        "of",
+        "Heaven",
+        "Set",
+        "frenzied,",
+        "flying",
+        "to",
+        "the",
+        "dark:",
+        "and",
+        "she",
+        "Cast",
+        "her",
+        "for",
+        "sorrow",
+        "to",
+        "the",
+        "wide",
+        "salt",
+        "sea,",
+        "Forth",
+        "from",
+        "those",
+        "rooms",
+        "of",
+        "murder",
+        "unforgiven,",
+        "Wild-footed",
+        "from",
+        "a",
+        "white",
+        "crag",
+        "of",
+        "the",
+        "shore,",
+        "And",
+        "clasping",
+        "still",
+        "her",
+        "children",
+        "twain,",
+        "she",
+        "died.",
+        "O",
+        "Love",
+        "of",
+        "Woman,",
+        "charged",
+        "with",
+        "sorrow",
+        "sore,",
+        "What",
+        "hast",
+        "thou",
+        "wrought",
+        "upon",
+        "us?",
+        "What",
+        "beside",
+        "Resteth",
+        "to",
+        "tremble",
+        "for?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          50,
+          22,
+          51
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          53
+        ],
+        [
+          "equal",
+          51,
+          81,
+          53,
+          83
+        ],
+        [
+          "delete",
+          81,
+          86,
+          83,
+          83
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          53
+        ],
+        [
+          "delete",
+          81,
+          86,
+          83,
+          83
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Other",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "Women.",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "A",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "Mother",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "slew",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "text": "her",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "babes",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "text": "in",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "days",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "of",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "yore,",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "One,",
+          "start": 3.36,
+          "end": 3.66
+        },
+        {
+          "text": "only",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "text": "one,",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "text": "from",
+          "start": 4.44,
+          "end": 4.7
+        },
+        {
+          "text": "dawn",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "text": "to",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "text": "eventide,",
+          "start": 5.18,
+          "end": 5.8
+        },
+        {
+          "text": "Ino,",
+          "start": 6.1,
+          "end": 6.32
+        },
+        {
+          "text": "god-maddened,",
+          "start": 6.32,
+          "end": 6.87
+        },
+        {
+          "text": "whom",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "text": "the",
+          "start": 7.52,
+          "end": 7.68
+        },
+        {
+          "text": "Queen",
+          "start": 7.68,
+          "end": 7.84
+        },
+        {
+          "text": "of",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "Heaven",
+          "start": 7.98,
+          "end": 8.2
+        },
+        {
+          "text": "Set",
+          "start": 8.2,
+          "end": 8.52
+        },
+        {
+          "text": "frenzied,",
+          "start": 8.52,
+          "end": 9.0
+        },
+        {
+          "text": "flying",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "text": "to",
+          "start": 9.4,
+          "end": 9.66
+        },
+        {
+          "text": "the",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "text": "dark:",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "text": "and",
+          "start": 10.6,
+          "end": 10.72
+        },
+        {
+          "text": "she",
+          "start": 10.72,
+          "end": 10.88
+        },
+        {
+          "text": "Cast",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "text": "her",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "text": "for",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "text": "sorrow",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "text": "to",
+          "start": 11.66,
+          "end": 11.84
+        },
+        {
+          "text": "the",
+          "start": 11.84,
+          "end": 11.96
+        },
+        {
+          "text": "wide",
+          "start": 11.96,
+          "end": 12.2
+        },
+        {
+          "text": "salt",
+          "start": 12.2,
+          "end": 12.46
+        },
+        {
+          "text": "sea,",
+          "start": 12.46,
+          "end": 12.86
+        },
+        {
+          "text": "Forth",
+          "start": 13.38,
+          "end": 13.42
+        },
+        {
+          "text": "from",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "text": "those",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "rooms",
+          "start": 13.82,
+          "end": 14.04
+        },
+        {
+          "text": "of",
+          "start": 14.04,
+          "end": 14.26
+        },
+        {
+          "text": "murder",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "text": "unforgiven,",
+          "start": 14.5,
+          "end": 15.18
+        },
+        {
+          "text": "Wild-footed",
+          "start": 15.18,
+          "end": 15.6
+        },
+        {
+          "text": "from",
+          "start": 16.02,
+          "end": 16.26
+        },
+        {
+          "text": "a",
+          "start": 16.26,
+          "end": 16.38
+        },
+        {
+          "text": "white",
+          "start": 16.38,
+          "end": 16.56
+        },
+        {
+          "text": "crag",
+          "start": 16.56,
+          "end": 16.82
+        },
+        {
+          "text": "of",
+          "start": 16.82,
+          "end": 16.94
+        },
+        {
+          "text": "the",
+          "start": 16.94,
+          "end": 17.08
+        },
+        {
+          "text": "shore,",
+          "start": 17.08,
+          "end": 17.28
+        },
+        {
+          "text": "And",
+          "start": 17.68,
+          "end": 17.82
+        },
+        {
+          "text": "clasping",
+          "start": 17.82,
+          "end": 18.28
+        },
+        {
+          "text": "still",
+          "start": 18.28,
+          "end": 18.52
+        },
+        {
+          "text": "her",
+          "start": 18.52,
+          "end": 18.72
+        },
+        {
+          "text": "children",
+          "start": 18.72,
+          "end": 19.1
+        },
+        {
+          "text": "twain,",
+          "start": 19.1,
+          "end": 19.62
+        },
+        {
+          "text": "she",
+          "start": 19.86,
+          "end": 20.02
+        },
+        {
+          "text": "died.",
+          "start": 20.02,
+          "end": 20.34
+        },
+        {
+          "text": "O",
+          "start": 21.14,
+          "end": 21.28
+        },
+        {
+          "text": "Love",
+          "start": 21.28,
+          "end": 21.46
+        },
+        {
+          "text": "of",
+          "start": 21.46,
+          "end": 21.6
+        },
+        {
+          "text": "Woman,",
+          "start": 21.6,
+          "end": 21.86
+        },
+        {
+          "text": "charged",
+          "start": 22.22,
+          "end": 22.34
+        },
+        {
+          "text": "with",
+          "start": 22.34,
+          "end": 22.7
+        },
+        {
+          "text": "sorrow",
+          "start": 22.7,
+          "end": 23.04
+        },
+        {
+          "text": "sore,",
+          "start": 23.04,
+          "end": 23.34
+        },
+        {
+          "text": "What",
+          "start": 23.54,
+          "end": 23.62
+        },
+        {
+          "text": "hast",
+          "start": 23.62,
+          "end": 23.84
+        },
+        {
+          "text": "thou",
+          "start": 23.84,
+          "end": 24.12
+        },
+        {
+          "text": "wrought",
+          "start": 24.12,
+          "end": 24.28
+        },
+        {
+          "text": "upon",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "text": "us?",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "text": "What",
+          "start": 27.2,
+          "end": 27.64
+        },
+        {
+          "text": "beside",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "Resteth",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "to",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "tremble",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "for?",
+          "start": 27.64,
+          "end": 27.64
+        }
+      ],
+      "stats": {
+        "expected_words": 86,
+        "heard_words": 83,
+        "matched_words": 79
+      },
+      "match_ratio": 0.9186046511627907,
+      "rejection_reasons": [],
+      "seconds": 2.61445602029562
+    },
+    {
+      "asr_seconds": 0.8769268617033958,
+      "alignment_seconds": 0.00038763880729675293,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The other women. A mother slew her babes in days of yore one, only one from dawn to eventide,",
+          "start": 0.02,
+          "end": 5.8,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.462890625
+            },
+            {
+              "text": " other",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " women.",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " A",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " mother",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " slew",
+              "start": 1.84,
+              "end": 2.12,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " her",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " babes",
+              "start": 2.32,
+              "end": 2.7,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " in",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " days",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " of",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " yore",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " one,",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.560546875
+            },
+            {
+              "text": " only",
+              "start": 4.02,
+              "end": 4.18,
+              "probability": 0.818359375
+            },
+            {
+              "text": " one",
+              "start": 4.18,
+              "end": 4.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " from",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " dawn",
+              "start": 4.7,
+              "end": 4.94,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 4.94,
+              "end": 5.18,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " eventide,",
+              "start": 5.18,
+              "end": 5.8,
+              "probability": 0.798828125
+            }
+          ]
+        },
+        {
+          "text": " Eno, god-maddened, whom the queen of heaven set frenzied, flying to the dark. And she",
+          "start": 6.1,
+          "end": 10.88,
+          "words": [
+            {
+              "text": " Eno,",
+              "start": 6.1,
+              "end": 6.3,
+              "probability": 0.801513671875
+            },
+            {
+              "text": " god",
+              "start": 6.48,
+              "end": 6.6,
+              "probability": 0.5966796875
+            },
+            {
+              "text": "-maddened,",
+              "start": 6.6,
+              "end": 7.06,
+              "probability": 0.68670654296875
+            },
+            {
+              "text": " whom",
+              "start": 7.42,
+              "end": 7.52,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " the",
+              "start": 7.52,
+              "end": 7.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " queen",
+              "start": 7.68,
+              "end": 7.84,
+              "probability": 0.52490234375
+            },
+            {
+              "text": " of",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " heaven",
+              "start": 7.98,
+              "end": 8.2,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " set",
+              "start": 8.2,
+              "end": 8.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " frenzied,",
+              "start": 8.5,
+              "end": 9.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " flying",
+              "start": 9.22,
+              "end": 9.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 9.4,
+              "end": 9.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 9.66,
+              "end": 9.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dark.",
+              "start": 9.76,
+              "end": 10.0,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " And",
+              "start": 10.62,
+              "end": 10.72,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " she",
+              "start": 10.72,
+              "end": 10.88,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " cast her for sorrow to the wide salt sea, forth from those rooms of murder unforgiven,",
+          "start": 10.88,
+          "end": 15.18,
+          "words": [
+            {
+              "text": " cast",
+              "start": 10.88,
+              "end": 11.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 11.1,
+              "end": 11.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 11.28,
+              "end": 11.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sorrow",
+              "start": 11.44,
+              "end": 11.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 11.66,
+              "end": 11.84,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 11.84,
+              "end": 11.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wide",
+              "start": 11.96,
+              "end": 12.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " salt",
+              "start": 12.2,
+              "end": 12.48,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " sea,",
+              "start": 12.48,
+              "end": 12.86,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " forth",
+              "start": 13.38,
+              "end": 13.42,
+              "probability": 0.95703125
+            },
+            {
+              "text": " from",
+              "start": 13.42,
+              "end": 13.64,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " those",
+              "start": 13.64,
+              "end": 13.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rooms",
+              "start": 13.82,
+              "end": 14.06,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 14.06,
+              "end": 14.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " murder",
+              "start": 14.26,
+              "end": 14.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " unforgiven,",
+              "start": 14.5,
+              "end": 15.18,
+              "probability": 0.9658203125
+            }
+          ]
+        },
+        {
+          "text": " wild-footed from a white crag of the shore, and clasping still her children twain, she",
+          "start": 15.62,
+          "end": 20.02,
+          "words": [
+            {
+              "text": " wild",
+              "start": 15.62,
+              "end": 15.8,
+              "probability": 0.974609375
+            },
+            {
+              "text": "-footed",
+              "start": 15.8,
+              "end": 16.02,
+              "probability": 0.900146484375
+            },
+            {
+              "text": " from",
+              "start": 16.02,
+              "end": 16.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 16.26,
+              "end": 16.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " white",
+              "start": 16.38,
+              "end": 16.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " crag",
+              "start": 16.56,
+              "end": 16.82,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 16.82,
+              "end": 16.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 16.94,
+              "end": 17.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shore,",
+              "start": 17.08,
+              "end": 17.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 17.68,
+              "end": 17.82,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " clasping",
+              "start": 17.82,
+              "end": 18.28,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " still",
+              "start": 18.28,
+              "end": 18.52,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " her",
+              "start": 18.52,
+              "end": 18.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " children",
+              "start": 18.72,
+              "end": 19.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " twain,",
+              "start": 19.12,
+              "end": 19.62,
+              "probability": 0.873779296875
+            },
+            {
+              "text": " she",
+              "start": 19.86,
+              "end": 20.02,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " died. O love of woman, charged with sorrow sore, what hast thou wrought upon us? What",
+          "start": 20.02,
+          "end": 27.64,
+          "words": [
+            {
+              "text": " died.",
+              "start": 20.02,
+              "end": 20.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " O",
+              "start": 21.14,
+              "end": 21.28,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " love",
+              "start": 21.28,
+              "end": 21.46,
+              "probability": 0.8046875
+            },
+            {
+              "text": " of",
+              "start": 21.46,
+              "end": 21.58,
+              "probability": 0.98828125
+            },
+            {
+              "text": " woman,",
+              "start": 21.58,
+              "end": 21.88,
+              "probability": 0.966796875
+            },
+            {
+              "text": " charged",
+              "start": 22.18,
+              "end": 22.38,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " with",
+              "start": 22.38,
+              "end": 22.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sorrow",
+              "start": 22.66,
+              "end": 23.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sore,",
+              "start": 23.04,
+              "end": 23.34,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " what",
+              "start": 23.52,
+              "end": 23.62,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " hast",
+              "start": 23.62,
+              "end": 23.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " thou",
+              "start": 23.84,
+              "end": 24.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " wrought",
+              "start": 24.12,
+              "end": 24.28,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " upon",
+              "start": 24.28,
+              "end": 24.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " us?",
+              "start": 24.54,
+              "end": 24.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " What",
+              "start": 27.2,
+              "end": 27.64,
+              "probability": 0.92822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "other",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "women.",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "A",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "mother",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "slew",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "raw": "her",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "babes",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "raw": "in",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "days",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "of",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "yore",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "one,",
+          "start": 3.36,
+          "end": 3.66
+        },
+        {
+          "raw": "only",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "raw": "one",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "raw": "from",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "dawn",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "raw": "to",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "raw": "eventide,",
+          "start": 5.18,
+          "end": 5.8
+        },
+        {
+          "raw": "Eno,",
+          "start": 6.1,
+          "end": 6.3
+        },
+        {
+          "raw": "god",
+          "start": 6.48,
+          "end": 6.6
+        },
+        {
+          "raw": "-maddened,",
+          "start": 6.6,
+          "end": 7.06
+        },
+        {
+          "raw": "whom",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "raw": "the",
+          "start": 7.52,
+          "end": 7.68
+        },
+        {
+          "raw": "queen",
+          "start": 7.68,
+          "end": 7.84
+        },
+        {
+          "raw": "of",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "heaven",
+          "start": 7.98,
+          "end": 8.2
+        },
+        {
+          "raw": "set",
+          "start": 8.2,
+          "end": 8.5
+        },
+        {
+          "raw": "frenzied,",
+          "start": 8.5,
+          "end": 9.0
+        },
+        {
+          "raw": "flying",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "raw": "to",
+          "start": 9.4,
+          "end": 9.66
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.76
+        },
+        {
+          "raw": "dark.",
+          "start": 9.76,
+          "end": 10.0
+        },
+        {
+          "raw": "And",
+          "start": 10.62,
+          "end": 10.72
+        },
+        {
+          "raw": "she",
+          "start": 10.72,
+          "end": 10.88
+        },
+        {
+          "raw": "cast",
+          "start": 10.88,
+          "end": 11.1
+        },
+        {
+          "raw": "her",
+          "start": 11.1,
+          "end": 11.28
+        },
+        {
+          "raw": "for",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "raw": "sorrow",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "raw": "to",
+          "start": 11.66,
+          "end": 11.84
+        },
+        {
+          "raw": "the",
+          "start": 11.84,
+          "end": 11.96
+        },
+        {
+          "raw": "wide",
+          "start": 11.96,
+          "end": 12.2
+        },
+        {
+          "raw": "salt",
+          "start": 12.2,
+          "end": 12.48
+        },
+        {
+          "raw": "sea,",
+          "start": 12.48,
+          "end": 12.86
+        },
+        {
+          "raw": "forth",
+          "start": 13.38,
+          "end": 13.42
+        },
+        {
+          "raw": "from",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "raw": "those",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "raw": "rooms",
+          "start": 13.82,
+          "end": 14.06
+        },
+        {
+          "raw": "of",
+          "start": 14.06,
+          "end": 14.26
+        },
+        {
+          "raw": "murder",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "raw": "unforgiven,",
+          "start": 14.5,
+          "end": 15.18
+        },
+        {
+          "raw": "wild",
+          "start": 15.62,
+          "end": 15.8
+        },
+        {
+          "raw": "-footed",
+          "start": 15.8,
+          "end": 16.02
+        },
+        {
+          "raw": "from",
+          "start": 16.02,
+          "end": 16.26
+        },
+        {
+          "raw": "a",
+          "start": 16.26,
+          "end": 16.38
+        },
+        {
+          "raw": "white",
+          "start": 16.38,
+          "end": 16.56
+        },
+        {
+          "raw": "crag",
+          "start": 16.56,
+          "end": 16.82
+        },
+        {
+          "raw": "of",
+          "start": 16.82,
+          "end": 16.94
+        },
+        {
+          "raw": "the",
+          "start": 16.94,
+          "end": 17.08
+        },
+        {
+          "raw": "shore,",
+          "start": 17.08,
+          "end": 17.28
+        },
+        {
+          "raw": "and",
+          "start": 17.68,
+          "end": 17.82
+        },
+        {
+          "raw": "clasping",
+          "start": 17.82,
+          "end": 18.28
+        },
+        {
+          "raw": "still",
+          "start": 18.28,
+          "end": 18.52
+        },
+        {
+          "raw": "her",
+          "start": 18.52,
+          "end": 18.72
+        },
+        {
+          "raw": "children",
+          "start": 18.72,
+          "end": 19.12
+        },
+        {
+          "raw": "twain,",
+          "start": 19.12,
+          "end": 19.62
+        },
+        {
+          "raw": "she",
+          "start": 19.86,
+          "end": 20.02
+        },
+        {
+          "raw": "died.",
+          "start": 20.02,
+          "end": 20.34
+        },
+        {
+          "raw": "O",
+          "start": 21.14,
+          "end": 21.28
+        },
+        {
+          "raw": "love",
+          "start": 21.28,
+          "end": 21.46
+        },
+        {
+          "raw": "of",
+          "start": 21.46,
+          "end": 21.58
+        },
+        {
+          "raw": "woman,",
+          "start": 21.58,
+          "end": 21.88
+        },
+        {
+          "raw": "charged",
+          "start": 22.18,
+          "end": 22.38
+        },
+        {
+          "raw": "with",
+          "start": 22.38,
+          "end": 22.66
+        },
+        {
+          "raw": "sorrow",
+          "start": 22.66,
+          "end": 23.04
+        },
+        {
+          "raw": "sore,",
+          "start": 23.04,
+          "end": 23.34
+        },
+        {
+          "raw": "what",
+          "start": 23.52,
+          "end": 23.62
+        },
+        {
+          "raw": "hast",
+          "start": 23.62,
+          "end": 23.84
+        },
+        {
+          "raw": "thou",
+          "start": 23.84,
+          "end": 24.12
+        },
+        {
+          "raw": "wrought",
+          "start": 24.12,
+          "end": 24.28
+        },
+        {
+          "raw": "upon",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "raw": "us?",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "raw": "What",
+          "start": 27.2,
+          "end": 27.64
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Other",
+        "Women.",
+        "A",
+        "Mother",
+        "slew",
+        "her",
+        "babes",
+        "in",
+        "days",
+        "of",
+        "yore,",
+        "One,",
+        "only",
+        "one,",
+        "from",
+        "dawn",
+        "to",
+        "eventide,",
+        "Ino,",
+        "god-maddened,",
+        "whom",
+        "the",
+        "Queen",
+        "of",
+        "Heaven",
+        "Set",
+        "frenzied,",
+        "flying",
+        "to",
+        "the",
+        "dark:",
+        "and",
+        "she",
+        "Cast",
+        "her",
+        "for",
+        "sorrow",
+        "to",
+        "the",
+        "wide",
+        "salt",
+        "sea,",
+        "Forth",
+        "from",
+        "those",
+        "rooms",
+        "of",
+        "murder",
+        "unforgiven,",
+        "Wild-footed",
+        "from",
+        "a",
+        "white",
+        "crag",
+        "of",
+        "the",
+        "shore,",
+        "And",
+        "clasping",
+        "still",
+        "her",
+        "children",
+        "twain,",
+        "she",
+        "died.",
+        "O",
+        "Love",
+        "of",
+        "Woman,",
+        "charged",
+        "with",
+        "sorrow",
+        "sore,",
+        "What",
+        "hast",
+        "thou",
+        "wrought",
+        "upon",
+        "us?",
+        "What",
+        "beside",
+        "Resteth",
+        "to",
+        "tremble",
+        "for?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          22
+        ],
+        [
+          "equal",
+          21,
+          50,
+          22,
+          51
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          53
+        ],
+        [
+          "equal",
+          51,
+          81,
+          53,
+          83
+        ],
+        [
+          "delete",
+          81,
+          86,
+          83,
+          83
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          21,
+          19,
+          22
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          53
+        ],
+        [
+          "delete",
+          81,
+          86,
+          83,
+          83
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Other",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "Women.",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "A",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "Mother",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "slew",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "text": "her",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "babes",
+          "start": 2.32,
+          "end": 2.7
+        },
+        {
+          "text": "in",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "days",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "of",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "yore,",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "One,",
+          "start": 3.36,
+          "end": 3.66
+        },
+        {
+          "text": "only",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "text": "one,",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "text": "from",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "text": "dawn",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "text": "to",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "text": "eventide,",
+          "start": 5.18,
+          "end": 5.8
+        },
+        {
+          "text": "Ino,",
+          "start": 5.8,
+          "end": 6.61
+        },
+        {
+          "text": "god-maddened,",
+          "start": 6.61,
+          "end": 7.015
+        },
+        {
+          "text": "whom",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "text": "the",
+          "start": 7.52,
+          "end": 7.68
+        },
+        {
+          "text": "Queen",
+          "start": 7.68,
+          "end": 7.84
+        },
+        {
+          "text": "of",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "Heaven",
+          "start": 7.98,
+          "end": 8.2
+        },
+        {
+          "text": "Set",
+          "start": 8.2,
+          "end": 8.5
+        },
+        {
+          "text": "frenzied,",
+          "start": 8.5,
+          "end": 9.0
+        },
+        {
+          "text": "flying",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "text": "to",
+          "start": 9.4,
+          "end": 9.66
+        },
+        {
+          "text": "the",
+          "start": 9.66,
+          "end": 9.76
+        },
+        {
+          "text": "dark:",
+          "start": 9.76,
+          "end": 10.0
+        },
+        {
+          "text": "and",
+          "start": 10.62,
+          "end": 10.72
+        },
+        {
+          "text": "she",
+          "start": 10.72,
+          "end": 10.88
+        },
+        {
+          "text": "Cast",
+          "start": 10.88,
+          "end": 11.1
+        },
+        {
+          "text": "her",
+          "start": 11.1,
+          "end": 11.28
+        },
+        {
+          "text": "for",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "text": "sorrow",
+          "start": 11.44,
+          "end": 11.66
+        },
+        {
+          "text": "to",
+          "start": 11.66,
+          "end": 11.84
+        },
+        {
+          "text": "the",
+          "start": 11.84,
+          "end": 11.96
+        },
+        {
+          "text": "wide",
+          "start": 11.96,
+          "end": 12.2
+        },
+        {
+          "text": "salt",
+          "start": 12.2,
+          "end": 12.48
+        },
+        {
+          "text": "sea,",
+          "start": 12.48,
+          "end": 12.86
+        },
+        {
+          "text": "Forth",
+          "start": 13.38,
+          "end": 13.42
+        },
+        {
+          "text": "from",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "text": "those",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "rooms",
+          "start": 13.82,
+          "end": 14.06
+        },
+        {
+          "text": "of",
+          "start": 14.06,
+          "end": 14.26
+        },
+        {
+          "text": "murder",
+          "start": 14.26,
+          "end": 14.5
+        },
+        {
+          "text": "unforgiven,",
+          "start": 14.5,
+          "end": 15.18
+        },
+        {
+          "text": "Wild-footed",
+          "start": 15.18,
+          "end": 15.6
+        },
+        {
+          "text": "from",
+          "start": 16.02,
+          "end": 16.26
+        },
+        {
+          "text": "a",
+          "start": 16.26,
+          "end": 16.38
+        },
+        {
+          "text": "white",
+          "start": 16.38,
+          "end": 16.56
+        },
+        {
+          "text": "crag",
+          "start": 16.56,
+          "end": 16.82
+        },
+        {
+          "text": "of",
+          "start": 16.82,
+          "end": 16.94
+        },
+        {
+          "text": "the",
+          "start": 16.94,
+          "end": 17.08
+        },
+        {
+          "text": "shore,",
+          "start": 17.08,
+          "end": 17.28
+        },
+        {
+          "text": "And",
+          "start": 17.68,
+          "end": 17.82
+        },
+        {
+          "text": "clasping",
+          "start": 17.82,
+          "end": 18.28
+        },
+        {
+          "text": "still",
+          "start": 18.28,
+          "end": 18.52
+        },
+        {
+          "text": "her",
+          "start": 18.52,
+          "end": 18.72
+        },
+        {
+          "text": "children",
+          "start": 18.72,
+          "end": 19.12
+        },
+        {
+          "text": "twain,",
+          "start": 19.12,
+          "end": 19.62
+        },
+        {
+          "text": "she",
+          "start": 19.86,
+          "end": 20.02
+        },
+        {
+          "text": "died.",
+          "start": 20.02,
+          "end": 20.34
+        },
+        {
+          "text": "O",
+          "start": 21.14,
+          "end": 21.28
+        },
+        {
+          "text": "Love",
+          "start": 21.28,
+          "end": 21.46
+        },
+        {
+          "text": "of",
+          "start": 21.46,
+          "end": 21.58
+        },
+        {
+          "text": "Woman,",
+          "start": 21.58,
+          "end": 21.88
+        },
+        {
+          "text": "charged",
+          "start": 22.18,
+          "end": 22.38
+        },
+        {
+          "text": "with",
+          "start": 22.38,
+          "end": 22.66
+        },
+        {
+          "text": "sorrow",
+          "start": 22.66,
+          "end": 23.04
+        },
+        {
+          "text": "sore,",
+          "start": 23.04,
+          "end": 23.34
+        },
+        {
+          "text": "What",
+          "start": 23.52,
+          "end": 23.62
+        },
+        {
+          "text": "hast",
+          "start": 23.62,
+          "end": 23.84
+        },
+        {
+          "text": "thou",
+          "start": 23.84,
+          "end": 24.12
+        },
+        {
+          "text": "wrought",
+          "start": 24.12,
+          "end": 24.28
+        },
+        {
+          "text": "upon",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "text": "us?",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "text": "What",
+          "start": 27.2,
+          "end": 27.64
+        },
+        {
+          "text": "beside",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "Resteth",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "to",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "tremble",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "text": "for?",
+          "start": 27.64,
+          "end": 27.64
+        }
+      ],
+      "stats": {
+        "expected_words": 86,
+        "heard_words": 83,
+        "matched_words": 78
+      },
+      "match_ratio": 0.9069767441860465,
+      "rejection_reasons": [],
+      "seconds": 0.8775141835212708
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "6d1e9939e3b6c78c6659c47c29db68b19a36677283fcffc5e51e64c0afdccd5b",
+  "selected_reasons": []
+}

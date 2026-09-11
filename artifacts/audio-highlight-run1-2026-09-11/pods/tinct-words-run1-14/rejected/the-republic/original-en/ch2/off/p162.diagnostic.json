@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "c5ba87f29f2d4679fab58717065aab7220af3c54e6ca0919b31128e3eee0c032",
+  "attempts": [
+    {
+      "asr_seconds": 0.07059688866138458,
+      "alignment_seconds": 4.075467586517334e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We must",
+          "start": 0.02,
+          "end": 0.78,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " must",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "must",
+          "start": 0.54,
+          "end": 0.78
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "must."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "must.",
+          "start": 0.54,
+          "end": 0.78
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07065267860889435
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d5e8690b20b214567c2f96d7eba650947487f63f14d5138240ee262d56f0422",
+  "selected_reasons": []
+}

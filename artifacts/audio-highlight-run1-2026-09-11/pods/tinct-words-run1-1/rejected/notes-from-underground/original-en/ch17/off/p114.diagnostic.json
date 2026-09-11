@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "bc9bd92f93b7c43013726c7f26a0aabc238e6abf2d640467ea9338a2d1a76872",
+  "attempts": [
+    {
+      "asr_seconds": 0.09533164650201797,
+      "alignment_seconds": 4.3161213397979736e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why you",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " you",
+              "start": 0.59,
+              "end": 0.89,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "you",
+          "start": 0.59,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "you...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "you...\"",
+          "start": 0.59,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09538832306861877
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a3f2860ef2c5cc300a44b28784422d56c6d4545ddfdb613eac5b07bf61882aa3",
+  "selected_reasons": []
+}

@@ -1,0 +1,635 @@
+{
+  "complete": true,
+  "signature": "c274cad59ead563a0fbbee52fd6ae8012bc3aaeb6ca5446759614dd56940a6a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18735272530466318,
+      "alignment_seconds": 0.00010682083666324615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And if Phaedo exceeds him in size, this is not because Phaedo is Phaedo, but because Phaedo has greatness relatively to Simmias, who is comparatively smaller?",
+        "hotwords": "And, Phaedo, Simmias"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And if Phaedo exceeds him in size, this is not because Phaedo is Phaedo, but because",
+          "start": 0.08,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " if",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Phaedo",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.4728800455729167
+            },
+            {
+              "text": " exceeds",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " him",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " size,",
+              "start": 1.72,
+              "end": 2.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.984375
+            },
+            {
+              "text": " is",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " because",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Phaedo",
+              "start": 3.36,
+              "end": 3.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " is",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Phaedo,",
+              "start": 3.98,
+              "end": 4.8,
+              "probability": 0.9352213541666666
+            },
+            {
+              "text": " but",
+              "start": 4.86,
+              "end": 5.04,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " because",
+              "start": 5.04,
+              "end": 5.28,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Phaedo has greatness relatively to Simmias, who is comparatively smaller?",
+          "start": 5.28,
+          "end": 9.64,
+          "words": [
+            {
+              "text": " Phaedo",
+              "start": 5.28,
+              "end": 5.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " has",
+              "start": 5.74,
+              "end": 5.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " greatness",
+              "start": 5.9,
+              "end": 6.38,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " relatively",
+              "start": 6.38,
+              "end": 6.96,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " to",
+              "start": 6.96,
+              "end": 7.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Simmias,",
+              "start": 7.3,
+              "end": 7.7,
+              "probability": 0.40009435017903644
+            },
+            {
+              "text": " who",
+              "start": 8.16,
+              "end": 8.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 8.3,
+              "end": 8.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " comparatively",
+              "start": 8.46,
+              "end": 9.04,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " smaller?",
+              "start": 9.04,
+              "end": 9.64,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "if",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "Phaedo",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "raw": "exceeds",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "him",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "in",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "size,",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "raw": "this",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "is",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "not",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "because",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "Phaedo",
+          "start": 3.36,
+          "end": 3.8
+        },
+        {
+          "raw": "is",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "Phaedo,",
+          "start": 3.98,
+          "end": 4.8
+        },
+        {
+          "raw": "but",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "raw": "because",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "raw": "Phaedo",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "raw": "has",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "raw": "greatness",
+          "start": 5.9,
+          "end": 6.38
+        },
+        {
+          "raw": "relatively",
+          "start": 6.38,
+          "end": 6.96
+        },
+        {
+          "raw": "to",
+          "start": 6.96,
+          "end": 7.3
+        },
+        {
+          "raw": "Simmias,",
+          "start": 7.3,
+          "end": 7.7
+        },
+        {
+          "raw": "who",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "raw": "is",
+          "start": 8.3,
+          "end": 8.46
+        },
+        {
+          "raw": "comparatively",
+          "start": 8.46,
+          "end": 9.04
+        },
+        {
+          "raw": "smaller?",
+          "start": 9.04,
+          "end": 9.64
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "if",
+        "Phaedo",
+        "exceeds",
+        "him",
+        "in",
+        "size,",
+        "this",
+        "is",
+        "not",
+        "because",
+        "Phaedo",
+        "is",
+        "Phaedo,",
+        "but",
+        "because",
+        "Phaedo",
+        "has",
+        "greatness",
+        "relatively",
+        "to",
+        "Simmias,",
+        "who",
+        "is",
+        "comparatively",
+        "smaller?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "if",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "Phaedo",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "text": "exceeds",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "him",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "in",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "size,",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "text": "this",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "is",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "not",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "because",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "Phaedo",
+          "start": 3.36,
+          "end": 3.8
+        },
+        {
+          "text": "is",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "Phaedo,",
+          "start": 3.98,
+          "end": 4.8
+        },
+        {
+          "text": "but",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "text": "because",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "text": "Phaedo",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "text": "has",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "text": "greatness",
+          "start": 5.9,
+          "end": 6.38
+        },
+        {
+          "text": "relatively",
+          "start": 6.38,
+          "end": 6.96
+        },
+        {
+          "text": "to",
+          "start": 6.96,
+          "end": 7.3
+        },
+        {
+          "text": "Simmias,",
+          "start": 7.3,
+          "end": 7.7
+        },
+        {
+          "text": "who",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "text": "is",
+          "start": 8.3,
+          "end": 8.46
+        },
+        {
+          "text": "comparatively",
+          "start": 8.46,
+          "end": 9.04
+        },
+        {
+          "text": "smaller?",
+          "start": 9.04,
+          "end": 9.64
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18751680757850409
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d91f68290d693400236f736ec4a0e1bd2e49cdfffc2a2cdc1d2080dcd85bd3dc",
+  "selected_reasons": []
+}

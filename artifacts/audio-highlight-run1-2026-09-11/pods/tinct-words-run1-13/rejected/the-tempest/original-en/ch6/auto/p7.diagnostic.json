@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "3917625f26e2366fb7fac3ccf6fc79073fb557d9226a652cedd5147bd0329de7",
+  "attempts": [
+    {
+      "asr_seconds": 0.25639376195613295,
+      "alignment_seconds": 0.0001294339308515191,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. We'll not run, Monsieur Monster.",
+        "hotwords": "Stephano, We'll, Monsieur, Monster"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, We'll not run, Monsieur Monster",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.4959564208984375
+            },
+            {
+              "text": " We'll",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.44439220428466797
+            },
+            {
+              "text": " not",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " run,",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Monsieur",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " Monster",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.95458984375
+            }
+          ]
+        },
+        {
+          "text": " Stephano, We'll, Monsieur, Monster Stephano, We'll, Monsieur, Monster",
+          "start": 2.6,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 2.6,
+              "end": 2.6,
+              "probability": 0.002827197313308716
+            },
+            {
+              "text": " We'll,",
+              "start": 2.6,
+              "end": 2.6,
+              "probability": 0.11229515075683594
+            },
+            {
+              "text": " Monsieur,",
+              "start": 2.6,
+              "end": 2.6,
+              "probability": 0.5486663579940796
+            },
+            {
+              "text": " Monster",
+              "start": 2.6,
+              "end": 2.6,
+              "probability": 0.0003864765167236328
+            },
+            {
+              "text": " Stephano,",
+              "start": 2.6,
+              "end": 2.6,
+              "probability": 0.499517023563385
+            },
+            {
+              "text": " We'll,",
+              "start": 2.6,
+              "end": 2.6,
+              "probability": 0.901611328125
+            },
+            {
+              "text": " Monsieur,",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Monster",
+              "start": 2.86,
+              "end": 2.86,
+              "probability": 0.923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "We'll",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "not",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "run,",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "Monsieur",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "Monster",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "Stephano,",
+          "start": 2.6,
+          "end": 2.6
+        },
+        {
+          "raw": "We'll,",
+          "start": 2.6,
+          "end": 2.6
+        },
+        {
+          "raw": "Monsieur,",
+          "start": 2.6,
+          "end": 2.6
+        },
+        {
+          "raw": "Monster",
+          "start": 2.6,
+          "end": 2.6
+        },
+        {
+          "raw": "Stephano,",
+          "start": 2.6,
+          "end": 2.6
+        },
+        {
+          "raw": "We'll,",
+          "start": 2.6,
+          "end": 2.6
+        },
+        {
+          "raw": "Monsieur,",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "Monster",
+          "start": 2.86,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "We'll",
+        "not",
+        "run,",
+        "Monsieur",
+        "Monster."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "We'll",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "not",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "run,",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "Monsieur",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "Monster.",
+          "start": 2.28,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 14,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25660417904146016
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f9b9e5355027ceac2b6936c6438aaf9511ae4faacd09429a468d64972aae122",
+  "selected_reasons": []
+}

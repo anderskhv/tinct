@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "0b77069d44f44a632c474c8ff1a1bde139386b4f59051b5585ce62e57b588e06",
+  "attempts": [
+    {
+      "asr_seconds": 0.14717174274846911,
+      "alignment_seconds": 0.00017010699957609177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, my good Sir, and there will be no better in which to look for a government.",
+        "hotwords": "Yes, Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, my good Sir, and there will be no better in which to look for a government.",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " my",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " good",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Sir,",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.07330322265625
+            },
+            {
+              "text": " and",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.984375
+            },
+            {
+              "text": " there",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " will",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " no",
+              "start": 2.47,
+              "end": 2.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " better",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " in",
+              "start": 2.89,
+              "end": 3.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " which",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.33,
+              "end": 3.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " look",
+              "start": 3.57,
+              "end": 3.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 3.73,
+              "end": 3.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.91,
+              "end": 4.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " government.",
+              "start": 4.03,
+              "end": 4.33,
+              "probability": 0.6044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "my",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "good",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": "and",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "there",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "will",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "be",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "no",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "raw": "better",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "raw": "which",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "to",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "raw": "look",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "raw": "a",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "raw": "government.",
+          "start": 4.03,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "my",
+        "good",
+        "Sir,",
+        "and",
+        "there",
+        "will",
+        "be",
+        "no",
+        "better",
+        "in",
+        "which",
+        "to",
+        "look",
+        "for",
+        "a",
+        "government."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "my",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "good",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "Sir,",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "text": "and",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "there",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "will",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "be",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "no",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "text": "better",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "in",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "text": "which",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "to",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "text": "look",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "text": "for",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "text": "a",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "text": "government.",
+          "start": 4.03,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1474331789650023
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78e32185c5fd61155a8ddbfdd9eaae2be5b67291f76907b3c5a6d125135651c4",
+  "selected_reasons": []
+}

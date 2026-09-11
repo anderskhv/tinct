@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "9efd1a30f844b1d840ffbf695dac5a2f6ad92e5a62a1d17bfa5da838a160912f",
+  "attempts": [
+    {
+      "asr_seconds": 0.17213234305381775,
+      "alignment_seconds": 0.00010175257921218872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "145. Comparing man and woman generally, one may say that woman would not have the genius for adornment, if she had not the instinct for the Secondary role.",
+        "hotwords": "Comparing, Secondary"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 145. Comparing man and woman generally, one may say that woman would not have the genius for adornment, if she had not the instinct for the Secondary role.",
+          "start": 0.66,
+          "end": 10.84,
+          "words": [
+            {
+              "text": " 145.",
+              "start": 0.66,
+              "end": 1.18,
+              "probability": 0.3212890625
+            },
+            {
+              "text": " Comparing",
+              "start": 2.42,
+              "end": 2.8,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " man",
+              "start": 2.8,
+              "end": 3.18,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " and",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " woman",
+              "start": 3.38,
+              "end": 3.62,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " generally,",
+              "start": 3.62,
+              "end": 4.2,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " one",
+              "start": 4.74,
+              "end": 4.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " may",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " say",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 5.22,
+              "end": 5.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " woman",
+              "start": 5.46,
+              "end": 5.74,
+              "probability": 0.96484375
+            },
+            {
+              "text": " would",
+              "start": 5.74,
+              "end": 6.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 6.0,
+              "end": 6.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 6.22,
+              "end": 6.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.46,
+              "end": 6.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " genius",
+              "start": 6.64,
+              "end": 7.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for",
+              "start": 7.02,
+              "end": 7.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " adornment,",
+              "start": 7.28,
+              "end": 7.9,
+              "probability": 0.9788411458333334
+            },
+            {
+              "text": " if",
+              "start": 8.26,
+              "end": 8.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 8.38,
+              "end": 8.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 8.54,
+              "end": 8.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 8.72,
+              "end": 8.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.94,
+              "end": 9.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " instinct",
+              "start": 9.12,
+              "end": 9.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 9.54,
+              "end": 9.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 9.84,
+              "end": 9.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Secondary",
+              "start": 9.98,
+              "end": 10.4,
+              "probability": 0.0022449493408203125
+            },
+            {
+              "text": " role.",
+              "start": 10.4,
+              "end": 10.84,
+              "probability": 0.52978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "145.",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "raw": "Comparing",
+          "start": 2.42,
+          "end": 2.8
+        },
+        {
+          "raw": "man",
+          "start": 2.8,
+          "end": 3.18
+        },
+        {
+          "raw": "and",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "raw": "woman",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "raw": "generally,",
+          "start": 3.62,
+          "end": 4.2
+        },
+        {
+          "raw": "one",
+          "start": 4.74,
+          "end": 4.82
+        },
+        {
+          "raw": "may",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "say",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "that",
+          "start": 5.22,
+          "end": 5.46
+        },
+        {
+          "raw": "woman",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "raw": "would",
+          "start": 5.74,
+          "end": 6.0
+        },
+        {
+          "raw": "not",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "raw": "have",
+          "start": 6.22,
+          "end": 6.46
+        },
+        {
+          "raw": "the",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "raw": "genius",
+          "start": 6.64,
+          "end": 7.02
+        },
+        {
+          "raw": "for",
+          "start": 7.02,
+          "end": 7.28
+        },
+        {
+          "raw": "adornment,",
+          "start": 7.28,
+          "end": 7.9
+        },
+        {
+          "raw": "if",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "raw": "she",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "raw": "had",
+          "start": 8.54,
+          "end": 8.72
+        },
+        {
+          "raw": "not",
+          "start": 8.72,
+          "end": 8.94
+        },
+        {
+          "raw": "the",
+          "start": 8.94,
+          "end": 9.12
+        },
+        {
+          "raw": "instinct",
+          "start": 9.12,
+          "end": 9.54
+        },
+        {
+          "raw": "for",
+          "start": 9.54,
+          "end": 9.84
+        },
+        {
+          "raw": "the",
+          "start": 9.84,
+          "end": 9.98
+        },
+        {
+          "raw": "Secondary",
+          "start": 9.98,
+          "end": 10.4
+        },
+        {
+          "raw": "role.",
+          "start": 10.4,
+          "end": 10.84
+        }
+      ],
+      "expected_tokens": [
+        "145.",
+        "Comparing",
+        "man",
+        "and",
+        "woman",
+        "generally,",
+        "one",
+        "may",
+        "say",
+        "that",
+        "woman",
+        "would",
+        "not",
+        "have",
+        "the",
+        "genius",
+        "for",
+        "adornment,",
+        "if",
+        "she",
+        "had",
+        "not",
+        "the",
+        "instinct",
+        "for",
+        "the",
+        "Secondary",
+        "role."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "145.",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "text": "Comparing",
+          "start": 2.42,
+          "end": 2.8
+        },
+        {
+          "text": "man",
+          "start": 2.8,
+          "end": 3.18
+        },
+        {
+          "text": "and",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "text": "woman",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "text": "generally,",
+          "start": 3.62,
+          "end": 4.2
+        },
+        {
+          "text": "one",
+          "start": 4.74,
+          "end": 4.82
+        },
+        {
+          "text": "may",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "say",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "text": "that",
+          "start": 5.22,
+          "end": 5.46
+        },
+        {
+          "text": "woman",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "text": "would",
+          "start": 5.74,
+          "end": 6.0
+        },
+        {
+          "text": "not",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "text": "have",
+          "start": 6.22,
+          "end": 6.46
+        },
+        {
+          "text": "the",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "text": "genius",
+          "start": 6.64,
+          "end": 7.02
+        },
+        {
+          "text": "for",
+          "start": 7.02,
+          "end": 7.28
+        },
+        {
+          "text": "adornment,",
+          "start": 7.28,
+          "end": 7.9
+        },
+        {
+          "text": "if",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "text": "she",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "text": "had",
+          "start": 8.54,
+          "end": 8.72
+        },
+        {
+          "text": "not",
+          "start": 8.72,
+          "end": 8.94
+        },
+        {
+          "text": "the",
+          "start": 8.94,
+          "end": 9.12
+        },
+        {
+          "text": "instinct",
+          "start": 9.12,
+          "end": 9.54
+        },
+        {
+          "text": "for",
+          "start": 9.54,
+          "end": 9.84
+        },
+        {
+          "text": "the",
+          "start": 9.84,
+          "end": 9.98
+        },
+        {
+          "text": "Secondary",
+          "start": 9.98,
+          "end": 10.4
+        },
+        {
+          "text": "role.",
+          "start": 10.4,
+          "end": 10.84
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17228691279888153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc72a1a1eaf6feca0feef18beb92b2bfbc2d3163bbd70c370e8ee640d2d9446b",
+  "selected_reasons": []
+}

@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "11dd1539ea4c98607da8702fd59c934dd0eafd62e87546ecd1cc00592d36bf41",
+  "attempts": [
+    {
+      "asr_seconds": 0.1943516880273819,
+      "alignment_seconds": 0.00012774765491485596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ferdinand. The ditty does remember my drown'd father. This is no mortal business, nor no sound That the earth owes. I hear it now above me.",
+        "hotwords": "Ferdinand, This, That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ferdinand, The ditty does remember my drown'd father. This is no mortal business, nor no sound That the earth owes. I hear it now above me.",
+          "start": 0.05,
+          "end": 8.97,
+          "words": [
+            {
+              "text": " Ferdinand,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.84375
+            },
+            {
+              "text": " The",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.050537109375
+            },
+            {
+              "text": " ditty",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.5438232421875
+            },
+            {
+              "text": " does",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " remember",
+              "start": 2.05,
+              "end": 2.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " my",
+              "start": 2.45,
+              "end": 2.71,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " drown'd",
+              "start": 2.71,
+              "end": 3.21,
+              "probability": 0.11119270324707031
+            },
+            {
+              "text": " father.",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " This",
+              "start": 4.03,
+              "end": 4.19,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " is",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " no",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " mortal",
+              "start": 4.57,
+              "end": 4.89,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " business,",
+              "start": 4.89,
+              "end": 5.37,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " nor",
+              "start": 5.79,
+              "end": 5.89,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " no",
+              "start": 5.89,
+              "end": 6.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sound",
+              "start": 6.17,
+              "end": 6.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " That",
+              "start": 6.45,
+              "end": 6.65,
+              "probability": 0.01105499267578125
+            },
+            {
+              "text": " the",
+              "start": 6.65,
+              "end": 6.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " earth",
+              "start": 6.79,
+              "end": 6.97,
+              "probability": 0.90625
+            },
+            {
+              "text": " owes.",
+              "start": 6.97,
+              "end": 7.31,
+              "probability": 0.9765625
+            },
+            {
+              "text": " I",
+              "start": 7.89,
+              "end": 7.99,
+              "probability": 0.984375
+            },
+            {
+              "text": " hear",
+              "start": 7.99,
+              "end": 8.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " it",
+              "start": 8.15,
+              "end": 8.29,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " now",
+              "start": 8.29,
+              "end": 8.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " above",
+              "start": 8.45,
+              "end": 8.67,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " me.",
+              "start": 8.67,
+              "end": 8.97,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ferdinand,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "The",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "ditty",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "raw": "does",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "remember",
+          "start": 2.05,
+          "end": 2.45
+        },
+        {
+          "raw": "my",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "raw": "drown'd",
+          "start": 2.71,
+          "end": 3.21
+        },
+        {
+          "raw": "father.",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "This",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "raw": "is",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "no",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "raw": "mortal",
+          "start": 4.57,
+          "end": 4.89
+        },
+        {
+          "raw": "business,",
+          "start": 4.89,
+          "end": 5.37
+        },
+        {
+          "raw": "nor",
+          "start": 5.79,
+          "end": 5.89
+        },
+        {
+          "raw": "no",
+          "start": 5.89,
+          "end": 6.17
+        },
+        {
+          "raw": "sound",
+          "start": 6.17,
+          "end": 6.45
+        },
+        {
+          "raw": "That",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "raw": "the",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "raw": "earth",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "raw": "owes.",
+          "start": 6.97,
+          "end": 7.31
+        },
+        {
+          "raw": "I",
+          "start": 7.89,
+          "end": 7.99
+        },
+        {
+          "raw": "hear",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "raw": "it",
+          "start": 8.15,
+          "end": 8.29
+        },
+        {
+          "raw": "now",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "raw": "above",
+          "start": 8.45,
+          "end": 8.67
+        },
+        {
+          "raw": "me.",
+          "start": 8.67,
+          "end": 8.97
+        }
+      ],
+      "expected_tokens": [
+        "Ferdinand.",
+        "The",
+        "ditty",
+        "does",
+        "remember",
+        "my",
+        "drown'd",
+        "father.",
+        "This",
+        "is",
+        "no",
+        "mortal",
+        "business,",
+        "nor",
+        "no",
+        "sound",
+        "That",
+        "the",
+        "earth",
+        "owes.",
+        "I",
+        "hear",
+        "it",
+        "now",
+        "above",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ferdinand.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "The",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "ditty",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "text": "does",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "remember",
+          "start": 2.05,
+          "end": 2.45
+        },
+        {
+          "text": "my",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "text": "drown'd",
+          "start": 2.71,
+          "end": 3.21
+        },
+        {
+          "text": "father.",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "This",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "text": "is",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "no",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "text": "mortal",
+          "start": 4.57,
+          "end": 4.89
+        },
+        {
+          "text": "business,",
+          "start": 4.89,
+          "end": 5.37
+        },
+        {
+          "text": "nor",
+          "start": 5.79,
+          "end": 5.89
+        },
+        {
+          "text": "no",
+          "start": 5.89,
+          "end": 6.17
+        },
+        {
+          "text": "sound",
+          "start": 6.17,
+          "end": 6.45
+        },
+        {
+          "text": "That",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "text": "the",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "text": "earth",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "text": "owes.",
+          "start": 6.97,
+          "end": 7.31
+        },
+        {
+          "text": "I",
+          "start": 7.89,
+          "end": 7.99
+        },
+        {
+          "text": "hear",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "text": "it",
+          "start": 8.15,
+          "end": 8.29
+        },
+        {
+          "text": "now",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "text": "above",
+          "start": 8.45,
+          "end": 8.67
+        },
+        {
+          "text": "me.",
+          "start": 8.67,
+          "end": 8.97
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19454489648342133
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d758d73131727d6e94395827ed2d5e2e38dde98bef53ba97fffe4a67fac02635",
+  "selected_reasons": []
+}

@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "e09842a9a6065bd19a292e7e7789daec717c9fb028aa6e70a74a2029030a0602",
+  "attempts": [
+    {
+      "asr_seconds": 0.08741236571222544,
+      "alignment_seconds": 8.098874241113663e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, certainly.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, certainly.",
+          "start": 0.02,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.87890625
+            },
+            {
+              "text": " certainly.",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "certainly.",
+          "start": 0.86,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "certainly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "certainly.",
+          "start": 0.86,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08752330392599106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3289624695dc0ce6a5d068a647dcaebb5ca9ce8cfdbdd95ef533e314cc3588c",
+  "selected_reasons": []
+}

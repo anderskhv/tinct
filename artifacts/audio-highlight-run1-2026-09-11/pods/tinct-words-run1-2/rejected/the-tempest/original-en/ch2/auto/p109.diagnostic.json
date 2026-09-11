@@ -1,0 +1,3871 @@
+{
+  "complete": true,
+  "signature": "1914e9a9e669d8aa45a1abbb83e7e81dd751cb456f965b028424ac84679e09ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.4065346419811249,
+      "alignment_seconds": 0.00022402405738830566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. Hag-seed, hence! Fetch us in fuel; and be quick, thou'rt best, To answer other business. Shrug'st thou, malice? If thou neglect'st or dost unwillingly What I command, I'll rack thee with old cramps, Fill all thy bones with aches, make thee roar That beasts shall tremble at thy din.",
+        "hotwords": "Prospero, Hag-seed, Fetch, To, Shrug'st, If, What, I, I'll, Fill, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, Hag-seed, hence! Fetch us in fuel, and be quick, thou'rt best, To answer other business.",
+          "start": 0.52,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Hag",
+              "start": 1.28,
+              "end": 1.32,
+              "probability": 0.053070068359375
+            },
+            {
+              "text": "-seed,",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.19968795776367188
+            },
+            {
+              "text": " hence!",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Fetch",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " us",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 2.78,
+              "end": 2.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fuel,",
+              "start": 2.98,
+              "end": 3.28,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " and",
+              "start": 3.74,
+              "end": 3.82,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " be",
+              "start": 3.82,
+              "end": 3.96,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " quick,",
+              "start": 3.96,
+              "end": 4.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thou",
+              "start": 4.58,
+              "end": 4.6,
+              "probability": 0.80078125
+            },
+            {
+              "text": "'rt",
+              "start": 4.6,
+              "end": 4.76,
+              "probability": 0.009618401527404785
+            },
+            {
+              "text": " best,",
+              "start": 4.76,
+              "end": 5.0,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " To",
+              "start": 5.26,
+              "end": 5.32,
+              "probability": 0.1861572265625
+            },
+            {
+              "text": " answer",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " other",
+              "start": 5.6,
+              "end": 5.84,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " business.",
+              "start": 5.84,
+              "end": 6.2,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Shrug'st thou, malice? If thou neglect'st or dost unwillingly What I command, I'll rack thee with old cramps, Fill all thy bones with aches, make thee roar That beasts shall tremble at thy din.",
+          "start": 7.12,
+          "end": 17.98,
+          "words": [
+            {
+              "text": " Shrug'st",
+              "start": 7.12,
+              "end": 7.36,
+              "probability": 0.5077476501464844
+            },
+            {
+              "text": " thou,",
+              "start": 7.36,
+              "end": 7.62,
+              "probability": 0.21728515625
+            },
+            {
+              "text": " malice?",
+              "start": 7.82,
+              "end": 7.94,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " If",
+              "start": 8.64,
+              "end": 8.78,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " thou",
+              "start": 8.78,
+              "end": 8.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " neglect'st",
+              "start": 8.98,
+              "end": 9.56,
+              "probability": 0.7696940104166666
+            },
+            {
+              "text": " or",
+              "start": 9.56,
+              "end": 9.82,
+              "probability": 0.08416748046875
+            },
+            {
+              "text": " dost",
+              "start": 9.82,
+              "end": 10.22,
+              "probability": 0.752685546875
+            },
+            {
+              "text": " unwillingly",
+              "start": 10.22,
+              "end": 10.88,
+              "probability": 0.6717987060546875
+            },
+            {
+              "text": " What",
+              "start": 10.88,
+              "end": 11.08,
+              "probability": 0.189208984375
+            },
+            {
+              "text": " I",
+              "start": 11.08,
+              "end": 11.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " command,",
+              "start": 11.22,
+              "end": 11.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I'll",
+              "start": 12.06,
+              "end": 12.22,
+              "probability": 0.953125
+            },
+            {
+              "text": " rack",
+              "start": 12.22,
+              "end": 12.46,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " thee",
+              "start": 12.46,
+              "end": 12.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " with",
+              "start": 12.66,
+              "end": 12.82,
+              "probability": 0.962890625
+            },
+            {
+              "text": " old",
+              "start": 12.82,
+              "end": 13.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cramps,",
+              "start": 13.08,
+              "end": 13.54,
+              "probability": 0.971923828125
+            },
+            {
+              "text": " Fill",
+              "start": 13.7,
+              "end": 13.78,
+              "probability": 0.912109375
+            },
+            {
+              "text": " all",
+              "start": 13.78,
+              "end": 14.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thy",
+              "start": 14.06,
+              "end": 14.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " bones",
+              "start": 14.2,
+              "end": 14.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " with",
+              "start": 14.52,
+              "end": 14.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " aches,",
+              "start": 14.8,
+              "end": 15.22,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " make",
+              "start": 15.56,
+              "end": 15.66,
+              "probability": 0.25390625
+            },
+            {
+              "text": " thee",
+              "start": 15.66,
+              "end": 15.86,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " roar",
+              "start": 15.86,
+              "end": 16.06,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " That",
+              "start": 16.06,
+              "end": 16.28,
+              "probability": 0.58154296875
+            },
+            {
+              "text": " beasts",
+              "start": 16.28,
+              "end": 16.66,
+              "probability": 0.5927734375
+            },
+            {
+              "text": " shall",
+              "start": 16.66,
+              "end": 16.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " tremble",
+              "start": 16.96,
+              "end": 17.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " at",
+              "start": 17.38,
+              "end": 17.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thy",
+              "start": 17.52,
+              "end": 17.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " din.",
+              "start": 17.68,
+              "end": 17.98,
+              "probability": 0.93701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "Hag",
+          "start": 1.28,
+          "end": 1.32
+        },
+        {
+          "raw": "-seed,",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "hence!",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "Fetch",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "us",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "raw": "fuel,",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 3.82
+        },
+        {
+          "raw": "be",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "raw": "quick,",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "raw": "thou",
+          "start": 4.58,
+          "end": 4.6
+        },
+        {
+          "raw": "'rt",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "raw": "best,",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "raw": "To",
+          "start": 5.26,
+          "end": 5.32
+        },
+        {
+          "raw": "answer",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "other",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "raw": "business.",
+          "start": 5.84,
+          "end": 6.2
+        },
+        {
+          "raw": "Shrug'st",
+          "start": 7.12,
+          "end": 7.36
+        },
+        {
+          "raw": "thou,",
+          "start": 7.36,
+          "end": 7.62
+        },
+        {
+          "raw": "malice?",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "raw": "If",
+          "start": 8.64,
+          "end": 8.78
+        },
+        {
+          "raw": "thou",
+          "start": 8.78,
+          "end": 8.98
+        },
+        {
+          "raw": "neglect'st",
+          "start": 8.98,
+          "end": 9.56
+        },
+        {
+          "raw": "or",
+          "start": 9.56,
+          "end": 9.82
+        },
+        {
+          "raw": "dost",
+          "start": 9.82,
+          "end": 10.22
+        },
+        {
+          "raw": "unwillingly",
+          "start": 10.22,
+          "end": 10.88
+        },
+        {
+          "raw": "What",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "raw": "I",
+          "start": 11.08,
+          "end": 11.22
+        },
+        {
+          "raw": "command,",
+          "start": 11.22,
+          "end": 11.58
+        },
+        {
+          "raw": "I'll",
+          "start": 12.06,
+          "end": 12.22
+        },
+        {
+          "raw": "rack",
+          "start": 12.22,
+          "end": 12.46
+        },
+        {
+          "raw": "thee",
+          "start": 12.46,
+          "end": 12.66
+        },
+        {
+          "raw": "with",
+          "start": 12.66,
+          "end": 12.82
+        },
+        {
+          "raw": "old",
+          "start": 12.82,
+          "end": 13.08
+        },
+        {
+          "raw": "cramps,",
+          "start": 13.08,
+          "end": 13.54
+        },
+        {
+          "raw": "Fill",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "raw": "all",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "raw": "thy",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "raw": "bones",
+          "start": 14.2,
+          "end": 14.52
+        },
+        {
+          "raw": "with",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "raw": "aches,",
+          "start": 14.8,
+          "end": 15.22
+        },
+        {
+          "raw": "make",
+          "start": 15.56,
+          "end": 15.66
+        },
+        {
+          "raw": "thee",
+          "start": 15.66,
+          "end": 15.86
+        },
+        {
+          "raw": "roar",
+          "start": 15.86,
+          "end": 16.06
+        },
+        {
+          "raw": "That",
+          "start": 16.06,
+          "end": 16.28
+        },
+        {
+          "raw": "beasts",
+          "start": 16.28,
+          "end": 16.66
+        },
+        {
+          "raw": "shall",
+          "start": 16.66,
+          "end": 16.96
+        },
+        {
+          "raw": "tremble",
+          "start": 16.96,
+          "end": 17.38
+        },
+        {
+          "raw": "at",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "raw": "thy",
+          "start": 17.52,
+          "end": 17.68
+        },
+        {
+          "raw": "din.",
+          "start": 17.68,
+          "end": 17.98
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Hag-seed,",
+        "hence!",
+        "Fetch",
+        "us",
+        "in",
+        "fuel;",
+        "and",
+        "be",
+        "quick,",
+        "thou'rt",
+        "best,",
+        "To",
+        "answer",
+        "other",
+        "business.",
+        "Shrug'st",
+        "thou,",
+        "malice?",
+        "If",
+        "thou",
+        "neglect'st",
+        "or",
+        "dost",
+        "unwillingly",
+        "What",
+        "I",
+        "command,",
+        "I'll",
+        "rack",
+        "thee",
+        "with",
+        "old",
+        "cramps,",
+        "Fill",
+        "all",
+        "thy",
+        "bones",
+        "with",
+        "aches,",
+        "make",
+        "thee",
+        "roar",
+        "That",
+        "beasts",
+        "shall",
+        "tremble",
+        "at",
+        "thy",
+        "din."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          10,
+          3,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          50,
+          13,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "text": "Hag-seed,",
+          "start": 1.0,
+          "end": 1.36
+        },
+        {
+          "text": "hence!",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "Fetch",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "us",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "in",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "text": "fuel;",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "text": "and",
+          "start": 3.74,
+          "end": 3.82
+        },
+        {
+          "text": "be",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "text": "quick,",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "text": "thou'rt",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "text": "best,",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "text": "To",
+          "start": 5.26,
+          "end": 5.32
+        },
+        {
+          "text": "answer",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "other",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "text": "business.",
+          "start": 5.84,
+          "end": 6.2
+        },
+        {
+          "text": "Shrug'st",
+          "start": 7.12,
+          "end": 7.36
+        },
+        {
+          "text": "thou,",
+          "start": 7.36,
+          "end": 7.62
+        },
+        {
+          "text": "malice?",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "text": "If",
+          "start": 8.64,
+          "end": 8.78
+        },
+        {
+          "text": "thou",
+          "start": 8.78,
+          "end": 8.98
+        },
+        {
+          "text": "neglect'st",
+          "start": 8.98,
+          "end": 9.56
+        },
+        {
+          "text": "or",
+          "start": 9.56,
+          "end": 9.82
+        },
+        {
+          "text": "dost",
+          "start": 9.82,
+          "end": 10.22
+        },
+        {
+          "text": "unwillingly",
+          "start": 10.22,
+          "end": 10.88
+        },
+        {
+          "text": "What",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "text": "I",
+          "start": 11.08,
+          "end": 11.22
+        },
+        {
+          "text": "command,",
+          "start": 11.22,
+          "end": 11.58
+        },
+        {
+          "text": "I'll",
+          "start": 12.06,
+          "end": 12.22
+        },
+        {
+          "text": "rack",
+          "start": 12.22,
+          "end": 12.46
+        },
+        {
+          "text": "thee",
+          "start": 12.46,
+          "end": 12.66
+        },
+        {
+          "text": "with",
+          "start": 12.66,
+          "end": 12.82
+        },
+        {
+          "text": "old",
+          "start": 12.82,
+          "end": 13.08
+        },
+        {
+          "text": "cramps,",
+          "start": 13.08,
+          "end": 13.54
+        },
+        {
+          "text": "Fill",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "text": "all",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "text": "thy",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "text": "bones",
+          "start": 14.2,
+          "end": 14.52
+        },
+        {
+          "text": "with",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "text": "aches,",
+          "start": 14.8,
+          "end": 15.22
+        },
+        {
+          "text": "make",
+          "start": 15.56,
+          "end": 15.66
+        },
+        {
+          "text": "thee",
+          "start": 15.66,
+          "end": 15.86
+        },
+        {
+          "text": "roar",
+          "start": 15.86,
+          "end": 16.06
+        },
+        {
+          "text": "That",
+          "start": 16.06,
+          "end": 16.28
+        },
+        {
+          "text": "beasts",
+          "start": 16.28,
+          "end": 16.66
+        },
+        {
+          "text": "shall",
+          "start": 16.66,
+          "end": 16.96
+        },
+        {
+          "text": "tremble",
+          "start": 16.96,
+          "end": 17.38
+        },
+        {
+          "text": "at",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "text": "thy",
+          "start": 17.52,
+          "end": 17.68
+        },
+        {
+          "text": "din.",
+          "start": 17.68,
+          "end": 17.98
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 52,
+        "matched_words": 48
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.4068759009242058
+    },
+    {
+      "asr_seconds": 0.41108548641204834,
+      "alignment_seconds": 0.00024522095918655396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Prospero, Hag-seed, Fetch, To, Shrug'st, If, What, I, I'll, Fill, That"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Prospero, Hag-seed, Hence, Fetch us in fuel, And be quick thou at best",
+          "start": 0.02,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Hag",
+              "start": 1.28,
+              "end": 1.32,
+              "probability": 0.053070068359375
+            },
+            {
+              "text": "-seed,",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.19968795776367188
+            },
+            {
+              "text": " Hence,",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.00890350341796875
+            },
+            {
+              "text": " Fetch",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.858642578125
+            },
+            {
+              "text": " us",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in",
+              "start": 2.78,
+              "end": 2.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fuel,",
+              "start": 2.98,
+              "end": 3.28,
+              "probability": 0.904296875
+            },
+            {
+              "text": " And",
+              "start": 3.74,
+              "end": 3.84,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " be",
+              "start": 3.84,
+              "end": 3.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " quick",
+              "start": 3.98,
+              "end": 4.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thou",
+              "start": 4.24,
+              "end": 4.6,
+              "probability": 0.259521484375
+            },
+            {
+              "text": " at",
+              "start": 4.6,
+              "end": 4.76,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " best",
+              "start": 4.76,
+              "end": 5.06,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " To answer other business.",
+          "start": 5.06,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " To",
+              "start": 5.06,
+              "end": 5.32,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " answer",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " other",
+              "start": 5.58,
+              "end": 5.84,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " business.",
+              "start": 5.84,
+              "end": 6.22,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Shrug'sty thou, Malice, If thou neglects't or dost unwillingly",
+          "start": 7.1,
+          "end": 10.88,
+          "words": [
+            {
+              "text": " Shrug'sty",
+              "start": 7.1,
+              "end": 7.42,
+              "probability": 0.6502342224121094
+            },
+            {
+              "text": " thou,",
+              "start": 7.42,
+              "end": 7.64,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Malice,",
+              "start": 7.84,
+              "end": 8.16,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " If",
+              "start": 8.64,
+              "end": 8.76,
+              "probability": 0.974609375
+            },
+            {
+              "text": " thou",
+              "start": 8.76,
+              "end": 8.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " neglects",
+              "start": 8.98,
+              "end": 9.52,
+              "probability": 0.6256103515625
+            },
+            {
+              "text": "'t",
+              "start": 9.52,
+              "end": 9.6,
+              "probability": 0.5645751953125
+            },
+            {
+              "text": " or",
+              "start": 9.6,
+              "end": 9.84,
+              "probability": 0.357177734375
+            },
+            {
+              "text": " dost",
+              "start": 9.84,
+              "end": 10.22,
+              "probability": 0.706298828125
+            },
+            {
+              "text": " unwillingly",
+              "start": 10.22,
+              "end": 10.88,
+              "probability": 0.6691462198893229
+            }
+          ]
+        },
+        {
+          "text": " What I command, I'll rack thee with old cramps, Fill all thy bones with aches,",
+          "start": 10.88,
+          "end": 15.22,
+          "words": [
+            {
+              "text": " What",
+              "start": 10.88,
+              "end": 11.08,
+              "probability": 0.375244140625
+            },
+            {
+              "text": " I",
+              "start": 11.08,
+              "end": 11.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " command,",
+              "start": 11.24,
+              "end": 11.58,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " I'll",
+              "start": 12.06,
+              "end": 12.24,
+              "probability": 0.960693359375
+            },
+            {
+              "text": " rack",
+              "start": 12.24,
+              "end": 12.46,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " thee",
+              "start": 12.46,
+              "end": 12.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " with",
+              "start": 12.66,
+              "end": 12.82,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " old",
+              "start": 12.82,
+              "end": 13.08,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " cramps,",
+              "start": 13.08,
+              "end": 13.54,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " Fill",
+              "start": 13.7,
+              "end": 13.78,
+              "probability": 0.978515625
+            },
+            {
+              "text": " all",
+              "start": 13.78,
+              "end": 14.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thy",
+              "start": 14.06,
+              "end": 14.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " bones",
+              "start": 14.22,
+              "end": 14.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " with",
+              "start": 14.52,
+              "end": 14.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " aches,",
+              "start": 14.78,
+              "end": 15.22,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " Make thee roar that beast shall tremble at thy din.",
+          "start": 15.56,
+          "end": 17.98,
+          "words": [
+            {
+              "text": " Make",
+              "start": 15.56,
+              "end": 15.66,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " thee",
+              "start": 15.66,
+              "end": 15.84,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " roar",
+              "start": 15.84,
+              "end": 16.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 16.06,
+              "end": 16.3,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " beast",
+              "start": 16.3,
+              "end": 16.64,
+              "probability": 0.87109375
+            },
+            {
+              "text": " shall",
+              "start": 16.64,
+              "end": 16.94,
+              "probability": 0.26953125
+            },
+            {
+              "text": " tremble",
+              "start": 16.94,
+              "end": 17.38,
+              "probability": 0.937255859375
+            },
+            {
+              "text": " at",
+              "start": 17.38,
+              "end": 17.52,
+              "probability": 0.6728515625
+            },
+            {
+              "text": " thy",
+              "start": 17.52,
+              "end": 17.7,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " din.",
+              "start": 17.7,
+              "end": 17.98,
+              "probability": 0.90380859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "Hag",
+          "start": 1.28,
+          "end": 1.32
+        },
+        {
+          "raw": "-seed,",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "Hence,",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "Fetch",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "us",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "raw": "fuel,",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "raw": "And",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "raw": "be",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "raw": "quick",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "raw": "thou",
+          "start": 4.24,
+          "end": 4.6
+        },
+        {
+          "raw": "at",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "raw": "best",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "raw": "To",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "raw": "answer",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "other",
+          "start": 5.58,
+          "end": 5.84
+        },
+        {
+          "raw": "business.",
+          "start": 5.84,
+          "end": 6.22
+        },
+        {
+          "raw": "Shrug'sty",
+          "start": 7.1,
+          "end": 7.42
+        },
+        {
+          "raw": "thou,",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "raw": "Malice,",
+          "start": 7.84,
+          "end": 8.16
+        },
+        {
+          "raw": "If",
+          "start": 8.64,
+          "end": 8.76
+        },
+        {
+          "raw": "thou",
+          "start": 8.76,
+          "end": 8.98
+        },
+        {
+          "raw": "neglects",
+          "start": 8.98,
+          "end": 9.52
+        },
+        {
+          "raw": "'t",
+          "start": 9.52,
+          "end": 9.6
+        },
+        {
+          "raw": "or",
+          "start": 9.6,
+          "end": 9.84
+        },
+        {
+          "raw": "dost",
+          "start": 9.84,
+          "end": 10.22
+        },
+        {
+          "raw": "unwillingly",
+          "start": 10.22,
+          "end": 10.88
+        },
+        {
+          "raw": "What",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "raw": "I",
+          "start": 11.08,
+          "end": 11.24
+        },
+        {
+          "raw": "command,",
+          "start": 11.24,
+          "end": 11.58
+        },
+        {
+          "raw": "I'll",
+          "start": 12.06,
+          "end": 12.24
+        },
+        {
+          "raw": "rack",
+          "start": 12.24,
+          "end": 12.46
+        },
+        {
+          "raw": "thee",
+          "start": 12.46,
+          "end": 12.66
+        },
+        {
+          "raw": "with",
+          "start": 12.66,
+          "end": 12.82
+        },
+        {
+          "raw": "old",
+          "start": 12.82,
+          "end": 13.08
+        },
+        {
+          "raw": "cramps,",
+          "start": 13.08,
+          "end": 13.54
+        },
+        {
+          "raw": "Fill",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "raw": "all",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "raw": "thy",
+          "start": 14.06,
+          "end": 14.22
+        },
+        {
+          "raw": "bones",
+          "start": 14.22,
+          "end": 14.52
+        },
+        {
+          "raw": "with",
+          "start": 14.52,
+          "end": 14.78
+        },
+        {
+          "raw": "aches,",
+          "start": 14.78,
+          "end": 15.22
+        },
+        {
+          "raw": "Make",
+          "start": 15.56,
+          "end": 15.66
+        },
+        {
+          "raw": "thee",
+          "start": 15.66,
+          "end": 15.84
+        },
+        {
+          "raw": "roar",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "raw": "that",
+          "start": 16.06,
+          "end": 16.3
+        },
+        {
+          "raw": "beast",
+          "start": 16.3,
+          "end": 16.64
+        },
+        {
+          "raw": "shall",
+          "start": 16.64,
+          "end": 16.94
+        },
+        {
+          "raw": "tremble",
+          "start": 16.94,
+          "end": 17.38
+        },
+        {
+          "raw": "at",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "raw": "thy",
+          "start": 17.52,
+          "end": 17.7
+        },
+        {
+          "raw": "din.",
+          "start": 17.7,
+          "end": 17.98
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Hag-seed,",
+        "hence!",
+        "Fetch",
+        "us",
+        "in",
+        "fuel;",
+        "and",
+        "be",
+        "quick,",
+        "thou'rt",
+        "best,",
+        "To",
+        "answer",
+        "other",
+        "business.",
+        "Shrug'st",
+        "thou,",
+        "malice?",
+        "If",
+        "thou",
+        "neglect'st",
+        "or",
+        "dost",
+        "unwillingly",
+        "What",
+        "I",
+        "command,",
+        "I'll",
+        "rack",
+        "thee",
+        "with",
+        "old",
+        "cramps,",
+        "Fill",
+        "all",
+        "thy",
+        "bones",
+        "with",
+        "aches,",
+        "make",
+        "thee",
+        "roar",
+        "That",
+        "beasts",
+        "shall",
+        "tremble",
+        "at",
+        "thy",
+        "din."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          10,
+          3,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          16,
+          13,
+          18
+        ],
+        [
+          "replace",
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          "equal",
+          17,
+          21,
+          19,
+          23
+        ],
+        [
+          "replace",
+          21,
+          22,
+          23,
+          25
+        ],
+        [
+          "equal",
+          22,
+          44,
+          25,
+          47
+        ],
+        [
+          "replace",
+          44,
+          45,
+          47,
+          48
+        ],
+        [
+          "equal",
+          45,
+          50,
+          48,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "replace",
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          "replace",
+          21,
+          22,
+          23,
+          25
+        ],
+        [
+          "replace",
+          44,
+          45,
+          47,
+          48
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "Hag-seed,",
+          "start": 1.0,
+          "end": 1.36
+        },
+        {
+          "text": "hence!",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "Fetch",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "us",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "in",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "text": "fuel;",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "text": "and",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "text": "be",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "text": "quick,",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "text": "thou'rt",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "text": "best,",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "text": "To",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "text": "answer",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "other",
+          "start": 5.58,
+          "end": 5.84
+        },
+        {
+          "text": "business.",
+          "start": 5.84,
+          "end": 6.22
+        },
+        {
+          "text": "Shrug'st",
+          "start": 6.22,
+          "end": 6.82
+        },
+        {
+          "text": "thou,",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "text": "malice?",
+          "start": 7.84,
+          "end": 8.16
+        },
+        {
+          "text": "If",
+          "start": 8.64,
+          "end": 8.76
+        },
+        {
+          "text": "thou",
+          "start": 8.76,
+          "end": 8.98
+        },
+        {
+          "text": "neglect'st",
+          "start": 8.98,
+          "end": 9.29
+        },
+        {
+          "text": "or",
+          "start": 9.6,
+          "end": 9.84
+        },
+        {
+          "text": "dost",
+          "start": 9.84,
+          "end": 10.22
+        },
+        {
+          "text": "unwillingly",
+          "start": 10.22,
+          "end": 10.88
+        },
+        {
+          "text": "What",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "text": "I",
+          "start": 11.08,
+          "end": 11.24
+        },
+        {
+          "text": "command,",
+          "start": 11.24,
+          "end": 11.58
+        },
+        {
+          "text": "I'll",
+          "start": 12.06,
+          "end": 12.24
+        },
+        {
+          "text": "rack",
+          "start": 12.24,
+          "end": 12.46
+        },
+        {
+          "text": "thee",
+          "start": 12.46,
+          "end": 12.66
+        },
+        {
+          "text": "with",
+          "start": 12.66,
+          "end": 12.82
+        },
+        {
+          "text": "old",
+          "start": 12.82,
+          "end": 13.08
+        },
+        {
+          "text": "cramps,",
+          "start": 13.08,
+          "end": 13.54
+        },
+        {
+          "text": "Fill",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "text": "all",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "text": "thy",
+          "start": 14.06,
+          "end": 14.22
+        },
+        {
+          "text": "bones",
+          "start": 14.22,
+          "end": 14.52
+        },
+        {
+          "text": "with",
+          "start": 14.52,
+          "end": 14.78
+        },
+        {
+          "text": "aches,",
+          "start": 14.78,
+          "end": 15.22
+        },
+        {
+          "text": "make",
+          "start": 15.56,
+          "end": 15.66
+        },
+        {
+          "text": "thee",
+          "start": 15.66,
+          "end": 15.84
+        },
+        {
+          "text": "roar",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "text": "That",
+          "start": 16.06,
+          "end": 16.3
+        },
+        {
+          "text": "beasts",
+          "start": 16.3,
+          "end": 16.47
+        },
+        {
+          "text": "shall",
+          "start": 16.64,
+          "end": 16.94
+        },
+        {
+          "text": "tremble",
+          "start": 16.94,
+          "end": 17.38
+        },
+        {
+          "text": "at",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "text": "thy",
+          "start": 17.52,
+          "end": 17.7
+        },
+        {
+          "text": "din.",
+          "start": 17.7,
+          "end": 17.98
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 53,
+        "matched_words": 45
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.411453977227211
+    },
+    {
+      "asr_seconds": 0.46875523030757904,
+      "alignment_seconds": 0.0003105774521827698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, hag seed hence, fetch us in fuel, And be quick thou at best to answer other",
+          "start": 0.52,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " hag",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.6605224609375
+            },
+            {
+              "text": " seed",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " hence,",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " fetch",
+              "start": 2.58,
+              "end": 2.6,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " us",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 2.78,
+              "end": 2.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fuel,",
+              "start": 2.98,
+              "end": 3.3,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " And",
+              "start": 3.74,
+              "end": 3.82,
+              "probability": 0.451904296875
+            },
+            {
+              "text": " be",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " quick",
+              "start": 3.98,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thou",
+              "start": 4.26,
+              "end": 4.6,
+              "probability": 0.48828125
+            },
+            {
+              "text": " at",
+              "start": 4.6,
+              "end": 4.76,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " best",
+              "start": 4.76,
+              "end": 5.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.06,
+              "end": 5.32,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " answer",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " other",
+              "start": 5.6,
+              "end": 5.84,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " business.",
+          "start": 5.84,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " business.",
+              "start": 5.84,
+              "end": 6.24,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Shrugs de thou, malice, If thou neglects de or dost unwillingly",
+          "start": 7.1,
+          "end": 10.88,
+          "words": [
+            {
+              "text": " Shrugs",
+              "start": 7.1,
+              "end": 7.32,
+              "probability": 0.8072916666666666
+            },
+            {
+              "text": " de",
+              "start": 7.32,
+              "end": 7.42,
+              "probability": 0.411865234375
+            },
+            {
+              "text": " thou,",
+              "start": 7.42,
+              "end": 7.66,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " malice,",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.888671875
+            },
+            {
+              "text": " If",
+              "start": 8.66,
+              "end": 8.76,
+              "probability": 0.611328125
+            },
+            {
+              "text": " thou",
+              "start": 8.76,
+              "end": 8.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " neglects",
+              "start": 8.98,
+              "end": 9.52,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " de",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.62353515625
+            },
+            {
+              "text": " or",
+              "start": 9.68,
+              "end": 9.86,
+              "probability": 0.875
+            },
+            {
+              "text": " dost",
+              "start": 9.86,
+              "end": 10.22,
+              "probability": 0.734130859375
+            },
+            {
+              "text": " unwillingly",
+              "start": 10.22,
+              "end": 10.88,
+              "probability": 0.9134114583333334
+            }
+          ]
+        },
+        {
+          "text": " what I command, I'll rack thee with old cramps,",
+          "start": 10.88,
+          "end": 13.54,
+          "words": [
+            {
+              "text": " what",
+              "start": 10.88,
+              "end": 11.08,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " I",
+              "start": 11.08,
+              "end": 11.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " command,",
+              "start": 11.24,
+              "end": 11.6,
+              "probability": 0.97265625
+            },
+            {
+              "text": " I'll",
+              "start": 12.06,
+              "end": 12.24,
+              "probability": 0.968017578125
+            },
+            {
+              "text": " rack",
+              "start": 12.24,
+              "end": 12.46,
+              "probability": 0.623046875
+            },
+            {
+              "text": " thee",
+              "start": 12.46,
+              "end": 12.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 12.66,
+              "end": 12.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " old",
+              "start": 12.82,
+              "end": 13.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cramps,",
+              "start": 13.08,
+              "end": 13.54,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " Fill all thy bones with aches, Make thee roar that beast shall tremble at thy",
+          "start": 13.7,
+          "end": 17.7,
+          "words": [
+            {
+              "text": " Fill",
+              "start": 13.7,
+              "end": 13.78,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " all",
+              "start": 13.78,
+              "end": 14.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 14.06,
+              "end": 14.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " bones",
+              "start": 14.2,
+              "end": 14.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 14.52,
+              "end": 14.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " aches,",
+              "start": 14.8,
+              "end": 15.2,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " Make",
+              "start": 15.56,
+              "end": 15.66,
+              "probability": 0.611328125
+            },
+            {
+              "text": " thee",
+              "start": 15.66,
+              "end": 15.84,
+              "probability": 0.96875
+            },
+            {
+              "text": " roar",
+              "start": 15.84,
+              "end": 16.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 16.06,
+              "end": 16.3,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " beast",
+              "start": 16.3,
+              "end": 16.64,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " shall",
+              "start": 16.64,
+              "end": 16.94,
+              "probability": 0.939453125
+            },
+            {
+              "text": " tremble",
+              "start": 16.94,
+              "end": 17.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " at",
+              "start": 17.38,
+              "end": 17.52,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " thy",
+              "start": 17.52,
+              "end": 17.7,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " din.",
+          "start": 17.7,
+          "end": 17.96,
+          "words": [
+            {
+              "text": " din.",
+              "start": 17.7,
+              "end": 17.96,
+              "probability": 0.0002281665802001953
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "hag",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "seed",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "hence,",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "fetch",
+          "start": 2.58,
+          "end": 2.6
+        },
+        {
+          "raw": "us",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "raw": "fuel,",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "raw": "And",
+          "start": 3.74,
+          "end": 3.82
+        },
+        {
+          "raw": "be",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "raw": "quick",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "raw": "thou",
+          "start": 4.26,
+          "end": 4.6
+        },
+        {
+          "raw": "at",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "raw": "best",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "raw": "to",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "raw": "answer",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "other",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "raw": "business.",
+          "start": 5.84,
+          "end": 6.24
+        },
+        {
+          "raw": "Shrugs",
+          "start": 7.1,
+          "end": 7.32
+        },
+        {
+          "raw": "de",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "raw": "thou,",
+          "start": 7.42,
+          "end": 7.66
+        },
+        {
+          "raw": "malice,",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "If",
+          "start": 8.66,
+          "end": 8.76
+        },
+        {
+          "raw": "thou",
+          "start": 8.76,
+          "end": 8.98
+        },
+        {
+          "raw": "neglects",
+          "start": 8.98,
+          "end": 9.52
+        },
+        {
+          "raw": "de",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "or",
+          "start": 9.68,
+          "end": 9.86
+        },
+        {
+          "raw": "dost",
+          "start": 9.86,
+          "end": 10.22
+        },
+        {
+          "raw": "unwillingly",
+          "start": 10.22,
+          "end": 10.88
+        },
+        {
+          "raw": "what",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "raw": "I",
+          "start": 11.08,
+          "end": 11.24
+        },
+        {
+          "raw": "command,",
+          "start": 11.24,
+          "end": 11.6
+        },
+        {
+          "raw": "I'll",
+          "start": 12.06,
+          "end": 12.24
+        },
+        {
+          "raw": "rack",
+          "start": 12.24,
+          "end": 12.46
+        },
+        {
+          "raw": "thee",
+          "start": 12.46,
+          "end": 12.66
+        },
+        {
+          "raw": "with",
+          "start": 12.66,
+          "end": 12.82
+        },
+        {
+          "raw": "old",
+          "start": 12.82,
+          "end": 13.08
+        },
+        {
+          "raw": "cramps,",
+          "start": 13.08,
+          "end": 13.54
+        },
+        {
+          "raw": "Fill",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "raw": "all",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "raw": "thy",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "raw": "bones",
+          "start": 14.2,
+          "end": 14.52
+        },
+        {
+          "raw": "with",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "raw": "aches,",
+          "start": 14.8,
+          "end": 15.2
+        },
+        {
+          "raw": "Make",
+          "start": 15.56,
+          "end": 15.66
+        },
+        {
+          "raw": "thee",
+          "start": 15.66,
+          "end": 15.84
+        },
+        {
+          "raw": "roar",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "raw": "that",
+          "start": 16.06,
+          "end": 16.3
+        },
+        {
+          "raw": "beast",
+          "start": 16.3,
+          "end": 16.64
+        },
+        {
+          "raw": "shall",
+          "start": 16.64,
+          "end": 16.94
+        },
+        {
+          "raw": "tremble",
+          "start": 16.94,
+          "end": 17.38
+        },
+        {
+          "raw": "at",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "raw": "thy",
+          "start": 17.52,
+          "end": 17.7
+        },
+        {
+          "raw": "din.",
+          "start": 17.7,
+          "end": 17.96
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Hag-seed,",
+        "hence!",
+        "Fetch",
+        "us",
+        "in",
+        "fuel;",
+        "and",
+        "be",
+        "quick,",
+        "thou'rt",
+        "best,",
+        "To",
+        "answer",
+        "other",
+        "business.",
+        "Shrug'st",
+        "thou,",
+        "malice?",
+        "If",
+        "thou",
+        "neglect'st",
+        "or",
+        "dost",
+        "unwillingly",
+        "What",
+        "I",
+        "command,",
+        "I'll",
+        "rack",
+        "thee",
+        "with",
+        "old",
+        "cramps,",
+        "Fill",
+        "all",
+        "thy",
+        "bones",
+        "with",
+        "aches,",
+        "make",
+        "thee",
+        "roar",
+        "That",
+        "beasts",
+        "shall",
+        "tremble",
+        "at",
+        "thy",
+        "din."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          10,
+          3,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          16,
+          13,
+          18
+        ],
+        [
+          "replace",
+          16,
+          17,
+          18,
+          20
+        ],
+        [
+          "equal",
+          17,
+          21,
+          20,
+          24
+        ],
+        [
+          "replace",
+          21,
+          22,
+          24,
+          26
+        ],
+        [
+          "equal",
+          22,
+          44,
+          26,
+          48
+        ],
+        [
+          "replace",
+          44,
+          45,
+          48,
+          49
+        ],
+        [
+          "equal",
+          45,
+          50,
+          49,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "replace",
+          16,
+          17,
+          18,
+          20
+        ],
+        [
+          "replace",
+          21,
+          22,
+          24,
+          26
+        ],
+        [
+          "replace",
+          44,
+          45,
+          48,
+          49
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "text": "Hag-seed,",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "hence!",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "Fetch",
+          "start": 2.58,
+          "end": 2.6
+        },
+        {
+          "text": "us",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "text": "in",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "text": "fuel;",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.74,
+          "end": 3.82
+        },
+        {
+          "text": "be",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "text": "quick,",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "text": "thou'rt",
+          "start": 4.26,
+          "end": 4.51
+        },
+        {
+          "text": "best,",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "text": "To",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "text": "answer",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "other",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "text": "business.",
+          "start": 5.84,
+          "end": 6.24
+        },
+        {
+          "text": "Shrug'st",
+          "start": 6.24,
+          "end": 6.83
+        },
+        {
+          "text": "thou,",
+          "start": 7.42,
+          "end": 7.66
+        },
+        {
+          "text": "malice?",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "If",
+          "start": 8.66,
+          "end": 8.76
+        },
+        {
+          "text": "thou",
+          "start": 8.76,
+          "end": 8.98
+        },
+        {
+          "text": "neglect'st",
+          "start": 8.98,
+          "end": 9.33
+        },
+        {
+          "text": "or",
+          "start": 9.68,
+          "end": 9.86
+        },
+        {
+          "text": "dost",
+          "start": 9.86,
+          "end": 10.22
+        },
+        {
+          "text": "unwillingly",
+          "start": 10.22,
+          "end": 10.88
+        },
+        {
+          "text": "What",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "text": "I",
+          "start": 11.08,
+          "end": 11.24
+        },
+        {
+          "text": "command,",
+          "start": 11.24,
+          "end": 11.6
+        },
+        {
+          "text": "I'll",
+          "start": 12.06,
+          "end": 12.24
+        },
+        {
+          "text": "rack",
+          "start": 12.24,
+          "end": 12.46
+        },
+        {
+          "text": "thee",
+          "start": 12.46,
+          "end": 12.66
+        },
+        {
+          "text": "with",
+          "start": 12.66,
+          "end": 12.82
+        },
+        {
+          "text": "old",
+          "start": 12.82,
+          "end": 13.08
+        },
+        {
+          "text": "cramps,",
+          "start": 13.08,
+          "end": 13.54
+        },
+        {
+          "text": "Fill",
+          "start": 13.7,
+          "end": 13.78
+        },
+        {
+          "text": "all",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "text": "thy",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "text": "bones",
+          "start": 14.2,
+          "end": 14.52
+        },
+        {
+          "text": "with",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "text": "aches,",
+          "start": 14.8,
+          "end": 15.2
+        },
+        {
+          "text": "make",
+          "start": 15.56,
+          "end": 15.66
+        },
+        {
+          "text": "thee",
+          "start": 15.66,
+          "end": 15.84
+        },
+        {
+          "text": "roar",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "text": "That",
+          "start": 16.06,
+          "end": 16.3
+        },
+        {
+          "text": "beasts",
+          "start": 16.3,
+          "end": 16.47
+        },
+        {
+          "text": "shall",
+          "start": 16.64,
+          "end": 16.94
+        },
+        {
+          "text": "tremble",
+          "start": 16.94,
+          "end": 17.38
+        },
+        {
+          "text": "at",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "text": "thy",
+          "start": 17.52,
+          "end": 17.7
+        },
+        {
+          "text": "din.",
+          "start": 17.7,
+          "end": 17.96
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 54,
+        "matched_words": 45
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.46920260787010193
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "266e6a9538fab10132df3d70870518684e1ba02bcf50ceb9db4529f03ba9e376",
+  "selected_reasons": []
+}

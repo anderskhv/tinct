@@ -1,0 +1,4408 @@
+{
+  "complete": true,
+  "signature": "d4872b2161f9e3f36d4606c0d6622fb04b7f84c2678fe4f7f9523e333ce0916c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2972009479999542,
+      "alignment_seconds": 0.0003256499767303467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And surely the art of the painter and every other creative and constructive art are full of them,—weaving, embroidery, architecture, and every kind of manufacture; also nature, animal and vegetable,—in all of them there is grace or the absence of grace. And ugliness and discord and inharmonious motion are nearly allied to ill words and ill nature, as grace and harmony are the twin sisters of goodness and virtue and bear their likeness."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " . . . . . . . .",
+          "start": 0.94,
+          "end": 27.32,
+          "words": [
+            {
+              "text": " .",
+              "start": 0.94,
+              "end": 1.7,
+              "probability": 0.002040863037109375
+            },
+            {
+              "text": " .",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " .",
+              "start": 1.88,
+              "end": 2.26,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " .",
+              "start": 2.26,
+              "end": 2.26,
+              "probability": 0.404296875
+            },
+            {
+              "text": " .",
+              "start": 2.26,
+              "end": 2.32,
+              "probability": 0.4921875
+            },
+            {
+              "text": " .",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " .",
+              "start": 2.52,
+              "end": 6.62,
+              "probability": 0.658203125
+            },
+            {
+              "text": " .",
+              "start": 6.62,
+              "end": 27.32,
+              "probability": 0.7421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": ".",
+          "start": 0.94,
+          "end": 1.7
+        },
+        {
+          "raw": ".",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": ".",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "raw": ".",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "raw": ".",
+          "start": 2.26,
+          "end": 2.32
+        },
+        {
+          "raw": ".",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": ".",
+          "start": 2.52,
+          "end": 6.62
+        },
+        {
+          "raw": ".",
+          "start": 6.62,
+          "end": 27.32
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "surely",
+        "the",
+        "art",
+        "of",
+        "the",
+        "painter",
+        "and",
+        "every",
+        "other",
+        "creative",
+        "and",
+        "constructive",
+        "art",
+        "are",
+        "full",
+        "of",
+        "them,—weaving,",
+        "embroidery,",
+        "architecture,",
+        "and",
+        "every",
+        "kind",
+        "of",
+        "manufacture;",
+        "also",
+        "nature,",
+        "animal",
+        "and",
+        "vegetable,—in",
+        "all",
+        "of",
+        "them",
+        "there",
+        "is",
+        "grace",
+        "or",
+        "the",
+        "absence",
+        "of",
+        "grace.",
+        "And",
+        "ugliness",
+        "and",
+        "discord",
+        "and",
+        "inharmonious",
+        "motion",
+        "are",
+        "nearly",
+        "allied",
+        "to",
+        "ill",
+        "words",
+        "and",
+        "ill",
+        "nature,",
+        "as",
+        "grace",
+        "and",
+        "harmony",
+        "are",
+        "the",
+        "twin",
+        "sisters",
+        "of",
+        "goodness",
+        "and",
+        "virtue",
+        "and",
+        "bear",
+        "their",
+        "likeness."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          73,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          73,
+          0,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 13.66
+        },
+        {
+          "text": "surely",
+          "start": 13.66,
+          "end": 20.49
+        },
+        {
+          "text": "the",
+          "start": 20.49,
+          "end": 23.905
+        },
+        {
+          "text": "art",
+          "start": 23.905,
+          "end": 25.613
+        },
+        {
+          "text": "of",
+          "start": 25.613,
+          "end": 26.466
+        },
+        {
+          "text": "the",
+          "start": 26.466,
+          "end": 26.893
+        },
+        {
+          "text": "painter",
+          "start": 26.893,
+          "end": 27.107
+        },
+        {
+          "text": "and",
+          "start": 27.107,
+          "end": 27.213
+        },
+        {
+          "text": "every",
+          "start": 27.213,
+          "end": 27.267
+        },
+        {
+          "text": "other",
+          "start": 27.267,
+          "end": 27.294
+        },
+        {
+          "text": "creative",
+          "start": 27.294,
+          "end": 27.307
+        },
+        {
+          "text": "and",
+          "start": 27.307,
+          "end": 27.313
+        },
+        {
+          "text": "constructive",
+          "start": 27.313,
+          "end": 27.316
+        },
+        {
+          "text": "art",
+          "start": 27.316,
+          "end": 27.318
+        },
+        {
+          "text": "are",
+          "start": 27.318,
+          "end": 27.319
+        },
+        {
+          "text": "full",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "of",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "them,—weaving,",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "embroidery,",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "architecture,",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "every",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "kind",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "of",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "manufacture;",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "also",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "nature,",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "animal",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "vegetable,—in",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "all",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "of",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "them",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "there",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "is",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "grace",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "or",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "the",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "absence",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "of",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "grace.",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "And",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "ugliness",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "discord",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "inharmonious",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "motion",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "are",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "nearly",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "allied",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "to",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "ill",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "words",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "ill",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "nature,",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "as",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "grace",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "harmony",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "are",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "the",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "twin",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "sisters",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "of",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "goodness",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "virtue",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "and",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "bear",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "their",
+          "start": 27.319,
+          "end": 27.319
+        },
+        {
+          "text": "likeness.",
+          "start": 27.319,
+          "end": 27.319
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 8,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29757044464349747
+    },
+    {
+      "asr_seconds": 2.531807765364647,
+      "alignment_seconds": 0.00045552849769592285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " And surely the art of the painter and every other creative and constructive art are full",
+          "start": 0.08,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.2364501953125
+            },
+            {
+              "text": " surely",
+              "start": 0.56,
+              "end": 0.84,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " art",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " painter",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " and",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " every",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " other",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " creative",
+              "start": 2.58,
+              "end": 3.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " constructive",
+              "start": 3.32,
+              "end": 3.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " art",
+              "start": 3.74,
+              "end": 4.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 4.1,
+              "end": 4.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " full",
+              "start": 4.28,
+              "end": 4.48,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " of them—weaving, embroidery, architecture, and every kind of manufacture.",
+          "start": 4.48,
+          "end": 9.58,
+          "words": [
+            {
+              "text": " of",
+              "start": 4.48,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them—weaving,",
+              "start": 4.64,
+              "end": 5.8,
+              "probability": 0.7286376953125
+            },
+            {
+              "text": " embroidery,",
+              "start": 6.22,
+              "end": 6.94,
+              "probability": 0.9991861979166666
+            },
+            {
+              "text": " architecture,",
+              "start": 7.26,
+              "end": 7.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 8.38,
+              "end": 8.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " every",
+              "start": 8.46,
+              "end": 8.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kind",
+              "start": 8.74,
+              "end": 8.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 8.92,
+              "end": 9.06,
+              "probability": 1.0
+            },
+            {
+              "text": " manufacture.",
+              "start": 9.06,
+              "end": 9.58,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " Also nature, animal and vegetable.",
+          "start": 10.34,
+          "end": 12.32,
+          "words": [
+            {
+              "text": " Also",
+              "start": 10.34,
+              "end": 10.66,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " nature,",
+              "start": 10.66,
+              "end": 10.94,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " animal",
+              "start": 11.4,
+              "end": 11.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.7,
+              "end": 11.96,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " vegetable.",
+              "start": 11.96,
+              "end": 12.32,
+              "probability": 0.97900390625
+            }
+          ]
+        },
+        {
+          "text": " In all of them there is grace or the absence of grace.",
+          "start": 12.94,
+          "end": 15.56,
+          "words": [
+            {
+              "text": " In",
+              "start": 12.94,
+              "end": 13.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " all",
+              "start": 13.1,
+              "end": 13.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 13.26,
+              "end": 13.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 13.38,
+              "end": 13.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there",
+              "start": 13.52,
+              "end": 13.68,
+              "probability": 0.912109375
+            },
+            {
+              "text": " is",
+              "start": 13.68,
+              "end": 13.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " grace",
+              "start": 13.86,
+              "end": 14.2,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " or",
+              "start": 14.2,
+              "end": 14.5,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " the",
+              "start": 14.5,
+              "end": 14.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " absence",
+              "start": 14.64,
+              "end": 14.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 14.98,
+              "end": 15.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " grace.",
+              "start": 15.26,
+              "end": 15.56,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " And ugliness and discord and inharmonious motion are nearly allied to ill words and",
+          "start": 16.2,
+          "end": 20.88,
+          "words": [
+            {
+              "text": " And",
+              "start": 16.2,
+              "end": 16.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ugliness",
+              "start": 16.44,
+              "end": 16.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 16.92,
+              "end": 17.16,
+              "probability": 0.978515625
+            },
+            {
+              "text": " discord",
+              "start": 17.16,
+              "end": 17.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 17.56,
+              "end": 17.86,
+              "probability": 0.986328125
+            },
+            {
+              "text": " inharmonious",
+              "start": 17.86,
+              "end": 18.54,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " motion",
+              "start": 18.54,
+              "end": 18.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 18.92,
+              "end": 19.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " nearly",
+              "start": 19.14,
+              "end": 19.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " allied",
+              "start": 19.44,
+              "end": 19.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 19.8,
+              "end": 20.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ill",
+              "start": 20.04,
+              "end": 20.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " words",
+              "start": 20.24,
+              "end": 20.6,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " and",
+              "start": 20.6,
+              "end": 20.88,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " ill nature, as grace and harmony are the twin sisters of goodness and virtue and bear their",
+          "start": 20.88,
+          "end": 26.18,
+          "words": [
+            {
+              "text": " ill",
+              "start": 20.88,
+              "end": 21.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nature,",
+              "start": 21.12,
+              "end": 21.5,
+              "probability": 0.96484375
+            },
+            {
+              "text": " as",
+              "start": 21.74,
+              "end": 22.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " grace",
+              "start": 22.18,
+              "end": 22.48,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 22.48,
+              "end": 22.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " harmony",
+              "start": 22.76,
+              "end": 23.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 23.08,
+              "end": 23.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 23.32,
+              "end": 23.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " twin",
+              "start": 23.46,
+              "end": 23.68,
+              "probability": 0.9609375
+            },
+            {
+              "text": " sisters",
+              "start": 23.68,
+              "end": 24.04,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " of",
+              "start": 24.04,
+              "end": 24.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " goodness",
+              "start": 24.38,
+              "end": 24.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 24.64,
+              "end": 25.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " virtue",
+              "start": 25.0,
+              "end": 25.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 25.38,
+              "end": 25.8,
+              "probability": 0.681640625
+            },
+            {
+              "text": " bear",
+              "start": 25.8,
+              "end": 25.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " their",
+              "start": 25.96,
+              "end": 26.18,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " likeness.",
+          "start": 26.18,
+          "end": 26.52,
+          "words": [
+            {
+              "text": " likeness.",
+              "start": 26.18,
+              "end": 26.52,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "surely",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": "art",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "of",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "painter",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "every",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "other",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "creative",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "constructive",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "raw": "art",
+          "start": 3.74,
+          "end": 4.1
+        },
+        {
+          "raw": "are",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "raw": "full",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "raw": "of",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "raw": "them—weaving,",
+          "start": 4.64,
+          "end": 5.8
+        },
+        {
+          "raw": "embroidery,",
+          "start": 6.22,
+          "end": 6.94
+        },
+        {
+          "raw": "architecture,",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "raw": "and",
+          "start": 8.38,
+          "end": 8.46
+        },
+        {
+          "raw": "every",
+          "start": 8.46,
+          "end": 8.74
+        },
+        {
+          "raw": "kind",
+          "start": 8.74,
+          "end": 8.92
+        },
+        {
+          "raw": "of",
+          "start": 8.92,
+          "end": 9.06
+        },
+        {
+          "raw": "manufacture.",
+          "start": 9.06,
+          "end": 9.58
+        },
+        {
+          "raw": "Also",
+          "start": 10.34,
+          "end": 10.66
+        },
+        {
+          "raw": "nature,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "raw": "animal",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "raw": "and",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "raw": "vegetable.",
+          "start": 11.96,
+          "end": 12.32
+        },
+        {
+          "raw": "In",
+          "start": 12.94,
+          "end": 13.1
+        },
+        {
+          "raw": "all",
+          "start": 13.1,
+          "end": 13.26
+        },
+        {
+          "raw": "of",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "raw": "them",
+          "start": 13.38,
+          "end": 13.52
+        },
+        {
+          "raw": "there",
+          "start": 13.52,
+          "end": 13.68
+        },
+        {
+          "raw": "is",
+          "start": 13.68,
+          "end": 13.86
+        },
+        {
+          "raw": "grace",
+          "start": 13.86,
+          "end": 14.2
+        },
+        {
+          "raw": "or",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "raw": "the",
+          "start": 14.5,
+          "end": 14.64
+        },
+        {
+          "raw": "absence",
+          "start": 14.64,
+          "end": 14.98
+        },
+        {
+          "raw": "of",
+          "start": 14.98,
+          "end": 15.26
+        },
+        {
+          "raw": "grace.",
+          "start": 15.26,
+          "end": 15.56
+        },
+        {
+          "raw": "And",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "raw": "ugliness",
+          "start": 16.44,
+          "end": 16.92
+        },
+        {
+          "raw": "and",
+          "start": 16.92,
+          "end": 17.16
+        },
+        {
+          "raw": "discord",
+          "start": 17.16,
+          "end": 17.56
+        },
+        {
+          "raw": "and",
+          "start": 17.56,
+          "end": 17.86
+        },
+        {
+          "raw": "inharmonious",
+          "start": 17.86,
+          "end": 18.54
+        },
+        {
+          "raw": "motion",
+          "start": 18.54,
+          "end": 18.92
+        },
+        {
+          "raw": "are",
+          "start": 18.92,
+          "end": 19.14
+        },
+        {
+          "raw": "nearly",
+          "start": 19.14,
+          "end": 19.44
+        },
+        {
+          "raw": "allied",
+          "start": 19.44,
+          "end": 19.8
+        },
+        {
+          "raw": "to",
+          "start": 19.8,
+          "end": 20.04
+        },
+        {
+          "raw": "ill",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "raw": "words",
+          "start": 20.24,
+          "end": 20.6
+        },
+        {
+          "raw": "and",
+          "start": 20.6,
+          "end": 20.88
+        },
+        {
+          "raw": "ill",
+          "start": 20.88,
+          "end": 21.12
+        },
+        {
+          "raw": "nature,",
+          "start": 21.12,
+          "end": 21.5
+        },
+        {
+          "raw": "as",
+          "start": 21.74,
+          "end": 22.18
+        },
+        {
+          "raw": "grace",
+          "start": 22.18,
+          "end": 22.48
+        },
+        {
+          "raw": "and",
+          "start": 22.48,
+          "end": 22.76
+        },
+        {
+          "raw": "harmony",
+          "start": 22.76,
+          "end": 23.08
+        },
+        {
+          "raw": "are",
+          "start": 23.08,
+          "end": 23.32
+        },
+        {
+          "raw": "the",
+          "start": 23.32,
+          "end": 23.46
+        },
+        {
+          "raw": "twin",
+          "start": 23.46,
+          "end": 23.68
+        },
+        {
+          "raw": "sisters",
+          "start": 23.68,
+          "end": 24.04
+        },
+        {
+          "raw": "of",
+          "start": 24.04,
+          "end": 24.38
+        },
+        {
+          "raw": "goodness",
+          "start": 24.38,
+          "end": 24.64
+        },
+        {
+          "raw": "and",
+          "start": 24.64,
+          "end": 25.0
+        },
+        {
+          "raw": "virtue",
+          "start": 25.0,
+          "end": 25.38
+        },
+        {
+          "raw": "and",
+          "start": 25.38,
+          "end": 25.8
+        },
+        {
+          "raw": "bear",
+          "start": 25.8,
+          "end": 25.96
+        },
+        {
+          "raw": "their",
+          "start": 25.96,
+          "end": 26.18
+        },
+        {
+          "raw": "likeness.",
+          "start": 26.18,
+          "end": 26.52
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "surely",
+        "the",
+        "art",
+        "of",
+        "the",
+        "painter",
+        "and",
+        "every",
+        "other",
+        "creative",
+        "and",
+        "constructive",
+        "art",
+        "are",
+        "full",
+        "of",
+        "them,—weaving,",
+        "embroidery,",
+        "architecture,",
+        "and",
+        "every",
+        "kind",
+        "of",
+        "manufacture;",
+        "also",
+        "nature,",
+        "animal",
+        "and",
+        "vegetable,—in",
+        "all",
+        "of",
+        "them",
+        "there",
+        "is",
+        "grace",
+        "or",
+        "the",
+        "absence",
+        "of",
+        "grace.",
+        "And",
+        "ugliness",
+        "and",
+        "discord",
+        "and",
+        "inharmonious",
+        "motion",
+        "are",
+        "nearly",
+        "allied",
+        "to",
+        "ill",
+        "words",
+        "and",
+        "ill",
+        "nature,",
+        "as",
+        "grace",
+        "and",
+        "harmony",
+        "are",
+        "the",
+        "twin",
+        "sisters",
+        "of",
+        "goodness",
+        "and",
+        "virtue",
+        "and",
+        "bear",
+        "their",
+        "likeness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ],
+        [
+          "equal",
+          30,
+          73,
+          31,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "surely",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "art",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "of",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "the",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "painter",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "every",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "other",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "creative",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "text": "and",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "constructive",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "text": "art",
+          "start": 3.74,
+          "end": 4.1
+        },
+        {
+          "text": "are",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "text": "full",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "text": "of",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "text": "them,—weaving,",
+          "start": 4.64,
+          "end": 5.8
+        },
+        {
+          "text": "embroidery,",
+          "start": 6.22,
+          "end": 6.94
+        },
+        {
+          "text": "architecture,",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "text": "and",
+          "start": 8.38,
+          "end": 8.46
+        },
+        {
+          "text": "every",
+          "start": 8.46,
+          "end": 8.74
+        },
+        {
+          "text": "kind",
+          "start": 8.74,
+          "end": 8.92
+        },
+        {
+          "text": "of",
+          "start": 8.92,
+          "end": 9.06
+        },
+        {
+          "text": "manufacture;",
+          "start": 9.06,
+          "end": 9.58
+        },
+        {
+          "text": "also",
+          "start": 10.34,
+          "end": 10.66
+        },
+        {
+          "text": "nature,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "text": "animal",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "text": "and",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "text": "vegetable,—in",
+          "start": 11.96,
+          "end": 12.53
+        },
+        {
+          "text": "all",
+          "start": 13.1,
+          "end": 13.26
+        },
+        {
+          "text": "of",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "text": "them",
+          "start": 13.38,
+          "end": 13.52
+        },
+        {
+          "text": "there",
+          "start": 13.52,
+          "end": 13.68
+        },
+        {
+          "text": "is",
+          "start": 13.68,
+          "end": 13.86
+        },
+        {
+          "text": "grace",
+          "start": 13.86,
+          "end": 14.2
+        },
+        {
+          "text": "or",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "text": "the",
+          "start": 14.5,
+          "end": 14.64
+        },
+        {
+          "text": "absence",
+          "start": 14.64,
+          "end": 14.98
+        },
+        {
+          "text": "of",
+          "start": 14.98,
+          "end": 15.26
+        },
+        {
+          "text": "grace.",
+          "start": 15.26,
+          "end": 15.56
+        },
+        {
+          "text": "And",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "text": "ugliness",
+          "start": 16.44,
+          "end": 16.92
+        },
+        {
+          "text": "and",
+          "start": 16.92,
+          "end": 17.16
+        },
+        {
+          "text": "discord",
+          "start": 17.16,
+          "end": 17.56
+        },
+        {
+          "text": "and",
+          "start": 17.56,
+          "end": 17.86
+        },
+        {
+          "text": "inharmonious",
+          "start": 17.86,
+          "end": 18.54
+        },
+        {
+          "text": "motion",
+          "start": 18.54,
+          "end": 18.92
+        },
+        {
+          "text": "are",
+          "start": 18.92,
+          "end": 19.14
+        },
+        {
+          "text": "nearly",
+          "start": 19.14,
+          "end": 19.44
+        },
+        {
+          "text": "allied",
+          "start": 19.44,
+          "end": 19.8
+        },
+        {
+          "text": "to",
+          "start": 19.8,
+          "end": 20.04
+        },
+        {
+          "text": "ill",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "text": "words",
+          "start": 20.24,
+          "end": 20.6
+        },
+        {
+          "text": "and",
+          "start": 20.6,
+          "end": 20.88
+        },
+        {
+          "text": "ill",
+          "start": 20.88,
+          "end": 21.12
+        },
+        {
+          "text": "nature,",
+          "start": 21.12,
+          "end": 21.5
+        },
+        {
+          "text": "as",
+          "start": 21.74,
+          "end": 22.18
+        },
+        {
+          "text": "grace",
+          "start": 22.18,
+          "end": 22.48
+        },
+        {
+          "text": "and",
+          "start": 22.48,
+          "end": 22.76
+        },
+        {
+          "text": "harmony",
+          "start": 22.76,
+          "end": 23.08
+        },
+        {
+          "text": "are",
+          "start": 23.08,
+          "end": 23.32
+        },
+        {
+          "text": "the",
+          "start": 23.32,
+          "end": 23.46
+        },
+        {
+          "text": "twin",
+          "start": 23.46,
+          "end": 23.68
+        },
+        {
+          "text": "sisters",
+          "start": 23.68,
+          "end": 24.04
+        },
+        {
+          "text": "of",
+          "start": 24.04,
+          "end": 24.38
+        },
+        {
+          "text": "goodness",
+          "start": 24.38,
+          "end": 24.64
+        },
+        {
+          "text": "and",
+          "start": 24.64,
+          "end": 25.0
+        },
+        {
+          "text": "virtue",
+          "start": 25.0,
+          "end": 25.38
+        },
+        {
+          "text": "and",
+          "start": 25.38,
+          "end": 25.8
+        },
+        {
+          "text": "bear",
+          "start": 25.8,
+          "end": 25.96
+        },
+        {
+          "text": "their",
+          "start": 25.96,
+          "end": 26.18
+        },
+        {
+          "text": "likeness.",
+          "start": 26.18,
+          "end": 26.52
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 74,
+        "matched_words": 72
+      },
+      "match_ratio": 0.9863013698630136,
+      "rejection_reasons": [],
+      "seconds": 2.5324910655617714
+    },
+    {
+      "asr_seconds": 1.970616452395916,
+      "alignment_seconds": 0.0004976466298103333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And surely the art of the painter and every other creative and constructive art are full",
+          "start": 0.08,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.2364501953125
+            },
+            {
+              "text": " surely",
+              "start": 0.56,
+              "end": 0.84,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " art",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " painter",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " and",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " every",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " other",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " creative",
+              "start": 2.58,
+              "end": 3.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " constructive",
+              "start": 3.32,
+              "end": 3.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " art",
+              "start": 3.74,
+              "end": 4.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 4.1,
+              "end": 4.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " full",
+              "start": 4.28,
+              "end": 4.48,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " of them—weaving, embroidery, architecture, and every kind of manufacture.",
+          "start": 4.48,
+          "end": 9.58,
+          "words": [
+            {
+              "text": " of",
+              "start": 4.48,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them—weaving,",
+              "start": 4.64,
+              "end": 5.8,
+              "probability": 0.7286376953125
+            },
+            {
+              "text": " embroidery,",
+              "start": 6.22,
+              "end": 6.94,
+              "probability": 0.9991861979166666
+            },
+            {
+              "text": " architecture,",
+              "start": 7.26,
+              "end": 7.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 8.38,
+              "end": 8.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " every",
+              "start": 8.46,
+              "end": 8.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kind",
+              "start": 8.74,
+              "end": 8.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 8.92,
+              "end": 9.06,
+              "probability": 1.0
+            },
+            {
+              "text": " manufacture.",
+              "start": 9.06,
+              "end": 9.58,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " Also nature, animal and vegetable.",
+          "start": 10.34,
+          "end": 12.32,
+          "words": [
+            {
+              "text": " Also",
+              "start": 10.34,
+              "end": 10.66,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " nature,",
+              "start": 10.66,
+              "end": 10.94,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " animal",
+              "start": 11.4,
+              "end": 11.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.7,
+              "end": 11.96,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " vegetable.",
+              "start": 11.96,
+              "end": 12.32,
+              "probability": 0.97900390625
+            }
+          ]
+        },
+        {
+          "text": " In all of them there is grace or the absence of grace.",
+          "start": 12.94,
+          "end": 15.56,
+          "words": [
+            {
+              "text": " In",
+              "start": 12.94,
+              "end": 13.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " all",
+              "start": 13.1,
+              "end": 13.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 13.26,
+              "end": 13.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 13.38,
+              "end": 13.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there",
+              "start": 13.52,
+              "end": 13.68,
+              "probability": 0.912109375
+            },
+            {
+              "text": " is",
+              "start": 13.68,
+              "end": 13.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " grace",
+              "start": 13.86,
+              "end": 14.2,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " or",
+              "start": 14.2,
+              "end": 14.5,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " the",
+              "start": 14.5,
+              "end": 14.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " absence",
+              "start": 14.64,
+              "end": 14.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 14.98,
+              "end": 15.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " grace.",
+              "start": 15.26,
+              "end": 15.56,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " And ugliness and discord and inharmonious motion are nearly allied to ill words and",
+          "start": 16.2,
+          "end": 20.88,
+          "words": [
+            {
+              "text": " And",
+              "start": 16.2,
+              "end": 16.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ugliness",
+              "start": 16.44,
+              "end": 16.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 16.92,
+              "end": 17.16,
+              "probability": 0.978515625
+            },
+            {
+              "text": " discord",
+              "start": 17.16,
+              "end": 17.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 17.56,
+              "end": 17.86,
+              "probability": 0.986328125
+            },
+            {
+              "text": " inharmonious",
+              "start": 17.86,
+              "end": 18.54,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " motion",
+              "start": 18.54,
+              "end": 18.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 18.92,
+              "end": 19.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " nearly",
+              "start": 19.14,
+              "end": 19.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " allied",
+              "start": 19.44,
+              "end": 19.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 19.8,
+              "end": 20.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ill",
+              "start": 20.04,
+              "end": 20.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " words",
+              "start": 20.24,
+              "end": 20.6,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " and",
+              "start": 20.6,
+              "end": 20.88,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " ill nature, as grace and harmony are the twin sisters of goodness and virtue and bear their",
+          "start": 20.88,
+          "end": 26.18,
+          "words": [
+            {
+              "text": " ill",
+              "start": 20.88,
+              "end": 21.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nature,",
+              "start": 21.12,
+              "end": 21.5,
+              "probability": 0.96484375
+            },
+            {
+              "text": " as",
+              "start": 21.74,
+              "end": 22.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " grace",
+              "start": 22.18,
+              "end": 22.48,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 22.48,
+              "end": 22.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " harmony",
+              "start": 22.76,
+              "end": 23.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 23.08,
+              "end": 23.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 23.32,
+              "end": 23.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " twin",
+              "start": 23.46,
+              "end": 23.68,
+              "probability": 0.9609375
+            },
+            {
+              "text": " sisters",
+              "start": 23.68,
+              "end": 24.04,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " of",
+              "start": 24.04,
+              "end": 24.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " goodness",
+              "start": 24.38,
+              "end": 24.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 24.64,
+              "end": 25.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " virtue",
+              "start": 25.0,
+              "end": 25.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 25.38,
+              "end": 25.8,
+              "probability": 0.681640625
+            },
+            {
+              "text": " bear",
+              "start": 25.8,
+              "end": 25.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " their",
+              "start": 25.96,
+              "end": 26.18,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " likeness.",
+          "start": 26.18,
+          "end": 26.52,
+          "words": [
+            {
+              "text": " likeness.",
+              "start": 26.18,
+              "end": 26.52,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "surely",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": "art",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "of",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "painter",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "every",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "other",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "creative",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "constructive",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "raw": "art",
+          "start": 3.74,
+          "end": 4.1
+        },
+        {
+          "raw": "are",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "raw": "full",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "raw": "of",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "raw": "them—weaving,",
+          "start": 4.64,
+          "end": 5.8
+        },
+        {
+          "raw": "embroidery,",
+          "start": 6.22,
+          "end": 6.94
+        },
+        {
+          "raw": "architecture,",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "raw": "and",
+          "start": 8.38,
+          "end": 8.46
+        },
+        {
+          "raw": "every",
+          "start": 8.46,
+          "end": 8.74
+        },
+        {
+          "raw": "kind",
+          "start": 8.74,
+          "end": 8.92
+        },
+        {
+          "raw": "of",
+          "start": 8.92,
+          "end": 9.06
+        },
+        {
+          "raw": "manufacture.",
+          "start": 9.06,
+          "end": 9.58
+        },
+        {
+          "raw": "Also",
+          "start": 10.34,
+          "end": 10.66
+        },
+        {
+          "raw": "nature,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "raw": "animal",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "raw": "and",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "raw": "vegetable.",
+          "start": 11.96,
+          "end": 12.32
+        },
+        {
+          "raw": "In",
+          "start": 12.94,
+          "end": 13.1
+        },
+        {
+          "raw": "all",
+          "start": 13.1,
+          "end": 13.26
+        },
+        {
+          "raw": "of",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "raw": "them",
+          "start": 13.38,
+          "end": 13.52
+        },
+        {
+          "raw": "there",
+          "start": 13.52,
+          "end": 13.68
+        },
+        {
+          "raw": "is",
+          "start": 13.68,
+          "end": 13.86
+        },
+        {
+          "raw": "grace",
+          "start": 13.86,
+          "end": 14.2
+        },
+        {
+          "raw": "or",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "raw": "the",
+          "start": 14.5,
+          "end": 14.64
+        },
+        {
+          "raw": "absence",
+          "start": 14.64,
+          "end": 14.98
+        },
+        {
+          "raw": "of",
+          "start": 14.98,
+          "end": 15.26
+        },
+        {
+          "raw": "grace.",
+          "start": 15.26,
+          "end": 15.56
+        },
+        {
+          "raw": "And",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "raw": "ugliness",
+          "start": 16.44,
+          "end": 16.92
+        },
+        {
+          "raw": "and",
+          "start": 16.92,
+          "end": 17.16
+        },
+        {
+          "raw": "discord",
+          "start": 17.16,
+          "end": 17.56
+        },
+        {
+          "raw": "and",
+          "start": 17.56,
+          "end": 17.86
+        },
+        {
+          "raw": "inharmonious",
+          "start": 17.86,
+          "end": 18.54
+        },
+        {
+          "raw": "motion",
+          "start": 18.54,
+          "end": 18.92
+        },
+        {
+          "raw": "are",
+          "start": 18.92,
+          "end": 19.14
+        },
+        {
+          "raw": "nearly",
+          "start": 19.14,
+          "end": 19.44
+        },
+        {
+          "raw": "allied",
+          "start": 19.44,
+          "end": 19.8
+        },
+        {
+          "raw": "to",
+          "start": 19.8,
+          "end": 20.04
+        },
+        {
+          "raw": "ill",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "raw": "words",
+          "start": 20.24,
+          "end": 20.6
+        },
+        {
+          "raw": "and",
+          "start": 20.6,
+          "end": 20.88
+        },
+        {
+          "raw": "ill",
+          "start": 20.88,
+          "end": 21.12
+        },
+        {
+          "raw": "nature,",
+          "start": 21.12,
+          "end": 21.5
+        },
+        {
+          "raw": "as",
+          "start": 21.74,
+          "end": 22.18
+        },
+        {
+          "raw": "grace",
+          "start": 22.18,
+          "end": 22.48
+        },
+        {
+          "raw": "and",
+          "start": 22.48,
+          "end": 22.76
+        },
+        {
+          "raw": "harmony",
+          "start": 22.76,
+          "end": 23.08
+        },
+        {
+          "raw": "are",
+          "start": 23.08,
+          "end": 23.32
+        },
+        {
+          "raw": "the",
+          "start": 23.32,
+          "end": 23.46
+        },
+        {
+          "raw": "twin",
+          "start": 23.46,
+          "end": 23.68
+        },
+        {
+          "raw": "sisters",
+          "start": 23.68,
+          "end": 24.04
+        },
+        {
+          "raw": "of",
+          "start": 24.04,
+          "end": 24.38
+        },
+        {
+          "raw": "goodness",
+          "start": 24.38,
+          "end": 24.64
+        },
+        {
+          "raw": "and",
+          "start": 24.64,
+          "end": 25.0
+        },
+        {
+          "raw": "virtue",
+          "start": 25.0,
+          "end": 25.38
+        },
+        {
+          "raw": "and",
+          "start": 25.38,
+          "end": 25.8
+        },
+        {
+          "raw": "bear",
+          "start": 25.8,
+          "end": 25.96
+        },
+        {
+          "raw": "their",
+          "start": 25.96,
+          "end": 26.18
+        },
+        {
+          "raw": "likeness.",
+          "start": 26.18,
+          "end": 26.52
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "surely",
+        "the",
+        "art",
+        "of",
+        "the",
+        "painter",
+        "and",
+        "every",
+        "other",
+        "creative",
+        "and",
+        "constructive",
+        "art",
+        "are",
+        "full",
+        "of",
+        "them,—weaving,",
+        "embroidery,",
+        "architecture,",
+        "and",
+        "every",
+        "kind",
+        "of",
+        "manufacture;",
+        "also",
+        "nature,",
+        "animal",
+        "and",
+        "vegetable,—in",
+        "all",
+        "of",
+        "them",
+        "there",
+        "is",
+        "grace",
+        "or",
+        "the",
+        "absence",
+        "of",
+        "grace.",
+        "And",
+        "ugliness",
+        "and",
+        "discord",
+        "and",
+        "inharmonious",
+        "motion",
+        "are",
+        "nearly",
+        "allied",
+        "to",
+        "ill",
+        "words",
+        "and",
+        "ill",
+        "nature,",
+        "as",
+        "grace",
+        "and",
+        "harmony",
+        "are",
+        "the",
+        "twin",
+        "sisters",
+        "of",
+        "goodness",
+        "and",
+        "virtue",
+        "and",
+        "bear",
+        "their",
+        "likeness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ],
+        [
+          "equal",
+          30,
+          73,
+          31,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "surely",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "art",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "of",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "the",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "painter",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "every",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "other",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "creative",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "text": "and",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "constructive",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "text": "art",
+          "start": 3.74,
+          "end": 4.1
+        },
+        {
+          "text": "are",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "text": "full",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "text": "of",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "text": "them,—weaving,",
+          "start": 4.64,
+          "end": 5.8
+        },
+        {
+          "text": "embroidery,",
+          "start": 6.22,
+          "end": 6.94
+        },
+        {
+          "text": "architecture,",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "text": "and",
+          "start": 8.38,
+          "end": 8.46
+        },
+        {
+          "text": "every",
+          "start": 8.46,
+          "end": 8.74
+        },
+        {
+          "text": "kind",
+          "start": 8.74,
+          "end": 8.92
+        },
+        {
+          "text": "of",
+          "start": 8.92,
+          "end": 9.06
+        },
+        {
+          "text": "manufacture;",
+          "start": 9.06,
+          "end": 9.58
+        },
+        {
+          "text": "also",
+          "start": 10.34,
+          "end": 10.66
+        },
+        {
+          "text": "nature,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "text": "animal",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "text": "and",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "text": "vegetable,—in",
+          "start": 11.96,
+          "end": 12.53
+        },
+        {
+          "text": "all",
+          "start": 13.1,
+          "end": 13.26
+        },
+        {
+          "text": "of",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "text": "them",
+          "start": 13.38,
+          "end": 13.52
+        },
+        {
+          "text": "there",
+          "start": 13.52,
+          "end": 13.68
+        },
+        {
+          "text": "is",
+          "start": 13.68,
+          "end": 13.86
+        },
+        {
+          "text": "grace",
+          "start": 13.86,
+          "end": 14.2
+        },
+        {
+          "text": "or",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "text": "the",
+          "start": 14.5,
+          "end": 14.64
+        },
+        {
+          "text": "absence",
+          "start": 14.64,
+          "end": 14.98
+        },
+        {
+          "text": "of",
+          "start": 14.98,
+          "end": 15.26
+        },
+        {
+          "text": "grace.",
+          "start": 15.26,
+          "end": 15.56
+        },
+        {
+          "text": "And",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "text": "ugliness",
+          "start": 16.44,
+          "end": 16.92
+        },
+        {
+          "text": "and",
+          "start": 16.92,
+          "end": 17.16
+        },
+        {
+          "text": "discord",
+          "start": 17.16,
+          "end": 17.56
+        },
+        {
+          "text": "and",
+          "start": 17.56,
+          "end": 17.86
+        },
+        {
+          "text": "inharmonious",
+          "start": 17.86,
+          "end": 18.54
+        },
+        {
+          "text": "motion",
+          "start": 18.54,
+          "end": 18.92
+        },
+        {
+          "text": "are",
+          "start": 18.92,
+          "end": 19.14
+        },
+        {
+          "text": "nearly",
+          "start": 19.14,
+          "end": 19.44
+        },
+        {
+          "text": "allied",
+          "start": 19.44,
+          "end": 19.8
+        },
+        {
+          "text": "to",
+          "start": 19.8,
+          "end": 20.04
+        },
+        {
+          "text": "ill",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "text": "words",
+          "start": 20.24,
+          "end": 20.6
+        },
+        {
+          "text": "and",
+          "start": 20.6,
+          "end": 20.88
+        },
+        {
+          "text": "ill",
+          "start": 20.88,
+          "end": 21.12
+        },
+        {
+          "text": "nature,",
+          "start": 21.12,
+          "end": 21.5
+        },
+        {
+          "text": "as",
+          "start": 21.74,
+          "end": 22.18
+        },
+        {
+          "text": "grace",
+          "start": 22.18,
+          "end": 22.48
+        },
+        {
+          "text": "and",
+          "start": 22.48,
+          "end": 22.76
+        },
+        {
+          "text": "harmony",
+          "start": 22.76,
+          "end": 23.08
+        },
+        {
+          "text": "are",
+          "start": 23.08,
+          "end": 23.32
+        },
+        {
+          "text": "the",
+          "start": 23.32,
+          "end": 23.46
+        },
+        {
+          "text": "twin",
+          "start": 23.46,
+          "end": 23.68
+        },
+        {
+          "text": "sisters",
+          "start": 23.68,
+          "end": 24.04
+        },
+        {
+          "text": "of",
+          "start": 24.04,
+          "end": 24.38
+        },
+        {
+          "text": "goodness",
+          "start": 24.38,
+          "end": 24.64
+        },
+        {
+          "text": "and",
+          "start": 24.64,
+          "end": 25.0
+        },
+        {
+          "text": "virtue",
+          "start": 25.0,
+          "end": 25.38
+        },
+        {
+          "text": "and",
+          "start": 25.38,
+          "end": 25.8
+        },
+        {
+          "text": "bear",
+          "start": 25.8,
+          "end": 25.96
+        },
+        {
+          "text": "their",
+          "start": 25.96,
+          "end": 26.18
+        },
+        {
+          "text": "likeness.",
+          "start": 26.18,
+          "end": 26.52
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 74,
+        "matched_words": 72
+      },
+      "match_ratio": 0.9863013698630136,
+      "rejection_reasons": [],
+      "seconds": 1.971344992518425
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5808f5bf5c331d8301cfc12c66c7956ebc7058e2b7b9061a879b050692699b78",
+  "selected_reasons": []
+}

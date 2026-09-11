@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "b40c1a7d14194156043ec41e6c9a1ce28c5c98c493dfefd71738415aa9dcb4ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.08925897628068924,
+      "alignment_seconds": 0.0002033710479736328,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[To Ferdinand]",
+        "hotwords": "To, Ferdinand"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Ferdinand",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.40625
+            },
+            {
+              "text": " Ferdinand",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Ferdinand",
+          "start": 0.5,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "[To",
+        "Ferdinand]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Ferdinand]",
+          "start": 0.5,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08950664848089218
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6a2a90a3525e8fbc036cecfa62cbb69a7f3ba1c6a830098a6a905f8f48b461b",
+  "selected_reasons": []
+}

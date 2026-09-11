@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "26572f5db73d3d1d511eec178dcaa9fba20adfc5cebb546be72516fef4d9a509",
+  "attempts": [
+    {
+      "asr_seconds": 0.13854704797267914,
+      "alignment_seconds": 9.69618558883667e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It's mean they are enough tease now their darkest hour",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.52557373046875
+            },
+            {
+              "text": " mean",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.974609375
+            },
+            {
+              "text": " they",
+              "start": 0.75,
+              "end": 1.15,
+              "probability": 0.40234375
+            },
+            {
+              "text": " are",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enough",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tease",
+              "start": 1.63,
+              "end": 1.99,
+              "probability": 0.436279296875
+            },
+            {
+              "text": " now",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " their",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " darkest",
+              "start": 2.39,
+              "end": 2.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hour",
+              "start": 2.77,
+              "end": 3.17,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "mean",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "they",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "raw": "are",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "enough",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "tease",
+          "start": 1.63,
+          "end": 1.99
+        },
+        {
+          "raw": "now",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "their",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "darkest",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "raw": "hour",
+          "start": 2.77,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "They",
+        "are—enough,",
+        "'tis",
+        "now",
+        "their",
+        "darkest",
+        "hour."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          4,
+          3,
+          6
+        ],
+        [
+          "equal",
+          4,
+          8,
+          6,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          3,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "They",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "text": "are—enough,",
+          "start": 1.15,
+          "end": 1.57
+        },
+        {
+          "text": "'tis",
+          "start": 1.57,
+          "end": 1.78
+        },
+        {
+          "text": "now",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "their",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "darkest",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "text": "hour.",
+          "start": 2.77,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13867902755737305
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c58c3c43dfbddbc21a2160648e17c979e06b5c1def95a87935f31c1e1cd6c07b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

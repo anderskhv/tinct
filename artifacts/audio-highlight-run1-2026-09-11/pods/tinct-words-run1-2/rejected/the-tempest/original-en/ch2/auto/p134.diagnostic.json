@@ -1,0 +1,1596 @@
+{
+  "complete": true,
+  "signature": "3f799da4549d76e70d4c217852846217a7023daeefe1b78d6026909ef8a5e9ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.17146990448236465,
+      "alignment_seconds": 0.0001299828290939331,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ferdinand. My language! heavens! I am the best of them that speak this speech, Were I but where 'tis spoken.",
+        "hotwords": "Ferdinand, My, I, Were"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ferdinand, My language! heavens! I am the best of them that speak this speech, Were I but",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Ferdinand,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " My",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.057098388671875
+            },
+            {
+              "text": " language!",
+              "start": 1.23,
+              "end": 1.67,
+              "probability": 0.2152099609375
+            },
+            {
+              "text": " heavens!",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.2347412109375
+            },
+            {
+              "text": " I",
+              "start": 3.25,
+              "end": 3.31,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " am",
+              "start": 3.31,
+              "end": 3.37,
+              "probability": 0.9375
+            },
+            {
+              "text": " the",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " best",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 3.65,
+              "end": 3.81,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " them",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " speak",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " speech,",
+              "start": 4.55,
+              "end": 4.93,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Were",
+              "start": 5.31,
+              "end": 5.37,
+              "probability": 0.1358642578125
+            },
+            {
+              "text": " I",
+              "start": 5.37,
+              "end": 5.51,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " but",
+              "start": 5.51,
+              "end": 5.63,
+              "probability": 0.96875
+            }
+          ]
+        },
+        {
+          "text": " where teas spoken.",
+          "start": 5.63,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " where",
+              "start": 5.63,
+              "end": 5.81,
+              "probability": 0.529296875
+            },
+            {
+              "text": " teas",
+              "start": 5.81,
+              "end": 6.19,
+              "probability": 0.562744140625
+            },
+            {
+              "text": " spoken.",
+              "start": 6.19,
+              "end": 6.55,
+              "probability": 0.90576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ferdinand,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "My",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "language!",
+          "start": 1.23,
+          "end": 1.67
+        },
+        {
+          "raw": "heavens!",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "I",
+          "start": 3.25,
+          "end": 3.31
+        },
+        {
+          "raw": "am",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "best",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "raw": "them",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "that",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "speak",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "this",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "speech,",
+          "start": 4.55,
+          "end": 4.93
+        },
+        {
+          "raw": "Were",
+          "start": 5.31,
+          "end": 5.37
+        },
+        {
+          "raw": "I",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "raw": "but",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "raw": "where",
+          "start": 5.63,
+          "end": 5.81
+        },
+        {
+          "raw": "teas",
+          "start": 5.81,
+          "end": 6.19
+        },
+        {
+          "raw": "spoken.",
+          "start": 6.19,
+          "end": 6.55
+        }
+      ],
+      "expected_tokens": [
+        "Ferdinand.",
+        "My",
+        "language!",
+        "heavens!",
+        "I",
+        "am",
+        "the",
+        "best",
+        "of",
+        "them",
+        "that",
+        "speak",
+        "this",
+        "speech,",
+        "Were",
+        "I",
+        "but",
+        "where",
+        "'tis",
+        "spoken."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ferdinand.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "My",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "language!",
+          "start": 1.23,
+          "end": 1.67
+        },
+        {
+          "text": "heavens!",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "I",
+          "start": 3.25,
+          "end": 3.31
+        },
+        {
+          "text": "am",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "text": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "best",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "text": "them",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "that",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "speak",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "this",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "text": "speech,",
+          "start": 4.55,
+          "end": 4.93
+        },
+        {
+          "text": "Were",
+          "start": 5.31,
+          "end": 5.37
+        },
+        {
+          "text": "I",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "text": "but",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "text": "where",
+          "start": 5.63,
+          "end": 5.81
+        },
+        {
+          "text": "'tis",
+          "start": 5.81,
+          "end": 6.0
+        },
+        {
+          "text": "spoken.",
+          "start": 6.19,
+          "end": 6.55
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.17165812849998474
+    },
+    {
+      "asr_seconds": 0.3358194828033447,
+      "alignment_seconds": 0.00012456625699996948,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ferdinand, My, I, Were"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ferdinand, My Language, Heavens, I Am the Best of Them That Speak This Speech, Where",
+          "start": 0.05,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Ferdinand,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " My",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.057098388671875
+            },
+            {
+              "text": " Language,",
+              "start": 1.23,
+              "end": 1.69,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " Heavens,",
+              "start": 2.33,
+              "end": 3.03,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " I",
+              "start": 3.21,
+              "end": 3.31,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Am",
+              "start": 3.31,
+              "end": 3.37,
+              "probability": 0.2257080078125
+            },
+            {
+              "text": " the",
+              "start": 3.37,
+              "end": 3.49,
+              "probability": 0.54296875
+            },
+            {
+              "text": " Best",
+              "start": 3.49,
+              "end": 3.65,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " of",
+              "start": 3.65,
+              "end": 3.81,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Them",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.859375
+            },
+            {
+              "text": " That",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " Speak",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " This",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.69921875
+            },
+            {
+              "text": " Speech,",
+              "start": 4.57,
+              "end": 4.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Where",
+              "start": 5.31,
+              "end": 5.37,
+              "probability": 0.5029296875
+            }
+          ]
+        },
+        {
+          "text": " I But Wear Teas Spoken.",
+          "start": 5.37,
+          "end": 6.71,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.37,
+              "end": 5.51,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " But",
+              "start": 5.51,
+              "end": 5.63,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " Wear",
+              "start": 5.63,
+              "end": 5.79,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " Teas",
+              "start": 5.79,
+              "end": 6.19,
+              "probability": 0.792236328125
+            },
+            {
+              "text": " Spoken.",
+              "start": 6.19,
+              "end": 6.71,
+              "probability": 0.991455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ferdinand,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "My",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "Language,",
+          "start": 1.23,
+          "end": 1.69
+        },
+        {
+          "raw": "Heavens,",
+          "start": 2.33,
+          "end": 3.03
+        },
+        {
+          "raw": "I",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "raw": "Am",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "raw": "Best",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "raw": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "raw": "Them",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "That",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "Speak",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "This",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "raw": "Speech,",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "raw": "Where",
+          "start": 5.31,
+          "end": 5.37
+        },
+        {
+          "raw": "I",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "raw": "But",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "raw": "Wear",
+          "start": 5.63,
+          "end": 5.79
+        },
+        {
+          "raw": "Teas",
+          "start": 5.79,
+          "end": 6.19
+        },
+        {
+          "raw": "Spoken.",
+          "start": 6.19,
+          "end": 6.71
+        }
+      ],
+      "expected_tokens": [
+        "Ferdinand.",
+        "My",
+        "language!",
+        "heavens!",
+        "I",
+        "am",
+        "the",
+        "best",
+        "of",
+        "them",
+        "that",
+        "speak",
+        "this",
+        "speech,",
+        "Were",
+        "I",
+        "but",
+        "where",
+        "'tis",
+        "spoken."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          19
+        ],
+        [
+          "equal",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          19
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ferdinand.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "My",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "language!",
+          "start": 1.23,
+          "end": 1.69
+        },
+        {
+          "text": "heavens!",
+          "start": 2.33,
+          "end": 3.03
+        },
+        {
+          "text": "I",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "text": "am",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "text": "the",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "text": "best",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "text": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "text": "them",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "that",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "speak",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "this",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "text": "speech,",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "text": "Were",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "text": "I",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "text": "but",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "text": "where",
+          "start": 5.63,
+          "end": 5.91
+        },
+        {
+          "text": "'tis",
+          "start": 5.91,
+          "end": 6.05
+        },
+        {
+          "text": "spoken.",
+          "start": 6.19,
+          "end": 6.71
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.3359990492463112
+    },
+    {
+      "asr_seconds": 0.1823325753211975,
+      "alignment_seconds": 0.00013080239295959473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ferdinand, my language. Heavens, I am the best of them that speak this speech, where",
+          "start": 0.05,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Ferdinand,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " my",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " language.",
+              "start": 1.23,
+              "end": 1.67,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Heavens,",
+              "start": 2.49,
+              "end": 2.97,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " I",
+              "start": 3.21,
+              "end": 3.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " am",
+              "start": 3.31,
+              "end": 3.39,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " best",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 3.65,
+              "end": 3.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " speak",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " speech,",
+              "start": 4.57,
+              "end": 4.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " where",
+              "start": 5.31,
+              "end": 5.37,
+              "probability": 0.430419921875
+            }
+          ]
+        },
+        {
+          "text": " I but wear teas spoken.",
+          "start": 5.37,
+          "end": 6.57,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.37,
+              "end": 5.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " but",
+              "start": 5.51,
+              "end": 5.63,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " wear",
+              "start": 5.63,
+              "end": 5.81,
+              "probability": 0.794921875
+            },
+            {
+              "text": " teas",
+              "start": 5.81,
+              "end": 6.19,
+              "probability": 0.878173828125
+            },
+            {
+              "text": " spoken.",
+              "start": 6.19,
+              "end": 6.57,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ferdinand,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "my",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "language.",
+          "start": 1.23,
+          "end": 1.67
+        },
+        {
+          "raw": "Heavens,",
+          "start": 2.49,
+          "end": 2.97
+        },
+        {
+          "raw": "I",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "raw": "am",
+          "start": 3.31,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.47
+        },
+        {
+          "raw": "best",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "raw": "them",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "that",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "speak",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "this",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "raw": "speech,",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "raw": "where",
+          "start": 5.31,
+          "end": 5.37
+        },
+        {
+          "raw": "I",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "raw": "but",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "raw": "wear",
+          "start": 5.63,
+          "end": 5.81
+        },
+        {
+          "raw": "teas",
+          "start": 5.81,
+          "end": 6.19
+        },
+        {
+          "raw": "spoken.",
+          "start": 6.19,
+          "end": 6.57
+        }
+      ],
+      "expected_tokens": [
+        "Ferdinand.",
+        "My",
+        "language!",
+        "heavens!",
+        "I",
+        "am",
+        "the",
+        "best",
+        "of",
+        "them",
+        "that",
+        "speak",
+        "this",
+        "speech,",
+        "Were",
+        "I",
+        "but",
+        "where",
+        "'tis",
+        "spoken."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          19
+        ],
+        [
+          "equal",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          19
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ferdinand.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "My",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "language!",
+          "start": 1.23,
+          "end": 1.67
+        },
+        {
+          "text": "heavens!",
+          "start": 2.49,
+          "end": 2.97
+        },
+        {
+          "text": "I",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "text": "am",
+          "start": 3.31,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.47
+        },
+        {
+          "text": "best",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "text": "them",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "that",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "speak",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "this",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "text": "speech,",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "text": "Were",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "text": "I",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "text": "but",
+          "start": 5.51,
+          "end": 5.63
+        },
+        {
+          "text": "where",
+          "start": 5.63,
+          "end": 5.91
+        },
+        {
+          "text": "'tis",
+          "start": 5.91,
+          "end": 6.05
+        },
+        {
+          "text": "spoken.",
+          "start": 6.19,
+          "end": 6.57
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.18252676725387573
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "396e572a31499e5f96346db3bdac01582c58c813045060383aece53c8249a515",
+  "selected_reasons": []
+}

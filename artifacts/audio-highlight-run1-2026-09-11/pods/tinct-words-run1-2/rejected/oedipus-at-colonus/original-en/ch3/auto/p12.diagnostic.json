@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "aa5c6cfd679394a9faaacc203f0a5b83e7dd51c7076b42b7d69b63411266aa2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1603645458817482,
+      "alignment_seconds": 0.00012886524200439453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. What brought thee, daughter?",
+        "hotwords": "Oedipus, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, What brought thee, daughter?",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.947998046875
+            },
+            {
+              "text": " What",
+              "start": 1.22,
+              "end": 1.3,
+              "probability": 0.05816650390625
+            },
+            {
+              "text": " brought",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " thee,",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.187744140625
+            },
+            {
+              "text": " daughter?",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.312255859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "What",
+          "start": 1.22,
+          "end": 1.3
+        },
+        {
+          "raw": "brought",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "thee,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "daughter?",
+          "start": 1.8,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "What",
+        "brought",
+        "thee,",
+        "daughter?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "What",
+          "start": 1.22,
+          "end": 1.3
+        },
+        {
+          "text": "brought",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "thee,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "daughter?",
+          "start": 1.8,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1605328842997551
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ef9fd808054820f4056428df4bb3b2fe0b8c989d16bf0b2883651210c0d83a5",
+  "selected_reasons": []
+}

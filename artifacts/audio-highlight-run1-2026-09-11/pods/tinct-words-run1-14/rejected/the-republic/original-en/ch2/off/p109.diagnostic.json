@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "95aa94e50ba361f53e408b9a2b36f44ebaa87a669040d53f2dc831fa8362d634",
+  "attempts": [
+    {
+      "asr_seconds": 0.09433902055025101,
+      "alignment_seconds": 7.057934999465942e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clearly, they will buy and sell.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Clearly,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " they",
+              "start": 0.85,
+              "end": 0.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " will",
+              "start": 0.85,
+              "end": 0.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " buy",
+              "start": 0.99,
+              "end": 1.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sell.",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clearly,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "they",
+          "start": 0.85,
+          "end": 0.85
+        },
+        {
+          "raw": "will",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "raw": "buy",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "sell.",
+          "start": 1.33,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Clearly",
+        "they",
+        "will",
+        "buy",
+        "and",
+        "sell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Clearly",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "they",
+          "start": 0.85,
+          "end": 0.85
+        },
+        {
+          "text": "will",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "text": "buy",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "sell.",
+          "start": 1.33,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09443934261798859
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41da4b4f5a6d8cbba759f71e8b1d7d04c06ccad366bb718c4a73c3bd61f987be",
+  "selected_reasons": []
+}

@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "106fc9d7efdd95f81ba182cfdc8bc4eb75c0a09d60e073606b63eb4c6c53c46e",
+  "attempts": [
+    {
+      "asr_seconds": 0.07029853761196136,
+      "alignment_seconds": 4.857778549194336e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I agree.",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.90234375
+            },
+            {
+              "text": " agree.",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "agree.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "agree."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "agree.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07036443054676056
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fcbdeae0742d0bf342d337e2482ce902d0d8b7caf621f2b605a068e0d1cea2ef",
+  "selected_reasons": []
+}

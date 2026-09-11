@@ -1,0 +1,760 @@
+{
+  "complete": true,
+  "signature": "4bdd03aec3bafb8fc4404d70d61891de3d7ebfd446bb942c3d293d1853d44c07",
+  "attempts": [
+    {
+      "asr_seconds": 0.30550158000551164,
+      "alignment_seconds": 0.00022714701481163502,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. I do well believe your highness; and did it to minister occasion to these gentlemen, who are of such sensible and nimble lungs that they always use to laugh at nothing.",
+        "hotwords": "Gonzalo, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, I do well believe your highness, and did it to minister occasion to these gentlemen, who are of such sensible and nimble lungs that they always use to laugh at nothing.",
+          "start": 0.05,
+          "end": 10.69,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.6986083984375
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " do",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " well",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " believe",
+              "start": 1.99,
+              "end": 2.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " your",
+              "start": 2.33,
+              "end": 2.53,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " highness,",
+              "start": 2.53,
+              "end": 2.97,
+              "probability": 0.6739501953125
+            },
+            {
+              "text": " and",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.984375
+            },
+            {
+              "text": " did",
+              "start": 3.53,
+              "end": 3.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 3.65,
+              "end": 3.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " minister",
+              "start": 3.91,
+              "end": 4.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " occasion",
+              "start": 4.27,
+              "end": 4.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 4.75,
+              "end": 5.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " these",
+              "start": 5.11,
+              "end": 5.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gentlemen,",
+              "start": 5.33,
+              "end": 5.79,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " who",
+              "start": 6.25,
+              "end": 6.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " are",
+              "start": 6.43,
+              "end": 6.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 6.59,
+              "end": 6.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sensible",
+              "start": 6.89,
+              "end": 7.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 7.53,
+              "end": 7.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " nimble",
+              "start": 7.85,
+              "end": 8.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lungs",
+              "start": 8.21,
+              "end": 8.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 8.55,
+              "end": 8.91,
+              "probability": 0.94140625
+            },
+            {
+              "text": " they",
+              "start": 8.91,
+              "end": 9.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " always",
+              "start": 9.07,
+              "end": 9.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " use",
+              "start": 9.43,
+              "end": 9.75,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " to",
+              "start": 9.75,
+              "end": 9.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laugh",
+              "start": 9.97,
+              "end": 10.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 10.19,
+              "end": 10.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nothing.",
+              "start": 10.39,
+              "end": 10.69,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "raw": "do",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "well",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "believe",
+          "start": 1.99,
+          "end": 2.33
+        },
+        {
+          "raw": "your",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "raw": "highness,",
+          "start": 2.53,
+          "end": 2.97
+        },
+        {
+          "raw": "and",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "did",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "raw": "it",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "raw": "to",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "minister",
+          "start": 3.91,
+          "end": 4.27
+        },
+        {
+          "raw": "occasion",
+          "start": 4.27,
+          "end": 4.75
+        },
+        {
+          "raw": "to",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "raw": "these",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 5.33,
+          "end": 5.79
+        },
+        {
+          "raw": "who",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "raw": "are",
+          "start": 6.43,
+          "end": 6.59
+        },
+        {
+          "raw": "of",
+          "start": 6.59,
+          "end": 6.71
+        },
+        {
+          "raw": "such",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "raw": "sensible",
+          "start": 6.89,
+          "end": 7.53
+        },
+        {
+          "raw": "and",
+          "start": 7.53,
+          "end": 7.85
+        },
+        {
+          "raw": "nimble",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "raw": "lungs",
+          "start": 8.21,
+          "end": 8.55
+        },
+        {
+          "raw": "that",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "raw": "they",
+          "start": 8.91,
+          "end": 9.07
+        },
+        {
+          "raw": "always",
+          "start": 9.07,
+          "end": 9.43
+        },
+        {
+          "raw": "use",
+          "start": 9.43,
+          "end": 9.75
+        },
+        {
+          "raw": "to",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "raw": "laugh",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "raw": "at",
+          "start": 10.19,
+          "end": 10.39
+        },
+        {
+          "raw": "nothing.",
+          "start": 10.39,
+          "end": 10.69
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "I",
+        "do",
+        "well",
+        "believe",
+        "your",
+        "highness;",
+        "and",
+        "did",
+        "it",
+        "to",
+        "minister",
+        "occasion",
+        "to",
+        "these",
+        "gentlemen,",
+        "who",
+        "are",
+        "of",
+        "such",
+        "sensible",
+        "and",
+        "nimble",
+        "lungs",
+        "that",
+        "they",
+        "always",
+        "use",
+        "to",
+        "laugh",
+        "at",
+        "nothing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "text": "do",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "well",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "believe",
+          "start": 1.99,
+          "end": 2.33
+        },
+        {
+          "text": "your",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "text": "highness;",
+          "start": 2.53,
+          "end": 2.97
+        },
+        {
+          "text": "and",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "did",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "text": "it",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "text": "to",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "minister",
+          "start": 3.91,
+          "end": 4.27
+        },
+        {
+          "text": "occasion",
+          "start": 4.27,
+          "end": 4.75
+        },
+        {
+          "text": "to",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "text": "these",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "text": "gentlemen,",
+          "start": 5.33,
+          "end": 5.79
+        },
+        {
+          "text": "who",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "text": "are",
+          "start": 6.43,
+          "end": 6.59
+        },
+        {
+          "text": "of",
+          "start": 6.59,
+          "end": 6.71
+        },
+        {
+          "text": "such",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "text": "sensible",
+          "start": 6.89,
+          "end": 7.53
+        },
+        {
+          "text": "and",
+          "start": 7.53,
+          "end": 7.85
+        },
+        {
+          "text": "nimble",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "text": "lungs",
+          "start": 8.21,
+          "end": 8.55
+        },
+        {
+          "text": "that",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "text": "they",
+          "start": 8.91,
+          "end": 9.07
+        },
+        {
+          "text": "always",
+          "start": 9.07,
+          "end": 9.43
+        },
+        {
+          "text": "use",
+          "start": 9.43,
+          "end": 9.75
+        },
+        {
+          "text": "to",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "text": "laugh",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "text": "at",
+          "start": 10.19,
+          "end": 10.39
+        },
+        {
+          "text": "nothing.",
+          "start": 10.39,
+          "end": 10.69
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3058555709430948
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e4596783226e28c59fcf57a2acd12948579a3e628bc05e41ebcc65874c360c7c",
+  "selected_reasons": []
+}

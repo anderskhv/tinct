@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "6be379fbafb6fcf7fd7135ed2d1cc414166c6e19ff256c642a8b59d6bbdbd95c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14141984842717648,
+      "alignment_seconds": 0.00011793803423643112,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, she is of a noble spirit.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, she is of a noble spirit.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " she",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " is",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " noble",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " spirit.",
+              "start": 1.59,
+              "end": 2.01,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "she",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "is",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "of",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "a",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "noble",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "spirit.",
+          "start": 1.59,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "she",
+        "is",
+        "of",
+        "a",
+        "noble",
+        "spirit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "she",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "is",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "of",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "a",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "noble",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "spirit.",
+          "start": 1.59,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14158812537789345
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc0a0d4f32f032c12984bfbecb3a604d6e0989522003ffa6edb041a809ad07f7",
+  "selected_reasons": []
+}

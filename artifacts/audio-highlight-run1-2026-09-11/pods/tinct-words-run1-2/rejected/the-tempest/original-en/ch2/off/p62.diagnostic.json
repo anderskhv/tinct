@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "cd35a29f62aa59378b99385830f9681db11790c3466aae44c20c1ea09c83d7b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.10663789510726929,
+      "alignment_seconds": 0.00019915401935577393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ariel, past the mid-season.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " past",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " the",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " mid",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.93359375
+            },
+            {
+              "text": "-season.",
+              "start": 1.63,
+              "end": 1.99,
+              "probability": 0.864501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "past",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "the",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "mid",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "-season.",
+          "start": 1.63,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "Past",
+        "the",
+        "mid",
+        "season."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Past",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "the",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "mid",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "season.",
+          "start": 1.63,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1068863496184349
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4e525f7fcf09e23484de2172d2b130a75eebcbfb0450f6200a7f606ea3cd5628",
+  "selected_reasons": []
+}

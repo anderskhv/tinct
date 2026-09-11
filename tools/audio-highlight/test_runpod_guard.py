@@ -85,6 +85,19 @@ class GuardTest(unittest.TestCase):
         self.assertEqual(self.stopped, [("stop", "pod-tinct-audio-wordtiming-01")])
         self.assertIn("uptime", report["actions"][0]["reasons"][0])
 
+    def test_rest_pod_without_runtime_block_still_hits_the_deadline(self):
+        # The REST /pods list has no runtime.uptimeInSeconds; uptime must come
+        # from lastStartedAt or a runaway pod reads as zero minutes forever.
+        import datetime
+        started = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(minutes=70)
+        row = pod("tinct-words-run1-9", rate=0.19)
+        del row["runtime"]
+        row["lastStartedAt"] = started.strftime("%Y-%m-%d %H:%M:%S.%f")[:-4] + " +0000 UTC"
+        self.pods = [row]
+        _, report, _ = self.run_guard("enforce", "--apply")
+        self.assertEqual(self.stopped, [("stop", "pod-tinct-words-run1-9")])
+        self.assertGreater(report["ownedPods"][0]["uptimeSeconds"], 69 * 60)
+
     def test_crossing_the_envelope_stops_everything_owned(self):
         self.pods = [pod("tinct-audio-wordtiming-01", minutes=10), pod("tinct-audio-wordtiming-02", minutes=10)]
         _, report, _ = self.run_guard("enforce", "--budget", "25", "--spent", "24.90", "--apply")

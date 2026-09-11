@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "c8f4df6226bc9fbc4e931484f15afde754d21b5e293c66d7686510b9856b1b70",
+  "attempts": [
+    {
+      "asr_seconds": 0.08550931513309479,
+      "alignment_seconds": 8.215010166168213e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I should like to ask you a question.",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " should",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9765625
+            },
+            {
+              "text": " like",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ask",
+              "start": 0.92,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " question.",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "should",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "like",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "ask",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "raw": "you",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "question.",
+          "start": 1.38,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "should",
+        "like",
+        "to",
+        "ask",
+        "you",
+        "a",
+        "question."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "should",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "like",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "text": "to",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "ask",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "text": "you",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "a",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "question.",
+          "start": 1.38,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08562798798084259
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "61e84a977544fa515ef0e00431a6ec45c42faf7e0642ddac101b10e82120ca25",
+  "selected_reasons": []
+}

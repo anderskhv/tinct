@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "e84bb963177cce4a0d5df607cabd1e9c9caf9def824adf6b3fc94b0fca575b24",
+  "attempts": [
+    {
+      "asr_seconds": 0.07129605859518051,
+      "alignment_seconds": 4.8995018005371094e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She cannot.",
+          "start": 0.02,
+          "end": 0.76,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " cannot.",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "cannot.",
+          "start": 0.54,
+          "end": 0.76
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "cannot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "cannot.",
+          "start": 0.54,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07136467099189758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8254eff5a5cbdb8b36f4a2d24d2e44c60ad638365254dc6e854f16b59f0af412",
+  "selected_reasons": []
+}

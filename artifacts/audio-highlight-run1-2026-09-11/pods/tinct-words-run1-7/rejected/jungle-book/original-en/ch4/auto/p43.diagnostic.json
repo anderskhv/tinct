@@ -1,0 +1,474 @@
+{
+  "complete": true,
+  "signature": "5c58a09f44cad0f035fa33002c5d1a1e8cf7794bb1ed75fd6e869e84dc79da62",
+  "attempts": [
+    {
+      "asr_seconds": 0.19015383161604404,
+      "alignment_seconds": 8.975248783826828e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Hsh! Don't look behind you,\" said Kerick. \"It is Zaharrof's ghost! I must speak to the priest about this.\"",
+        "hotwords": "Hsh, Don't, Kerick, It, Zaharrof's, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hsh, Don't look behind you, said Kerick. It is Zaharrof's ghost! I must speak to the priest about this.",
+          "start": 0.02,
+          "end": 6.84,
+          "words": [
+            {
+              "text": " Hsh,",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.1033935546875
+            },
+            {
+              "text": " Don't",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.502471923828125
+            },
+            {
+              "text": " look",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " behind",
+              "start": 1.72,
+              "end": 2.12,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you,",
+              "start": 2.12,
+              "end": 2.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " said",
+              "start": 2.7,
+              "end": 2.78,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Kerick.",
+              "start": 2.78,
+              "end": 3.22,
+              "probability": 0.03380584716796875
+            },
+            {
+              "text": " It",
+              "start": 3.76,
+              "end": 3.82,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " is",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.984375
+            },
+            {
+              "text": " Zaharrof's",
+              "start": 3.98,
+              "end": 4.62,
+              "probability": 0.28006865084171295
+            },
+            {
+              "text": " ghost!",
+              "start": 4.62,
+              "end": 4.82,
+              "probability": 0.900390625
+            },
+            {
+              "text": " I",
+              "start": 5.3,
+              "end": 5.36,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " must",
+              "start": 5.36,
+              "end": 5.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " speak",
+              "start": 5.46,
+              "end": 5.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 5.7,
+              "end": 5.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 5.88,
+              "end": 6.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " priest",
+              "start": 6.0,
+              "end": 6.2,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " about",
+              "start": 6.2,
+              "end": 6.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this.",
+              "start": 6.5,
+              "end": 6.84,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hsh,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "Don't",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "look",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "behind",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "raw": "you,",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "raw": "said",
+          "start": 2.7,
+          "end": 2.78
+        },
+        {
+          "raw": "Kerick.",
+          "start": 2.78,
+          "end": 3.22
+        },
+        {
+          "raw": "It",
+          "start": 3.76,
+          "end": 3.82
+        },
+        {
+          "raw": "is",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "raw": "Zaharrof's",
+          "start": 3.98,
+          "end": 4.62
+        },
+        {
+          "raw": "ghost!",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "raw": "I",
+          "start": 5.3,
+          "end": 5.36
+        },
+        {
+          "raw": "must",
+          "start": 5.36,
+          "end": 5.46
+        },
+        {
+          "raw": "speak",
+          "start": 5.46,
+          "end": 5.7
+        },
+        {
+          "raw": "to",
+          "start": 5.7,
+          "end": 5.88
+        },
+        {
+          "raw": "the",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "raw": "priest",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "raw": "about",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "raw": "this.",
+          "start": 6.5,
+          "end": 6.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Hsh!",
+        "Don't",
+        "look",
+        "behind",
+        "you,\"",
+        "said",
+        "Kerick.",
+        "\"It",
+        "is",
+        "Zaharrof's",
+        "ghost!",
+        "I",
+        "must",
+        "speak",
+        "to",
+        "the",
+        "priest",
+        "about",
+        "this.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Hsh!",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "Don't",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "look",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "behind",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "text": "you,\"",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "text": "said",
+          "start": 2.7,
+          "end": 2.78
+        },
+        {
+          "text": "Kerick.",
+          "start": 2.78,
+          "end": 3.22
+        },
+        {
+          "text": "\"It",
+          "start": 3.76,
+          "end": 3.82
+        },
+        {
+          "text": "is",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "text": "Zaharrof's",
+          "start": 3.98,
+          "end": 4.62
+        },
+        {
+          "text": "ghost!",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "text": "I",
+          "start": 5.3,
+          "end": 5.36
+        },
+        {
+          "text": "must",
+          "start": 5.36,
+          "end": 5.46
+        },
+        {
+          "text": "speak",
+          "start": 5.46,
+          "end": 5.7
+        },
+        {
+          "text": "to",
+          "start": 5.7,
+          "end": 5.88
+        },
+        {
+          "text": "the",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "text": "priest",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "text": "about",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "text": "this.\"",
+          "start": 6.5,
+          "end": 6.84
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19028791319578886
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c442914e887c95c800cab305a12e940ca933819b3e62e91cf82a1b0440b255e6",
+  "selected_reasons": []
+}

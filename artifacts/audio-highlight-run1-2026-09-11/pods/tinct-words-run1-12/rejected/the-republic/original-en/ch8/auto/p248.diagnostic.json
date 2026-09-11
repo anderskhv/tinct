@@ -1,0 +1,474 @@
+{
+  "complete": true,
+  "signature": "3765b2aaecb4714af423b6ecda406a3ee9fd7ebba2761ad4c0d3f82b73349fe8",
+  "attempts": [
+    {
+      "asr_seconds": 0.15634636767208576,
+      "alignment_seconds": 0.00019062589854002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "May we not say that these desires spend, and that the others make money because they conduce to production?",
+        "hotwords": "May"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " May we not say that these desires spend, and that the others make money because they conduce to production?",
+          "start": 0.05,
+          "end": 5.99,
+          "words": [
+            {
+              "text": " May",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " we",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " say",
+              "start": 0.93,
+              "end": 1.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 1.23,
+              "end": 1.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " these",
+              "start": 1.45,
+              "end": 1.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " desires",
+              "start": 1.73,
+              "end": 2.09,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " spend,",
+              "start": 2.09,
+              "end": 2.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 3.27,
+              "end": 3.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " others",
+              "start": 3.47,
+              "end": 3.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " make",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " money",
+              "start": 4.01,
+              "end": 4.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " because",
+              "start": 4.31,
+              "end": 4.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " they",
+              "start": 4.71,
+              "end": 4.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " conduce",
+              "start": 4.99,
+              "end": 5.47,
+              "probability": 0.5670166015625
+            },
+            {
+              "text": " to",
+              "start": 5.47,
+              "end": 5.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " production?",
+              "start": 5.59,
+              "end": 5.99,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "May",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "we",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "not",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "say",
+          "start": 0.93,
+          "end": 1.23
+        },
+        {
+          "raw": "that",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "raw": "these",
+          "start": 1.45,
+          "end": 1.73
+        },
+        {
+          "raw": "desires",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "raw": "spend,",
+          "start": 2.09,
+          "end": 2.63
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "that",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "others",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "raw": "make",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "money",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "raw": "because",
+          "start": 4.31,
+          "end": 4.71
+        },
+        {
+          "raw": "they",
+          "start": 4.71,
+          "end": 4.99
+        },
+        {
+          "raw": "conduce",
+          "start": 4.99,
+          "end": 5.47
+        },
+        {
+          "raw": "to",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "raw": "production?",
+          "start": 5.59,
+          "end": 5.99
+        }
+      ],
+      "expected_tokens": [
+        "May",
+        "we",
+        "not",
+        "say",
+        "that",
+        "these",
+        "desires",
+        "spend,",
+        "and",
+        "that",
+        "the",
+        "others",
+        "make",
+        "money",
+        "because",
+        "they",
+        "conduce",
+        "to",
+        "production?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "May",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "we",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "not",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "text": "say",
+          "start": 0.93,
+          "end": 1.23
+        },
+        {
+          "text": "that",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "text": "these",
+          "start": 1.45,
+          "end": 1.73
+        },
+        {
+          "text": "desires",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "text": "spend,",
+          "start": 2.09,
+          "end": 2.63
+        },
+        {
+          "text": "and",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "that",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "text": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "others",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "text": "make",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "money",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "text": "because",
+          "start": 4.31,
+          "end": 4.71
+        },
+        {
+          "text": "they",
+          "start": 4.71,
+          "end": 4.99
+        },
+        {
+          "text": "conduce",
+          "start": 4.99,
+          "end": 5.47
+        },
+        {
+          "text": "to",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "text": "production?",
+          "start": 5.59,
+          "end": 5.99
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1566416616551578
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88d4f8e79e158ba05dd3ccdc3ef21d69cdc008e9112213cb07c731214b40a9e5",
+  "selected_reasons": []
+}

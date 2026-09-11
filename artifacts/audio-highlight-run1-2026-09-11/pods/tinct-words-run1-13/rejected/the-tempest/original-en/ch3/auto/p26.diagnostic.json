@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "1253e565d2c7b70b731e981f23363bc157449a8b1280cc5bc0af3c2d43da6ff6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09090080601163208,
+      "alignment_seconds": 7.783295586705208e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. Yet,--",
+        "hotwords": "Sebastian, Yet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, Yet.",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Yet.",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.0638427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Yet.",
+          "start": 1.2,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Yet,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Yet,--",
+          "start": 1.2,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09100748004857451
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fde064e546418525fdc94407f9ae4af656464b723ab78f32e656e991181c69ad",
+  "selected_reasons": []
+}

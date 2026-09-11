@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "b807a8618a762d2c296286a7832a4288a3a8c20ac98b7a18d0b46c823b54c99c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14981362223625183,
+      "alignment_seconds": 7.130205631256104e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and his opinion also a faculty.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " his",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " opinion",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " also",
+              "start": 1.03,
+              "end": 1.41,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " a",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " faculty.",
+              "start": 1.61,
+              "end": 2.03,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "his",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "opinion",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "also",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "raw": "a",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "faculty.",
+          "start": 1.61,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "opinion",
+        "also",
+        "a",
+        "faculty?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.61
+        },
+        {
+          "text": "opinion",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "text": "also",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "text": "a",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "faculty?",
+          "start": 1.61,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14991185814142227
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e53947634548318abecc79527e5cd7424896c8dfd8c64ce0f657e491d1da8e01",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

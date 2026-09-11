@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "d0e4b05d022abd5d23a6397ac29e6dfc884126da0537f8218c196b0284b8d7fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.07248495519161224,
+      "alignment_seconds": 5.675852298736572e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I suppose not.",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.875
+            },
+            {
+              "text": " suppose",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " not.",
+              "start": 0.77,
+              "end": 1.09,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "suppose",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "not.",
+          "start": 0.77,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "suppose",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "suppose",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "not.",
+          "start": 0.77,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07256350666284561
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d8bebe2fdc3353ae70035b3df72f86829e320d04c93af0212c3eee69d2900fa",
+  "selected_reasons": []
+}

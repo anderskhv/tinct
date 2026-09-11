@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "3530a37c113147768fd3c42fbba73378233a6d84762d31f00599833519eec2e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.07008198648691177,
+      "alignment_seconds": 4.529207944869995e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Slaves.",
+        "hotwords": "Slaves"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Slaves.",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " Slaves.",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.727294921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Slaves.",
+          "start": 0.05,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "Slaves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Slaves.",
+          "start": 0.05,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0701439380645752
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ece2b3c1f991ad5188542ed1380224cfa2b56f4c3a5fa3e5989b9be1a272563b",
+  "selected_reasons": []
+}

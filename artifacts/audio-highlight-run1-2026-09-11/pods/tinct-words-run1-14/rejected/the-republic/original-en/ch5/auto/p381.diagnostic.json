@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e49fce4df7ab480453face94835845440c0f46007bd8ff5a89b9e72dc5d78b6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09807758033275604,
+      "alignment_seconds": 7.446855306625366e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It ought to be, he replied.",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It ought to be, he replied.",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.474853515625
+            },
+            {
+              "text": " ought",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be,",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.9921875
+            },
+            {
+              "text": " replied.",
+              "start": 1.34,
+              "end": 1.72,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "ought",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "to",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "be,",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "replied.",
+          "start": 1.34,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "ought",
+        "to",
+        "be,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "ought",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "to",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "be,",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "text": "he",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "replied.",
+          "start": 1.34,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09818444401025772
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "183920f2fb015d4e2ac1c97ac011ea1333503724d73e18761c82c727dd7bab46",
+  "selected_reasons": []
+}

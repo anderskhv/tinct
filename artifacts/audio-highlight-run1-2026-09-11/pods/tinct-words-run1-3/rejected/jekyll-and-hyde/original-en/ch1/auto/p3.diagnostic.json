@@ -1,0 +1,3148 @@
+{
+  "complete": true,
+  "signature": "257b8219939a239aadf28e16fcf83038c4f5bce6941b991f25730353d94f881a",
+  "attempts": [
+    {
+      "asr_seconds": 0.8440578058362007,
+      "alignment_seconds": 0.00035685300827026367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Two doors from one corner, on the left hand going east the line was broken by the entry of a court; and just at that point a certain sinister block of building thrust forward its gable on the street. It was two storeys high; showed no window, nothing but a door on the lower storey and a blind forehead of discoloured wall on the upper; and bore in every feature, the marks of prolonged and sordid negligence. The door, which was equipped with neither bell nor knocker, was blistered and distained. Tramps slouched into the recess and struck matches on the panels; children kept shop upon the steps; the schoolboy had tried his knife on the mouldings; and for close on a generation, no one had appeared to drive away these random visitors or to repair their ravages.",
+        "hotwords": "It, Tramps"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Two doors from one corner, on the left hand going east the line was broken by the entry",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Two",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.0255126953125
+            },
+            {
+              "text": " doors",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " from",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " one",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " corner,",
+              "start": 1.23,
+              "end": 1.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 2.03,
+              "end": 2.13,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 2.13,
+              "end": 2.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " left",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hand",
+              "start": 2.41,
+              "end": 2.71,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " going",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " east",
+              "start": 2.93,
+              "end": 3.19,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " the",
+              "start": 3.19,
+              "end": 3.43,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " line",
+              "start": 3.43,
+              "end": 3.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 3.67,
+              "end": 3.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " broken",
+              "start": 3.87,
+              "end": 4.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 4.15,
+              "end": 4.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 4.37,
+              "end": 4.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " entry",
+              "start": 4.49,
+              "end": 4.75,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " of a court, and just at that point a certain sinister block of building thrust forward its",
+          "start": 4.75,
+          "end": 9.57,
+          "words": [
+            {
+              "text": " of",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 4.89,
+              "end": 4.99,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " court,",
+              "start": 4.99,
+              "end": 5.21,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 5.81,
+              "end": 5.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " just",
+              "start": 5.93,
+              "end": 6.11,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " at",
+              "start": 6.11,
+              "end": 6.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 6.25,
+              "end": 6.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " point",
+              "start": 6.47,
+              "end": 6.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 6.67,
+              "end": 7.21,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " certain",
+              "start": 7.21,
+              "end": 7.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sinister",
+              "start": 7.47,
+              "end": 7.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " block",
+              "start": 7.89,
+              "end": 8.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 8.17,
+              "end": 8.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " building",
+              "start": 8.33,
+              "end": 8.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thrust",
+              "start": 8.63,
+              "end": 8.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forward",
+              "start": 8.93,
+              "end": 9.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " its",
+              "start": 9.33,
+              "end": 9.57,
+              "probability": 0.9638671875
+            }
+          ]
+        },
+        {
+          "text": " gable on the street. It was two storeys high, showed no window, nothing but a door on the",
+          "start": 9.57,
+          "end": 15.01,
+          "words": [
+            {
+              "text": " gable",
+              "start": 9.57,
+              "end": 9.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " on",
+              "start": 9.87,
+              "end": 10.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 10.05,
+              "end": 10.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " street.",
+              "start": 10.19,
+              "end": 10.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " It",
+              "start": 11.01,
+              "end": 11.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " was",
+              "start": 11.17,
+              "end": 11.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " two",
+              "start": 11.29,
+              "end": 11.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " storeys",
+              "start": 11.49,
+              "end": 11.89,
+              "probability": 0.5538330078125
+            },
+            {
+              "text": " high,",
+              "start": 11.89,
+              "end": 12.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " showed",
+              "start": 12.71,
+              "end": 12.97,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " no",
+              "start": 12.97,
+              "end": 13.25,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " window,",
+              "start": 13.25,
+              "end": 13.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 14.07,
+              "end": 14.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 14.29,
+              "end": 14.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 14.49,
+              "end": 14.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " door",
+              "start": 14.59,
+              "end": 14.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 14.73,
+              "end": 14.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 14.87,
+              "end": 15.01,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " lower storey and a blind forehead of discoloured wall on the upper, and bore in every feature,",
+          "start": 15.01,
+          "end": 19.75,
+          "words": [
+            {
+              "text": " lower",
+              "start": 15.01,
+              "end": 15.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " storey",
+              "start": 15.19,
+              "end": 15.63,
+              "probability": 0.61761474609375
+            },
+            {
+              "text": " and",
+              "start": 15.63,
+              "end": 15.73,
+              "probability": 0.96875
+            },
+            {
+              "text": " a",
+              "start": 15.73,
+              "end": 15.87,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " blind",
+              "start": 15.87,
+              "end": 16.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forehead",
+              "start": 16.11,
+              "end": 16.59,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " of",
+              "start": 16.59,
+              "end": 16.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " discoloured",
+              "start": 16.75,
+              "end": 17.23,
+              "probability": 0.7093098958333334
+            },
+            {
+              "text": " wall",
+              "start": 17.23,
+              "end": 17.53,
+              "probability": 0.986328125
+            },
+            {
+              "text": " on",
+              "start": 17.53,
+              "end": 17.73,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 17.73,
+              "end": 17.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " upper,",
+              "start": 17.83,
+              "end": 18.05,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 18.49,
+              "end": 18.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bore",
+              "start": 18.73,
+              "end": 18.93,
+              "probability": 0.98046875
+            },
+            {
+              "text": " in",
+              "start": 18.93,
+              "end": 19.09,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " every",
+              "start": 19.09,
+              "end": 19.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " feature,",
+              "start": 19.31,
+              "end": 19.75,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " the marks of prolonged and sordid negligence. The door, which was equipped with neither",
+          "start": 20.17,
+          "end": 25.07,
+          "words": [
+            {
+              "text": " the",
+              "start": 20.17,
+              "end": 20.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " marks",
+              "start": 20.27,
+              "end": 20.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 20.49,
+              "end": 20.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " prolonged",
+              "start": 20.71,
+              "end": 21.21,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 21.21,
+              "end": 21.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sordid",
+              "start": 21.49,
+              "end": 21.93,
+              "probability": 0.9645182291666666
+            },
+            {
+              "text": " negligence.",
+              "start": 21.93,
+              "end": 22.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " The",
+              "start": 23.07,
+              "end": 23.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " door,",
+              "start": 23.35,
+              "end": 23.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " which",
+              "start": 23.97,
+              "end": 24.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 24.13,
+              "end": 24.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " equipped",
+              "start": 24.29,
+              "end": 24.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 24.59,
+              "end": 24.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " neither",
+              "start": 24.83,
+              "end": 25.07,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " bell nor knocker, was blistered and distained. Tramps slouched into the recess and struck",
+          "start": 25.07,
+          "end": 31.07,
+          "words": [
+            {
+              "text": " bell",
+              "start": 25.07,
+              "end": 25.35,
+              "probability": 0.875
+            },
+            {
+              "text": " nor",
+              "start": 25.35,
+              "end": 25.59,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " knocker,",
+              "start": 25.59,
+              "end": 26.11,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " was",
+              "start": 26.39,
+              "end": 26.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " blistered",
+              "start": 26.57,
+              "end": 27.01,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 27.01,
+              "end": 27.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " distained.",
+              "start": 27.33,
+              "end": 27.93,
+              "probability": 0.6429443359375
+            },
+            {
+              "text": " Tramps",
+              "start": 29.07,
+              "end": 29.27,
+              "probability": 0.964599609375
+            },
+            {
+              "text": " slouched",
+              "start": 29.27,
+              "end": 29.73,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " into",
+              "start": 29.73,
+              "end": 29.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 29.97,
+              "end": 30.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " recess",
+              "start": 30.11,
+              "end": 30.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 30.47,
+              "end": 30.79,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " struck",
+              "start": 30.79,
+              "end": 31.07,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " matches on the panels, children kept shop upon the steps, the schoolboy had tried his",
+          "start": 31.07,
+          "end": 36.43,
+          "words": [
+            {
+              "text": " matches",
+              "start": 31.07,
+              "end": 31.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 31.47,
+              "end": 31.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 31.71,
+              "end": 31.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " panels,",
+              "start": 31.81,
+              "end": 32.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " children",
+              "start": 32.89,
+              "end": 33.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " kept",
+              "start": 33.21,
+              "end": 33.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shop",
+              "start": 33.51,
+              "end": 33.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " upon",
+              "start": 33.85,
+              "end": 34.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 34.15,
+              "end": 34.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " steps,",
+              "start": 34.31,
+              "end": 34.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 35.17,
+              "end": 35.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " schoolboy",
+              "start": 35.31,
+              "end": 35.83,
+              "probability": 0.912353515625
+            },
+            {
+              "text": " had",
+              "start": 35.83,
+              "end": 36.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tried",
+              "start": 36.03,
+              "end": 36.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 36.23,
+              "end": 36.43,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " knife on the mouldings, and for close on a generation, no one had appeared to drive away",
+          "start": 36.43,
+          "end": 41.35,
+          "words": [
+            {
+              "text": " knife",
+              "start": 36.43,
+              "end": 36.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 36.69,
+              "end": 36.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 36.87,
+              "end": 37.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mouldings,",
+              "start": 37.01,
+              "end": 37.49,
+              "probability": 0.544647216796875
+            },
+            {
+              "text": " and",
+              "start": 37.87,
+              "end": 38.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 38.09,
+              "end": 38.23,
+              "probability": 0.982421875
+            },
+            {
+              "text": " close",
+              "start": 38.23,
+              "end": 38.51,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " on",
+              "start": 38.51,
+              "end": 38.69,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " a",
+              "start": 38.69,
+              "end": 38.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " generation,",
+              "start": 38.79,
+              "end": 39.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 39.81,
+              "end": 40.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " one",
+              "start": 40.01,
+              "end": 40.15,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " had",
+              "start": 40.15,
+              "end": 40.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " appeared",
+              "start": 40.27,
+              "end": 40.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 40.55,
+              "end": 40.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drive",
+              "start": 40.77,
+              "end": 41.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 41.05,
+              "end": 41.35,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " these random visitors or to repair their ravages.",
+          "start": 41.35,
+          "end": 44.09,
+          "words": [
+            {
+              "text": " these",
+              "start": 41.35,
+              "end": 41.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " random",
+              "start": 41.59,
+              "end": 42.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " visitors",
+              "start": 42.01,
+              "end": 42.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " or",
+              "start": 42.49,
+              "end": 42.91,
+              "probability": 0.90234375
+            },
+            {
+              "text": " to",
+              "start": 42.91,
+              "end": 43.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " repair",
+              "start": 43.09,
+              "end": 43.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 43.39,
+              "end": 43.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ravages.",
+              "start": 43.65,
+              "end": 44.09,
+              "probability": 0.997802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "doors",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "from",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "one",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "corner,",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "raw": "on",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "raw": "left",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "hand",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "raw": "going",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "east",
+          "start": 2.93,
+          "end": 3.19
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "raw": "line",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "raw": "was",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "raw": "broken",
+          "start": 3.87,
+          "end": 4.15
+        },
+        {
+          "raw": "by",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "raw": "the",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "raw": "entry",
+          "start": 4.49,
+          "end": 4.75
+        },
+        {
+          "raw": "of",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "a",
+          "start": 4.89,
+          "end": 4.99
+        },
+        {
+          "raw": "court,",
+          "start": 4.99,
+          "end": 5.21
+        },
+        {
+          "raw": "and",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "raw": "just",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "raw": "at",
+          "start": 6.11,
+          "end": 6.25
+        },
+        {
+          "raw": "that",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "raw": "point",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "raw": "a",
+          "start": 6.67,
+          "end": 7.21
+        },
+        {
+          "raw": "certain",
+          "start": 7.21,
+          "end": 7.47
+        },
+        {
+          "raw": "sinister",
+          "start": 7.47,
+          "end": 7.89
+        },
+        {
+          "raw": "block",
+          "start": 7.89,
+          "end": 8.17
+        },
+        {
+          "raw": "of",
+          "start": 8.17,
+          "end": 8.33
+        },
+        {
+          "raw": "building",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "raw": "thrust",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "raw": "forward",
+          "start": 8.93,
+          "end": 9.33
+        },
+        {
+          "raw": "its",
+          "start": 9.33,
+          "end": 9.57
+        },
+        {
+          "raw": "gable",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "raw": "on",
+          "start": 9.87,
+          "end": 10.05
+        },
+        {
+          "raw": "the",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "raw": "street.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "raw": "It",
+          "start": 11.01,
+          "end": 11.17
+        },
+        {
+          "raw": "was",
+          "start": 11.17,
+          "end": 11.29
+        },
+        {
+          "raw": "two",
+          "start": 11.29,
+          "end": 11.49
+        },
+        {
+          "raw": "storeys",
+          "start": 11.49,
+          "end": 11.89
+        },
+        {
+          "raw": "high,",
+          "start": 11.89,
+          "end": 12.19
+        },
+        {
+          "raw": "showed",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "raw": "no",
+          "start": 12.97,
+          "end": 13.25
+        },
+        {
+          "raw": "window,",
+          "start": 13.25,
+          "end": 13.59
+        },
+        {
+          "raw": "nothing",
+          "start": 14.07,
+          "end": 14.29
+        },
+        {
+          "raw": "but",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "raw": "a",
+          "start": 14.49,
+          "end": 14.59
+        },
+        {
+          "raw": "door",
+          "start": 14.59,
+          "end": 14.73
+        },
+        {
+          "raw": "on",
+          "start": 14.73,
+          "end": 14.87
+        },
+        {
+          "raw": "the",
+          "start": 14.87,
+          "end": 15.01
+        },
+        {
+          "raw": "lower",
+          "start": 15.01,
+          "end": 15.19
+        },
+        {
+          "raw": "storey",
+          "start": 15.19,
+          "end": 15.63
+        },
+        {
+          "raw": "and",
+          "start": 15.63,
+          "end": 15.73
+        },
+        {
+          "raw": "a",
+          "start": 15.73,
+          "end": 15.87
+        },
+        {
+          "raw": "blind",
+          "start": 15.87,
+          "end": 16.11
+        },
+        {
+          "raw": "forehead",
+          "start": 16.11,
+          "end": 16.59
+        },
+        {
+          "raw": "of",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "raw": "discoloured",
+          "start": 16.75,
+          "end": 17.23
+        },
+        {
+          "raw": "wall",
+          "start": 17.23,
+          "end": 17.53
+        },
+        {
+          "raw": "on",
+          "start": 17.53,
+          "end": 17.73
+        },
+        {
+          "raw": "the",
+          "start": 17.73,
+          "end": 17.83
+        },
+        {
+          "raw": "upper,",
+          "start": 17.83,
+          "end": 18.05
+        },
+        {
+          "raw": "and",
+          "start": 18.49,
+          "end": 18.73
+        },
+        {
+          "raw": "bore",
+          "start": 18.73,
+          "end": 18.93
+        },
+        {
+          "raw": "in",
+          "start": 18.93,
+          "end": 19.09
+        },
+        {
+          "raw": "every",
+          "start": 19.09,
+          "end": 19.31
+        },
+        {
+          "raw": "feature,",
+          "start": 19.31,
+          "end": 19.75
+        },
+        {
+          "raw": "the",
+          "start": 20.17,
+          "end": 20.27
+        },
+        {
+          "raw": "marks",
+          "start": 20.27,
+          "end": 20.49
+        },
+        {
+          "raw": "of",
+          "start": 20.49,
+          "end": 20.71
+        },
+        {
+          "raw": "prolonged",
+          "start": 20.71,
+          "end": 21.21
+        },
+        {
+          "raw": "and",
+          "start": 21.21,
+          "end": 21.49
+        },
+        {
+          "raw": "sordid",
+          "start": 21.49,
+          "end": 21.93
+        },
+        {
+          "raw": "negligence.",
+          "start": 21.93,
+          "end": 22.37
+        },
+        {
+          "raw": "The",
+          "start": 23.07,
+          "end": 23.35
+        },
+        {
+          "raw": "door,",
+          "start": 23.35,
+          "end": 23.61
+        },
+        {
+          "raw": "which",
+          "start": 23.97,
+          "end": 24.13
+        },
+        {
+          "raw": "was",
+          "start": 24.13,
+          "end": 24.29
+        },
+        {
+          "raw": "equipped",
+          "start": 24.29,
+          "end": 24.59
+        },
+        {
+          "raw": "with",
+          "start": 24.59,
+          "end": 24.83
+        },
+        {
+          "raw": "neither",
+          "start": 24.83,
+          "end": 25.07
+        },
+        {
+          "raw": "bell",
+          "start": 25.07,
+          "end": 25.35
+        },
+        {
+          "raw": "nor",
+          "start": 25.35,
+          "end": 25.59
+        },
+        {
+          "raw": "knocker,",
+          "start": 25.59,
+          "end": 26.11
+        },
+        {
+          "raw": "was",
+          "start": 26.39,
+          "end": 26.57
+        },
+        {
+          "raw": "blistered",
+          "start": 26.57,
+          "end": 27.01
+        },
+        {
+          "raw": "and",
+          "start": 27.01,
+          "end": 27.33
+        },
+        {
+          "raw": "distained.",
+          "start": 27.33,
+          "end": 27.93
+        },
+        {
+          "raw": "Tramps",
+          "start": 29.07,
+          "end": 29.27
+        },
+        {
+          "raw": "slouched",
+          "start": 29.27,
+          "end": 29.73
+        },
+        {
+          "raw": "into",
+          "start": 29.73,
+          "end": 29.97
+        },
+        {
+          "raw": "the",
+          "start": 29.97,
+          "end": 30.11
+        },
+        {
+          "raw": "recess",
+          "start": 30.11,
+          "end": 30.47
+        },
+        {
+          "raw": "and",
+          "start": 30.47,
+          "end": 30.79
+        },
+        {
+          "raw": "struck",
+          "start": 30.79,
+          "end": 31.07
+        },
+        {
+          "raw": "matches",
+          "start": 31.07,
+          "end": 31.47
+        },
+        {
+          "raw": "on",
+          "start": 31.47,
+          "end": 31.71
+        },
+        {
+          "raw": "the",
+          "start": 31.71,
+          "end": 31.81
+        },
+        {
+          "raw": "panels,",
+          "start": 31.81,
+          "end": 32.17
+        },
+        {
+          "raw": "children",
+          "start": 32.89,
+          "end": 33.21
+        },
+        {
+          "raw": "kept",
+          "start": 33.21,
+          "end": 33.51
+        },
+        {
+          "raw": "shop",
+          "start": 33.51,
+          "end": 33.85
+        },
+        {
+          "raw": "upon",
+          "start": 33.85,
+          "end": 34.15
+        },
+        {
+          "raw": "the",
+          "start": 34.15,
+          "end": 34.31
+        },
+        {
+          "raw": "steps,",
+          "start": 34.31,
+          "end": 34.63
+        },
+        {
+          "raw": "the",
+          "start": 35.17,
+          "end": 35.31
+        },
+        {
+          "raw": "schoolboy",
+          "start": 35.31,
+          "end": 35.83
+        },
+        {
+          "raw": "had",
+          "start": 35.83,
+          "end": 36.03
+        },
+        {
+          "raw": "tried",
+          "start": 36.03,
+          "end": 36.23
+        },
+        {
+          "raw": "his",
+          "start": 36.23,
+          "end": 36.43
+        },
+        {
+          "raw": "knife",
+          "start": 36.43,
+          "end": 36.69
+        },
+        {
+          "raw": "on",
+          "start": 36.69,
+          "end": 36.87
+        },
+        {
+          "raw": "the",
+          "start": 36.87,
+          "end": 37.01
+        },
+        {
+          "raw": "mouldings,",
+          "start": 37.01,
+          "end": 37.49
+        },
+        {
+          "raw": "and",
+          "start": 37.87,
+          "end": 38.09
+        },
+        {
+          "raw": "for",
+          "start": 38.09,
+          "end": 38.23
+        },
+        {
+          "raw": "close",
+          "start": 38.23,
+          "end": 38.51
+        },
+        {
+          "raw": "on",
+          "start": 38.51,
+          "end": 38.69
+        },
+        {
+          "raw": "a",
+          "start": 38.69,
+          "end": 38.79
+        },
+        {
+          "raw": "generation,",
+          "start": 38.79,
+          "end": 39.31
+        },
+        {
+          "raw": "no",
+          "start": 39.81,
+          "end": 40.01
+        },
+        {
+          "raw": "one",
+          "start": 40.01,
+          "end": 40.15
+        },
+        {
+          "raw": "had",
+          "start": 40.15,
+          "end": 40.27
+        },
+        {
+          "raw": "appeared",
+          "start": 40.27,
+          "end": 40.55
+        },
+        {
+          "raw": "to",
+          "start": 40.55,
+          "end": 40.77
+        },
+        {
+          "raw": "drive",
+          "start": 40.77,
+          "end": 41.05
+        },
+        {
+          "raw": "away",
+          "start": 41.05,
+          "end": 41.35
+        },
+        {
+          "raw": "these",
+          "start": 41.35,
+          "end": 41.59
+        },
+        {
+          "raw": "random",
+          "start": 41.59,
+          "end": 42.01
+        },
+        {
+          "raw": "visitors",
+          "start": 42.01,
+          "end": 42.49
+        },
+        {
+          "raw": "or",
+          "start": 42.49,
+          "end": 42.91
+        },
+        {
+          "raw": "to",
+          "start": 42.91,
+          "end": 43.09
+        },
+        {
+          "raw": "repair",
+          "start": 43.09,
+          "end": 43.39
+        },
+        {
+          "raw": "their",
+          "start": 43.39,
+          "end": 43.65
+        },
+        {
+          "raw": "ravages.",
+          "start": 43.65,
+          "end": 44.09
+        }
+      ],
+      "expected_tokens": [
+        "Two",
+        "doors",
+        "from",
+        "one",
+        "corner,",
+        "on",
+        "the",
+        "left",
+        "hand",
+        "going",
+        "east",
+        "the",
+        "line",
+        "was",
+        "broken",
+        "by",
+        "the",
+        "entry",
+        "of",
+        "a",
+        "court;",
+        "and",
+        "just",
+        "at",
+        "that",
+        "point",
+        "a",
+        "certain",
+        "sinister",
+        "block",
+        "of",
+        "building",
+        "thrust",
+        "forward",
+        "its",
+        "gable",
+        "on",
+        "the",
+        "street.",
+        "It",
+        "was",
+        "two",
+        "storeys",
+        "high;",
+        "showed",
+        "no",
+        "window,",
+        "nothing",
+        "but",
+        "a",
+        "door",
+        "on",
+        "the",
+        "lower",
+        "storey",
+        "and",
+        "a",
+        "blind",
+        "forehead",
+        "of",
+        "discoloured",
+        "wall",
+        "on",
+        "the",
+        "upper;",
+        "and",
+        "bore",
+        "in",
+        "every",
+        "feature,",
+        "the",
+        "marks",
+        "of",
+        "prolonged",
+        "and",
+        "sordid",
+        "negligence.",
+        "The",
+        "door,",
+        "which",
+        "was",
+        "equipped",
+        "with",
+        "neither",
+        "bell",
+        "nor",
+        "knocker,",
+        "was",
+        "blistered",
+        "and",
+        "distained.",
+        "Tramps",
+        "slouched",
+        "into",
+        "the",
+        "recess",
+        "and",
+        "struck",
+        "matches",
+        "on",
+        "the",
+        "panels;",
+        "children",
+        "kept",
+        "shop",
+        "upon",
+        "the",
+        "steps;",
+        "the",
+        "schoolboy",
+        "had",
+        "tried",
+        "his",
+        "knife",
+        "on",
+        "the",
+        "mouldings;",
+        "and",
+        "for",
+        "close",
+        "on",
+        "a",
+        "generation,",
+        "no",
+        "one",
+        "had",
+        "appeared",
+        "to",
+        "drive",
+        "away",
+        "these",
+        "random",
+        "visitors",
+        "or",
+        "to",
+        "repair",
+        "their",
+        "ravages."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          138,
+          0,
+          138
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 122,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 123,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 124,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 125,
+          "source": "observed",
+          "heard_index": 125
+        },
+        {
+          "index": 126,
+          "source": "observed",
+          "heard_index": 126
+        },
+        {
+          "index": 127,
+          "source": "observed",
+          "heard_index": 127
+        },
+        {
+          "index": 128,
+          "source": "observed",
+          "heard_index": 128
+        },
+        {
+          "index": 129,
+          "source": "observed",
+          "heard_index": 129
+        },
+        {
+          "index": 130,
+          "source": "observed",
+          "heard_index": 130
+        },
+        {
+          "index": 131,
+          "source": "observed",
+          "heard_index": 131
+        },
+        {
+          "index": 132,
+          "source": "observed",
+          "heard_index": 132
+        },
+        {
+          "index": 133,
+          "source": "observed",
+          "heard_index": 133
+        },
+        {
+          "index": 134,
+          "source": "observed",
+          "heard_index": 134
+        },
+        {
+          "index": 135,
+          "source": "observed",
+          "heard_index": 135
+        },
+        {
+          "index": 136,
+          "source": "observed",
+          "heard_index": 136
+        },
+        {
+          "index": 137,
+          "source": "observed",
+          "heard_index": 137
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Two",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "doors",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "from",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "text": "one",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "corner,",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "text": "on",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "text": "the",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "text": "left",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "hand",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "text": "going",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "east",
+          "start": 2.93,
+          "end": 3.19
+        },
+        {
+          "text": "the",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "text": "line",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "text": "was",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "text": "broken",
+          "start": 3.87,
+          "end": 4.15
+        },
+        {
+          "text": "by",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "entry",
+          "start": 4.49,
+          "end": 4.75
+        },
+        {
+          "text": "of",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "a",
+          "start": 4.89,
+          "end": 4.99
+        },
+        {
+          "text": "court;",
+          "start": 4.99,
+          "end": 5.21
+        },
+        {
+          "text": "and",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "text": "just",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "text": "at",
+          "start": 6.11,
+          "end": 6.25
+        },
+        {
+          "text": "that",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "text": "point",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "text": "a",
+          "start": 6.67,
+          "end": 7.21
+        },
+        {
+          "text": "certain",
+          "start": 7.21,
+          "end": 7.47
+        },
+        {
+          "text": "sinister",
+          "start": 7.47,
+          "end": 7.89
+        },
+        {
+          "text": "block",
+          "start": 7.89,
+          "end": 8.17
+        },
+        {
+          "text": "of",
+          "start": 8.17,
+          "end": 8.33
+        },
+        {
+          "text": "building",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "text": "thrust",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "text": "forward",
+          "start": 8.93,
+          "end": 9.33
+        },
+        {
+          "text": "its",
+          "start": 9.33,
+          "end": 9.57
+        },
+        {
+          "text": "gable",
+          "start": 9.57,
+          "end": 9.87
+        },
+        {
+          "text": "on",
+          "start": 9.87,
+          "end": 10.05
+        },
+        {
+          "text": "the",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "text": "street.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "text": "It",
+          "start": 11.01,
+          "end": 11.17
+        },
+        {
+          "text": "was",
+          "start": 11.17,
+          "end": 11.29
+        },
+        {
+          "text": "two",
+          "start": 11.29,
+          "end": 11.49
+        },
+        {
+          "text": "storeys",
+          "start": 11.49,
+          "end": 11.89
+        },
+        {
+          "text": "high;",
+          "start": 11.89,
+          "end": 12.19
+        },
+        {
+          "text": "showed",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "text": "no",
+          "start": 12.97,
+          "end": 13.25
+        },
+        {
+          "text": "window,",
+          "start": 13.25,
+          "end": 13.59
+        },
+        {
+          "text": "nothing",
+          "start": 14.07,
+          "end": 14.29
+        },
+        {
+          "text": "but",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "text": "a",
+          "start": 14.49,
+          "end": 14.59
+        },
+        {
+          "text": "door",
+          "start": 14.59,
+          "end": 14.73
+        },
+        {
+          "text": "on",
+          "start": 14.73,
+          "end": 14.87
+        },
+        {
+          "text": "the",
+          "start": 14.87,
+          "end": 15.01
+        },
+        {
+          "text": "lower",
+          "start": 15.01,
+          "end": 15.19
+        },
+        {
+          "text": "storey",
+          "start": 15.19,
+          "end": 15.63
+        },
+        {
+          "text": "and",
+          "start": 15.63,
+          "end": 15.73
+        },
+        {
+          "text": "a",
+          "start": 15.73,
+          "end": 15.87
+        },
+        {
+          "text": "blind",
+          "start": 15.87,
+          "end": 16.11
+        },
+        {
+          "text": "forehead",
+          "start": 16.11,
+          "end": 16.59
+        },
+        {
+          "text": "of",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "text": "discoloured",
+          "start": 16.75,
+          "end": 17.23
+        },
+        {
+          "text": "wall",
+          "start": 17.23,
+          "end": 17.53
+        },
+        {
+          "text": "on",
+          "start": 17.53,
+          "end": 17.73
+        },
+        {
+          "text": "the",
+          "start": 17.73,
+          "end": 17.83
+        },
+        {
+          "text": "upper;",
+          "start": 17.83,
+          "end": 18.05
+        },
+        {
+          "text": "and",
+          "start": 18.49,
+          "end": 18.73
+        },
+        {
+          "text": "bore",
+          "start": 18.73,
+          "end": 18.93
+        },
+        {
+          "text": "in",
+          "start": 18.93,
+          "end": 19.09
+        },
+        {
+          "text": "every",
+          "start": 19.09,
+          "end": 19.31
+        },
+        {
+          "text": "feature,",
+          "start": 19.31,
+          "end": 19.75
+        },
+        {
+          "text": "the",
+          "start": 20.17,
+          "end": 20.27
+        },
+        {
+          "text": "marks",
+          "start": 20.27,
+          "end": 20.49
+        },
+        {
+          "text": "of",
+          "start": 20.49,
+          "end": 20.71
+        },
+        {
+          "text": "prolonged",
+          "start": 20.71,
+          "end": 21.21
+        },
+        {
+          "text": "and",
+          "start": 21.21,
+          "end": 21.49
+        },
+        {
+          "text": "sordid",
+          "start": 21.49,
+          "end": 21.93
+        },
+        {
+          "text": "negligence.",
+          "start": 21.93,
+          "end": 22.37
+        },
+        {
+          "text": "The",
+          "start": 23.07,
+          "end": 23.35
+        },
+        {
+          "text": "door,",
+          "start": 23.35,
+          "end": 23.61
+        },
+        {
+          "text": "which",
+          "start": 23.97,
+          "end": 24.13
+        },
+        {
+          "text": "was",
+          "start": 24.13,
+          "end": 24.29
+        },
+        {
+          "text": "equipped",
+          "start": 24.29,
+          "end": 24.59
+        },
+        {
+          "text": "with",
+          "start": 24.59,
+          "end": 24.83
+        },
+        {
+          "text": "neither",
+          "start": 24.83,
+          "end": 25.07
+        },
+        {
+          "text": "bell",
+          "start": 25.07,
+          "end": 25.35
+        },
+        {
+          "text": "nor",
+          "start": 25.35,
+          "end": 25.59
+        },
+        {
+          "text": "knocker,",
+          "start": 25.59,
+          "end": 26.11
+        },
+        {
+          "text": "was",
+          "start": 26.39,
+          "end": 26.57
+        },
+        {
+          "text": "blistered",
+          "start": 26.57,
+          "end": 27.01
+        },
+        {
+          "text": "and",
+          "start": 27.01,
+          "end": 27.33
+        },
+        {
+          "text": "distained.",
+          "start": 27.33,
+          "end": 27.93
+        },
+        {
+          "text": "Tramps",
+          "start": 29.07,
+          "end": 29.27
+        },
+        {
+          "text": "slouched",
+          "start": 29.27,
+          "end": 29.73
+        },
+        {
+          "text": "into",
+          "start": 29.73,
+          "end": 29.97
+        },
+        {
+          "text": "the",
+          "start": 29.97,
+          "end": 30.11
+        },
+        {
+          "text": "recess",
+          "start": 30.11,
+          "end": 30.47
+        },
+        {
+          "text": "and",
+          "start": 30.47,
+          "end": 30.79
+        },
+        {
+          "text": "struck",
+          "start": 30.79,
+          "end": 31.07
+        },
+        {
+          "text": "matches",
+          "start": 31.07,
+          "end": 31.47
+        },
+        {
+          "text": "on",
+          "start": 31.47,
+          "end": 31.71
+        },
+        {
+          "text": "the",
+          "start": 31.71,
+          "end": 31.81
+        },
+        {
+          "text": "panels;",
+          "start": 31.81,
+          "end": 32.17
+        },
+        {
+          "text": "children",
+          "start": 32.89,
+          "end": 33.21
+        },
+        {
+          "text": "kept",
+          "start": 33.21,
+          "end": 33.51
+        },
+        {
+          "text": "shop",
+          "start": 33.51,
+          "end": 33.85
+        },
+        {
+          "text": "upon",
+          "start": 33.85,
+          "end": 34.15
+        },
+        {
+          "text": "the",
+          "start": 34.15,
+          "end": 34.31
+        },
+        {
+          "text": "steps;",
+          "start": 34.31,
+          "end": 34.63
+        },
+        {
+          "text": "the",
+          "start": 35.17,
+          "end": 35.31
+        },
+        {
+          "text": "schoolboy",
+          "start": 35.31,
+          "end": 35.83
+        },
+        {
+          "text": "had",
+          "start": 35.83,
+          "end": 36.03
+        },
+        {
+          "text": "tried",
+          "start": 36.03,
+          "end": 36.23
+        },
+        {
+          "text": "his",
+          "start": 36.23,
+          "end": 36.43
+        },
+        {
+          "text": "knife",
+          "start": 36.43,
+          "end": 36.69
+        },
+        {
+          "text": "on",
+          "start": 36.69,
+          "end": 36.87
+        },
+        {
+          "text": "the",
+          "start": 36.87,
+          "end": 37.01
+        },
+        {
+          "text": "mouldings;",
+          "start": 37.01,
+          "end": 37.49
+        },
+        {
+          "text": "and",
+          "start": 37.87,
+          "end": 38.09
+        },
+        {
+          "text": "for",
+          "start": 38.09,
+          "end": 38.23
+        },
+        {
+          "text": "close",
+          "start": 38.23,
+          "end": 38.51
+        },
+        {
+          "text": "on",
+          "start": 38.51,
+          "end": 38.69
+        },
+        {
+          "text": "a",
+          "start": 38.69,
+          "end": 38.79
+        },
+        {
+          "text": "generation,",
+          "start": 38.79,
+          "end": 39.31
+        },
+        {
+          "text": "no",
+          "start": 39.81,
+          "end": 40.01
+        },
+        {
+          "text": "one",
+          "start": 40.01,
+          "end": 40.15
+        },
+        {
+          "text": "had",
+          "start": 40.15,
+          "end": 40.27
+        },
+        {
+          "text": "appeared",
+          "start": 40.27,
+          "end": 40.55
+        },
+        {
+          "text": "to",
+          "start": 40.55,
+          "end": 40.77
+        },
+        {
+          "text": "drive",
+          "start": 40.77,
+          "end": 41.05
+        },
+        {
+          "text": "away",
+          "start": 41.05,
+          "end": 41.35
+        },
+        {
+          "text": "these",
+          "start": 41.35,
+          "end": 41.59
+        },
+        {
+          "text": "random",
+          "start": 41.59,
+          "end": 42.01
+        },
+        {
+          "text": "visitors",
+          "start": 42.01,
+          "end": 42.49
+        },
+        {
+          "text": "or",
+          "start": 42.49,
+          "end": 42.91
+        },
+        {
+          "text": "to",
+          "start": 42.91,
+          "end": 43.09
+        },
+        {
+          "text": "repair",
+          "start": 43.09,
+          "end": 43.39
+        },
+        {
+          "text": "their",
+          "start": 43.39,
+          "end": 43.65
+        },
+        {
+          "text": "ravages.",
+          "start": 43.65,
+          "end": 44.09
+        }
+      ],
+      "stats": {
+        "expected_words": 138,
+        "heard_words": 138,
+        "matched_words": 138
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8446036204695702
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82f05c7c28fb73e43557cabd05230a33e0bc7d369c6dd052bf3d8e6bbe21d5b0",
+  "selected_reasons": []
+}

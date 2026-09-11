@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "2277eb42cb78053d8ae014395d452473ff3394a22f2cb463b01d35eace51d7e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.10056901723146439,
+      "alignment_seconds": 7.077306509017944e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jason, oh, what a womb of sin my children bore.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.736328125
+            },
+            {
+              "text": " oh,",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.892578125
+            },
+            {
+              "text": " what",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " womb",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " of",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sin",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.974609375
+            },
+            {
+              "text": " children",
+              "start": 2.49,
+              "end": 2.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bore.",
+              "start": 2.81,
+              "end": 3.17,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "oh,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "what",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "womb",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "sin",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "my",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "children",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "raw": "bore.",
+          "start": 2.81,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "Oh,",
+        "what",
+        "a",
+        "womb",
+        "of",
+        "sin",
+        "my",
+        "children",
+        "bore!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Oh,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "what",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "a",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "womb",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "of",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "sin",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "text": "my",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "children",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "text": "bore!",
+          "start": 2.81,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10067328810691833
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dd0da9647876cde0ac1bb76df55d7a9532363ba8c6f53c16368dfa128e7c4105",
+  "selected_reasons": []
+}

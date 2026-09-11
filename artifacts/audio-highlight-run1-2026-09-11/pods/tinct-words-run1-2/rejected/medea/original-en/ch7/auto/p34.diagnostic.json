@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "0c4860c52dd92defba918f4fbb39b9e4899b28f74accf79daf1cf7dccfc7dda3",
+  "attempts": [
+    {
+      "asr_seconds": 0.11230593174695969,
+      "alignment_seconds": 0.0001063421368598938,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. I love the pain, so thou shalt laugh no more.",
+        "hotwords": "Medea, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, I love the pain, so thou shalt laugh no more.",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " love",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pain,",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " so",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.984375
+            },
+            {
+              "text": " thou",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " shalt",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " laugh",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more.",
+              "start": 2.97,
+              "end": 3.25,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "love",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "the",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "pain,",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "so",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "thou",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "shalt",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "laugh",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "no",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "raw": "more.",
+          "start": 2.97,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "I",
+        "love",
+        "the",
+        "pain,",
+        "so",
+        "thou",
+        "shalt",
+        "laugh",
+        "no",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "love",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "the",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "pain,",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "so",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "thou",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "shalt",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "laugh",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "no",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "text": "more.",
+          "start": 2.97,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11246146261692047
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dcb62133458642924d52e0ddc50b05775dfdc8e86118dd41e74210cc1008a316",
+  "selected_reasons": []
+}

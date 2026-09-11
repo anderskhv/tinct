@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "87b58c593ddd3d7e6f8a83ca6eb4e61f6617a83ff7b15da69fd6236665634c3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09063121676445007,
+      "alignment_seconds": 5.1744282245635986e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Tradespeople.\"",
+        "hotwords": "Tradespeople"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tradespeople.com",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Tradespeople",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.5386555989583334
+            },
+            {
+              "text": ".com",
+              "start": 1.01,
+              "end": 1.69,
+              "probability": 0.4829559326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tradespeople",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": ".com",
+          "start": 1.01,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "\"Tradespeople.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Tradespeople.\"",
+          "start": 0.05,
+          "end": 1.01
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09070201963186264
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c4c04e7cd44f12a2d0f06bfdeaf1c32805cfc0c4c1eac9e36694cdd56abae292",
+  "selected_reasons": []
+}

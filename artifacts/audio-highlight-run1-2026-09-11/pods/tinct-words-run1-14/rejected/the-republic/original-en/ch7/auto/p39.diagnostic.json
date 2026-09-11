@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "9045d044534d56be17711bd7106f92b6d6db60d99a4c4cb72d20bb138eb84b20",
+  "attempts": [
+    {
+      "asr_seconds": 0.07884886860847473,
+      "alignment_seconds": 5.891919136047363e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, very natural.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, very natural.",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.919921875
+            },
+            {
+              "text": " very",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " natural.",
+              "start": 1.14,
+              "end": 1.54,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "very",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "natural.",
+          "start": 1.14,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "very",
+        "natural."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "very",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "natural.",
+          "start": 1.14,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07892945408821106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f6145eb1ad6611d7e015f0a9b1f0e909d7c09d1c57293016f86f9bbf3977285b",
+  "selected_reasons": []
+}

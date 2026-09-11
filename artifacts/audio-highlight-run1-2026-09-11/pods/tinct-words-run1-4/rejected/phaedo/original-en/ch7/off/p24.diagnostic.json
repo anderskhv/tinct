@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "signature": "a3ffb6d69e491531f35f9444a6333189e1e66daa22a9d1ffc7943e2d380c2528",
+  "attempts": [
+    {
+      "asr_seconds": 0.09415748901665211,
+      "alignment_seconds": 5.321018397808075e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, that is very likely, I said.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.2171630859375
+            },
+            {
+              "text": " that",
+              "start": 1.01,
+              "end": 1.09,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " very",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " likely,",
+              "start": 1.41,
+              "end": 1.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said.",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "that",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "raw": "is",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "very",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "likely,",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "said.",
+          "start": 2.01,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "that",
+        "is",
+        "very",
+        "likely,",
+        "I",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "that",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "text": "is",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "very",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "likely,",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "text": "I",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "said.",
+          "start": 2.01,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09423333313316107
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25a5316b9b5824340934611cfe0aceed4aabc11d15cebe87d7ea3dce27a791b4",
+  "selected_reasons": []
+}

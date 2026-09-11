@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "e9f68a6d742cb82f4fe378a8dc7684f093111a10fc3cce84073db7bbaf2854d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.17065910249948502,
+      "alignment_seconds": 7.703900337219238e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And is it any better with the gentry? Even among the poor, honest people who live happily?\"",
+        "hotwords": "And, Even"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And is it any better with the gentry? Even among the poor, honest people who live happily?",
+          "start": 0.08,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.732421875
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " any",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " better",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " gentry?",
+              "start": 1.54,
+              "end": 1.94,
+              "probability": 0.916015625
+            },
+            {
+              "text": " Even",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.96875
+            },
+            {
+              "text": " among",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " poor,",
+              "start": 3.16,
+              "end": 3.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " honest",
+              "start": 3.86,
+              "end": 3.92,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " people",
+              "start": 3.92,
+              "end": 4.3,
+              "probability": 0.9921875
+            },
+            {
+              "text": " who",
+              "start": 4.3,
+              "end": 4.52,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " live",
+              "start": 4.52,
+              "end": 4.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " happily?",
+              "start": 4.66,
+              "end": 5.06,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "it",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "any",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "better",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "with",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "gentry?",
+          "start": 1.54,
+          "end": 1.94
+        },
+        {
+          "raw": "Even",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "among",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "poor,",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "raw": "honest",
+          "start": 3.86,
+          "end": 3.92
+        },
+        {
+          "raw": "people",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "raw": "who",
+          "start": 4.3,
+          "end": 4.52
+        },
+        {
+          "raw": "live",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "raw": "happily?",
+          "start": 4.66,
+          "end": 5.06
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "is",
+        "it",
+        "any",
+        "better",
+        "with",
+        "the",
+        "gentry?",
+        "Even",
+        "among",
+        "the",
+        "poor,",
+        "honest",
+        "people",
+        "who",
+        "live",
+        "happily?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "it",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "any",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "better",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "text": "with",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "gentry?",
+          "start": 1.54,
+          "end": 1.94
+        },
+        {
+          "text": "Even",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "among",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "poor,",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "text": "honest",
+          "start": 3.86,
+          "end": 3.92
+        },
+        {
+          "text": "people",
+          "start": 3.92,
+          "end": 4.3
+        },
+        {
+          "text": "who",
+          "start": 4.3,
+          "end": 4.52
+        },
+        {
+          "text": "live",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "text": "happily?\"",
+          "start": 4.66,
+          "end": 5.06
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1707696169614792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54375c3b2bca0148d5fd23624a380930394ae36c3ccd19d7f55a2b8a65d60f90",
+  "selected_reasons": []
+}

@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "5bed3b3a325c4c44d5820541eb83a5531bca555a4ebf5a3f7c250f4f1237ee27",
+  "attempts": [
+    {
+      "asr_seconds": 0.12107664067298174,
+      "alignment_seconds": 5.423184484243393e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And is this always the case?",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " is",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " this",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " always",
+              "start": 0.76,
+              "end": 1.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " case?",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "this",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "always",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "case?",
+          "start": 1.28,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "this",
+        "always",
+        "the",
+        "case?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "this",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "always",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "text": "the",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "case?",
+          "start": 1.28,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12115306220948696
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79ce5a1943f39256559792613411222ac851d181ec04adeae630fe817cc004ae",
+  "selected_reasons": []
+}

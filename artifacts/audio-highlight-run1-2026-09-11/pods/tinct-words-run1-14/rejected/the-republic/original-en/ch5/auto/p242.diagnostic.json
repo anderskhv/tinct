@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "aa28d4ff976a90dc9b6338fb0e73305f0734c4218744cfb2170d85227fdc2aba",
+  "attempts": [
+    {
+      "asr_seconds": 0.07740572094917297,
+      "alignment_seconds": 4.06801700592041e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fellow-guardians.",
+        "hotwords": "Fellow-guardians"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fellow-guardians.",
+          "start": 0.11,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Fellow",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.6396484375
+            },
+            {
+              "text": "-guardians.",
+              "start": 0.65,
+              "end": 1.27,
+              "probability": 0.4019416570663452
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fellow",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "-guardians.",
+          "start": 0.65,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Fellow-guardians."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Fellow-guardians.",
+          "start": 0.0,
+          "end": 0.635
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07746284455060959
+    },
+    {
+      "asr_seconds": 0.07876013219356537,
+      "alignment_seconds": 4.575401544570923e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Fellow-guardians"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Fellow-guardians",
+          "start": 0.11,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Fellow",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.6396484375
+            },
+            {
+              "text": "-guardians",
+              "start": 0.65,
+              "end": 1.25,
+              "probability": 0.4019416570663452
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fellow",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "-guardians",
+          "start": 0.65,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "Fellow-guardians."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Fellow-guardians.",
+          "start": 0.0,
+          "end": 0.625
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0788259357213974
+    },
+    {
+      "asr_seconds": 0.07859896123409271,
+      "alignment_seconds": 4.646182060241699e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fellow Guardians",
+          "start": 0.11,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Fellow",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " Guardians",
+              "start": 0.67,
+              "end": 1.11,
+              "probability": 0.66748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fellow",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Guardians",
+          "start": 0.67,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "Fellow-guardians."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Fellow-guardians.",
+          "start": 0.0,
+          "end": 0.555
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07866501808166504
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4fd07ca3b80fd1114173aad0e4b5fb1208f37897464a8091ab47906498b1a70",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

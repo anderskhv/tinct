@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "8d4e5fc23467c9623ec9210e9eaf7353cc6d5bf90a5b5110b3e5c19512081a0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14798536896705627,
+      "alignment_seconds": 0.0001716967672109604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, he said, the States are as the men are; they grow out of human characters.",
+        "hotwords": "Yes, States"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, he said, the States are as the men are, they grow out of human characters.",
+          "start": 0.05,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.1824951171875
+            },
+            {
+              "text": " he",
+              "start": 0.81,
+              "end": 0.91,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " said,",
+              "start": 0.91,
+              "end": 1.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.92578125
+            },
+            {
+              "text": " States",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.3603515625
+            },
+            {
+              "text": " are",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " as",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " men",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " are,",
+              "start": 2.71,
+              "end": 3.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 3.45,
+              "end": 3.55,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " grow",
+              "start": 3.55,
+              "end": 3.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " out",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " human",
+              "start": 4.13,
+              "end": 4.35,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " characters.",
+              "start": 4.35,
+              "end": 4.87,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "he",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "raw": "said,",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "States",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "are",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "as",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "raw": "men",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "are,",
+          "start": 2.71,
+          "end": 3.05
+        },
+        {
+          "raw": "they",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "raw": "grow",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "raw": "out",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "of",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "human",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "raw": "characters.",
+          "start": 4.35,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said,",
+        "the",
+        "States",
+        "are",
+        "as",
+        "the",
+        "men",
+        "are;",
+        "they",
+        "grow",
+        "out",
+        "of",
+        "human",
+        "characters."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "he",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "text": "said,",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "text": "the",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "States",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "are",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "as",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "text": "men",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "are;",
+          "start": 2.71,
+          "end": 3.05
+        },
+        {
+          "text": "they",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "text": "grow",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "text": "out",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "of",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "human",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "text": "characters.",
+          "start": 4.35,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14824736397713423
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72315f9b994ab5319546fd68dce312932521603c8a285262b418da9534e8b463",
+  "selected_reasons": []
+}

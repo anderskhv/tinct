@@ -1,0 +1,226 @@
+{
+  "complete": true,
+  "signature": "1cbb67ea66e58562e67854c66048b4496bdb97c8fcb32fcb9937c81c28929247",
+  "attempts": [
+    {
+      "asr_seconds": 0.13318059779703617,
+      "alignment_seconds": 0.0001743501052260399,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sills, Maria. Upper in Gadding, July 1887.",
+          "start": 0.08,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " Sills,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.6876220703125
+            },
+            {
+              "text": " Maria.",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.810546875
+            },
+            {
+              "text": " Upper",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " in",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.41064453125
+            },
+            {
+              "text": " Gadding,",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.5018310546875
+            },
+            {
+              "text": " July",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " 1887.",
+              "start": 2.54,
+              "end": 3.6,
+              "probability": 0.890869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sills,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Maria.",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "Upper",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "in",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "Gadding,",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "July",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "1887.",
+          "start": 2.54,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "Sils-Maria,",
+        "Upper",
+        "Engadine,",
+        "July",
+        "1887."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          5
+        ],
+        [
+          "equal",
+          3,
+          5,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Sils-Maria,",
+          "start": 0.0,
+          "end": 0.75
+        },
+        {
+          "text": "Upper",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "Engadine,",
+          "start": 1.66,
+          "end": 2.04
+        },
+        {
+          "text": "July",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "1887.",
+          "start": 2.54,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 7,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13342776708304882
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c6f3950c6c0aba9884a291a377b882cd78c2bdf4dc78c493f6c7fddadca0459",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

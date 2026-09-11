@@ -1,0 +1,936 @@
+{
+  "complete": true,
+  "signature": "ff1d933149ce01410de7d1f42bd2e896d2e8984d2b8f4d77e2123b204504345b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11055185087025166,
+      "alignment_seconds": 7.77076929807663e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is nothing,\" said Baloo; \"we have the man-cub again.\"",
+        "hotwords": "It, Baloo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is nothing, said Baloo. We have the man-cub again.",
+          "start": 0.05,
+          "end": 3.57,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.137939453125
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " nothing,",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Baloo.",
+              "start": 1.55,
+              "end": 1.99,
+              "probability": 0.416015625
+            },
+            {
+              "text": " We",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " have",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " man",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.69091796875
+            },
+            {
+              "text": "-cub",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.783203125
+            },
+            {
+              "text": " again.",
+              "start": 3.25,
+              "end": 3.57,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "nothing,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "said",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "Baloo.",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "raw": "We",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "have",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "man",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "-cub",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "raw": "again.",
+          "start": 3.25,
+          "end": 3.57
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "nothing,\"",
+        "said",
+        "Baloo;",
+        "\"we",
+        "have",
+        "the",
+        "man-cub",
+        "again.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "nothing,\"",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "said",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "Baloo;",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "text": "\"we",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "have",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "man-cub",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "again.\"",
+          "start": 3.25,
+          "end": 3.57
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.11066202446818352
+    },
+    {
+      "asr_seconds": 0.10412022285163403,
+      "alignment_seconds": 7.539428770542145e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "It, Baloo"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " It is nothing said Baloo. We have the man cub again",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.1378173828125
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " nothing",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said",
+              "start": 1.05,
+              "end": 1.53,
+              "probability": 0.034912109375
+            },
+            {
+              "text": " Baloo.",
+              "start": 1.53,
+              "end": 2.05,
+              "probability": 0.412109375
+            },
+            {
+              "text": " We",
+              "start": 2.23,
+              "end": 2.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " man",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " cub",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.494384765625
+            },
+            {
+              "text": " again",
+              "start": 3.25,
+              "end": 3.63,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "nothing",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "said",
+          "start": 1.05,
+          "end": 1.53
+        },
+        {
+          "raw": "Baloo.",
+          "start": 1.53,
+          "end": 2.05
+        },
+        {
+          "raw": "We",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "raw": "have",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "man",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "cub",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "raw": "again",
+          "start": 3.25,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "nothing,\"",
+        "said",
+        "Baloo;",
+        "\"we",
+        "have",
+        "the",
+        "man-cub",
+        "again.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "nothing,\"",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "said",
+          "start": 1.05,
+          "end": 1.53
+        },
+        {
+          "text": "Baloo;",
+          "start": 1.53,
+          "end": 2.05
+        },
+        {
+          "text": "\"we",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "text": "have",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "man-cub",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "again.\"",
+          "start": 3.25,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.10422699619084597
+    },
+    {
+      "asr_seconds": 0.19687014445662498,
+      "alignment_seconds": 8.147023618221283e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is nothing,\" said Ballo.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.1378173828125
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " nothing,\"",
+              "start": 0.65,
+              "end": 1.27,
+              "probability": 0.855712890625
+            },
+            {
+              "text": " said",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Ballo.",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.5435791015625
+            }
+          ]
+        },
+        {
+          "text": " We have the man-cub again.",
+          "start": 1.93,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " We",
+              "start": 1.93,
+              "end": 2.53,
+              "probability": 0.4736328125
+            },
+            {
+              "text": " have",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " man",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.58349609375
+            },
+            {
+              "text": "-cub",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.741455078125
+            },
+            {
+              "text": " again.",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "nothing,\"",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "raw": "said",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "Ballo.",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "We",
+          "start": 1.93,
+          "end": 2.53
+        },
+        {
+          "raw": "have",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "man",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "-cub",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "raw": "again.",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "nothing,\"",
+        "said",
+        "Baloo;",
+        "\"we",
+        "have",
+        "the",
+        "man-cub",
+        "again.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "nothing,\"",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "text": "said",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "Baloo;",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "\"we",
+          "start": 1.93,
+          "end": 2.53
+        },
+        {
+          "text": "have",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "man-cub",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "again.\"",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19698245730251074
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "028bceee0da70451f749bb23ae930101d0953cb030b11a55a39bacf049c7e829",
+  "selected_reasons": []
+}

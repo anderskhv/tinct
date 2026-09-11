@@ -1,0 +1,5757 @@
+{
+  "complete": true,
+  "signature": "43ed48bf01a6a1592ec57e78eb59349726cae51a32ff67e0962eb96ee6b8de51",
+  "attempts": [
+    {
+      "asr_seconds": 6.091184243559837,
+      "alignment_seconds": 0.0008618682622909546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "My word, my wisdom, and effectual might, All hast thou spoken as my thoughts are, all As my eternal purpose hath decreed; Man shall not quite be lost, but sav'd who will; Yet not of will in him, but grace in me Freely vouchsaf'd; once more I will renew His lapsed powers, though forfeit; and enthrall'd By sin to foul exorbitant desires;",
+        "hotwords": "Man, Yet, Freely, I, His, By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My word, my wisdom, and effectual might, All hast thou spoken as my thoughts are, all As my eternal purpose hath decreed, Man shall not quite be lost, but sav'd who will, Yet not of will in him, but grace in me Freely vouchsaf'd,",
+          "start": 0.05,
+          "end": 15.05,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " word,",
+              "start": 0.61,
+              "end": 0.91,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " my",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " wisdom,",
+              "start": 1.17,
+              "end": 1.63,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " effectual",
+              "start": 2.01,
+              "end": 2.57,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " might,",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.98828125
+            },
+            {
+              "text": " All",
+              "start": 3.33,
+              "end": 3.45,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " hast",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " thou",
+              "start": 3.71,
+              "end": 4.01,
+              "probability": 0.833984375
+            },
+            {
+              "text": " spoken",
+              "start": 4.01,
+              "end": 4.37,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " as",
+              "start": 4.37,
+              "end": 4.65,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " my",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thoughts",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are,",
+              "start": 5.11,
+              "end": 5.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 5.91,
+              "end": 6.07,
+              "probability": 0.14697265625
+            },
+            {
+              "text": " As",
+              "start": 6.07,
+              "end": 6.25,
+              "probability": 0.0202789306640625
+            },
+            {
+              "text": " my",
+              "start": 6.25,
+              "end": 6.43,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " eternal",
+              "start": 6.43,
+              "end": 6.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " purpose",
+              "start": 6.77,
+              "end": 7.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hath",
+              "start": 7.23,
+              "end": 7.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " decreed,",
+              "start": 7.45,
+              "end": 8.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Man",
+              "start": 8.57,
+              "end": 8.79,
+              "probability": 0.845703125
+            },
+            {
+              "text": " shall",
+              "start": 8.79,
+              "end": 8.99,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " not",
+              "start": 8.99,
+              "end": 9.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quite",
+              "start": 9.21,
+              "end": 9.41,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " be",
+              "start": 9.41,
+              "end": 9.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lost,",
+              "start": 9.61,
+              "end": 9.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 10.29,
+              "end": 10.43,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " sav'd",
+              "start": 10.43,
+              "end": 10.83,
+              "probability": 0.778564453125
+            },
+            {
+              "text": " who",
+              "start": 10.83,
+              "end": 10.95,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " will,",
+              "start": 10.95,
+              "end": 11.21,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Yet",
+              "start": 11.83,
+              "end": 11.97,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " not",
+              "start": 11.97,
+              "end": 12.21,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 12.21,
+              "end": 12.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 12.31,
+              "end": 12.47,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in",
+              "start": 12.47,
+              "end": 12.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him,",
+              "start": 12.65,
+              "end": 12.89,
+              "probability": 0.90234375
+            },
+            {
+              "text": " but",
+              "start": 13.07,
+              "end": 13.25,
+              "probability": 0.98828125
+            },
+            {
+              "text": " grace",
+              "start": 13.25,
+              "end": 13.49,
+              "probability": 0.8984375
+            },
+            {
+              "text": " in",
+              "start": 13.49,
+              "end": 13.75,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " me",
+              "start": 13.75,
+              "end": 13.93,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Freely",
+              "start": 13.93,
+              "end": 14.29,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 14.29,
+              "end": 15.05,
+              "probability": 0.44677734375
+            }
+          ]
+        },
+        {
+          "text": " but grace in me Freely vouchsaf'd, but grace in me Freely vouchsaf'd, and grace in me",
+          "start": 15.05,
+          "end": 20.37,
+          "words": [
+            {
+              "text": " but",
+              "start": 15.05,
+              "end": 15.77,
+              "probability": 0.0001323223114013672
+            },
+            {
+              "text": " grace",
+              "start": 15.77,
+              "end": 16.17,
+              "probability": 4.172325134277344e-06
+            },
+            {
+              "text": " in",
+              "start": 16.17,
+              "end": 16.17,
+              "probability": 0.00852203369140625
+            },
+            {
+              "text": " me",
+              "start": 16.17,
+              "end": 16.17,
+              "probability": 0.07977294921875
+            },
+            {
+              "text": " Freely",
+              "start": 16.17,
+              "end": 16.17,
+              "probability": 0.0020774900913238525
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 16.17,
+              "end": 17.33,
+              "probability": 0.008981257677078247
+            },
+            {
+              "text": " but",
+              "start": 17.89,
+              "end": 18.07,
+              "probability": 0.026275634765625
+            },
+            {
+              "text": " grace",
+              "start": 18.07,
+              "end": 18.45,
+              "probability": 0.002017974853515625
+            },
+            {
+              "text": " in",
+              "start": 18.45,
+              "end": 18.45,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " me",
+              "start": 18.45,
+              "end": 18.45,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " Freely",
+              "start": 18.45,
+              "end": 18.45,
+              "probability": 0.494232177734375
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 18.45,
+              "end": 18.57,
+              "probability": 0.8294677734375
+            },
+            {
+              "text": " and",
+              "start": 19.01,
+              "end": 19.01,
+              "probability": 0.00801849365234375
+            },
+            {
+              "text": " grace",
+              "start": 19.01,
+              "end": 19.47,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " in",
+              "start": 19.47,
+              "end": 20.27,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " me",
+              "start": 20.27,
+              "end": 20.37,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely vouchsaf'd, and grace in me Freely v",
+          "start": 20.37,
+          "end": 22.55,
+          "words": [
+            {
+              "text": " Freely",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.0009371638298034668
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.04441674053668976
+            },
+            {
+              "text": " and",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.036773681640625
+            },
+            {
+              "text": " grace",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.0002894401550292969
+            },
+            {
+              "text": " in",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.004604339599609375
+            },
+            {
+              "text": " me",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.0022220611572265625
+            },
+            {
+              "text": " Freely",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.20990896224975586
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.37,
+              "end": 20.37,
+              "probability": 0.765380859375
+            },
+            {
+              "text": " and",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.76953125
+            },
+            {
+              "text": " grace",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " in",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.953125
+            },
+            {
+              "text": " me",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Freely",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.623779296875
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.904541015625
+            },
+            {
+              "text": " and",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " grace",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " me",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Freely",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.7137451171875
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.934814453125
+            },
+            {
+              "text": " and",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.9609375
+            },
+            {
+              "text": " grace",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " me",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Freely",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.765625
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " and",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " grace",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Freely",
+              "start": 20.49,
+              "end": 20.49,
+              "probability": 0.794677734375
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.49,
+              "end": 20.53,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " and",
+              "start": 20.53,
+              "end": 20.53,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " grace",
+              "start": 20.53,
+              "end": 20.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 20.53,
+              "end": 20.53,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " me",
+              "start": 20.53,
+              "end": 20.53,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Freely",
+              "start": 20.53,
+              "end": 20.65,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.65,
+              "end": 20.97,
+              "probability": 0.9512939453125
+            },
+            {
+              "text": " and",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " grace",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Freely",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.834716796875
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.9522705078125
+            },
+            {
+              "text": " and",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " grace",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Freely",
+              "start": 20.97,
+              "end": 20.97,
+              "probability": 0.849609375
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 20.97,
+              "end": 21.25,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " and",
+              "start": 21.25,
+              "end": 21.25,
+              "probability": 0.986328125
+            },
+            {
+              "text": " grace",
+              "start": 21.25,
+              "end": 21.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 21.25,
+              "end": 21.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 21.27,
+              "end": 21.55,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Freely",
+              "start": 21.55,
+              "end": 21.63,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 21.63,
+              "end": 21.83,
+              "probability": 0.9510498046875
+            },
+            {
+              "text": " and",
+              "start": 21.83,
+              "end": 21.83,
+              "probability": 0.986328125
+            },
+            {
+              "text": " grace",
+              "start": 21.83,
+              "end": 21.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 21.83,
+              "end": 21.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 21.83,
+              "end": 21.83,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Freely",
+              "start": 21.83,
+              "end": 22.01,
+              "probability": 0.873779296875
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.01,
+              "end": 22.01,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " and",
+              "start": 22.07,
+              "end": 22.07,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " grace",
+              "start": 22.07,
+              "end": 22.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 22.07,
+              "end": 22.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 22.07,
+              "end": 22.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Freely",
+              "start": 22.07,
+              "end": 22.45,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.953125
+            },
+            {
+              "text": " and",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " grace",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Freely",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9493408203125
+            },
+            {
+              "text": " and",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " grace",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Freely",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.903564453125
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " and",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " grace",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Freely",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.907470703125
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " and",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " grace",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Freely",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.912353515625
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9488525390625
+            },
+            {
+              "text": " and",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " grace",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Freely",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.917236328125
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.947998046875
+            },
+            {
+              "text": " and",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " grace",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Freely",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.919677734375
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9490966796875
+            },
+            {
+              "text": " and",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " grace",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Freely",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.923828125
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.946533203125
+            },
+            {
+              "text": " and",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " grace",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Freely",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " vouchsaf'd,",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " and",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " grace",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Freely",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.927978515625
+            },
+            {
+              "text": " v",
+              "start": 22.55,
+              "end": 22.55,
+              "probability": 0.95654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "word,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "raw": "my",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "wisdom,",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "raw": "and",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "effectual",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "raw": "might,",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "All",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "raw": "hast",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "thou",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "raw": "spoken",
+          "start": 4.01,
+          "end": 4.37
+        },
+        {
+          "raw": "as",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "raw": "my",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "thoughts",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "are,",
+          "start": 5.11,
+          "end": 5.53
+        },
+        {
+          "raw": "all",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "raw": "As",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "raw": "my",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "raw": "eternal",
+          "start": 6.43,
+          "end": 6.77
+        },
+        {
+          "raw": "purpose",
+          "start": 6.77,
+          "end": 7.23
+        },
+        {
+          "raw": "hath",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "raw": "decreed,",
+          "start": 7.45,
+          "end": 8.07
+        },
+        {
+          "raw": "Man",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "raw": "shall",
+          "start": 8.79,
+          "end": 8.99
+        },
+        {
+          "raw": "not",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "raw": "quite",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "raw": "be",
+          "start": 9.41,
+          "end": 9.61
+        },
+        {
+          "raw": "lost,",
+          "start": 9.61,
+          "end": 9.95
+        },
+        {
+          "raw": "but",
+          "start": 10.29,
+          "end": 10.43
+        },
+        {
+          "raw": "sav'd",
+          "start": 10.43,
+          "end": 10.83
+        },
+        {
+          "raw": "who",
+          "start": 10.83,
+          "end": 10.95
+        },
+        {
+          "raw": "will,",
+          "start": 10.95,
+          "end": 11.21
+        },
+        {
+          "raw": "Yet",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "raw": "not",
+          "start": 11.97,
+          "end": 12.21
+        },
+        {
+          "raw": "of",
+          "start": 12.21,
+          "end": 12.31
+        },
+        {
+          "raw": "will",
+          "start": 12.31,
+          "end": 12.47
+        },
+        {
+          "raw": "in",
+          "start": 12.47,
+          "end": 12.65
+        },
+        {
+          "raw": "him,",
+          "start": 12.65,
+          "end": 12.89
+        },
+        {
+          "raw": "but",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "raw": "grace",
+          "start": 13.25,
+          "end": 13.49
+        },
+        {
+          "raw": "in",
+          "start": 13.49,
+          "end": 13.75
+        },
+        {
+          "raw": "me",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "raw": "Freely",
+          "start": 13.93,
+          "end": 14.29
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 14.29,
+          "end": 15.05
+        },
+        {
+          "raw": "but",
+          "start": 15.05,
+          "end": 15.77
+        },
+        {
+          "raw": "grace",
+          "start": 15.77,
+          "end": 16.17
+        },
+        {
+          "raw": "in",
+          "start": 16.17,
+          "end": 16.17
+        },
+        {
+          "raw": "me",
+          "start": 16.17,
+          "end": 16.17
+        },
+        {
+          "raw": "Freely",
+          "start": 16.17,
+          "end": 16.17
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 16.17,
+          "end": 17.33
+        },
+        {
+          "raw": "but",
+          "start": 17.89,
+          "end": 18.07
+        },
+        {
+          "raw": "grace",
+          "start": 18.07,
+          "end": 18.45
+        },
+        {
+          "raw": "in",
+          "start": 18.45,
+          "end": 18.45
+        },
+        {
+          "raw": "me",
+          "start": 18.45,
+          "end": 18.45
+        },
+        {
+          "raw": "Freely",
+          "start": 18.45,
+          "end": 18.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 18.45,
+          "end": 18.57
+        },
+        {
+          "raw": "and",
+          "start": 19.01,
+          "end": 19.01
+        },
+        {
+          "raw": "grace",
+          "start": 19.01,
+          "end": 19.47
+        },
+        {
+          "raw": "in",
+          "start": 19.47,
+          "end": 20.27
+        },
+        {
+          "raw": "me",
+          "start": 20.27,
+          "end": 20.37
+        },
+        {
+          "raw": "Freely",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "and",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "grace",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "in",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "me",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "Freely",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.37,
+          "end": 20.37
+        },
+        {
+          "raw": "and",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "grace",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "in",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "me",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "Freely",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "and",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "grace",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "in",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "me",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "Freely",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "and",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "grace",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "in",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "me",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "Freely",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "and",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "grace",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "in",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "me",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "Freely",
+          "start": 20.49,
+          "end": 20.49
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.49,
+          "end": 20.53
+        },
+        {
+          "raw": "and",
+          "start": 20.53,
+          "end": 20.53
+        },
+        {
+          "raw": "grace",
+          "start": 20.53,
+          "end": 20.53
+        },
+        {
+          "raw": "in",
+          "start": 20.53,
+          "end": 20.53
+        },
+        {
+          "raw": "me",
+          "start": 20.53,
+          "end": 20.53
+        },
+        {
+          "raw": "Freely",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.65,
+          "end": 20.97
+        },
+        {
+          "raw": "and",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "grace",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "in",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "me",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "Freely",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "and",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "grace",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "in",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "me",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "Freely",
+          "start": 20.97,
+          "end": 20.97
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 20.97,
+          "end": 21.25
+        },
+        {
+          "raw": "and",
+          "start": 21.25,
+          "end": 21.25
+        },
+        {
+          "raw": "grace",
+          "start": 21.25,
+          "end": 21.25
+        },
+        {
+          "raw": "in",
+          "start": 21.25,
+          "end": 21.27
+        },
+        {
+          "raw": "me",
+          "start": 21.27,
+          "end": 21.55
+        },
+        {
+          "raw": "Freely",
+          "start": 21.55,
+          "end": 21.63
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 21.63,
+          "end": 21.83
+        },
+        {
+          "raw": "and",
+          "start": 21.83,
+          "end": 21.83
+        },
+        {
+          "raw": "grace",
+          "start": 21.83,
+          "end": 21.83
+        },
+        {
+          "raw": "in",
+          "start": 21.83,
+          "end": 21.83
+        },
+        {
+          "raw": "me",
+          "start": 21.83,
+          "end": 21.83
+        },
+        {
+          "raw": "Freely",
+          "start": 21.83,
+          "end": 22.01
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.01,
+          "end": 22.01
+        },
+        {
+          "raw": "and",
+          "start": 22.07,
+          "end": 22.07
+        },
+        {
+          "raw": "grace",
+          "start": 22.07,
+          "end": 22.07
+        },
+        {
+          "raw": "in",
+          "start": 22.07,
+          "end": 22.07
+        },
+        {
+          "raw": "me",
+          "start": 22.07,
+          "end": 22.07
+        },
+        {
+          "raw": "Freely",
+          "start": 22.07,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "grace",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "in",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "me",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "Freely",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "grace",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "in",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "me",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "Freely",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "grace",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "in",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "me",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "Freely",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "grace",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "in",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "me",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "Freely",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "grace",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "in",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "me",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "Freely",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "grace",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "in",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "me",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "Freely",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "grace",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "in",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "me",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "Freely",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "and",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "grace",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "in",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "me",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "Freely",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "vouchsaf'd,",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "and",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "grace",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "in",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "me",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "Freely",
+          "start": 22.55,
+          "end": 22.55
+        },
+        {
+          "raw": "v",
+          "start": 22.55,
+          "end": 22.55
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "word,",
+        "my",
+        "wisdom,",
+        "and",
+        "effectual",
+        "might,",
+        "All",
+        "hast",
+        "thou",
+        "spoken",
+        "as",
+        "my",
+        "thoughts",
+        "are,",
+        "all",
+        "As",
+        "my",
+        "eternal",
+        "purpose",
+        "hath",
+        "decreed;",
+        "Man",
+        "shall",
+        "not",
+        "quite",
+        "be",
+        "lost,",
+        "but",
+        "sav'd",
+        "who",
+        "will;",
+        "Yet",
+        "not",
+        "of",
+        "will",
+        "in",
+        "him,",
+        "but",
+        "grace",
+        "in",
+        "me",
+        "Freely",
+        "vouchsaf'd;",
+        "once",
+        "more",
+        "I",
+        "will",
+        "renew",
+        "His",
+        "lapsed",
+        "powers,",
+        "though",
+        "forfeit;",
+        "and",
+        "enthrall'd",
+        "By",
+        "sin",
+        "to",
+        "foul",
+        "exorbitant",
+        "desires;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          44,
+          0,
+          44
+        ],
+        [
+          "replace",
+          44,
+          54,
+          44,
+          56
+        ],
+        [
+          "equal",
+          54,
+          55,
+          56,
+          57
+        ],
+        [
+          "replace",
+          55,
+          62,
+          57,
+          182
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          44,
+          54,
+          44,
+          56
+        ],
+        [
+          "replace",
+          55,
+          62,
+          57,
+          182
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "word,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "text": "my",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "wisdom,",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "text": "and",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "effectual",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "text": "might,",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "All",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "text": "hast",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "thou",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "text": "spoken",
+          "start": 4.01,
+          "end": 4.37
+        },
+        {
+          "text": "as",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "text": "my",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "thoughts",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "are,",
+          "start": 5.11,
+          "end": 5.53
+        },
+        {
+          "text": "all",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "text": "As",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "text": "my",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "text": "eternal",
+          "start": 6.43,
+          "end": 6.77
+        },
+        {
+          "text": "purpose",
+          "start": 6.77,
+          "end": 7.23
+        },
+        {
+          "text": "hath",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "text": "decreed;",
+          "start": 7.45,
+          "end": 8.07
+        },
+        {
+          "text": "Man",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "text": "shall",
+          "start": 8.79,
+          "end": 8.99
+        },
+        {
+          "text": "not",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "text": "quite",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "text": "be",
+          "start": 9.41,
+          "end": 9.61
+        },
+        {
+          "text": "lost,",
+          "start": 9.61,
+          "end": 9.95
+        },
+        {
+          "text": "but",
+          "start": 10.29,
+          "end": 10.43
+        },
+        {
+          "text": "sav'd",
+          "start": 10.43,
+          "end": 10.83
+        },
+        {
+          "text": "who",
+          "start": 10.83,
+          "end": 10.95
+        },
+        {
+          "text": "will;",
+          "start": 10.95,
+          "end": 11.21
+        },
+        {
+          "text": "Yet",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "text": "not",
+          "start": 11.97,
+          "end": 12.21
+        },
+        {
+          "text": "of",
+          "start": 12.21,
+          "end": 12.31
+        },
+        {
+          "text": "will",
+          "start": 12.31,
+          "end": 12.47
+        },
+        {
+          "text": "in",
+          "start": 12.47,
+          "end": 12.65
+        },
+        {
+          "text": "him,",
+          "start": 12.65,
+          "end": 12.89
+        },
+        {
+          "text": "but",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "text": "grace",
+          "start": 13.25,
+          "end": 13.49
+        },
+        {
+          "text": "in",
+          "start": 13.49,
+          "end": 13.75
+        },
+        {
+          "text": "me",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "text": "Freely",
+          "start": 13.93,
+          "end": 14.29
+        },
+        {
+          "text": "vouchsaf'd;",
+          "start": 14.29,
+          "end": 15.05
+        },
+        {
+          "text": "once",
+          "start": 15.05,
+          "end": 17.03
+        },
+        {
+          "text": "more",
+          "start": 17.03,
+          "end": 18.02
+        },
+        {
+          "text": "I",
+          "start": 18.02,
+          "end": 18.515
+        },
+        {
+          "text": "will",
+          "start": 18.515,
+          "end": 18.763
+        },
+        {
+          "text": "renew",
+          "start": 18.763,
+          "end": 18.887
+        },
+        {
+          "text": "His",
+          "start": 18.887,
+          "end": 18.949
+        },
+        {
+          "text": "lapsed",
+          "start": 18.949,
+          "end": 18.98
+        },
+        {
+          "text": "powers,",
+          "start": 18.98,
+          "end": 18.995
+        },
+        {
+          "text": "though",
+          "start": 18.995,
+          "end": 19.003
+        },
+        {
+          "text": "forfeit;",
+          "start": 19.003,
+          "end": 19.007
+        },
+        {
+          "text": "and",
+          "start": 19.01,
+          "end": 19.01
+        },
+        {
+          "text": "enthrall'd",
+          "start": 19.01,
+          "end": 20.78
+        },
+        {
+          "text": "By",
+          "start": 20.78,
+          "end": 21.665
+        },
+        {
+          "text": "sin",
+          "start": 21.665,
+          "end": 22.108
+        },
+        {
+          "text": "to",
+          "start": 22.108,
+          "end": 22.329
+        },
+        {
+          "text": "foul",
+          "start": 22.329,
+          "end": 22.44
+        },
+        {
+          "text": "exorbitant",
+          "start": 22.44,
+          "end": 22.495
+        },
+        {
+          "text": "desires;",
+          "start": 22.495,
+          "end": 22.523
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 182,
+        "matched_words": 45
+      },
+      "match_ratio": 0.7258064516129032,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.092898279428482
+    },
+    {
+      "asr_seconds": 0.4956832453608513,
+      "alignment_seconds": 0.0004093945026397705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Man, Yet, Freely, I, His, By"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " My word my wisdom and effectual might all hast thou spoken as my thoughts are all as my eternal purpose hath decreed",
+          "start": 0.05,
+          "end": 8.29,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.60693359375
+            },
+            {
+              "text": " word",
+              "start": 0.61,
+              "end": 0.89,
+              "probability": 0.958984375
+            },
+            {
+              "text": " my",
+              "start": 0.89,
+              "end": 1.17,
+              "probability": 0.2359619140625
+            },
+            {
+              "text": " wisdom",
+              "start": 1.17,
+              "end": 1.63,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 2.01,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " effectual",
+              "start": 2.01,
+              "end": 2.57,
+              "probability": 0.941650390625
+            },
+            {
+              "text": " might",
+              "start": 2.57,
+              "end": 2.83,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " all",
+              "start": 2.83,
+              "end": 3.43,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " hast",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " thou",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " spoken",
+              "start": 3.99,
+              "end": 4.39,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " as",
+              "start": 4.39,
+              "end": 4.65,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " my",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thoughts",
+              "start": 4.85,
+              "end": 5.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 5.13,
+              "end": 5.53,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " all",
+              "start": 5.53,
+              "end": 6.07,
+              "probability": 0.873046875
+            },
+            {
+              "text": " as",
+              "start": 6.07,
+              "end": 6.25,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " my",
+              "start": 6.25,
+              "end": 6.43,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " eternal",
+              "start": 6.43,
+              "end": 6.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " purpose",
+              "start": 6.79,
+              "end": 7.23,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " hath",
+              "start": 7.23,
+              "end": 7.45,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " decreed",
+              "start": 7.45,
+              "end": 8.29,
+              "probability": 0.966796875
+            }
+          ]
+        },
+        {
+          "text": " Man shall not quite be lost but sav'd who will yet not of will in him, but grace in me freely vouch saft",
+          "start": 8.29,
+          "end": 15.11,
+          "words": [
+            {
+              "text": " Man",
+              "start": 8.29,
+              "end": 8.77,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " shall",
+              "start": 8.77,
+              "end": 8.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 8.99,
+              "end": 9.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quite",
+              "start": 9.21,
+              "end": 9.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 9.41,
+              "end": 9.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lost",
+              "start": 9.61,
+              "end": 9.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 9.97,
+              "end": 10.39,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " sav'd",
+              "start": 10.39,
+              "end": 10.83,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " who",
+              "start": 10.83,
+              "end": 10.95,
+              "probability": 0.93359375
+            },
+            {
+              "text": " will",
+              "start": 10.95,
+              "end": 11.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " yet",
+              "start": 11.29,
+              "end": 11.97,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " not",
+              "start": 11.97,
+              "end": 12.19,
+              "probability": 0.83984375
+            },
+            {
+              "text": " of",
+              "start": 12.19,
+              "end": 12.31,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " will",
+              "start": 12.31,
+              "end": 12.45,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " in",
+              "start": 12.45,
+              "end": 12.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him,",
+              "start": 12.65,
+              "end": 12.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " but",
+              "start": 12.89,
+              "end": 13.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " grace",
+              "start": 13.23,
+              "end": 13.51,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " in",
+              "start": 13.51,
+              "end": 13.75,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " me",
+              "start": 13.75,
+              "end": 13.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " freely",
+              "start": 13.89,
+              "end": 14.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " vouch",
+              "start": 14.21,
+              "end": 14.55,
+              "probability": 0.899169921875
+            },
+            {
+              "text": " saft",
+              "start": 14.55,
+              "end": 15.11,
+              "probability": 0.6033935546875
+            }
+          ]
+        },
+        {
+          "text": " Once more I will renew his lapsed powers though forfeit and enthralled by sin to foul exorbitant desires",
+          "start": 15.11,
+          "end": 21.67,
+          "words": [
+            {
+              "text": " Once",
+              "start": 15.11,
+              "end": 15.79,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " more",
+              "start": 15.79,
+              "end": 16.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 16.07,
+              "end": 16.25,
+              "probability": 0.6875
+            },
+            {
+              "text": " will",
+              "start": 16.25,
+              "end": 16.35,
+              "probability": 1.0
+            },
+            {
+              "text": " renew",
+              "start": 16.35,
+              "end": 16.63,
+              "probability": 1.0
+            },
+            {
+              "text": " his",
+              "start": 16.63,
+              "end": 16.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " lapsed",
+              "start": 16.89,
+              "end": 17.45,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " powers",
+              "start": 17.45,
+              "end": 17.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " though",
+              "start": 17.77,
+              "end": 18.09,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " forfeit",
+              "start": 18.09,
+              "end": 18.45,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " and",
+              "start": 18.45,
+              "end": 19.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " enthralled",
+              "start": 19.03,
+              "end": 19.51,
+              "probability": 0.9837239583333334
+            },
+            {
+              "text": " by",
+              "start": 19.51,
+              "end": 19.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sin",
+              "start": 19.77,
+              "end": 20.09,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 20.09,
+              "end": 20.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " foul",
+              "start": 20.29,
+              "end": 20.57,
+              "probability": 0.9375
+            },
+            {
+              "text": " exorbitant",
+              "start": 20.57,
+              "end": 21.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " desires",
+              "start": 21.35,
+              "end": 21.67,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "word",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "raw": "my",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "raw": "wisdom",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 2.01
+        },
+        {
+          "raw": "effectual",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "raw": "might",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "raw": "all",
+          "start": 2.83,
+          "end": 3.43
+        },
+        {
+          "raw": "hast",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "thou",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "spoken",
+          "start": 3.99,
+          "end": 4.39
+        },
+        {
+          "raw": "as",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "raw": "my",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "thoughts",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "raw": "are",
+          "start": 5.13,
+          "end": 5.53
+        },
+        {
+          "raw": "all",
+          "start": 5.53,
+          "end": 6.07
+        },
+        {
+          "raw": "as",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "raw": "my",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "raw": "eternal",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "raw": "purpose",
+          "start": 6.79,
+          "end": 7.23
+        },
+        {
+          "raw": "hath",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "raw": "decreed",
+          "start": 7.45,
+          "end": 8.29
+        },
+        {
+          "raw": "Man",
+          "start": 8.29,
+          "end": 8.77
+        },
+        {
+          "raw": "shall",
+          "start": 8.77,
+          "end": 8.99
+        },
+        {
+          "raw": "not",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "raw": "quite",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "raw": "be",
+          "start": 9.41,
+          "end": 9.61
+        },
+        {
+          "raw": "lost",
+          "start": 9.61,
+          "end": 9.97
+        },
+        {
+          "raw": "but",
+          "start": 9.97,
+          "end": 10.39
+        },
+        {
+          "raw": "sav'd",
+          "start": 10.39,
+          "end": 10.83
+        },
+        {
+          "raw": "who",
+          "start": 10.83,
+          "end": 10.95
+        },
+        {
+          "raw": "will",
+          "start": 10.95,
+          "end": 11.29
+        },
+        {
+          "raw": "yet",
+          "start": 11.29,
+          "end": 11.97
+        },
+        {
+          "raw": "not",
+          "start": 11.97,
+          "end": 12.19
+        },
+        {
+          "raw": "of",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "raw": "will",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "raw": "in",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "raw": "him,",
+          "start": 12.65,
+          "end": 12.89
+        },
+        {
+          "raw": "but",
+          "start": 12.89,
+          "end": 13.23
+        },
+        {
+          "raw": "grace",
+          "start": 13.23,
+          "end": 13.51
+        },
+        {
+          "raw": "in",
+          "start": 13.51,
+          "end": 13.75
+        },
+        {
+          "raw": "me",
+          "start": 13.75,
+          "end": 13.89
+        },
+        {
+          "raw": "freely",
+          "start": 13.89,
+          "end": 14.21
+        },
+        {
+          "raw": "vouch",
+          "start": 14.21,
+          "end": 14.55
+        },
+        {
+          "raw": "saft",
+          "start": 14.55,
+          "end": 15.11
+        },
+        {
+          "raw": "Once",
+          "start": 15.11,
+          "end": 15.79
+        },
+        {
+          "raw": "more",
+          "start": 15.79,
+          "end": 16.07
+        },
+        {
+          "raw": "I",
+          "start": 16.07,
+          "end": 16.25
+        },
+        {
+          "raw": "will",
+          "start": 16.25,
+          "end": 16.35
+        },
+        {
+          "raw": "renew",
+          "start": 16.35,
+          "end": 16.63
+        },
+        {
+          "raw": "his",
+          "start": 16.63,
+          "end": 16.89
+        },
+        {
+          "raw": "lapsed",
+          "start": 16.89,
+          "end": 17.45
+        },
+        {
+          "raw": "powers",
+          "start": 17.45,
+          "end": 17.77
+        },
+        {
+          "raw": "though",
+          "start": 17.77,
+          "end": 18.09
+        },
+        {
+          "raw": "forfeit",
+          "start": 18.09,
+          "end": 18.45
+        },
+        {
+          "raw": "and",
+          "start": 18.45,
+          "end": 19.03
+        },
+        {
+          "raw": "enthralled",
+          "start": 19.03,
+          "end": 19.51
+        },
+        {
+          "raw": "by",
+          "start": 19.51,
+          "end": 19.77
+        },
+        {
+          "raw": "sin",
+          "start": 19.77,
+          "end": 20.09
+        },
+        {
+          "raw": "to",
+          "start": 20.09,
+          "end": 20.29
+        },
+        {
+          "raw": "foul",
+          "start": 20.29,
+          "end": 20.57
+        },
+        {
+          "raw": "exorbitant",
+          "start": 20.57,
+          "end": 21.35
+        },
+        {
+          "raw": "desires",
+          "start": 21.35,
+          "end": 21.67
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "word,",
+        "my",
+        "wisdom,",
+        "and",
+        "effectual",
+        "might,",
+        "All",
+        "hast",
+        "thou",
+        "spoken",
+        "as",
+        "my",
+        "thoughts",
+        "are,",
+        "all",
+        "As",
+        "my",
+        "eternal",
+        "purpose",
+        "hath",
+        "decreed;",
+        "Man",
+        "shall",
+        "not",
+        "quite",
+        "be",
+        "lost,",
+        "but",
+        "sav'd",
+        "who",
+        "will;",
+        "Yet",
+        "not",
+        "of",
+        "will",
+        "in",
+        "him,",
+        "but",
+        "grace",
+        "in",
+        "me",
+        "Freely",
+        "vouchsaf'd;",
+        "once",
+        "more",
+        "I",
+        "will",
+        "renew",
+        "His",
+        "lapsed",
+        "powers,",
+        "though",
+        "forfeit;",
+        "and",
+        "enthrall'd",
+        "By",
+        "sin",
+        "to",
+        "foul",
+        "exorbitant",
+        "desires;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          43,
+          0,
+          43
+        ],
+        [
+          "replace",
+          43,
+          44,
+          43,
+          45
+        ],
+        [
+          "equal",
+          44,
+          55,
+          45,
+          56
+        ],
+        [
+          "replace",
+          55,
+          56,
+          56,
+          57
+        ],
+        [
+          "equal",
+          56,
+          62,
+          57,
+          63
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          43,
+          44,
+          43,
+          45
+        ],
+        [
+          "replace",
+          55,
+          56,
+          56,
+          57
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "word,",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "text": "my",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "text": "wisdom,",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 2.01
+        },
+        {
+          "text": "effectual",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "text": "might,",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "text": "All",
+          "start": 2.83,
+          "end": 3.43
+        },
+        {
+          "text": "hast",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "thou",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "spoken",
+          "start": 3.99,
+          "end": 4.39
+        },
+        {
+          "text": "as",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "text": "my",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "thoughts",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "text": "are,",
+          "start": 5.13,
+          "end": 5.53
+        },
+        {
+          "text": "all",
+          "start": 5.53,
+          "end": 6.07
+        },
+        {
+          "text": "As",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "text": "my",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "text": "eternal",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "text": "purpose",
+          "start": 6.79,
+          "end": 7.23
+        },
+        {
+          "text": "hath",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "text": "decreed;",
+          "start": 7.45,
+          "end": 8.29
+        },
+        {
+          "text": "Man",
+          "start": 8.29,
+          "end": 8.77
+        },
+        {
+          "text": "shall",
+          "start": 8.77,
+          "end": 8.99
+        },
+        {
+          "text": "not",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "text": "quite",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "text": "be",
+          "start": 9.41,
+          "end": 9.61
+        },
+        {
+          "text": "lost,",
+          "start": 9.61,
+          "end": 9.97
+        },
+        {
+          "text": "but",
+          "start": 9.97,
+          "end": 10.39
+        },
+        {
+          "text": "sav'd",
+          "start": 10.39,
+          "end": 10.83
+        },
+        {
+          "text": "who",
+          "start": 10.83,
+          "end": 10.95
+        },
+        {
+          "text": "will;",
+          "start": 10.95,
+          "end": 11.29
+        },
+        {
+          "text": "Yet",
+          "start": 11.29,
+          "end": 11.97
+        },
+        {
+          "text": "not",
+          "start": 11.97,
+          "end": 12.19
+        },
+        {
+          "text": "of",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "text": "will",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "text": "in",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "text": "him,",
+          "start": 12.65,
+          "end": 12.89
+        },
+        {
+          "text": "but",
+          "start": 12.89,
+          "end": 13.23
+        },
+        {
+          "text": "grace",
+          "start": 13.23,
+          "end": 13.51
+        },
+        {
+          "text": "in",
+          "start": 13.51,
+          "end": 13.75
+        },
+        {
+          "text": "me",
+          "start": 13.75,
+          "end": 13.89
+        },
+        {
+          "text": "Freely",
+          "start": 13.89,
+          "end": 14.21
+        },
+        {
+          "text": "vouchsaf'd;",
+          "start": 14.21,
+          "end": 14.66
+        },
+        {
+          "text": "once",
+          "start": 15.11,
+          "end": 15.79
+        },
+        {
+          "text": "more",
+          "start": 15.79,
+          "end": 16.07
+        },
+        {
+          "text": "I",
+          "start": 16.07,
+          "end": 16.25
+        },
+        {
+          "text": "will",
+          "start": 16.25,
+          "end": 16.35
+        },
+        {
+          "text": "renew",
+          "start": 16.35,
+          "end": 16.63
+        },
+        {
+          "text": "His",
+          "start": 16.63,
+          "end": 16.89
+        },
+        {
+          "text": "lapsed",
+          "start": 16.89,
+          "end": 17.45
+        },
+        {
+          "text": "powers,",
+          "start": 17.45,
+          "end": 17.77
+        },
+        {
+          "text": "though",
+          "start": 17.77,
+          "end": 18.09
+        },
+        {
+          "text": "forfeit;",
+          "start": 18.09,
+          "end": 18.45
+        },
+        {
+          "text": "and",
+          "start": 18.45,
+          "end": 19.03
+        },
+        {
+          "text": "enthrall'd",
+          "start": 19.03,
+          "end": 19.27
+        },
+        {
+          "text": "By",
+          "start": 19.51,
+          "end": 19.77
+        },
+        {
+          "text": "sin",
+          "start": 19.77,
+          "end": 20.09
+        },
+        {
+          "text": "to",
+          "start": 20.09,
+          "end": 20.29
+        },
+        {
+          "text": "foul",
+          "start": 20.29,
+          "end": 20.57
+        },
+        {
+          "text": "exorbitant",
+          "start": 20.57,
+          "end": 21.35
+        },
+        {
+          "text": "desires;",
+          "start": 21.35,
+          "end": 21.67
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 63,
+        "matched_words": 60
+      },
+      "match_ratio": 0.967741935483871,
+      "rejection_reasons": [],
+      "seconds": 0.49633512645959854
+    },
+    {
+      "asr_seconds": 0.5725726187229156,
+      "alignment_seconds": 0.00041797757148742676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My word, my wisdom, and effectual might, all hast thou spoken as my thoughts are, all as",
+          "start": 0.05,
+          "end": 6.27,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.60693359375
+            },
+            {
+              "text": " word,",
+              "start": 0.61,
+              "end": 0.91,
+              "probability": 0.958984375
+            },
+            {
+              "text": " my",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " wisdom,",
+              "start": 1.17,
+              "end": 1.63,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " effectual",
+              "start": 2.01,
+              "end": 2.57,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " might,",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.98828125
+            },
+            {
+              "text": " all",
+              "start": 3.33,
+              "end": 3.45,
+              "probability": 0.449951171875
+            },
+            {
+              "text": " hast",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " thou",
+              "start": 3.71,
+              "end": 4.01,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " spoken",
+              "start": 4.01,
+              "end": 4.39,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " as",
+              "start": 4.39,
+              "end": 4.65,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " my",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thoughts",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are,",
+              "start": 5.11,
+              "end": 5.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " all",
+              "start": 5.91,
+              "end": 6.07,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " as",
+              "start": 6.07,
+              "end": 6.27,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " my eternal purpose hath decreed.",
+          "start": 6.27,
+          "end": 8.09,
+          "words": [
+            {
+              "text": " my",
+              "start": 6.27,
+              "end": 6.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " eternal",
+              "start": 6.43,
+              "end": 6.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " purpose",
+              "start": 6.79,
+              "end": 7.23,
+              "probability": 0.986328125
+            },
+            {
+              "text": " hath",
+              "start": 7.23,
+              "end": 7.45,
+              "probability": 0.986328125
+            },
+            {
+              "text": " decreed.",
+              "start": 7.45,
+              "end": 8.09,
+              "probability": 0.995849609375
+            }
+          ]
+        },
+        {
+          "text": " Man shall not quite be lost, but sav'd who will.",
+          "start": 8.57,
+          "end": 11.21,
+          "words": [
+            {
+              "text": " Man",
+              "start": 8.57,
+              "end": 8.81,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " shall",
+              "start": 8.81,
+              "end": 8.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 8.99,
+              "end": 9.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quite",
+              "start": 9.21,
+              "end": 9.41,
+              "probability": 0.98828125
+            },
+            {
+              "text": " be",
+              "start": 9.41,
+              "end": 9.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lost,",
+              "start": 9.61,
+              "end": 9.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 10.29,
+              "end": 10.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sav'd",
+              "start": 10.43,
+              "end": 10.83,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " who",
+              "start": 10.83,
+              "end": 10.95,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " will.",
+              "start": 10.95,
+              "end": 11.21,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Yet not of will in him, but grace in me freely vouchsaft.",
+          "start": 11.85,
+          "end": 14.89,
+          "words": [
+            {
+              "text": " Yet",
+              "start": 11.85,
+              "end": 11.97,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " not",
+              "start": 11.97,
+              "end": 12.19,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " of",
+              "start": 12.19,
+              "end": 12.31,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " will",
+              "start": 12.31,
+              "end": 12.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 12.47,
+              "end": 12.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him,",
+              "start": 12.65,
+              "end": 12.89,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " but",
+              "start": 13.09,
+              "end": 13.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " grace",
+              "start": 13.23,
+              "end": 13.49,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " in",
+              "start": 13.49,
+              "end": 13.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 13.75,
+              "end": 13.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " freely",
+              "start": 13.89,
+              "end": 14.23,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " vouchsaft.",
+              "start": 14.23,
+              "end": 14.89,
+              "probability": 0.60296630859375
+            }
+          ]
+        },
+        {
+          "text": " Once more I will renew his lapsed powers, though forfeit, and enthralled by sin to foul",
+          "start": 15.61,
+          "end": 20.59,
+          "words": [
+            {
+              "text": " Once",
+              "start": 15.61,
+              "end": 15.81,
+              "probability": 0.990234375
+            },
+            {
+              "text": " more",
+              "start": 15.81,
+              "end": 16.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 16.07,
+              "end": 16.25,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " will",
+              "start": 16.25,
+              "end": 16.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " renew",
+              "start": 16.37,
+              "end": 16.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 16.63,
+              "end": 16.89,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lapsed",
+              "start": 16.89,
+              "end": 17.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " powers,",
+              "start": 17.43,
+              "end": 17.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " though",
+              "start": 17.97,
+              "end": 18.11,
+              "probability": 0.98828125
+            },
+            {
+              "text": " forfeit,",
+              "start": 18.11,
+              "end": 18.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 18.95,
+              "end": 19.05,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " enthralled",
+              "start": 19.05,
+              "end": 19.51,
+              "probability": 0.9851888020833334
+            },
+            {
+              "text": " by",
+              "start": 19.51,
+              "end": 19.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sin",
+              "start": 19.77,
+              "end": 20.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 20.07,
+              "end": 20.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " foul",
+              "start": 20.29,
+              "end": 20.59,
+              "probability": 0.97802734375
+            }
+          ]
+        },
+        {
+          "text": " exorbitant desires.",
+          "start": 20.59,
+          "end": 21.71,
+          "words": [
+            {
+              "text": " exorbitant",
+              "start": 20.59,
+              "end": 21.33,
+              "probability": 0.947265625
+            },
+            {
+              "text": " desires.",
+              "start": 21.33,
+              "end": 21.71,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "word,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "raw": "my",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "wisdom,",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "raw": "and",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "effectual",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "raw": "might,",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "all",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "raw": "hast",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "thou",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "raw": "spoken",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "raw": "as",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "raw": "my",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "thoughts",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "are,",
+          "start": 5.11,
+          "end": 5.53
+        },
+        {
+          "raw": "all",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "raw": "as",
+          "start": 6.07,
+          "end": 6.27
+        },
+        {
+          "raw": "my",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "raw": "eternal",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "raw": "purpose",
+          "start": 6.79,
+          "end": 7.23
+        },
+        {
+          "raw": "hath",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "raw": "decreed.",
+          "start": 7.45,
+          "end": 8.09
+        },
+        {
+          "raw": "Man",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "raw": "shall",
+          "start": 8.81,
+          "end": 8.99
+        },
+        {
+          "raw": "not",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "raw": "quite",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "raw": "be",
+          "start": 9.41,
+          "end": 9.61
+        },
+        {
+          "raw": "lost,",
+          "start": 9.61,
+          "end": 9.95
+        },
+        {
+          "raw": "but",
+          "start": 10.29,
+          "end": 10.43
+        },
+        {
+          "raw": "sav'd",
+          "start": 10.43,
+          "end": 10.83
+        },
+        {
+          "raw": "who",
+          "start": 10.83,
+          "end": 10.95
+        },
+        {
+          "raw": "will.",
+          "start": 10.95,
+          "end": 11.21
+        },
+        {
+          "raw": "Yet",
+          "start": 11.85,
+          "end": 11.97
+        },
+        {
+          "raw": "not",
+          "start": 11.97,
+          "end": 12.19
+        },
+        {
+          "raw": "of",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "raw": "will",
+          "start": 12.31,
+          "end": 12.47
+        },
+        {
+          "raw": "in",
+          "start": 12.47,
+          "end": 12.65
+        },
+        {
+          "raw": "him,",
+          "start": 12.65,
+          "end": 12.89
+        },
+        {
+          "raw": "but",
+          "start": 13.09,
+          "end": 13.23
+        },
+        {
+          "raw": "grace",
+          "start": 13.23,
+          "end": 13.49
+        },
+        {
+          "raw": "in",
+          "start": 13.49,
+          "end": 13.75
+        },
+        {
+          "raw": "me",
+          "start": 13.75,
+          "end": 13.89
+        },
+        {
+          "raw": "freely",
+          "start": 13.89,
+          "end": 14.23
+        },
+        {
+          "raw": "vouchsaft.",
+          "start": 14.23,
+          "end": 14.89
+        },
+        {
+          "raw": "Once",
+          "start": 15.61,
+          "end": 15.81
+        },
+        {
+          "raw": "more",
+          "start": 15.81,
+          "end": 16.07
+        },
+        {
+          "raw": "I",
+          "start": 16.07,
+          "end": 16.25
+        },
+        {
+          "raw": "will",
+          "start": 16.25,
+          "end": 16.37
+        },
+        {
+          "raw": "renew",
+          "start": 16.37,
+          "end": 16.63
+        },
+        {
+          "raw": "his",
+          "start": 16.63,
+          "end": 16.89
+        },
+        {
+          "raw": "lapsed",
+          "start": 16.89,
+          "end": 17.43
+        },
+        {
+          "raw": "powers,",
+          "start": 17.43,
+          "end": 17.75
+        },
+        {
+          "raw": "though",
+          "start": 17.97,
+          "end": 18.11
+        },
+        {
+          "raw": "forfeit,",
+          "start": 18.11,
+          "end": 18.45
+        },
+        {
+          "raw": "and",
+          "start": 18.95,
+          "end": 19.05
+        },
+        {
+          "raw": "enthralled",
+          "start": 19.05,
+          "end": 19.51
+        },
+        {
+          "raw": "by",
+          "start": 19.51,
+          "end": 19.77
+        },
+        {
+          "raw": "sin",
+          "start": 19.77,
+          "end": 20.07
+        },
+        {
+          "raw": "to",
+          "start": 20.07,
+          "end": 20.29
+        },
+        {
+          "raw": "foul",
+          "start": 20.29,
+          "end": 20.59
+        },
+        {
+          "raw": "exorbitant",
+          "start": 20.59,
+          "end": 21.33
+        },
+        {
+          "raw": "desires.",
+          "start": 21.33,
+          "end": 21.71
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "word,",
+        "my",
+        "wisdom,",
+        "and",
+        "effectual",
+        "might,",
+        "All",
+        "hast",
+        "thou",
+        "spoken",
+        "as",
+        "my",
+        "thoughts",
+        "are,",
+        "all",
+        "As",
+        "my",
+        "eternal",
+        "purpose",
+        "hath",
+        "decreed;",
+        "Man",
+        "shall",
+        "not",
+        "quite",
+        "be",
+        "lost,",
+        "but",
+        "sav'd",
+        "who",
+        "will;",
+        "Yet",
+        "not",
+        "of",
+        "will",
+        "in",
+        "him,",
+        "but",
+        "grace",
+        "in",
+        "me",
+        "Freely",
+        "vouchsaf'd;",
+        "once",
+        "more",
+        "I",
+        "will",
+        "renew",
+        "His",
+        "lapsed",
+        "powers,",
+        "though",
+        "forfeit;",
+        "and",
+        "enthrall'd",
+        "By",
+        "sin",
+        "to",
+        "foul",
+        "exorbitant",
+        "desires;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          43,
+          0,
+          43
+        ],
+        [
+          "replace",
+          43,
+          44,
+          43,
+          44
+        ],
+        [
+          "equal",
+          44,
+          55,
+          44,
+          55
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ],
+        [
+          "equal",
+          56,
+          62,
+          56,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          43,
+          44,
+          43,
+          44
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "word,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "text": "my",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "wisdom,",
+          "start": 1.17,
+          "end": 1.63
+        },
+        {
+          "text": "and",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "effectual",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "text": "might,",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "All",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "text": "hast",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "thou",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "text": "spoken",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "text": "as",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "text": "my",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "thoughts",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "are,",
+          "start": 5.11,
+          "end": 5.53
+        },
+        {
+          "text": "all",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "text": "As",
+          "start": 6.07,
+          "end": 6.27
+        },
+        {
+          "text": "my",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "text": "eternal",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "text": "purpose",
+          "start": 6.79,
+          "end": 7.23
+        },
+        {
+          "text": "hath",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "text": "decreed;",
+          "start": 7.45,
+          "end": 8.09
+        },
+        {
+          "text": "Man",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "text": "shall",
+          "start": 8.81,
+          "end": 8.99
+        },
+        {
+          "text": "not",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "text": "quite",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "text": "be",
+          "start": 9.41,
+          "end": 9.61
+        },
+        {
+          "text": "lost,",
+          "start": 9.61,
+          "end": 9.95
+        },
+        {
+          "text": "but",
+          "start": 10.29,
+          "end": 10.43
+        },
+        {
+          "text": "sav'd",
+          "start": 10.43,
+          "end": 10.83
+        },
+        {
+          "text": "who",
+          "start": 10.83,
+          "end": 10.95
+        },
+        {
+          "text": "will;",
+          "start": 10.95,
+          "end": 11.21
+        },
+        {
+          "text": "Yet",
+          "start": 11.85,
+          "end": 11.97
+        },
+        {
+          "text": "not",
+          "start": 11.97,
+          "end": 12.19
+        },
+        {
+          "text": "of",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "text": "will",
+          "start": 12.31,
+          "end": 12.47
+        },
+        {
+          "text": "in",
+          "start": 12.47,
+          "end": 12.65
+        },
+        {
+          "text": "him,",
+          "start": 12.65,
+          "end": 12.89
+        },
+        {
+          "text": "but",
+          "start": 13.09,
+          "end": 13.23
+        },
+        {
+          "text": "grace",
+          "start": 13.23,
+          "end": 13.49
+        },
+        {
+          "text": "in",
+          "start": 13.49,
+          "end": 13.75
+        },
+        {
+          "text": "me",
+          "start": 13.75,
+          "end": 13.89
+        },
+        {
+          "text": "Freely",
+          "start": 13.89,
+          "end": 14.23
+        },
+        {
+          "text": "vouchsaf'd;",
+          "start": 14.23,
+          "end": 14.92
+        },
+        {
+          "text": "once",
+          "start": 15.61,
+          "end": 15.81
+        },
+        {
+          "text": "more",
+          "start": 15.81,
+          "end": 16.07
+        },
+        {
+          "text": "I",
+          "start": 16.07,
+          "end": 16.25
+        },
+        {
+          "text": "will",
+          "start": 16.25,
+          "end": 16.37
+        },
+        {
+          "text": "renew",
+          "start": 16.37,
+          "end": 16.63
+        },
+        {
+          "text": "His",
+          "start": 16.63,
+          "end": 16.89
+        },
+        {
+          "text": "lapsed",
+          "start": 16.89,
+          "end": 17.43
+        },
+        {
+          "text": "powers,",
+          "start": 17.43,
+          "end": 17.75
+        },
+        {
+          "text": "though",
+          "start": 17.97,
+          "end": 18.11
+        },
+        {
+          "text": "forfeit;",
+          "start": 18.11,
+          "end": 18.45
+        },
+        {
+          "text": "and",
+          "start": 18.95,
+          "end": 19.05
+        },
+        {
+          "text": "enthrall'd",
+          "start": 19.05,
+          "end": 19.28
+        },
+        {
+          "text": "By",
+          "start": 19.51,
+          "end": 19.77
+        },
+        {
+          "text": "sin",
+          "start": 19.77,
+          "end": 20.07
+        },
+        {
+          "text": "to",
+          "start": 20.07,
+          "end": 20.29
+        },
+        {
+          "text": "foul",
+          "start": 20.29,
+          "end": 20.59
+        },
+        {
+          "text": "exorbitant",
+          "start": 20.59,
+          "end": 21.33
+        },
+        {
+          "text": "desires;",
+          "start": 21.33,
+          "end": 21.71
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 62,
+        "matched_words": 60
+      },
+      "match_ratio": 0.967741935483871,
+      "rejection_reasons": [],
+      "seconds": 0.5732211172580719
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "3853b92bf2b318bacd2ada233b0ef50d546c82403762a56d40aa2b8a649b7ca4",
+  "selected_reasons": []
+}

@@ -1,0 +1,605 @@
+{
+  "complete": true,
+  "signature": "43d7899356374e8c022d20809e7ec24cc095a7b30a160ca2ef14c69cad8a1112",
+  "attempts": [
+    {
+      "asr_seconds": 0.16501232236623764,
+      "alignment_seconds": 9.717047214508057e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The other snarled aloud into a savage laugh; and the next moment, with extraordinary quickness, he had unlocked the door and disappeared into the house."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The other snarled aloud into a savage laugh. And the next moment, with extraordinary quickness, he had unlocked the door and disappeared into the house.",
+          "start": 0.02,
+          "end": 8.9,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " other",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " snarled",
+              "start": 0.74,
+              "end": 1.36,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " aloud",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " into",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " savage",
+              "start": 2.18,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laugh.",
+              "start": 2.5,
+              "end": 2.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " And",
+              "start": 3.5,
+              "end": 3.58,
+              "probability": 0.19287109375
+            },
+            {
+              "text": " the",
+              "start": 3.58,
+              "end": 3.68,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " next",
+              "start": 3.68,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " moment,",
+              "start": 3.88,
+              "end": 4.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 4.58,
+              "end": 4.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " extraordinary",
+              "start": 4.68,
+              "end": 5.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " quickness,",
+              "start": 5.34,
+              "end": 5.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 6.42,
+              "end": 6.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " had",
+              "start": 6.5,
+              "end": 6.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " unlocked",
+              "start": 6.6,
+              "end": 7.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.0,
+              "end": 7.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " door",
+              "start": 7.26,
+              "end": 7.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 7.54,
+              "end": 7.78,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " disappeared",
+              "start": 7.78,
+              "end": 8.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 8.24,
+              "end": 8.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 8.5,
+              "end": 8.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house.",
+              "start": 8.66,
+              "end": 8.9,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "other",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "snarled",
+          "start": 0.74,
+          "end": 1.36
+        },
+        {
+          "raw": "aloud",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "into",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "a",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "savage",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "raw": "laugh.",
+          "start": 2.5,
+          "end": 2.9
+        },
+        {
+          "raw": "And",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "raw": "the",
+          "start": 3.58,
+          "end": 3.68
+        },
+        {
+          "raw": "next",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "raw": "moment,",
+          "start": 3.88,
+          "end": 4.28
+        },
+        {
+          "raw": "with",
+          "start": 4.58,
+          "end": 4.68
+        },
+        {
+          "raw": "extraordinary",
+          "start": 4.68,
+          "end": 5.34
+        },
+        {
+          "raw": "quickness,",
+          "start": 5.34,
+          "end": 5.98
+        },
+        {
+          "raw": "he",
+          "start": 6.42,
+          "end": 6.5
+        },
+        {
+          "raw": "had",
+          "start": 6.5,
+          "end": 6.6
+        },
+        {
+          "raw": "unlocked",
+          "start": 6.6,
+          "end": 7.0
+        },
+        {
+          "raw": "the",
+          "start": 7.0,
+          "end": 7.26
+        },
+        {
+          "raw": "door",
+          "start": 7.26,
+          "end": 7.54
+        },
+        {
+          "raw": "and",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "raw": "disappeared",
+          "start": 7.78,
+          "end": 8.24
+        },
+        {
+          "raw": "into",
+          "start": 8.24,
+          "end": 8.5
+        },
+        {
+          "raw": "the",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "raw": "house.",
+          "start": 8.66,
+          "end": 8.9
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "other",
+        "snarled",
+        "aloud",
+        "into",
+        "a",
+        "savage",
+        "laugh;",
+        "and",
+        "the",
+        "next",
+        "moment,",
+        "with",
+        "extraordinary",
+        "quickness,",
+        "he",
+        "had",
+        "unlocked",
+        "the",
+        "door",
+        "and",
+        "disappeared",
+        "into",
+        "the",
+        "house."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "other",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "snarled",
+          "start": 0.74,
+          "end": 1.36
+        },
+        {
+          "text": "aloud",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "into",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "a",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "savage",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "text": "laugh;",
+          "start": 2.5,
+          "end": 2.9
+        },
+        {
+          "text": "and",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "text": "the",
+          "start": 3.58,
+          "end": 3.68
+        },
+        {
+          "text": "next",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "text": "moment,",
+          "start": 3.88,
+          "end": 4.28
+        },
+        {
+          "text": "with",
+          "start": 4.58,
+          "end": 4.68
+        },
+        {
+          "text": "extraordinary",
+          "start": 4.68,
+          "end": 5.34
+        },
+        {
+          "text": "quickness,",
+          "start": 5.34,
+          "end": 5.98
+        },
+        {
+          "text": "he",
+          "start": 6.42,
+          "end": 6.5
+        },
+        {
+          "text": "had",
+          "start": 6.5,
+          "end": 6.6
+        },
+        {
+          "text": "unlocked",
+          "start": 6.6,
+          "end": 7.0
+        },
+        {
+          "text": "the",
+          "start": 7.0,
+          "end": 7.26
+        },
+        {
+          "text": "door",
+          "start": 7.26,
+          "end": 7.54
+        },
+        {
+          "text": "and",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "text": "disappeared",
+          "start": 7.78,
+          "end": 8.24
+        },
+        {
+          "text": "into",
+          "start": 8.24,
+          "end": 8.5
+        },
+        {
+          "text": "the",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "text": "house.",
+          "start": 8.66,
+          "end": 8.9
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16515588760375977
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d8840f4bbb36f9f72127cfe295caf424fd728c25de8abe82ebb7cabc4fbc708",
+  "selected_reasons": []
+}

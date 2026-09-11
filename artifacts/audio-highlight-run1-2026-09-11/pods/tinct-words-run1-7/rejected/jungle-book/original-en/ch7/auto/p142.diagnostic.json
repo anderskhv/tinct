@@ -1,0 +1,826 @@
+{
+  "complete": true,
+  "signature": "39a583e604bfef512ca702582e1824bb38f5b13d2157d2f925c2af6340a33b25",
+  "attempts": [
+    {
+      "asr_seconds": 0.18120109662413597,
+      "alignment_seconds": 0.00013030506670475006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The animals went in two by two, Hurrah! The animals went in two by two, The elephant and the battery mul', and they all got into the Ark For to get out of the rain!",
+        "hotwords": "Hurrah, Ark, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The animals went in two by two, Hurrah! The animals went in two by two, The elephant and the battery mul', and they all got into the Ark For to get out of the rain!",
+          "start": 0.02,
+          "end": 9.64,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " animals",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " went",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " two",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " by",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " two,",
+              "start": 1.74,
+              "end": 2.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Hurrah!",
+              "start": 2.52,
+              "end": 2.8,
+              "probability": 0.5235595703125
+            },
+            {
+              "text": " The",
+              "start": 3.42,
+              "end": 3.52,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " animals",
+              "start": 3.52,
+              "end": 3.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " went",
+              "start": 3.88,
+              "end": 4.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " two",
+              "start": 4.36,
+              "end": 4.56,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " by",
+              "start": 4.56,
+              "end": 4.72,
+              "probability": 0.990234375
+            },
+            {
+              "text": " two,",
+              "start": 4.72,
+              "end": 5.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " The",
+              "start": 5.48,
+              "end": 5.58,
+              "probability": 0.11541748046875
+            },
+            {
+              "text": " elephant",
+              "start": 5.58,
+              "end": 5.86,
+              "probability": 0.187744140625
+            },
+            {
+              "text": " and",
+              "start": 5.86,
+              "end": 6.2,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " the",
+              "start": 6.2,
+              "end": 6.32,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " battery",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.693359375
+            },
+            {
+              "text": " mul',",
+              "start": 6.66,
+              "end": 7.42,
+              "probability": 0.0012230873107910156
+            },
+            {
+              "text": " and",
+              "start": 7.42,
+              "end": 7.64,
+              "probability": 0.671875
+            },
+            {
+              "text": " they",
+              "start": 7.64,
+              "end": 7.74,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " all",
+              "start": 7.74,
+              "end": 7.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": " got",
+              "start": 7.94,
+              "end": 8.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " into",
+              "start": 8.14,
+              "end": 8.34,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 8.34,
+              "end": 8.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Ark",
+              "start": 8.5,
+              "end": 8.66,
+              "probability": 0.2276611328125
+            },
+            {
+              "text": " For",
+              "start": 8.66,
+              "end": 8.84,
+              "probability": 0.00510406494140625
+            },
+            {
+              "text": " to",
+              "start": 8.84,
+              "end": 8.96,
+              "probability": 0.892578125
+            },
+            {
+              "text": " get",
+              "start": 8.96,
+              "end": 9.06,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " out",
+              "start": 9.06,
+              "end": 9.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 9.2,
+              "end": 9.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 9.3,
+              "end": 9.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rain!",
+              "start": 9.4,
+              "end": 9.64,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "animals",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "went",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "in",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "two",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "by",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "two,",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "raw": "Hurrah!",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "raw": "The",
+          "start": 3.42,
+          "end": 3.52
+        },
+        {
+          "raw": "animals",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "raw": "went",
+          "start": 3.88,
+          "end": 4.18
+        },
+        {
+          "raw": "in",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "two",
+          "start": 4.36,
+          "end": 4.56
+        },
+        {
+          "raw": "by",
+          "start": 4.56,
+          "end": 4.72
+        },
+        {
+          "raw": "two,",
+          "start": 4.72,
+          "end": 5.08
+        },
+        {
+          "raw": "The",
+          "start": 5.48,
+          "end": 5.58
+        },
+        {
+          "raw": "elephant",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "raw": "and",
+          "start": 5.86,
+          "end": 6.2
+        },
+        {
+          "raw": "the",
+          "start": 6.2,
+          "end": 6.32
+        },
+        {
+          "raw": "battery",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "raw": "mul',",
+          "start": 6.66,
+          "end": 7.42
+        },
+        {
+          "raw": "and",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "raw": "they",
+          "start": 7.64,
+          "end": 7.74
+        },
+        {
+          "raw": "all",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "raw": "got",
+          "start": 7.94,
+          "end": 8.14
+        },
+        {
+          "raw": "into",
+          "start": 8.14,
+          "end": 8.34
+        },
+        {
+          "raw": "the",
+          "start": 8.34,
+          "end": 8.5
+        },
+        {
+          "raw": "Ark",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "raw": "For",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "raw": "to",
+          "start": 8.84,
+          "end": 8.96
+        },
+        {
+          "raw": "get",
+          "start": 8.96,
+          "end": 9.06
+        },
+        {
+          "raw": "out",
+          "start": 9.06,
+          "end": 9.2
+        },
+        {
+          "raw": "of",
+          "start": 9.2,
+          "end": 9.3
+        },
+        {
+          "raw": "the",
+          "start": 9.3,
+          "end": 9.4
+        },
+        {
+          "raw": "rain!",
+          "start": 9.4,
+          "end": 9.64
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "animals",
+        "went",
+        "in",
+        "two",
+        "by",
+        "two,",
+        "Hurrah!",
+        "The",
+        "animals",
+        "went",
+        "in",
+        "two",
+        "by",
+        "two,",
+        "The",
+        "elephant",
+        "and",
+        "the",
+        "battery",
+        "mul',",
+        "and",
+        "they",
+        "all",
+        "got",
+        "into",
+        "the",
+        "Ark",
+        "For",
+        "to",
+        "get",
+        "out",
+        "of",
+        "the",
+        "rain!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          35,
+          0,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "animals",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "went",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "in",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "two",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "by",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "two,",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "text": "Hurrah!",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "text": "The",
+          "start": 3.42,
+          "end": 3.52
+        },
+        {
+          "text": "animals",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "text": "went",
+          "start": 3.88,
+          "end": 4.18
+        },
+        {
+          "text": "in",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "two",
+          "start": 4.36,
+          "end": 4.56
+        },
+        {
+          "text": "by",
+          "start": 4.56,
+          "end": 4.72
+        },
+        {
+          "text": "two,",
+          "start": 4.72,
+          "end": 5.08
+        },
+        {
+          "text": "The",
+          "start": 5.48,
+          "end": 5.58
+        },
+        {
+          "text": "elephant",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "text": "and",
+          "start": 5.86,
+          "end": 6.2
+        },
+        {
+          "text": "the",
+          "start": 6.2,
+          "end": 6.32
+        },
+        {
+          "text": "battery",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "text": "mul',",
+          "start": 6.66,
+          "end": 7.42
+        },
+        {
+          "text": "and",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "text": "they",
+          "start": 7.64,
+          "end": 7.74
+        },
+        {
+          "text": "all",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "text": "got",
+          "start": 7.94,
+          "end": 8.14
+        },
+        {
+          "text": "into",
+          "start": 8.14,
+          "end": 8.34
+        },
+        {
+          "text": "the",
+          "start": 8.34,
+          "end": 8.5
+        },
+        {
+          "text": "Ark",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "text": "For",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "text": "to",
+          "start": 8.84,
+          "end": 8.96
+        },
+        {
+          "text": "get",
+          "start": 8.96,
+          "end": 9.06
+        },
+        {
+          "text": "out",
+          "start": 9.06,
+          "end": 9.2
+        },
+        {
+          "text": "of",
+          "start": 9.2,
+          "end": 9.3
+        },
+        {
+          "text": "the",
+          "start": 9.3,
+          "end": 9.4
+        },
+        {
+          "text": "rain!",
+          "start": 9.4,
+          "end": 9.64
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 35
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18140363413840532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0834e1875d8aacf3eed0bff396a552fdeb03736f564686f45b984dfcaf649378",
+  "selected_reasons": []
+}

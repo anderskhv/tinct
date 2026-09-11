@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "39ffb5457528ac57be1293d00859fa7f9803eb5737c92e0c2cd15c6784967919",
+  "attempts": [
+    {
+      "asr_seconds": 0.07058857381343842,
+      "alignment_seconds": 4.494190216064453e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I see.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " see.",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "see.",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "see."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "see.",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07064948976039886
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "65df642923e13d791da1b3f901ed322e8612bd094fd10e2efdb3b21f848f7aba",
+  "selected_reasons": []
+}

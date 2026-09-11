@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "f5e247a166ae89c396edc7d3618dde774beffb0ec40d69de79369ac8c1dc72ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.11822915996890515,
+      "alignment_seconds": 0.0001133439363911748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. Well, I have done: but yet,--",
+        "hotwords": "Gonzalo, Well, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, Well, I have done, but yet,",
+          "start": 0.55,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Well,",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.0156097412109375
+            },
+            {
+              "text": " I",
+              "start": 1.37,
+              "end": 1.39,
+              "probability": 0.978515625
+            },
+            {
+              "text": " have",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.896484375
+            },
+            {
+              "text": " done,",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 1.99,
+              "end": 2.07,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " yet,",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "Well,",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.39
+        },
+        {
+          "raw": "have",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "done,",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "but",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "raw": "yet,",
+          "start": 2.07,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Well,",
+        "I",
+        "have",
+        "done:",
+        "but",
+        "yet,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "Well,",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "I",
+          "start": 1.37,
+          "end": 1.39
+        },
+        {
+          "text": "have",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "done:",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "but",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "text": "yet,--",
+          "start": 2.07,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11839453596621752
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "330e3003d40e2ef86e01b2f0fbb3beb6da40f2a0cb1dd6153a60ba01cbc703fa",
+  "selected_reasons": []
+}

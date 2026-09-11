@@ -1,0 +1,340 @@
+{
+  "complete": true,
+  "signature": "c5ccab740cebe77f4de0c88b15685dacf19dd982dfaa09ce63801690bb6946ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.11429607775062323,
+      "alignment_seconds": 7.26412981748581e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, he said, I entirely agree and go along with you in that.",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.131591796875
+            },
+            {
+              "text": " he",
+              "start": 0.81,
+              "end": 0.91,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " said,",
+              "start": 0.91,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " entirely",
+              "start": 1.79,
+              "end": 2.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " agree",
+              "start": 2.15,
+              "end": 2.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.59,
+              "end": 2.81,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " go",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " along",
+              "start": 2.97,
+              "end": 3.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 3.23,
+              "end": 3.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.55,
+              "end": 3.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that.",
+              "start": 3.69,
+              "end": 3.95,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "he",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "raw": "said,",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "entirely",
+          "start": 1.79,
+          "end": 2.15
+        },
+        {
+          "raw": "agree",
+          "start": 2.15,
+          "end": 2.59
+        },
+        {
+          "raw": "and",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "raw": "go",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "along",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "raw": "with",
+          "start": 3.23,
+          "end": 3.41
+        },
+        {
+          "raw": "you",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "in",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "raw": "that.",
+          "start": 3.69,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said,",
+        "I",
+        "entirely",
+        "agree",
+        "and",
+        "go",
+        "along",
+        "with",
+        "you",
+        "in",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "he",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "text": "said,",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "text": "I",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "entirely",
+          "start": 1.79,
+          "end": 2.15
+        },
+        {
+          "text": "agree",
+          "start": 2.15,
+          "end": 2.59
+        },
+        {
+          "text": "and",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "text": "go",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "along",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "text": "with",
+          "start": 3.23,
+          "end": 3.41
+        },
+        {
+          "text": "you",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "in",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "text": "that.",
+          "start": 3.69,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11440216656774282
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "763fa8c6c0056db11c4172fc898c2fedea59454f0a84a064292b3441314f67fd",
+  "selected_reasons": []
+}

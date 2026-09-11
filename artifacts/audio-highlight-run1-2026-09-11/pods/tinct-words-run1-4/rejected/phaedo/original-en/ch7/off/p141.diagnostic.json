@@ -1,0 +1,117 @@
+{
+  "complete": true,
+  "signature": "ee5ef81e3e746670bb304d3d48ee72ddeee2d8b6a92e65825052014dda294602",
+  "attempts": [
+    {
+      "asr_seconds": 0.09674903657287359,
+      "alignment_seconds": 5.129631608724594e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Simeon's assented.",
+          "start": 0.08,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Simeon's",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " assented.",
+              "start": 0.8,
+              "end": 1.2,
+              "probability": 0.811767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Simeon's",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "assented.",
+          "start": 0.8,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Simmias",
+        "assented."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Simmias",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "assented.",
+          "start": 0.8,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09681620728224516
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb9b9d60af1a386101202c0cbd972babcdebff78aa29992945303e6303c2058a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

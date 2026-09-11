@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "d6b287fef724691347636ba4b03e7e239416d041d79be9e38ef249806a203537",
+  "attempts": [
+    {
+      "asr_seconds": 0.1509689399972558,
+      "alignment_seconds": 6.755441427230835e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, indeed, I said. That is very melancholy.",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.11761474609375
+            },
+            {
+              "text": " indeed,",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " said.",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " That",
+              "start": 2.01,
+              "end": 2.13,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " melancholy.",
+              "start": 2.53,
+              "end": 2.89,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "raw": "said.",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": "That",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "very",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "melancholy.",
+          "start": 2.53,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "indeed,",
+        "I",
+        "said;",
+        "that",
+        "is",
+        "very",
+        "melancholy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "indeed,",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "I",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "text": "said;",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "text": "that",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "text": "is",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "very",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "melancholy.",
+          "start": 2.53,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15106448344886303
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41a3198708df669779c1e1c9c95b02f896aee6028df7c36caea1ca20fc5247f5",
+  "selected_reasons": []
+}

@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "aaa5dcc0b10923a70f7aca0eb6ffb7a46c33faee0ac146c51a6317c8a0a6a395",
+  "attempts": [
+    {
+      "asr_seconds": 0.07212571054697037,
+      "alignment_seconds": 5.996227264404297e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You will not.",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.84765625
+            },
+            {
+              "text": " will",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not.",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "will",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "not.",
+          "start": 0.68,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "will",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "will",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "not.",
+          "start": 0.68,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07221022248268127
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d393a1738284247833d1f4ff4c1d53f827efcac2f77ae7ced9270108824726fb",
+  "selected_reasons": []
+}

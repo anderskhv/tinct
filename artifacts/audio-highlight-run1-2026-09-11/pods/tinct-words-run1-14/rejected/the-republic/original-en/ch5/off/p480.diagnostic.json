@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "17812cf7c2ef25e079f1b5038a44241595d0a51afc0975c3cb4d37770f55dd2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09049881994724274,
+      "alignment_seconds": 5.788356065750122e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, between them.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.806640625
+            },
+            {
+              "text": " between",
+              "start": 1.08,
+              "end": 1.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them.",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "between",
+          "start": 1.08,
+          "end": 1.1
+        },
+        {
+          "raw": "them.",
+          "start": 1.1,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "between",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "between",
+          "start": 1.08,
+          "end": 1.1
+        },
+        {
+          "text": "them.",
+          "start": 1.1,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0905781239271164
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce598ca01e0dbfba62584b5556bf142ecebbec757f941a2e5813e4d8db526fc0",
+  "selected_reasons": []
+}

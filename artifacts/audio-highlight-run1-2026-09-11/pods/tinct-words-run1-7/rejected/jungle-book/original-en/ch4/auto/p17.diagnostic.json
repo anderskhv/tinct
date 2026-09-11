@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "be9b969b66e20a3d9ee6fcdab1b6fa95faa4d57de44a8ae5b9a6eebe456b57fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.23831602558493614,
+      "alignment_seconds": 7.180124521255493e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sea Catch,\" she said, at last, \"our baby's going to be white!\"",
+        "hotwords": "Sea, Catch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sea Catch, she said, at last, our baby's going to be white!",
+          "start": 0.11,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Sea",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.0018396377563476562
+            },
+            {
+              "text": " Catch,",
+              "start": 0.61,
+              "end": 1.01,
+              "probability": 0.0919189453125
+            },
+            {
+              "text": " she",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.982421875
+            },
+            {
+              "text": " said,",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 1.83,
+              "end": 1.83,
+              "probability": 0.978515625
+            },
+            {
+              "text": " last,",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " our",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " baby's",
+              "start": 2.71,
+              "end": 3.11,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " going",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " white!",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sea",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "Catch,",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "raw": "she",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "said,",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "at",
+          "start": 1.83,
+          "end": 1.83
+        },
+        {
+          "raw": "last,",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "our",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "baby's",
+          "start": 2.71,
+          "end": 3.11
+        },
+        {
+          "raw": "going",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "be",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "white!",
+          "start": 3.49,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "\"Sea",
+        "Catch,\"",
+        "she",
+        "said,",
+        "at",
+        "last,",
+        "\"our",
+        "baby's",
+        "going",
+        "to",
+        "be",
+        "white!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Sea",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "Catch,\"",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "text": "she",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "said,",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "at",
+          "start": 1.83,
+          "end": 1.83
+        },
+        {
+          "text": "last,",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "\"our",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "baby's",
+          "start": 2.71,
+          "end": 3.11
+        },
+        {
+          "text": "going",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "to",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "be",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "white!\"",
+          "start": 3.49,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23841879423707724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "43b939147df318304618c5143353d5e5aa2bc88c1c361a215110331035b57fd3",
+  "selected_reasons": []
+}

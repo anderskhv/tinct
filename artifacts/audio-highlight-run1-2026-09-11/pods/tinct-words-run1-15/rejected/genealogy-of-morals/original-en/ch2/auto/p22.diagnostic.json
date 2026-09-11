@@ -1,0 +1,115 @@
+{
+  "complete": true,
+  "signature": "416827f47c993c3d73e2dfce3aa736ea81f21fe19bf7b1da74fc011ff7af80bd",
+  "attempts": [
+    {
+      "asr_seconds": 3.070040062069893,
+      "alignment_seconds": 5.75333833694458e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Further!",
+        "hotwords": "Further"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Further Further!er",
+          "start": 0.08,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Further",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " Further",
+              "start": 0.72,
+              "end": 1.38,
+              "probability": 7.748603820800781e-07
+            },
+            {
+              "text": "!er",
+              "start": 1.38,
+              "end": 1.38,
+              "probability": 0.017810285091400146
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Further",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Further",
+          "start": 0.72,
+          "end": 1.38
+        },
+        {
+          "raw": "!er",
+          "start": 1.38,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Further!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Further!",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.0701220259070396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e4555971783358d1506ccf155028beda311d67f1044387714ec37641dc20bbab",
+  "selected_reasons": []
+}

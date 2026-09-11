@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "4e1e25005df218bea8b2cdca88ca7b542bdedaf72725be70d356866997bae0af",
+  "attempts": [
+    {
+      "asr_seconds": 0.1164747104048729,
+      "alignment_seconds": 8.951127529144287e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, he said, and it ought not to be permitted.",
+          "start": 0.38,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.38,
+              "end": 0.7,
+              "probability": 0.1126708984375
+            },
+            {
+              "text": " he",
+              "start": 0.84,
+              "end": 0.92,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " said,",
+              "start": 0.92,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 1.74,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " it",
+              "start": 1.74,
+              "end": 1.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " ought",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.984375
+            },
+            {
+              "text": " to",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " be",
+              "start": 2.26,
+              "end": 2.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " permitted.",
+              "start": 2.36,
+              "end": 2.66,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.38,
+          "end": 0.7
+        },
+        {
+          "raw": "he",
+          "start": 0.84,
+          "end": 0.92
+        },
+        {
+          "raw": "said,",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "raw": "it",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "raw": "ought",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "not",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "to",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "be",
+          "start": 2.26,
+          "end": 2.36
+        },
+        {
+          "raw": "permitted.",
+          "start": 2.36,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said,",
+        "and",
+        "it",
+        "ought",
+        "not",
+        "to",
+        "be",
+        "permitted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.38,
+          "end": 0.7
+        },
+        {
+          "text": "he",
+          "start": 0.84,
+          "end": 0.92
+        },
+        {
+          "text": "said,",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "text": "and",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "it",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "text": "ought",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "not",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "to",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "text": "be",
+          "start": 2.26,
+          "end": 2.36
+        },
+        {
+          "text": "permitted.",
+          "start": 2.36,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11660882085561752
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2bf7f0461d34a80c580933e70ccf657f9aa8ccdc1ca39f02054c573594fd157f",
+  "selected_reasons": []
+}

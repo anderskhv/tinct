@@ -1,0 +1,516 @@
+{
+  "complete": true,
+  "signature": "82b356aeee95f89a434a9dbc12f2001edeec162f149c3e56d12827bb09a06e4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2201797440648079,
+      "alignment_seconds": 0.0001355484127998352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Both should be forbidden in my judgment. I would take the annual produce and no more shall I tell you why?",
+          "start": 0.08,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " Both",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " should",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " forbidden",
+              "start": 0.96,
+              "end": 1.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.36,
+              "end": 1.72,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " my",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " judgment.",
+              "start": 1.94,
+              "end": 2.32,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " I",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " would",
+              "start": 2.9,
+              "end": 3.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " take",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " annual",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " produce",
+              "start": 3.7,
+              "end": 4.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.2,
+              "end": 4.44,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " no",
+              "start": 4.44,
+              "end": 4.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " more",
+              "start": 4.6,
+              "end": 5.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shall",
+              "start": 5.0,
+              "end": 5.58,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " I",
+              "start": 5.58,
+              "end": 5.72,
+              "probability": 0.712890625
+            },
+            {
+              "text": " tell",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 5.92,
+              "end": 6.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " why?",
+              "start": 6.12,
+              "end": 6.4,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Both",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "should",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "be",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "forbidden",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "raw": "in",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "raw": "my",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "judgment.",
+          "start": 1.94,
+          "end": 2.32
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "would",
+          "start": 2.9,
+          "end": 3.0
+        },
+        {
+          "raw": "take",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "annual",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": "produce",
+          "start": 3.7,
+          "end": 4.2
+        },
+        {
+          "raw": "and",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "raw": "no",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "raw": "more",
+          "start": 4.6,
+          "end": 5.0
+        },
+        {
+          "raw": "shall",
+          "start": 5.0,
+          "end": 5.58
+        },
+        {
+          "raw": "I",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "raw": "tell",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "you",
+          "start": 5.92,
+          "end": 6.12
+        },
+        {
+          "raw": "why?",
+          "start": 6.12,
+          "end": 6.4
+        }
+      ],
+      "expected_tokens": [
+        "Both",
+        "should",
+        "be",
+        "forbidden,",
+        "in",
+        "my",
+        "judgment;",
+        "I",
+        "would",
+        "take",
+        "the",
+        "annual",
+        "produce",
+        "and",
+        "no",
+        "more.",
+        "Shall",
+        "I",
+        "tell",
+        "you",
+        "why?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Both",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "should",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "be",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "forbidden,",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "text": "in",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "text": "my",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "judgment;",
+          "start": 1.94,
+          "end": 2.32
+        },
+        {
+          "text": "I",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "would",
+          "start": 2.9,
+          "end": 3.0
+        },
+        {
+          "text": "take",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "annual",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "text": "produce",
+          "start": 3.7,
+          "end": 4.2
+        },
+        {
+          "text": "and",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "text": "no",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "text": "more.",
+          "start": 4.6,
+          "end": 5.0
+        },
+        {
+          "text": "Shall",
+          "start": 5.0,
+          "end": 5.58
+        },
+        {
+          "text": "I",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "text": "tell",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "you",
+          "start": 5.92,
+          "end": 6.12
+        },
+        {
+          "text": "why?",
+          "start": 6.12,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22038884460926056
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73c52b1b5d38f21500b9947be99a171ed1d75e6342860a3cb7962593fcd437d8",
+  "selected_reasons": []
+}

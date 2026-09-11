@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "486f2272bc6d568a334a0aaf82c110ef75e295abf82795a0d3ba96e5267fdbab",
+  "attempts": [
+    {
+      "asr_seconds": 0.09482010453939438,
+      "alignment_seconds": 6.615370512008667e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That will do, he said.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That will do, he said.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.2362060546875
+            },
+            {
+              "text": " will",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " do,",
+              "start": 0.67,
+              "end": 0.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said.",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "will",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "do,",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "raw": "he",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "said.",
+          "start": 1.17,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "will",
+        "do,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "will",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "do,",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "text": "he",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "said.",
+          "start": 1.17,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09491425007581711
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8696bc5200100893c46cc7693dc8d69e4969b762217532fa0d7406d34fc4b74",
+  "selected_reasons": []
+}

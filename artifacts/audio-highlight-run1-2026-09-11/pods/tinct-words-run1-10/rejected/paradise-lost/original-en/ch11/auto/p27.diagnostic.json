@@ -1,0 +1,6608 @@
+{
+  "complete": true,
+  "signature": "751337ec27b9b45f3cdf66e25e6b5f9767d49c17ae47ee2845388aeddc3c76af",
+  "attempts": [
+    {
+      "asr_seconds": 1.049596308002947,
+      "alignment_seconds": 0.0006783769931644201,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Not that more glorious, when the Angels met Jacob in Mahanaim, where he saw The field pavilioned with his guardians bright; Nor that, which on the flaming mount appeared In Dothan, covered with a camp of fire, Against the Syrian king, who to surprise One man, assassin-like, had levied war, War unproclaimed. The princely Hierarch In their bright stand there left his Powers, to seise Possession of the garden; he alone, To find where Adam sheltered, took his way, Not unperceived of Adam; who to Eve, While the great visitant approached, thus spake.",
+        "hotwords": "Not, Angels, Jacob, Mahanaim, Nor, Dothan, Against, Syrian, One, Hierarch, Powers, Possession, Adam, Eve, While"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not that more glorious, when the Angels met Jacob in Mahanaim, where he saw The field pavilioned",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.204833984375
+            },
+            {
+              "text": " that",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " more",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " glorious,",
+              "start": 0.97,
+              "end": 1.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " when",
+              "start": 2.07,
+              "end": 2.09,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " the",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Angels",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.1318359375
+            },
+            {
+              "text": " met",
+              "start": 2.55,
+              "end": 2.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Jacob",
+              "start": 2.89,
+              "end": 3.31,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " in",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Mahanaim,",
+              "start": 3.55,
+              "end": 4.09,
+              "probability": 0.7233072916666666
+            },
+            {
+              "text": " where",
+              "start": 4.55,
+              "end": 4.61,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " he",
+              "start": 4.61,
+              "end": 4.79,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " saw",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " The",
+              "start": 4.99,
+              "end": 5.21,
+              "probability": 0.0009379386901855469
+            },
+            {
+              "text": " field",
+              "start": 5.21,
+              "end": 5.47,
+              "probability": 0.257568359375
+            },
+            {
+              "text": " pavilioned",
+              "start": 5.47,
+              "end": 6.11,
+              "probability": 0.6041666666666666
+            }
+          ]
+        },
+        {
+          "text": " With his guardians bright, Nor that, which on the flaming mount appeared",
+          "start": 6.11,
+          "end": 10.27,
+          "words": [
+            {
+              "text": " With",
+              "start": 6.11,
+              "end": 6.27,
+              "probability": 0.0193023681640625
+            },
+            {
+              "text": " his",
+              "start": 6.27,
+              "end": 6.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " guardians",
+              "start": 6.45,
+              "end": 6.87,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " bright,",
+              "start": 6.87,
+              "end": 7.31,
+              "probability": 0.662109375
+            },
+            {
+              "text": " Nor",
+              "start": 7.99,
+              "end": 8.15,
+              "probability": 0.260986328125
+            },
+            {
+              "text": " that,",
+              "start": 8.15,
+              "end": 8.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " which",
+              "start": 8.85,
+              "end": 8.97,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " on",
+              "start": 8.97,
+              "end": 9.13,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " the",
+              "start": 9.13,
+              "end": 9.27,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " flaming",
+              "start": 9.27,
+              "end": 9.51,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " mount",
+              "start": 9.51,
+              "end": 9.87,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " appeared",
+              "start": 9.87,
+              "end": 10.27,
+              "probability": 0.430419921875
+            }
+          ]
+        },
+        {
+          "text": " In Dothan, covered with a camp of fire, Against the Syrian king, who to surprise One man,",
+          "start": 10.27,
+          "end": 16.09,
+          "words": [
+            {
+              "text": " In",
+              "start": 10.27,
+              "end": 10.51,
+              "probability": 0.1683349609375
+            },
+            {
+              "text": " Dothan,",
+              "start": 10.51,
+              "end": 10.97,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " covered",
+              "start": 11.39,
+              "end": 11.59,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " with",
+              "start": 11.59,
+              "end": 11.83,
+              "probability": 0.931640625
+            },
+            {
+              "text": " a",
+              "start": 11.83,
+              "end": 11.97,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " camp",
+              "start": 11.97,
+              "end": 12.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 12.17,
+              "end": 12.37,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " fire,",
+              "start": 12.37,
+              "end": 12.71,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Against",
+              "start": 13.01,
+              "end": 13.27,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " the",
+              "start": 13.27,
+              "end": 13.55,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Syrian",
+              "start": 13.55,
+              "end": 13.91,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " king,",
+              "start": 13.91,
+              "end": 14.29,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " who",
+              "start": 14.71,
+              "end": 14.85,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " to",
+              "start": 14.85,
+              "end": 14.99,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " surprise",
+              "start": 14.99,
+              "end": 15.37,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " One",
+              "start": 15.37,
+              "end": 15.73,
+              "probability": 0.103271484375
+            },
+            {
+              "text": " man,",
+              "start": 15.73,
+              "end": 16.09,
+              "probability": 0.978515625
+            }
+          ]
+        },
+        {
+          "text": " Assassin-like, had levied war, War unproclaimed.",
+          "start": 16.29,
+          "end": 19.43,
+          "words": [
+            {
+              "text": " Assassin",
+              "start": 16.29,
+              "end": 16.65,
+              "probability": 0.01145172119140625
+            },
+            {
+              "text": "-like,",
+              "start": 16.65,
+              "end": 16.97,
+              "probability": 0.908447265625
+            },
+            {
+              "text": " had",
+              "start": 17.11,
+              "end": 17.23,
+              "probability": 0.91796875
+            },
+            {
+              "text": " levied",
+              "start": 17.23,
+              "end": 17.53,
+              "probability": 0.880859375
+            },
+            {
+              "text": " war,",
+              "start": 17.53,
+              "end": 18.01,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " War",
+              "start": 18.51,
+              "end": 18.69,
+              "probability": 0.33349609375
+            },
+            {
+              "text": " unproclaimed.",
+              "start": 18.69,
+              "end": 19.43,
+              "probability": 0.8671875
+            }
+          ]
+        },
+        {
+          "text": " The princely Hierarch In their bright stand there left his Powers,",
+          "start": 20.49,
+          "end": 23.55,
+          "words": [
+            {
+              "text": " The",
+              "start": 20.49,
+              "end": 20.71,
+              "probability": 0.982421875
+            },
+            {
+              "text": " princely",
+              "start": 20.71,
+              "end": 21.13,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " Hierarch",
+              "start": 21.13,
+              "end": 21.61,
+              "probability": 0.58929443359375
+            },
+            {
+              "text": " In",
+              "start": 21.61,
+              "end": 21.75,
+              "probability": 0.01476287841796875
+            },
+            {
+              "text": " their",
+              "start": 21.75,
+              "end": 21.91,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " bright",
+              "start": 21.91,
+              "end": 22.13,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " stand",
+              "start": 22.13,
+              "end": 22.51,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " there",
+              "start": 22.51,
+              "end": 22.77,
+              "probability": 0.55859375
+            },
+            {
+              "text": " left",
+              "start": 22.77,
+              "end": 22.95,
+              "probability": 0.4169921875
+            },
+            {
+              "text": " his",
+              "start": 22.95,
+              "end": 23.19,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " Powers,",
+              "start": 23.19,
+              "end": 23.55,
+              "probability": 0.1207275390625
+            }
+          ]
+        },
+        {
+          "text": " To size Possession of the garden, he alone, To find where Adam sheltered, took his way,",
+          "start": 24.09,
+          "end": 29.49,
+          "words": [
+            {
+              "text": " To",
+              "start": 24.09,
+              "end": 24.19,
+              "probability": 0.23779296875
+            },
+            {
+              "text": " size",
+              "start": 24.19,
+              "end": 24.47,
+              "probability": 0.1239013671875
+            },
+            {
+              "text": " Possession",
+              "start": 24.47,
+              "end": 24.95,
+              "probability": 0.4996986389160156
+            },
+            {
+              "text": " of",
+              "start": 24.95,
+              "end": 25.15,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 25.15,
+              "end": 25.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " garden,",
+              "start": 25.27,
+              "end": 25.53,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " he",
+              "start": 26.23,
+              "end": 26.43,
+              "probability": 0.407470703125
+            },
+            {
+              "text": " alone,",
+              "start": 26.43,
+              "end": 26.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " To",
+              "start": 26.99,
+              "end": 27.11,
+              "probability": 0.404052734375
+            },
+            {
+              "text": " find",
+              "start": 27.11,
+              "end": 27.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " where",
+              "start": 27.41,
+              "end": 27.65,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Adam",
+              "start": 27.65,
+              "end": 27.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sheltered,",
+              "start": 27.95,
+              "end": 28.39,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " took",
+              "start": 28.83,
+              "end": 29.01,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " his",
+              "start": 29.01,
+              "end": 29.19,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " way,",
+              "start": 29.19,
+              "end": 29.49,
+              "probability": 0.93701171875
+            }
+          ]
+        },
+        {
+          "text": " Not unperceived of Adam, who to Eve, While the great visitant approached, thus spake.",
+          "start": 29.49,
+          "end": 34.75,
+          "words": [
+            {
+              "text": " Not",
+              "start": 29.49,
+              "end": 29.97,
+              "probability": 0.11907958984375
+            },
+            {
+              "text": " unperceived",
+              "start": 29.97,
+              "end": 30.61,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " of",
+              "start": 30.61,
+              "end": 30.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Adam,",
+              "start": 30.77,
+              "end": 31.11,
+              "probability": 0.990234375
+            },
+            {
+              "text": " who",
+              "start": 31.63,
+              "end": 31.85,
+              "probability": 0.869140625
+            },
+            {
+              "text": " to",
+              "start": 31.85,
+              "end": 31.97,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Eve,",
+              "start": 31.97,
+              "end": 32.29,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " While",
+              "start": 32.45,
+              "end": 32.55,
+              "probability": 0.1121826171875
+            },
+            {
+              "text": " the",
+              "start": 32.55,
+              "end": 32.69,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " great",
+              "start": 32.69,
+              "end": 32.93,
+              "probability": 0.83984375
+            },
+            {
+              "text": " visitant",
+              "start": 32.93,
+              "end": 33.41,
+              "probability": 0.34735107421875
+            },
+            {
+              "text": " approached,",
+              "start": 33.41,
+              "end": 33.75,
+              "probability": 0.74609375
+            },
+            {
+              "text": " thus",
+              "start": 34.01,
+              "end": 34.25,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " spake.",
+              "start": 34.25,
+              "end": 34.75,
+              "probability": 0.986572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "that",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "more",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "glorious,",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "raw": "when",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "raw": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "Angels",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "raw": "met",
+          "start": 2.55,
+          "end": 2.89
+        },
+        {
+          "raw": "Jacob",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "raw": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "Mahanaim,",
+          "start": 3.55,
+          "end": 4.09
+        },
+        {
+          "raw": "where",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "raw": "he",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "raw": "saw",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "The",
+          "start": 4.99,
+          "end": 5.21
+        },
+        {
+          "raw": "field",
+          "start": 5.21,
+          "end": 5.47
+        },
+        {
+          "raw": "pavilioned",
+          "start": 5.47,
+          "end": 6.11
+        },
+        {
+          "raw": "With",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "raw": "his",
+          "start": 6.27,
+          "end": 6.45
+        },
+        {
+          "raw": "guardians",
+          "start": 6.45,
+          "end": 6.87
+        },
+        {
+          "raw": "bright,",
+          "start": 6.87,
+          "end": 7.31
+        },
+        {
+          "raw": "Nor",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "raw": "that,",
+          "start": 8.15,
+          "end": 8.55
+        },
+        {
+          "raw": "which",
+          "start": 8.85,
+          "end": 8.97
+        },
+        {
+          "raw": "on",
+          "start": 8.97,
+          "end": 9.13
+        },
+        {
+          "raw": "the",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "raw": "flaming",
+          "start": 9.27,
+          "end": 9.51
+        },
+        {
+          "raw": "mount",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "raw": "appeared",
+          "start": 9.87,
+          "end": 10.27
+        },
+        {
+          "raw": "In",
+          "start": 10.27,
+          "end": 10.51
+        },
+        {
+          "raw": "Dothan,",
+          "start": 10.51,
+          "end": 10.97
+        },
+        {
+          "raw": "covered",
+          "start": 11.39,
+          "end": 11.59
+        },
+        {
+          "raw": "with",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "raw": "a",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "raw": "camp",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "raw": "of",
+          "start": 12.17,
+          "end": 12.37
+        },
+        {
+          "raw": "fire,",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "raw": "Against",
+          "start": 13.01,
+          "end": 13.27
+        },
+        {
+          "raw": "the",
+          "start": 13.27,
+          "end": 13.55
+        },
+        {
+          "raw": "Syrian",
+          "start": 13.55,
+          "end": 13.91
+        },
+        {
+          "raw": "king,",
+          "start": 13.91,
+          "end": 14.29
+        },
+        {
+          "raw": "who",
+          "start": 14.71,
+          "end": 14.85
+        },
+        {
+          "raw": "to",
+          "start": 14.85,
+          "end": 14.99
+        },
+        {
+          "raw": "surprise",
+          "start": 14.99,
+          "end": 15.37
+        },
+        {
+          "raw": "One",
+          "start": 15.37,
+          "end": 15.73
+        },
+        {
+          "raw": "man,",
+          "start": 15.73,
+          "end": 16.09
+        },
+        {
+          "raw": "Assassin",
+          "start": 16.29,
+          "end": 16.65
+        },
+        {
+          "raw": "-like,",
+          "start": 16.65,
+          "end": 16.97
+        },
+        {
+          "raw": "had",
+          "start": 17.11,
+          "end": 17.23
+        },
+        {
+          "raw": "levied",
+          "start": 17.23,
+          "end": 17.53
+        },
+        {
+          "raw": "war,",
+          "start": 17.53,
+          "end": 18.01
+        },
+        {
+          "raw": "War",
+          "start": 18.51,
+          "end": 18.69
+        },
+        {
+          "raw": "unproclaimed.",
+          "start": 18.69,
+          "end": 19.43
+        },
+        {
+          "raw": "The",
+          "start": 20.49,
+          "end": 20.71
+        },
+        {
+          "raw": "princely",
+          "start": 20.71,
+          "end": 21.13
+        },
+        {
+          "raw": "Hierarch",
+          "start": 21.13,
+          "end": 21.61
+        },
+        {
+          "raw": "In",
+          "start": 21.61,
+          "end": 21.75
+        },
+        {
+          "raw": "their",
+          "start": 21.75,
+          "end": 21.91
+        },
+        {
+          "raw": "bright",
+          "start": 21.91,
+          "end": 22.13
+        },
+        {
+          "raw": "stand",
+          "start": 22.13,
+          "end": 22.51
+        },
+        {
+          "raw": "there",
+          "start": 22.51,
+          "end": 22.77
+        },
+        {
+          "raw": "left",
+          "start": 22.77,
+          "end": 22.95
+        },
+        {
+          "raw": "his",
+          "start": 22.95,
+          "end": 23.19
+        },
+        {
+          "raw": "Powers,",
+          "start": 23.19,
+          "end": 23.55
+        },
+        {
+          "raw": "To",
+          "start": 24.09,
+          "end": 24.19
+        },
+        {
+          "raw": "size",
+          "start": 24.19,
+          "end": 24.47
+        },
+        {
+          "raw": "Possession",
+          "start": 24.47,
+          "end": 24.95
+        },
+        {
+          "raw": "of",
+          "start": 24.95,
+          "end": 25.15
+        },
+        {
+          "raw": "the",
+          "start": 25.15,
+          "end": 25.27
+        },
+        {
+          "raw": "garden,",
+          "start": 25.27,
+          "end": 25.53
+        },
+        {
+          "raw": "he",
+          "start": 26.23,
+          "end": 26.43
+        },
+        {
+          "raw": "alone,",
+          "start": 26.43,
+          "end": 26.75
+        },
+        {
+          "raw": "To",
+          "start": 26.99,
+          "end": 27.11
+        },
+        {
+          "raw": "find",
+          "start": 27.11,
+          "end": 27.41
+        },
+        {
+          "raw": "where",
+          "start": 27.41,
+          "end": 27.65
+        },
+        {
+          "raw": "Adam",
+          "start": 27.65,
+          "end": 27.95
+        },
+        {
+          "raw": "sheltered,",
+          "start": 27.95,
+          "end": 28.39
+        },
+        {
+          "raw": "took",
+          "start": 28.83,
+          "end": 29.01
+        },
+        {
+          "raw": "his",
+          "start": 29.01,
+          "end": 29.19
+        },
+        {
+          "raw": "way,",
+          "start": 29.19,
+          "end": 29.49
+        },
+        {
+          "raw": "Not",
+          "start": 29.49,
+          "end": 29.97
+        },
+        {
+          "raw": "unperceived",
+          "start": 29.97,
+          "end": 30.61
+        },
+        {
+          "raw": "of",
+          "start": 30.61,
+          "end": 30.77
+        },
+        {
+          "raw": "Adam,",
+          "start": 30.77,
+          "end": 31.11
+        },
+        {
+          "raw": "who",
+          "start": 31.63,
+          "end": 31.85
+        },
+        {
+          "raw": "to",
+          "start": 31.85,
+          "end": 31.97
+        },
+        {
+          "raw": "Eve,",
+          "start": 31.97,
+          "end": 32.29
+        },
+        {
+          "raw": "While",
+          "start": 32.45,
+          "end": 32.55
+        },
+        {
+          "raw": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "raw": "great",
+          "start": 32.69,
+          "end": 32.93
+        },
+        {
+          "raw": "visitant",
+          "start": 32.93,
+          "end": 33.41
+        },
+        {
+          "raw": "approached,",
+          "start": 33.41,
+          "end": 33.75
+        },
+        {
+          "raw": "thus",
+          "start": 34.01,
+          "end": 34.25
+        },
+        {
+          "raw": "spake.",
+          "start": 34.25,
+          "end": 34.75
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "that",
+        "more",
+        "glorious,",
+        "when",
+        "the",
+        "Angels",
+        "met",
+        "Jacob",
+        "in",
+        "Mahanaim,",
+        "where",
+        "he",
+        "saw",
+        "The",
+        "field",
+        "pavilioned",
+        "with",
+        "his",
+        "guardians",
+        "bright;",
+        "Nor",
+        "that,",
+        "which",
+        "on",
+        "the",
+        "flaming",
+        "mount",
+        "appeared",
+        "In",
+        "Dothan,",
+        "covered",
+        "with",
+        "a",
+        "camp",
+        "of",
+        "fire,",
+        "Against",
+        "the",
+        "Syrian",
+        "king,",
+        "who",
+        "to",
+        "surprise",
+        "One",
+        "man,",
+        "assassin-like,",
+        "had",
+        "levied",
+        "war,",
+        "War",
+        "unproclaimed.",
+        "The",
+        "princely",
+        "Hierarch",
+        "In",
+        "their",
+        "bright",
+        "stand",
+        "there",
+        "left",
+        "his",
+        "Powers,",
+        "to",
+        "seise",
+        "Possession",
+        "of",
+        "the",
+        "garden;",
+        "he",
+        "alone,",
+        "To",
+        "find",
+        "where",
+        "Adam",
+        "sheltered,",
+        "took",
+        "his",
+        "way,",
+        "Not",
+        "unperceived",
+        "of",
+        "Adam;",
+        "who",
+        "to",
+        "Eve,",
+        "While",
+        "the",
+        "great",
+        "visitant",
+        "approached,",
+        "thus",
+        "spake."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "equal",
+          47,
+          64,
+          48,
+          65
+        ],
+        [
+          "replace",
+          64,
+          65,
+          65,
+          66
+        ],
+        [
+          "equal",
+          65,
+          93,
+          66,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "replace",
+          64,
+          65,
+          65,
+          66
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "that",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "more",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "glorious,",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "text": "when",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "text": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "Angels",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "text": "met",
+          "start": 2.55,
+          "end": 2.89
+        },
+        {
+          "text": "Jacob",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "text": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "Mahanaim,",
+          "start": 3.55,
+          "end": 4.09
+        },
+        {
+          "text": "where",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "text": "he",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "text": "saw",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "The",
+          "start": 4.99,
+          "end": 5.21
+        },
+        {
+          "text": "field",
+          "start": 5.21,
+          "end": 5.47
+        },
+        {
+          "text": "pavilioned",
+          "start": 5.47,
+          "end": 6.11
+        },
+        {
+          "text": "with",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "text": "his",
+          "start": 6.27,
+          "end": 6.45
+        },
+        {
+          "text": "guardians",
+          "start": 6.45,
+          "end": 6.87
+        },
+        {
+          "text": "bright;",
+          "start": 6.87,
+          "end": 7.31
+        },
+        {
+          "text": "Nor",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "text": "that,",
+          "start": 8.15,
+          "end": 8.55
+        },
+        {
+          "text": "which",
+          "start": 8.85,
+          "end": 8.97
+        },
+        {
+          "text": "on",
+          "start": 8.97,
+          "end": 9.13
+        },
+        {
+          "text": "the",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "text": "flaming",
+          "start": 9.27,
+          "end": 9.51
+        },
+        {
+          "text": "mount",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "text": "appeared",
+          "start": 9.87,
+          "end": 10.27
+        },
+        {
+          "text": "In",
+          "start": 10.27,
+          "end": 10.51
+        },
+        {
+          "text": "Dothan,",
+          "start": 10.51,
+          "end": 10.97
+        },
+        {
+          "text": "covered",
+          "start": 11.39,
+          "end": 11.59
+        },
+        {
+          "text": "with",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "text": "a",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "text": "camp",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "text": "of",
+          "start": 12.17,
+          "end": 12.37
+        },
+        {
+          "text": "fire,",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "text": "Against",
+          "start": 13.01,
+          "end": 13.27
+        },
+        {
+          "text": "the",
+          "start": 13.27,
+          "end": 13.55
+        },
+        {
+          "text": "Syrian",
+          "start": 13.55,
+          "end": 13.91
+        },
+        {
+          "text": "king,",
+          "start": 13.91,
+          "end": 14.29
+        },
+        {
+          "text": "who",
+          "start": 14.71,
+          "end": 14.85
+        },
+        {
+          "text": "to",
+          "start": 14.85,
+          "end": 14.99
+        },
+        {
+          "text": "surprise",
+          "start": 14.99,
+          "end": 15.37
+        },
+        {
+          "text": "One",
+          "start": 15.37,
+          "end": 15.73
+        },
+        {
+          "text": "man,",
+          "start": 15.73,
+          "end": 16.09
+        },
+        {
+          "text": "assassin-like,",
+          "start": 16.09,
+          "end": 16.6
+        },
+        {
+          "text": "had",
+          "start": 17.11,
+          "end": 17.23
+        },
+        {
+          "text": "levied",
+          "start": 17.23,
+          "end": 17.53
+        },
+        {
+          "text": "war,",
+          "start": 17.53,
+          "end": 18.01
+        },
+        {
+          "text": "War",
+          "start": 18.51,
+          "end": 18.69
+        },
+        {
+          "text": "unproclaimed.",
+          "start": 18.69,
+          "end": 19.43
+        },
+        {
+          "text": "The",
+          "start": 20.49,
+          "end": 20.71
+        },
+        {
+          "text": "princely",
+          "start": 20.71,
+          "end": 21.13
+        },
+        {
+          "text": "Hierarch",
+          "start": 21.13,
+          "end": 21.61
+        },
+        {
+          "text": "In",
+          "start": 21.61,
+          "end": 21.75
+        },
+        {
+          "text": "their",
+          "start": 21.75,
+          "end": 21.91
+        },
+        {
+          "text": "bright",
+          "start": 21.91,
+          "end": 22.13
+        },
+        {
+          "text": "stand",
+          "start": 22.13,
+          "end": 22.51
+        },
+        {
+          "text": "there",
+          "start": 22.51,
+          "end": 22.77
+        },
+        {
+          "text": "left",
+          "start": 22.77,
+          "end": 22.95
+        },
+        {
+          "text": "his",
+          "start": 22.95,
+          "end": 23.19
+        },
+        {
+          "text": "Powers,",
+          "start": 23.19,
+          "end": 23.55
+        },
+        {
+          "text": "to",
+          "start": 24.09,
+          "end": 24.19
+        },
+        {
+          "text": "seise",
+          "start": 24.19,
+          "end": 24.33
+        },
+        {
+          "text": "Possession",
+          "start": 24.47,
+          "end": 24.95
+        },
+        {
+          "text": "of",
+          "start": 24.95,
+          "end": 25.15
+        },
+        {
+          "text": "the",
+          "start": 25.15,
+          "end": 25.27
+        },
+        {
+          "text": "garden;",
+          "start": 25.27,
+          "end": 25.53
+        },
+        {
+          "text": "he",
+          "start": 26.23,
+          "end": 26.43
+        },
+        {
+          "text": "alone,",
+          "start": 26.43,
+          "end": 26.75
+        },
+        {
+          "text": "To",
+          "start": 26.99,
+          "end": 27.11
+        },
+        {
+          "text": "find",
+          "start": 27.11,
+          "end": 27.41
+        },
+        {
+          "text": "where",
+          "start": 27.41,
+          "end": 27.65
+        },
+        {
+          "text": "Adam",
+          "start": 27.65,
+          "end": 27.95
+        },
+        {
+          "text": "sheltered,",
+          "start": 27.95,
+          "end": 28.39
+        },
+        {
+          "text": "took",
+          "start": 28.83,
+          "end": 29.01
+        },
+        {
+          "text": "his",
+          "start": 29.01,
+          "end": 29.19
+        },
+        {
+          "text": "way,",
+          "start": 29.19,
+          "end": 29.49
+        },
+        {
+          "text": "Not",
+          "start": 29.49,
+          "end": 29.97
+        },
+        {
+          "text": "unperceived",
+          "start": 29.97,
+          "end": 30.61
+        },
+        {
+          "text": "of",
+          "start": 30.61,
+          "end": 30.77
+        },
+        {
+          "text": "Adam;",
+          "start": 30.77,
+          "end": 31.11
+        },
+        {
+          "text": "who",
+          "start": 31.63,
+          "end": 31.85
+        },
+        {
+          "text": "to",
+          "start": 31.85,
+          "end": 31.97
+        },
+        {
+          "text": "Eve,",
+          "start": 31.97,
+          "end": 32.29
+        },
+        {
+          "text": "While",
+          "start": 32.45,
+          "end": 32.55
+        },
+        {
+          "text": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "text": "great",
+          "start": 32.69,
+          "end": 32.93
+        },
+        {
+          "text": "visitant",
+          "start": 32.93,
+          "end": 33.41
+        },
+        {
+          "text": "approached,",
+          "start": 33.41,
+          "end": 33.75
+        },
+        {
+          "text": "thus",
+          "start": 34.01,
+          "end": 34.25
+        },
+        {
+          "text": "spake.",
+          "start": 34.25,
+          "end": 34.75
+        }
+      ],
+      "stats": {
+        "expected_words": 93,
+        "heard_words": 94,
+        "matched_words": 91
+      },
+      "match_ratio": 0.978494623655914,
+      "rejection_reasons": [],
+      "seconds": 1.050645503011765
+    },
+    {
+      "asr_seconds": 1.00543483599904,
+      "alignment_seconds": 0.0006876060215290636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Not, Angels, Jacob, Mahanaim, Nor, Dothan, Against, Syrian, One, Hierarch, Powers, Possession, Adam, Eve, While"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Not that more glorious, when the Angels met Jacob in Mahanaim, where he saw the field",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.20361328125
+            },
+            {
+              "text": " that",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " more",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " glorious,",
+              "start": 0.97,
+              "end": 1.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " when",
+              "start": 2.07,
+              "end": 2.09,
+              "probability": 0.9140625
+            },
+            {
+              "text": " the",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Angels",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.1318359375
+            },
+            {
+              "text": " met",
+              "start": 2.55,
+              "end": 2.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Jacob",
+              "start": 2.89,
+              "end": 3.31,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " in",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Mahanaim,",
+              "start": 3.55,
+              "end": 4.09,
+              "probability": 0.7237955729166666
+            },
+            {
+              "text": " where",
+              "start": 4.55,
+              "end": 4.61,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " he",
+              "start": 4.61,
+              "end": 4.79,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " saw",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " field",
+              "start": 5.19,
+              "end": 5.49,
+              "probability": 0.96533203125
+            }
+          ]
+        },
+        {
+          "text": " pavilioned with his guardians bright.",
+          "start": 5.49,
+          "end": 7.33,
+          "words": [
+            {
+              "text": " pavilioned",
+              "start": 5.49,
+              "end": 6.21,
+              "probability": 0.8816731770833334
+            },
+            {
+              "text": " with",
+              "start": 6.21,
+              "end": 6.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 6.29,
+              "end": 6.47,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " guardians",
+              "start": 6.47,
+              "end": 6.89,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " bright.",
+              "start": 6.89,
+              "end": 7.33,
+              "probability": 0.5625
+            }
+          ]
+        },
+        {
+          "text": " Nor that, which on the flaming mount appeared in Dothan, covered with a camp of fire, against",
+          "start": 8.07,
+          "end": 13.27,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 8.07,
+              "end": 8.15,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " that,",
+              "start": 8.15,
+              "end": 8.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " which",
+              "start": 8.89,
+              "end": 8.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " on",
+              "start": 8.97,
+              "end": 9.13,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 9.13,
+              "end": 9.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flaming",
+              "start": 9.27,
+              "end": 9.51,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " mount",
+              "start": 9.51,
+              "end": 9.87,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " appeared",
+              "start": 9.87,
+              "end": 10.29,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " in",
+              "start": 10.29,
+              "end": 10.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Dothan,",
+              "start": 10.53,
+              "end": 10.97,
+              "probability": 0.9527994791666666
+            },
+            {
+              "text": " covered",
+              "start": 11.43,
+              "end": 11.59,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " with",
+              "start": 11.59,
+              "end": 11.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 11.83,
+              "end": 11.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " camp",
+              "start": 11.97,
+              "end": 12.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 12.17,
+              "end": 12.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fire,",
+              "start": 12.37,
+              "end": 12.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " against",
+              "start": 13.01,
+              "end": 13.27,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " the Syrian king, who to surprise one man, assassin-like, had levied war, war unproclaimed.",
+          "start": 13.27,
+          "end": 19.43,
+          "words": [
+            {
+              "text": " the",
+              "start": 13.27,
+              "end": 13.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Syrian",
+              "start": 13.53,
+              "end": 13.91,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " king,",
+              "start": 13.91,
+              "end": 14.29,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " who",
+              "start": 14.75,
+              "end": 14.85,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " to",
+              "start": 14.85,
+              "end": 14.97,
+              "probability": 0.830078125
+            },
+            {
+              "text": " surprise",
+              "start": 14.97,
+              "end": 15.39,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " one",
+              "start": 15.39,
+              "end": 15.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man,",
+              "start": 15.73,
+              "end": 16.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " assassin",
+              "start": 16.33,
+              "end": 16.65,
+              "probability": 0.97216796875
+            },
+            {
+              "text": "-like,",
+              "start": 16.65,
+              "end": 16.97,
+              "probability": 0.924072265625
+            },
+            {
+              "text": " had",
+              "start": 17.11,
+              "end": 17.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " levied",
+              "start": 17.23,
+              "end": 17.53,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " war,",
+              "start": 17.53,
+              "end": 17.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " war",
+              "start": 18.47,
+              "end": 18.71,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " unproclaimed.",
+              "start": 18.71,
+              "end": 19.43,
+              "probability": 0.8671875
+            }
+          ]
+        },
+        {
+          "text": " The princely Hierarch and their bright stand there left his powers, to sighs possession",
+          "start": 20.51,
+          "end": 24.97,
+          "words": [
+            {
+              "text": " The",
+              "start": 20.51,
+              "end": 20.71,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " princely",
+              "start": 20.71,
+              "end": 21.11,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " Hierarch",
+              "start": 21.11,
+              "end": 21.61,
+              "probability": 0.5282440185546875
+            },
+            {
+              "text": " and",
+              "start": 21.61,
+              "end": 21.75,
+              "probability": 0.414794921875
+            },
+            {
+              "text": " their",
+              "start": 21.75,
+              "end": 21.91,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " bright",
+              "start": 21.91,
+              "end": 22.15,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " stand",
+              "start": 22.15,
+              "end": 22.51,
+              "probability": 0.892578125
+            },
+            {
+              "text": " there",
+              "start": 22.51,
+              "end": 22.75,
+              "probability": 0.978515625
+            },
+            {
+              "text": " left",
+              "start": 22.75,
+              "end": 22.97,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " his",
+              "start": 22.97,
+              "end": 23.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " powers,",
+              "start": 23.19,
+              "end": 23.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 24.03,
+              "end": 24.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sighs",
+              "start": 24.19,
+              "end": 24.63,
+              "probability": 0.785888671875
+            },
+            {
+              "text": " possession",
+              "start": 24.63,
+              "end": 24.97,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " of the garden.",
+          "start": 24.97,
+          "end": 25.53,
+          "words": [
+            {
+              "text": " of",
+              "start": 24.97,
+              "end": 25.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 25.15,
+              "end": 25.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " garden.",
+              "start": 25.27,
+              "end": 25.53,
+              "probability": 0.83984375
+            }
+          ]
+        },
+        {
+          "text": " He alone, to find where Adam sheltered, took his way, not unperceived of Adam.",
+          "start": 25.53,
+          "end": 31.11,
+          "words": [
+            {
+              "text": " He",
+              "start": 25.53,
+              "end": 26.41,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " alone,",
+              "start": 26.41,
+              "end": 26.79,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " to",
+              "start": 27.07,
+              "end": 27.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " find",
+              "start": 27.13,
+              "end": 27.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 27.39,
+              "end": 27.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Adam",
+              "start": 27.65,
+              "end": 27.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sheltered,",
+              "start": 27.95,
+              "end": 28.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " took",
+              "start": 28.93,
+              "end": 28.99,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " his",
+              "start": 28.99,
+              "end": 29.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " way,",
+              "start": 29.21,
+              "end": 29.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 29.81,
+              "end": 29.99,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " unperceived",
+              "start": 29.99,
+              "end": 30.61,
+              "probability": 0.9724934895833334
+            },
+            {
+              "text": " of",
+              "start": 30.61,
+              "end": 30.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Adam.",
+              "start": 30.77,
+              "end": 31.11,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Who to Eve, while the great visitant approached thus spake?",
+          "start": 31.65,
+          "end": 34.71,
+          "words": [
+            {
+              "text": " Who",
+              "start": 31.65,
+              "end": 31.85,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " to",
+              "start": 31.85,
+              "end": 31.97,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Eve,",
+              "start": 31.97,
+              "end": 32.29,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " while",
+              "start": 32.45,
+              "end": 32.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 32.55,
+              "end": 32.69,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " great",
+              "start": 32.69,
+              "end": 32.93,
+              "probability": 0.818359375
+            },
+            {
+              "text": " visitant",
+              "start": 32.93,
+              "end": 33.41,
+              "probability": 0.396240234375
+            },
+            {
+              "text": " approached",
+              "start": 33.41,
+              "end": 33.75,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " thus",
+              "start": 33.75,
+              "end": 34.25,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " spake?",
+              "start": 34.25,
+              "end": 34.71,
+              "probability": 0.983154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "that",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "more",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "glorious,",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "raw": "when",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "raw": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "Angels",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "raw": "met",
+          "start": 2.55,
+          "end": 2.89
+        },
+        {
+          "raw": "Jacob",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "raw": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "Mahanaim,",
+          "start": 3.55,
+          "end": 4.09
+        },
+        {
+          "raw": "where",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "raw": "he",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "raw": "saw",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "raw": "field",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "raw": "pavilioned",
+          "start": 5.49,
+          "end": 6.21
+        },
+        {
+          "raw": "with",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "raw": "his",
+          "start": 6.29,
+          "end": 6.47
+        },
+        {
+          "raw": "guardians",
+          "start": 6.47,
+          "end": 6.89
+        },
+        {
+          "raw": "bright.",
+          "start": 6.89,
+          "end": 7.33
+        },
+        {
+          "raw": "Nor",
+          "start": 8.07,
+          "end": 8.15
+        },
+        {
+          "raw": "that,",
+          "start": 8.15,
+          "end": 8.51
+        },
+        {
+          "raw": "which",
+          "start": 8.89,
+          "end": 8.97
+        },
+        {
+          "raw": "on",
+          "start": 8.97,
+          "end": 9.13
+        },
+        {
+          "raw": "the",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "raw": "flaming",
+          "start": 9.27,
+          "end": 9.51
+        },
+        {
+          "raw": "mount",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "raw": "appeared",
+          "start": 9.87,
+          "end": 10.29
+        },
+        {
+          "raw": "in",
+          "start": 10.29,
+          "end": 10.53
+        },
+        {
+          "raw": "Dothan,",
+          "start": 10.53,
+          "end": 10.97
+        },
+        {
+          "raw": "covered",
+          "start": 11.43,
+          "end": 11.59
+        },
+        {
+          "raw": "with",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "raw": "a",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "raw": "camp",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "raw": "of",
+          "start": 12.17,
+          "end": 12.37
+        },
+        {
+          "raw": "fire,",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "raw": "against",
+          "start": 13.01,
+          "end": 13.27
+        },
+        {
+          "raw": "the",
+          "start": 13.27,
+          "end": 13.53
+        },
+        {
+          "raw": "Syrian",
+          "start": 13.53,
+          "end": 13.91
+        },
+        {
+          "raw": "king,",
+          "start": 13.91,
+          "end": 14.29
+        },
+        {
+          "raw": "who",
+          "start": 14.75,
+          "end": 14.85
+        },
+        {
+          "raw": "to",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "raw": "surprise",
+          "start": 14.97,
+          "end": 15.39
+        },
+        {
+          "raw": "one",
+          "start": 15.39,
+          "end": 15.73
+        },
+        {
+          "raw": "man,",
+          "start": 15.73,
+          "end": 16.09
+        },
+        {
+          "raw": "assassin",
+          "start": 16.33,
+          "end": 16.65
+        },
+        {
+          "raw": "-like,",
+          "start": 16.65,
+          "end": 16.97
+        },
+        {
+          "raw": "had",
+          "start": 17.11,
+          "end": 17.23
+        },
+        {
+          "raw": "levied",
+          "start": 17.23,
+          "end": 17.53
+        },
+        {
+          "raw": "war,",
+          "start": 17.53,
+          "end": 17.99
+        },
+        {
+          "raw": "war",
+          "start": 18.47,
+          "end": 18.71
+        },
+        {
+          "raw": "unproclaimed.",
+          "start": 18.71,
+          "end": 19.43
+        },
+        {
+          "raw": "The",
+          "start": 20.51,
+          "end": 20.71
+        },
+        {
+          "raw": "princely",
+          "start": 20.71,
+          "end": 21.11
+        },
+        {
+          "raw": "Hierarch",
+          "start": 21.11,
+          "end": 21.61
+        },
+        {
+          "raw": "and",
+          "start": 21.61,
+          "end": 21.75
+        },
+        {
+          "raw": "their",
+          "start": 21.75,
+          "end": 21.91
+        },
+        {
+          "raw": "bright",
+          "start": 21.91,
+          "end": 22.15
+        },
+        {
+          "raw": "stand",
+          "start": 22.15,
+          "end": 22.51
+        },
+        {
+          "raw": "there",
+          "start": 22.51,
+          "end": 22.75
+        },
+        {
+          "raw": "left",
+          "start": 22.75,
+          "end": 22.97
+        },
+        {
+          "raw": "his",
+          "start": 22.97,
+          "end": 23.19
+        },
+        {
+          "raw": "powers,",
+          "start": 23.19,
+          "end": 23.57
+        },
+        {
+          "raw": "to",
+          "start": 24.03,
+          "end": 24.19
+        },
+        {
+          "raw": "sighs",
+          "start": 24.19,
+          "end": 24.63
+        },
+        {
+          "raw": "possession",
+          "start": 24.63,
+          "end": 24.97
+        },
+        {
+          "raw": "of",
+          "start": 24.97,
+          "end": 25.15
+        },
+        {
+          "raw": "the",
+          "start": 25.15,
+          "end": 25.27
+        },
+        {
+          "raw": "garden.",
+          "start": 25.27,
+          "end": 25.53
+        },
+        {
+          "raw": "He",
+          "start": 25.53,
+          "end": 26.41
+        },
+        {
+          "raw": "alone,",
+          "start": 26.41,
+          "end": 26.79
+        },
+        {
+          "raw": "to",
+          "start": 27.07,
+          "end": 27.13
+        },
+        {
+          "raw": "find",
+          "start": 27.13,
+          "end": 27.39
+        },
+        {
+          "raw": "where",
+          "start": 27.39,
+          "end": 27.65
+        },
+        {
+          "raw": "Adam",
+          "start": 27.65,
+          "end": 27.95
+        },
+        {
+          "raw": "sheltered,",
+          "start": 27.95,
+          "end": 28.41
+        },
+        {
+          "raw": "took",
+          "start": 28.93,
+          "end": 28.99
+        },
+        {
+          "raw": "his",
+          "start": 28.99,
+          "end": 29.21
+        },
+        {
+          "raw": "way,",
+          "start": 29.21,
+          "end": 29.51
+        },
+        {
+          "raw": "not",
+          "start": 29.81,
+          "end": 29.99
+        },
+        {
+          "raw": "unperceived",
+          "start": 29.99,
+          "end": 30.61
+        },
+        {
+          "raw": "of",
+          "start": 30.61,
+          "end": 30.77
+        },
+        {
+          "raw": "Adam.",
+          "start": 30.77,
+          "end": 31.11
+        },
+        {
+          "raw": "Who",
+          "start": 31.65,
+          "end": 31.85
+        },
+        {
+          "raw": "to",
+          "start": 31.85,
+          "end": 31.97
+        },
+        {
+          "raw": "Eve,",
+          "start": 31.97,
+          "end": 32.29
+        },
+        {
+          "raw": "while",
+          "start": 32.45,
+          "end": 32.55
+        },
+        {
+          "raw": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "raw": "great",
+          "start": 32.69,
+          "end": 32.93
+        },
+        {
+          "raw": "visitant",
+          "start": 32.93,
+          "end": 33.41
+        },
+        {
+          "raw": "approached",
+          "start": 33.41,
+          "end": 33.75
+        },
+        {
+          "raw": "thus",
+          "start": 33.75,
+          "end": 34.25
+        },
+        {
+          "raw": "spake?",
+          "start": 34.25,
+          "end": 34.71
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "that",
+        "more",
+        "glorious,",
+        "when",
+        "the",
+        "Angels",
+        "met",
+        "Jacob",
+        "in",
+        "Mahanaim,",
+        "where",
+        "he",
+        "saw",
+        "The",
+        "field",
+        "pavilioned",
+        "with",
+        "his",
+        "guardians",
+        "bright;",
+        "Nor",
+        "that,",
+        "which",
+        "on",
+        "the",
+        "flaming",
+        "mount",
+        "appeared",
+        "In",
+        "Dothan,",
+        "covered",
+        "with",
+        "a",
+        "camp",
+        "of",
+        "fire,",
+        "Against",
+        "the",
+        "Syrian",
+        "king,",
+        "who",
+        "to",
+        "surprise",
+        "One",
+        "man,",
+        "assassin-like,",
+        "had",
+        "levied",
+        "war,",
+        "War",
+        "unproclaimed.",
+        "The",
+        "princely",
+        "Hierarch",
+        "In",
+        "their",
+        "bright",
+        "stand",
+        "there",
+        "left",
+        "his",
+        "Powers,",
+        "to",
+        "seise",
+        "Possession",
+        "of",
+        "the",
+        "garden;",
+        "he",
+        "alone,",
+        "To",
+        "find",
+        "where",
+        "Adam",
+        "sheltered,",
+        "took",
+        "his",
+        "way,",
+        "Not",
+        "unperceived",
+        "of",
+        "Adam;",
+        "who",
+        "to",
+        "Eve,",
+        "While",
+        "the",
+        "great",
+        "visitant",
+        "approached,",
+        "thus",
+        "spake."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "equal",
+          47,
+          55,
+          48,
+          56
+        ],
+        [
+          "replace",
+          55,
+          56,
+          56,
+          57
+        ],
+        [
+          "equal",
+          56,
+          64,
+          57,
+          65
+        ],
+        [
+          "replace",
+          64,
+          65,
+          65,
+          66
+        ],
+        [
+          "equal",
+          65,
+          93,
+          66,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "replace",
+          55,
+          56,
+          56,
+          57
+        ],
+        [
+          "replace",
+          64,
+          65,
+          65,
+          66
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "that",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "more",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "glorious,",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "text": "when",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "text": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "Angels",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "text": "met",
+          "start": 2.55,
+          "end": 2.89
+        },
+        {
+          "text": "Jacob",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "text": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "Mahanaim,",
+          "start": 3.55,
+          "end": 4.09
+        },
+        {
+          "text": "where",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "text": "he",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "text": "saw",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "The",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "text": "field",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "text": "pavilioned",
+          "start": 5.49,
+          "end": 6.21
+        },
+        {
+          "text": "with",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "text": "his",
+          "start": 6.29,
+          "end": 6.47
+        },
+        {
+          "text": "guardians",
+          "start": 6.47,
+          "end": 6.89
+        },
+        {
+          "text": "bright;",
+          "start": 6.89,
+          "end": 7.33
+        },
+        {
+          "text": "Nor",
+          "start": 8.07,
+          "end": 8.15
+        },
+        {
+          "text": "that,",
+          "start": 8.15,
+          "end": 8.51
+        },
+        {
+          "text": "which",
+          "start": 8.89,
+          "end": 8.97
+        },
+        {
+          "text": "on",
+          "start": 8.97,
+          "end": 9.13
+        },
+        {
+          "text": "the",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "text": "flaming",
+          "start": 9.27,
+          "end": 9.51
+        },
+        {
+          "text": "mount",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "text": "appeared",
+          "start": 9.87,
+          "end": 10.29
+        },
+        {
+          "text": "In",
+          "start": 10.29,
+          "end": 10.53
+        },
+        {
+          "text": "Dothan,",
+          "start": 10.53,
+          "end": 10.97
+        },
+        {
+          "text": "covered",
+          "start": 11.43,
+          "end": 11.59
+        },
+        {
+          "text": "with",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "text": "a",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "text": "camp",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "text": "of",
+          "start": 12.17,
+          "end": 12.37
+        },
+        {
+          "text": "fire,",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "text": "Against",
+          "start": 13.01,
+          "end": 13.27
+        },
+        {
+          "text": "the",
+          "start": 13.27,
+          "end": 13.53
+        },
+        {
+          "text": "Syrian",
+          "start": 13.53,
+          "end": 13.91
+        },
+        {
+          "text": "king,",
+          "start": 13.91,
+          "end": 14.29
+        },
+        {
+          "text": "who",
+          "start": 14.75,
+          "end": 14.85
+        },
+        {
+          "text": "to",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "text": "surprise",
+          "start": 14.97,
+          "end": 15.39
+        },
+        {
+          "text": "One",
+          "start": 15.39,
+          "end": 15.73
+        },
+        {
+          "text": "man,",
+          "start": 15.73,
+          "end": 16.09
+        },
+        {
+          "text": "assassin-like,",
+          "start": 16.09,
+          "end": 16.6
+        },
+        {
+          "text": "had",
+          "start": 17.11,
+          "end": 17.23
+        },
+        {
+          "text": "levied",
+          "start": 17.23,
+          "end": 17.53
+        },
+        {
+          "text": "war,",
+          "start": 17.53,
+          "end": 17.99
+        },
+        {
+          "text": "War",
+          "start": 18.47,
+          "end": 18.71
+        },
+        {
+          "text": "unproclaimed.",
+          "start": 18.71,
+          "end": 19.43
+        },
+        {
+          "text": "The",
+          "start": 20.51,
+          "end": 20.71
+        },
+        {
+          "text": "princely",
+          "start": 20.71,
+          "end": 21.11
+        },
+        {
+          "text": "Hierarch",
+          "start": 21.11,
+          "end": 21.61
+        },
+        {
+          "text": "In",
+          "start": 21.61,
+          "end": 21.68
+        },
+        {
+          "text": "their",
+          "start": 21.75,
+          "end": 21.91
+        },
+        {
+          "text": "bright",
+          "start": 21.91,
+          "end": 22.15
+        },
+        {
+          "text": "stand",
+          "start": 22.15,
+          "end": 22.51
+        },
+        {
+          "text": "there",
+          "start": 22.51,
+          "end": 22.75
+        },
+        {
+          "text": "left",
+          "start": 22.75,
+          "end": 22.97
+        },
+        {
+          "text": "his",
+          "start": 22.97,
+          "end": 23.19
+        },
+        {
+          "text": "Powers,",
+          "start": 23.19,
+          "end": 23.57
+        },
+        {
+          "text": "to",
+          "start": 24.03,
+          "end": 24.19
+        },
+        {
+          "text": "seise",
+          "start": 24.19,
+          "end": 24.41
+        },
+        {
+          "text": "Possession",
+          "start": 24.63,
+          "end": 24.97
+        },
+        {
+          "text": "of",
+          "start": 24.97,
+          "end": 25.15
+        },
+        {
+          "text": "the",
+          "start": 25.15,
+          "end": 25.27
+        },
+        {
+          "text": "garden;",
+          "start": 25.27,
+          "end": 25.53
+        },
+        {
+          "text": "he",
+          "start": 25.53,
+          "end": 26.41
+        },
+        {
+          "text": "alone,",
+          "start": 26.41,
+          "end": 26.79
+        },
+        {
+          "text": "To",
+          "start": 27.07,
+          "end": 27.13
+        },
+        {
+          "text": "find",
+          "start": 27.13,
+          "end": 27.39
+        },
+        {
+          "text": "where",
+          "start": 27.39,
+          "end": 27.65
+        },
+        {
+          "text": "Adam",
+          "start": 27.65,
+          "end": 27.95
+        },
+        {
+          "text": "sheltered,",
+          "start": 27.95,
+          "end": 28.41
+        },
+        {
+          "text": "took",
+          "start": 28.93,
+          "end": 28.99
+        },
+        {
+          "text": "his",
+          "start": 28.99,
+          "end": 29.21
+        },
+        {
+          "text": "way,",
+          "start": 29.21,
+          "end": 29.51
+        },
+        {
+          "text": "Not",
+          "start": 29.81,
+          "end": 29.99
+        },
+        {
+          "text": "unperceived",
+          "start": 29.99,
+          "end": 30.61
+        },
+        {
+          "text": "of",
+          "start": 30.61,
+          "end": 30.77
+        },
+        {
+          "text": "Adam;",
+          "start": 30.77,
+          "end": 31.11
+        },
+        {
+          "text": "who",
+          "start": 31.65,
+          "end": 31.85
+        },
+        {
+          "text": "to",
+          "start": 31.85,
+          "end": 31.97
+        },
+        {
+          "text": "Eve,",
+          "start": 31.97,
+          "end": 32.29
+        },
+        {
+          "text": "While",
+          "start": 32.45,
+          "end": 32.55
+        },
+        {
+          "text": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "text": "great",
+          "start": 32.69,
+          "end": 32.93
+        },
+        {
+          "text": "visitant",
+          "start": 32.93,
+          "end": 33.41
+        },
+        {
+          "text": "approached,",
+          "start": 33.41,
+          "end": 33.75
+        },
+        {
+          "text": "thus",
+          "start": 33.75,
+          "end": 34.25
+        },
+        {
+          "text": "spake.",
+          "start": 34.25,
+          "end": 34.71
+        }
+      ],
+      "stats": {
+        "expected_words": 93,
+        "heard_words": 94,
+        "matched_words": 90
+      },
+      "match_ratio": 0.967741935483871,
+      "rejection_reasons": [],
+      "seconds": 1.0064827610040084
+    },
+    {
+      "asr_seconds": 1.0596881789970212,
+      "alignment_seconds": 0.0007173359917942435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not that more glorious, when the angels met Jacob in Mahanaim, where he saw the field",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.20361328125
+            },
+            {
+              "text": " that",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " more",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " glorious,",
+              "start": 0.97,
+              "end": 1.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " when",
+              "start": 2.07,
+              "end": 2.09,
+              "probability": 0.9140625
+            },
+            {
+              "text": " the",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " angels",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " met",
+              "start": 2.55,
+              "end": 2.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Jacob",
+              "start": 2.89,
+              "end": 3.31,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " in",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Mahanaim,",
+              "start": 3.55,
+              "end": 4.11,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " where",
+              "start": 4.55,
+              "end": 4.61,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " he",
+              "start": 4.61,
+              "end": 4.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " saw",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " field",
+              "start": 5.19,
+              "end": 5.49,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " pavilioned with his guardians bright.",
+          "start": 5.49,
+          "end": 7.33,
+          "words": [
+            {
+              "text": " pavilioned",
+              "start": 5.49,
+              "end": 6.21,
+              "probability": 0.8821614583333334
+            },
+            {
+              "text": " with",
+              "start": 6.21,
+              "end": 6.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " his",
+              "start": 6.29,
+              "end": 6.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " guardians",
+              "start": 6.45,
+              "end": 6.89,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " bright.",
+              "start": 6.89,
+              "end": 7.33,
+              "probability": 0.5546875
+            }
+          ]
+        },
+        {
+          "text": " Nor that, which on the flaming mount appeared in Dothan, covered with a camp of fire against",
+          "start": 8.07,
+          "end": 13.27,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 8.07,
+              "end": 8.15,
+              "probability": 0.9140625
+            },
+            {
+              "text": " that,",
+              "start": 8.15,
+              "end": 8.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " which",
+              "start": 8.89,
+              "end": 8.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " on",
+              "start": 8.97,
+              "end": 9.13,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 9.13,
+              "end": 9.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flaming",
+              "start": 9.25,
+              "end": 9.51,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " mount",
+              "start": 9.51,
+              "end": 9.87,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " appeared",
+              "start": 9.87,
+              "end": 10.29,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " in",
+              "start": 10.29,
+              "end": 10.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Dothan,",
+              "start": 10.53,
+              "end": 10.97,
+              "probability": 0.9523111979166666
+            },
+            {
+              "text": " covered",
+              "start": 11.43,
+              "end": 11.59,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " with",
+              "start": 11.59,
+              "end": 11.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 11.83,
+              "end": 11.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " camp",
+              "start": 11.97,
+              "end": 12.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 12.17,
+              "end": 12.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fire",
+              "start": 12.37,
+              "end": 12.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " against",
+              "start": 12.71,
+              "end": 13.27,
+              "probability": 0.84326171875
+            }
+          ]
+        },
+        {
+          "text": " the Syrian king, who to surprise one man assassin-like had levied war, war unproclaimed.",
+          "start": 13.27,
+          "end": 19.43,
+          "words": [
+            {
+              "text": " the",
+              "start": 13.27,
+              "end": 13.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Syrian",
+              "start": 13.53,
+              "end": 13.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " king,",
+              "start": 13.91,
+              "end": 14.31,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " who",
+              "start": 14.73,
+              "end": 14.85,
+              "probability": 0.9765625
+            },
+            {
+              "text": " to",
+              "start": 14.85,
+              "end": 14.97,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " surprise",
+              "start": 14.97,
+              "end": 15.39,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " one",
+              "start": 15.39,
+              "end": 15.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man",
+              "start": 15.73,
+              "end": 16.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " assassin",
+              "start": 16.11,
+              "end": 16.65,
+              "probability": 0.55419921875
+            },
+            {
+              "text": "-like",
+              "start": 16.65,
+              "end": 16.97,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " had",
+              "start": 16.97,
+              "end": 17.21,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " levied",
+              "start": 17.21,
+              "end": 17.51,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " war,",
+              "start": 17.51,
+              "end": 18.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " war",
+              "start": 18.45,
+              "end": 18.71,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " unproclaimed.",
+              "start": 18.71,
+              "end": 19.43,
+              "probability": 0.906005859375
+            }
+          ]
+        },
+        {
+          "text": " The princely hierarch in their bright stand there left his powers, to sighs possession",
+          "start": 20.49,
+          "end": 24.97,
+          "words": [
+            {
+              "text": " The",
+              "start": 20.49,
+              "end": 20.71,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " princely",
+              "start": 20.71,
+              "end": 21.11,
+              "probability": 0.982421875
+            },
+            {
+              "text": " hierarch",
+              "start": 21.11,
+              "end": 21.43,
+              "probability": 0.44677734375
+            },
+            {
+              "text": " in",
+              "start": 21.43,
+              "end": 21.77,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " their",
+              "start": 21.77,
+              "end": 21.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " bright",
+              "start": 21.91,
+              "end": 22.15,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " stand",
+              "start": 22.15,
+              "end": 22.51,
+              "probability": 0.90234375
+            },
+            {
+              "text": " there",
+              "start": 22.51,
+              "end": 22.75,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " left",
+              "start": 22.75,
+              "end": 22.95,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " his",
+              "start": 22.95,
+              "end": 23.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " powers,",
+              "start": 23.19,
+              "end": 23.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 24.03,
+              "end": 24.19,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sighs",
+              "start": 24.19,
+              "end": 24.63,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " possession",
+              "start": 24.63,
+              "end": 24.97,
+              "probability": 0.97900390625
+            }
+          ]
+        },
+        {
+          "text": " of the garden.",
+          "start": 24.97,
+          "end": 25.55,
+          "words": [
+            {
+              "text": " of",
+              "start": 24.97,
+              "end": 25.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 25.15,
+              "end": 25.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " garden.",
+              "start": 25.27,
+              "end": 25.55,
+              "probability": 0.9404296875
+            }
+          ]
+        },
+        {
+          "text": " He alone, to find where Adam sheltered, took his way, not unperceived of Adam.",
+          "start": 25.55,
+          "end": 31.11,
+          "words": [
+            {
+              "text": " He",
+              "start": 25.55,
+              "end": 26.41,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " alone,",
+              "start": 26.41,
+              "end": 26.79,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " to",
+              "start": 27.07,
+              "end": 27.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " find",
+              "start": 27.13,
+              "end": 27.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 27.39,
+              "end": 27.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Adam",
+              "start": 27.65,
+              "end": 27.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sheltered,",
+              "start": 27.95,
+              "end": 28.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " took",
+              "start": 28.93,
+              "end": 28.99,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " his",
+              "start": 28.99,
+              "end": 29.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " way,",
+              "start": 29.21,
+              "end": 29.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 29.83,
+              "end": 29.99,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " unperceived",
+              "start": 29.99,
+              "end": 30.61,
+              "probability": 0.9724934895833334
+            },
+            {
+              "text": " of",
+              "start": 30.61,
+              "end": 30.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Adam.",
+              "start": 30.77,
+              "end": 31.11,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Who to Eve, while the great visitant approached thus spake?",
+          "start": 31.65,
+          "end": 34.71,
+          "words": [
+            {
+              "text": " Who",
+              "start": 31.65,
+              "end": 31.85,
+              "probability": 0.91015625
+            },
+            {
+              "text": " to",
+              "start": 31.85,
+              "end": 31.97,
+              "probability": 0.91015625
+            },
+            {
+              "text": " Eve,",
+              "start": 31.97,
+              "end": 32.29,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " while",
+              "start": 32.45,
+              "end": 32.55,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 32.55,
+              "end": 32.69,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " great",
+              "start": 32.69,
+              "end": 32.93,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " visitant",
+              "start": 32.93,
+              "end": 33.41,
+              "probability": 0.370849609375
+            },
+            {
+              "text": " approached",
+              "start": 33.41,
+              "end": 33.75,
+              "probability": 0.978515625
+            },
+            {
+              "text": " thus",
+              "start": 33.75,
+              "end": 34.25,
+              "probability": 0.732421875
+            },
+            {
+              "text": " spake?",
+              "start": 34.25,
+              "end": 34.71,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "that",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "more",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "glorious,",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "raw": "when",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "raw": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "angels",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "raw": "met",
+          "start": 2.55,
+          "end": 2.89
+        },
+        {
+          "raw": "Jacob",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "raw": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "Mahanaim,",
+          "start": 3.55,
+          "end": 4.11
+        },
+        {
+          "raw": "where",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "raw": "he",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "raw": "saw",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "raw": "field",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "raw": "pavilioned",
+          "start": 5.49,
+          "end": 6.21
+        },
+        {
+          "raw": "with",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "raw": "his",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "raw": "guardians",
+          "start": 6.45,
+          "end": 6.89
+        },
+        {
+          "raw": "bright.",
+          "start": 6.89,
+          "end": 7.33
+        },
+        {
+          "raw": "Nor",
+          "start": 8.07,
+          "end": 8.15
+        },
+        {
+          "raw": "that,",
+          "start": 8.15,
+          "end": 8.51
+        },
+        {
+          "raw": "which",
+          "start": 8.89,
+          "end": 8.97
+        },
+        {
+          "raw": "on",
+          "start": 8.97,
+          "end": 9.13
+        },
+        {
+          "raw": "the",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "raw": "flaming",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "raw": "mount",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "raw": "appeared",
+          "start": 9.87,
+          "end": 10.29
+        },
+        {
+          "raw": "in",
+          "start": 10.29,
+          "end": 10.53
+        },
+        {
+          "raw": "Dothan,",
+          "start": 10.53,
+          "end": 10.97
+        },
+        {
+          "raw": "covered",
+          "start": 11.43,
+          "end": 11.59
+        },
+        {
+          "raw": "with",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "raw": "a",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "raw": "camp",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "raw": "of",
+          "start": 12.17,
+          "end": 12.37
+        },
+        {
+          "raw": "fire",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "raw": "against",
+          "start": 12.71,
+          "end": 13.27
+        },
+        {
+          "raw": "the",
+          "start": 13.27,
+          "end": 13.53
+        },
+        {
+          "raw": "Syrian",
+          "start": 13.53,
+          "end": 13.91
+        },
+        {
+          "raw": "king,",
+          "start": 13.91,
+          "end": 14.31
+        },
+        {
+          "raw": "who",
+          "start": 14.73,
+          "end": 14.85
+        },
+        {
+          "raw": "to",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "raw": "surprise",
+          "start": 14.97,
+          "end": 15.39
+        },
+        {
+          "raw": "one",
+          "start": 15.39,
+          "end": 15.73
+        },
+        {
+          "raw": "man",
+          "start": 15.73,
+          "end": 16.11
+        },
+        {
+          "raw": "assassin",
+          "start": 16.11,
+          "end": 16.65
+        },
+        {
+          "raw": "-like",
+          "start": 16.65,
+          "end": 16.97
+        },
+        {
+          "raw": "had",
+          "start": 16.97,
+          "end": 17.21
+        },
+        {
+          "raw": "levied",
+          "start": 17.21,
+          "end": 17.51
+        },
+        {
+          "raw": "war,",
+          "start": 17.51,
+          "end": 18.01
+        },
+        {
+          "raw": "war",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "raw": "unproclaimed.",
+          "start": 18.71,
+          "end": 19.43
+        },
+        {
+          "raw": "The",
+          "start": 20.49,
+          "end": 20.71
+        },
+        {
+          "raw": "princely",
+          "start": 20.71,
+          "end": 21.11
+        },
+        {
+          "raw": "hierarch",
+          "start": 21.11,
+          "end": 21.43
+        },
+        {
+          "raw": "in",
+          "start": 21.43,
+          "end": 21.77
+        },
+        {
+          "raw": "their",
+          "start": 21.77,
+          "end": 21.91
+        },
+        {
+          "raw": "bright",
+          "start": 21.91,
+          "end": 22.15
+        },
+        {
+          "raw": "stand",
+          "start": 22.15,
+          "end": 22.51
+        },
+        {
+          "raw": "there",
+          "start": 22.51,
+          "end": 22.75
+        },
+        {
+          "raw": "left",
+          "start": 22.75,
+          "end": 22.95
+        },
+        {
+          "raw": "his",
+          "start": 22.95,
+          "end": 23.19
+        },
+        {
+          "raw": "powers,",
+          "start": 23.19,
+          "end": 23.59
+        },
+        {
+          "raw": "to",
+          "start": 24.03,
+          "end": 24.19
+        },
+        {
+          "raw": "sighs",
+          "start": 24.19,
+          "end": 24.63
+        },
+        {
+          "raw": "possession",
+          "start": 24.63,
+          "end": 24.97
+        },
+        {
+          "raw": "of",
+          "start": 24.97,
+          "end": 25.15
+        },
+        {
+          "raw": "the",
+          "start": 25.15,
+          "end": 25.27
+        },
+        {
+          "raw": "garden.",
+          "start": 25.27,
+          "end": 25.55
+        },
+        {
+          "raw": "He",
+          "start": 25.55,
+          "end": 26.41
+        },
+        {
+          "raw": "alone,",
+          "start": 26.41,
+          "end": 26.79
+        },
+        {
+          "raw": "to",
+          "start": 27.07,
+          "end": 27.13
+        },
+        {
+          "raw": "find",
+          "start": 27.13,
+          "end": 27.39
+        },
+        {
+          "raw": "where",
+          "start": 27.39,
+          "end": 27.65
+        },
+        {
+          "raw": "Adam",
+          "start": 27.65,
+          "end": 27.95
+        },
+        {
+          "raw": "sheltered,",
+          "start": 27.95,
+          "end": 28.39
+        },
+        {
+          "raw": "took",
+          "start": 28.93,
+          "end": 28.99
+        },
+        {
+          "raw": "his",
+          "start": 28.99,
+          "end": 29.21
+        },
+        {
+          "raw": "way,",
+          "start": 29.21,
+          "end": 29.51
+        },
+        {
+          "raw": "not",
+          "start": 29.83,
+          "end": 29.99
+        },
+        {
+          "raw": "unperceived",
+          "start": 29.99,
+          "end": 30.61
+        },
+        {
+          "raw": "of",
+          "start": 30.61,
+          "end": 30.77
+        },
+        {
+          "raw": "Adam.",
+          "start": 30.77,
+          "end": 31.11
+        },
+        {
+          "raw": "Who",
+          "start": 31.65,
+          "end": 31.85
+        },
+        {
+          "raw": "to",
+          "start": 31.85,
+          "end": 31.97
+        },
+        {
+          "raw": "Eve,",
+          "start": 31.97,
+          "end": 32.29
+        },
+        {
+          "raw": "while",
+          "start": 32.45,
+          "end": 32.55
+        },
+        {
+          "raw": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "raw": "great",
+          "start": 32.69,
+          "end": 32.93
+        },
+        {
+          "raw": "visitant",
+          "start": 32.93,
+          "end": 33.41
+        },
+        {
+          "raw": "approached",
+          "start": 33.41,
+          "end": 33.75
+        },
+        {
+          "raw": "thus",
+          "start": 33.75,
+          "end": 34.25
+        },
+        {
+          "raw": "spake?",
+          "start": 34.25,
+          "end": 34.71
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "that",
+        "more",
+        "glorious,",
+        "when",
+        "the",
+        "Angels",
+        "met",
+        "Jacob",
+        "in",
+        "Mahanaim,",
+        "where",
+        "he",
+        "saw",
+        "The",
+        "field",
+        "pavilioned",
+        "with",
+        "his",
+        "guardians",
+        "bright;",
+        "Nor",
+        "that,",
+        "which",
+        "on",
+        "the",
+        "flaming",
+        "mount",
+        "appeared",
+        "In",
+        "Dothan,",
+        "covered",
+        "with",
+        "a",
+        "camp",
+        "of",
+        "fire,",
+        "Against",
+        "the",
+        "Syrian",
+        "king,",
+        "who",
+        "to",
+        "surprise",
+        "One",
+        "man,",
+        "assassin-like,",
+        "had",
+        "levied",
+        "war,",
+        "War",
+        "unproclaimed.",
+        "The",
+        "princely",
+        "Hierarch",
+        "In",
+        "their",
+        "bright",
+        "stand",
+        "there",
+        "left",
+        "his",
+        "Powers,",
+        "to",
+        "seise",
+        "Possession",
+        "of",
+        "the",
+        "garden;",
+        "he",
+        "alone,",
+        "To",
+        "find",
+        "where",
+        "Adam",
+        "sheltered,",
+        "took",
+        "his",
+        "way,",
+        "Not",
+        "unperceived",
+        "of",
+        "Adam;",
+        "who",
+        "to",
+        "Eve,",
+        "While",
+        "the",
+        "great",
+        "visitant",
+        "approached,",
+        "thus",
+        "spake."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "equal",
+          47,
+          64,
+          48,
+          65
+        ],
+        [
+          "replace",
+          64,
+          65,
+          65,
+          66
+        ],
+        [
+          "equal",
+          65,
+          93,
+          66,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "replace",
+          64,
+          65,
+          65,
+          66
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "that",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "more",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "glorious,",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "text": "when",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "text": "the",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "Angels",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "text": "met",
+          "start": 2.55,
+          "end": 2.89
+        },
+        {
+          "text": "Jacob",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "text": "in",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "Mahanaim,",
+          "start": 3.55,
+          "end": 4.11
+        },
+        {
+          "text": "where",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "text": "he",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "text": "saw",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "The",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "text": "field",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "text": "pavilioned",
+          "start": 5.49,
+          "end": 6.21
+        },
+        {
+          "text": "with",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "text": "his",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "text": "guardians",
+          "start": 6.45,
+          "end": 6.89
+        },
+        {
+          "text": "bright;",
+          "start": 6.89,
+          "end": 7.33
+        },
+        {
+          "text": "Nor",
+          "start": 8.07,
+          "end": 8.15
+        },
+        {
+          "text": "that,",
+          "start": 8.15,
+          "end": 8.51
+        },
+        {
+          "text": "which",
+          "start": 8.89,
+          "end": 8.97
+        },
+        {
+          "text": "on",
+          "start": 8.97,
+          "end": 9.13
+        },
+        {
+          "text": "the",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "text": "flaming",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "text": "mount",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "text": "appeared",
+          "start": 9.87,
+          "end": 10.29
+        },
+        {
+          "text": "In",
+          "start": 10.29,
+          "end": 10.53
+        },
+        {
+          "text": "Dothan,",
+          "start": 10.53,
+          "end": 10.97
+        },
+        {
+          "text": "covered",
+          "start": 11.43,
+          "end": 11.59
+        },
+        {
+          "text": "with",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "text": "a",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "text": "camp",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "text": "of",
+          "start": 12.17,
+          "end": 12.37
+        },
+        {
+          "text": "fire,",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "text": "Against",
+          "start": 12.71,
+          "end": 13.27
+        },
+        {
+          "text": "the",
+          "start": 13.27,
+          "end": 13.53
+        },
+        {
+          "text": "Syrian",
+          "start": 13.53,
+          "end": 13.91
+        },
+        {
+          "text": "king,",
+          "start": 13.91,
+          "end": 14.31
+        },
+        {
+          "text": "who",
+          "start": 14.73,
+          "end": 14.85
+        },
+        {
+          "text": "to",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "text": "surprise",
+          "start": 14.97,
+          "end": 15.39
+        },
+        {
+          "text": "One",
+          "start": 15.39,
+          "end": 15.73
+        },
+        {
+          "text": "man,",
+          "start": 15.73,
+          "end": 16.11
+        },
+        {
+          "text": "assassin-like,",
+          "start": 16.11,
+          "end": 16.54
+        },
+        {
+          "text": "had",
+          "start": 16.97,
+          "end": 17.21
+        },
+        {
+          "text": "levied",
+          "start": 17.21,
+          "end": 17.51
+        },
+        {
+          "text": "war,",
+          "start": 17.51,
+          "end": 18.01
+        },
+        {
+          "text": "War",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "text": "unproclaimed.",
+          "start": 18.71,
+          "end": 19.43
+        },
+        {
+          "text": "The",
+          "start": 20.49,
+          "end": 20.71
+        },
+        {
+          "text": "princely",
+          "start": 20.71,
+          "end": 21.11
+        },
+        {
+          "text": "Hierarch",
+          "start": 21.11,
+          "end": 21.43
+        },
+        {
+          "text": "In",
+          "start": 21.43,
+          "end": 21.77
+        },
+        {
+          "text": "their",
+          "start": 21.77,
+          "end": 21.91
+        },
+        {
+          "text": "bright",
+          "start": 21.91,
+          "end": 22.15
+        },
+        {
+          "text": "stand",
+          "start": 22.15,
+          "end": 22.51
+        },
+        {
+          "text": "there",
+          "start": 22.51,
+          "end": 22.75
+        },
+        {
+          "text": "left",
+          "start": 22.75,
+          "end": 22.95
+        },
+        {
+          "text": "his",
+          "start": 22.95,
+          "end": 23.19
+        },
+        {
+          "text": "Powers,",
+          "start": 23.19,
+          "end": 23.59
+        },
+        {
+          "text": "to",
+          "start": 24.03,
+          "end": 24.19
+        },
+        {
+          "text": "seise",
+          "start": 24.19,
+          "end": 24.41
+        },
+        {
+          "text": "Possession",
+          "start": 24.63,
+          "end": 24.97
+        },
+        {
+          "text": "of",
+          "start": 24.97,
+          "end": 25.15
+        },
+        {
+          "text": "the",
+          "start": 25.15,
+          "end": 25.27
+        },
+        {
+          "text": "garden;",
+          "start": 25.27,
+          "end": 25.55
+        },
+        {
+          "text": "he",
+          "start": 25.55,
+          "end": 26.41
+        },
+        {
+          "text": "alone,",
+          "start": 26.41,
+          "end": 26.79
+        },
+        {
+          "text": "To",
+          "start": 27.07,
+          "end": 27.13
+        },
+        {
+          "text": "find",
+          "start": 27.13,
+          "end": 27.39
+        },
+        {
+          "text": "where",
+          "start": 27.39,
+          "end": 27.65
+        },
+        {
+          "text": "Adam",
+          "start": 27.65,
+          "end": 27.95
+        },
+        {
+          "text": "sheltered,",
+          "start": 27.95,
+          "end": 28.39
+        },
+        {
+          "text": "took",
+          "start": 28.93,
+          "end": 28.99
+        },
+        {
+          "text": "his",
+          "start": 28.99,
+          "end": 29.21
+        },
+        {
+          "text": "way,",
+          "start": 29.21,
+          "end": 29.51
+        },
+        {
+          "text": "Not",
+          "start": 29.83,
+          "end": 29.99
+        },
+        {
+          "text": "unperceived",
+          "start": 29.99,
+          "end": 30.61
+        },
+        {
+          "text": "of",
+          "start": 30.61,
+          "end": 30.77
+        },
+        {
+          "text": "Adam;",
+          "start": 30.77,
+          "end": 31.11
+        },
+        {
+          "text": "who",
+          "start": 31.65,
+          "end": 31.85
+        },
+        {
+          "text": "to",
+          "start": 31.85,
+          "end": 31.97
+        },
+        {
+          "text": "Eve,",
+          "start": 31.97,
+          "end": 32.29
+        },
+        {
+          "text": "While",
+          "start": 32.45,
+          "end": 32.55
+        },
+        {
+          "text": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "text": "great",
+          "start": 32.69,
+          "end": 32.93
+        },
+        {
+          "text": "visitant",
+          "start": 32.93,
+          "end": 33.41
+        },
+        {
+          "text": "approached,",
+          "start": 33.41,
+          "end": 33.75
+        },
+        {
+          "text": "thus",
+          "start": 33.75,
+          "end": 34.25
+        },
+        {
+          "text": "spake.",
+          "start": 34.25,
+          "end": 34.71
+        }
+      ],
+      "stats": {
+        "expected_words": 93,
+        "heard_words": 94,
+        "matched_words": 91
+      },
+      "match_ratio": 0.978494623655914,
+      "rejection_reasons": [],
+      "seconds": 1.0607736429956276
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7b0d36c6a727d9cb0050a0127715bd4540a0c09ef59d948f774562c9dcafe2fc",
+  "selected_reasons": []
+}

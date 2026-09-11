@@ -1,0 +1,1625 @@
+{
+  "complete": true,
+  "signature": "ea2a3fdc978d9b3ff81d814112b2da083da31e316dbeff56e1c3810d1c778f82",
+  "attempts": [
+    {
+      "asr_seconds": 0.44245973974466324,
+      "alignment_seconds": 0.0004658922553062439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And therefore when Hellenes fight with barbarians and barbarians with Hellenes, they will be described by us as being at war when they fight, and by nature enemies, and this kind of antagonism should be called war; but when Hellenes fight with one another we shall say that Hellas is then in a state of disorder and discord, they being by nature friends; and such enmity is to be called discord.",
+        "hotwords": "Hellenes, Hellas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And therefore when Hellenes fight with barbarians and barbarians with Hellenes, they will be described by us as being at war when they fight, and by nature enemies, and this kind of antagonism should be called war.",
+          "start": 0.05,
+          "end": 11.77,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.345458984375
+            },
+            {
+              "text": " therefore",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " when",
+              "start": 0.87,
+              "end": 1.13,
+              "probability": 0.4521484375
+            },
+            {
+              "text": " Hellenes",
+              "start": 1.13,
+              "end": 1.49,
+              "probability": 0.535888671875
+            },
+            {
+              "text": " fight",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.990234375
+            },
+            {
+              "text": " with",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " barbarians",
+              "start": 2.05,
+              "end": 2.73,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " and",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " barbarians",
+              "start": 2.93,
+              "end": 3.55,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " with",
+              "start": 3.55,
+              "end": 3.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Hellenes,",
+              "start": 3.71,
+              "end": 4.23,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " they",
+              "start": 4.73,
+              "end": 4.81,
+              "probability": 0.96484375
+            },
+            {
+              "text": " will",
+              "start": 4.81,
+              "end": 4.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 4.93,
+              "end": 5.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " described",
+              "start": 5.05,
+              "end": 5.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 5.43,
+              "end": 5.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us",
+              "start": 5.71,
+              "end": 5.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 5.93,
+              "end": 6.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " being",
+              "start": 6.21,
+              "end": 6.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 6.45,
+              "end": 6.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " war",
+              "start": 6.59,
+              "end": 6.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " when",
+              "start": 6.81,
+              "end": 6.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 6.99,
+              "end": 7.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fight,",
+              "start": 7.15,
+              "end": 7.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 7.85,
+              "end": 8.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 8.03,
+              "end": 8.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nature",
+              "start": 8.19,
+              "end": 8.49,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " enemies,",
+              "start": 8.49,
+              "end": 8.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 9.43,
+              "end": 9.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " this",
+              "start": 9.59,
+              "end": 9.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kind",
+              "start": 9.75,
+              "end": 9.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 9.91,
+              "end": 10.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " antagonism",
+              "start": 10.03,
+              "end": 10.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " should",
+              "start": 10.83,
+              "end": 10.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 10.99,
+              "end": 11.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " called",
+              "start": 11.15,
+              "end": 11.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " war.",
+              "start": 11.43,
+              "end": 11.77,
+              "probability": 0.86474609375
+            }
+          ]
+        },
+        {
+          "text": " But when Hellenes fight with one another we shall say that Hellas is then in a state of disorder and discord, they being by nature friends, and such enmity is to be called discord.",
+          "start": 12.49,
+          "end": 22.41,
+          "words": [
+            {
+              "text": " But",
+              "start": 12.49,
+              "end": 12.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " when",
+              "start": 12.71,
+              "end": 12.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Hellenes",
+              "start": 12.81,
+              "end": 13.19,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " fight",
+              "start": 13.19,
+              "end": 13.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 13.51,
+              "end": 13.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 13.71,
+              "end": 13.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " another",
+              "start": 13.95,
+              "end": 14.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " we",
+              "start": 14.29,
+              "end": 14.71,
+              "probability": 0.306396484375
+            },
+            {
+              "text": " shall",
+              "start": 14.71,
+              "end": 14.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " say",
+              "start": 14.87,
+              "end": 15.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 15.13,
+              "end": 15.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Hellas",
+              "start": 15.35,
+              "end": 15.69,
+              "probability": 0.46563720703125
+            },
+            {
+              "text": " is",
+              "start": 15.69,
+              "end": 15.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " then",
+              "start": 15.87,
+              "end": 16.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 16.07,
+              "end": 16.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 16.23,
+              "end": 16.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " state",
+              "start": 16.33,
+              "end": 16.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 16.55,
+              "end": 16.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " disorder",
+              "start": 16.73,
+              "end": 17.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 17.13,
+              "end": 17.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " discord,",
+              "start": 17.45,
+              "end": 17.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " they",
+              "start": 18.43,
+              "end": 18.61,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " being",
+              "start": 18.61,
+              "end": 18.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 18.85,
+              "end": 19.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " nature",
+              "start": 19.05,
+              "end": 19.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " friends,",
+              "start": 19.35,
+              "end": 19.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 20.27,
+              "end": 20.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " such",
+              "start": 20.51,
+              "end": 20.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " enmity",
+              "start": 20.71,
+              "end": 21.15,
+              "probability": 0.9993489583333334
+            },
+            {
+              "text": " is",
+              "start": 21.15,
+              "end": 21.39,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " to",
+              "start": 21.39,
+              "end": 21.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 21.53,
+              "end": 21.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " called",
+              "start": 21.67,
+              "end": 21.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " discord.",
+              "start": 21.99,
+              "end": 22.41,
+              "probability": 0.7900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "therefore",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "when",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "raw": "Hellenes",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "raw": "fight",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "with",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "raw": "barbarians",
+          "start": 2.05,
+          "end": 2.73
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "barbarians",
+          "start": 2.93,
+          "end": 3.55
+        },
+        {
+          "raw": "with",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "raw": "Hellenes,",
+          "start": 3.71,
+          "end": 4.23
+        },
+        {
+          "raw": "they",
+          "start": 4.73,
+          "end": 4.81
+        },
+        {
+          "raw": "will",
+          "start": 4.81,
+          "end": 4.93
+        },
+        {
+          "raw": "be",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "raw": "described",
+          "start": 5.05,
+          "end": 5.43
+        },
+        {
+          "raw": "by",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "raw": "us",
+          "start": 5.71,
+          "end": 5.93
+        },
+        {
+          "raw": "as",
+          "start": 5.93,
+          "end": 6.21
+        },
+        {
+          "raw": "being",
+          "start": 6.21,
+          "end": 6.45
+        },
+        {
+          "raw": "at",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "raw": "war",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "raw": "when",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "raw": "they",
+          "start": 6.99,
+          "end": 7.15
+        },
+        {
+          "raw": "fight,",
+          "start": 7.15,
+          "end": 7.43
+        },
+        {
+          "raw": "and",
+          "start": 7.85,
+          "end": 8.03
+        },
+        {
+          "raw": "by",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "raw": "nature",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "raw": "enemies,",
+          "start": 8.49,
+          "end": 8.89
+        },
+        {
+          "raw": "and",
+          "start": 9.43,
+          "end": 9.59
+        },
+        {
+          "raw": "this",
+          "start": 9.59,
+          "end": 9.75
+        },
+        {
+          "raw": "kind",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "raw": "of",
+          "start": 9.91,
+          "end": 10.03
+        },
+        {
+          "raw": "antagonism",
+          "start": 10.03,
+          "end": 10.83
+        },
+        {
+          "raw": "should",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "raw": "be",
+          "start": 10.99,
+          "end": 11.15
+        },
+        {
+          "raw": "called",
+          "start": 11.15,
+          "end": 11.43
+        },
+        {
+          "raw": "war.",
+          "start": 11.43,
+          "end": 11.77
+        },
+        {
+          "raw": "But",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "raw": "when",
+          "start": 12.71,
+          "end": 12.81
+        },
+        {
+          "raw": "Hellenes",
+          "start": 12.81,
+          "end": 13.19
+        },
+        {
+          "raw": "fight",
+          "start": 13.19,
+          "end": 13.51
+        },
+        {
+          "raw": "with",
+          "start": 13.51,
+          "end": 13.71
+        },
+        {
+          "raw": "one",
+          "start": 13.71,
+          "end": 13.95
+        },
+        {
+          "raw": "another",
+          "start": 13.95,
+          "end": 14.29
+        },
+        {
+          "raw": "we",
+          "start": 14.29,
+          "end": 14.71
+        },
+        {
+          "raw": "shall",
+          "start": 14.71,
+          "end": 14.87
+        },
+        {
+          "raw": "say",
+          "start": 14.87,
+          "end": 15.13
+        },
+        {
+          "raw": "that",
+          "start": 15.13,
+          "end": 15.35
+        },
+        {
+          "raw": "Hellas",
+          "start": 15.35,
+          "end": 15.69
+        },
+        {
+          "raw": "is",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "raw": "then",
+          "start": 15.87,
+          "end": 16.07
+        },
+        {
+          "raw": "in",
+          "start": 16.07,
+          "end": 16.23
+        },
+        {
+          "raw": "a",
+          "start": 16.23,
+          "end": 16.33
+        },
+        {
+          "raw": "state",
+          "start": 16.33,
+          "end": 16.55
+        },
+        {
+          "raw": "of",
+          "start": 16.55,
+          "end": 16.73
+        },
+        {
+          "raw": "disorder",
+          "start": 16.73,
+          "end": 17.13
+        },
+        {
+          "raw": "and",
+          "start": 17.13,
+          "end": 17.45
+        },
+        {
+          "raw": "discord,",
+          "start": 17.45,
+          "end": 17.89
+        },
+        {
+          "raw": "they",
+          "start": 18.43,
+          "end": 18.61
+        },
+        {
+          "raw": "being",
+          "start": 18.61,
+          "end": 18.85
+        },
+        {
+          "raw": "by",
+          "start": 18.85,
+          "end": 19.05
+        },
+        {
+          "raw": "nature",
+          "start": 19.05,
+          "end": 19.35
+        },
+        {
+          "raw": "friends,",
+          "start": 19.35,
+          "end": 19.73
+        },
+        {
+          "raw": "and",
+          "start": 20.27,
+          "end": 20.51
+        },
+        {
+          "raw": "such",
+          "start": 20.51,
+          "end": 20.71
+        },
+        {
+          "raw": "enmity",
+          "start": 20.71,
+          "end": 21.15
+        },
+        {
+          "raw": "is",
+          "start": 21.15,
+          "end": 21.39
+        },
+        {
+          "raw": "to",
+          "start": 21.39,
+          "end": 21.53
+        },
+        {
+          "raw": "be",
+          "start": 21.53,
+          "end": 21.67
+        },
+        {
+          "raw": "called",
+          "start": 21.67,
+          "end": 21.99
+        },
+        {
+          "raw": "discord.",
+          "start": 21.99,
+          "end": 22.41
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "therefore",
+        "when",
+        "Hellenes",
+        "fight",
+        "with",
+        "barbarians",
+        "and",
+        "barbarians",
+        "with",
+        "Hellenes,",
+        "they",
+        "will",
+        "be",
+        "described",
+        "by",
+        "us",
+        "as",
+        "being",
+        "at",
+        "war",
+        "when",
+        "they",
+        "fight,",
+        "and",
+        "by",
+        "nature",
+        "enemies,",
+        "and",
+        "this",
+        "kind",
+        "of",
+        "antagonism",
+        "should",
+        "be",
+        "called",
+        "war;",
+        "but",
+        "when",
+        "Hellenes",
+        "fight",
+        "with",
+        "one",
+        "another",
+        "we",
+        "shall",
+        "say",
+        "that",
+        "Hellas",
+        "is",
+        "then",
+        "in",
+        "a",
+        "state",
+        "of",
+        "disorder",
+        "and",
+        "discord,",
+        "they",
+        "being",
+        "by",
+        "nature",
+        "friends;",
+        "and",
+        "such",
+        "enmity",
+        "is",
+        "to",
+        "be",
+        "called",
+        "discord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          71,
+          0,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "therefore",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "when",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "text": "Hellenes",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "text": "fight",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "text": "with",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "text": "barbarians",
+          "start": 2.05,
+          "end": 2.73
+        },
+        {
+          "text": "and",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "barbarians",
+          "start": 2.93,
+          "end": 3.55
+        },
+        {
+          "text": "with",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "text": "Hellenes,",
+          "start": 3.71,
+          "end": 4.23
+        },
+        {
+          "text": "they",
+          "start": 4.73,
+          "end": 4.81
+        },
+        {
+          "text": "will",
+          "start": 4.81,
+          "end": 4.93
+        },
+        {
+          "text": "be",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "text": "described",
+          "start": 5.05,
+          "end": 5.43
+        },
+        {
+          "text": "by",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "text": "us",
+          "start": 5.71,
+          "end": 5.93
+        },
+        {
+          "text": "as",
+          "start": 5.93,
+          "end": 6.21
+        },
+        {
+          "text": "being",
+          "start": 6.21,
+          "end": 6.45
+        },
+        {
+          "text": "at",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "text": "war",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "text": "when",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "text": "they",
+          "start": 6.99,
+          "end": 7.15
+        },
+        {
+          "text": "fight,",
+          "start": 7.15,
+          "end": 7.43
+        },
+        {
+          "text": "and",
+          "start": 7.85,
+          "end": 8.03
+        },
+        {
+          "text": "by",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "text": "nature",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "text": "enemies,",
+          "start": 8.49,
+          "end": 8.89
+        },
+        {
+          "text": "and",
+          "start": 9.43,
+          "end": 9.59
+        },
+        {
+          "text": "this",
+          "start": 9.59,
+          "end": 9.75
+        },
+        {
+          "text": "kind",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "text": "of",
+          "start": 9.91,
+          "end": 10.03
+        },
+        {
+          "text": "antagonism",
+          "start": 10.03,
+          "end": 10.83
+        },
+        {
+          "text": "should",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "text": "be",
+          "start": 10.99,
+          "end": 11.15
+        },
+        {
+          "text": "called",
+          "start": 11.15,
+          "end": 11.43
+        },
+        {
+          "text": "war;",
+          "start": 11.43,
+          "end": 11.77
+        },
+        {
+          "text": "but",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "text": "when",
+          "start": 12.71,
+          "end": 12.81
+        },
+        {
+          "text": "Hellenes",
+          "start": 12.81,
+          "end": 13.19
+        },
+        {
+          "text": "fight",
+          "start": 13.19,
+          "end": 13.51
+        },
+        {
+          "text": "with",
+          "start": 13.51,
+          "end": 13.71
+        },
+        {
+          "text": "one",
+          "start": 13.71,
+          "end": 13.95
+        },
+        {
+          "text": "another",
+          "start": 13.95,
+          "end": 14.29
+        },
+        {
+          "text": "we",
+          "start": 14.29,
+          "end": 14.71
+        },
+        {
+          "text": "shall",
+          "start": 14.71,
+          "end": 14.87
+        },
+        {
+          "text": "say",
+          "start": 14.87,
+          "end": 15.13
+        },
+        {
+          "text": "that",
+          "start": 15.13,
+          "end": 15.35
+        },
+        {
+          "text": "Hellas",
+          "start": 15.35,
+          "end": 15.69
+        },
+        {
+          "text": "is",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "text": "then",
+          "start": 15.87,
+          "end": 16.07
+        },
+        {
+          "text": "in",
+          "start": 16.07,
+          "end": 16.23
+        },
+        {
+          "text": "a",
+          "start": 16.23,
+          "end": 16.33
+        },
+        {
+          "text": "state",
+          "start": 16.33,
+          "end": 16.55
+        },
+        {
+          "text": "of",
+          "start": 16.55,
+          "end": 16.73
+        },
+        {
+          "text": "disorder",
+          "start": 16.73,
+          "end": 17.13
+        },
+        {
+          "text": "and",
+          "start": 17.13,
+          "end": 17.45
+        },
+        {
+          "text": "discord,",
+          "start": 17.45,
+          "end": 17.89
+        },
+        {
+          "text": "they",
+          "start": 18.43,
+          "end": 18.61
+        },
+        {
+          "text": "being",
+          "start": 18.61,
+          "end": 18.85
+        },
+        {
+          "text": "by",
+          "start": 18.85,
+          "end": 19.05
+        },
+        {
+          "text": "nature",
+          "start": 19.05,
+          "end": 19.35
+        },
+        {
+          "text": "friends;",
+          "start": 19.35,
+          "end": 19.73
+        },
+        {
+          "text": "and",
+          "start": 20.27,
+          "end": 20.51
+        },
+        {
+          "text": "such",
+          "start": 20.51,
+          "end": 20.71
+        },
+        {
+          "text": "enmity",
+          "start": 20.71,
+          "end": 21.15
+        },
+        {
+          "text": "is",
+          "start": 21.15,
+          "end": 21.39
+        },
+        {
+          "text": "to",
+          "start": 21.39,
+          "end": 21.53
+        },
+        {
+          "text": "be",
+          "start": 21.53,
+          "end": 21.67
+        },
+        {
+          "text": "called",
+          "start": 21.67,
+          "end": 21.99
+        },
+        {
+          "text": "discord.",
+          "start": 21.99,
+          "end": 22.41
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 71,
+        "matched_words": 71
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44319605827331543
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c15298738aac63c1963695921e87f1c0039a17f9cb183bcb0a1e1a91ea9325d",
+  "selected_reasons": []
+}

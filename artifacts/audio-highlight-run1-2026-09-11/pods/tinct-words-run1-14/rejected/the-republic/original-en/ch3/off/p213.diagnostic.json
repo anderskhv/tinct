@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "a485b3fcd38b45631d7aadb82928685daa1401e7819ebd7457d2bfd1ab87f326",
+  "attempts": [
+    {
+      "asr_seconds": 0.2490757629275322,
+      "alignment_seconds": 0.0001440495252609253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Everyone can see already what we ought to say about them, if we are to be consistent with ourselves.",
+          "start": 0.08,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Everyone",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.685546875
+            },
+            {
+              "text": " can",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " already",
+              "start": 1.3,
+              "end": 1.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " what",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " we",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ought",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say",
+              "start": 2.4,
+              "end": 2.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them,",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " if",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " we",
+              "start": 3.74,
+              "end": 3.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 4.2,
+              "end": 4.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " consistent",
+              "start": 4.34,
+              "end": 4.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " with",
+              "start": 4.76,
+              "end": 5.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ourselves.",
+              "start": 5.1,
+              "end": 5.5,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Everyone",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "can",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "see",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "already",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "raw": "what",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "we",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "ought",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "to",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "say",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "raw": "about",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "raw": "them,",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "if",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "we",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "raw": "are",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "to",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "be",
+          "start": 4.2,
+          "end": 4.34
+        },
+        {
+          "raw": "consistent",
+          "start": 4.34,
+          "end": 4.76
+        },
+        {
+          "raw": "with",
+          "start": 4.76,
+          "end": 5.1
+        },
+        {
+          "raw": "ourselves.",
+          "start": 5.1,
+          "end": 5.5
+        }
+      ],
+      "expected_tokens": [
+        "Every",
+        "one",
+        "can",
+        "see",
+        "already",
+        "what",
+        "we",
+        "ought",
+        "to",
+        "say",
+        "about",
+        "them,",
+        "if",
+        "we",
+        "are",
+        "to",
+        "be",
+        "consistent",
+        "with",
+        "ourselves."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          20,
+          1,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Every",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "one",
+          "start": 0.35,
+          "end": 0.525
+        },
+        {
+          "text": "can",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "see",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "already",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "text": "what",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "we",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "ought",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "to",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "say",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "text": "about",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "text": "them,",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "text": "if",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "we",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "text": "are",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "to",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "be",
+          "start": 4.2,
+          "end": 4.34
+        },
+        {
+          "text": "consistent",
+          "start": 4.34,
+          "end": 4.76
+        },
+        {
+          "text": "with",
+          "start": 4.76,
+          "end": 5.1
+        },
+        {
+          "text": "ourselves.",
+          "start": 5.1,
+          "end": 5.5
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.24928948283195496
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37294deb43cb886ad8e6b4e9f63c199680afc9f93829ee1db5caa42353f8b2c4",
+  "selected_reasons": []
+}

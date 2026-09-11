@@ -1,0 +1,277 @@
+{
+  "complete": true,
+  "signature": "b37b650014dc010eb2f32e6b164d5ae3097744816f0a64a493c0a6ae8fc21fb7",
+  "attempts": [
+    {
+      "asr_seconds": 0.10502033401280642,
+      "alignment_seconds": 7.417518645524979e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why, said Socrates is not even as a philosopher.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.40625
+            },
+            {
+              "text": " said",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Socrates",
+              "start": 1.21,
+              "end": 1.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " not",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " even",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.95703125
+            },
+            {
+              "text": " a",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " philosopher.",
+              "start": 2.75,
+              "end": 3.11,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "said",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "Socrates",
+          "start": 1.21,
+          "end": 1.69
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "not",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "even",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "as",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "a",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "philosopher.",
+          "start": 2.75,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Why,",
+        "said",
+        "Socrates,--is",
+        "not",
+        "Evenus",
+        "a",
+        "philosopher?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ],
+        [
+          "equal",
+          5,
+          7,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Why,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "said",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "Socrates,--is",
+          "start": 1.21,
+          "end": 1.58
+        },
+        {
+          "text": "not",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "Evenus",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "a",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "text": "philosopher?",
+          "start": 2.75,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10512176807969809
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b6e0ec11b4575234894ae814a95b9944927bde3cdef3145ec3f6ca94ac6014e6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

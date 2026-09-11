@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "4d7c02fbdc83c6ca435da45117a7c4fcaaea54dca3e24283ca841643cbf0f5f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.09180193394422531,
+      "alignment_seconds": 7.063895463943481e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What do you mean? he asked",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.2113037109375
+            },
+            {
+              "text": " do",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mean?",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.6171875
+            },
+            {
+              "text": " asked",
+              "start": 1.34,
+              "end": 1.66,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "mean?",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "he",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "asked",
+          "start": 1.34,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "do",
+        "you",
+        "mean?",
+        "he",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "you",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "mean?",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "he",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "asked.",
+          "start": 1.34,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0919034406542778
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca183a9f86576a45253600e6a81b8592ea554f3294270f4f96ed22a0406078d8",
+  "selected_reasons": []
+}

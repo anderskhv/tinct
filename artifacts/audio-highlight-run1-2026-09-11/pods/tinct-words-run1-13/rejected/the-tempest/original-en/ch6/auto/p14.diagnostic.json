@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "6deeddccb20ebafcf5afe699f336a2f44554ef68c307b9081e2d0b86be6fec0f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14654111908748746,
+      "alignment_seconds": 0.00014238501898944378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caliban. Lo, lo, again! bite him to death, I prithee.",
+        "hotwords": "Caliban, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caliban, lo, lo, again! bite him to death, I prithee.",
+          "start": 0.02,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.637939453125
+            },
+            {
+              "text": " lo,",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.03173828125
+            },
+            {
+              "text": " lo,",
+              "start": 1.56,
+              "end": 1.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " again!",
+              "start": 1.82,
+              "end": 1.86,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " bite",
+              "start": 2.48,
+              "end": 2.52,
+              "probability": 0.0212249755859375
+            },
+            {
+              "text": " him",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " to",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " death,",
+              "start": 2.8,
+              "end": 3.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 3.22,
+              "end": 3.26,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " prithee.",
+              "start": 3.26,
+              "end": 3.6,
+              "probability": 0.7957356770833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "lo,",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "lo,",
+          "start": 1.56,
+          "end": 1.58
+        },
+        {
+          "raw": "again!",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "raw": "bite",
+          "start": 2.48,
+          "end": 2.52
+        },
+        {
+          "raw": "him",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "death,",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.26
+        },
+        {
+          "raw": "prithee.",
+          "start": 3.26,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "Lo,",
+        "lo,",
+        "again!",
+        "bite",
+        "him",
+        "to",
+        "death,",
+        "I",
+        "prithee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Lo,",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "lo,",
+          "start": 1.56,
+          "end": 1.58
+        },
+        {
+          "text": "again!",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "text": "bite",
+          "start": 2.48,
+          "end": 2.52
+        },
+        {
+          "text": "him",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "to",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "death,",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "text": "I",
+          "start": 3.22,
+          "end": 3.26
+        },
+        {
+          "text": "prithee.",
+          "start": 3.26,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14674847607966512
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "503b66690838aa51a8581b36c0eaed98b94d53a8a2903ab3dc3f0f81048503e7",
+  "selected_reasons": []
+}

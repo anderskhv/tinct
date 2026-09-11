@@ -1,0 +1,2780 @@
+{
+  "complete": true,
+  "signature": "b792a9773c693e191d1a20daa3a03c68006f937b913ca510b7df4ad88b80e293",
+  "attempts": [
+    {
+      "asr_seconds": 0.8538787290453911,
+      "alignment_seconds": 0.0009132102131843567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Of Man's first disobedience, and the fruit Of that forbidden tree whose mortal taste Brought death into the World, and all our woe, With loss of Eden, till one greater Man Restore us, and regain the blissful seat, Sing, Heavenly Muse, that, on the secret top Of Oreb, or of Sinai, didst inspire That shepherd who first taught the chosen seed In the beginning how the heavens and earth Rose out of Chaos: or, if Sion hill Delight thee more, and Siloa's brook that flowed Fast by the oracle of God, I thence Invoke thy aid to my adventurous song, That with no middle flight intends to soar Above th' Aonian mount, while it pursues Things unattempted yet in prose or rhyme.",
+        "hotwords": "Man's, Brought, World, Eden, Man, Restore, Sing, Heavenly, Muse, Oreb, Sinai, Rose, Chaos, Sion, Delight, Siloa's, Fast, God, I, Invoke, Above, Aonian, Things"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of man's first disobedience, and the fruit Of that forbidden tree whose mortal taste Brought death into the World, and all our woe, With loss of Eden, till one greater Man Restore us, and regain the blissful seat, Sing, Heavenly Muse, that, on the secret top Of Oreb, or of Sinai, didst inspire That shepherd who first taught the chosen seed In the beginning how the heavens and earth Rose out of Chaos, or, if Sion hill Delight thee more, and Siloa's brook that flowed Fast",
+          "start": 0.05,
+          "end": 29.59,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.0300750732421875
+            },
+            {
+              "text": " man's",
+              "start": 0.53,
+              "end": 1.01,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " first",
+              "start": 1.01,
+              "end": 1.29,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " disobedience,",
+              "start": 1.29,
+              "end": 1.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.67,
+              "probability": 0.5966796875
+            },
+            {
+              "text": " the",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.974609375
+            },
+            {
+              "text": " fruit",
+              "start": 2.79,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Of",
+              "start": 2.99,
+              "end": 3.15,
+              "probability": 0.0050506591796875
+            },
+            {
+              "text": " that",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " forbidden",
+              "start": 3.33,
+              "end": 3.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tree",
+              "start": 3.71,
+              "end": 4.13,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " whose",
+              "start": 4.13,
+              "end": 4.39,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " mortal",
+              "start": 4.39,
+              "end": 4.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " taste",
+              "start": 4.71,
+              "end": 5.15,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Brought",
+              "start": 5.15,
+              "end": 5.45,
+              "probability": 0.56793212890625
+            },
+            {
+              "text": " death",
+              "start": 5.45,
+              "end": 5.77,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " into",
+              "start": 5.77,
+              "end": 5.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 5.99,
+              "end": 6.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " World,",
+              "start": 6.11,
+              "end": 6.39,
+              "probability": 0.0023193359375
+            },
+            {
+              "text": " and",
+              "start": 6.87,
+              "end": 7.03,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " all",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " our",
+              "start": 7.21,
+              "end": 7.37,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " woe,",
+              "start": 7.37,
+              "end": 7.65,
+              "probability": 0.933349609375
+            },
+            {
+              "text": " With",
+              "start": 7.89,
+              "end": 8.03,
+              "probability": 0.176513671875
+            },
+            {
+              "text": " loss",
+              "start": 8.03,
+              "end": 8.31,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " of",
+              "start": 8.31,
+              "end": 8.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Eden,",
+              "start": 8.55,
+              "end": 8.77,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " till",
+              "start": 9.21,
+              "end": 9.33,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " one",
+              "start": 9.33,
+              "end": 9.57,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " greater",
+              "start": 9.57,
+              "end": 9.81,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " Man",
+              "start": 9.81,
+              "end": 10.19,
+              "probability": 0.1221923828125
+            },
+            {
+              "text": " Restore",
+              "start": 10.19,
+              "end": 10.57,
+              "probability": 0.00533294677734375
+            },
+            {
+              "text": " us,",
+              "start": 10.57,
+              "end": 10.95,
+              "probability": 0.94921875
+            },
+            {
+              "text": " and",
+              "start": 11.37,
+              "end": 11.55,
+              "probability": 0.8203125
+            },
+            {
+              "text": " regain",
+              "start": 11.55,
+              "end": 11.83,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 11.83,
+              "end": 12.03,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " blissful",
+              "start": 12.03,
+              "end": 12.41,
+              "probability": 0.73828125
+            },
+            {
+              "text": " seat,",
+              "start": 12.41,
+              "end": 12.71,
+              "probability": 0.38232421875
+            },
+            {
+              "text": " Sing,",
+              "start": 13.45,
+              "end": 13.45,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " Heavenly",
+              "start": 13.89,
+              "end": 14.13,
+              "probability": 0.12420654296875
+            },
+            {
+              "text": " Muse,",
+              "start": 14.13,
+              "end": 14.55,
+              "probability": 0.892578125
+            },
+            {
+              "text": " that,",
+              "start": 15.11,
+              "end": 15.35,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " on",
+              "start": 15.51,
+              "end": 15.61,
+              "probability": 0.55029296875
+            },
+            {
+              "text": " the",
+              "start": 15.61,
+              "end": 15.75,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " secret",
+              "start": 15.75,
+              "end": 15.99,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " top",
+              "start": 15.99,
+              "end": 16.27,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " Of",
+              "start": 16.27,
+              "end": 16.47,
+              "probability": 0.55908203125
+            },
+            {
+              "text": " Oreb,",
+              "start": 16.47,
+              "end": 16.87,
+              "probability": 0.51263427734375
+            },
+            {
+              "text": " or",
+              "start": 17.11,
+              "end": 17.21,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 17.21,
+              "end": 17.41,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Sinai,",
+              "start": 17.41,
+              "end": 17.81,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " didst",
+              "start": 18.13,
+              "end": 18.43,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " inspire",
+              "start": 18.43,
+              "end": 18.89,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " That",
+              "start": 18.89,
+              "end": 19.23,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " shepherd",
+              "start": 19.23,
+              "end": 19.59,
+              "probability": 0.55859375
+            },
+            {
+              "text": " who",
+              "start": 19.59,
+              "end": 19.83,
+              "probability": 0.966796875
+            },
+            {
+              "text": " first",
+              "start": 19.83,
+              "end": 20.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " taught",
+              "start": 20.05,
+              "end": 20.29,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " the",
+              "start": 20.29,
+              "end": 20.47,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " chosen",
+              "start": 20.47,
+              "end": 20.79,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " seed",
+              "start": 20.79,
+              "end": 21.11,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " In",
+              "start": 21.11,
+              "end": 21.31,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " the",
+              "start": 21.31,
+              "end": 21.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beginning",
+              "start": 21.41,
+              "end": 21.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " how",
+              "start": 21.75,
+              "end": 22.07,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " the",
+              "start": 22.07,
+              "end": 22.25,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " heavens",
+              "start": 22.25,
+              "end": 22.47,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 22.47,
+              "end": 22.79,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " earth",
+              "start": 22.79,
+              "end": 23.07,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Rose",
+              "start": 23.07,
+              "end": 23.35,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " out",
+              "start": 23.35,
+              "end": 23.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 23.59,
+              "end": 23.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Chaos,",
+              "start": 23.73,
+              "end": 24.07,
+              "probability": 0.1204833984375
+            },
+            {
+              "text": " or,",
+              "start": 25.07,
+              "end": 25.49,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " if",
+              "start": 25.73,
+              "end": 25.79,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " Sion",
+              "start": 25.79,
+              "end": 26.13,
+              "probability": 0.556640625
+            },
+            {
+              "text": " hill",
+              "start": 26.13,
+              "end": 26.37,
+              "probability": 0.0517578125
+            },
+            {
+              "text": " Delight",
+              "start": 26.37,
+              "end": 26.79,
+              "probability": 0.501373291015625
+            },
+            {
+              "text": " thee",
+              "start": 26.79,
+              "end": 26.95,
+              "probability": 0.900390625
+            },
+            {
+              "text": " more,",
+              "start": 26.95,
+              "end": 27.25,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " and",
+              "start": 27.67,
+              "end": 27.83,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Siloa's",
+              "start": 27.83,
+              "end": 28.41,
+              "probability": 0.6206919352213541
+            },
+            {
+              "text": " brook",
+              "start": 28.41,
+              "end": 28.67,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " that",
+              "start": 28.67,
+              "end": 28.89,
+              "probability": 0.3642578125
+            },
+            {
+              "text": " flowed",
+              "start": 28.89,
+              "end": 29.15,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Fast",
+              "start": 29.15,
+              "end": 29.59,
+              "probability": 0.0784912109375
+            }
+          ]
+        },
+        {
+          "text": " Fast by the oracle of God, I thence Invoke thy aid to my adventurous song, That with no middle flight intends to soar Above th' Aonian mount, while it pursues Things unattempted yet in prose or rhyme.",
+          "start": 29.59,
+          "end": 42.43,
+          "words": [
+            {
+              "text": " Fast",
+              "start": 29.59,
+              "end": 29.73,
+              "probability": 0.00022661685943603516
+            },
+            {
+              "text": " by",
+              "start": 29.73,
+              "end": 29.89,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " the",
+              "start": 29.89,
+              "end": 30.03,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " oracle",
+              "start": 30.03,
+              "end": 30.41,
+              "probability": 0.620849609375
+            },
+            {
+              "text": " of",
+              "start": 30.41,
+              "end": 30.57,
+              "probability": 0.98828125
+            },
+            {
+              "text": " God,",
+              "start": 30.57,
+              "end": 30.91,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " I",
+              "start": 31.53,
+              "end": 31.61,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " thence",
+              "start": 31.61,
+              "end": 31.83,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Invoke",
+              "start": 31.83,
+              "end": 32.25,
+              "probability": 0.5158538818359375
+            },
+            {
+              "text": " thy",
+              "start": 32.25,
+              "end": 32.47,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " aid",
+              "start": 32.47,
+              "end": 32.75,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " to",
+              "start": 32.75,
+              "end": 32.93,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " my",
+              "start": 32.93,
+              "end": 33.07,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " adventurous",
+              "start": 33.07,
+              "end": 33.51,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " song,",
+              "start": 33.51,
+              "end": 34.03,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " That",
+              "start": 34.45,
+              "end": 34.69,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " with",
+              "start": 34.69,
+              "end": 34.81,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " no",
+              "start": 34.81,
+              "end": 35.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " middle",
+              "start": 35.07,
+              "end": 35.29,
+              "probability": 0.95703125
+            },
+            {
+              "text": " flight",
+              "start": 35.29,
+              "end": 35.65,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " intends",
+              "start": 35.65,
+              "end": 36.01,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " to",
+              "start": 36.01,
+              "end": 36.39,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " soar",
+              "start": 36.39,
+              "end": 36.61,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Above",
+              "start": 36.61,
+              "end": 36.91,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " th'",
+              "start": 36.91,
+              "end": 37.39,
+              "probability": 0.1650390625
+            },
+            {
+              "text": " Aonian",
+              "start": 37.69,
+              "end": 37.97,
+              "probability": 0.00046563148498535156
+            },
+            {
+              "text": " mount,",
+              "start": 37.97,
+              "end": 38.39,
+              "probability": 0.5517578125
+            },
+            {
+              "text": " while",
+              "start": 38.83,
+              "end": 39.03,
+              "probability": 0.56640625
+            },
+            {
+              "text": " it",
+              "start": 39.03,
+              "end": 39.21,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " pursues",
+              "start": 39.21,
+              "end": 39.67,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Things",
+              "start": 39.67,
+              "end": 39.91,
+              "probability": 0.435302734375
+            },
+            {
+              "text": " unattempted",
+              "start": 39.91,
+              "end": 40.77,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " yet",
+              "start": 40.77,
+              "end": 40.97,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " in",
+              "start": 40.97,
+              "end": 41.21,
+              "probability": 0.97265625
+            },
+            {
+              "text": " prose",
+              "start": 41.21,
+              "end": 41.57,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " or",
+              "start": 41.57,
+              "end": 41.95,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " rhyme.",
+              "start": 41.95,
+              "end": 42.43,
+              "probability": 0.941162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "man's",
+          "start": 0.53,
+          "end": 1.01
+        },
+        {
+          "raw": "first",
+          "start": 1.01,
+          "end": 1.29
+        },
+        {
+          "raw": "disobedience,",
+          "start": 1.29,
+          "end": 1.97
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "raw": "the",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "fruit",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "raw": "Of",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "raw": "that",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "forbidden",
+          "start": 3.33,
+          "end": 3.71
+        },
+        {
+          "raw": "tree",
+          "start": 3.71,
+          "end": 4.13
+        },
+        {
+          "raw": "whose",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "raw": "mortal",
+          "start": 4.39,
+          "end": 4.71
+        },
+        {
+          "raw": "taste",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "raw": "Brought",
+          "start": 5.15,
+          "end": 5.45
+        },
+        {
+          "raw": "death",
+          "start": 5.45,
+          "end": 5.77
+        },
+        {
+          "raw": "into",
+          "start": 5.77,
+          "end": 5.99
+        },
+        {
+          "raw": "the",
+          "start": 5.99,
+          "end": 6.11
+        },
+        {
+          "raw": "World,",
+          "start": 6.11,
+          "end": 6.39
+        },
+        {
+          "raw": "and",
+          "start": 6.87,
+          "end": 7.03
+        },
+        {
+          "raw": "all",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "our",
+          "start": 7.21,
+          "end": 7.37
+        },
+        {
+          "raw": "woe,",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "raw": "With",
+          "start": 7.89,
+          "end": 8.03
+        },
+        {
+          "raw": "loss",
+          "start": 8.03,
+          "end": 8.31
+        },
+        {
+          "raw": "of",
+          "start": 8.31,
+          "end": 8.55
+        },
+        {
+          "raw": "Eden,",
+          "start": 8.55,
+          "end": 8.77
+        },
+        {
+          "raw": "till",
+          "start": 9.21,
+          "end": 9.33
+        },
+        {
+          "raw": "one",
+          "start": 9.33,
+          "end": 9.57
+        },
+        {
+          "raw": "greater",
+          "start": 9.57,
+          "end": 9.81
+        },
+        {
+          "raw": "Man",
+          "start": 9.81,
+          "end": 10.19
+        },
+        {
+          "raw": "Restore",
+          "start": 10.19,
+          "end": 10.57
+        },
+        {
+          "raw": "us,",
+          "start": 10.57,
+          "end": 10.95
+        },
+        {
+          "raw": "and",
+          "start": 11.37,
+          "end": 11.55
+        },
+        {
+          "raw": "regain",
+          "start": 11.55,
+          "end": 11.83
+        },
+        {
+          "raw": "the",
+          "start": 11.83,
+          "end": 12.03
+        },
+        {
+          "raw": "blissful",
+          "start": 12.03,
+          "end": 12.41
+        },
+        {
+          "raw": "seat,",
+          "start": 12.41,
+          "end": 12.71
+        },
+        {
+          "raw": "Sing,",
+          "start": 13.45,
+          "end": 13.45
+        },
+        {
+          "raw": "Heavenly",
+          "start": 13.89,
+          "end": 14.13
+        },
+        {
+          "raw": "Muse,",
+          "start": 14.13,
+          "end": 14.55
+        },
+        {
+          "raw": "that,",
+          "start": 15.11,
+          "end": 15.35
+        },
+        {
+          "raw": "on",
+          "start": 15.51,
+          "end": 15.61
+        },
+        {
+          "raw": "the",
+          "start": 15.61,
+          "end": 15.75
+        },
+        {
+          "raw": "secret",
+          "start": 15.75,
+          "end": 15.99
+        },
+        {
+          "raw": "top",
+          "start": 15.99,
+          "end": 16.27
+        },
+        {
+          "raw": "Of",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "raw": "Oreb,",
+          "start": 16.47,
+          "end": 16.87
+        },
+        {
+          "raw": "or",
+          "start": 17.11,
+          "end": 17.21
+        },
+        {
+          "raw": "of",
+          "start": 17.21,
+          "end": 17.41
+        },
+        {
+          "raw": "Sinai,",
+          "start": 17.41,
+          "end": 17.81
+        },
+        {
+          "raw": "didst",
+          "start": 18.13,
+          "end": 18.43
+        },
+        {
+          "raw": "inspire",
+          "start": 18.43,
+          "end": 18.89
+        },
+        {
+          "raw": "That",
+          "start": 18.89,
+          "end": 19.23
+        },
+        {
+          "raw": "shepherd",
+          "start": 19.23,
+          "end": 19.59
+        },
+        {
+          "raw": "who",
+          "start": 19.59,
+          "end": 19.83
+        },
+        {
+          "raw": "first",
+          "start": 19.83,
+          "end": 20.05
+        },
+        {
+          "raw": "taught",
+          "start": 20.05,
+          "end": 20.29
+        },
+        {
+          "raw": "the",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "raw": "chosen",
+          "start": 20.47,
+          "end": 20.79
+        },
+        {
+          "raw": "seed",
+          "start": 20.79,
+          "end": 21.11
+        },
+        {
+          "raw": "In",
+          "start": 21.11,
+          "end": 21.31
+        },
+        {
+          "raw": "the",
+          "start": 21.31,
+          "end": 21.41
+        },
+        {
+          "raw": "beginning",
+          "start": 21.41,
+          "end": 21.75
+        },
+        {
+          "raw": "how",
+          "start": 21.75,
+          "end": 22.07
+        },
+        {
+          "raw": "the",
+          "start": 22.07,
+          "end": 22.25
+        },
+        {
+          "raw": "heavens",
+          "start": 22.25,
+          "end": 22.47
+        },
+        {
+          "raw": "and",
+          "start": 22.47,
+          "end": 22.79
+        },
+        {
+          "raw": "earth",
+          "start": 22.79,
+          "end": 23.07
+        },
+        {
+          "raw": "Rose",
+          "start": 23.07,
+          "end": 23.35
+        },
+        {
+          "raw": "out",
+          "start": 23.35,
+          "end": 23.59
+        },
+        {
+          "raw": "of",
+          "start": 23.59,
+          "end": 23.73
+        },
+        {
+          "raw": "Chaos,",
+          "start": 23.73,
+          "end": 24.07
+        },
+        {
+          "raw": "or,",
+          "start": 25.07,
+          "end": 25.49
+        },
+        {
+          "raw": "if",
+          "start": 25.73,
+          "end": 25.79
+        },
+        {
+          "raw": "Sion",
+          "start": 25.79,
+          "end": 26.13
+        },
+        {
+          "raw": "hill",
+          "start": 26.13,
+          "end": 26.37
+        },
+        {
+          "raw": "Delight",
+          "start": 26.37,
+          "end": 26.79
+        },
+        {
+          "raw": "thee",
+          "start": 26.79,
+          "end": 26.95
+        },
+        {
+          "raw": "more,",
+          "start": 26.95,
+          "end": 27.25
+        },
+        {
+          "raw": "and",
+          "start": 27.67,
+          "end": 27.83
+        },
+        {
+          "raw": "Siloa's",
+          "start": 27.83,
+          "end": 28.41
+        },
+        {
+          "raw": "brook",
+          "start": 28.41,
+          "end": 28.67
+        },
+        {
+          "raw": "that",
+          "start": 28.67,
+          "end": 28.89
+        },
+        {
+          "raw": "flowed",
+          "start": 28.89,
+          "end": 29.15
+        },
+        {
+          "raw": "Fast",
+          "start": 29.15,
+          "end": 29.59
+        },
+        {
+          "raw": "Fast",
+          "start": 29.59,
+          "end": 29.73
+        },
+        {
+          "raw": "by",
+          "start": 29.73,
+          "end": 29.89
+        },
+        {
+          "raw": "the",
+          "start": 29.89,
+          "end": 30.03
+        },
+        {
+          "raw": "oracle",
+          "start": 30.03,
+          "end": 30.41
+        },
+        {
+          "raw": "of",
+          "start": 30.41,
+          "end": 30.57
+        },
+        {
+          "raw": "God,",
+          "start": 30.57,
+          "end": 30.91
+        },
+        {
+          "raw": "I",
+          "start": 31.53,
+          "end": 31.61
+        },
+        {
+          "raw": "thence",
+          "start": 31.61,
+          "end": 31.83
+        },
+        {
+          "raw": "Invoke",
+          "start": 31.83,
+          "end": 32.25
+        },
+        {
+          "raw": "thy",
+          "start": 32.25,
+          "end": 32.47
+        },
+        {
+          "raw": "aid",
+          "start": 32.47,
+          "end": 32.75
+        },
+        {
+          "raw": "to",
+          "start": 32.75,
+          "end": 32.93
+        },
+        {
+          "raw": "my",
+          "start": 32.93,
+          "end": 33.07
+        },
+        {
+          "raw": "adventurous",
+          "start": 33.07,
+          "end": 33.51
+        },
+        {
+          "raw": "song,",
+          "start": 33.51,
+          "end": 34.03
+        },
+        {
+          "raw": "That",
+          "start": 34.45,
+          "end": 34.69
+        },
+        {
+          "raw": "with",
+          "start": 34.69,
+          "end": 34.81
+        },
+        {
+          "raw": "no",
+          "start": 34.81,
+          "end": 35.07
+        },
+        {
+          "raw": "middle",
+          "start": 35.07,
+          "end": 35.29
+        },
+        {
+          "raw": "flight",
+          "start": 35.29,
+          "end": 35.65
+        },
+        {
+          "raw": "intends",
+          "start": 35.65,
+          "end": 36.01
+        },
+        {
+          "raw": "to",
+          "start": 36.01,
+          "end": 36.39
+        },
+        {
+          "raw": "soar",
+          "start": 36.39,
+          "end": 36.61
+        },
+        {
+          "raw": "Above",
+          "start": 36.61,
+          "end": 36.91
+        },
+        {
+          "raw": "th'",
+          "start": 36.91,
+          "end": 37.39
+        },
+        {
+          "raw": "Aonian",
+          "start": 37.69,
+          "end": 37.97
+        },
+        {
+          "raw": "mount,",
+          "start": 37.97,
+          "end": 38.39
+        },
+        {
+          "raw": "while",
+          "start": 38.83,
+          "end": 39.03
+        },
+        {
+          "raw": "it",
+          "start": 39.03,
+          "end": 39.21
+        },
+        {
+          "raw": "pursues",
+          "start": 39.21,
+          "end": 39.67
+        },
+        {
+          "raw": "Things",
+          "start": 39.67,
+          "end": 39.91
+        },
+        {
+          "raw": "unattempted",
+          "start": 39.91,
+          "end": 40.77
+        },
+        {
+          "raw": "yet",
+          "start": 40.77,
+          "end": 40.97
+        },
+        {
+          "raw": "in",
+          "start": 40.97,
+          "end": 41.21
+        },
+        {
+          "raw": "prose",
+          "start": 41.21,
+          "end": 41.57
+        },
+        {
+          "raw": "or",
+          "start": 41.57,
+          "end": 41.95
+        },
+        {
+          "raw": "rhyme.",
+          "start": 41.95,
+          "end": 42.43
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "Man's",
+        "first",
+        "disobedience,",
+        "and",
+        "the",
+        "fruit",
+        "Of",
+        "that",
+        "forbidden",
+        "tree",
+        "whose",
+        "mortal",
+        "taste",
+        "Brought",
+        "death",
+        "into",
+        "the",
+        "World,",
+        "and",
+        "all",
+        "our",
+        "woe,",
+        "With",
+        "loss",
+        "of",
+        "Eden,",
+        "till",
+        "one",
+        "greater",
+        "Man",
+        "Restore",
+        "us,",
+        "and",
+        "regain",
+        "the",
+        "blissful",
+        "seat,",
+        "Sing,",
+        "Heavenly",
+        "Muse,",
+        "that,",
+        "on",
+        "the",
+        "secret",
+        "top",
+        "Of",
+        "Oreb,",
+        "or",
+        "of",
+        "Sinai,",
+        "didst",
+        "inspire",
+        "That",
+        "shepherd",
+        "who",
+        "first",
+        "taught",
+        "the",
+        "chosen",
+        "seed",
+        "In",
+        "the",
+        "beginning",
+        "how",
+        "the",
+        "heavens",
+        "and",
+        "earth",
+        "Rose",
+        "out",
+        "of",
+        "Chaos:",
+        "or,",
+        "if",
+        "Sion",
+        "hill",
+        "Delight",
+        "thee",
+        "more,",
+        "and",
+        "Siloa's",
+        "brook",
+        "that",
+        "flowed",
+        "Fast",
+        "by",
+        "the",
+        "oracle",
+        "of",
+        "God,",
+        "I",
+        "thence",
+        "Invoke",
+        "thy",
+        "aid",
+        "to",
+        "my",
+        "adventurous",
+        "song,",
+        "That",
+        "with",
+        "no",
+        "middle",
+        "flight",
+        "intends",
+        "to",
+        "soar",
+        "Above",
+        "th'",
+        "Aonian",
+        "mount,",
+        "while",
+        "it",
+        "pursues",
+        "Things",
+        "unattempted",
+        "yet",
+        "in",
+        "prose",
+        "or",
+        "rhyme."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          86,
+          0,
+          86
+        ],
+        [
+          "insert",
+          86,
+          86,
+          86,
+          87
+        ],
+        [
+          "equal",
+          86,
+          122,
+          87,
+          123
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 122
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          86,
+          86,
+          86,
+          87
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Man's",
+          "start": 0.53,
+          "end": 1.01
+        },
+        {
+          "text": "first",
+          "start": 1.01,
+          "end": 1.29
+        },
+        {
+          "text": "disobedience,",
+          "start": 1.29,
+          "end": 1.97
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "text": "the",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "fruit",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "text": "Of",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "text": "that",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "forbidden",
+          "start": 3.33,
+          "end": 3.71
+        },
+        {
+          "text": "tree",
+          "start": 3.71,
+          "end": 4.13
+        },
+        {
+          "text": "whose",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "text": "mortal",
+          "start": 4.39,
+          "end": 4.71
+        },
+        {
+          "text": "taste",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "text": "Brought",
+          "start": 5.15,
+          "end": 5.45
+        },
+        {
+          "text": "death",
+          "start": 5.45,
+          "end": 5.77
+        },
+        {
+          "text": "into",
+          "start": 5.77,
+          "end": 5.99
+        },
+        {
+          "text": "the",
+          "start": 5.99,
+          "end": 6.11
+        },
+        {
+          "text": "World,",
+          "start": 6.11,
+          "end": 6.39
+        },
+        {
+          "text": "and",
+          "start": 6.87,
+          "end": 7.03
+        },
+        {
+          "text": "all",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "text": "our",
+          "start": 7.21,
+          "end": 7.37
+        },
+        {
+          "text": "woe,",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "text": "With",
+          "start": 7.89,
+          "end": 8.03
+        },
+        {
+          "text": "loss",
+          "start": 8.03,
+          "end": 8.31
+        },
+        {
+          "text": "of",
+          "start": 8.31,
+          "end": 8.55
+        },
+        {
+          "text": "Eden,",
+          "start": 8.55,
+          "end": 8.77
+        },
+        {
+          "text": "till",
+          "start": 9.21,
+          "end": 9.33
+        },
+        {
+          "text": "one",
+          "start": 9.33,
+          "end": 9.57
+        },
+        {
+          "text": "greater",
+          "start": 9.57,
+          "end": 9.81
+        },
+        {
+          "text": "Man",
+          "start": 9.81,
+          "end": 10.19
+        },
+        {
+          "text": "Restore",
+          "start": 10.19,
+          "end": 10.57
+        },
+        {
+          "text": "us,",
+          "start": 10.57,
+          "end": 10.95
+        },
+        {
+          "text": "and",
+          "start": 11.37,
+          "end": 11.55
+        },
+        {
+          "text": "regain",
+          "start": 11.55,
+          "end": 11.83
+        },
+        {
+          "text": "the",
+          "start": 11.83,
+          "end": 12.03
+        },
+        {
+          "text": "blissful",
+          "start": 12.03,
+          "end": 12.41
+        },
+        {
+          "text": "seat,",
+          "start": 12.41,
+          "end": 12.71
+        },
+        {
+          "text": "Sing,",
+          "start": 13.45,
+          "end": 13.45
+        },
+        {
+          "text": "Heavenly",
+          "start": 13.89,
+          "end": 14.13
+        },
+        {
+          "text": "Muse,",
+          "start": 14.13,
+          "end": 14.55
+        },
+        {
+          "text": "that,",
+          "start": 15.11,
+          "end": 15.35
+        },
+        {
+          "text": "on",
+          "start": 15.51,
+          "end": 15.61
+        },
+        {
+          "text": "the",
+          "start": 15.61,
+          "end": 15.75
+        },
+        {
+          "text": "secret",
+          "start": 15.75,
+          "end": 15.99
+        },
+        {
+          "text": "top",
+          "start": 15.99,
+          "end": 16.27
+        },
+        {
+          "text": "Of",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "text": "Oreb,",
+          "start": 16.47,
+          "end": 16.87
+        },
+        {
+          "text": "or",
+          "start": 17.11,
+          "end": 17.21
+        },
+        {
+          "text": "of",
+          "start": 17.21,
+          "end": 17.41
+        },
+        {
+          "text": "Sinai,",
+          "start": 17.41,
+          "end": 17.81
+        },
+        {
+          "text": "didst",
+          "start": 18.13,
+          "end": 18.43
+        },
+        {
+          "text": "inspire",
+          "start": 18.43,
+          "end": 18.89
+        },
+        {
+          "text": "That",
+          "start": 18.89,
+          "end": 19.23
+        },
+        {
+          "text": "shepherd",
+          "start": 19.23,
+          "end": 19.59
+        },
+        {
+          "text": "who",
+          "start": 19.59,
+          "end": 19.83
+        },
+        {
+          "text": "first",
+          "start": 19.83,
+          "end": 20.05
+        },
+        {
+          "text": "taught",
+          "start": 20.05,
+          "end": 20.29
+        },
+        {
+          "text": "the",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "text": "chosen",
+          "start": 20.47,
+          "end": 20.79
+        },
+        {
+          "text": "seed",
+          "start": 20.79,
+          "end": 21.11
+        },
+        {
+          "text": "In",
+          "start": 21.11,
+          "end": 21.31
+        },
+        {
+          "text": "the",
+          "start": 21.31,
+          "end": 21.41
+        },
+        {
+          "text": "beginning",
+          "start": 21.41,
+          "end": 21.75
+        },
+        {
+          "text": "how",
+          "start": 21.75,
+          "end": 22.07
+        },
+        {
+          "text": "the",
+          "start": 22.07,
+          "end": 22.25
+        },
+        {
+          "text": "heavens",
+          "start": 22.25,
+          "end": 22.47
+        },
+        {
+          "text": "and",
+          "start": 22.47,
+          "end": 22.79
+        },
+        {
+          "text": "earth",
+          "start": 22.79,
+          "end": 23.07
+        },
+        {
+          "text": "Rose",
+          "start": 23.07,
+          "end": 23.35
+        },
+        {
+          "text": "out",
+          "start": 23.35,
+          "end": 23.59
+        },
+        {
+          "text": "of",
+          "start": 23.59,
+          "end": 23.73
+        },
+        {
+          "text": "Chaos:",
+          "start": 23.73,
+          "end": 24.07
+        },
+        {
+          "text": "or,",
+          "start": 25.07,
+          "end": 25.49
+        },
+        {
+          "text": "if",
+          "start": 25.73,
+          "end": 25.79
+        },
+        {
+          "text": "Sion",
+          "start": 25.79,
+          "end": 26.13
+        },
+        {
+          "text": "hill",
+          "start": 26.13,
+          "end": 26.37
+        },
+        {
+          "text": "Delight",
+          "start": 26.37,
+          "end": 26.79
+        },
+        {
+          "text": "thee",
+          "start": 26.79,
+          "end": 26.95
+        },
+        {
+          "text": "more,",
+          "start": 26.95,
+          "end": 27.25
+        },
+        {
+          "text": "and",
+          "start": 27.67,
+          "end": 27.83
+        },
+        {
+          "text": "Siloa's",
+          "start": 27.83,
+          "end": 28.41
+        },
+        {
+          "text": "brook",
+          "start": 28.41,
+          "end": 28.67
+        },
+        {
+          "text": "that",
+          "start": 28.67,
+          "end": 28.89
+        },
+        {
+          "text": "flowed",
+          "start": 28.89,
+          "end": 29.15
+        },
+        {
+          "text": "Fast",
+          "start": 29.15,
+          "end": 29.59
+        },
+        {
+          "text": "by",
+          "start": 29.73,
+          "end": 29.89
+        },
+        {
+          "text": "the",
+          "start": 29.89,
+          "end": 30.03
+        },
+        {
+          "text": "oracle",
+          "start": 30.03,
+          "end": 30.41
+        },
+        {
+          "text": "of",
+          "start": 30.41,
+          "end": 30.57
+        },
+        {
+          "text": "God,",
+          "start": 30.57,
+          "end": 30.91
+        },
+        {
+          "text": "I",
+          "start": 31.53,
+          "end": 31.61
+        },
+        {
+          "text": "thence",
+          "start": 31.61,
+          "end": 31.83
+        },
+        {
+          "text": "Invoke",
+          "start": 31.83,
+          "end": 32.25
+        },
+        {
+          "text": "thy",
+          "start": 32.25,
+          "end": 32.47
+        },
+        {
+          "text": "aid",
+          "start": 32.47,
+          "end": 32.75
+        },
+        {
+          "text": "to",
+          "start": 32.75,
+          "end": 32.93
+        },
+        {
+          "text": "my",
+          "start": 32.93,
+          "end": 33.07
+        },
+        {
+          "text": "adventurous",
+          "start": 33.07,
+          "end": 33.51
+        },
+        {
+          "text": "song,",
+          "start": 33.51,
+          "end": 34.03
+        },
+        {
+          "text": "That",
+          "start": 34.45,
+          "end": 34.69
+        },
+        {
+          "text": "with",
+          "start": 34.69,
+          "end": 34.81
+        },
+        {
+          "text": "no",
+          "start": 34.81,
+          "end": 35.07
+        },
+        {
+          "text": "middle",
+          "start": 35.07,
+          "end": 35.29
+        },
+        {
+          "text": "flight",
+          "start": 35.29,
+          "end": 35.65
+        },
+        {
+          "text": "intends",
+          "start": 35.65,
+          "end": 36.01
+        },
+        {
+          "text": "to",
+          "start": 36.01,
+          "end": 36.39
+        },
+        {
+          "text": "soar",
+          "start": 36.39,
+          "end": 36.61
+        },
+        {
+          "text": "Above",
+          "start": 36.61,
+          "end": 36.91
+        },
+        {
+          "text": "th'",
+          "start": 36.91,
+          "end": 37.39
+        },
+        {
+          "text": "Aonian",
+          "start": 37.69,
+          "end": 37.97
+        },
+        {
+          "text": "mount,",
+          "start": 37.97,
+          "end": 38.39
+        },
+        {
+          "text": "while",
+          "start": 38.83,
+          "end": 39.03
+        },
+        {
+          "text": "it",
+          "start": 39.03,
+          "end": 39.21
+        },
+        {
+          "text": "pursues",
+          "start": 39.21,
+          "end": 39.67
+        },
+        {
+          "text": "Things",
+          "start": 39.67,
+          "end": 39.91
+        },
+        {
+          "text": "unattempted",
+          "start": 39.91,
+          "end": 40.77
+        },
+        {
+          "text": "yet",
+          "start": 40.77,
+          "end": 40.97
+        },
+        {
+          "text": "in",
+          "start": 40.97,
+          "end": 41.21
+        },
+        {
+          "text": "prose",
+          "start": 41.21,
+          "end": 41.57
+        },
+        {
+          "text": "or",
+          "start": 41.57,
+          "end": 41.95
+        },
+        {
+          "text": "rhyme.",
+          "start": 41.95,
+          "end": 42.43
+        }
+      ],
+      "stats": {
+        "expected_words": 122,
+        "heard_words": 123,
+        "matched_words": 122
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8553421422839165
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd8141a1c251d12b6b3146e7338781fa83bb4393cd9df8de98949b2c52e10bde",
+  "selected_reasons": []
+}

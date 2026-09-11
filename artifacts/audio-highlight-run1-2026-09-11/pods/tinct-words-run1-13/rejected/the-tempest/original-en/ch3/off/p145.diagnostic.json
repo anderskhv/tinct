@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "72d2578e204323843abc65e66335ff3b760dc8102f0e332ed21e049b79cb1d4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09621804510243237,
+      "alignment_seconds": 0.00010084302630275488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, but for your conscience.",
+          "start": 0.08,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " but",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " for",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " conscience.",
+              "start": 1.68,
+              "end": 2.04,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "but",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "for",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "your",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "conscience.",
+          "start": 1.68,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "But,",
+        "for",
+        "your",
+        "conscience?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "But,",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "for",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "your",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "conscience?",
+          "start": 1.68,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09636424004565924
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff0192b986fb33fa0aad9a09b453aeaf7acf78da6e9445ca7ba8834d534dfd0a",
+  "selected_reasons": []
+}

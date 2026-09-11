@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "474bd33313894321792682a603fb9a51938f87e60c81310684724567b9aafaaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.17225510627031326,
+      "alignment_seconds": 9.872764348983765e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I think that a good many doubts may be raised about both.",
+          "start": 0.08,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " think",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 0.72,
+              "end": 0.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " good",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " many",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " doubts",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " may",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " be",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " raised",
+              "start": 2.12,
+              "end": 2.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " about",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " both.",
+              "start": 2.72,
+              "end": 3.0,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "think",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "that",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "raw": "a",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "good",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "many",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "doubts",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "may",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "be",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "raised",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "raw": "about",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "both.",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "think",
+        "that",
+        "a",
+        "good",
+        "many",
+        "doubts",
+        "may",
+        "be",
+        "raised",
+        "about",
+        "both."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "think",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "that",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "text": "a",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "good",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "many",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "doubts",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "may",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "be",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "raised",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "text": "about",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "both.",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17240208387374878
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3e83b87cb0f0073778e8346ec7f1984f229ae99ae34c0c456efbb6afda41e61d",
+  "selected_reasons": []
+}

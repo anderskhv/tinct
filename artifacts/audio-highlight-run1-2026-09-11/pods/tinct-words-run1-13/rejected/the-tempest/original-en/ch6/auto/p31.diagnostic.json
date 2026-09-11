@@ -1,0 +1,980 @@
+{
+  "complete": true,
+  "signature": "b7f64078691afcc1a451b5948b31d0194cbc1f20a0cbf6691a471701f6a23c3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.4090904579497874,
+      "alignment_seconds": 0.0005612180102616549,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caliban. What a pied ninny's this! Thou scurvy patch! I do beseech thy greatness, give him blows And take his bottle from him: when that's gone He shall drink nought but brine; for I'll not show him Where the quick freshes are.",
+        "hotwords": "Caliban, What, Thou, I, And, He, I'll, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caliban, What a pied ninny's this! Thou scurvy patch! I do beseech thy greatness, give him blows And take his bottle from him. When that's gone He shall drink nought but brine, for I'll not show him Where the quick freshes are.",
+          "start": 0.05,
+          "end": 13.53,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.46234130859375
+            },
+            {
+              "text": " What",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.021514892578125
+            },
+            {
+              "text": " a",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.96875
+            },
+            {
+              "text": " pied",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.7095947265625
+            },
+            {
+              "text": " ninny's",
+              "start": 1.53,
+              "end": 1.97,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " this!",
+              "start": 1.97,
+              "end": 2.19,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Thou",
+              "start": 2.73,
+              "end": 2.81,
+              "probability": 0.7578125
+            },
+            {
+              "text": " scurvy",
+              "start": 2.81,
+              "end": 3.33,
+              "probability": 0.9446614583333334
+            },
+            {
+              "text": " patch!",
+              "start": 3.33,
+              "end": 3.65,
+              "probability": 0.888671875
+            },
+            {
+              "text": " I",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " do",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " beseech",
+              "start": 4.49,
+              "end": 4.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thy",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " greatness,",
+              "start": 5.09,
+              "end": 5.55,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " give",
+              "start": 5.99,
+              "end": 6.09,
+              "probability": 0.607421875
+            },
+            {
+              "text": " him",
+              "start": 6.09,
+              "end": 6.29,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " blows",
+              "start": 6.29,
+              "end": 6.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " And",
+              "start": 6.63,
+              "end": 6.97,
+              "probability": 0.00968170166015625
+            },
+            {
+              "text": " take",
+              "start": 6.97,
+              "end": 7.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 7.15,
+              "end": 7.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bottle",
+              "start": 7.33,
+              "end": 7.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " from",
+              "start": 7.59,
+              "end": 7.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him.",
+              "start": 7.87,
+              "end": 8.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " When",
+              "start": 8.67,
+              "end": 8.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that's",
+              "start": 8.77,
+              "end": 9.09,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " gone",
+              "start": 9.09,
+              "end": 9.27,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " He",
+              "start": 9.27,
+              "end": 9.49,
+              "probability": 0.16064453125
+            },
+            {
+              "text": " shall",
+              "start": 9.49,
+              "end": 9.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " drink",
+              "start": 9.67,
+              "end": 9.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nought",
+              "start": 9.93,
+              "end": 10.31,
+              "probability": 0.438720703125
+            },
+            {
+              "text": " but",
+              "start": 10.31,
+              "end": 10.53,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " brine,",
+              "start": 10.53,
+              "end": 11.01,
+              "probability": 0.978515625
+            },
+            {
+              "text": " for",
+              "start": 11.39,
+              "end": 11.49,
+              "probability": 0.1077880859375
+            },
+            {
+              "text": " I'll",
+              "start": 11.49,
+              "end": 11.67,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " not",
+              "start": 11.67,
+              "end": 11.85,
+              "probability": 0.95703125
+            },
+            {
+              "text": " show",
+              "start": 11.85,
+              "end": 12.13,
+              "probability": 0.84765625
+            },
+            {
+              "text": " him",
+              "start": 12.13,
+              "end": 12.35,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Where",
+              "start": 12.35,
+              "end": 12.49,
+              "probability": 0.619140625
+            },
+            {
+              "text": " the",
+              "start": 12.49,
+              "end": 12.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quick",
+              "start": 12.65,
+              "end": 12.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " freshes",
+              "start": 12.83,
+              "end": 13.19,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " are.",
+              "start": 13.19,
+              "end": 13.53,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "What",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "a",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "pied",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "ninny's",
+          "start": 1.53,
+          "end": 1.97
+        },
+        {
+          "raw": "this!",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "raw": "Thou",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "raw": "scurvy",
+          "start": 2.81,
+          "end": 3.33
+        },
+        {
+          "raw": "patch!",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "raw": "I",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "do",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "beseech",
+          "start": 4.49,
+          "end": 4.93
+        },
+        {
+          "raw": "thy",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "greatness,",
+          "start": 5.09,
+          "end": 5.55
+        },
+        {
+          "raw": "give",
+          "start": 5.99,
+          "end": 6.09
+        },
+        {
+          "raw": "him",
+          "start": 6.09,
+          "end": 6.29
+        },
+        {
+          "raw": "blows",
+          "start": 6.29,
+          "end": 6.63
+        },
+        {
+          "raw": "And",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "raw": "take",
+          "start": 6.97,
+          "end": 7.15
+        },
+        {
+          "raw": "his",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "raw": "bottle",
+          "start": 7.33,
+          "end": 7.59
+        },
+        {
+          "raw": "from",
+          "start": 7.59,
+          "end": 7.87
+        },
+        {
+          "raw": "him.",
+          "start": 7.87,
+          "end": 8.11
+        },
+        {
+          "raw": "When",
+          "start": 8.67,
+          "end": 8.77
+        },
+        {
+          "raw": "that's",
+          "start": 8.77,
+          "end": 9.09
+        },
+        {
+          "raw": "gone",
+          "start": 9.09,
+          "end": 9.27
+        },
+        {
+          "raw": "He",
+          "start": 9.27,
+          "end": 9.49
+        },
+        {
+          "raw": "shall",
+          "start": 9.49,
+          "end": 9.67
+        },
+        {
+          "raw": "drink",
+          "start": 9.67,
+          "end": 9.93
+        },
+        {
+          "raw": "nought",
+          "start": 9.93,
+          "end": 10.31
+        },
+        {
+          "raw": "but",
+          "start": 10.31,
+          "end": 10.53
+        },
+        {
+          "raw": "brine,",
+          "start": 10.53,
+          "end": 11.01
+        },
+        {
+          "raw": "for",
+          "start": 11.39,
+          "end": 11.49
+        },
+        {
+          "raw": "I'll",
+          "start": 11.49,
+          "end": 11.67
+        },
+        {
+          "raw": "not",
+          "start": 11.67,
+          "end": 11.85
+        },
+        {
+          "raw": "show",
+          "start": 11.85,
+          "end": 12.13
+        },
+        {
+          "raw": "him",
+          "start": 12.13,
+          "end": 12.35
+        },
+        {
+          "raw": "Where",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "raw": "the",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "raw": "quick",
+          "start": 12.65,
+          "end": 12.83
+        },
+        {
+          "raw": "freshes",
+          "start": 12.83,
+          "end": 13.19
+        },
+        {
+          "raw": "are.",
+          "start": 13.19,
+          "end": 13.53
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "What",
+        "a",
+        "pied",
+        "ninny's",
+        "this!",
+        "Thou",
+        "scurvy",
+        "patch!",
+        "I",
+        "do",
+        "beseech",
+        "thy",
+        "greatness,",
+        "give",
+        "him",
+        "blows",
+        "And",
+        "take",
+        "his",
+        "bottle",
+        "from",
+        "him:",
+        "when",
+        "that's",
+        "gone",
+        "He",
+        "shall",
+        "drink",
+        "nought",
+        "but",
+        "brine;",
+        "for",
+        "I'll",
+        "not",
+        "show",
+        "him",
+        "Where",
+        "the",
+        "quick",
+        "freshes",
+        "are."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "What",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "a",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "pied",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "text": "ninny's",
+          "start": 1.53,
+          "end": 1.97
+        },
+        {
+          "text": "this!",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "text": "Thou",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "text": "scurvy",
+          "start": 2.81,
+          "end": 3.33
+        },
+        {
+          "text": "patch!",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "text": "I",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "do",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "beseech",
+          "start": 4.49,
+          "end": 4.93
+        },
+        {
+          "text": "thy",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "greatness,",
+          "start": 5.09,
+          "end": 5.55
+        },
+        {
+          "text": "give",
+          "start": 5.99,
+          "end": 6.09
+        },
+        {
+          "text": "him",
+          "start": 6.09,
+          "end": 6.29
+        },
+        {
+          "text": "blows",
+          "start": 6.29,
+          "end": 6.63
+        },
+        {
+          "text": "And",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "text": "take",
+          "start": 6.97,
+          "end": 7.15
+        },
+        {
+          "text": "his",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "text": "bottle",
+          "start": 7.33,
+          "end": 7.59
+        },
+        {
+          "text": "from",
+          "start": 7.59,
+          "end": 7.87
+        },
+        {
+          "text": "him:",
+          "start": 7.87,
+          "end": 8.11
+        },
+        {
+          "text": "when",
+          "start": 8.67,
+          "end": 8.77
+        },
+        {
+          "text": "that's",
+          "start": 8.77,
+          "end": 9.09
+        },
+        {
+          "text": "gone",
+          "start": 9.09,
+          "end": 9.27
+        },
+        {
+          "text": "He",
+          "start": 9.27,
+          "end": 9.49
+        },
+        {
+          "text": "shall",
+          "start": 9.49,
+          "end": 9.67
+        },
+        {
+          "text": "drink",
+          "start": 9.67,
+          "end": 9.93
+        },
+        {
+          "text": "nought",
+          "start": 9.93,
+          "end": 10.31
+        },
+        {
+          "text": "but",
+          "start": 10.31,
+          "end": 10.53
+        },
+        {
+          "text": "brine;",
+          "start": 10.53,
+          "end": 11.01
+        },
+        {
+          "text": "for",
+          "start": 11.39,
+          "end": 11.49
+        },
+        {
+          "text": "I'll",
+          "start": 11.49,
+          "end": 11.67
+        },
+        {
+          "text": "not",
+          "start": 11.67,
+          "end": 11.85
+        },
+        {
+          "text": "show",
+          "start": 11.85,
+          "end": 12.13
+        },
+        {
+          "text": "him",
+          "start": 12.13,
+          "end": 12.35
+        },
+        {
+          "text": "Where",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "text": "the",
+          "start": 12.49,
+          "end": 12.65
+        },
+        {
+          "text": "quick",
+          "start": 12.65,
+          "end": 12.83
+        },
+        {
+          "text": "freshes",
+          "start": 12.83,
+          "end": 13.19
+        },
+        {
+          "text": "are.",
+          "start": 13.19,
+          "end": 13.53
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4099723759572953
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "75cf1bb526c516db3ed27e624ecdb1b44d2a377ab255d7f461fd8b9fa1d19704",
+  "selected_reasons": []
+}

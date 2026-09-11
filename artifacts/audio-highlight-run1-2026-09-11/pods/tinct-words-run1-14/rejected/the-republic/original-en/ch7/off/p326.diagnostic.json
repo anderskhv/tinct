@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "7ece3219905ea0f30e488fe2762a2d2b9f35bfd715f056d10e230d62d163de16",
+  "attempts": [
+    {
+      "asr_seconds": 0.15319716185331345,
+      "alignment_seconds": 8.983910083770752e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The students of the art are filled with lawlessness.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " students",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.99,
+              "end": 1.09,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " art",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " are",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " filled",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lawlessness.",
+              "start": 2.23,
+              "end": 2.73,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "students",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.09
+        },
+        {
+          "raw": "art",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "are",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "filled",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "raw": "with",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "lawlessness.",
+          "start": 2.23,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "students",
+        "of",
+        "the",
+        "art",
+        "are",
+        "filled",
+        "with",
+        "lawlessness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "students",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "of",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "the",
+          "start": 0.99,
+          "end": 1.09
+        },
+        {
+          "text": "art",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "are",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "filled",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "text": "with",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "lawlessness.",
+          "start": 2.23,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15332788974046707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cfdcf67a8bc94f58bd9924e9ce2abfec521636bcd7eda5afa941496f8ddd5904",
+  "selected_reasons": []
+}

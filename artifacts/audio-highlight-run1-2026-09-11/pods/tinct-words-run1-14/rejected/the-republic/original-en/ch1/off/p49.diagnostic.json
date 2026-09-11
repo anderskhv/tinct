@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "4b3f6c5385156b6587bc5d497808af2092047cb650ae5c1eb0ca65909c004e6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13833440095186234,
+      "alignment_seconds": 0.00010754168033599854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and our enemies also to receive what we owe to them.",
+          "start": 0.08,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.578125
+            },
+            {
+              "text": " our",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " enemies",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " also",
+              "start": 1.0,
+              "end": 1.64,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " to",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " receive",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " what",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " we",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " owe",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " them.",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "our",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "enemies",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "also",
+          "start": 1.0,
+          "end": 1.64
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "receive",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "what",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "we",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "owe",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "them.",
+          "start": 2.9,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "are",
+        "enemies",
+        "also",
+        "to",
+        "receive",
+        "what",
+        "we",
+        "owe",
+        "to",
+        "them?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "are",
+          "start": 0.54,
+          "end": 0.59
+        },
+        {
+          "text": "enemies",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "also",
+          "start": 1.0,
+          "end": 1.64
+        },
+        {
+          "text": "to",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "receive",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "what",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "we",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "owe",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "to",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "them?",
+          "start": 2.9,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.13848890364170074
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90f95863a6ff3710ef8595c04b775400dcbcf76f36fa93bbbd9e07a8ec030629",
+  "selected_reasons": []
+}

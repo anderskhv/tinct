@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "551f1d3ea2dd2d601f9a671c4ee360ce045ac7d4e9dfda92760c89f4ce2248c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.07539298385381699,
+      "alignment_seconds": 5.822628736495972e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Not with either.",
+        "hotwords": "Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not with either.",
+          "start": 0.05,
+          "end": 1.01,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " with",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " either.",
+              "start": 0.73,
+              "end": 1.01,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "with",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "either.",
+          "start": 0.73,
+          "end": 1.01
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "with",
+        "either."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "with",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "either.",
+          "start": 0.73,
+          "end": 1.01
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07547450065612793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "50d40f2d45dfad3104c7c5ea67ecc9d561ab944ba42a5e036ae4cbcc6492c509",
+  "selected_reasons": []
+}

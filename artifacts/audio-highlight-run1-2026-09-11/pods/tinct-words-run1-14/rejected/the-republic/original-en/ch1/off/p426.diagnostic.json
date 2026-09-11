@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "9abbcc18fbbd3f524a3c15c3046c939cdc7f87dfbe319571d9b35a37b3d7b734",
+  "attempts": [
+    {
+      "asr_seconds": 0.0777411013841629,
+      "alignment_seconds": 4.314631223678589e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, certainly.",
+          "start": 0.02,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " certainly.",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "certainly.",
+          "start": 0.86,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "certainly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "certainly.",
+          "start": 0.86,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07780119776725769
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "03aeedd4a3f4689c9f8ae769d0cb97e073abd2ee5e9ebf0dc30c45611bbddcda",
+  "selected_reasons": []
+}

@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "0b141f475f58fea0cce2394fe1d74d2f9fe698e3c8cc229b62f6811a82d81090",
+  "attempts": [
+    {
+      "asr_seconds": 0.1811260050162673,
+      "alignment_seconds": 0.00010832492262125015,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I'm not going near him,\" said Patalamon. \"He's unlucky. Do you really think he is old Zaharrof come back? I owe him for some gulls' eggs.\"",
+        "hotwords": "I'm, Patalamon, He's, Do, Zaharrof, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I'm not going near him, said Patalamon. He's unlucky. Do you really think he is old Zaharrof come back? I owe him for some gulls' eggs.",
+          "start": 0.05,
+          "end": 8.51,
+          "words": [
+            {
+              "text": " I'm",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.6126708984375
+            },
+            {
+              "text": " not",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " going",
+              "start": 0.75,
+              "end": 1.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " near",
+              "start": 1.01,
+              "end": 1.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,",
+              "start": 1.21,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " said",
+              "start": 1.77,
+              "end": 2.03,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Patalamon.",
+              "start": 2.03,
+              "end": 2.57,
+              "probability": 0.2511240641276042
+            },
+            {
+              "text": " He's",
+              "start": 3.23,
+              "end": 3.45,
+              "probability": 0.98828125
+            },
+            {
+              "text": " unlucky.",
+              "start": 3.45,
+              "end": 3.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Do",
+              "start": 4.49,
+              "end": 4.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 4.57,
+              "end": 4.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " really",
+              "start": 4.69,
+              "end": 4.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " think",
+              "start": 4.93,
+              "end": 5.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 5.15,
+              "end": 5.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 5.31,
+              "end": 5.45,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " old",
+              "start": 5.45,
+              "end": 5.65,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Zaharrof",
+              "start": 5.65,
+              "end": 6.23,
+              "probability": 0.016905546188354492
+            },
+            {
+              "text": " come",
+              "start": 6.23,
+              "end": 6.37,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " back?",
+              "start": 6.37,
+              "end": 6.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 7.07,
+              "end": 7.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " owe",
+              "start": 7.17,
+              "end": 7.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 7.31,
+              "end": 7.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 7.51,
+              "end": 7.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " some",
+              "start": 7.67,
+              "end": 7.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gulls'",
+              "start": 7.89,
+              "end": 8.29,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " eggs.",
+              "start": 8.35,
+              "end": 8.51,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'm",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "not",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "going",
+          "start": 0.75,
+          "end": 1.01
+        },
+        {
+          "raw": "near",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "raw": "him,",
+          "start": 1.21,
+          "end": 1.61
+        },
+        {
+          "raw": "said",
+          "start": 1.77,
+          "end": 2.03
+        },
+        {
+          "raw": "Patalamon.",
+          "start": 2.03,
+          "end": 2.57
+        },
+        {
+          "raw": "He's",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "raw": "unlucky.",
+          "start": 3.45,
+          "end": 3.81
+        },
+        {
+          "raw": "Do",
+          "start": 4.49,
+          "end": 4.57
+        },
+        {
+          "raw": "you",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "raw": "really",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "raw": "think",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "raw": "he",
+          "start": 5.15,
+          "end": 5.31
+        },
+        {
+          "raw": "is",
+          "start": 5.31,
+          "end": 5.45
+        },
+        {
+          "raw": "old",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "raw": "Zaharrof",
+          "start": 5.65,
+          "end": 6.23
+        },
+        {
+          "raw": "come",
+          "start": 6.23,
+          "end": 6.37
+        },
+        {
+          "raw": "back?",
+          "start": 6.37,
+          "end": 6.69
+        },
+        {
+          "raw": "I",
+          "start": 7.07,
+          "end": 7.17
+        },
+        {
+          "raw": "owe",
+          "start": 7.17,
+          "end": 7.31
+        },
+        {
+          "raw": "him",
+          "start": 7.31,
+          "end": 7.51
+        },
+        {
+          "raw": "for",
+          "start": 7.51,
+          "end": 7.67
+        },
+        {
+          "raw": "some",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "raw": "gulls'",
+          "start": 7.89,
+          "end": 8.29
+        },
+        {
+          "raw": "eggs.",
+          "start": 8.35,
+          "end": 8.51
+        }
+      ],
+      "expected_tokens": [
+        "\"I'm",
+        "not",
+        "going",
+        "near",
+        "him,\"",
+        "said",
+        "Patalamon.",
+        "\"He's",
+        "unlucky.",
+        "Do",
+        "you",
+        "really",
+        "think",
+        "he",
+        "is",
+        "old",
+        "Zaharrof",
+        "come",
+        "back?",
+        "I",
+        "owe",
+        "him",
+        "for",
+        "some",
+        "gulls'",
+        "eggs.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"I'm",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "not",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "going",
+          "start": 0.75,
+          "end": 1.01
+        },
+        {
+          "text": "near",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "text": "him,\"",
+          "start": 1.21,
+          "end": 1.61
+        },
+        {
+          "text": "said",
+          "start": 1.77,
+          "end": 2.03
+        },
+        {
+          "text": "Patalamon.",
+          "start": 2.03,
+          "end": 2.57
+        },
+        {
+          "text": "\"He's",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "text": "unlucky.",
+          "start": 3.45,
+          "end": 3.81
+        },
+        {
+          "text": "Do",
+          "start": 4.49,
+          "end": 4.57
+        },
+        {
+          "text": "you",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "text": "really",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "text": "think",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "text": "he",
+          "start": 5.15,
+          "end": 5.31
+        },
+        {
+          "text": "is",
+          "start": 5.31,
+          "end": 5.45
+        },
+        {
+          "text": "old",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "text": "Zaharrof",
+          "start": 5.65,
+          "end": 6.23
+        },
+        {
+          "text": "come",
+          "start": 6.23,
+          "end": 6.37
+        },
+        {
+          "text": "back?",
+          "start": 6.37,
+          "end": 6.69
+        },
+        {
+          "text": "I",
+          "start": 7.07,
+          "end": 7.17
+        },
+        {
+          "text": "owe",
+          "start": 7.17,
+          "end": 7.31
+        },
+        {
+          "text": "him",
+          "start": 7.31,
+          "end": 7.51
+        },
+        {
+          "text": "for",
+          "start": 7.51,
+          "end": 7.67
+        },
+        {
+          "text": "some",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "text": "gulls'",
+          "start": 7.89,
+          "end": 8.29
+        },
+        {
+          "text": "eggs.\"",
+          "start": 8.35,
+          "end": 8.51
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18129056133329868
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8361cc9ac3fd781d38df9c9c7c9c02e92ee9b14e74130034864cef96f4e719a",
+  "selected_reasons": []
+}

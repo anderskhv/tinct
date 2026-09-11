@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "e6fa15b38d5e083c717eee9f9338ff1c76c187ba73e0daf606e96b7b6dba26d8",
+  "attempts": [
+    {
+      "asr_seconds": 0.08290022611618042,
+      "alignment_seconds": 6.126612424850464e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, he said.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.337158203125
+            },
+            {
+              "text": " he",
+              "start": 0.76,
+              "end": 0.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " said.",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "he",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "raw": "said.",
+          "start": 0.86,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "he",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "text": "said.",
+          "start": 0.86,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08298501372337341
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "44e71ee437ea516285dedf6805d7f4b1f3e9625d828cef206fd3b8d850af50b8",
+  "selected_reasons": []
+}

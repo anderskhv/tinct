@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "2637165fade2354c6e93633d935cc81a47ea171cc6527484246821228cdbdf97",
+  "attempts": [
+    {
+      "asr_seconds": 0.11140208691358566,
+      "alignment_seconds": 7.006525993347168e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, aside it works.",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.927001953125
+            },
+            {
+              "text": " aside",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " it",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " works.",
+              "start": 1.69,
+              "end": 1.97,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "aside",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "raw": "it",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "works.",
+          "start": 1.69,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "[Aside]",
+        "It",
+        "works."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "[Aside]",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "text": "It",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "works.",
+          "start": 1.69,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1114945337176323
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d0083759778082a7073d9d0e6927b9c0413650512d63f6d4d5a48dbb064ff28e",
+  "selected_reasons": []
+}

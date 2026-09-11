@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "7ada7158add4930aaae7efeab42c64d08e3fa7d3dd1ccb9d136aa8f272b753af",
+  "attempts": [
+    {
+      "asr_seconds": 0.11137537192553282,
+      "alignment_seconds": 9.240768849849701e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Who was that? said Adeimantus.",
+        "hotwords": "Who, Adeimantus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who was that? said Adeimantus.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.2452392578125
+            },
+            {
+              "text": " was",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " that?",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " said",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.1290283203125
+            },
+            {
+              "text": " Adeimantus.",
+              "start": 1.33,
+              "end": 2.01,
+              "probability": 0.39501800537109377
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "that?",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "said",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "Adeimantus.",
+          "start": 1.33,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Who",
+        "was",
+        "that?",
+        "said",
+        "Adeimantus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "that?",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "said",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "Adeimantus.",
+          "start": 1.33,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11150630004703999
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42f07cd57f957aee89e859227b15c9b0389823cf4eccabaed1be6e88e5f88c3c",
+  "selected_reasons": []
+}

@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "5321c0eb10082fcba4dd9f9bd69e6489e375724a166493630bf4579de04f7700",
+  "attempts": [
+    {
+      "asr_seconds": 0.12993961572647095,
+      "alignment_seconds": 9.103119373321533e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, I said that is not at all my meaning",
+          "start": 0.32,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.32,
+              "end": 0.6,
+              "probability": 0.60009765625
+            },
+            {
+              "text": " I",
+              "start": 0.7,
+              "end": 0.78,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " said",
+              "start": 0.78,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 1.06,
+              "end": 1.56,
+              "probability": 0.381103515625
+            },
+            {
+              "text": " is",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " meaning",
+              "start": 2.2,
+              "end": 2.52,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.32,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "raw": "said",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "raw": "that",
+          "start": 1.06,
+          "end": 1.56
+        },
+        {
+          "raw": "is",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "not",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "at",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "all",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "my",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "meaning",
+          "start": 2.2,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "No,",
+        "I",
+        "said,",
+        "that",
+        "is",
+        "not",
+        "at",
+        "all",
+        "my",
+        "meaning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "No,",
+          "start": 0.32,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "text": "said,",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "text": "that",
+          "start": 1.06,
+          "end": 1.56
+        },
+        {
+          "text": "is",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "text": "not",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "at",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "all",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "my",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "meaning.",
+          "start": 2.2,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1300758644938469
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b56a1920eddba891b4e325f646326877dd921b631fa4dd1960c555858c35f6b",
+  "selected_reasons": []
+}

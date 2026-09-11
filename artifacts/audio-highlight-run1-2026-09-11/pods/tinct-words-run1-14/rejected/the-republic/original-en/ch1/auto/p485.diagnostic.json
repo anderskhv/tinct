@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "2fe92ffdf3fcad12ae3cf3abae1dcae1af59577058acf515c8a2d5f3b67563d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16781402379274368,
+      "alignment_seconds": 8.696317672729492e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then the just is happy, and the unjust miserable?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then the just is happy, and the unjust miserable?",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " the",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.923828125
+            },
+            {
+              "text": " just",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " is",
+              "start": 0.91,
+              "end": 1.11,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " happy,",
+              "start": 1.11,
+              "end": 1.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 1.91,
+              "end": 1.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unjust",
+              "start": 2.07,
+              "end": 2.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " miserable?",
+              "start": 2.49,
+              "end": 2.91,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "the",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "just",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "raw": "is",
+          "start": 0.91,
+          "end": 1.11
+        },
+        {
+          "raw": "happy,",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "raw": "and",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "unjust",
+          "start": 2.07,
+          "end": 2.49
+        },
+        {
+          "raw": "miserable?",
+          "start": 2.49,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "the",
+        "just",
+        "is",
+        "happy,",
+        "and",
+        "the",
+        "unjust",
+        "miserable?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "the",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "just",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "text": "is",
+          "start": 0.91,
+          "end": 1.11
+        },
+        {
+          "text": "happy,",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "text": "and",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "unjust",
+          "start": 2.07,
+          "end": 2.49
+        },
+        {
+          "text": "miserable?",
+          "start": 2.49,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1679428666830063
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e96aa3c1d0eb3425a664a839ba1b2189a5750e3ecd448794ef2ccd64a6547207",
+  "selected_reasons": []
+}

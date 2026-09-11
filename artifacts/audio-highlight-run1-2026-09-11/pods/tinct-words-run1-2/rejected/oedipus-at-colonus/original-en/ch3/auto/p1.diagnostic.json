@@ -1,0 +1,650 @@
+{
+  "complete": true,
+  "signature": "d00ba8d2abf8401d2acce4cff2ac459cce34b36ea7f52963b2b34061140342a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.23109235614538193,
+      "alignment_seconds": 0.00013156980276107788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ismene. Father and sister, names to me most sweet, How hardly have I found you, hardly now When found at last can see you through my tears!",
+        "hotwords": "Ismene, Father, How, I, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ismene, Father and sister, names to me most sweet, How hardly have I found you, hardly now When found at last can see you through my tears!",
+          "start": 0.02,
+          "end": 8.68,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.5823567708333334
+            },
+            {
+              "text": " Father",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.2587890625
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " sister,",
+              "start": 1.8,
+              "end": 2.14,
+              "probability": 0.07025146484375
+            },
+            {
+              "text": " names",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.712890625
+            },
+            {
+              "text": " to",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 3.0,
+              "end": 3.12,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " most",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sweet,",
+              "start": 3.38,
+              "end": 3.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " How",
+              "start": 4.14,
+              "end": 4.24,
+              "probability": 0.1492919921875
+            },
+            {
+              "text": " hardly",
+              "start": 4.24,
+              "end": 4.52,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " have",
+              "start": 4.52,
+              "end": 4.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 4.76,
+              "end": 4.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " found",
+              "start": 4.94,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you,",
+              "start": 5.18,
+              "end": 5.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hardly",
+              "start": 5.88,
+              "end": 6.1,
+              "probability": 0.26953125
+            },
+            {
+              "text": " now",
+              "start": 6.1,
+              "end": 6.42,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " When",
+              "start": 6.42,
+              "end": 6.58,
+              "probability": 0.02264404296875
+            },
+            {
+              "text": " found",
+              "start": 6.58,
+              "end": 6.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 6.84,
+              "end": 7.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " last",
+              "start": 7.02,
+              "end": 7.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " can",
+              "start": 7.32,
+              "end": 7.54,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " see",
+              "start": 7.54,
+              "end": 7.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 7.78,
+              "end": 7.96,
+              "probability": 0.958984375
+            },
+            {
+              "text": " through",
+              "start": 7.96,
+              "end": 8.14,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " my",
+              "start": 8.14,
+              "end": 8.34,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " tears!",
+              "start": 8.34,
+              "end": 8.68,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "Father",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "raw": "sister,",
+          "start": 1.8,
+          "end": 2.14
+        },
+        {
+          "raw": "names",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "to",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "me",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "raw": "most",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "sweet,",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "raw": "How",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "raw": "hardly",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "raw": "have",
+          "start": 4.52,
+          "end": 4.76
+        },
+        {
+          "raw": "I",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "raw": "found",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "raw": "you,",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "raw": "hardly",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "raw": "now",
+          "start": 6.1,
+          "end": 6.42
+        },
+        {
+          "raw": "When",
+          "start": 6.42,
+          "end": 6.58
+        },
+        {
+          "raw": "found",
+          "start": 6.58,
+          "end": 6.84
+        },
+        {
+          "raw": "at",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "raw": "last",
+          "start": 7.02,
+          "end": 7.32
+        },
+        {
+          "raw": "can",
+          "start": 7.32,
+          "end": 7.54
+        },
+        {
+          "raw": "see",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "raw": "you",
+          "start": 7.78,
+          "end": 7.96
+        },
+        {
+          "raw": "through",
+          "start": 7.96,
+          "end": 8.14
+        },
+        {
+          "raw": "my",
+          "start": 8.14,
+          "end": 8.34
+        },
+        {
+          "raw": "tears!",
+          "start": 8.34,
+          "end": 8.68
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Father",
+        "and",
+        "sister,",
+        "names",
+        "to",
+        "me",
+        "most",
+        "sweet,",
+        "How",
+        "hardly",
+        "have",
+        "I",
+        "found",
+        "you,",
+        "hardly",
+        "now",
+        "When",
+        "found",
+        "at",
+        "last",
+        "can",
+        "see",
+        "you",
+        "through",
+        "my",
+        "tears!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "Father",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "and",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "text": "sister,",
+          "start": 1.8,
+          "end": 2.14
+        },
+        {
+          "text": "names",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "to",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "me",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "text": "most",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "sweet,",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "text": "How",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "text": "hardly",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "text": "have",
+          "start": 4.52,
+          "end": 4.76
+        },
+        {
+          "text": "I",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "text": "found",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "text": "you,",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "hardly",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "text": "now",
+          "start": 6.1,
+          "end": 6.42
+        },
+        {
+          "text": "When",
+          "start": 6.42,
+          "end": 6.58
+        },
+        {
+          "text": "found",
+          "start": 6.58,
+          "end": 6.84
+        },
+        {
+          "text": "at",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "text": "last",
+          "start": 7.02,
+          "end": 7.32
+        },
+        {
+          "text": "can",
+          "start": 7.32,
+          "end": 7.54
+        },
+        {
+          "text": "see",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "text": "you",
+          "start": 7.78,
+          "end": 7.96
+        },
+        {
+          "text": "through",
+          "start": 7.96,
+          "end": 8.14
+        },
+        {
+          "text": "my",
+          "start": 8.14,
+          "end": 8.34
+        },
+        {
+          "text": "tears!",
+          "start": 8.34,
+          "end": 8.68
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23129075020551682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66ce52f2865e791fb6d70d855827730483bd38293c6cb64073d8e62ab0811487",
+  "selected_reasons": []
+}

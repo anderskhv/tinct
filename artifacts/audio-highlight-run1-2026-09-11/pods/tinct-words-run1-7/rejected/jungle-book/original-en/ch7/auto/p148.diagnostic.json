@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "1452ad7669182e2822973cc2a84aca57c9d7981a78212fcbfac1b8a5fb5727e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13592171762138605,
+      "alignment_seconds": 9.314808994531631e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Would it were so in Afghanistan!\" said the chief, \"for there we obey only our own wills.\"",
+        "hotwords": "Would, Afghanistan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Would it were so in Afghanistan! said the chief,",
+          "start": 0.02,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Would",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.449951171875
+            },
+            {
+              "text": " it",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " were",
+              "start": 0.64,
+              "end": 0.74,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " so",
+              "start": 0.74,
+              "end": 1.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Afghanistan!",
+              "start": 1.2,
+              "end": 1.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.890625
+            },
+            {
+              "text": " the",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " chief,",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.53369140625
+            }
+          ]
+        },
+        {
+          "text": " For there we obey only our own wills.",
+          "start": 3.32,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " For",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.061187744140625
+            },
+            {
+              "text": " there",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " we",
+              "start": 3.66,
+              "end": 3.84,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " obey",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " only",
+              "start": 4.06,
+              "end": 4.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " our",
+              "start": 4.34,
+              "end": 4.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " own",
+              "start": 4.56,
+              "end": 4.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wills.",
+              "start": 4.76,
+              "end": 5.04,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Would",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "it",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "were",
+          "start": 0.64,
+          "end": 0.74
+        },
+        {
+          "raw": "so",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "raw": "in",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "Afghanistan!",
+          "start": 1.2,
+          "end": 1.82
+        },
+        {
+          "raw": "said",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "chief,",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "For",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "there",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "we",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "raw": "obey",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "only",
+          "start": 4.06,
+          "end": 4.34
+        },
+        {
+          "raw": "our",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "raw": "own",
+          "start": 4.56,
+          "end": 4.76
+        },
+        {
+          "raw": "wills.",
+          "start": 4.76,
+          "end": 5.04
+        }
+      ],
+      "expected_tokens": [
+        "\"Would",
+        "it",
+        "were",
+        "so",
+        "in",
+        "Afghanistan!\"",
+        "said",
+        "the",
+        "chief,",
+        "\"for",
+        "there",
+        "we",
+        "obey",
+        "only",
+        "our",
+        "own",
+        "wills.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Would",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "it",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "were",
+          "start": 0.64,
+          "end": 0.74
+        },
+        {
+          "text": "so",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "text": "in",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "text": "Afghanistan!\"",
+          "start": 1.2,
+          "end": 1.82
+        },
+        {
+          "text": "said",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "the",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "chief,",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "\"for",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "there",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "text": "we",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "text": "obey",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "text": "only",
+          "start": 4.06,
+          "end": 4.34
+        },
+        {
+          "text": "our",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "text": "own",
+          "start": 4.56,
+          "end": 4.76
+        },
+        {
+          "text": "wills.\"",
+          "start": 4.76,
+          "end": 5.04
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13605535868555307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00eb13963473713eb4d07518d5705efc60395aa0e7bae4d1ef33dfcd98f7e0d3",
+  "selected_reasons": []
+}

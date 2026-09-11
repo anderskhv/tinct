@@ -1,0 +1,1197 @@
+{
+  "complete": true,
+  "signature": "4dae02bad5735ca911d034f256d2f523d0a9bcd618c19426270eb9793eeacd50",
+  "attempts": [
+    {
+      "asr_seconds": 0.2452702671289444,
+      "alignment_seconds": 0.00010722130537033081,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. How? the best? What wert thou, if the King of Naples heard thee?",
+        "hotwords": "Prospero, How, What, King, Naples"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What wert thou, if the King of Naples heard thee?",
+          "start": 1.84,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " What",
+              "start": 1.84,
+              "end": 2.42,
+              "probability": 0.001598358154296875
+            },
+            {
+              "text": " wert",
+              "start": 2.42,
+              "end": 3.0,
+              "probability": 0.623046875
+            },
+            {
+              "text": " thou,",
+              "start": 3.0,
+              "end": 3.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " if",
+              "start": 3.52,
+              "end": 3.54,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.984375
+            },
+            {
+              "text": " King",
+              "start": 3.68,
+              "end": 3.84,
+              "probability": 0.3330078125
+            },
+            {
+              "text": " of",
+              "start": 3.84,
+              "end": 3.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Naples",
+              "start": 3.98,
+              "end": 4.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heard",
+              "start": 4.24,
+              "end": 4.56,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " thee?",
+              "start": 4.56,
+              "end": 4.88,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " What wert thou, if the King of Naples heard thee?",
+          "start": 4.88,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " What",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.0007791519165039062
+            },
+            {
+              "text": " wert",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.00016257166862487793
+            },
+            {
+              "text": " thou,",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.00012445449829101562
+            },
+            {
+              "text": " if",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.0029430389404296875
+            },
+            {
+              "text": " the",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.01352691650390625
+            },
+            {
+              "text": " King",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.0011777877807617188
+            },
+            {
+              "text": " of",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.06793212890625
+            },
+            {
+              "text": " Naples",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 1.6808509826660156e-05
+            },
+            {
+              "text": " heard",
+              "start": 4.88,
+              "end": 4.88,
+              "probability": 0.0001837015151977539
+            },
+            {
+              "text": " thee?",
+              "start": 4.88,
+              "end": 4.94,
+              "probability": 0.1561279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 1.84,
+          "end": 2.42
+        },
+        {
+          "raw": "wert",
+          "start": 2.42,
+          "end": 3.0
+        },
+        {
+          "raw": "thou,",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "raw": "if",
+          "start": 3.52,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "King",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "raw": "of",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "raw": "Naples",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "raw": "heard",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "raw": "thee?",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "raw": "What",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "wert",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "thou,",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "if",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "the",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "King",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "of",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "Naples",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "heard",
+          "start": 4.88,
+          "end": 4.88
+        },
+        {
+          "raw": "thee?",
+          "start": 4.88,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "How?",
+        "the",
+        "best?",
+        "What",
+        "wert",
+        "thou,",
+        "if",
+        "the",
+        "King",
+        "of",
+        "Naples",
+        "heard",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          14,
+          0,
+          10
+        ],
+        [
+          "insert",
+          14,
+          14,
+          10,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "insert",
+          14,
+          14,
+          10,
+          20
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.0,
+          "end": 0.92
+        },
+        {
+          "text": "How?",
+          "start": 0.92,
+          "end": 1.38
+        },
+        {
+          "text": "the",
+          "start": 1.38,
+          "end": 1.61
+        },
+        {
+          "text": "best?",
+          "start": 1.61,
+          "end": 1.725
+        },
+        {
+          "text": "What",
+          "start": 1.84,
+          "end": 2.42
+        },
+        {
+          "text": "wert",
+          "start": 2.42,
+          "end": 3.0
+        },
+        {
+          "text": "thou,",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "text": "if",
+          "start": 3.52,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "King",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "text": "of",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "text": "Naples",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "text": "heard",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "thee?",
+          "start": 4.56,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 20,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24544378370046616
+    },
+    {
+      "asr_seconds": 0.18725068122148514,
+      "alignment_seconds": 0.00014530867338180542,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Prospero, How, What, King, Naples"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Prospero, How, The Best, What Weren't Thou if the King of Naples Heard Thee?",
+          "start": 0.56,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.56,
+              "end": 1.02,
+              "probability": 0.771240234375
+            },
+            {
+              "text": " How,",
+              "start": 1.44,
+              "end": 1.48,
+              "probability": 0.08807373046875
+            },
+            {
+              "text": " The",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.401123046875
+            },
+            {
+              "text": " Best,",
+              "start": 1.94,
+              "end": 2.34,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " What",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " Weren't",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.6902669270833334
+            },
+            {
+              "text": " Thou",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " if",
+              "start": 3.32,
+              "end": 3.54,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.873046875
+            },
+            {
+              "text": " King",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " of",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Naples",
+              "start": 3.98,
+              "end": 4.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Heard",
+              "start": 4.24,
+              "end": 4.56,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " Thee?",
+              "start": 4.56,
+              "end": 5.3,
+              "probability": 0.909423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.56,
+          "end": 1.02
+        },
+        {
+          "raw": "How,",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "raw": "The",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "Best,",
+          "start": 1.94,
+          "end": 2.34
+        },
+        {
+          "raw": "What",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "Weren't",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "Thou",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "if",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "King",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "of",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "raw": "Naples",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "raw": "Heard",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "raw": "Thee?",
+          "start": 4.56,
+          "end": 5.3
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "How?",
+        "the",
+        "best?",
+        "What",
+        "wert",
+        "thou,",
+        "if",
+        "the",
+        "King",
+        "of",
+        "Naples",
+        "heard",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          14,
+          6,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.56,
+          "end": 1.02
+        },
+        {
+          "text": "How?",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "best?",
+          "start": 1.94,
+          "end": 2.34
+        },
+        {
+          "text": "What",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "wert",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "thou,",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "if",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "King",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "of",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "text": "Naples",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "text": "heard",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "thee?",
+          "start": 4.56,
+          "end": 5.3
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.18745798617601395
+    },
+    {
+      "asr_seconds": 0.17775185406208038,
+      "alignment_seconds": 0.00011076033115386963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, how, the best, what wert thou if the king of Naples heard thee?",
+          "start": 0.02,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.771240234375
+            },
+            {
+              "text": " how,",
+              "start": 1.46,
+              "end": 1.5,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " the",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " best,",
+              "start": 1.94,
+              "end": 2.3,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " what",
+              "start": 2.78,
+              "end": 2.86,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " wert",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " thou",
+              "start": 3.0,
+              "end": 3.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 3.32,
+              "end": 3.54,
+              "probability": 0.8671875
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " king",
+              "start": 3.68,
+              "end": 3.84,
+              "probability": 0.67626953125
+            },
+            {
+              "text": " of",
+              "start": 3.84,
+              "end": 3.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Naples",
+              "start": 3.98,
+              "end": 4.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heard",
+              "start": 4.24,
+              "end": 4.56,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " thee?",
+              "start": 4.56,
+              "end": 4.88,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "how,",
+          "start": 1.46,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "best,",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "raw": "what",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "raw": "wert",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "thou",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "raw": "if",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "king",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "raw": "of",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "raw": "Naples",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "raw": "heard",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "raw": "thee?",
+          "start": 4.56,
+          "end": 4.88
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "How?",
+        "the",
+        "best?",
+        "What",
+        "wert",
+        "thou,",
+        "if",
+        "the",
+        "King",
+        "of",
+        "Naples",
+        "heard",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "text": "How?",
+          "start": 1.46,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "best?",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "text": "What",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "text": "wert",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "thou,",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "text": "if",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "King",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "text": "of",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "text": "Naples",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "text": "heard",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "thee?",
+          "start": 4.56,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1779051199555397
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5c004ddbd1eadee4e9fc536654b942d471eeea20dbe1a34732b0df1ad5ed45f3",
+  "selected_reasons": []
+}

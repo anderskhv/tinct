@@ -1,0 +1,245 @@
+{
+  "complete": true,
+  "signature": "93c8e2c949130e7c3a4554e62bc237fe4fcba5f368271d4c99018aa88caddb87",
+  "attempts": [
+    {
+      "asr_seconds": 0.15458153188228607,
+      "alignment_seconds": 0.00010100007057189941,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Egeus, so God hath willed, childless and desolate.",
+          "start": 0.11,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Egeus,",
+              "start": 0.11,
+              "end": 0.93,
+              "probability": 0.5323079427083334
+            },
+            {
+              "text": " so",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.859375
+            },
+            {
+              "text": " God",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.8515625
+            },
+            {
+              "text": " hath",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " willed,",
+              "start": 1.73,
+              "end": 2.29,
+              "probability": 0.944091796875
+            },
+            {
+              "text": " childless",
+              "start": 2.59,
+              "end": 2.93,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " and",
+              "start": 2.93,
+              "end": 3.15,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " desolate.",
+              "start": 3.15,
+              "end": 3.49,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Egeus,",
+          "start": 0.11,
+          "end": 0.93
+        },
+        {
+          "raw": "so",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "God",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "hath",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "willed,",
+          "start": 1.73,
+          "end": 2.29
+        },
+        {
+          "raw": "childless",
+          "start": 2.59,
+          "end": 2.93
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "raw": "desolate.",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "So",
+        "God",
+        "hath",
+        "willed.",
+        "Childless",
+        "and",
+        "desolate."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.575
+        },
+        {
+          "text": "So",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "God",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "hath",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "willed.",
+          "start": 1.73,
+          "end": 2.29
+        },
+        {
+          "text": "Childless",
+          "start": 2.59,
+          "end": 2.93
+        },
+        {
+          "text": "and",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "text": "desolate.",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.15471741557121277
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8bd4d79051e4a517165265db0ce36332ed12b52815cd1dad750f1074cae99547",
+  "selected_reasons": []
+}

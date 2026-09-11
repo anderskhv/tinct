@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "e47299851f1f14951c1821799929028bea10ec6e56200b2e006c2d18a7e3a841",
+  "attempts": [
+    {
+      "asr_seconds": 0.07729562371969223,
+      "alignment_seconds": 5.5983662605285645e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is true.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is true.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " true.",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "true.",
+          "start": 0.68,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "true.",
+          "start": 0.68,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07737398147583008
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ff953d0b6a73bfe65d9ed0c91f94611e4aa683ce3fa0188f5762f2408e7a16c",
+  "selected_reasons": []
+}

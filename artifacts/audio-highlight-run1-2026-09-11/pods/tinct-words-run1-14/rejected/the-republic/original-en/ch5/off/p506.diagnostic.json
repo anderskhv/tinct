@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "d1dfe37c515618400299f71e25662304271fd22ca8ffc3e012a93fbc216175e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.07753175497055054,
+      "alignment_seconds": 4.801899194717407e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes.",
+          "start": 0.02,
+          "end": 0.64,
+          "words": [
+            {
+              "text": " Yes.",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.82080078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes.",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "expected_tokens": [
+        "Yes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes.",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07759597152471542
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cfdf14cf00c839da0c7d57c25e96d49ae7b5104209180e9847448f381e87a20b",
+  "selected_reasons": []
+}

@@ -1,0 +1,111 @@
+{
+  "complete": true,
+  "signature": "82e815b01ab77f578e4edb86cc951cd24eda53c0c448f69dde1d85a459629a6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14311501383781433,
+      "alignment_seconds": 6.367266178131104e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit]",
+        "hotwords": "Exit"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit",
+          "start": 0.05,
+          "end": 0.77,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.77099609375
+            }
+          ]
+        },
+        {
+          "text": " Exit",
+          "start": 0.77,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.77,
+              "end": 1.43,
+              "probability": 1.9311904907226562e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Exit",
+          "start": 0.77,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "[Exit]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Exit]",
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14319860935211182
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d295add9de6595ce2489bd71f1380a86d068bea095168a011196b1cbc02c9dc",
+  "selected_reasons": []
+}

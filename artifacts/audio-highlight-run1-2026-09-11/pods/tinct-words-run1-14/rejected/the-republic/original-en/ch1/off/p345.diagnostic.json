@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "17b32d0e98393fde8096d3485d14dbc2135c8792b9036513dfc1eb52915e6ad8",
+  "attempts": [
+    {
+      "asr_seconds": 0.14848213642835617,
+      "alignment_seconds": 6.786733865737915e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And would he try to go beyond just action?",
+          "start": 0.14,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " would",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.880859375
+            },
+            {
+              "text": " he",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " try",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " go",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beyond",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " just",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " action?",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "would",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "he",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "try",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "to",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "go",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "beyond",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "raw": "just",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "action?",
+          "start": 1.84,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "would",
+        "he",
+        "try",
+        "to",
+        "go",
+        "beyond",
+        "just",
+        "action?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "would",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "he",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "try",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "to",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "go",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "beyond",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "text": "just",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "action?",
+          "start": 1.84,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1485821083188057
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7511f54d4289bdbea4efc8116fc3246045247f901ba8f3f7b894d89c8c592e97",
+  "selected_reasons": []
+}

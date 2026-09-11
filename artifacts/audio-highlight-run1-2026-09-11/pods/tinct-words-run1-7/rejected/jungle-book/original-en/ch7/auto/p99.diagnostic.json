@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "155785243631805710cb5bd5d4501d4744ecf3a3afd9b685c4a461fc81bb710e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11690183077007532,
+      "alignment_seconds": 7.809605449438095e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"H'sh!\" said the troop horse. \"I think I understand what Two Tails means.\"",
+        "hotwords": "H'sh, I, Two, Tails"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " H'sh, said the troop horse. I think I understand what Two Tails means.",
+          "start": 0.64,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " H'sh,",
+              "start": 0.64,
+              "end": 1.12,
+              "probability": 0.0856466293334961
+            },
+            {
+              "text": " said",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " the",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " troop",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " horse.",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " I",
+              "start": 2.82,
+              "end": 2.9,
+              "probability": 0.85546875
+            },
+            {
+              "text": " think",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " understand",
+              "start": 3.18,
+              "end": 3.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 3.58,
+              "end": 3.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Two",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.03680419921875
+            },
+            {
+              "text": " Tails",
+              "start": 3.98,
+              "end": 4.28,
+              "probability": 0.859130859375
+            },
+            {
+              "text": " means.",
+              "start": 4.28,
+              "end": 4.66,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "H'sh,",
+          "start": 0.64,
+          "end": 1.12
+        },
+        {
+          "raw": "said",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "troop",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "horse.",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "raw": "think",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "I",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "understand",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "raw": "what",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "raw": "Two",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "Tails",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "raw": "means.",
+          "start": 4.28,
+          "end": 4.66
+        }
+      ],
+      "expected_tokens": [
+        "\"H'sh!\"",
+        "said",
+        "the",
+        "troop",
+        "horse.",
+        "\"I",
+        "think",
+        "I",
+        "understand",
+        "what",
+        "Two",
+        "Tails",
+        "means.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"H'sh!\"",
+          "start": 0.64,
+          "end": 1.12
+        },
+        {
+          "text": "said",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "troop",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "horse.",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "text": "\"I",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "text": "think",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "I",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "understand",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "text": "what",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "text": "Two",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "Tails",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "text": "means.\"",
+          "start": 4.28,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11701491475105286
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34d6eddebb7252a391c996ba9559ebdbdb9ff993253d093ededf13399ac34052",
+  "selected_reasons": []
+}

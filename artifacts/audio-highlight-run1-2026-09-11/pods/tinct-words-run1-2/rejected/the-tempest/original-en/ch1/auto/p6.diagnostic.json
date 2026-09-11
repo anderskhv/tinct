@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "99f887332cb65b89ac2d93d69e4fa19f3bb4aa661e92cf9137452a79f83bd48d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2832144722342491,
+      "alignment_seconds": 0.00013472139835357666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Boatswain. Heigh, my hearts! cheerly, cheerly, my hearts! yare, yare! Take in the topsail. Tend to the master's whistle. Blow, till thou burst thy wind, if room enough!",
+        "hotwords": "Boatswain, Heigh, Take, Tend, Blow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boatswain, Heigh, my hearts! cheerly, cheerly, my hearts! yare, yare! Take in the topsail. Tend to the master's whistle. Blow, till thou burst thy wind, if room enough!",
+          "start": 0.05,
+          "end": 10.25,
+          "words": [
+            {
+              "text": " Boatswain,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.26285940408706665
+            },
+            {
+              "text": " Heigh,",
+              "start": 0.87,
+              "end": 1.13,
+              "probability": 0.03366941213607788
+            },
+            {
+              "text": " my",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " hearts!",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.52880859375
+            },
+            {
+              "text": " cheerly,",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.06766128540039062
+            },
+            {
+              "text": " cheerly,",
+              "start": 2.61,
+              "end": 2.91,
+              "probability": 0.933349609375
+            },
+            {
+              "text": " my",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " hearts!",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " yare,",
+              "start": 4.09,
+              "end": 4.19,
+              "probability": 0.2161865234375
+            },
+            {
+              "text": " yare!",
+              "start": 4.33,
+              "end": 4.61,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " Take",
+              "start": 4.87,
+              "end": 4.93,
+              "probability": 0.13720703125
+            },
+            {
+              "text": " in",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " the",
+              "start": 5.07,
+              "end": 5.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " topsail.",
+              "start": 5.19,
+              "end": 5.75,
+              "probability": 0.5255126953125
+            },
+            {
+              "text": " Tend",
+              "start": 6.29,
+              "end": 6.35,
+              "probability": 0.783203125
+            },
+            {
+              "text": " to",
+              "start": 6.35,
+              "end": 6.53,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 6.53,
+              "end": 6.63,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " master's",
+              "start": 6.63,
+              "end": 7.17,
+              "probability": 0.804443359375
+            },
+            {
+              "text": " whistle.",
+              "start": 7.17,
+              "end": 7.43,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Blow,",
+              "start": 7.99,
+              "end": 8.17,
+              "probability": 0.9765625
+            },
+            {
+              "text": " till",
+              "start": 8.41,
+              "end": 8.53,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " thou",
+              "start": 8.53,
+              "end": 8.69,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " burst",
+              "start": 8.69,
+              "end": 8.99,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " thy",
+              "start": 8.99,
+              "end": 9.23,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " wind,",
+              "start": 9.23,
+              "end": 9.53,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " if",
+              "start": 9.69,
+              "end": 9.77,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " room",
+              "start": 9.77,
+              "end": 9.95,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " enough!",
+              "start": 9.95,
+              "end": 10.25,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boatswain,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Heigh,",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "raw": "my",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "hearts!",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "cheerly,",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "cheerly,",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "raw": "my",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "hearts!",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "raw": "yare,",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "raw": "yare!",
+          "start": 4.33,
+          "end": 4.61
+        },
+        {
+          "raw": "Take",
+          "start": 4.87,
+          "end": 4.93
+        },
+        {
+          "raw": "in",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "the",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "raw": "topsail.",
+          "start": 5.19,
+          "end": 5.75
+        },
+        {
+          "raw": "Tend",
+          "start": 6.29,
+          "end": 6.35
+        },
+        {
+          "raw": "to",
+          "start": 6.35,
+          "end": 6.53
+        },
+        {
+          "raw": "the",
+          "start": 6.53,
+          "end": 6.63
+        },
+        {
+          "raw": "master's",
+          "start": 6.63,
+          "end": 7.17
+        },
+        {
+          "raw": "whistle.",
+          "start": 7.17,
+          "end": 7.43
+        },
+        {
+          "raw": "Blow,",
+          "start": 7.99,
+          "end": 8.17
+        },
+        {
+          "raw": "till",
+          "start": 8.41,
+          "end": 8.53
+        },
+        {
+          "raw": "thou",
+          "start": 8.53,
+          "end": 8.69
+        },
+        {
+          "raw": "burst",
+          "start": 8.69,
+          "end": 8.99
+        },
+        {
+          "raw": "thy",
+          "start": 8.99,
+          "end": 9.23
+        },
+        {
+          "raw": "wind,",
+          "start": 9.23,
+          "end": 9.53
+        },
+        {
+          "raw": "if",
+          "start": 9.69,
+          "end": 9.77
+        },
+        {
+          "raw": "room",
+          "start": 9.77,
+          "end": 9.95
+        },
+        {
+          "raw": "enough!",
+          "start": 9.95,
+          "end": 10.25
+        }
+      ],
+      "expected_tokens": [
+        "Boatswain.",
+        "Heigh,",
+        "my",
+        "hearts!",
+        "cheerly,",
+        "cheerly,",
+        "my",
+        "hearts!",
+        "yare,",
+        "yare!",
+        "Take",
+        "in",
+        "the",
+        "topsail.",
+        "Tend",
+        "to",
+        "the",
+        "master's",
+        "whistle.",
+        "Blow,",
+        "till",
+        "thou",
+        "burst",
+        "thy",
+        "wind,",
+        "if",
+        "room",
+        "enough!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Boatswain.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Heigh,",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "text": "my",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "hearts!",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "text": "cheerly,",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "cheerly,",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "text": "my",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "hearts!",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "text": "yare,",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "text": "yare!",
+          "start": 4.33,
+          "end": 4.61
+        },
+        {
+          "text": "Take",
+          "start": 4.87,
+          "end": 4.93
+        },
+        {
+          "text": "in",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "the",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "text": "topsail.",
+          "start": 5.19,
+          "end": 5.75
+        },
+        {
+          "text": "Tend",
+          "start": 6.29,
+          "end": 6.35
+        },
+        {
+          "text": "to",
+          "start": 6.35,
+          "end": 6.53
+        },
+        {
+          "text": "the",
+          "start": 6.53,
+          "end": 6.63
+        },
+        {
+          "text": "master's",
+          "start": 6.63,
+          "end": 7.17
+        },
+        {
+          "text": "whistle.",
+          "start": 7.17,
+          "end": 7.43
+        },
+        {
+          "text": "Blow,",
+          "start": 7.99,
+          "end": 8.17
+        },
+        {
+          "text": "till",
+          "start": 8.41,
+          "end": 8.53
+        },
+        {
+          "text": "thou",
+          "start": 8.53,
+          "end": 8.69
+        },
+        {
+          "text": "burst",
+          "start": 8.69,
+          "end": 8.99
+        },
+        {
+          "text": "thy",
+          "start": 8.99,
+          "end": 9.23
+        },
+        {
+          "text": "wind,",
+          "start": 9.23,
+          "end": 9.53
+        },
+        {
+          "text": "if",
+          "start": 9.69,
+          "end": 9.77
+        },
+        {
+          "text": "room",
+          "start": 9.77,
+          "end": 9.95
+        },
+        {
+          "text": "enough!",
+          "start": 9.95,
+          "end": 10.25
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2834165319800377
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dbec8c05f35181d092ead3afb477e8535f97a35c525a615d46b4972a0f7c4279",
+  "selected_reasons": []
+}

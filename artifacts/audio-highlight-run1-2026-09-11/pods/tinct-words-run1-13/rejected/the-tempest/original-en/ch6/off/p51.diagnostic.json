@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "4edae7f4acd23ad7d7430c27492a1eaf8ab5aee27a742ccafc4e21ccea992ea2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10725679900497198,
+      "alignment_seconds": 0.00010033301077783108,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stefano, I unmine honor.",
+          "start": 0.11,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Stefano,",
+              "start": 0.11,
+              "end": 0.95,
+              "probability": 0.933349609375
+            },
+            {
+              "text": " I",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " unmine",
+              "start": 1.49,
+              "end": 1.87,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " honor.",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.8828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stefano,",
+          "start": 0.11,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "unmine",
+          "start": 1.49,
+          "end": 1.87
+        },
+        {
+          "raw": "honor.",
+          "start": 1.87,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Ay,",
+        "on",
+        "mine",
+        "honour."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.0,
+          "end": 1.105
+        },
+        {
+          "text": "Ay,",
+          "start": 1.105,
+          "end": 1.657
+        },
+        {
+          "text": "on",
+          "start": 1.657,
+          "end": 1.933
+        },
+        {
+          "text": "mine",
+          "start": 1.933,
+          "end": 2.071
+        },
+        {
+          "text": "honour.",
+          "start": 2.071,
+          "end": 2.141
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10739440401084721
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5df107ea88d6d4270bd1cd790f148f339c01d1eef90469e400b6ee575866baf3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

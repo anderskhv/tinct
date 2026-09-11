@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "cc3aa8ea641b421d4e72253aa4547f174df94480bb97d98fffce7ce144461106",
+  "attempts": [
+    {
+      "asr_seconds": 0.1565033122897148,
+      "alignment_seconds": 6.932765245437622e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In what relation do the Communists stand to the proletarians as a whole?",
+        "hotwords": "In, Communists"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In what relation do the Communists stand to the proletarians as a whole?",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " what",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " relation",
+              "start": 0.67,
+              "end": 1.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Communists",
+              "start": 1.55,
+              "end": 1.91,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " stand",
+              "start": 1.91,
+              "end": 2.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " proletarians",
+              "start": 3.03,
+              "end": 3.73,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " as",
+              "start": 3.73,
+              "end": 3.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.97,
+              "end": 4.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whole?",
+              "start": 4.07,
+              "end": 4.33,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "relation",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "raw": "do",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "Communists",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "raw": "stand",
+          "start": 1.91,
+          "end": 2.75
+        },
+        {
+          "raw": "to",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "the",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "proletarians",
+          "start": 3.03,
+          "end": 3.73
+        },
+        {
+          "raw": "as",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "raw": "a",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "raw": "whole?",
+          "start": 4.07,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "what",
+        "relation",
+        "do",
+        "the",
+        "Communists",
+        "stand",
+        "to",
+        "the",
+        "proletarians",
+        "as",
+        "a",
+        "whole?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "relation",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "text": "do",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "text": "the",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "Communists",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "text": "stand",
+          "start": 1.91,
+          "end": 2.75
+        },
+        {
+          "text": "to",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "the",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "proletarians",
+          "start": 3.03,
+          "end": 3.73
+        },
+        {
+          "text": "as",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "text": "a",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "text": "whole?",
+          "start": 4.07,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15660349279642105
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a34fed025bd2d1efa5418df7a0dc2b211b18f449bc699662cc89d24826f06935",
+  "selected_reasons": []
+}

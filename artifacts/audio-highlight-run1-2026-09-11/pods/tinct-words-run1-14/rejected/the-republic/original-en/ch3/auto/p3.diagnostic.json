@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "400aa419a1c9ccc1a666df9eb694764eec6a019ea8635bb9ae836c42427b43d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.09094390273094177,
+      "alignment_seconds": 6.37248158454895e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Certainly not, he said.",
+        "hotwords": "Certainly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Certainly not, he said.",
+          "start": 0.08,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Certainly",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.1798095703125
+            },
+            {
+              "text": " not,",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " he",
+              "start": 1.12,
+              "end": 1.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said.",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "not,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "raw": "said.",
+          "start": 1.18,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "not,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "not,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "he",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "text": "said.",
+          "start": 1.18,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09103253483772278
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "461ebf160742fc932d994f1537299cfbcad2b2ce9f3670b9767936cdca4df47b",
+  "selected_reasons": []
+}

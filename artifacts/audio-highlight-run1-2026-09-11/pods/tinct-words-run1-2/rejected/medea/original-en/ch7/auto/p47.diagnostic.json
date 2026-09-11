@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "be1299d75e1801ff0736bf23153e4dc98aff723f623ffe65d572b7d540f96888",
+  "attempts": [
+    {
+      "asr_seconds": 0.13398804515600204,
+      "alignment_seconds": 7.055699825286865e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jason. Aye, and thine me. Wouldst hear me then no more?",
+        "hotwords": "Jason, Aye, Wouldst"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jason, Aye, and thine me. Wouldst hear me then no more?",
+          "start": 0.46,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.75
+            },
+            {
+              "text": " Aye,",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.4910717010498047
+            },
+            {
+              "text": " and",
+              "start": 1.5,
+              "end": 1.54,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " thine",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.551055908203125
+            },
+            {
+              "text": " me.",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " Wouldst",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " hear",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " me",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " then",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " no",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.78515625
+            },
+            {
+              "text": " more?",
+              "start": 3.04,
+              "end": 3.34,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "Aye,",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.54
+        },
+        {
+          "raw": "thine",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "me.",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "Wouldst",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "hear",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "raw": "me",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "then",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "no",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "raw": "more?",
+          "start": 3.04,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "Aye,",
+        "and",
+        "thine",
+        "me.",
+        "Wouldst",
+        "hear",
+        "me",
+        "then",
+        "no",
+        "more?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "Aye,",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "and",
+          "start": 1.5,
+          "end": 1.54
+        },
+        {
+          "text": "thine",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "me.",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "Wouldst",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "hear",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "text": "me",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "then",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "no",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "text": "more?",
+          "start": 3.04,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13409390300512314
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "90436bce3bb6c972d2ec34c2feee675a3548319931d1ce657342fe5174d259e0",
+  "selected_reasons": []
+}

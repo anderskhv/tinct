@@ -1,0 +1,2146 @@
+{
+  "complete": true,
+  "signature": "6aa6a026a6c78756e9a8b6d64ea80400a5e49016b796dd701d90c799138bcf11",
+  "attempts": [
+    {
+      "asr_seconds": 0.4398954724892974,
+      "alignment_seconds": 0.0002708751708269119,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That time or any other. Eating is always good. We eat till we are yoked up again and tug the gun back to where Two Tails is waiting for it. Sometimes there are big guns in the city that speak back, and some of us are killed, and then there is all the more grazing for those that are left. This is Fate. None the less, Two Tails is a great coward. That is the proper way to fight. We are brothers from Hapur. Our father was a sacred bull of Shiva. We have spoken.\"",
+        "hotwords": "Eating, Two, Tails, Sometimes, This, Fate, None, Hapur, Our, Shiva"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That time or any other. Eating is always good. We eat till we are yoked up again and tug the gun back to where Two Tails is waiting for it. Sometimes there are big guns in the city that speak back, and some of us are killed, and then there is all the more grazing for those that are left. This is Fate. None the less, Two Tails is a great coward. That is the proper way to fight. We are brothers from Hapur. Our father was a sacred bull of Shiva. We have spoken.",
+          "start": 0.24,
+          "end": 24.4,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.24,
+              "end": 0.6,
+              "probability": 0.45068359375
+            },
+            {
+              "text": " time",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " or",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.935546875
+            },
+            {
+              "text": " any",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " other.",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Eating",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " is",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " always",
+              "start": 2.18,
+              "end": 2.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good.",
+              "start": 2.5,
+              "end": 2.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " We",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " eat",
+              "start": 3.42,
+              "end": 3.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " till",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " we",
+              "start": 3.74,
+              "end": 3.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " are",
+              "start": 3.86,
+              "end": 3.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " yoked",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " up",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " again",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.56,
+              "end": 4.74,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " tug",
+              "start": 4.74,
+              "end": 4.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 4.9,
+              "end": 5.06,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " gun",
+              "start": 5.06,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back",
+              "start": 5.22,
+              "end": 5.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 5.48,
+              "end": 5.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " where",
+              "start": 5.66,
+              "end": 5.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Two",
+              "start": 5.8,
+              "end": 6.04,
+              "probability": 0.497802734375
+            },
+            {
+              "text": " Tails",
+              "start": 6.04,
+              "end": 6.38,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " is",
+              "start": 6.38,
+              "end": 6.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " waiting",
+              "start": 6.52,
+              "end": 6.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 6.74,
+              "end": 7.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 7.04,
+              "end": 7.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Sometimes",
+              "start": 7.86,
+              "end": 8.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " there",
+              "start": 8.16,
+              "end": 8.4,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " are",
+              "start": 8.4,
+              "end": 8.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " big",
+              "start": 8.54,
+              "end": 8.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " guns",
+              "start": 8.68,
+              "end": 8.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 8.98,
+              "end": 9.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.18,
+              "end": 9.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " city",
+              "start": 9.3,
+              "end": 9.48,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " that",
+              "start": 9.48,
+              "end": 9.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " speak",
+              "start": 9.7,
+              "end": 9.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back,",
+              "start": 9.94,
+              "end": 10.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 10.46,
+              "end": 10.5,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " some",
+              "start": 10.5,
+              "end": 10.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 10.66,
+              "end": 10.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us",
+              "start": 10.78,
+              "end": 10.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 10.84,
+              "end": 11.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " killed,",
+              "start": 11.0,
+              "end": 11.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.58,
+              "end": 11.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " then",
+              "start": 11.7,
+              "end": 11.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " there",
+              "start": 11.82,
+              "end": 11.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 11.96,
+              "end": 12.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " all",
+              "start": 12.06,
+              "end": 12.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 12.3,
+              "end": 12.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " more",
+              "start": 12.4,
+              "end": 12.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " grazing",
+              "start": 12.62,
+              "end": 12.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 12.96,
+              "end": 13.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " those",
+              "start": 13.24,
+              "end": 13.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 13.44,
+              "end": 13.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " are",
+              "start": 13.64,
+              "end": 13.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " left.",
+              "start": 13.76,
+              "end": 14.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " This",
+              "start": 14.58,
+              "end": 14.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 14.76,
+              "end": 14.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Fate.",
+              "start": 14.92,
+              "end": 15.2,
+              "probability": 0.0261077880859375
+            },
+            {
+              "text": " None",
+              "start": 15.94,
+              "end": 16.04,
+              "probability": 0.1260986328125
+            },
+            {
+              "text": " the",
+              "start": 16.04,
+              "end": 16.2,
+              "probability": 0.9296875
+            },
+            {
+              "text": " less,",
+              "start": 16.2,
+              "end": 16.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Two",
+              "start": 16.58,
+              "end": 16.7,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Tails",
+              "start": 16.7,
+              "end": 17.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 17.08,
+              "end": 17.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 17.24,
+              "end": 17.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " great",
+              "start": 17.34,
+              "end": 17.52,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " coward.",
+              "start": 17.52,
+              "end": 17.9,
+              "probability": 0.990234375
+            },
+            {
+              "text": " That",
+              "start": 18.34,
+              "end": 18.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 18.56,
+              "end": 18.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 18.66,
+              "end": 18.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " proper",
+              "start": 18.82,
+              "end": 19.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way",
+              "start": 19.02,
+              "end": 19.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 19.26,
+              "end": 19.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fight.",
+              "start": 19.42,
+              "end": 19.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " We",
+              "start": 20.08,
+              "end": 20.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 20.22,
+              "end": 20.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " brothers",
+              "start": 20.36,
+              "end": 20.62,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " from",
+              "start": 20.62,
+              "end": 20.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Hapur.",
+              "start": 20.92,
+              "end": 21.3,
+              "probability": 0.518310546875
+            },
+            {
+              "text": " Our",
+              "start": 21.7,
+              "end": 21.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " father",
+              "start": 21.84,
+              "end": 22.08,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " was",
+              "start": 22.08,
+              "end": 22.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 22.32,
+              "end": 22.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sacred",
+              "start": 22.48,
+              "end": 22.78,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " bull",
+              "start": 22.78,
+              "end": 23.0,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " of",
+              "start": 23.0,
+              "end": 23.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Shiva.",
+              "start": 23.22,
+              "end": 23.42,
+              "probability": 0.849609375
+            },
+            {
+              "text": " We",
+              "start": 23.86,
+              "end": 24.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 24.0,
+              "end": 24.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spoken.",
+              "start": 24.1,
+              "end": 24.4,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.24,
+          "end": 0.6
+        },
+        {
+          "raw": "time",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "or",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "raw": "any",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "other.",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "Eating",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "is",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "always",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "raw": "good.",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "raw": "We",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "eat",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "raw": "till",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "we",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "raw": "are",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "raw": "yoked",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "up",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "again",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "raw": "tug",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "raw": "gun",
+          "start": 5.06,
+          "end": 5.22
+        },
+        {
+          "raw": "back",
+          "start": 5.22,
+          "end": 5.48
+        },
+        {
+          "raw": "to",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "raw": "where",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "raw": "Two",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "raw": "Tails",
+          "start": 6.04,
+          "end": 6.38
+        },
+        {
+          "raw": "is",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "raw": "waiting",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "raw": "for",
+          "start": 6.74,
+          "end": 7.04
+        },
+        {
+          "raw": "it.",
+          "start": 7.04,
+          "end": 7.28
+        },
+        {
+          "raw": "Sometimes",
+          "start": 7.86,
+          "end": 8.16
+        },
+        {
+          "raw": "there",
+          "start": 8.16,
+          "end": 8.4
+        },
+        {
+          "raw": "are",
+          "start": 8.4,
+          "end": 8.54
+        },
+        {
+          "raw": "big",
+          "start": 8.54,
+          "end": 8.68
+        },
+        {
+          "raw": "guns",
+          "start": 8.68,
+          "end": 8.98
+        },
+        {
+          "raw": "in",
+          "start": 8.98,
+          "end": 9.18
+        },
+        {
+          "raw": "the",
+          "start": 9.18,
+          "end": 9.3
+        },
+        {
+          "raw": "city",
+          "start": 9.3,
+          "end": 9.48
+        },
+        {
+          "raw": "that",
+          "start": 9.48,
+          "end": 9.7
+        },
+        {
+          "raw": "speak",
+          "start": 9.7,
+          "end": 9.94
+        },
+        {
+          "raw": "back,",
+          "start": 9.94,
+          "end": 10.28
+        },
+        {
+          "raw": "and",
+          "start": 10.46,
+          "end": 10.5
+        },
+        {
+          "raw": "some",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "raw": "of",
+          "start": 10.66,
+          "end": 10.78
+        },
+        {
+          "raw": "us",
+          "start": 10.78,
+          "end": 10.84
+        },
+        {
+          "raw": "are",
+          "start": 10.84,
+          "end": 11.0
+        },
+        {
+          "raw": "killed,",
+          "start": 11.0,
+          "end": 11.3
+        },
+        {
+          "raw": "and",
+          "start": 11.58,
+          "end": 11.7
+        },
+        {
+          "raw": "then",
+          "start": 11.7,
+          "end": 11.82
+        },
+        {
+          "raw": "there",
+          "start": 11.82,
+          "end": 11.96
+        },
+        {
+          "raw": "is",
+          "start": 11.96,
+          "end": 12.06
+        },
+        {
+          "raw": "all",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "raw": "the",
+          "start": 12.3,
+          "end": 12.4
+        },
+        {
+          "raw": "more",
+          "start": 12.4,
+          "end": 12.62
+        },
+        {
+          "raw": "grazing",
+          "start": 12.62,
+          "end": 12.96
+        },
+        {
+          "raw": "for",
+          "start": 12.96,
+          "end": 13.24
+        },
+        {
+          "raw": "those",
+          "start": 13.24,
+          "end": 13.44
+        },
+        {
+          "raw": "that",
+          "start": 13.44,
+          "end": 13.64
+        },
+        {
+          "raw": "are",
+          "start": 13.64,
+          "end": 13.76
+        },
+        {
+          "raw": "left.",
+          "start": 13.76,
+          "end": 14.02
+        },
+        {
+          "raw": "This",
+          "start": 14.58,
+          "end": 14.76
+        },
+        {
+          "raw": "is",
+          "start": 14.76,
+          "end": 14.92
+        },
+        {
+          "raw": "Fate.",
+          "start": 14.92,
+          "end": 15.2
+        },
+        {
+          "raw": "None",
+          "start": 15.94,
+          "end": 16.04
+        },
+        {
+          "raw": "the",
+          "start": 16.04,
+          "end": 16.2
+        },
+        {
+          "raw": "less,",
+          "start": 16.2,
+          "end": 16.46
+        },
+        {
+          "raw": "Two",
+          "start": 16.58,
+          "end": 16.7
+        },
+        {
+          "raw": "Tails",
+          "start": 16.7,
+          "end": 17.08
+        },
+        {
+          "raw": "is",
+          "start": 17.08,
+          "end": 17.24
+        },
+        {
+          "raw": "a",
+          "start": 17.24,
+          "end": 17.34
+        },
+        {
+          "raw": "great",
+          "start": 17.34,
+          "end": 17.52
+        },
+        {
+          "raw": "coward.",
+          "start": 17.52,
+          "end": 17.9
+        },
+        {
+          "raw": "That",
+          "start": 18.34,
+          "end": 18.56
+        },
+        {
+          "raw": "is",
+          "start": 18.56,
+          "end": 18.66
+        },
+        {
+          "raw": "the",
+          "start": 18.66,
+          "end": 18.82
+        },
+        {
+          "raw": "proper",
+          "start": 18.82,
+          "end": 19.02
+        },
+        {
+          "raw": "way",
+          "start": 19.02,
+          "end": 19.26
+        },
+        {
+          "raw": "to",
+          "start": 19.26,
+          "end": 19.42
+        },
+        {
+          "raw": "fight.",
+          "start": 19.42,
+          "end": 19.64
+        },
+        {
+          "raw": "We",
+          "start": 20.08,
+          "end": 20.22
+        },
+        {
+          "raw": "are",
+          "start": 20.22,
+          "end": 20.36
+        },
+        {
+          "raw": "brothers",
+          "start": 20.36,
+          "end": 20.62
+        },
+        {
+          "raw": "from",
+          "start": 20.62,
+          "end": 20.92
+        },
+        {
+          "raw": "Hapur.",
+          "start": 20.92,
+          "end": 21.3
+        },
+        {
+          "raw": "Our",
+          "start": 21.7,
+          "end": 21.84
+        },
+        {
+          "raw": "father",
+          "start": 21.84,
+          "end": 22.08
+        },
+        {
+          "raw": "was",
+          "start": 22.08,
+          "end": 22.32
+        },
+        {
+          "raw": "a",
+          "start": 22.32,
+          "end": 22.48
+        },
+        {
+          "raw": "sacred",
+          "start": 22.48,
+          "end": 22.78
+        },
+        {
+          "raw": "bull",
+          "start": 22.78,
+          "end": 23.0
+        },
+        {
+          "raw": "of",
+          "start": 23.0,
+          "end": 23.22
+        },
+        {
+          "raw": "Shiva.",
+          "start": 23.22,
+          "end": 23.42
+        },
+        {
+          "raw": "We",
+          "start": 23.86,
+          "end": 24.0
+        },
+        {
+          "raw": "have",
+          "start": 24.0,
+          "end": 24.1
+        },
+        {
+          "raw": "spoken.",
+          "start": 24.1,
+          "end": 24.4
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "time",
+        "or",
+        "any",
+        "other.",
+        "Eating",
+        "is",
+        "always",
+        "good.",
+        "We",
+        "eat",
+        "till",
+        "we",
+        "are",
+        "yoked",
+        "up",
+        "again",
+        "and",
+        "tug",
+        "the",
+        "gun",
+        "back",
+        "to",
+        "where",
+        "Two",
+        "Tails",
+        "is",
+        "waiting",
+        "for",
+        "it.",
+        "Sometimes",
+        "there",
+        "are",
+        "big",
+        "guns",
+        "in",
+        "the",
+        "city",
+        "that",
+        "speak",
+        "back,",
+        "and",
+        "some",
+        "of",
+        "us",
+        "are",
+        "killed,",
+        "and",
+        "then",
+        "there",
+        "is",
+        "all",
+        "the",
+        "more",
+        "grazing",
+        "for",
+        "those",
+        "that",
+        "are",
+        "left.",
+        "This",
+        "is",
+        "Fate.",
+        "None",
+        "the",
+        "less,",
+        "Two",
+        "Tails",
+        "is",
+        "a",
+        "great",
+        "coward.",
+        "That",
+        "is",
+        "the",
+        "proper",
+        "way",
+        "to",
+        "fight.",
+        "We",
+        "are",
+        "brothers",
+        "from",
+        "Hapur.",
+        "Our",
+        "father",
+        "was",
+        "a",
+        "sacred",
+        "bull",
+        "of",
+        "Shiva.",
+        "We",
+        "have",
+        "spoken.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          95,
+          0,
+          95
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.24,
+          "end": 0.6
+        },
+        {
+          "text": "time",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "or",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "text": "any",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "other.",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "text": "Eating",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "is",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "always",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "text": "good.",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "text": "We",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "eat",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "text": "till",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "we",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "text": "are",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "text": "yoked",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "up",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "again",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "text": "and",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "text": "tug",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "text": "the",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "text": "gun",
+          "start": 5.06,
+          "end": 5.22
+        },
+        {
+          "text": "back",
+          "start": 5.22,
+          "end": 5.48
+        },
+        {
+          "text": "to",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "text": "where",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "text": "Two",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "text": "Tails",
+          "start": 6.04,
+          "end": 6.38
+        },
+        {
+          "text": "is",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "text": "waiting",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "text": "for",
+          "start": 6.74,
+          "end": 7.04
+        },
+        {
+          "text": "it.",
+          "start": 7.04,
+          "end": 7.28
+        },
+        {
+          "text": "Sometimes",
+          "start": 7.86,
+          "end": 8.16
+        },
+        {
+          "text": "there",
+          "start": 8.16,
+          "end": 8.4
+        },
+        {
+          "text": "are",
+          "start": 8.4,
+          "end": 8.54
+        },
+        {
+          "text": "big",
+          "start": 8.54,
+          "end": 8.68
+        },
+        {
+          "text": "guns",
+          "start": 8.68,
+          "end": 8.98
+        },
+        {
+          "text": "in",
+          "start": 8.98,
+          "end": 9.18
+        },
+        {
+          "text": "the",
+          "start": 9.18,
+          "end": 9.3
+        },
+        {
+          "text": "city",
+          "start": 9.3,
+          "end": 9.48
+        },
+        {
+          "text": "that",
+          "start": 9.48,
+          "end": 9.7
+        },
+        {
+          "text": "speak",
+          "start": 9.7,
+          "end": 9.94
+        },
+        {
+          "text": "back,",
+          "start": 9.94,
+          "end": 10.28
+        },
+        {
+          "text": "and",
+          "start": 10.46,
+          "end": 10.5
+        },
+        {
+          "text": "some",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "text": "of",
+          "start": 10.66,
+          "end": 10.78
+        },
+        {
+          "text": "us",
+          "start": 10.78,
+          "end": 10.84
+        },
+        {
+          "text": "are",
+          "start": 10.84,
+          "end": 11.0
+        },
+        {
+          "text": "killed,",
+          "start": 11.0,
+          "end": 11.3
+        },
+        {
+          "text": "and",
+          "start": 11.58,
+          "end": 11.7
+        },
+        {
+          "text": "then",
+          "start": 11.7,
+          "end": 11.82
+        },
+        {
+          "text": "there",
+          "start": 11.82,
+          "end": 11.96
+        },
+        {
+          "text": "is",
+          "start": 11.96,
+          "end": 12.06
+        },
+        {
+          "text": "all",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "text": "the",
+          "start": 12.3,
+          "end": 12.4
+        },
+        {
+          "text": "more",
+          "start": 12.4,
+          "end": 12.62
+        },
+        {
+          "text": "grazing",
+          "start": 12.62,
+          "end": 12.96
+        },
+        {
+          "text": "for",
+          "start": 12.96,
+          "end": 13.24
+        },
+        {
+          "text": "those",
+          "start": 13.24,
+          "end": 13.44
+        },
+        {
+          "text": "that",
+          "start": 13.44,
+          "end": 13.64
+        },
+        {
+          "text": "are",
+          "start": 13.64,
+          "end": 13.76
+        },
+        {
+          "text": "left.",
+          "start": 13.76,
+          "end": 14.02
+        },
+        {
+          "text": "This",
+          "start": 14.58,
+          "end": 14.76
+        },
+        {
+          "text": "is",
+          "start": 14.76,
+          "end": 14.92
+        },
+        {
+          "text": "Fate.",
+          "start": 14.92,
+          "end": 15.2
+        },
+        {
+          "text": "None",
+          "start": 15.94,
+          "end": 16.04
+        },
+        {
+          "text": "the",
+          "start": 16.04,
+          "end": 16.2
+        },
+        {
+          "text": "less,",
+          "start": 16.2,
+          "end": 16.46
+        },
+        {
+          "text": "Two",
+          "start": 16.58,
+          "end": 16.7
+        },
+        {
+          "text": "Tails",
+          "start": 16.7,
+          "end": 17.08
+        },
+        {
+          "text": "is",
+          "start": 17.08,
+          "end": 17.24
+        },
+        {
+          "text": "a",
+          "start": 17.24,
+          "end": 17.34
+        },
+        {
+          "text": "great",
+          "start": 17.34,
+          "end": 17.52
+        },
+        {
+          "text": "coward.",
+          "start": 17.52,
+          "end": 17.9
+        },
+        {
+          "text": "That",
+          "start": 18.34,
+          "end": 18.56
+        },
+        {
+          "text": "is",
+          "start": 18.56,
+          "end": 18.66
+        },
+        {
+          "text": "the",
+          "start": 18.66,
+          "end": 18.82
+        },
+        {
+          "text": "proper",
+          "start": 18.82,
+          "end": 19.02
+        },
+        {
+          "text": "way",
+          "start": 19.02,
+          "end": 19.26
+        },
+        {
+          "text": "to",
+          "start": 19.26,
+          "end": 19.42
+        },
+        {
+          "text": "fight.",
+          "start": 19.42,
+          "end": 19.64
+        },
+        {
+          "text": "We",
+          "start": 20.08,
+          "end": 20.22
+        },
+        {
+          "text": "are",
+          "start": 20.22,
+          "end": 20.36
+        },
+        {
+          "text": "brothers",
+          "start": 20.36,
+          "end": 20.62
+        },
+        {
+          "text": "from",
+          "start": 20.62,
+          "end": 20.92
+        },
+        {
+          "text": "Hapur.",
+          "start": 20.92,
+          "end": 21.3
+        },
+        {
+          "text": "Our",
+          "start": 21.7,
+          "end": 21.84
+        },
+        {
+          "text": "father",
+          "start": 21.84,
+          "end": 22.08
+        },
+        {
+          "text": "was",
+          "start": 22.08,
+          "end": 22.32
+        },
+        {
+          "text": "a",
+          "start": 22.32,
+          "end": 22.48
+        },
+        {
+          "text": "sacred",
+          "start": 22.48,
+          "end": 22.78
+        },
+        {
+          "text": "bull",
+          "start": 22.78,
+          "end": 23.0
+        },
+        {
+          "text": "of",
+          "start": 23.0,
+          "end": 23.22
+        },
+        {
+          "text": "Shiva.",
+          "start": 23.22,
+          "end": 23.42
+        },
+        {
+          "text": "We",
+          "start": 23.86,
+          "end": 24.0
+        },
+        {
+          "text": "have",
+          "start": 24.0,
+          "end": 24.1
+        },
+        {
+          "text": "spoken.\"",
+          "start": 24.1,
+          "end": 24.4
+        }
+      ],
+      "stats": {
+        "expected_words": 95,
+        "heard_words": 95,
+        "matched_words": 95
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44034184794873
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9e7876f7f1a42fd00f701625c1fa2e4241c978ebf26d0c36f1c9ed20fb9a1571",
+  "selected_reasons": []
+}

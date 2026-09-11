@@ -1,0 +1,890 @@
+{
+  "complete": true,
+  "signature": "1dd5d7977857abb864b1f60fc1eb8f9f87c674f262ed6bfb8cefe7cd1a5ae4b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18498322181403637,
+      "alignment_seconds": 0.00010814238339662552,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well!\" said Kotick. \"You're the only people I've ever met uglier than Sea Vitch--and with worse manners.\"",
+        "hotwords": "Well, Kotick, You're, I've, Sea, Vitch--and"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, said Kotick. You're the only people I've ever met uglier than Sea Vitch-and with worse manners.",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.04193115234375
+            },
+            {
+              "text": " said",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Kotick.",
+              "start": 1.34,
+              "end": 1.82,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " You're",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.96484375
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " only",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " people",
+              "start": 2.78,
+              "end": 3.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I've",
+              "start": 3.12,
+              "end": 3.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " ever",
+              "start": 3.34,
+              "end": 3.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " met",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " uglier",
+              "start": 3.74,
+              "end": 4.16,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " than",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Sea",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.024200439453125
+            },
+            {
+              "text": " Vitch",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.4488525390625
+            },
+            {
+              "text": "-and",
+              "start": 4.96,
+              "end": 5.12,
+              "probability": 0.03340625762939453
+            },
+            {
+              "text": " with",
+              "start": 5.12,
+              "end": 5.32,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " worse",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " manners.",
+              "start": 5.6,
+              "end": 6.0,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "said",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "Kotick.",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "raw": "You're",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "only",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "people",
+          "start": 2.78,
+          "end": 3.12
+        },
+        {
+          "raw": "I've",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "raw": "ever",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "raw": "met",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "uglier",
+          "start": 3.74,
+          "end": 4.16
+        },
+        {
+          "raw": "than",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "Sea",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "Vitch",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "-and",
+          "start": 4.96,
+          "end": 5.12
+        },
+        {
+          "raw": "with",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "raw": "worse",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "manners.",
+          "start": 5.6,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Well!\"",
+        "said",
+        "Kotick.",
+        "\"You're",
+        "the",
+        "only",
+        "people",
+        "I've",
+        "ever",
+        "met",
+        "uglier",
+        "than",
+        "Sea",
+        "Vitch--and",
+        "with",
+        "worse",
+        "manners.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          17,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Well!\"",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "said",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "Kotick.",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "text": "\"You're",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "only",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "people",
+          "start": 2.78,
+          "end": 3.12
+        },
+        {
+          "text": "I've",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "text": "ever",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "text": "met",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "uglier",
+          "start": 3.74,
+          "end": 4.16
+        },
+        {
+          "text": "than",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "Sea",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "text": "Vitch--and",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "text": "with",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "text": "worse",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "manners.\"",
+          "start": 5.6,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.1851336918771267
+    },
+    {
+      "asr_seconds": 0.1460740678012371,
+      "alignment_seconds": 9.367987513542175e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Well, Kotick, You're, I've, Sea, Vitch--and"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Well, said Kotick, You're the only people I've ever met uglier than Sea Vitchand with",
+          "start": 0.02,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.04193115234375
+            },
+            {
+              "text": " said",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Kotick,",
+              "start": 1.34,
+              "end": 1.82,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " You're",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.49340057373046875
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " people",
+              "start": 2.78,
+              "end": 3.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I've",
+              "start": 3.12,
+              "end": 3.34,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " ever",
+              "start": 3.34,
+              "end": 3.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " met",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " uglier",
+              "start": 3.74,
+              "end": 4.16,
+              "probability": 0.9773763020833334
+            },
+            {
+              "text": " than",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Sea",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.02911376953125
+            },
+            {
+              "text": " Vitchand",
+              "start": 4.68,
+              "end": 5.14,
+              "probability": 0.603515625
+            },
+            {
+              "text": " with",
+              "start": 5.14,
+              "end": 5.32,
+              "probability": 0.96435546875
+            }
+          ]
+        },
+        {
+          "text": " worse manners.",
+          "start": 5.32,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " worse",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.943359375
+            },
+            {
+              "text": " manners.",
+              "start": 5.58,
+              "end": 6.0,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "said",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "Kotick,",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "raw": "You're",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "only",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "people",
+          "start": 2.78,
+          "end": 3.12
+        },
+        {
+          "raw": "I've",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "raw": "ever",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "raw": "met",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "uglier",
+          "start": 3.74,
+          "end": 4.16
+        },
+        {
+          "raw": "than",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "Sea",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "Vitchand",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "raw": "with",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "raw": "worse",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "manners.",
+          "start": 5.58,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Well!\"",
+        "said",
+        "Kotick.",
+        "\"You're",
+        "the",
+        "only",
+        "people",
+        "I've",
+        "ever",
+        "met",
+        "uglier",
+        "than",
+        "Sea",
+        "Vitch--and",
+        "with",
+        "worse",
+        "manners.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Well!\"",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "said",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "Kotick.",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "text": "\"You're",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "only",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "people",
+          "start": 2.78,
+          "end": 3.12
+        },
+        {
+          "text": "I've",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "text": "ever",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "text": "met",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "uglier",
+          "start": 3.74,
+          "end": 4.16
+        },
+        {
+          "text": "than",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "Sea",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "text": "Vitch--and",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "text": "with",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "text": "worse",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "manners.\"",
+          "start": 5.58,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14620947185903788
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "a633f4dd8353ff484eceb9972293290268c227975d01c46c41cc632f49fb6ae2",
+  "selected_reasons": []
+}

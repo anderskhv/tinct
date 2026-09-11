@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "6eb3b7798d5f3320cf4644cbf1054571e3d2a82971e7624c9057268226ce4acb",
+  "attempts": [
+    {
+      "asr_seconds": 0.10928108543157578,
+      "alignment_seconds": 9.609013795852661e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The Greeks marched breathing prowess in silent awe of their leaders.",
+          "start": 0.02,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Greeks",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " marched",
+              "start": 0.74,
+              "end": 1.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " breathing",
+              "start": 1.12,
+              "end": 1.56,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " prowess",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " in",
+              "start": 1.96,
+              "end": 2.72,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " silent",
+              "start": 2.72,
+              "end": 3.08,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " awe",
+              "start": 3.08,
+              "end": 3.3,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 3.3,
+              "end": 3.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " their",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " leaders.",
+              "start": 3.52,
+              "end": 3.82,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "Greeks",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "marched",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "raw": "breathing",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "raw": "prowess",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "in",
+          "start": 1.96,
+          "end": 2.72
+        },
+        {
+          "raw": "silent",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "raw": "awe",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "raw": "of",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "raw": "their",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "leaders.",
+          "start": 3.52,
+          "end": 3.82
+        }
+      ],
+      "expected_tokens": [
+        "'The",
+        "Greeks",
+        "marched",
+        "breathing",
+        "prowess,",
+        "...in",
+        "silent",
+        "awe",
+        "of",
+        "their",
+        "leaders,'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Greeks",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "marched",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "text": "breathing",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "text": "prowess,",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "...in",
+          "start": 1.96,
+          "end": 2.72
+        },
+        {
+          "text": "silent",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "text": "awe",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "text": "of",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "text": "their",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "leaders,'",
+          "start": 3.52,
+          "end": 3.82
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10943392664194107
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41e7b2f2680e3f608f71d7d9da864affc0fe2674a3c0226790a16030c328e786",
+  "selected_reasons": []
+}

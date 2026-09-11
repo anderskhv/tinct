@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "de891a0287ba2824fdf5060b7a2b5084d05ac9bd8d694f220c8a278b485bc2ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.16580066084861755,
+      "alignment_seconds": 7.145851850509644e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nay, Socrates; the doctrine is immoral.",
+        "hotwords": "Nay, Socrates"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nay, Socrates, the doctrine is immoral.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Nay,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.55029296875
+            },
+            {
+              "text": " Socrates,",
+              "start": 0.83,
+              "end": 1.11,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " doctrine",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.95703125
+            },
+            {
+              "text": " is",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " immoral.",
+              "start": 2.31,
+              "end": 2.67,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nay,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Socrates,",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "doctrine",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "is",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "immoral.",
+          "start": 2.31,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Nay,",
+        "Socrates;",
+        "the",
+        "doctrine",
+        "is",
+        "immoral."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Nay,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Socrates;",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "the",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "doctrine",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "is",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "immoral.",
+          "start": 2.31,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16590340435504913
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37503875c47937969caf5bf24efd29fe14358e8d43e53d085ec2abde09722f1b",
+  "selected_reasons": []
+}

@@ -1,0 +1,473 @@
+{
+  "complete": true,
+  "signature": "bc611446a0fcfc5d980135b4c4ba3d5d2c00f60d6feb485fe82f604833387de7",
+  "attempts": [
+    {
+      "asr_seconds": 0.24228418618440628,
+      "alignment_seconds": 0.00014720112085342407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the country which was enough to support the original inhabitants will be too small now, and not enough?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the country which was enough to support the original inhabitants will be too small now, and not enough?",
+          "start": 0.05,
+          "end": 5.93,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " country",
+              "start": 0.63,
+              "end": 1.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " which",
+              "start": 1.01,
+              "end": 1.25,
+              "probability": 0.5146484375
+            },
+            {
+              "text": " was",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enough",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " support",
+              "start": 1.89,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " original",
+              "start": 2.43,
+              "end": 2.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " inhabitants",
+              "start": 2.85,
+              "end": 3.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 3.39,
+              "end": 3.73,
+              "probability": 0.955078125
+            },
+            {
+              "text": " be",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " too",
+              "start": 3.89,
+              "end": 4.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " small",
+              "start": 4.13,
+              "end": 4.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now,",
+              "start": 4.53,
+              "end": 4.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 5.29,
+              "end": 5.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enough?",
+              "start": 5.63,
+              "end": 5.93,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "country",
+          "start": 0.63,
+          "end": 1.01
+        },
+        {
+          "raw": "which",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "raw": "was",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "enough",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "to",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "support",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "raw": "the",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "original",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "raw": "inhabitants",
+          "start": 2.85,
+          "end": 3.39
+        },
+        {
+          "raw": "will",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "raw": "be",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "too",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "raw": "small",
+          "start": 4.13,
+          "end": 4.53
+        },
+        {
+          "raw": "now,",
+          "start": 4.53,
+          "end": 4.83
+        },
+        {
+          "raw": "and",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "raw": "not",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "enough?",
+          "start": 5.63,
+          "end": 5.93
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "country",
+        "which",
+        "was",
+        "enough",
+        "to",
+        "support",
+        "the",
+        "original",
+        "inhabitants",
+        "will",
+        "be",
+        "too",
+        "small",
+        "now,",
+        "and",
+        "not",
+        "enough?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "country",
+          "start": 0.63,
+          "end": 1.01
+        },
+        {
+          "text": "which",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "text": "was",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "enough",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "to",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "support",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "text": "the",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "original",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "text": "inhabitants",
+          "start": 2.85,
+          "end": 3.39
+        },
+        {
+          "text": "will",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "text": "be",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "too",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "text": "small",
+          "start": 4.13,
+          "end": 4.53
+        },
+        {
+          "text": "now,",
+          "start": 4.53,
+          "end": 4.83
+        },
+        {
+          "text": "and",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "text": "not",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "enough?",
+          "start": 5.63,
+          "end": 5.93
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2425028458237648
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca3cdbdad3514237e301e0c81b42a61270b442ad9e50279e661f0b2692e102be",
+  "selected_reasons": []
+}

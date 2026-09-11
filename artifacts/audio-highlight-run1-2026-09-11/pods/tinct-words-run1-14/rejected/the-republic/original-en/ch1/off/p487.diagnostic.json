@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "signature": "b8a17bf86c78310aa96bb41c55394c3e811544837b95efd4969a07a3c354fb3b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13122912496328354,
+      "alignment_seconds": 7.651001214981079e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But happiness, and not misery, is profitable.",
+          "start": 0.02,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " happiness,",
+              "start": 0.48,
+              "end": 0.92,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " and",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " misery,",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " profitable.",
+              "start": 2.2,
+              "end": 2.62,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "happiness,",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "raw": "and",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "not",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "misery,",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "is",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "profitable.",
+          "start": 2.2,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "happiness",
+        "and",
+        "not",
+        "misery",
+        "is",
+        "profitable."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "happiness",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "text": "and",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "not",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "misery",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "text": "is",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "profitable.",
+          "start": 2.2,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13134033977985382
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "68dd7e55f57adf7f2a9e8aecbf8a52690bdba350cf0ee24b7de723b6f2cec133",
+  "selected_reasons": []
+}

@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "signature": "76c811c150ab864fcb907c505a78fd258dc2b15be1a5aed7cb085c696b1ad2de",
+  "attempts": [
+    {
+      "asr_seconds": 0.12793391197919846,
+      "alignment_seconds": 5.667656660079956e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tut tut said mr. Utterson",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Tut",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.031402587890625
+            },
+            {
+              "text": " tut",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.4248046875
+            },
+            {
+              "text": " said",
+              "start": 0.93,
+              "end": 1.43,
+              "probability": 0.30029296875
+            },
+            {
+              "text": " mr.",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.615234375
+            },
+            {
+              "text": " Utterson",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.6910400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tut",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "tut",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "said",
+          "start": 0.93,
+          "end": 1.43
+        },
+        {
+          "raw": "mr.",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "Utterson",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "\"Tut-tut!\"",
+        "said",
+        "Mr.",
+        "Utterson."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Tut-tut!\"",
+          "start": 0.0,
+          "end": 0.465
+        },
+        {
+          "text": "said",
+          "start": 0.93,
+          "end": 1.43
+        },
+        {
+          "text": "Mr.",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "Utterson.",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12800883501768112
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3c8d609ad6d4963b45aff5baea2ec1b193e740dfaa20a138b02d742c30b5592b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

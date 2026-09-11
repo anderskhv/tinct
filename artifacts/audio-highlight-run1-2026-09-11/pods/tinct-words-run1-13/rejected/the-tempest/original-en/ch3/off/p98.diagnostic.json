@@ -1,0 +1,223 @@
+{
+  "complete": true,
+  "signature": "054c98421b2eb621a4fe5248eee06134767b75f96e7b63a67950a8425b84f212",
+  "attempts": [
+    {
+      "asr_seconds": 0.11378618411254138,
+      "alignment_seconds": 0.00012711400631815195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, and do you mark me, sir?",
+          "start": 0.57,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.920166015625
+            },
+            {
+              "text": " and",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.9765625
+            },
+            {
+              "text": " do",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.98046875
+            },
+            {
+              "text": " you",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mark",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " me,",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir?",
+              "start": 2.15,
+              "end": 2.19,
+              "probability": 0.92236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "raw": "and",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "do",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "mark",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "me,",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "sir?",
+          "start": 2.15,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "And,--do",
+        "you",
+        "mark",
+        "me,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "text": "And,--do",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "text": "you",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "mark",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "me,",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "sir?",
+          "start": 2.15,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11396298999898136
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "af7f46d680946aade45b6d79110dc05a5f553eaec89ea1726e4efeb94c7ac382",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

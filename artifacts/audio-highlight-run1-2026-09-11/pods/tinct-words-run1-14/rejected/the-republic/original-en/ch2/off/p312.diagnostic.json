@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "d1b840e4981d902250cf4c81af7cedd7c5af56807e0677fc7910e88a4bb6be2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.0843241959810257,
+      "alignment_seconds": 6.27860426902771e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Heaven forbid, he said.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Heaven",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.412841796875
+            },
+            {
+              "text": " forbid,",
+              "start": 0.61,
+              "end": 0.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " said.",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Heaven",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "forbid,",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "said.",
+          "start": 1.25,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Heaven",
+        "forbid,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Heaven",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "forbid,",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "text": "he",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "said.",
+          "start": 1.25,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08441243320703506
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a4268599d2554c045a31a8ba38367387044696c96197cebff9f3528cd097619c",
+  "selected_reasons": []
+}

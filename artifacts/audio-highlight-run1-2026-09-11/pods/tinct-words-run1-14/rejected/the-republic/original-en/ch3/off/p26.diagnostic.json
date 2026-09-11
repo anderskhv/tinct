@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "11524884d7efb67d34db06e395cda19cac3ad420025992f9959b7b5acb65e81f",
+  "attempts": [
+    {
+      "asr_seconds": 0.097006656229496,
+      "alignment_seconds": 8.036941289901733e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then we must have no more of them.",
+          "start": 0.08,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.4912109375
+            },
+            {
+              "text": " we",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " must",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " no",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them.",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "we",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "must",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "raw": "no",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "more",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "them.",
+          "start": 1.6,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "we",
+        "must",
+        "have",
+        "no",
+        "more",
+        "of",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "we",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "must",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "have",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "text": "no",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "more",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "of",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "them.",
+          "start": 1.6,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09712439030408859
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "93a0a0ffe3a1d18f265ce33ab9600d5b44506327c159ebd1454ed9cc2639c537",
+  "selected_reasons": []
+}

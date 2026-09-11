@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "21c401bf55c9b848c16d5389e380568f58d237dfbf3e0467535c1163ad3bd5ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.21387912333011627,
+      "alignment_seconds": 0.00012520700693130493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I entirely agree with you, he said; in my opinion those stories are quite unfit to be repeated.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I entirely agree with you, he said. In my opinion those stories are quite unfit to be repeated.",
+          "start": 0.08,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.1417236328125
+            },
+            {
+              "text": " entirely",
+              "start": 0.56,
+              "end": 0.98,
+              "probability": 0.9765625
+            },
+            {
+              "text": " agree",
+              "start": 0.98,
+              "end": 1.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.96875
+            },
+            {
+              "text": " said.",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " In",
+              "start": 3.06,
+              "end": 3.16,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " my",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " opinion",
+              "start": 3.3,
+              "end": 3.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " those",
+              "start": 3.6,
+              "end": 3.92,
+              "probability": 0.3837890625
+            },
+            {
+              "text": " stories",
+              "start": 3.92,
+              "end": 4.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 4.26,
+              "end": 4.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quite",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " unfit",
+              "start": 4.72,
+              "end": 5.16,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 5.16,
+              "end": 5.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 5.38,
+              "end": 5.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " repeated.",
+              "start": 5.5,
+              "end": 5.88,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "entirely",
+          "start": 0.56,
+          "end": 0.98
+        },
+        {
+          "raw": "agree",
+          "start": 0.98,
+          "end": 1.44
+        },
+        {
+          "raw": "with",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "you,",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "he",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "said.",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "In",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "raw": "my",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "opinion",
+          "start": 3.3,
+          "end": 3.6
+        },
+        {
+          "raw": "those",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "raw": "stories",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "raw": "are",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "raw": "quite",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "raw": "unfit",
+          "start": 4.72,
+          "end": 5.16
+        },
+        {
+          "raw": "to",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "raw": "be",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "raw": "repeated.",
+          "start": 5.5,
+          "end": 5.88
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "entirely",
+        "agree",
+        "with",
+        "you,",
+        "he",
+        "said;",
+        "in",
+        "my",
+        "opinion",
+        "those",
+        "stories",
+        "are",
+        "quite",
+        "unfit",
+        "to",
+        "be",
+        "repeated."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "entirely",
+          "start": 0.56,
+          "end": 0.98
+        },
+        {
+          "text": "agree",
+          "start": 0.98,
+          "end": 1.44
+        },
+        {
+          "text": "with",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "you,",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "he",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "said;",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "in",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "my",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "opinion",
+          "start": 3.3,
+          "end": 3.6
+        },
+        {
+          "text": "those",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "text": "stories",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "text": "are",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "text": "quite",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "text": "unfit",
+          "start": 4.72,
+          "end": 5.16
+        },
+        {
+          "text": "to",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "text": "be",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "text": "repeated.",
+          "start": 5.5,
+          "end": 5.88
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21407059580087662
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aaab688006ceaefe02e7072e1cd5177363806c5f18edc61cb06d90663db94a5e",
+  "selected_reasons": []
+}

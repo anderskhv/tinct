@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "9fded8c859f458409cb2bc7863dd9480846330579fb1f758fb9be4a2a31e8369",
+  "attempts": [
+    {
+      "asr_seconds": 0.08095116168260574,
+      "alignment_seconds": 6.1027705669403076e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What is your notion?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What is your notion?",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " notion?",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "your",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "notion?",
+          "start": 0.76,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "is",
+        "your",
+        "notion?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "your",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "notion?",
+          "start": 0.76,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08103650063276291
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5b1faf09f7c5c757758f827d5ae5794400b1e4189604ee77486f75b60b579bf2",
+  "selected_reasons": []
+}

@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "f96f865ff1ad006e71b8d9585fb3ca3160ee5860595c0e826ea10191127405a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.17046068608760834,
+      "alignment_seconds": 8.973479270935059e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. What gain they, if I lay outside?",
+        "hotwords": "Oedipus, What, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, What, gain they, if I lay outside?",
+          "start": 0.6,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.921875
+            },
+            {
+              "text": " What,",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.032318115234375
+            },
+            {
+              "text": " gain",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.2496337890625
+            },
+            {
+              "text": " they,",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " if",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " I",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.35302734375
+            },
+            {
+              "text": " lay",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " outside?",
+              "start": 2.14,
+              "end": 2.56,
+              "probability": 0.919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "What,",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "gain",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "they,",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "if",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "I",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "lay",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "outside?",
+          "start": 2.14,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "What",
+        "gain",
+        "they,",
+        "if",
+        "I",
+        "lay",
+        "outside?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "What",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "gain",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "they,",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "if",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "I",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "lay",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "outside?",
+          "start": 2.14,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17059408128261566
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c878ed87e8cb3fa1c8c069f8bff03f88e0d340c0b09aa98f8619ddae2b4e7d22",
+  "selected_reasons": []
+}

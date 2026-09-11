@@ -1,0 +1,139 @@
+{
+  "complete": true,
+  "signature": "2030eb2016ea8b48be6895f6667ef481fabf774813f626ac7a240b3a0fa6ca02",
+  "attempts": [
+    {
+      "asr_seconds": 0.09988288499880582,
+      "alignment_seconds": 0.00011541310232132673,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alonzo, not I.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Alonzo,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " not",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " I.",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonzo,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "not",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "I.",
+          "start": 1.39,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "Not",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "Not",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "I.",
+          "start": 1.39,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10003946896176785
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cdc762b30e1765e83fdee7043708f416dab592cac8573f8292a8c24ff56aca90",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

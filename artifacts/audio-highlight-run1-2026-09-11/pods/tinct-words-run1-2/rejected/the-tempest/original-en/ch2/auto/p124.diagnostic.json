@@ -1,0 +1,369 @@
+{
+  "complete": true,
+  "signature": "1a18555ac5f1c11e42a4f25df7db9e8bd0e22903544e230cbfe1046b05320cbd",
+  "attempts": [
+    {
+      "asr_seconds": 0.08995871245861053,
+      "alignment_seconds": 7.2479248046875e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Burthen Ding-dong]",
+        "hotwords": "Burthen, Ding-dong"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Burthen, Ding-dong",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Burthen,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.3079986572265625
+            },
+            {
+              "text": " Ding",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.53466796875
+            },
+            {
+              "text": "-dong",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.3997090657552083
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Burthen,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Ding",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "-dong",
+          "start": 0.94,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[Burthen",
+        "Ding-dong]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Burthen",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Ding-dong]",
+          "start": 0.78,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09005799144506454
+    },
+    {
+      "asr_seconds": 0.09522636979818344,
+      "alignment_seconds": 6.946921348571777e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Burthen, Ding-dong"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Burthen, Ding-dong",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Burthen,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.3079986572265625
+            },
+            {
+              "text": " Ding",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.53466796875
+            },
+            {
+              "text": "-dong",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.3997090657552083
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Burthen,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Ding",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "-dong",
+          "start": 0.94,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[Burthen",
+        "Ding-dong]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Burthen",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Ding-dong]",
+          "start": 0.78,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09532091021537781
+    },
+    {
+      "asr_seconds": 0.09410741925239563,
+      "alignment_seconds": 8.803606033325195e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " birth and ding dong",
+          "start": 0.08,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " birth",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.08489990234375
+            },
+            {
+              "text": " and",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " ding",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " dong",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.8701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "birth",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "and",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "ding",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "dong",
+          "start": 0.94,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "[Burthen",
+        "Ding-dong]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Burthen",
+          "start": 0.0,
+          "end": 0.63
+        },
+        {
+          "text": "Ding-dong]",
+          "start": 0.63,
+          "end": 0.945
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09422910213470459
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "191d520a967cdf1c7cec62c2378bb30458dd53971cc5ea347c9d95c6257b5cf7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

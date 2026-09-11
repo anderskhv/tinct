@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "67138352b57ed93673a02fd186f17fc220d967b015adb2c3efe97ab8f186bf8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11613807827234268,
+      "alignment_seconds": 7.970631122589111e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Those were not his words, rejoined Polemarchus.",
+        "hotwords": "Those, Polemarchus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Those were not his words, rejoined Polemarchus.",
+          "start": 0.02,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Those",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " were",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 0.94,
+              "end": 1.08,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " words,",
+              "start": 1.08,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rejoined",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " Polemarchus.",
+              "start": 2.18,
+              "end": 2.88,
+              "probability": 0.5409927368164062
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Those",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "were",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "not",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "his",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "raw": "words,",
+          "start": 1.08,
+          "end": 1.46
+        },
+        {
+          "raw": "rejoined",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "Polemarchus.",
+          "start": 2.18,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "Those",
+        "were",
+        "not",
+        "his",
+        "words,",
+        "rejoined",
+        "Polemarchus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Those",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "were",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "text": "not",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "his",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "text": "words,",
+          "start": 1.08,
+          "end": 1.46
+        },
+        {
+          "text": "rejoined",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "Polemarchus.",
+          "start": 2.18,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11625179648399353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e085d95541306e3ccfc105b0cd9639a07c858e0a90901fdc8a193ed0f7f080b1",
+  "selected_reasons": []
+}

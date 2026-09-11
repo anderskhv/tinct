@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "4a876a1757df5ebc76eeca58a7905f89a2252877667bc184f10e9c1ffb4a774e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17490796744823456,
+      "alignment_seconds": 9.141862392425537e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 104. Not their love of humanity, but the impotence of their love, prevents the Christians of today burning us.",
+          "start": 0.02,
+          "end": 7.58,
+          "words": [
+            {
+              "text": " 104.",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Not",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " their",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.982421875
+            },
+            {
+              "text": " love",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " humanity,",
+              "start": 2.66,
+              "end": 3.06,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " but",
+              "start": 3.54,
+              "end": 3.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " impotence",
+              "start": 3.8,
+              "end": 4.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 4.36,
+              "end": 4.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 4.48,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " love,",
+              "start": 4.64,
+              "end": 5.04,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " prevents",
+              "start": 5.38,
+              "end": 5.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 5.74,
+              "end": 6.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Christians",
+              "start": 6.04,
+              "end": 6.38,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 6.38,
+              "end": 6.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " today",
+              "start": 6.68,
+              "end": 6.88,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " burning",
+              "start": 6.88,
+              "end": 7.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " us.",
+              "start": 7.26,
+              "end": 7.58,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "104.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "Not",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "their",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "love",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "humanity,",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "raw": "but",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "impotence",
+          "start": 3.8,
+          "end": 4.36
+        },
+        {
+          "raw": "of",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "raw": "their",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "raw": "love,",
+          "start": 4.64,
+          "end": 5.04
+        },
+        {
+          "raw": "prevents",
+          "start": 5.38,
+          "end": 5.74
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "raw": "Christians",
+          "start": 6.04,
+          "end": 6.38
+        },
+        {
+          "raw": "of",
+          "start": 6.38,
+          "end": 6.68
+        },
+        {
+          "raw": "today",
+          "start": 6.68,
+          "end": 6.88
+        },
+        {
+          "raw": "burning",
+          "start": 6.88,
+          "end": 7.26
+        },
+        {
+          "raw": "us.",
+          "start": 7.26,
+          "end": 7.58
+        }
+      ],
+      "expected_tokens": [
+        "104.",
+        "Not",
+        "their",
+        "love",
+        "of",
+        "humanity,",
+        "but",
+        "the",
+        "impotence",
+        "of",
+        "their",
+        "love,",
+        "prevents",
+        "the",
+        "Christians",
+        "of",
+        "today--burning",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "104.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "Not",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "their",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "love",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "of",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "humanity,",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "text": "but",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "text": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "impotence",
+          "start": 3.8,
+          "end": 4.36
+        },
+        {
+          "text": "of",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "text": "their",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "text": "love,",
+          "start": 4.64,
+          "end": 5.04
+        },
+        {
+          "text": "prevents",
+          "start": 5.38,
+          "end": 5.74
+        },
+        {
+          "text": "the",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "text": "Christians",
+          "start": 6.04,
+          "end": 6.38
+        },
+        {
+          "text": "of",
+          "start": 6.38,
+          "end": 6.68
+        },
+        {
+          "text": "today--burning",
+          "start": 6.68,
+          "end": 6.97
+        },
+        {
+          "text": "us.",
+          "start": 7.26,
+          "end": 7.58
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.17503807693719864
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f3ded0baac513b8665fc5a28bd7cf5a7f97be129ae8c988b33eee653404d4c6d",
+  "selected_reasons": []
+}

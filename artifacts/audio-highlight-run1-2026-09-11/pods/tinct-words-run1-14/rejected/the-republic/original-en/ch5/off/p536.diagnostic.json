@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "68ad0f4e090cd1e207609fc46a2bd7409abad537d96252fd48e4ab439748af59",
+  "attempts": [
+    {
+      "asr_seconds": 0.07213994860649109,
+      "alignment_seconds": 5.2519142627716064e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There has.",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " has.",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "has.",
+          "start": 0.57,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "has."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "has.",
+          "start": 0.57,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07221105694770813
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a258931a56e5e1f5f26021b94bd7cd05e58f1c0a6dca06623ee32b13dde6b679",
+  "selected_reasons": []
+}

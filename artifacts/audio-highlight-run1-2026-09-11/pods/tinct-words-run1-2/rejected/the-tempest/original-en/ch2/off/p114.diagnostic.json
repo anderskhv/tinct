@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "8f0f447c4a069d29ff08b8ea39ad872b0543c3e5c99ee7b0c32362964df8b258",
+  "attempts": [
+    {
+      "asr_seconds": 0.07824971526861191,
+      "alignment_seconds": 8.110702037811279e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Caliban.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Caliban.",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.89794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Caliban.",
+          "start": 0.65,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Caliban]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Caliban]",
+          "start": 0.65,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0783545970916748
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3649236915a2dcdb5860158f65d5df162851824e8306f6e129dae09ce2605a17",
+  "selected_reasons": []
+}

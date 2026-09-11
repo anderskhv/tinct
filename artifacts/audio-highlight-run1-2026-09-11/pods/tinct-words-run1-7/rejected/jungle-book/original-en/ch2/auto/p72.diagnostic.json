@@ -1,0 +1,846 @@
+{
+  "complete": true,
+  "signature": "dae79c92c087aedc934c9639be8b5e69971d8f7e042afa9074634aa50c1e8a31",
+  "attempts": [
+    {
+      "asr_seconds": 0.1435900591313839,
+      "alignment_seconds": 9.579304605722427e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Footless, yellow earth-worm,\" said Bagheera under his whiskers, as though he were trying to remember something.",
+        "hotwords": "Footless, Bagheera"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Footless, yellow earth-worm, said Bagheera under his whiskers, as though he were trying to remember something.",
+          "start": 0.08,
+          "end": 6.42,
+          "words": [
+            {
+              "text": " Footless,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.614501953125
+            },
+            {
+              "text": " yellow",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " earth",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.71240234375
+            },
+            {
+              "text": "-worm,",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.4985370635986328
+            },
+            {
+              "text": " said",
+              "start": 2.58,
+              "end": 2.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Bagheera",
+              "start": 2.84,
+              "end": 3.36,
+              "probability": 0.9798177083333334
+            },
+            {
+              "text": " under",
+              "start": 3.36,
+              "end": 3.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " his",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whiskers,",
+              "start": 3.76,
+              "end": 4.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 4.7,
+              "end": 4.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " though",
+              "start": 4.82,
+              "end": 5.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 5.0,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 5.14,
+              "end": 5.24,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " trying",
+              "start": 5.24,
+              "end": 5.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.5,
+              "end": 5.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remember",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " something.",
+              "start": 5.98,
+              "end": 6.42,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Footless,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "yellow",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "earth",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "-worm,",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "said",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "raw": "Bagheera",
+          "start": 2.84,
+          "end": 3.36
+        },
+        {
+          "raw": "under",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "raw": "his",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "whiskers,",
+          "start": 3.76,
+          "end": 4.3
+        },
+        {
+          "raw": "as",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "raw": "though",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "raw": "he",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "raw": "were",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "raw": "trying",
+          "start": 5.24,
+          "end": 5.5
+        },
+        {
+          "raw": "to",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "raw": "remember",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "something.",
+          "start": 5.98,
+          "end": 6.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Footless,",
+        "yellow",
+        "earth-worm,\"",
+        "said",
+        "Bagheera",
+        "under",
+        "his",
+        "whiskers,",
+        "as",
+        "though",
+        "he",
+        "were",
+        "trying",
+        "to",
+        "remember",
+        "something."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          16,
+          4,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Footless,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "yellow",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "earth-worm,\"",
+          "start": 1.48,
+          "end": 2.03
+        },
+        {
+          "text": "said",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "text": "Bagheera",
+          "start": 2.84,
+          "end": 3.36
+        },
+        {
+          "text": "under",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "text": "his",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "whiskers,",
+          "start": 3.76,
+          "end": 4.3
+        },
+        {
+          "text": "as",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "text": "though",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "text": "he",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "text": "were",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "text": "trying",
+          "start": 5.24,
+          "end": 5.5
+        },
+        {
+          "text": "to",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "text": "remember",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "text": "something.",
+          "start": 5.98,
+          "end": 6.42
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.1437280410900712
+    },
+    {
+      "asr_seconds": 0.18507232889533043,
+      "alignment_seconds": 8.723512291908264e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Footless, Bagheera"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Footless, yellow earthworm, said Bagheera under his whiskers, as though he were trying",
+          "start": 0.08,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Footless,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.614501953125
+            },
+            {
+              "text": " yellow",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " earthworm,",
+              "start": 1.48,
+              "end": 2.18,
+              "probability": 0.783935546875
+            },
+            {
+              "text": " said",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Bagheera",
+              "start": 2.84,
+              "end": 3.36,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " under",
+              "start": 3.36,
+              "end": 3.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " his",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whiskers,",
+              "start": 3.76,
+              "end": 4.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 4.7,
+              "end": 4.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " though",
+              "start": 4.82,
+              "end": 5.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 5.0,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 5.14,
+              "end": 5.24,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " trying",
+              "start": 5.24,
+              "end": 5.5,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " to remember something.",
+          "start": 5.5,
+          "end": 6.42,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.5,
+              "end": 5.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remember",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " something.",
+              "start": 5.98,
+              "end": 6.42,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Footless,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "yellow",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "earthworm,",
+          "start": 1.48,
+          "end": 2.18
+        },
+        {
+          "raw": "said",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "raw": "Bagheera",
+          "start": 2.84,
+          "end": 3.36
+        },
+        {
+          "raw": "under",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "raw": "his",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "whiskers,",
+          "start": 3.76,
+          "end": 4.3
+        },
+        {
+          "raw": "as",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "raw": "though",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "raw": "he",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "raw": "were",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "raw": "trying",
+          "start": 5.24,
+          "end": 5.5
+        },
+        {
+          "raw": "to",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "raw": "remember",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "something.",
+          "start": 5.98,
+          "end": 6.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Footless,",
+        "yellow",
+        "earth-worm,\"",
+        "said",
+        "Bagheera",
+        "under",
+        "his",
+        "whiskers,",
+        "as",
+        "though",
+        "he",
+        "were",
+        "trying",
+        "to",
+        "remember",
+        "something."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Footless,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "yellow",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "earth-worm,\"",
+          "start": 1.48,
+          "end": 2.18
+        },
+        {
+          "text": "said",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "text": "Bagheera",
+          "start": 2.84,
+          "end": 3.36
+        },
+        {
+          "text": "under",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "text": "his",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "whiskers,",
+          "start": 3.76,
+          "end": 4.3
+        },
+        {
+          "text": "as",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "text": "though",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "text": "he",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "text": "were",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "text": "trying",
+          "start": 5.24,
+          "end": 5.5
+        },
+        {
+          "text": "to",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "text": "remember",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "text": "something.",
+          "start": 5.98,
+          "end": 6.42
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18520193733274937
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "e8cdeef5a96d202a11211f1874e7d3697a1fd7fd6c7a22b9057faa5ad67a0268",
+  "selected_reasons": []
+}

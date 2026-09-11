@@ -1,0 +1,384 @@
+{
+  "complete": true,
+  "signature": "dcbc34414add6a58487ca8e9e627d0ea25973a958ee40e0e09b18f73a9c27c55",
+  "attempts": [
+    {
+      "asr_seconds": 0.150258868932724,
+      "alignment_seconds": 0.00019388494547456503,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, I the name of something holy, sir. Why stand you in this strange stare?",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " I",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " the",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.958984375
+            },
+            {
+              "text": " name",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " something",
+              "start": 1.97,
+              "end": 2.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " holy,",
+              "start": 2.19,
+              "end": 2.51,
+              "probability": 0.93359375
+            },
+            {
+              "text": " sir.",
+              "start": 2.77,
+              "end": 2.85,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " Why",
+              "start": 3.27,
+              "end": 3.37,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " stand",
+              "start": 3.37,
+              "end": 3.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 3.89,
+              "end": 3.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " strange",
+              "start": 4.13,
+              "end": 4.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stare?",
+              "start": 4.47,
+              "end": 4.83,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "name",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "of",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "something",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "raw": "holy,",
+          "start": 2.19,
+          "end": 2.51
+        },
+        {
+          "raw": "sir.",
+          "start": 2.77,
+          "end": 2.85
+        },
+        {
+          "raw": "Why",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "raw": "stand",
+          "start": 3.37,
+          "end": 3.67
+        },
+        {
+          "raw": "you",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "in",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "raw": "this",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "strange",
+          "start": 4.13,
+          "end": 4.47
+        },
+        {
+          "raw": "stare?",
+          "start": 4.47,
+          "end": 4.83
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "I'",
+        "the",
+        "name",
+        "of",
+        "something",
+        "holy,",
+        "sir,",
+        "why",
+        "stand",
+        "you",
+        "In",
+        "this",
+        "strange",
+        "stare?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "I'",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "the",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "name",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "of",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "something",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "text": "holy,",
+          "start": 2.19,
+          "end": 2.51
+        },
+        {
+          "text": "sir,",
+          "start": 2.77,
+          "end": 2.85
+        },
+        {
+          "text": "why",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "text": "stand",
+          "start": 3.37,
+          "end": 3.67
+        },
+        {
+          "text": "you",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "In",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "text": "this",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "strange",
+          "start": 4.13,
+          "end": 4.47
+        },
+        {
+          "text": "stare?",
+          "start": 4.47,
+          "end": 4.83
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15055752696935087
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "351c05afb234ea6a5f32fc98a6465ec0100e9e678b7148958127e913abc80708",
+  "selected_reasons": []
+}

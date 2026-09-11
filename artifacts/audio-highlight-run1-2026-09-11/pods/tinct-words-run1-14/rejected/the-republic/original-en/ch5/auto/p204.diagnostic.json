@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "0938b1d74b90119413e21e260a18f83294375f7bc01f3685a41a622236df9e61",
+  "attempts": [
+    {
+      "asr_seconds": 0.23843453079462051,
+      "alignment_seconds": 0.00012070685625076294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That also, he said, is a reasonable proposition. But how will they know who are fathers and daughters, and so on?",
+        "hotwords": "That, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That also, he said, is a reasonable proposition. But how will they know who are fathers and daughters, and so on?",
+          "start": 0.02,
+          "end": 7.22,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " also,",
+              "start": 0.52,
+              "end": 0.9,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " he",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.984375
+            },
+            {
+              "text": " said,",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.97265625
+            },
+            {
+              "text": " a",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " reasonable",
+              "start": 2.22,
+              "end": 2.64,
+              "probability": 0.953125
+            },
+            {
+              "text": " proposition.",
+              "start": 2.64,
+              "end": 3.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " But",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.990234375
+            },
+            {
+              "text": " how",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " will",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " they",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 4.7,
+              "end": 4.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " who",
+              "start": 4.94,
+              "end": 5.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 5.16,
+              "end": 5.28,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " fathers",
+              "start": 5.28,
+              "end": 5.62,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " and",
+              "start": 5.62,
+              "end": 5.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " daughters,",
+              "start": 5.94,
+              "end": 6.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 6.52,
+              "end": 6.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 6.68,
+              "end": 6.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on?",
+              "start": 6.88,
+              "end": 7.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "also,",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "raw": "he",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "said,",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "raw": "is",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "reasonable",
+          "start": 2.22,
+          "end": 2.64
+        },
+        {
+          "raw": "proposition.",
+          "start": 2.64,
+          "end": 3.3
+        },
+        {
+          "raw": "But",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "how",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "will",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "they",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "know",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "raw": "who",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "raw": "are",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "raw": "fathers",
+          "start": 5.28,
+          "end": 5.62
+        },
+        {
+          "raw": "and",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "raw": "daughters,",
+          "start": 5.94,
+          "end": 6.24
+        },
+        {
+          "raw": "and",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "raw": "so",
+          "start": 6.68,
+          "end": 6.88
+        },
+        {
+          "raw": "on?",
+          "start": 6.88,
+          "end": 7.22
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "also,",
+        "he",
+        "said,",
+        "is",
+        "a",
+        "reasonable",
+        "proposition.",
+        "But",
+        "how",
+        "will",
+        "they",
+        "know",
+        "who",
+        "are",
+        "fathers",
+        "and",
+        "daughters,",
+        "and",
+        "so",
+        "on?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "also,",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "text": "he",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "said,",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "text": "is",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "a",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "reasonable",
+          "start": 2.22,
+          "end": 2.64
+        },
+        {
+          "text": "proposition.",
+          "start": 2.64,
+          "end": 3.3
+        },
+        {
+          "text": "But",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "how",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "will",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "they",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "know",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "text": "who",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "text": "are",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "text": "fathers",
+          "start": 5.28,
+          "end": 5.62
+        },
+        {
+          "text": "and",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "text": "daughters,",
+          "start": 5.94,
+          "end": 6.24
+        },
+        {
+          "text": "and",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "text": "so",
+          "start": 6.68,
+          "end": 6.88
+        },
+        {
+          "text": "on?",
+          "start": 6.88,
+          "end": 7.22
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2386271432042122
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8720a8304fdac5244f952f0fb12a525daf22dd6683feec6a7a45ee5d4ebf3397",
+  "selected_reasons": []
+}

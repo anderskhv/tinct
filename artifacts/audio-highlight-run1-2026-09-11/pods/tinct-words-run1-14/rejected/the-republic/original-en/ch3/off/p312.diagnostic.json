@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "6ca77e1a47a91037cdeaa15a9baa664ba1209631205c955a847fbe5a8189f57f",
+  "attempts": [
+    {
+      "asr_seconds": 0.081441231071949,
+      "alignment_seconds": 5.597621202468872e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I do.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " do.",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "do.",
+          "start": 0.9,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "do.",
+          "start": 0.9,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08151889592409134
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f5fc9e85f4b92d88a08800d277e288d085d5e321f637a9e45f1ed0a46bc71781",
+  "selected_reasons": []
+}

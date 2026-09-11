@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "d7867079300530e79d3ea053286e24440acd5aa030d74b4cc231cdaa6904afd7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12161103100515902,
+      "alignment_seconds": 0.00012749491725116968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. Now, good angels Preserve the king.",
+        "hotwords": "Gonzalo, Now, Preserve"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, Now, good angels Preserve the king.",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " Now,",
+              "start": 1.45,
+              "end": 1.53,
+              "probability": 0.0173797607421875
+            },
+            {
+              "text": " good",
+              "start": 1.73,
+              "end": 1.77,
+              "probability": 0.67578125
+            },
+            {
+              "text": " angels",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " Preserve",
+              "start": 2.05,
+              "end": 2.57,
+              "probability": 0.5177459716796875
+            },
+            {
+              "text": " the",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.93359375
+            },
+            {
+              "text": " king.",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.69580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Now,",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "raw": "good",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "raw": "angels",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "Preserve",
+          "start": 2.05,
+          "end": 2.57
+        },
+        {
+          "raw": "the",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "king.",
+          "start": 2.71,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Now,",
+        "good",
+        "angels",
+        "Preserve",
+        "the",
+        "king."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Now,",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "text": "good",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "text": "angels",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "Preserve",
+          "start": 2.05,
+          "end": 2.57
+        },
+        {
+          "text": "the",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "king.",
+          "start": 2.71,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12179269804619253
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a53483851d0f4449ad1f02f5082ef019b37a39c1b91a2ab51d7b197dd083f2dd",
+  "selected_reasons": []
+}

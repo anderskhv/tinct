@@ -1,0 +1,650 @@
+{
+  "complete": true,
+  "signature": "6df1f6dbd2e2bc4cf1e4b9c13a151763ce0bc1c63535746b19b82a5c0f844f87",
+  "attempts": [
+    {
+      "asr_seconds": 0.2667132318019867,
+      "alignment_seconds": 0.00017439574003219604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Whereas the thinking mind, intending to light up the chaos, was compelled to reverse the process, and look at small and great as separate and not confused.",
+        "hotwords": "Whereas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Whereas the thinking mind, intending to light up the chaos, was compelled to reverse the process, and look at small and great as separate and not confused.",
+          "start": 0.02,
+          "end": 9.52,
+          "words": [
+            {
+              "text": " Whereas",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " the",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.8515625
+            },
+            {
+              "text": " thinking",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " mind,",
+              "start": 1.16,
+              "end": 1.7,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " intending",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " light",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " the",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " chaos,",
+              "start": 3.14,
+              "end": 3.48,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " was",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " compelled",
+              "start": 4.18,
+              "end": 4.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.56,
+              "end": 4.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reverse",
+              "start": 4.82,
+              "end": 5.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.1,
+              "end": 5.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " process,",
+              "start": 5.36,
+              "end": 5.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.4,
+              "end": 6.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " look",
+              "start": 6.5,
+              "end": 6.66,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " at",
+              "start": 6.66,
+              "end": 6.82,
+              "probability": 0.98828125
+            },
+            {
+              "text": " small",
+              "start": 6.82,
+              "end": 7.18,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 7.18,
+              "end": 7.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " great",
+              "start": 7.48,
+              "end": 7.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 7.78,
+              "end": 8.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " separate",
+              "start": 8.0,
+              "end": 8.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 8.4,
+              "end": 8.82,
+              "probability": 0.705078125
+            },
+            {
+              "text": " not",
+              "start": 8.82,
+              "end": 9.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " confused.",
+              "start": 9.06,
+              "end": 9.52,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whereas",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "the",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "thinking",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "mind,",
+          "start": 1.16,
+          "end": 1.7
+        },
+        {
+          "raw": "intending",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "raw": "light",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "up",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "chaos,",
+          "start": 3.14,
+          "end": 3.48
+        },
+        {
+          "raw": "was",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "compelled",
+          "start": 4.18,
+          "end": 4.56
+        },
+        {
+          "raw": "to",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "raw": "reverse",
+          "start": 4.82,
+          "end": 5.1
+        },
+        {
+          "raw": "the",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "raw": "process,",
+          "start": 5.36,
+          "end": 5.8
+        },
+        {
+          "raw": "and",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "raw": "look",
+          "start": 6.5,
+          "end": 6.66
+        },
+        {
+          "raw": "at",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "raw": "small",
+          "start": 6.82,
+          "end": 7.18
+        },
+        {
+          "raw": "and",
+          "start": 7.18,
+          "end": 7.48
+        },
+        {
+          "raw": "great",
+          "start": 7.48,
+          "end": 7.78
+        },
+        {
+          "raw": "as",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "raw": "separate",
+          "start": 8.0,
+          "end": 8.4
+        },
+        {
+          "raw": "and",
+          "start": 8.4,
+          "end": 8.82
+        },
+        {
+          "raw": "not",
+          "start": 8.82,
+          "end": 9.06
+        },
+        {
+          "raw": "confused.",
+          "start": 9.06,
+          "end": 9.52
+        }
+      ],
+      "expected_tokens": [
+        "Whereas",
+        "the",
+        "thinking",
+        "mind,",
+        "intending",
+        "to",
+        "light",
+        "up",
+        "the",
+        "chaos,",
+        "was",
+        "compelled",
+        "to",
+        "reverse",
+        "the",
+        "process,",
+        "and",
+        "look",
+        "at",
+        "small",
+        "and",
+        "great",
+        "as",
+        "separate",
+        "and",
+        "not",
+        "confused."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Whereas",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "the",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "thinking",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "mind,",
+          "start": 1.16,
+          "end": 1.7
+        },
+        {
+          "text": "intending",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "text": "light",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "up",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "the",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "chaos,",
+          "start": 3.14,
+          "end": 3.48
+        },
+        {
+          "text": "was",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "compelled",
+          "start": 4.18,
+          "end": 4.56
+        },
+        {
+          "text": "to",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "text": "reverse",
+          "start": 4.82,
+          "end": 5.1
+        },
+        {
+          "text": "the",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "text": "process,",
+          "start": 5.36,
+          "end": 5.8
+        },
+        {
+          "text": "and",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "text": "look",
+          "start": 6.5,
+          "end": 6.66
+        },
+        {
+          "text": "at",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "text": "small",
+          "start": 6.82,
+          "end": 7.18
+        },
+        {
+          "text": "and",
+          "start": 7.18,
+          "end": 7.48
+        },
+        {
+          "text": "great",
+          "start": 7.48,
+          "end": 7.78
+        },
+        {
+          "text": "as",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "text": "separate",
+          "start": 8.0,
+          "end": 8.4
+        },
+        {
+          "text": "and",
+          "start": 8.4,
+          "end": 8.82
+        },
+        {
+          "text": "not",
+          "start": 8.82,
+          "end": 9.06
+        },
+        {
+          "text": "confused.",
+          "start": 9.06,
+          "end": 9.52
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26698219031095505
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "03b8c284d4f78dcd00977ca56ebb8498deb6b5d727cc1a4576ed99a5284c8ddc",
+  "selected_reasons": []
+}

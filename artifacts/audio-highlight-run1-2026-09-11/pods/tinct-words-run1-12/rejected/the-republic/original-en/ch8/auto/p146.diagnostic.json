@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "b11b78869238f94895bfc4a6f4be385cc9324656a1e816a19803a76084f16a80",
+  "attempts": [
+    {
+      "asr_seconds": 0.12874265713617206,
+      "alignment_seconds": 0.00013460777699947357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Let us then consider whether there is any likeness between them.",
+        "hotwords": "Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Let us then consider whether there is any likeness between them.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " us",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " then",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.94140625
+            },
+            {
+              "text": " consider",
+              "start": 0.95,
+              "end": 1.49,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " whether",
+              "start": 1.49,
+              "end": 1.93,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " there",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " likeness",
+              "start": 2.55,
+              "end": 2.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " between",
+              "start": 2.95,
+              "end": 3.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them.",
+              "start": 3.35,
+              "end": 3.65,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "us",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "then",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "consider",
+          "start": 0.95,
+          "end": 1.49
+        },
+        {
+          "raw": "whether",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "raw": "there",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "any",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "likeness",
+          "start": 2.55,
+          "end": 2.95
+        },
+        {
+          "raw": "between",
+          "start": 2.95,
+          "end": 3.35
+        },
+        {
+          "raw": "them.",
+          "start": 3.35,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Let",
+        "us",
+        "then",
+        "consider",
+        "whether",
+        "there",
+        "is",
+        "any",
+        "likeness",
+        "between",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Let",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "us",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "then",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "consider",
+          "start": 0.95,
+          "end": 1.49
+        },
+        {
+          "text": "whether",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "text": "there",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "is",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "any",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "likeness",
+          "start": 2.55,
+          "end": 2.95
+        },
+        {
+          "text": "between",
+          "start": 2.95,
+          "end": 3.35
+        },
+        {
+          "text": "them.",
+          "start": 3.35,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12893003411591053
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b2cf9a83786d6c849b042630ee6c6e0f3490cb5fa62aaad7755f9d1eb47da23e",
+  "selected_reasons": []
+}

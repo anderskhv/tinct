@@ -1,0 +1,595 @@
+{
+  "complete": true,
+  "signature": "a4eaebb28885f9d63711f89a85137ab379e88e943ac74f60a0021aadfc8996fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.25405803322792053,
+      "alignment_seconds": 0.00036787986755371094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Libertas pauperis heek est.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Libertas",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.745361328125
+            },
+            {
+              "text": " pauperis",
+              "start": 0.91,
+              "end": 1.47,
+              "probability": 0.817626953125
+            },
+            {
+              "text": " heek",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.3463134765625
+            },
+            {
+              "text": " est.",
+              "start": 1.77,
+              "end": 2.09,
+              "probability": 0.7666015625
+            }
+          ]
+        },
+        {
+          "text": " Pulsatus rauget, et pugnes consisis, adorat, ut lyset pausis cum dentibus into reverti.",
+          "start": 2.73,
+          "end": 8.97,
+          "words": [
+            {
+              "text": " Pulsatus",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.5752766927083334
+            },
+            {
+              "text": " rauget,",
+              "start": 3.11,
+              "end": 3.63,
+              "probability": 0.5171305338541666
+            },
+            {
+              "text": " et",
+              "start": 4.07,
+              "end": 4.17,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " pugnes",
+              "start": 4.17,
+              "end": 4.57,
+              "probability": 0.7981770833333334
+            },
+            {
+              "text": " consisis,",
+              "start": 4.57,
+              "end": 5.35,
+              "probability": 0.5352376302083334
+            },
+            {
+              "text": " adorat,",
+              "start": 5.71,
+              "end": 6.17,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " ut",
+              "start": 6.51,
+              "end": 6.57,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " lyset",
+              "start": 6.57,
+              "end": 7.01,
+              "probability": 0.6134440104166666
+            },
+            {
+              "text": " pausis",
+              "start": 7.01,
+              "end": 7.45,
+              "probability": 0.5086669921875
+            },
+            {
+              "text": " cum",
+              "start": 7.45,
+              "end": 7.63,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " dentibus",
+              "start": 7.63,
+              "end": 8.19,
+              "probability": 0.930908203125
+            },
+            {
+              "text": " into",
+              "start": 8.19,
+              "end": 8.43,
+              "probability": 0.261474609375
+            },
+            {
+              "text": " reverti.",
+              "start": 8.43,
+              "end": 8.97,
+              "probability": 0.443603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Libertas",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "pauperis",
+          "start": 0.91,
+          "end": 1.47
+        },
+        {
+          "raw": "heek",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "raw": "est.",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "raw": "Pulsatus",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "rauget,",
+          "start": 3.11,
+          "end": 3.63
+        },
+        {
+          "raw": "et",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "raw": "pugnes",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "raw": "consisis,",
+          "start": 4.57,
+          "end": 5.35
+        },
+        {
+          "raw": "adorat,",
+          "start": 5.71,
+          "end": 6.17
+        },
+        {
+          "raw": "ut",
+          "start": 6.51,
+          "end": 6.57
+        },
+        {
+          "raw": "lyset",
+          "start": 6.57,
+          "end": 7.01
+        },
+        {
+          "raw": "pausis",
+          "start": 7.01,
+          "end": 7.45
+        },
+        {
+          "raw": "cum",
+          "start": 7.45,
+          "end": 7.63
+        },
+        {
+          "raw": "dentibus",
+          "start": 7.63,
+          "end": 8.19
+        },
+        {
+          "raw": "into",
+          "start": 8.19,
+          "end": 8.43
+        },
+        {
+          "raw": "reverti.",
+          "start": 8.43,
+          "end": 8.97
+        }
+      ],
+      "expected_tokens": [
+        "/*[4]",
+        "-----Libertas",
+        "pauperis",
+        "haec",
+        "est:",
+        "Pulsatus",
+        "rogat,",
+        "et",
+        "pugnis",
+        "concisus,",
+        "adorat,",
+        "Ut",
+        "liceat",
+        "paucis",
+        "cum",
+        "dentibus",
+        "inde",
+        "reverti.",
+        "*/"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          3,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "equal",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          10,
+          7,
+          9
+        ],
+        [
+          "equal",
+          10,
+          12,
+          9,
+          11
+        ],
+        [
+          "replace",
+          12,
+          14,
+          11,
+          13
+        ],
+        [
+          "equal",
+          14,
+          16,
+          13,
+          15
+        ],
+        [
+          "replace",
+          16,
+          17,
+          15,
+          16
+        ],
+        [
+          "equal",
+          17,
+          18,
+          16,
+          17
+        ],
+        [
+          "delete",
+          18,
+          19,
+          17,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          8,
+          10,
+          7,
+          9
+        ],
+        [
+          "replace",
+          12,
+          14,
+          11,
+          13
+        ],
+        [
+          "replace",
+          16,
+          17,
+          15,
+          16
+        ],
+        [
+          "delete",
+          18,
+          19,
+          17,
+          17
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "/*[4]",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "-----Libertas",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "pauperis",
+          "start": 0.91,
+          "end": 1.47
+        },
+        {
+          "text": "haec",
+          "start": 1.47,
+          "end": 1.62
+        },
+        {
+          "text": "est:",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "text": "Pulsatus",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "rogat,",
+          "start": 3.11,
+          "end": 3.59
+        },
+        {
+          "text": "et",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "text": "pugnis",
+          "start": 4.17,
+          "end": 4.94
+        },
+        {
+          "text": "concisus,",
+          "start": 4.94,
+          "end": 5.325
+        },
+        {
+          "text": "adorat,",
+          "start": 5.71,
+          "end": 6.17
+        },
+        {
+          "text": "Ut",
+          "start": 6.51,
+          "end": 6.57
+        },
+        {
+          "text": "liceat",
+          "start": 6.57,
+          "end": 7.01
+        },
+        {
+          "text": "paucis",
+          "start": 7.01,
+          "end": 7.23
+        },
+        {
+          "text": "cum",
+          "start": 7.45,
+          "end": 7.63
+        },
+        {
+          "text": "dentibus",
+          "start": 7.63,
+          "end": 8.19
+        },
+        {
+          "text": "inde",
+          "start": 8.19,
+          "end": 8.31
+        },
+        {
+          "text": "reverti.",
+          "start": 8.43,
+          "end": 8.97
+        },
+        {
+          "text": "*/",
+          "start": 8.97,
+          "end": 8.97
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 17,
+        "matched_words": 10
+      },
+      "match_ratio": 0.5263157894736842,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2545328363776207
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c36e1469c2020f617518d1f797d2b1990660189dd20c57041c962591a5d925d8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

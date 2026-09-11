@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "d0d3410fe0864f930c310cbcd04b4c47a28c894dffc974b50f465c2b564f6eed",
+  "attempts": [
+    {
+      "asr_seconds": 0.802304373937659,
+      "alignment_seconds": 0.00010446307715028524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. What is this same?",
+        "hotwords": "Stephano, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, What is this same?",
+          "start": 0.11,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.11,
+              "end": 0.95,
+              "probability": 0.49864959716796875
+            },
+            {
+              "text": " What",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.00966644287109375
+            },
+            {
+              "text": " is",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " this",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.943359375
+            },
+            {
+              "text": " same?",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.11,
+          "end": 0.95
+        },
+        {
+          "raw": "What",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "this",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "same?",
+          "start": 1.65,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "What",
+        "is",
+        "this",
+        "same?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.11,
+          "end": 0.95
+        },
+        {
+          "text": "What",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "is",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "this",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "same?",
+          "start": 1.65,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8024377069668844
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4b71ed4d775ef678f674beb5b885c0099ea61f28cc8353c4a6baf1e4e8bbb5d0",
+  "selected_reasons": []
+}

@@ -1,0 +1,311 @@
+{
+  "complete": true,
+  "signature": "cc00e5175082199ab4bc2c5045c74f551874dc070641e6fe1ceba863a188bfd2",
+  "attempts": [
+    {
+      "asr_seconds": 0.13413613103330135,
+      "alignment_seconds": 0.00015698501374572515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stefano, as you like this, give me the lie another time.",
+          "start": 0.08,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Stefano,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " as",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this,",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " give",
+              "start": 2.32,
+              "end": 2.36,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " me",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " lie",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " another",
+              "start": 2.82,
+              "end": 3.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " time.",
+              "start": 3.12,
+              "end": 3.62,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stefano,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "as",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "you",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "like",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "this,",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "give",
+          "start": 2.32,
+          "end": 2.36
+        },
+        {
+          "raw": "me",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "lie",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "another",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "raw": "time.",
+          "start": 3.12,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "As",
+        "you",
+        "like",
+        "this,",
+        "give",
+        "me",
+        "the",
+        "lie",
+        "another",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "As",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "you",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "like",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "this,",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "give",
+          "start": 2.32,
+          "end": 2.36
+        },
+        {
+          "text": "me",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "lie",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "another",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "text": "time.",
+          "start": 3.12,
+          "end": 3.62
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.13436483801342547
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "04cf0329a58236fbcbcf3328cd7e17b000e283c0688e77ba5ee91da3cc150ca9",
+  "selected_reasons": []
+}

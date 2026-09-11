@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "cb4170ca8553779aa88a095c62c37e406c75b6da5df4103d374a2e87a2f79ae1",
+  "attempts": [
+    {
+      "asr_seconds": 0.16283074021339417,
+      "alignment_seconds": 0.0001800060272216797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. The fringed curtains of thine eye advance And say what thou seest yond.",
+        "hotwords": "Prospero, The, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, The fringed curtains of thine eye advance And say what thou seest yond.",
+          "start": 0.02,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.888916015625
+            },
+            {
+              "text": " The",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.10345458984375
+            },
+            {
+              "text": " fringed",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " curtains",
+              "start": 1.84,
+              "end": 2.2,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " of",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thine",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " eye",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " advance",
+              "start": 2.78,
+              "end": 3.18,
+              "probability": 0.765625
+            },
+            {
+              "text": " And",
+              "start": 3.18,
+              "end": 3.62,
+              "probability": 0.242919921875
+            },
+            {
+              "text": " say",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " what",
+              "start": 3.82,
+              "end": 4.0,
+              "probability": 0.94921875
+            },
+            {
+              "text": " thou",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " seest",
+              "start": 4.18,
+              "end": 4.6,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " yond.",
+              "start": 4.6,
+              "end": 4.92,
+              "probability": 0.5899658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "The",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "fringed",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "raw": "curtains",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "raw": "of",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "thine",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "eye",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "advance",
+          "start": 2.78,
+          "end": 3.18
+        },
+        {
+          "raw": "And",
+          "start": 3.18,
+          "end": 3.62
+        },
+        {
+          "raw": "say",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "what",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "raw": "thou",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "seest",
+          "start": 4.18,
+          "end": 4.6
+        },
+        {
+          "raw": "yond.",
+          "start": 4.6,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "The",
+        "fringed",
+        "curtains",
+        "of",
+        "thine",
+        "eye",
+        "advance",
+        "And",
+        "say",
+        "what",
+        "thou",
+        "seest",
+        "yond."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "text": "The",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "fringed",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "text": "curtains",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "text": "of",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "thine",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "eye",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "advance",
+          "start": 2.78,
+          "end": 3.18
+        },
+        {
+          "text": "And",
+          "start": 3.18,
+          "end": 3.62
+        },
+        {
+          "text": "say",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "what",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "text": "thou",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "seest",
+          "start": 4.18,
+          "end": 4.6
+        },
+        {
+          "text": "yond.",
+          "start": 4.6,
+          "end": 4.92
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16308945417404175
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b9297c19b8bae776b81a17daf8e84a316f09e94fe238a5770b101a519f7e943e",
+  "selected_reasons": []
+}

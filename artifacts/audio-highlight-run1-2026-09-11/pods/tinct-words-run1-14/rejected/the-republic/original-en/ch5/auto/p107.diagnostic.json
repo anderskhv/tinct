@@ -1,0 +1,657 @@
+{
+  "complete": true,
+  "signature": "411e45c5eccb3a4b909a5997bb262e10cfbaf49198cd27679340ddedaa55fac1",
+  "attempts": [
+    {
+      "asr_seconds": 0.27911214530467987,
+      "alignment_seconds": 0.00014182180166244507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then, as we were saying before, there is nothing unnatural in assigning music and gymnastic to the wives of the guardians—to that point we come round again.",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then, as we were saying before, there is nothing unnatural in assigning music and gymnastic",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.939453125
+            },
+            {
+              "text": " as",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " were",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " saying",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before,",
+              "start": 1.57,
+              "end": 2.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " there",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nothing",
+              "start": 2.87,
+              "end": 3.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unnatural",
+              "start": 3.19,
+              "end": 3.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 3.83,
+              "end": 4.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " assigning",
+              "start": 4.15,
+              "end": 4.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " music",
+              "start": 4.51,
+              "end": 5.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.01,
+              "end": 5.51,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " gymnastic",
+              "start": 5.51,
+              "end": 6.11,
+              "probability": 0.86181640625
+            }
+          ]
+        },
+        {
+          "text": " to the wives of the guardians—to that point we come round again.",
+          "start": 6.11,
+          "end": 9.85,
+          "words": [
+            {
+              "text": " to",
+              "start": 6.11,
+              "end": 6.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.39,
+              "end": 6.51,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " wives",
+              "start": 6.51,
+              "end": 6.81,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " of",
+              "start": 6.81,
+              "end": 7.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.01,
+              "end": 7.13,
+              "probability": 0.986328125
+            },
+            {
+              "text": " guardians—to",
+              "start": 7.13,
+              "end": 8.29,
+              "probability": 0.5485560099283854
+            },
+            {
+              "text": " that",
+              "start": 8.29,
+              "end": 8.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " point",
+              "start": 8.53,
+              "end": 8.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " we",
+              "start": 8.79,
+              "end": 9.03,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " come",
+              "start": 9.03,
+              "end": 9.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " round",
+              "start": 9.23,
+              "end": 9.51,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " again.",
+              "start": 9.51,
+              "end": 9.85,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "as",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "we",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "were",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "saying",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "before,",
+          "start": 1.57,
+          "end": 2.05
+        },
+        {
+          "raw": "there",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "is",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "nothing",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "raw": "unnatural",
+          "start": 3.19,
+          "end": 3.83
+        },
+        {
+          "raw": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "raw": "assigning",
+          "start": 4.15,
+          "end": 4.51
+        },
+        {
+          "raw": "music",
+          "start": 4.51,
+          "end": 5.01
+        },
+        {
+          "raw": "and",
+          "start": 5.01,
+          "end": 5.51
+        },
+        {
+          "raw": "gymnastic",
+          "start": 5.51,
+          "end": 6.11
+        },
+        {
+          "raw": "to",
+          "start": 6.11,
+          "end": 6.39
+        },
+        {
+          "raw": "the",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "raw": "wives",
+          "start": 6.51,
+          "end": 6.81
+        },
+        {
+          "raw": "of",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.13
+        },
+        {
+          "raw": "guardians—to",
+          "start": 7.13,
+          "end": 8.29
+        },
+        {
+          "raw": "that",
+          "start": 8.29,
+          "end": 8.53
+        },
+        {
+          "raw": "point",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "raw": "we",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "raw": "come",
+          "start": 9.03,
+          "end": 9.23
+        },
+        {
+          "raw": "round",
+          "start": 9.23,
+          "end": 9.51
+        },
+        {
+          "raw": "again.",
+          "start": 9.51,
+          "end": 9.85
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "as",
+        "we",
+        "were",
+        "saying",
+        "before,",
+        "there",
+        "is",
+        "nothing",
+        "unnatural",
+        "in",
+        "assigning",
+        "music",
+        "and",
+        "gymnastic",
+        "to",
+        "the",
+        "wives",
+        "of",
+        "the",
+        "guardians—to",
+        "that",
+        "point",
+        "we",
+        "come",
+        "round",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "as",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "we",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "were",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "saying",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "text": "before,",
+          "start": 1.57,
+          "end": 2.05
+        },
+        {
+          "text": "there",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "is",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "nothing",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "text": "unnatural",
+          "start": 3.19,
+          "end": 3.83
+        },
+        {
+          "text": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "text": "assigning",
+          "start": 4.15,
+          "end": 4.51
+        },
+        {
+          "text": "music",
+          "start": 4.51,
+          "end": 5.01
+        },
+        {
+          "text": "and",
+          "start": 5.01,
+          "end": 5.51
+        },
+        {
+          "text": "gymnastic",
+          "start": 5.51,
+          "end": 6.11
+        },
+        {
+          "text": "to",
+          "start": 6.11,
+          "end": 6.39
+        },
+        {
+          "text": "the",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "text": "wives",
+          "start": 6.51,
+          "end": 6.81
+        },
+        {
+          "text": "of",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "text": "the",
+          "start": 7.01,
+          "end": 7.13
+        },
+        {
+          "text": "guardians—to",
+          "start": 7.13,
+          "end": 8.29
+        },
+        {
+          "text": "that",
+          "start": 8.29,
+          "end": 8.53
+        },
+        {
+          "text": "point",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "text": "we",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "text": "come",
+          "start": 9.03,
+          "end": 9.23
+        },
+        {
+          "text": "round",
+          "start": 9.23,
+          "end": 9.51
+        },
+        {
+          "text": "again.",
+          "start": 9.51,
+          "end": 9.85
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2793289050459862
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de919da8b2384be26f7a21eb082c7558795335a82f7f15c68c40566f7df453aa",
+  "selected_reasons": []
+}

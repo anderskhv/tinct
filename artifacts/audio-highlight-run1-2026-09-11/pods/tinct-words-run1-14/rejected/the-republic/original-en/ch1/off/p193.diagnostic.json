@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "f35d3f5adb15f4b6f89fcf175e232d694b34df689b3c7bfcf4b7d2bd52039bf2",
+  "attempts": [
+    {
+      "asr_seconds": 0.15674468129873276,
+      "alignment_seconds": 8.655339479446411e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What in no payment? A pleasant notion.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.76171875
+            },
+            {
+              "text": " in",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.34765625
+            },
+            {
+              "text": " no",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " payment?",
+              "start": 0.92,
+              "end": 1.22,
+              "probability": 0.943359375
+            },
+            {
+              "text": " A",
+              "start": 1.68,
+              "end": 1.74,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " pleasant",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " notion.",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "in",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "no",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "payment?",
+          "start": 0.92,
+          "end": 1.22
+        },
+        {
+          "raw": "A",
+          "start": 1.68,
+          "end": 1.74
+        },
+        {
+          "raw": "pleasant",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "notion.",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "What,",
+        "and",
+        "no",
+        "payment!",
+        "a",
+        "pleasant",
+        "notion!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "What,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "and",
+          "start": 0.62,
+          "end": 0.69
+        },
+        {
+          "text": "no",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "payment!",
+          "start": 0.92,
+          "end": 1.22
+        },
+        {
+          "text": "a",
+          "start": 1.68,
+          "end": 1.74
+        },
+        {
+          "text": "pleasant",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "notion!",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1568647176027298
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc543366a63bc922cb04d1aa4c980580fadcc7686853cdca28a0670be5267336",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "766504570bfb77f8d390157aecf0966b7ab693b4e0de7c6631515936c84ba3fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1465550884604454,
+      "alignment_seconds": 0.00011385977268218994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I understand, he said, and you are quite right.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I understand, he said, and you are quite right.",
+          "start": 0.08,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.14404296875
+            },
+            {
+              "text": " understand,",
+              "start": 0.54,
+              "end": 0.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " he",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.96875
+            },
+            {
+              "text": " said,",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 2.08,
+              "end": 2.16,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " quite",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " right.",
+              "start": 2.34,
+              "end": 2.68,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "understand,",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "raw": "he",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "said,",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "and",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "you",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "are",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "raw": "quite",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "right.",
+          "start": 2.34,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "understand,",
+        "he",
+        "said,",
+        "and",
+        "you",
+        "are",
+        "quite",
+        "right."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "understand,",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "text": "he",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "said,",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "text": "and",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "you",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "text": "are",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "text": "quite",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "right.",
+          "start": 2.34,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14671895653009415
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d3e9d3f508a902a5d02d42794d2b3b6ad396c0e30513c81cd1f65d33c40d585c",
+  "selected_reasons": []
+}

@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "87772ed6195cc79fdfc11fc3de100f648e367ab5e03e2be9ca92693a64ea0042",
+  "attempts": [
+    {
+      "asr_seconds": 0.17464032024145126,
+      "alignment_seconds": 9.839236736297607e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Next, how shall our soldiers treat their enemies? What about this?",
+        "hotwords": "Next, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Next, how shall our soldiers treat their enemies? What about this?",
+          "start": 0.02,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " Next,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " how",
+              "start": 1.0,
+              "end": 1.02,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " shall",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " our",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " soldiers",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " treat",
+              "start": 1.6,
+              "end": 2.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " their",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " enemies?",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " What",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " about",
+              "start": 3.28,
+              "end": 3.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this?",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Next,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "how",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "raw": "shall",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "our",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "soldiers",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "treat",
+          "start": 1.6,
+          "end": 2.06
+        },
+        {
+          "raw": "their",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "enemies?",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "What",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "about",
+          "start": 3.28,
+          "end": 3.46
+        },
+        {
+          "raw": "this?",
+          "start": 3.46,
+          "end": 3.72
+        }
+      ],
+      "expected_tokens": [
+        "Next,",
+        "how",
+        "shall",
+        "our",
+        "soldiers",
+        "treat",
+        "their",
+        "enemies?",
+        "What",
+        "about",
+        "this?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Next,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "how",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "text": "shall",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "our",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "soldiers",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "treat",
+          "start": 1.6,
+          "end": 2.06
+        },
+        {
+          "text": "their",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "enemies?",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "What",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "about",
+          "start": 3.28,
+          "end": 3.46
+        },
+        {
+          "text": "this?",
+          "start": 3.46,
+          "end": 3.72
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17478728294372559
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1563e48c88dc7b6431c79c8e04215c15499dd56a3fce720b8c10e3822f7d2ad3",
+  "selected_reasons": []
+}

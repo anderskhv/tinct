@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "8f3bd922c285045a8a17204efa6ee2cc2e0673e3f89ad219a4e1aa6073ae47a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08348879963159561,
+      "alignment_seconds": 4.5083463191986084e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Undoubtedly.",
+        "hotwords": "Undoubtedly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Undoubtedly.",
+          "start": 0.08,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Undoubtedly.",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.629638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Undoubtedly.",
+          "start": 0.08,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "Undoubtedly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Undoubtedly.",
+          "start": 0.08,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08354908972978592
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c67a61146498e0c671e1f5f33b618be1e9e730dcf91b12b6b5bee464926a3db7",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "39f3ff6d0a9d16e9d45f60ea6271ba9c511cfc501953df9353595fd2f9ca28db",
+  "attempts": [
+    {
+      "asr_seconds": 0.11719939298927784,
+      "alignment_seconds": 0.00010412302799522877,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Ariel, invisible, playing solemn music]",
+        "hotwords": "Enter, Ariel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Ariel, invisible, playing solemn music.",
+          "start": 0.11,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Ariel,",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.09912109375
+            },
+            {
+              "text": " invisible,",
+              "start": 1.69,
+              "end": 1.75,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " playing",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " solemn",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " music.",
+              "start": 2.75,
+              "end": 3.19,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Ariel,",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "invisible,",
+          "start": 1.69,
+          "end": 1.75
+        },
+        {
+          "raw": "playing",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "solemn",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "music.",
+          "start": 2.75,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Ariel,",
+        "invisible,",
+        "playing",
+        "solemn",
+        "music]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "Ariel,",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "invisible,",
+          "start": 1.69,
+          "end": 1.75
+        },
+        {
+          "text": "playing",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "solemn",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "text": "music]",
+          "start": 2.75,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11734782799612731
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea2b29efa6b5af308cd0a8311f7747a607d0e5d2dc43464582c376b3791efbce",
+  "selected_reasons": []
+}

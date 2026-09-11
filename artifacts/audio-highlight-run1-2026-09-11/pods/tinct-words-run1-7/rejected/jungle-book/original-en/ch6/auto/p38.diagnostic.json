@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "5c3cc873b27edbe1f1c70c4383527bc25106754ed506e3c6e155c8aaf529d3f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1548422435298562,
+      "alignment_seconds": 8.225999772548676e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What did Petersen Sahib mean by the elephant dance?\" he said, at last, softly to his mother.",
+        "hotwords": "What, Petersen, Sahib"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What did Petersen Sahib mean by the elephant dance? he said, at last, softly to his mother.",
+          "start": 0.02,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.751953125
+            },
+            {
+              "text": " did",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Petersen",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.01438140869140625
+            },
+            {
+              "text": " Sahib",
+              "start": 1.06,
+              "end": 1.6,
+              "probability": 0.49855080246925354
+            },
+            {
+              "text": " mean",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " elephant",
+              "start": 2.24,
+              "end": 2.58,
+              "probability": 0.861328125
+            },
+            {
+              "text": " dance?",
+              "start": 2.58,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.318359375
+            },
+            {
+              "text": " said,",
+              "start": 3.76,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 4.14,
+              "end": 4.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " last,",
+              "start": 4.24,
+              "end": 4.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " softly",
+              "start": 5.16,
+              "end": 5.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 5.3,
+              "end": 5.56,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " his",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mother.",
+              "start": 5.68,
+              "end": 5.9,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "did",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "Petersen",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "Sahib",
+          "start": 1.06,
+          "end": 1.6
+        },
+        {
+          "raw": "mean",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "by",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "elephant",
+          "start": 2.24,
+          "end": 2.58
+        },
+        {
+          "raw": "dance?",
+          "start": 2.58,
+          "end": 3.16
+        },
+        {
+          "raw": "he",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "said,",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "raw": "at",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "raw": "last,",
+          "start": 4.24,
+          "end": 4.68
+        },
+        {
+          "raw": "softly",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "raw": "to",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "raw": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "mother.",
+          "start": 5.68,
+          "end": 5.9
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "did",
+        "Petersen",
+        "Sahib",
+        "mean",
+        "by",
+        "the",
+        "elephant",
+        "dance?\"",
+        "he",
+        "said,",
+        "at",
+        "last,",
+        "softly",
+        "to",
+        "his",
+        "mother."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "did",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "Petersen",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "Sahib",
+          "start": 1.06,
+          "end": 1.6
+        },
+        {
+          "text": "mean",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "text": "by",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "elephant",
+          "start": 2.24,
+          "end": 2.58
+        },
+        {
+          "text": "dance?\"",
+          "start": 2.58,
+          "end": 3.16
+        },
+        {
+          "text": "he",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "said,",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "text": "at",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "text": "last,",
+          "start": 4.24,
+          "end": 4.68
+        },
+        {
+          "text": "softly",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "text": "to",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "text": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "mother.",
+          "start": 5.68,
+          "end": 5.9
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15496467333287
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5610779bb9cb0d66afb10fc8922c7764141481c9c4a947f6a57b501118bd3269",
+  "selected_reasons": []
+}

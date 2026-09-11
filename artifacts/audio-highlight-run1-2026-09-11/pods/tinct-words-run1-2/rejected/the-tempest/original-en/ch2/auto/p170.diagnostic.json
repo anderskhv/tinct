@@ -1,0 +1,584 @@
+{
+  "complete": true,
+  "signature": "35828267dab3c7a06e5911f28cf60a935131b153e836dd5fc747a5cdc6b17af6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1923610121011734,
+      "alignment_seconds": 0.00012098997831344604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miranda. Be of comfort; My father's of a better nature, sir, Than he appears by speech: this is unwonted Which now came from him.",
+        "hotwords": "Miranda, Be, My, Than, Which"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miranda, Be of comfort. My father's of a better nature, sir, Than he appears by speech. This is unwonted Which now came from him.",
+          "start": 0.02,
+          "end": 8.64,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.419921875
+            },
+            {
+              "text": " Be",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.07171630859375
+            },
+            {
+              "text": " of",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.935546875
+            },
+            {
+              "text": " comfort.",
+              "start": 1.58,
+              "end": 1.94,
+              "probability": 0.55859375
+            },
+            {
+              "text": " My",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " father's",
+              "start": 2.64,
+              "end": 3.08,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " of",
+              "start": 3.08,
+              "end": 3.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 3.16,
+              "end": 3.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " better",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nature,",
+              "start": 3.44,
+              "end": 3.86,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " sir,",
+              "start": 4.0,
+              "end": 4.22,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Than",
+              "start": 4.54,
+              "end": 4.64,
+              "probability": 0.04742431640625
+            },
+            {
+              "text": " he",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " appears",
+              "start": 4.8,
+              "end": 5.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " speech.",
+              "start": 5.4,
+              "end": 5.76,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " This",
+              "start": 6.48,
+              "end": 6.62,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " is",
+              "start": 6.62,
+              "end": 6.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " unwonted",
+              "start": 6.78,
+              "end": 7.4,
+              "probability": 0.6184717814127604
+            },
+            {
+              "text": " Which",
+              "start": 7.4,
+              "end": 7.58,
+              "probability": 0.035369873046875
+            },
+            {
+              "text": " now",
+              "start": 7.58,
+              "end": 7.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " came",
+              "start": 7.88,
+              "end": 8.16,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " from",
+              "start": 8.16,
+              "end": 8.38,
+              "probability": 0.98828125
+            },
+            {
+              "text": " him.",
+              "start": 8.38,
+              "end": 8.64,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Be",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "of",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "comfort.",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "raw": "My",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "father's",
+          "start": 2.64,
+          "end": 3.08
+        },
+        {
+          "raw": "of",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "raw": "a",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "raw": "better",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "nature,",
+          "start": 3.44,
+          "end": 3.86
+        },
+        {
+          "raw": "sir,",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "raw": "Than",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "raw": "he",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "appears",
+          "start": 4.8,
+          "end": 5.1
+        },
+        {
+          "raw": "by",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "raw": "speech.",
+          "start": 5.4,
+          "end": 5.76
+        },
+        {
+          "raw": "This",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "raw": "is",
+          "start": 6.62,
+          "end": 6.78
+        },
+        {
+          "raw": "unwonted",
+          "start": 6.78,
+          "end": 7.4
+        },
+        {
+          "raw": "Which",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "raw": "now",
+          "start": 7.58,
+          "end": 7.88
+        },
+        {
+          "raw": "came",
+          "start": 7.88,
+          "end": 8.16
+        },
+        {
+          "raw": "from",
+          "start": 8.16,
+          "end": 8.38
+        },
+        {
+          "raw": "him.",
+          "start": 8.38,
+          "end": 8.64
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "Be",
+        "of",
+        "comfort;",
+        "My",
+        "father's",
+        "of",
+        "a",
+        "better",
+        "nature,",
+        "sir,",
+        "Than",
+        "he",
+        "appears",
+        "by",
+        "speech:",
+        "this",
+        "is",
+        "unwonted",
+        "Which",
+        "now",
+        "came",
+        "from",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Be",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "of",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "comfort;",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "text": "My",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "father's",
+          "start": 2.64,
+          "end": 3.08
+        },
+        {
+          "text": "of",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "text": "a",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "text": "better",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "nature,",
+          "start": 3.44,
+          "end": 3.86
+        },
+        {
+          "text": "sir,",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "text": "Than",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "text": "he",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "appears",
+          "start": 4.8,
+          "end": 5.1
+        },
+        {
+          "text": "by",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "text": "speech:",
+          "start": 5.4,
+          "end": 5.76
+        },
+        {
+          "text": "this",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "text": "is",
+          "start": 6.62,
+          "end": 6.78
+        },
+        {
+          "text": "unwonted",
+          "start": 6.78,
+          "end": 7.4
+        },
+        {
+          "text": "Which",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "now",
+          "start": 7.58,
+          "end": 7.88
+        },
+        {
+          "text": "came",
+          "start": 7.88,
+          "end": 8.16
+        },
+        {
+          "text": "from",
+          "start": 8.16,
+          "end": 8.38
+        },
+        {
+          "text": "him.",
+          "start": 8.38,
+          "end": 8.64
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1925414577126503
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c85f19fa6afd22223a7a3992ac3292dc84f86fc51b285be8968828971ef15e3",
+  "selected_reasons": []
+}

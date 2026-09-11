@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "ddeb8942517282f0f7789f366bbf0949addff074dc5b4da112469afc83b4f8f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.10529112722724676,
+      "alignment_seconds": 4.96571883559227e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No matter. Where is the manling?\"",
+        "hotwords": "No, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No matter. Where is the manling?",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " matter.",
+              "start": 0.6,
+              "end": 0.92,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Where",
+              "start": 1.32,
+              "end": 1.4,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.0693359375
+            },
+            {
+              "text": " the",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " manling?",
+              "start": 1.62,
+              "end": 2.02,
+              "probability": 0.877197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "matter.",
+          "start": 0.6,
+          "end": 0.92
+        },
+        {
+          "raw": "Where",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "manling?",
+          "start": 1.62,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "matter.",
+        "Where",
+        "is",
+        "the",
+        "manling?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "matter.",
+          "start": 0.6,
+          "end": 0.92
+        },
+        {
+          "text": "Where",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "text": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "manling?\"",
+          "start": 1.62,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1053612045943737
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c046bca2a877bc6de5c54fe8526f0b213861912c0e8348139975bac3f7eae248",
+  "selected_reasons": []
+}

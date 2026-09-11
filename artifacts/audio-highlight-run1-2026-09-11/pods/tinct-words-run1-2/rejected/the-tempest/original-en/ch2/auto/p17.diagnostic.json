@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "ba360cd4f84c3784217c7c9af8570c56f327a305bd2cdea06358692918c0844e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14494631439447403,
+      "alignment_seconds": 0.00015935301780700684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miranda. Sir, are not you my father?",
+        "hotwords": "Miranda, Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miranda, Sir, are not you my father?",
+          "start": 0.57,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.57,
+              "end": 0.83,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Sir,",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.261474609375
+            },
+            {
+              "text": " are",
+              "start": 1.45,
+              "end": 1.47,
+              "probability": 0.2413330078125
+            },
+            {
+              "text": " not",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " you",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " father?",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "are",
+          "start": 1.45,
+          "end": 1.47
+        },
+        {
+          "raw": "not",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "father?",
+          "start": 1.85,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "Sir,",
+        "are",
+        "not",
+        "you",
+        "my",
+        "father?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "text": "Sir,",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "are",
+          "start": 1.45,
+          "end": 1.47
+        },
+        {
+          "text": "not",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "you",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "my",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "father?",
+          "start": 1.85,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14514842629432678
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "76796c08c60a265e0b908c150d9c4d6a95d4fb19f183c0cc1e29736ea51cbe7a",
+  "selected_reasons": []
+}

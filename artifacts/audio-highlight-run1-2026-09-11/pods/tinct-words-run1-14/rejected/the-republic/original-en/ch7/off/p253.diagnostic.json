@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "b511f643640945c769ca5bebafd3ffdd0bd2dff5531171d2ae90c1964be8c6c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.08764027059078217,
+      "alignment_seconds": 6.224215030670166e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exactly, he said.",
+          "start": 0.02,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Exactly,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.33154296875
+            },
+            {
+              "text": " he",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said.",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exactly,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "he",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "raw": "said.",
+          "start": 1.2,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "Exactly,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Exactly,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "he",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "text": "said.",
+          "start": 1.2,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08772725611925125
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2df43237017f9d4731e63dc225ee1ef7ad016de7afd6fd9b96d5977736ed7e9f",
+  "selected_reasons": []
+}

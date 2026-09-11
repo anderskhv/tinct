@@ -1,0 +1,197 @@
+[
+ {
+  "key": "genealogy-of-morals/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9520336605890604,
+    "reasons": [
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/genealogy-of-morals/original-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9454885460495559,
+    "reasons": [
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/genealogy-of-morals/original-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "genealogy-of-morals/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9723909442297074,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/genealogy-of-morals/original-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9674903368304804,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/genealogy-of-morals/original-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9723909442297074
+ },
+ {
+  "key": "genealogy-of-morals/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9655873876928293,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/genealogy-of-morals/original-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9585946770639091,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/genealogy-of-morals/original-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9655873876928293
+ },
+ {
+  "key": "paradise-lost/original-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9746005046257359,
+    "reasons": [
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/paradise-lost/original-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9488645920941968,
+    "reasons": [
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/paradise-lost/original-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "paradise-lost/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9801165146909828,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/paradise-lost/original-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9609929078014184,
+    "reasons": [
+     {
+      "paragraph": 88,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/paradise-lost/original-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9801165146909828
+ },
+ {
+  "key": "paradise-lost/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "running",
+    "matchRatio": null,
+    "reasons": [],
+    "validationErrors": null,
+    "sidecar": null
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9512587038028923,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 59,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-15/out/paradise-lost/original-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]

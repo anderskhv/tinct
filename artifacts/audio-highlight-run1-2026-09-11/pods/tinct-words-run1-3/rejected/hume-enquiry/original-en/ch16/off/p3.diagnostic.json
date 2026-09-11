@@ -1,0 +1,204 @@
+{
+  "complete": true,
+  "signature": "2df8297787790bc59cee22a6af564d20e9627cd4e119b8ef71bac6f87cfc9ed7",
+  "attempts": [
+    {
+      "asr_seconds": 0.08647114038467407,
+      "alignment_seconds": 6.588548421859741e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 28 Lucianic Greek. You now chose.",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " 28",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " Lucianic",
+              "start": 0.83,
+              "end": 1.41,
+              "probability": 0.5924479166666666
+            },
+            {
+              "text": " Greek.",
+              "start": 1.41,
+              "end": 1.75,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " You",
+              "start": 2.13,
+              "end": 2.21,
+              "probability": 0.580078125
+            },
+            {
+              "text": " now",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " chose.",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "28",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Lucianic",
+          "start": 0.83,
+          "end": 1.41
+        },
+        {
+          "raw": "Greek.",
+          "start": 1.41,
+          "end": 1.75
+        },
+        {
+          "raw": "You",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "raw": "now",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "chose.",
+          "start": 2.37,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "[28]",
+        "Luciani",
+        "[Greek:",
+        "eunouchos]."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[28]",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Luciani",
+          "start": 0.83,
+          "end": 1.12
+        },
+        {
+          "text": "[Greek:",
+          "start": 1.41,
+          "end": 1.75
+        },
+        {
+          "text": "eunouchos].",
+          "start": 1.75,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08655815571546555
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6cd4fa78ea6efbb943d4f4c56200cca6cc8459b12221b377286695edc8a75b38",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

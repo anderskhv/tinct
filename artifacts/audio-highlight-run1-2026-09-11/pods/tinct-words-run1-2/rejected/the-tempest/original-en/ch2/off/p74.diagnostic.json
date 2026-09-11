@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "51be4c39be326f14764fa3137ce3a6a0399b9c505d3740175615dda598b3af6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10835598409175873,
+      "alignment_seconds": 0.00016076862812042236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ariel, no sir.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.861328125
+            },
+            {
+              "text": " no",
+              "start": 1.17,
+              "end": 1.23,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " sir.",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.63232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "no",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "raw": "sir.",
+          "start": 1.23,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "No,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "No,",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "text": "sir.",
+          "start": 1.23,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10856141895055771
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f7cae2f1df6dc974bdc0742c22424229baa199a03355b751b0c946f235e44f7e",
+  "selected_reasons": []
+}

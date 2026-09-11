@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "6f40b17c1d11b9a41fb863b225a8c6dcc802d35c01780c3461eb93f25052ab9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14874085783958435,
+      "alignment_seconds": 8.199363946914673e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Of all things, he said, the most disgraceful.",
+        "hotwords": "Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of all things, he said, the most disgraceful.",
+          "start": 0.02,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.32568359375
+            },
+            {
+              "text": " all",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " things,",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " he",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.947265625
+            },
+            {
+              "text": " said,",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.939453125
+            },
+            {
+              "text": " most",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " disgraceful.",
+              "start": 2.08,
+              "end": 2.8,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "all",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "things,",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "he",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "said,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "most",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "disgraceful.",
+          "start": 2.08,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "all",
+        "things,",
+        "he",
+        "said,",
+        "the",
+        "most",
+        "disgraceful."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "all",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "things,",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "he",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "said,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "most",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "disgraceful.",
+          "start": 2.08,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14886319637298584
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4eedc5eddcfed96439fba2b36b99d74d8ddb110bc54bc3ac9f54a3f53b357dc2",
+  "selected_reasons": []
+}

@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "24b6c53af22f8e0f65312fb15d180d2d5261dac408aec6b4489260c31d265564",
+  "attempts": [
+    {
+      "asr_seconds": 0.21718631405383348,
+      "alignment_seconds": 0.00018784496933221817,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Thunder and lightning. Enter Ariel, like a harpy; claps his wings upon the table; and, with a quaint device, the banquet vanishes]",
+        "hotwords": "Thunder, Enter, Ariel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thunder and lightning. Enter Ariel, like a harpy, claps his wings upon the table, and, with a quaint device, the banquet vanishes.",
+          "start": 0.05,
+          "end": 7.77,
+          "words": [
+            {
+              "text": " Thunder",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " and",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " lightning.",
+              "start": 0.89,
+              "end": 1.23,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Enter",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Ariel,",
+              "start": 2.23,
+              "end": 2.65,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " like",
+              "start": 2.87,
+              "end": 2.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " harpy,",
+              "start": 3.03,
+              "end": 3.41,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " claps",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " his",
+              "start": 4.03,
+              "end": 4.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wings",
+              "start": 4.21,
+              "end": 4.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " upon",
+              "start": 4.41,
+              "end": 4.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " table,",
+              "start": 4.87,
+              "end": 5.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and,",
+              "start": 5.63,
+              "end": 5.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " with",
+              "start": 5.87,
+              "end": 5.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 5.91,
+              "end": 6.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " quaint",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " device,",
+              "start": 6.23,
+              "end": 6.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 6.87,
+              "end": 6.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " banquet",
+              "start": 6.95,
+              "end": 7.27,
+              "probability": 0.9921875
+            },
+            {
+              "text": " vanishes.",
+              "start": 7.27,
+              "end": 7.77,
+              "probability": 0.995849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thunder",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "and",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "lightning.",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "raw": "Enter",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "Ariel,",
+          "start": 2.23,
+          "end": 2.65
+        },
+        {
+          "raw": "like",
+          "start": 2.87,
+          "end": 2.89
+        },
+        {
+          "raw": "a",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "harpy,",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "raw": "claps",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "his",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "raw": "wings",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "raw": "upon",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "raw": "the",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "table,",
+          "start": 4.87,
+          "end": 5.17
+        },
+        {
+          "raw": "and,",
+          "start": 5.63,
+          "end": 5.75
+        },
+        {
+          "raw": "with",
+          "start": 5.87,
+          "end": 5.91
+        },
+        {
+          "raw": "a",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "raw": "quaint",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "device,",
+          "start": 6.23,
+          "end": 6.63
+        },
+        {
+          "raw": "the",
+          "start": 6.87,
+          "end": 6.95
+        },
+        {
+          "raw": "banquet",
+          "start": 6.95,
+          "end": 7.27
+        },
+        {
+          "raw": "vanishes.",
+          "start": 7.27,
+          "end": 7.77
+        }
+      ],
+      "expected_tokens": [
+        "[Thunder",
+        "and",
+        "lightning.",
+        "Enter",
+        "Ariel,",
+        "like",
+        "a",
+        "harpy;",
+        "claps",
+        "his",
+        "wings",
+        "upon",
+        "the",
+        "table;",
+        "and,",
+        "with",
+        "a",
+        "quaint",
+        "device,",
+        "the",
+        "banquet",
+        "vanishes]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Thunder",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "and",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "lightning.",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "text": "Enter",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "Ariel,",
+          "start": 2.23,
+          "end": 2.65
+        },
+        {
+          "text": "like",
+          "start": 2.87,
+          "end": 2.89
+        },
+        {
+          "text": "a",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "harpy;",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "text": "claps",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "his",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "text": "wings",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "text": "upon",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "text": "the",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "table;",
+          "start": 4.87,
+          "end": 5.17
+        },
+        {
+          "text": "and,",
+          "start": 5.63,
+          "end": 5.75
+        },
+        {
+          "text": "with",
+          "start": 5.87,
+          "end": 5.91
+        },
+        {
+          "text": "a",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "text": "quaint",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "device,",
+          "start": 6.23,
+          "end": 6.63
+        },
+        {
+          "text": "the",
+          "start": 6.87,
+          "end": 6.95
+        },
+        {
+          "text": "banquet",
+          "start": 6.95,
+          "end": 7.27
+        },
+        {
+          "text": "vanishes]",
+          "start": 7.27,
+          "end": 7.77
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21747325104661286
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df8a9f5cf8875d4e758d31ebc791c9699a38cbd86df53d31d4ebf0a893629a6a",
+  "selected_reasons": []
+}

@@ -1,0 +1,820 @@
+{
+  "complete": true,
+  "signature": "24cc1aa530033ae11a734c0f25a9cd337a97d6afeab5343ee2862711bd86c9e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.14804356452077627,
+      "alignment_seconds": 9.082723408937454e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I was among the plowed lands. I am ready. See!\" Mowgli held up the fire-pot.",
+        "hotwords": "I, See, Mowgli"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I was among the plowed lands. I am ready. See!\" Mowgli held up the fire-pot.",
+          "start": 0.08,
+          "end": 4.82,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " was",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " among",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " plowed",
+              "start": 0.98,
+              "end": 1.26,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " lands.",
+              "start": 1.26,
+              "end": 1.64,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 1.98,
+              "end": 2.04,
+              "probability": 0.912109375
+            },
+            {
+              "text": " am",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ready.",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " See",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.732421875
+            },
+            {
+              "text": "!\"",
+              "start": 2.86,
+              "end": 3.58,
+              "probability": 0.01557159423828125
+            },
+            {
+              "text": " Mowgli",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " held",
+              "start": 3.88,
+              "end": 4.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.24,
+              "end": 4.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fire",
+              "start": 4.36,
+              "end": 4.58,
+              "probability": 0.9462890625
+            },
+            {
+              "text": "-pot.",
+              "start": 4.58,
+              "end": 4.82,
+              "probability": 0.54473876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "was",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "among",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "plowed",
+          "start": 0.98,
+          "end": 1.26
+        },
+        {
+          "raw": "lands.",
+          "start": 1.26,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "raw": "am",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "ready.",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "See",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "!\"",
+          "start": 2.86,
+          "end": 3.58
+        },
+        {
+          "raw": "Mowgli",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "raw": "held",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "raw": "up",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "the",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "raw": "fire",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "raw": "-pot.",
+          "start": 4.58,
+          "end": 4.82
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "was",
+        "among",
+        "the",
+        "plowed",
+        "lands.",
+        "I",
+        "am",
+        "ready.",
+        "See!\"",
+        "Mowgli",
+        "held",
+        "up",
+        "the",
+        "fire-pot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "insert",
+          10,
+          10,
+          10,
+          11
+        ],
+        [
+          "equal",
+          10,
+          14,
+          11,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          10,
+          10,
+          10,
+          11
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "was",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "among",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "the",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "plowed",
+          "start": 0.98,
+          "end": 1.26
+        },
+        {
+          "text": "lands.",
+          "start": 1.26,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "text": "am",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "ready.",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "See!\"",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "Mowgli",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "text": "held",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "text": "up",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "the",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "text": "fire-pot.",
+          "start": 4.36,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.14817381836473942
+    },
+    {
+      "asr_seconds": 0.1281687691807747,
+      "alignment_seconds": 7.791351526975632e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, See, Mowgli"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I was among the plowed lands. I am ready, See. Mowgli held up the firepot.",
+          "start": 0.08,
+          "end": 4.82,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " was",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " among",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " plowed",
+              "start": 0.98,
+              "end": 1.26,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " lands.",
+              "start": 1.26,
+              "end": 1.64,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 1.98,
+              "end": 2.04,
+              "probability": 0.912109375
+            },
+            {
+              "text": " am",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ready,",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " See.",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.049713134765625
+            },
+            {
+              "text": " Mowgli",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " held",
+              "start": 3.88,
+              "end": 4.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " up",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.24,
+              "end": 4.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " firepot.",
+              "start": 4.36,
+              "end": 4.82,
+              "probability": 0.6688232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "was",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "among",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "plowed",
+          "start": 0.98,
+          "end": 1.26
+        },
+        {
+          "raw": "lands.",
+          "start": 1.26,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "raw": "am",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "ready,",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "See.",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "Mowgli",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "raw": "held",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "raw": "up",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "the",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "raw": "firepot.",
+          "start": 4.36,
+          "end": 4.82
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "was",
+        "among",
+        "the",
+        "plowed",
+        "lands.",
+        "I",
+        "am",
+        "ready.",
+        "See!\"",
+        "Mowgli",
+        "held",
+        "up",
+        "the",
+        "fire-pot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "was",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "among",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "the",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "plowed",
+          "start": 0.98,
+          "end": 1.26
+        },
+        {
+          "text": "lands.",
+          "start": 1.26,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "text": "am",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "ready.",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "See!\"",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "Mowgli",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "text": "held",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "text": "up",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "the",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "text": "fire-pot.",
+          "start": 4.36,
+          "end": 4.82
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1282818866893649
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "4da53e2febf837432e1aed4bd5cfce3f4a89ba51c48a8190010f3cc7b8223823",
+  "selected_reasons": []
+}

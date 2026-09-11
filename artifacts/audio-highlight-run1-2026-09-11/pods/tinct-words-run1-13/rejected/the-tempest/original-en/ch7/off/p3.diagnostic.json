@@ -1,0 +1,712 @@
+{
+  "complete": true,
+  "signature": "6d0a297fac7aebb4c87f4136dabfc88fe2029cb6f8568f1824896dcfb1842de0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2623095109593123,
+      "alignment_seconds": 0.0004502920201048255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, aside to Sebastian, I am right glad that he's so out of hope.",
+          "start": 0.08,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " aside",
+              "start": 1.44,
+              "end": 1.78,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " to",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Sebastian,",
+              "start": 1.98,
+              "end": 2.32,
+              "probability": 0.9453125
+            },
+            {
+              "text": " I",
+              "start": 2.72,
+              "end": 2.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " am",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " right",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " glad",
+              "start": 3.0,
+              "end": 3.32,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " that",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.986328125
+            },
+            {
+              "text": " he's",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " so",
+              "start": 3.8,
+              "end": 4.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hope.",
+              "start": 4.36,
+              "end": 4.6,
+              "probability": 0.90673828125
+            }
+          ]
+        },
+        {
+          "text": " Do not, for one repulse, forgo the purpose that you resolve to affect.",
+          "start": 5.3,
+          "end": 9.2,
+          "words": [
+            {
+              "text": " Do",
+              "start": 5.3,
+              "end": 5.38,
+              "probability": 0.97265625
+            },
+            {
+              "text": " not,",
+              "start": 5.38,
+              "end": 5.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 5.8,
+              "end": 5.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 5.96,
+              "end": 6.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " repulse,",
+              "start": 6.16,
+              "end": 6.64,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " forgo",
+              "start": 7.04,
+              "end": 7.26,
+              "probability": 0.748046875
+            },
+            {
+              "text": " the",
+              "start": 7.26,
+              "end": 7.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " purpose",
+              "start": 7.44,
+              "end": 7.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 7.74,
+              "end": 8.0,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 8.0,
+              "end": 8.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " resolve",
+              "start": 8.16,
+              "end": 8.56,
+              "probability": 0.875
+            },
+            {
+              "text": " to",
+              "start": 8.56,
+              "end": 8.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " affect.",
+              "start": 8.86,
+              "end": 9.2,
+              "probability": 0.6728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "aside",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "raw": "am",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "right",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "glad",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "raw": "that",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "he's",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "so",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "raw": "out",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "of",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "hope.",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "raw": "Do",
+          "start": 5.3,
+          "end": 5.38
+        },
+        {
+          "raw": "not,",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "raw": "for",
+          "start": 5.8,
+          "end": 5.96
+        },
+        {
+          "raw": "one",
+          "start": 5.96,
+          "end": 6.16
+        },
+        {
+          "raw": "repulse,",
+          "start": 6.16,
+          "end": 6.64
+        },
+        {
+          "raw": "forgo",
+          "start": 7.04,
+          "end": 7.26
+        },
+        {
+          "raw": "the",
+          "start": 7.26,
+          "end": 7.44
+        },
+        {
+          "raw": "purpose",
+          "start": 7.44,
+          "end": 7.74
+        },
+        {
+          "raw": "that",
+          "start": 7.74,
+          "end": 8.0
+        },
+        {
+          "raw": "you",
+          "start": 8.0,
+          "end": 8.16
+        },
+        {
+          "raw": "resolve",
+          "start": 8.16,
+          "end": 8.56
+        },
+        {
+          "raw": "to",
+          "start": 8.56,
+          "end": 8.86
+        },
+        {
+          "raw": "affect.",
+          "start": 8.86,
+          "end": 9.2
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "[Aside",
+        "to",
+        "Sebastian]",
+        "I",
+        "am",
+        "right",
+        "glad",
+        "that",
+        "he's",
+        "so",
+        "out",
+        "of",
+        "hope.",
+        "Do",
+        "not,",
+        "for",
+        "one",
+        "repulse,",
+        "forego",
+        "the",
+        "purpose",
+        "That",
+        "you",
+        "resolved",
+        "to",
+        "effect."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          24,
+          20,
+          24
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "equal",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "[Aside",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "text": "to",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "Sebastian]",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "text": "I",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "am",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "right",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "glad",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "text": "that",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "he's",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "text": "so",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "text": "out",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "of",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "hope.",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "text": "Do",
+          "start": 5.3,
+          "end": 5.38
+        },
+        {
+          "text": "not,",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "text": "for",
+          "start": 5.8,
+          "end": 5.96
+        },
+        {
+          "text": "one",
+          "start": 5.96,
+          "end": 6.16
+        },
+        {
+          "text": "repulse,",
+          "start": 6.16,
+          "end": 6.64
+        },
+        {
+          "text": "forego",
+          "start": 6.64,
+          "end": 6.95
+        },
+        {
+          "text": "the",
+          "start": 7.26,
+          "end": 7.44
+        },
+        {
+          "text": "purpose",
+          "start": 7.44,
+          "end": 7.74
+        },
+        {
+          "text": "That",
+          "start": 7.74,
+          "end": 8.0
+        },
+        {
+          "text": "you",
+          "start": 8.0,
+          "end": 8.16
+        },
+        {
+          "text": "resolved",
+          "start": 8.16,
+          "end": 8.36
+        },
+        {
+          "text": "to",
+          "start": 8.56,
+          "end": 8.86
+        },
+        {
+          "text": "effect.",
+          "start": 8.86,
+          "end": 9.03
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 24
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2630020589567721
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72c319cf302dbb3918f77642098ecf7965cca5daa6781f9bc43bf7d55cb7f5f1",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "ab990350c7945a870fe6fbb2796955e665edcc01b2f8d51348296b9dbc5482d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11405914498027414,
+      "alignment_seconds": 0.00010616297367960215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, aside praise and departing.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.915771484375
+            },
+            {
+              "text": " aside",
+              "start": 1.31,
+              "end": 1.71,
+              "probability": 0.72265625
+            },
+            {
+              "text": " praise",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.92578125
+            },
+            {
+              "text": " and",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " departing.",
+              "start": 2.29,
+              "end": 2.65,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "aside",
+          "start": 1.31,
+          "end": 1.71
+        },
+        {
+          "raw": "praise",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "and",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "departing.",
+          "start": 2.29,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "[Aside]",
+        "Praise",
+        "in",
+        "departing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "[Aside]",
+          "start": 1.31,
+          "end": 1.71
+        },
+        {
+          "text": "Praise",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "text": "in",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "departing.",
+          "start": 2.29,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11420384899247438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0b0fa9cf11d336e1ed42d57f8e67f8243eb41cacea56fdf1e099ea6c9150e04",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

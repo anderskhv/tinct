@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "ff42b7e93ee699ba3d14e1fd4a4adaa80cee8972c39e29c697db2210ad281177",
+  "attempts": [
+    {
+      "asr_seconds": 0.19948478788137436,
+      "alignment_seconds": 0.00013202428817749023,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The really excellent gymnastic is twin sister of that simple music which we were just now describing.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The really excellent gymnastic is twin sister of that simple music which we were just now describing.",
+          "start": 0.05,
+          "end": 6.25,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " really",
+              "start": 0.51,
+              "end": 0.79,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " excellent",
+              "start": 0.79,
+              "end": 1.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gymnastic",
+              "start": 1.31,
+              "end": 2.05,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " is",
+              "start": 2.05,
+              "end": 2.55,
+              "probability": 0.97265625
+            },
+            {
+              "text": " twin",
+              "start": 2.55,
+              "end": 2.81,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " sister",
+              "start": 2.81,
+              "end": 3.27,
+              "probability": 0.88671875
+            },
+            {
+              "text": " of",
+              "start": 3.27,
+              "end": 3.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " simple",
+              "start": 3.69,
+              "end": 4.07,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " music",
+              "start": 4.07,
+              "end": 4.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 4.47,
+              "end": 5.03,
+              "probability": 0.413818359375
+            },
+            {
+              "text": " we",
+              "start": 5.03,
+              "end": 5.21,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " were",
+              "start": 5.21,
+              "end": 5.33,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " just",
+              "start": 5.33,
+              "end": 5.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " now",
+              "start": 5.53,
+              "end": 5.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " describing.",
+              "start": 5.77,
+              "end": 6.25,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "really",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "raw": "excellent",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "raw": "gymnastic",
+          "start": 1.31,
+          "end": 2.05
+        },
+        {
+          "raw": "is",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "raw": "twin",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "raw": "sister",
+          "start": 2.81,
+          "end": 3.27
+        },
+        {
+          "raw": "of",
+          "start": 3.27,
+          "end": 3.53
+        },
+        {
+          "raw": "that",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "simple",
+          "start": 3.69,
+          "end": 4.07
+        },
+        {
+          "raw": "music",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "raw": "which",
+          "start": 4.47,
+          "end": 5.03
+        },
+        {
+          "raw": "we",
+          "start": 5.03,
+          "end": 5.21
+        },
+        {
+          "raw": "were",
+          "start": 5.21,
+          "end": 5.33
+        },
+        {
+          "raw": "just",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "raw": "now",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "raw": "describing.",
+          "start": 5.77,
+          "end": 6.25
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "really",
+        "excellent",
+        "gymnastic",
+        "is",
+        "twin",
+        "sister",
+        "of",
+        "that",
+        "simple",
+        "music",
+        "which",
+        "we",
+        "were",
+        "just",
+        "now",
+        "describing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "really",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "text": "excellent",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "text": "gymnastic",
+          "start": 1.31,
+          "end": 2.05
+        },
+        {
+          "text": "is",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "text": "twin",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "text": "sister",
+          "start": 2.81,
+          "end": 3.27
+        },
+        {
+          "text": "of",
+          "start": 3.27,
+          "end": 3.53
+        },
+        {
+          "text": "that",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "text": "simple",
+          "start": 3.69,
+          "end": 4.07
+        },
+        {
+          "text": "music",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "text": "which",
+          "start": 4.47,
+          "end": 5.03
+        },
+        {
+          "text": "we",
+          "start": 5.03,
+          "end": 5.21
+        },
+        {
+          "text": "were",
+          "start": 5.21,
+          "end": 5.33
+        },
+        {
+          "text": "just",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "text": "now",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "text": "describing.",
+          "start": 5.77,
+          "end": 6.25
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.199683278799057
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af0733f01c990d55634c11e34ab2ac5001f912e677dd76c0ff961cb099f17c6f",
+  "selected_reasons": []
+}

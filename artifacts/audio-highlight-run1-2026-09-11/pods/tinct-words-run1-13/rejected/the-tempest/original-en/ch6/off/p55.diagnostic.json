@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "eb5d918a234b0326cfe8665c7f4580f3a62f03b1a70a65549d5ae33af4696429",
+  "attempts": [
+    {
+      "asr_seconds": 0.07959365204442292,
+      "alignment_seconds": 7.125199772417545e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sings",
+          "start": 0.11,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " Sings",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.5419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sings",
+          "start": 0.11,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "[Sings]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Sings]",
+          "start": 0.11,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07968641503248364
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "883e5181ac7ff061a873771439380b1c12b01cfa0d32af721e277b8e5f594da6",
+  "selected_reasons": []
+}

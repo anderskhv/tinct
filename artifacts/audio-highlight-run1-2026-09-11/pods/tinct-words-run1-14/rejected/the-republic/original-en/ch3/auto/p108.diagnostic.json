@@ -1,0 +1,563 @@
+{
+  "complete": true,
+  "signature": "0ab87b30bfbada63233bb319a94771838388d9e3635f9c83514e91ee97c0bc38",
+  "attempts": [
+    {
+      "asr_seconds": 0.09866760671138763,
+      "alignment_seconds": 8.118152618408203e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You are quite right, he replied.",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You're quite right, he replied.",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.4102783203125
+            },
+            {
+              "text": " quite",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " right,",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " replied.",
+              "start": 1.35,
+              "end": 1.73,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "right,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "he",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "replied.",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "quite",
+        "right,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          6,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.0,
+          "end": 0.315
+        },
+        {
+          "text": "are",
+          "start": 0.315,
+          "end": 0.473
+        },
+        {
+          "text": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "right,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "he",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "replied.",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09877710789442062
+    },
+    {
+      "asr_seconds": 0.08710218220949173,
+      "alignment_seconds": 7.781386375427246e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "You"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You're quite right he replied",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.4102783203125
+            },
+            {
+              "text": " quite",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " right",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.08026123046875
+            },
+            {
+              "text": " replied",
+              "start": 1.35,
+              "end": 1.73,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "right",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "he",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "replied",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "quite",
+        "right,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          6,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.0,
+          "end": 0.315
+        },
+        {
+          "text": "are",
+          "start": 0.315,
+          "end": 0.473
+        },
+        {
+          "text": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "right,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "he",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "replied.",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08720816671848297
+    },
+    {
+      "asr_seconds": 0.09319595247507095,
+      "alignment_seconds": 7.7761709690094e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You're quite right. He replied",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.4102783203125
+            },
+            {
+              "text": " quite",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " right.",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " He",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " replied",
+              "start": 1.35,
+              "end": 1.73,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "right.",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "He",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "replied",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "quite",
+        "right,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          6,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.0,
+          "end": 0.315
+        },
+        {
+          "text": "are",
+          "start": 0.315,
+          "end": 0.473
+        },
+        {
+          "text": "quite",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "right,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "he",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "replied.",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09330206364393234
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d59621c937c57397f41b6761fa1b2edfc672bf87b22d9d452d548770f0dd218b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

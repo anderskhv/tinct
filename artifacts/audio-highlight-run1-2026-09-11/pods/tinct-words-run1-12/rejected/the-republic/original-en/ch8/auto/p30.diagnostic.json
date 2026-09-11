@@ -1,0 +1,2569 @@
+{
+  "complete": true,
+  "signature": "483faf8521800034f7759f87dffacfe27e724122274f731084fbd64f559f2934",
+  "attempts": [
+    {
+      "asr_seconds": 0.8013723623007536,
+      "alignment_seconds": 0.0009718919172883034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When discord arose, then the two races were drawn different ways: the iron and brass fell to acquiring money and land and houses and gold and silver; but the gold and silver races, not wanting money but having the true riches in their own nature, inclined towards virtue and the ancient order of things. There was a battle between them, and at last they agreed to distribute their land and houses among individual owners; and they enslaved their friends and maintainers, whom they had formerly protected in the condition of freemen, and made of them subjects and servants; and they themselves were engaged in war and in keeping a watch against them.",
+        "hotwords": "When, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When discord arose, then the two races were drawn different ways. The iron and brass fell",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.430908203125
+            },
+            {
+              "text": " discord",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " arose,",
+              "start": 0.93,
+              "end": 1.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " then",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " two",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " races",
+              "start": 2.35,
+              "end": 2.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " were",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " drawn",
+              "start": 2.91,
+              "end": 3.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " different",
+              "start": 3.19,
+              "end": 3.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " ways.",
+              "start": 3.51,
+              "end": 4.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " The",
+              "start": 4.57,
+              "end": 4.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " iron",
+              "start": 4.81,
+              "end": 5.09,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " and",
+              "start": 5.09,
+              "end": 5.31,
+              "probability": 0.9921875
+            },
+            {
+              "text": " brass",
+              "start": 5.31,
+              "end": 5.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fell",
+              "start": 5.57,
+              "end": 5.89,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " to acquiring money and land and houses and gold and silver, but the gold and silver races,",
+          "start": 5.89,
+          "end": 11.91,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.89,
+              "end": 6.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " acquiring",
+              "start": 6.07,
+              "end": 6.51,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " money",
+              "start": 6.51,
+              "end": 6.91,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 6.91,
+              "end": 7.21,
+              "probability": 0.95703125
+            },
+            {
+              "text": " land",
+              "start": 7.21,
+              "end": 7.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 7.49,
+              "end": 7.77,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " houses",
+              "start": 7.77,
+              "end": 8.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 8.19,
+              "end": 8.53,
+              "probability": 0.91796875
+            },
+            {
+              "text": " gold",
+              "start": 8.53,
+              "end": 8.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 8.81,
+              "end": 9.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " silver,",
+              "start": 9.13,
+              "end": 9.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 10.01,
+              "end": 10.29,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " the",
+              "start": 10.29,
+              "end": 10.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gold",
+              "start": 10.45,
+              "end": 10.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 10.75,
+              "end": 10.99,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " silver",
+              "start": 10.99,
+              "end": 11.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " races,",
+              "start": 11.41,
+              "end": 11.91,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " not wanting money but having the true riches in their own nature, inclined towards virtue",
+          "start": 12.43,
+          "end": 17.65,
+          "words": [
+            {
+              "text": " not",
+              "start": 12.43,
+              "end": 12.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wanting",
+              "start": 12.59,
+              "end": 12.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " money",
+              "start": 12.99,
+              "end": 13.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 13.29,
+              "end": 13.73,
+              "probability": 0.475341796875
+            },
+            {
+              "text": " having",
+              "start": 13.73,
+              "end": 14.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 14.01,
+              "end": 14.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " true",
+              "start": 14.21,
+              "end": 14.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " riches",
+              "start": 14.45,
+              "end": 14.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 14.79,
+              "end": 15.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " their",
+              "start": 15.01,
+              "end": 15.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " own",
+              "start": 15.11,
+              "end": 15.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nature,",
+              "start": 15.35,
+              "end": 15.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " inclined",
+              "start": 16.17,
+              "end": 16.61,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " towards",
+              "start": 16.61,
+              "end": 17.11,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " virtue",
+              "start": 17.11,
+              "end": 17.65,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " and the ancient order of things. There was a battle between them, and at last they agreed",
+          "start": 17.65,
+          "end": 23.25,
+          "words": [
+            {
+              "text": " and",
+              "start": 17.65,
+              "end": 18.09,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " the",
+              "start": 18.09,
+              "end": 18.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ancient",
+              "start": 18.19,
+              "end": 18.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " order",
+              "start": 18.61,
+              "end": 18.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 18.91,
+              "end": 19.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " things.",
+              "start": 19.17,
+              "end": 19.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " There",
+              "start": 20.27,
+              "end": 20.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 20.67,
+              "end": 20.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 20.75,
+              "end": 20.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " battle",
+              "start": 20.87,
+              "end": 21.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " between",
+              "start": 21.13,
+              "end": 21.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them,",
+              "start": 21.53,
+              "end": 21.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 22.13,
+              "end": 22.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 22.33,
+              "end": 22.43,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " last",
+              "start": 22.43,
+              "end": 22.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 22.79,
+              "end": 22.99,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " agreed",
+              "start": 22.99,
+              "end": 23.25,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " to distribute their land and houses among individual owners, and they enslaved their",
+          "start": 23.25,
+          "end": 28.17,
+          "words": [
+            {
+              "text": " to",
+              "start": 23.25,
+              "end": 23.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " distribute",
+              "start": 23.45,
+              "end": 23.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 23.87,
+              "end": 24.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " land",
+              "start": 24.17,
+              "end": 24.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 24.53,
+              "end": 24.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " houses",
+              "start": 24.75,
+              "end": 25.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " among",
+              "start": 25.13,
+              "end": 25.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " individual",
+              "start": 25.45,
+              "end": 25.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " owners,",
+              "start": 25.91,
+              "end": 26.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 26.91,
+              "end": 27.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 27.25,
+              "end": 27.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enslaved",
+              "start": 27.37,
+              "end": 27.89,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " their",
+              "start": 27.89,
+              "end": 28.17,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " friends and maintainers, whom they had formerly protected in the condition of freemen, and",
+          "start": 28.17,
+          "end": 33.41,
+          "words": [
+            {
+              "text": " friends",
+              "start": 28.17,
+              "end": 28.61,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " and",
+              "start": 28.61,
+              "end": 28.85,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " maintainers,",
+              "start": 28.85,
+              "end": 29.59,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " whom",
+              "start": 29.97,
+              "end": 30.11,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " they",
+              "start": 30.11,
+              "end": 30.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 30.29,
+              "end": 30.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " formerly",
+              "start": 30.47,
+              "end": 30.85,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " protected",
+              "start": 30.85,
+              "end": 31.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 31.35,
+              "end": 31.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 31.63,
+              "end": 31.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " condition",
+              "start": 31.75,
+              "end": 32.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 32.11,
+              "end": 32.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " freemen,",
+              "start": 32.33,
+              "end": 32.73,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " and",
+              "start": 33.25,
+              "end": 33.41,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " made of them subjects and servants, and they themselves were engaged in war and in keeping",
+          "start": 33.41,
+          "end": 38.93,
+          "words": [
+            {
+              "text": " made",
+              "start": 33.41,
+              "end": 33.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 33.59,
+              "end": 33.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " them",
+              "start": 33.71,
+              "end": 33.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " subjects",
+              "start": 33.91,
+              "end": 34.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 34.37,
+              "end": 34.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " servants,",
+              "start": 34.77,
+              "end": 35.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 35.81,
+              "end": 36.01,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 36.01,
+              "end": 36.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " themselves",
+              "start": 36.13,
+              "end": 36.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " were",
+              "start": 36.53,
+              "end": 36.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " engaged",
+              "start": 36.89,
+              "end": 37.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 37.35,
+              "end": 37.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " war",
+              "start": 37.65,
+              "end": 38.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 38.01,
+              "end": 38.53,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " in",
+              "start": 38.53,
+              "end": 38.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " keeping",
+              "start": 38.65,
+              "end": 38.93,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " a watch against them.",
+          "start": 38.93,
+          "end": 40.11,
+          "words": [
+            {
+              "text": " a",
+              "start": 38.93,
+              "end": 39.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " watch",
+              "start": 39.15,
+              "end": 39.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " against",
+              "start": 39.41,
+              "end": 39.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them.",
+              "start": 39.73,
+              "end": 40.11,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "discord",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "arose,",
+          "start": 0.93,
+          "end": 1.49
+        },
+        {
+          "raw": "then",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "two",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "races",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "raw": "were",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "drawn",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "raw": "different",
+          "start": 3.19,
+          "end": 3.51
+        },
+        {
+          "raw": "ways.",
+          "start": 3.51,
+          "end": 4.01
+        },
+        {
+          "raw": "The",
+          "start": 4.57,
+          "end": 4.81
+        },
+        {
+          "raw": "iron",
+          "start": 4.81,
+          "end": 5.09
+        },
+        {
+          "raw": "and",
+          "start": 5.09,
+          "end": 5.31
+        },
+        {
+          "raw": "brass",
+          "start": 5.31,
+          "end": 5.57
+        },
+        {
+          "raw": "fell",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "raw": "to",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "raw": "acquiring",
+          "start": 6.07,
+          "end": 6.51
+        },
+        {
+          "raw": "money",
+          "start": 6.51,
+          "end": 6.91
+        },
+        {
+          "raw": "and",
+          "start": 6.91,
+          "end": 7.21
+        },
+        {
+          "raw": "land",
+          "start": 7.21,
+          "end": 7.49
+        },
+        {
+          "raw": "and",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "raw": "houses",
+          "start": 7.77,
+          "end": 8.19
+        },
+        {
+          "raw": "and",
+          "start": 8.19,
+          "end": 8.53
+        },
+        {
+          "raw": "gold",
+          "start": 8.53,
+          "end": 8.81
+        },
+        {
+          "raw": "and",
+          "start": 8.81,
+          "end": 9.13
+        },
+        {
+          "raw": "silver,",
+          "start": 9.13,
+          "end": 9.47
+        },
+        {
+          "raw": "but",
+          "start": 10.01,
+          "end": 10.29
+        },
+        {
+          "raw": "the",
+          "start": 10.29,
+          "end": 10.45
+        },
+        {
+          "raw": "gold",
+          "start": 10.45,
+          "end": 10.75
+        },
+        {
+          "raw": "and",
+          "start": 10.75,
+          "end": 10.99
+        },
+        {
+          "raw": "silver",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "raw": "races,",
+          "start": 11.41,
+          "end": 11.91
+        },
+        {
+          "raw": "not",
+          "start": 12.43,
+          "end": 12.59
+        },
+        {
+          "raw": "wanting",
+          "start": 12.59,
+          "end": 12.99
+        },
+        {
+          "raw": "money",
+          "start": 12.99,
+          "end": 13.29
+        },
+        {
+          "raw": "but",
+          "start": 13.29,
+          "end": 13.73
+        },
+        {
+          "raw": "having",
+          "start": 13.73,
+          "end": 14.01
+        },
+        {
+          "raw": "the",
+          "start": 14.01,
+          "end": 14.21
+        },
+        {
+          "raw": "true",
+          "start": 14.21,
+          "end": 14.45
+        },
+        {
+          "raw": "riches",
+          "start": 14.45,
+          "end": 14.79
+        },
+        {
+          "raw": "in",
+          "start": 14.79,
+          "end": 15.01
+        },
+        {
+          "raw": "their",
+          "start": 15.01,
+          "end": 15.11
+        },
+        {
+          "raw": "own",
+          "start": 15.11,
+          "end": 15.35
+        },
+        {
+          "raw": "nature,",
+          "start": 15.35,
+          "end": 15.81
+        },
+        {
+          "raw": "inclined",
+          "start": 16.17,
+          "end": 16.61
+        },
+        {
+          "raw": "towards",
+          "start": 16.61,
+          "end": 17.11
+        },
+        {
+          "raw": "virtue",
+          "start": 17.11,
+          "end": 17.65
+        },
+        {
+          "raw": "and",
+          "start": 17.65,
+          "end": 18.09
+        },
+        {
+          "raw": "the",
+          "start": 18.09,
+          "end": 18.19
+        },
+        {
+          "raw": "ancient",
+          "start": 18.19,
+          "end": 18.61
+        },
+        {
+          "raw": "order",
+          "start": 18.61,
+          "end": 18.91
+        },
+        {
+          "raw": "of",
+          "start": 18.91,
+          "end": 19.17
+        },
+        {
+          "raw": "things.",
+          "start": 19.17,
+          "end": 19.53
+        },
+        {
+          "raw": "There",
+          "start": 20.27,
+          "end": 20.67
+        },
+        {
+          "raw": "was",
+          "start": 20.67,
+          "end": 20.75
+        },
+        {
+          "raw": "a",
+          "start": 20.75,
+          "end": 20.87
+        },
+        {
+          "raw": "battle",
+          "start": 20.87,
+          "end": 21.13
+        },
+        {
+          "raw": "between",
+          "start": 21.13,
+          "end": 21.53
+        },
+        {
+          "raw": "them,",
+          "start": 21.53,
+          "end": 21.89
+        },
+        {
+          "raw": "and",
+          "start": 22.13,
+          "end": 22.33
+        },
+        {
+          "raw": "at",
+          "start": 22.33,
+          "end": 22.43
+        },
+        {
+          "raw": "last",
+          "start": 22.43,
+          "end": 22.79
+        },
+        {
+          "raw": "they",
+          "start": 22.79,
+          "end": 22.99
+        },
+        {
+          "raw": "agreed",
+          "start": 22.99,
+          "end": 23.25
+        },
+        {
+          "raw": "to",
+          "start": 23.25,
+          "end": 23.45
+        },
+        {
+          "raw": "distribute",
+          "start": 23.45,
+          "end": 23.87
+        },
+        {
+          "raw": "their",
+          "start": 23.87,
+          "end": 24.17
+        },
+        {
+          "raw": "land",
+          "start": 24.17,
+          "end": 24.53
+        },
+        {
+          "raw": "and",
+          "start": 24.53,
+          "end": 24.75
+        },
+        {
+          "raw": "houses",
+          "start": 24.75,
+          "end": 25.13
+        },
+        {
+          "raw": "among",
+          "start": 25.13,
+          "end": 25.45
+        },
+        {
+          "raw": "individual",
+          "start": 25.45,
+          "end": 25.91
+        },
+        {
+          "raw": "owners,",
+          "start": 25.91,
+          "end": 26.41
+        },
+        {
+          "raw": "and",
+          "start": 26.91,
+          "end": 27.25
+        },
+        {
+          "raw": "they",
+          "start": 27.25,
+          "end": 27.37
+        },
+        {
+          "raw": "enslaved",
+          "start": 27.37,
+          "end": 27.89
+        },
+        {
+          "raw": "their",
+          "start": 27.89,
+          "end": 28.17
+        },
+        {
+          "raw": "friends",
+          "start": 28.17,
+          "end": 28.61
+        },
+        {
+          "raw": "and",
+          "start": 28.61,
+          "end": 28.85
+        },
+        {
+          "raw": "maintainers,",
+          "start": 28.85,
+          "end": 29.59
+        },
+        {
+          "raw": "whom",
+          "start": 29.97,
+          "end": 30.11
+        },
+        {
+          "raw": "they",
+          "start": 30.11,
+          "end": 30.29
+        },
+        {
+          "raw": "had",
+          "start": 30.29,
+          "end": 30.47
+        },
+        {
+          "raw": "formerly",
+          "start": 30.47,
+          "end": 30.85
+        },
+        {
+          "raw": "protected",
+          "start": 30.85,
+          "end": 31.35
+        },
+        {
+          "raw": "in",
+          "start": 31.35,
+          "end": 31.63
+        },
+        {
+          "raw": "the",
+          "start": 31.63,
+          "end": 31.75
+        },
+        {
+          "raw": "condition",
+          "start": 31.75,
+          "end": 32.11
+        },
+        {
+          "raw": "of",
+          "start": 32.11,
+          "end": 32.33
+        },
+        {
+          "raw": "freemen,",
+          "start": 32.33,
+          "end": 32.73
+        },
+        {
+          "raw": "and",
+          "start": 33.25,
+          "end": 33.41
+        },
+        {
+          "raw": "made",
+          "start": 33.41,
+          "end": 33.59
+        },
+        {
+          "raw": "of",
+          "start": 33.59,
+          "end": 33.71
+        },
+        {
+          "raw": "them",
+          "start": 33.71,
+          "end": 33.91
+        },
+        {
+          "raw": "subjects",
+          "start": 33.91,
+          "end": 34.37
+        },
+        {
+          "raw": "and",
+          "start": 34.37,
+          "end": 34.77
+        },
+        {
+          "raw": "servants,",
+          "start": 34.77,
+          "end": 35.17
+        },
+        {
+          "raw": "and",
+          "start": 35.81,
+          "end": 36.01
+        },
+        {
+          "raw": "they",
+          "start": 36.01,
+          "end": 36.13
+        },
+        {
+          "raw": "themselves",
+          "start": 36.13,
+          "end": 36.53
+        },
+        {
+          "raw": "were",
+          "start": 36.53,
+          "end": 36.89
+        },
+        {
+          "raw": "engaged",
+          "start": 36.89,
+          "end": 37.35
+        },
+        {
+          "raw": "in",
+          "start": 37.35,
+          "end": 37.65
+        },
+        {
+          "raw": "war",
+          "start": 37.65,
+          "end": 38.01
+        },
+        {
+          "raw": "and",
+          "start": 38.01,
+          "end": 38.53
+        },
+        {
+          "raw": "in",
+          "start": 38.53,
+          "end": 38.65
+        },
+        {
+          "raw": "keeping",
+          "start": 38.65,
+          "end": 38.93
+        },
+        {
+          "raw": "a",
+          "start": 38.93,
+          "end": 39.15
+        },
+        {
+          "raw": "watch",
+          "start": 39.15,
+          "end": 39.41
+        },
+        {
+          "raw": "against",
+          "start": 39.41,
+          "end": 39.73
+        },
+        {
+          "raw": "them.",
+          "start": 39.73,
+          "end": 40.11
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "discord",
+        "arose,",
+        "then",
+        "the",
+        "two",
+        "races",
+        "were",
+        "drawn",
+        "different",
+        "ways:",
+        "the",
+        "iron",
+        "and",
+        "brass",
+        "fell",
+        "to",
+        "acquiring",
+        "money",
+        "and",
+        "land",
+        "and",
+        "houses",
+        "and",
+        "gold",
+        "and",
+        "silver;",
+        "but",
+        "the",
+        "gold",
+        "and",
+        "silver",
+        "races,",
+        "not",
+        "wanting",
+        "money",
+        "but",
+        "having",
+        "the",
+        "true",
+        "riches",
+        "in",
+        "their",
+        "own",
+        "nature,",
+        "inclined",
+        "towards",
+        "virtue",
+        "and",
+        "the",
+        "ancient",
+        "order",
+        "of",
+        "things.",
+        "There",
+        "was",
+        "a",
+        "battle",
+        "between",
+        "them,",
+        "and",
+        "at",
+        "last",
+        "they",
+        "agreed",
+        "to",
+        "distribute",
+        "their",
+        "land",
+        "and",
+        "houses",
+        "among",
+        "individual",
+        "owners;",
+        "and",
+        "they",
+        "enslaved",
+        "their",
+        "friends",
+        "and",
+        "maintainers,",
+        "whom",
+        "they",
+        "had",
+        "formerly",
+        "protected",
+        "in",
+        "the",
+        "condition",
+        "of",
+        "freemen,",
+        "and",
+        "made",
+        "of",
+        "them",
+        "subjects",
+        "and",
+        "servants;",
+        "and",
+        "they",
+        "themselves",
+        "were",
+        "engaged",
+        "in",
+        "war",
+        "and",
+        "in",
+        "keeping",
+        "a",
+        "watch",
+        "against",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          112,
+          0,
+          112
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "discord",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "arose,",
+          "start": 0.93,
+          "end": 1.49
+        },
+        {
+          "text": "then",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "two",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "races",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "text": "were",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "drawn",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "text": "different",
+          "start": 3.19,
+          "end": 3.51
+        },
+        {
+          "text": "ways:",
+          "start": 3.51,
+          "end": 4.01
+        },
+        {
+          "text": "the",
+          "start": 4.57,
+          "end": 4.81
+        },
+        {
+          "text": "iron",
+          "start": 4.81,
+          "end": 5.09
+        },
+        {
+          "text": "and",
+          "start": 5.09,
+          "end": 5.31
+        },
+        {
+          "text": "brass",
+          "start": 5.31,
+          "end": 5.57
+        },
+        {
+          "text": "fell",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "text": "to",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "text": "acquiring",
+          "start": 6.07,
+          "end": 6.51
+        },
+        {
+          "text": "money",
+          "start": 6.51,
+          "end": 6.91
+        },
+        {
+          "text": "and",
+          "start": 6.91,
+          "end": 7.21
+        },
+        {
+          "text": "land",
+          "start": 7.21,
+          "end": 7.49
+        },
+        {
+          "text": "and",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "text": "houses",
+          "start": 7.77,
+          "end": 8.19
+        },
+        {
+          "text": "and",
+          "start": 8.19,
+          "end": 8.53
+        },
+        {
+          "text": "gold",
+          "start": 8.53,
+          "end": 8.81
+        },
+        {
+          "text": "and",
+          "start": 8.81,
+          "end": 9.13
+        },
+        {
+          "text": "silver;",
+          "start": 9.13,
+          "end": 9.47
+        },
+        {
+          "text": "but",
+          "start": 10.01,
+          "end": 10.29
+        },
+        {
+          "text": "the",
+          "start": 10.29,
+          "end": 10.45
+        },
+        {
+          "text": "gold",
+          "start": 10.45,
+          "end": 10.75
+        },
+        {
+          "text": "and",
+          "start": 10.75,
+          "end": 10.99
+        },
+        {
+          "text": "silver",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "text": "races,",
+          "start": 11.41,
+          "end": 11.91
+        },
+        {
+          "text": "not",
+          "start": 12.43,
+          "end": 12.59
+        },
+        {
+          "text": "wanting",
+          "start": 12.59,
+          "end": 12.99
+        },
+        {
+          "text": "money",
+          "start": 12.99,
+          "end": 13.29
+        },
+        {
+          "text": "but",
+          "start": 13.29,
+          "end": 13.73
+        },
+        {
+          "text": "having",
+          "start": 13.73,
+          "end": 14.01
+        },
+        {
+          "text": "the",
+          "start": 14.01,
+          "end": 14.21
+        },
+        {
+          "text": "true",
+          "start": 14.21,
+          "end": 14.45
+        },
+        {
+          "text": "riches",
+          "start": 14.45,
+          "end": 14.79
+        },
+        {
+          "text": "in",
+          "start": 14.79,
+          "end": 15.01
+        },
+        {
+          "text": "their",
+          "start": 15.01,
+          "end": 15.11
+        },
+        {
+          "text": "own",
+          "start": 15.11,
+          "end": 15.35
+        },
+        {
+          "text": "nature,",
+          "start": 15.35,
+          "end": 15.81
+        },
+        {
+          "text": "inclined",
+          "start": 16.17,
+          "end": 16.61
+        },
+        {
+          "text": "towards",
+          "start": 16.61,
+          "end": 17.11
+        },
+        {
+          "text": "virtue",
+          "start": 17.11,
+          "end": 17.65
+        },
+        {
+          "text": "and",
+          "start": 17.65,
+          "end": 18.09
+        },
+        {
+          "text": "the",
+          "start": 18.09,
+          "end": 18.19
+        },
+        {
+          "text": "ancient",
+          "start": 18.19,
+          "end": 18.61
+        },
+        {
+          "text": "order",
+          "start": 18.61,
+          "end": 18.91
+        },
+        {
+          "text": "of",
+          "start": 18.91,
+          "end": 19.17
+        },
+        {
+          "text": "things.",
+          "start": 19.17,
+          "end": 19.53
+        },
+        {
+          "text": "There",
+          "start": 20.27,
+          "end": 20.67
+        },
+        {
+          "text": "was",
+          "start": 20.67,
+          "end": 20.75
+        },
+        {
+          "text": "a",
+          "start": 20.75,
+          "end": 20.87
+        },
+        {
+          "text": "battle",
+          "start": 20.87,
+          "end": 21.13
+        },
+        {
+          "text": "between",
+          "start": 21.13,
+          "end": 21.53
+        },
+        {
+          "text": "them,",
+          "start": 21.53,
+          "end": 21.89
+        },
+        {
+          "text": "and",
+          "start": 22.13,
+          "end": 22.33
+        },
+        {
+          "text": "at",
+          "start": 22.33,
+          "end": 22.43
+        },
+        {
+          "text": "last",
+          "start": 22.43,
+          "end": 22.79
+        },
+        {
+          "text": "they",
+          "start": 22.79,
+          "end": 22.99
+        },
+        {
+          "text": "agreed",
+          "start": 22.99,
+          "end": 23.25
+        },
+        {
+          "text": "to",
+          "start": 23.25,
+          "end": 23.45
+        },
+        {
+          "text": "distribute",
+          "start": 23.45,
+          "end": 23.87
+        },
+        {
+          "text": "their",
+          "start": 23.87,
+          "end": 24.17
+        },
+        {
+          "text": "land",
+          "start": 24.17,
+          "end": 24.53
+        },
+        {
+          "text": "and",
+          "start": 24.53,
+          "end": 24.75
+        },
+        {
+          "text": "houses",
+          "start": 24.75,
+          "end": 25.13
+        },
+        {
+          "text": "among",
+          "start": 25.13,
+          "end": 25.45
+        },
+        {
+          "text": "individual",
+          "start": 25.45,
+          "end": 25.91
+        },
+        {
+          "text": "owners;",
+          "start": 25.91,
+          "end": 26.41
+        },
+        {
+          "text": "and",
+          "start": 26.91,
+          "end": 27.25
+        },
+        {
+          "text": "they",
+          "start": 27.25,
+          "end": 27.37
+        },
+        {
+          "text": "enslaved",
+          "start": 27.37,
+          "end": 27.89
+        },
+        {
+          "text": "their",
+          "start": 27.89,
+          "end": 28.17
+        },
+        {
+          "text": "friends",
+          "start": 28.17,
+          "end": 28.61
+        },
+        {
+          "text": "and",
+          "start": 28.61,
+          "end": 28.85
+        },
+        {
+          "text": "maintainers,",
+          "start": 28.85,
+          "end": 29.59
+        },
+        {
+          "text": "whom",
+          "start": 29.97,
+          "end": 30.11
+        },
+        {
+          "text": "they",
+          "start": 30.11,
+          "end": 30.29
+        },
+        {
+          "text": "had",
+          "start": 30.29,
+          "end": 30.47
+        },
+        {
+          "text": "formerly",
+          "start": 30.47,
+          "end": 30.85
+        },
+        {
+          "text": "protected",
+          "start": 30.85,
+          "end": 31.35
+        },
+        {
+          "text": "in",
+          "start": 31.35,
+          "end": 31.63
+        },
+        {
+          "text": "the",
+          "start": 31.63,
+          "end": 31.75
+        },
+        {
+          "text": "condition",
+          "start": 31.75,
+          "end": 32.11
+        },
+        {
+          "text": "of",
+          "start": 32.11,
+          "end": 32.33
+        },
+        {
+          "text": "freemen,",
+          "start": 32.33,
+          "end": 32.73
+        },
+        {
+          "text": "and",
+          "start": 33.25,
+          "end": 33.41
+        },
+        {
+          "text": "made",
+          "start": 33.41,
+          "end": 33.59
+        },
+        {
+          "text": "of",
+          "start": 33.59,
+          "end": 33.71
+        },
+        {
+          "text": "them",
+          "start": 33.71,
+          "end": 33.91
+        },
+        {
+          "text": "subjects",
+          "start": 33.91,
+          "end": 34.37
+        },
+        {
+          "text": "and",
+          "start": 34.37,
+          "end": 34.77
+        },
+        {
+          "text": "servants;",
+          "start": 34.77,
+          "end": 35.17
+        },
+        {
+          "text": "and",
+          "start": 35.81,
+          "end": 36.01
+        },
+        {
+          "text": "they",
+          "start": 36.01,
+          "end": 36.13
+        },
+        {
+          "text": "themselves",
+          "start": 36.13,
+          "end": 36.53
+        },
+        {
+          "text": "were",
+          "start": 36.53,
+          "end": 36.89
+        },
+        {
+          "text": "engaged",
+          "start": 36.89,
+          "end": 37.35
+        },
+        {
+          "text": "in",
+          "start": 37.35,
+          "end": 37.65
+        },
+        {
+          "text": "war",
+          "start": 37.65,
+          "end": 38.01
+        },
+        {
+          "text": "and",
+          "start": 38.01,
+          "end": 38.53
+        },
+        {
+          "text": "in",
+          "start": 38.53,
+          "end": 38.65
+        },
+        {
+          "text": "keeping",
+          "start": 38.65,
+          "end": 38.93
+        },
+        {
+          "text": "a",
+          "start": 38.93,
+          "end": 39.15
+        },
+        {
+          "text": "watch",
+          "start": 39.15,
+          "end": 39.41
+        },
+        {
+          "text": "against",
+          "start": 39.41,
+          "end": 39.73
+        },
+        {
+          "text": "them.",
+          "start": 39.73,
+          "end": 40.11
+        }
+      ],
+      "stats": {
+        "expected_words": 112,
+        "heard_words": 112,
+        "matched_words": 112
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8031430803239346
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1c246a8f4ecaf30d8b280132e0b87b944acbc1d39a209bea067704f454831a0",
+  "selected_reasons": []
+}

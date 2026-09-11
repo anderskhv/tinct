@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "ee2ca42f60fac37def9b0a068d0c552c1f4e6bc33e28bc931a5c196ae16f193b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1257651448249817,
+      "alignment_seconds": 0.0001122206449508667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is clearly the best thing both for the patients and for the state.",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " clearly",
+              "start": 0.67,
+              "end": 0.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " best",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thing",
+              "start": 1.39,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " both",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " for",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " patients",
+              "start": 2.19,
+              "end": 2.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 3.23,
+              "probability": 0.892578125
+            },
+            {
+              "text": " for",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " state.",
+              "start": 3.47,
+              "end": 3.79,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "clearly",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "raw": "the",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "best",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "thing",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "raw": "both",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "for",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "the",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "patients",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 3.23
+        },
+        {
+          "raw": "for",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "state.",
+          "start": 3.47,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "clearly",
+        "the",
+        "best",
+        "thing",
+        "both",
+        "for",
+        "the",
+        "patients",
+        "and",
+        "for",
+        "the",
+        "State."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "clearly",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "text": "the",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "best",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "thing",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "text": "both",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "for",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "the",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "patients",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 3.23
+        },
+        {
+          "text": "for",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "text": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "State.",
+          "start": 3.47,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1259419545531273
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e9d70a2b513dc27518640bfa5478f1ab1f68d62f4eb76034734518ead3436a1",
+  "selected_reasons": []
+}

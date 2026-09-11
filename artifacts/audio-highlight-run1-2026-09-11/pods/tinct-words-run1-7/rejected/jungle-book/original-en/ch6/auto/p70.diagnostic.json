@@ -1,0 +1,767 @@
+{
+  "complete": true,
+  "signature": "f9eae743de503b6f133517c95017ff0a952ed7fd909f07fbf526adb4e25a0502",
+  "attempts": [
+    {
+      "asr_seconds": 0.2044941447675228,
+      "alignment_seconds": 0.00012299604713916779,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Wah!\" said Little Toomai, and his eyes were very heavy. \"Kala Nag, my lord, let us keep by Pudmini and go to Petersen Sahib's camp, or I shall drop from thy neck.\"",
+        "hotwords": "Wah, Little, Toomai, Kala, Nag, Pudmini, Petersen, Sahib's, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Wah, said Little Toomai, and his eyes were very heavy.",
+          "start": 0.02,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " Wah,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.00537109375
+            },
+            {
+              "text": " said",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Little",
+              "start": 1.28,
+              "end": 1.5,
+              "probability": 0.344482421875
+            },
+            {
+              "text": " Toomai,",
+              "start": 1.5,
+              "end": 2.06,
+              "probability": 0.3309326171875
+            },
+            {
+              "text": " and",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " his",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " eyes",
+              "start": 2.64,
+              "end": 2.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 3.18,
+              "end": 3.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " heavy.",
+              "start": 3.44,
+              "end": 3.74,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Kala Nag, my lord, let us keep by Pudmini and go to Petersen Sahib's camp, or I shall drop from thy neck.\"",
+          "start": 4.62,
+          "end": 11.3,
+          "words": [
+            {
+              "text": " Kala",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.44490909576416016
+            },
+            {
+              "text": " Nag,",
+              "start": 4.78,
+              "end": 5.04,
+              "probability": 0.533203125
+            },
+            {
+              "text": " my",
+              "start": 5.2,
+              "end": 5.34,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lord,",
+              "start": 5.34,
+              "end": 5.6,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " let",
+              "start": 5.96,
+              "end": 6.04,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " us",
+              "start": 6.04,
+              "end": 6.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " keep",
+              "start": 6.2,
+              "end": 6.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " by",
+              "start": 6.38,
+              "end": 6.62,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " Pudmini",
+              "start": 6.62,
+              "end": 7.04,
+              "probability": 0.4655354817708333
+            },
+            {
+              "text": " and",
+              "start": 7.04,
+              "end": 7.3,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " go",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 7.48,
+              "end": 7.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Petersen",
+              "start": 7.64,
+              "end": 8.02,
+              "probability": 0.0167694091796875
+            },
+            {
+              "text": " Sahib's",
+              "start": 8.02,
+              "end": 8.68,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " camp,",
+              "start": 8.68,
+              "end": 8.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " or",
+              "start": 9.36,
+              "end": 9.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 9.48,
+              "end": 9.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " shall",
+              "start": 9.68,
+              "end": 9.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " drop",
+              "start": 9.82,
+              "end": 10.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 10.08,
+              "end": 10.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thy",
+              "start": 10.28,
+              "end": 10.44,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " neck.\"",
+              "start": 10.44,
+              "end": 11.3,
+              "probability": 0.56085205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wah,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "said",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "Little",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "raw": "Toomai,",
+          "start": 1.5,
+          "end": 2.06
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "his",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "eyes",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "raw": "were",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "very",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "raw": "heavy.",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "raw": "Kala",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "Nag,",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "raw": "my",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "raw": "lord,",
+          "start": 5.34,
+          "end": 5.6
+        },
+        {
+          "raw": "let",
+          "start": 5.96,
+          "end": 6.04
+        },
+        {
+          "raw": "us",
+          "start": 6.04,
+          "end": 6.2
+        },
+        {
+          "raw": "keep",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "raw": "by",
+          "start": 6.38,
+          "end": 6.62
+        },
+        {
+          "raw": "Pudmini",
+          "start": 6.62,
+          "end": 7.04
+        },
+        {
+          "raw": "and",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "raw": "go",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "to",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "raw": "Petersen",
+          "start": 7.64,
+          "end": 8.02
+        },
+        {
+          "raw": "Sahib's",
+          "start": 8.02,
+          "end": 8.68
+        },
+        {
+          "raw": "camp,",
+          "start": 8.68,
+          "end": 8.94
+        },
+        {
+          "raw": "or",
+          "start": 9.36,
+          "end": 9.48
+        },
+        {
+          "raw": "I",
+          "start": 9.48,
+          "end": 9.68
+        },
+        {
+          "raw": "shall",
+          "start": 9.68,
+          "end": 9.82
+        },
+        {
+          "raw": "drop",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "raw": "from",
+          "start": 10.08,
+          "end": 10.28
+        },
+        {
+          "raw": "thy",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "raw": "neck.\"",
+          "start": 10.44,
+          "end": 11.3
+        }
+      ],
+      "expected_tokens": [
+        "\"Wah!\"",
+        "said",
+        "Little",
+        "Toomai,",
+        "and",
+        "his",
+        "eyes",
+        "were",
+        "very",
+        "heavy.",
+        "\"Kala",
+        "Nag,",
+        "my",
+        "lord,",
+        "let",
+        "us",
+        "keep",
+        "by",
+        "Pudmini",
+        "and",
+        "go",
+        "to",
+        "Petersen",
+        "Sahib's",
+        "camp,",
+        "or",
+        "I",
+        "shall",
+        "drop",
+        "from",
+        "thy",
+        "neck.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Wah!\"",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "said",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "Little",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "text": "Toomai,",
+          "start": 1.5,
+          "end": 2.06
+        },
+        {
+          "text": "and",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "his",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "eyes",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "text": "were",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "very",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "text": "heavy.",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "text": "\"Kala",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "Nag,",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "text": "my",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "text": "lord,",
+          "start": 5.34,
+          "end": 5.6
+        },
+        {
+          "text": "let",
+          "start": 5.96,
+          "end": 6.04
+        },
+        {
+          "text": "us",
+          "start": 6.04,
+          "end": 6.2
+        },
+        {
+          "text": "keep",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "text": "by",
+          "start": 6.38,
+          "end": 6.62
+        },
+        {
+          "text": "Pudmini",
+          "start": 6.62,
+          "end": 7.04
+        },
+        {
+          "text": "and",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "text": "go",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "to",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "text": "Petersen",
+          "start": 7.64,
+          "end": 8.02
+        },
+        {
+          "text": "Sahib's",
+          "start": 8.02,
+          "end": 8.68
+        },
+        {
+          "text": "camp,",
+          "start": 8.68,
+          "end": 8.94
+        },
+        {
+          "text": "or",
+          "start": 9.36,
+          "end": 9.48
+        },
+        {
+          "text": "I",
+          "start": 9.48,
+          "end": 9.68
+        },
+        {
+          "text": "shall",
+          "start": 9.68,
+          "end": 9.82
+        },
+        {
+          "text": "drop",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "text": "from",
+          "start": 10.08,
+          "end": 10.28
+        },
+        {
+          "text": "thy",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "text": "neck.\"",
+          "start": 10.44,
+          "end": 11.3
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2046868735924363
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b8806c4b16e92943db798c4c5aa6e792442b9b4434ef9829d7ace5a14b2092af",
+  "selected_reasons": []
+}

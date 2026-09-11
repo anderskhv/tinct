@@ -1,0 +1,1535 @@
+{
+  "complete": true,
+  "signature": "2edbe43bce2c238be97400fe29cef3adee0c1776268a98efcdef72e0f96e0388",
+  "attempts": [
+    {
+      "asr_seconds": 0.1881174216978252,
+      "alignment_seconds": 0.00016511697322130203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He will rob the citizens of their slaves; he will then set them free and enrol them in his body-guard."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He will rob the citizens of their slaves. He will then set them free and enrol them in his body-guard.",
+          "start": 0.02,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " will",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rob",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " citizens",
+              "start": 1.16,
+              "end": 1.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " slaves.",
+              "start": 1.98,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " then",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " set",
+              "start": 3.5,
+              "end": 3.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " free",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.74,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " enrol",
+              "start": 4.74,
+              "end": 5.1,
+              "probability": 0.002460479736328125
+            },
+            {
+              "text": " them",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 5.4,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " body",
+              "start": 5.68,
+              "end": 5.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": "-guard.",
+              "start": 5.92,
+              "end": 6.22,
+              "probability": 0.4983997344970703
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "rob",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "citizens",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "raw": "of",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "raw": "their",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "slaves.",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "raw": "He",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "will",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "then",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "set",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "raw": "them",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "free",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "raw": "enrol",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "raw": "them",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "raw": "in",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "raw": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "body",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "raw": "-guard.",
+          "start": 5.92,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "will",
+        "rob",
+        "the",
+        "citizens",
+        "of",
+        "their",
+        "slaves;",
+        "he",
+        "will",
+        "then",
+        "set",
+        "them",
+        "free",
+        "and",
+        "enrol",
+        "them",
+        "in",
+        "his",
+        "body-guard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          21
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "will",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "rob",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "citizens",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "text": "of",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "text": "their",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "slaves;",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "text": "he",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "will",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "then",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "set",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "text": "them",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "free",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "text": "enrol",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "text": "them",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "text": "in",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "text": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "body-guard.",
+          "start": 5.68,
+          "end": 5.95
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.1883674468845129
+    },
+    {
+      "asr_seconds": 0.17288284795358777,
+      "alignment_seconds": 0.00016907695680856705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He will rob the citizens of their slaves. He will then set them free and enroll them in his bodyguard.",
+          "start": 0.02,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " will",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rob",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " citizens",
+              "start": 1.16,
+              "end": 1.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " slaves.",
+              "start": 1.98,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " then",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " set",
+              "start": 3.5,
+              "end": 3.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " free",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.74,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " enroll",
+              "start": 4.74,
+              "end": 5.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " them",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 5.4,
+              "end": 5.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " bodyguard.",
+              "start": 5.68,
+              "end": 6.24,
+              "probability": 0.953369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "rob",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "citizens",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "raw": "of",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "raw": "their",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "slaves.",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "raw": "He",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "will",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "then",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "set",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "raw": "them",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "free",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "raw": "enroll",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "raw": "them",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "raw": "in",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "raw": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "bodyguard.",
+          "start": 5.68,
+          "end": 6.24
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "will",
+        "rob",
+        "the",
+        "citizens",
+        "of",
+        "their",
+        "slaves;",
+        "he",
+        "will",
+        "then",
+        "set",
+        "them",
+        "free",
+        "and",
+        "enrol",
+        "them",
+        "in",
+        "his",
+        "body-guard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          20,
+          16,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "will",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "rob",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "citizens",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "text": "of",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "text": "their",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "slaves;",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "text": "he",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "will",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "then",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "set",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "text": "them",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "free",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "text": "enrol",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "text": "them",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "text": "in",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "text": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "body-guard.",
+          "start": 5.68,
+          "end": 6.24
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.17314095282927155
+    },
+    {
+      "asr_seconds": 0.15686480794101954,
+      "alignment_seconds": 0.0002545448951423168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He will rob the citizens of their slaves. He will then set them free and enroll them in his bodyguard.",
+          "start": 0.02,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " will",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rob",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " citizens",
+              "start": 1.16,
+              "end": 1.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " slaves.",
+              "start": 1.98,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " then",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " set",
+              "start": 3.5,
+              "end": 3.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " free",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.74,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " enroll",
+              "start": 4.74,
+              "end": 5.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " them",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 5.4,
+              "end": 5.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " bodyguard.",
+              "start": 5.68,
+              "end": 6.24,
+              "probability": 0.953369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "rob",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "citizens",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "raw": "of",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "raw": "their",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "slaves.",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "raw": "He",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "will",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "then",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "set",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "raw": "them",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "free",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "raw": "enroll",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "raw": "them",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "raw": "in",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "raw": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "bodyguard.",
+          "start": 5.68,
+          "end": 6.24
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "will",
+        "rob",
+        "the",
+        "citizens",
+        "of",
+        "their",
+        "slaves;",
+        "he",
+        "will",
+        "then",
+        "set",
+        "them",
+        "free",
+        "and",
+        "enrol",
+        "them",
+        "in",
+        "his",
+        "body-guard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          20,
+          16,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "will",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "rob",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "citizens",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "text": "of",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "text": "their",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "slaves;",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "text": "he",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "will",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "then",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "set",
+          "start": 3.5,
+          "end": 3.74
+        },
+        {
+          "text": "them",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "free",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "text": "enrol",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "text": "them",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "text": "in",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "text": "his",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "body-guard.",
+          "start": 5.68,
+          "end": 6.24
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.1572498306632042
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebd5088458fe2f98dc61419ad2b1b69eac64036ca662c56e8cf1f58e83a1b783",
+  "selected_reasons": []
+}

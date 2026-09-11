@@ -1,0 +1,593 @@
+{
+  "complete": true,
+  "signature": "0a05ffe4fa38d14f7d7594465c44dcda45a7eec134a249ce795cb3b4e9fba139",
+  "attempts": [
+    {
+      "asr_seconds": 0.21186287701129913,
+      "alignment_seconds": 0.00012955814599990845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " a tedious and uphill road, then citing Homer as a witness that the gods may be influenced",
+          "start": 0.05,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " a",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.0865478515625
+            },
+            {
+              "text": " tedious",
+              "start": 0.57,
+              "end": 0.99,
+              "probability": 0.951171875
+            },
+            {
+              "text": " and",
+              "start": 0.99,
+              "end": 1.29,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " uphill",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " road,",
+              "start": 1.63,
+              "end": 2.07,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " then",
+              "start": 2.55,
+              "end": 2.77,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " citing",
+              "start": 2.77,
+              "end": 3.07,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Homer",
+              "start": 3.07,
+              "end": 3.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 3.47,
+              "end": 3.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " witness",
+              "start": 3.85,
+              "end": 4.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 4.13,
+              "end": 4.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " gods",
+              "start": 4.53,
+              "end": 4.87,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " may",
+              "start": 4.87,
+              "end": 5.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " influenced",
+              "start": 5.29,
+              "end": 5.77,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " by men, for he also says,",
+          "start": 5.77,
+          "end": 7.79,
+          "words": [
+            {
+              "text": " by",
+              "start": 5.77,
+              "end": 6.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " men,",
+              "start": 6.05,
+              "end": 6.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 6.79,
+              "end": 6.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 6.97,
+              "end": 7.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " also",
+              "start": 7.13,
+              "end": 7.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " says,",
+              "start": 7.39,
+              "end": 7.79,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "a",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "tedious",
+          "start": 0.57,
+          "end": 0.99
+        },
+        {
+          "raw": "and",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "raw": "uphill",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "road,",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "raw": "then",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "raw": "citing",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "raw": "Homer",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "raw": "as",
+          "start": 3.47,
+          "end": 3.71
+        },
+        {
+          "raw": "a",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "witness",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "raw": "that",
+          "start": 4.13,
+          "end": 4.37
+        },
+        {
+          "raw": "the",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "gods",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "raw": "may",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "raw": "be",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "influenced",
+          "start": 5.29,
+          "end": 5.77
+        },
+        {
+          "raw": "by",
+          "start": 5.77,
+          "end": 6.05
+        },
+        {
+          "raw": "men,",
+          "start": 6.05,
+          "end": 6.39
+        },
+        {
+          "raw": "for",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "raw": "he",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "raw": "also",
+          "start": 7.13,
+          "end": 7.39
+        },
+        {
+          "raw": "says,",
+          "start": 7.39,
+          "end": 7.79
+        }
+      ],
+      "expected_tokens": [
+        "and",
+        "a",
+        "tedious",
+        "and",
+        "uphill",
+        "road:",
+        "then",
+        "citing",
+        "Homer",
+        "as",
+        "a",
+        "witness",
+        "that",
+        "the",
+        "gods",
+        "may",
+        "be",
+        "influenced",
+        "by",
+        "men;",
+        "for",
+        "he",
+        "also",
+        "says:—"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          24,
+          0,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "and",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "a",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "tedious",
+          "start": 0.57,
+          "end": 0.99
+        },
+        {
+          "text": "and",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "text": "uphill",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "text": "road:",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "text": "then",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "text": "citing",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "text": "Homer",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "text": "as",
+          "start": 3.47,
+          "end": 3.71
+        },
+        {
+          "text": "a",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "witness",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "text": "that",
+          "start": 4.13,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "gods",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "text": "may",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "text": "be",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "influenced",
+          "start": 5.29,
+          "end": 5.77
+        },
+        {
+          "text": "by",
+          "start": 5.77,
+          "end": 6.05
+        },
+        {
+          "text": "men;",
+          "start": 6.05,
+          "end": 6.39
+        },
+        {
+          "text": "for",
+          "start": 6.79,
+          "end": 6.97
+        },
+        {
+          "text": "he",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "text": "also",
+          "start": 7.13,
+          "end": 7.39
+        },
+        {
+          "text": "says:—",
+          "start": 7.39,
+          "end": 7.79
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 23,
+        "matched_words": 23
+      },
+      "match_ratio": 0.9583333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.21206270903348923
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "efab43b90b8ff491dd76d4d3f48491a9bf690e2714202bbdf55574e823479f1b",
+  "selected_reasons": []
+}

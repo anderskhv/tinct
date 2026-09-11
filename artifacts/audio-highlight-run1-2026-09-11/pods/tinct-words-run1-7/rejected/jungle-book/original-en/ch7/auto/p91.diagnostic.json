@@ -1,0 +1,415 @@
+{
+  "complete": true,
+  "signature": "aca51bdf30b8108d9d651021420984126562487394636e566656336d5648570e",
+  "attempts": [
+    {
+      "asr_seconds": 0.16900905966758728,
+      "alignment_seconds": 9.424705058336258e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But it is not here,\" said the camel and the bullocks. \"Why are you so stupid?\"",
+        "hotwords": "But, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But it is not here,\" said the camel and the bullocks.",
+          "start": 0.02,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.223876953125
+            },
+            {
+              "text": " it",
+              "start": 0.5,
+              "end": 0.58,
+              "probability": 0.974609375
+            },
+            {
+              "text": " is",
+              "start": 0.58,
+              "end": 0.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.984375
+            },
+            {
+              "text": " here,\"",
+              "start": 0.9,
+              "end": 1.46,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " said",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.984375
+            },
+            {
+              "text": " camel",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.830078125
+            },
+            {
+              "text": " and",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.607421875
+            },
+            {
+              "text": " the",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bullocks.",
+              "start": 2.4,
+              "end": 2.78,
+              "probability": 0.78515625
+            }
+          ]
+        },
+        {
+          "text": " Why are you so stupid?",
+          "start": 3.36,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " Why",
+              "start": 3.36,
+              "end": 3.46,
+              "probability": 0.0867919921875
+            },
+            {
+              "text": " are",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stupid?",
+              "start": 3.96,
+              "end": 4.3,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "it",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "raw": "is",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "here,\"",
+          "start": 0.9,
+          "end": 1.46
+        },
+        {
+          "raw": "said",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "camel",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "bullocks.",
+          "start": 2.4,
+          "end": 2.78
+        },
+        {
+          "raw": "Why",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "raw": "are",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "so",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "raw": "stupid?",
+          "start": 3.96,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "it",
+        "is",
+        "not",
+        "here,\"",
+        "said",
+        "the",
+        "camel",
+        "and",
+        "the",
+        "bullocks.",
+        "\"Why",
+        "are",
+        "you",
+        "so",
+        "stupid?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "it",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "text": "is",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "text": "not",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "here,\"",
+          "start": 0.9,
+          "end": 1.46
+        },
+        {
+          "text": "said",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "camel",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "and",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "the",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "bullocks.",
+          "start": 2.4,
+          "end": 2.78
+        },
+        {
+          "text": "\"Why",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "text": "are",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "text": "you",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "so",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "text": "stupid?\"",
+          "start": 3.96,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1691419007256627
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b93f64cf8eb551f66049a6b0abae5b456a8dfd1c5f737b01dbeae6db14ecbf6",
+  "selected_reasons": []
+}

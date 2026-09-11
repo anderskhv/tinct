@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "6f3f474b8d9411fd68e163ac8a529c58247c35cb44816f4a0b50ace0a1bafe15",
+  "attempts": [
+    {
+      "asr_seconds": 0.17315533198416233,
+      "alignment_seconds": 0.00018240604549646378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stefano, moon calf, speak once in thy life, if thou beest a good moon calf.",
+          "start": 0.08,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Stefano,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.872314453125
+            },
+            {
+              "text": " moon",
+              "start": 1.62,
+              "end": 1.68,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " calf,",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.38623046875
+            },
+            {
+              "text": " speak",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " once",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thy",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " life,",
+              "start": 2.88,
+              "end": 3.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " thou",
+              "start": 3.44,
+              "end": 3.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " beest",
+              "start": 3.58,
+              "end": 3.9,
+              "probability": 0.6163330078125
+            },
+            {
+              "text": " a",
+              "start": 3.9,
+              "end": 3.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " good",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " moon",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " calf.",
+              "start": 4.34,
+              "end": 4.72,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stefano,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "moon",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "raw": "calf,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "speak",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "once",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "in",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "thy",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "life,",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "raw": "if",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "thou",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "raw": "beest",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "raw": "a",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "raw": "good",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "moon",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "calf.",
+          "start": 4.34,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Moon-calf,",
+        "speak",
+        "once",
+        "in",
+        "thy",
+        "life,",
+        "if",
+        "thou",
+        "beest",
+        "a",
+        "good",
+        "moon-calf."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          12,
+          3,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.0,
+          "end": 1.09
+        },
+        {
+          "text": "Moon-calf,",
+          "start": 1.09,
+          "end": 1.635
+        },
+        {
+          "text": "speak",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "once",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "in",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "thy",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "life,",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "text": "if",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "thou",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "text": "beest",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "text": "a",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "text": "good",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "moon-calf.",
+          "start": 4.1,
+          "end": 4.41
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 15,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17342689097858965
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f60d59a9ae76dc287887866b434735c6cda05ae9a340996364978ed72914776e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

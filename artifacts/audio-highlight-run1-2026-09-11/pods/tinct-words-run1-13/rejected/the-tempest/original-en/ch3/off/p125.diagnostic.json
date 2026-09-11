@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "6db41550658000f4f4267e831b9c581c7088c28b2f01cd79a5d54feef73e1aa6",
+  "attempts": [
+    {
+      "asr_seconds": 0.13464739499613643,
+      "alignment_seconds": 0.00015002593863755465,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, thou dost snore distinctly, there's meaning in thy snores.",
+          "start": 0.08,
+          "end": 4.28,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.302734375
+            },
+            {
+              "text": " thou",
+              "start": 1.6,
+              "end": 1.62,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " dost",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.921875
+            },
+            {
+              "text": " snore",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " distinctly,",
+              "start": 2.12,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " there's",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " meaning",
+              "start": 3.2,
+              "end": 3.42,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 3.42,
+              "end": 3.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " snores.",
+              "start": 3.76,
+              "end": 4.28,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "thou",
+          "start": 1.6,
+          "end": 1.62
+        },
+        {
+          "raw": "dost",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "snore",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "distinctly,",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "raw": "there's",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "meaning",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "raw": "in",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "raw": "thy",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "snores.",
+          "start": 3.76,
+          "end": 4.28
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Thou",
+        "dost",
+        "snore",
+        "distinctly;",
+        "There's",
+        "meaning",
+        "in",
+        "thy",
+        "snores."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Thou",
+          "start": 1.6,
+          "end": 1.62
+        },
+        {
+          "text": "dost",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "snore",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "distinctly;",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "text": "There's",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "meaning",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "text": "in",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "text": "thy",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "snores.",
+          "start": 3.76,
+          "end": 4.28
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13487334398087114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "27ee2c072bc378e9526c9fae473f52df6b169c0666ffdb839345097385d143b5",
+  "selected_reasons": []
+}

@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "468c0a7583938dd3dfffaedbb6a1f5889e36f666aecf4aacb4fe0ba6fd06965e",
+  "attempts": [
+    {
+      "asr_seconds": 0.15847481042146683,
+      "alignment_seconds": 7.467716932296753e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. Wouldst love them and entreat? But now They were as nothing.",
+        "hotwords": "Medea, Wouldst, But, They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, Wouldst love them and entreat? But now They were as nothing.",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.837646484375
+            },
+            {
+              "text": " Wouldst",
+              "start": 1.11,
+              "end": 1.47,
+              "probability": 0.4959869384765625
+            },
+            {
+              "text": " love",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.7001953125
+            },
+            {
+              "text": " them",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " entreat?",
+              "start": 1.99,
+              "end": 2.43,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " But",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.806640625
+            },
+            {
+              "text": " now",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " They",
+              "start": 3.27,
+              "end": 3.45,
+              "probability": 0.009124755859375
+            },
+            {
+              "text": " were",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " nothing.",
+              "start": 3.73,
+              "end": 4.03,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Wouldst",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "raw": "love",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "them",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "and",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "entreat?",
+          "start": 1.99,
+          "end": 2.43
+        },
+        {
+          "raw": "But",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "now",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "raw": "They",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "raw": "were",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "as",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "nothing.",
+          "start": 3.73,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Wouldst",
+        "love",
+        "them",
+        "and",
+        "entreat?",
+        "But",
+        "now",
+        "They",
+        "were",
+        "as",
+        "nothing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Wouldst",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "text": "love",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "them",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "and",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "entreat?",
+          "start": 1.99,
+          "end": 2.43
+        },
+        {
+          "text": "But",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "now",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "text": "They",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "text": "were",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "as",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "nothing.",
+          "start": 3.73,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1585858315229416
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fb0691c4b41bacb0b87b43e32dca43bc50d691bd9e32dc65edd5585aa5d74435",
+  "selected_reasons": []
+}

@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "fdfdc2c4e6ff76051e436412e660ee6c22137e65ca95248820ee86e3f2800465",
+  "attempts": [
+    {
+      "asr_seconds": 0.13064417243003845,
+      "alignment_seconds": 0.00010230392217636108,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Few are they who are able to attain to the sight of this.",
+        "hotwords": "Few"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Few are they who are able to attain to the sight of this.",
+          "start": 0.08,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Few",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.91796875
+            },
+            {
+              "text": " are",
+              "start": 0.62,
+              "end": 1.04,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " they",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " who",
+              "start": 1.28,
+              "end": 1.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " are",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " able",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " attain",
+              "start": 1.94,
+              "end": 2.26,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " the",
+              "start": 2.42,
+              "end": 2.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sight",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " of",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this.",
+              "start": 2.84,
+              "end": 3.08,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Few",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "are",
+          "start": 0.62,
+          "end": 1.04
+        },
+        {
+          "raw": "they",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "who",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "raw": "are",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "able",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "to",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "attain",
+          "start": 1.94,
+          "end": 2.26
+        },
+        {
+          "raw": "to",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.48
+        },
+        {
+          "raw": "sight",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "this.",
+          "start": 2.84,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Few",
+        "are",
+        "they",
+        "who",
+        "are",
+        "able",
+        "to",
+        "attain",
+        "to",
+        "the",
+        "sight",
+        "of",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Few",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "are",
+          "start": 0.62,
+          "end": 1.04
+        },
+        {
+          "text": "they",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "who",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "text": "are",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "able",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "to",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "attain",
+          "start": 1.94,
+          "end": 2.26
+        },
+        {
+          "text": "to",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.48
+        },
+        {
+          "text": "sight",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "of",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "this.",
+          "start": 2.84,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13079774379730225
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "862f4e1abce5537ee4317dc869c585118cb9443a9d36789ba05b65b9f653c227",
+  "selected_reasons": []
+}

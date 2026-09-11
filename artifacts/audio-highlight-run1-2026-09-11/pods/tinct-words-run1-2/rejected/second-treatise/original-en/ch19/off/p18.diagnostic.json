@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "019aa332995e37ec32103c4c1df722ff879459ff51f86822a5b55ebeb9945d92",
+  "attempts": [
+    {
+      "asr_seconds": 0.18638680130243301,
+      "alignment_seconds": 0.00021546334028244019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But it will be said this hypothesis lays a ferment for frequent rebellion to which I answer",
+          "start": 0.02,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " it",
+              "start": 0.48,
+              "end": 0.54,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " will",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 0.8,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " this",
+              "start": 1.16,
+              "end": 1.72,
+              "probability": 0.268310546875
+            },
+            {
+              "text": " hypothesis",
+              "start": 1.72,
+              "end": 2.3,
+              "probability": 0.984375
+            },
+            {
+              "text": " lays",
+              "start": 2.3,
+              "end": 2.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " ferment",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " for",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " frequent",
+              "start": 3.5,
+              "end": 3.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rebellion",
+              "start": 3.88,
+              "end": 4.44,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " to",
+              "start": 4.44,
+              "end": 5.18,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " which",
+              "start": 5.18,
+              "end": 5.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 5.34,
+              "end": 5.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " answer",
+              "start": 5.56,
+              "end": 5.94,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "it",
+          "start": 0.48,
+          "end": 0.54
+        },
+        {
+          "raw": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "be",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "said",
+          "start": 0.8,
+          "end": 1.16
+        },
+        {
+          "raw": "this",
+          "start": 1.16,
+          "end": 1.72
+        },
+        {
+          "raw": "hypothesis",
+          "start": 1.72,
+          "end": 2.3
+        },
+        {
+          "raw": "lays",
+          "start": 2.3,
+          "end": 2.74
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "ferment",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "for",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "raw": "frequent",
+          "start": 3.5,
+          "end": 3.88
+        },
+        {
+          "raw": "rebellion",
+          "start": 3.88,
+          "end": 4.44
+        },
+        {
+          "raw": "to",
+          "start": 4.44,
+          "end": 5.18
+        },
+        {
+          "raw": "which",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "raw": "I",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "raw": "answer",
+          "start": 5.56,
+          "end": 5.94
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "it",
+        "will",
+        "be",
+        "said,",
+        "this",
+        "hypothesis",
+        "lays",
+        "a",
+        "ferment",
+        "for",
+        "frequent",
+        "rebellion.",
+        "To",
+        "which",
+        "I",
+        "answer,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "it",
+          "start": 0.48,
+          "end": 0.54
+        },
+        {
+          "text": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "be",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "said,",
+          "start": 0.8,
+          "end": 1.16
+        },
+        {
+          "text": "this",
+          "start": 1.16,
+          "end": 1.72
+        },
+        {
+          "text": "hypothesis",
+          "start": 1.72,
+          "end": 2.3
+        },
+        {
+          "text": "lays",
+          "start": 2.3,
+          "end": 2.74
+        },
+        {
+          "text": "a",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "ferment",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "for",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "text": "frequent",
+          "start": 3.5,
+          "end": 3.88
+        },
+        {
+          "text": "rebellion.",
+          "start": 3.88,
+          "end": 4.44
+        },
+        {
+          "text": "To",
+          "start": 4.44,
+          "end": 5.18
+        },
+        {
+          "text": "which",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "text": "I",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "text": "answer,",
+          "start": 5.56,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18669523298740387
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a655f0532eb554be8a0375cfe4d5394f7d990d66b226e52110b9dd8f0c5f9be",
+  "selected_reasons": []
+}

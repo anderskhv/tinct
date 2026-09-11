@@ -1,0 +1,1170 @@
+{
+  "complete": true,
+  "signature": "fcb958fca0e8ca77a3bd427cd8eb16e8fc4f3ba86a2361f555acbd3344b3359f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1245763711631298,
+      "alignment_seconds": 9.328313171863556e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The purr grew louder, and ended in the full-throated \"Aaarh!\" of the tiger's charge.",
+        "hotwords": "Aaarh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The purr grew louder, and ended in the full-throated Aaarh of the tiger's charge.",
+          "start": 0.02,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " purr",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.765869140625
+            },
+            {
+              "text": " grew",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " louder,",
+              "start": 0.92,
+              "end": 1.26,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ended",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.12,
+              "end": 2.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " full",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-throated",
+              "start": 2.4,
+              "end": 2.8,
+              "probability": 0.9456380208333334
+            },
+            {
+              "text": " Aaarh",
+              "start": 2.8,
+              "end": 3.44,
+              "probability": 0.22061729431152344
+            },
+            {
+              "text": " of",
+              "start": 3.44,
+              "end": 3.98,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.12,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tiger's",
+              "start": 4.12,
+              "end": 4.58,
+              "probability": 0.720947265625
+            },
+            {
+              "text": " charge.",
+              "start": 4.58,
+              "end": 4.88,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "purr",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "grew",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "louder,",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "ended",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "the",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "raw": "full",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "-throated",
+          "start": 2.4,
+          "end": 2.8
+        },
+        {
+          "raw": "Aaarh",
+          "start": 2.8,
+          "end": 3.44
+        },
+        {
+          "raw": "of",
+          "start": 3.44,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "raw": "tiger's",
+          "start": 4.12,
+          "end": 4.58
+        },
+        {
+          "raw": "charge.",
+          "start": 4.58,
+          "end": 4.88
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "purr",
+        "grew",
+        "louder,",
+        "and",
+        "ended",
+        "in",
+        "the",
+        "full-throated",
+        "\"Aaarh!\"",
+        "of",
+        "the",
+        "tiger's",
+        "charge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          14,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "purr",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "grew",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "louder,",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "text": "and",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "ended",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "in",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "the",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "text": "full-throated",
+          "start": 2.22,
+          "end": 2.51
+        },
+        {
+          "text": "\"Aaarh!\"",
+          "start": 2.8,
+          "end": 3.44
+        },
+        {
+          "text": "of",
+          "start": 3.44,
+          "end": 3.98
+        },
+        {
+          "text": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "text": "tiger's",
+          "start": 4.12,
+          "end": 4.58
+        },
+        {
+          "text": "charge.",
+          "start": 4.58,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.12471194192767143
+    },
+    {
+      "asr_seconds": 0.1173632899299264,
+      "alignment_seconds": 8.492637425661087e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Aaarh"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The purr grew louder and ended in the full-throated aaarh of the tiger's charge",
+          "start": 0.02,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " purr",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.765869140625
+            },
+            {
+              "text": " grew",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " louder",
+              "start": 0.92,
+              "end": 1.26,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 1.26,
+              "end": 1.68,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " ended",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.12,
+              "end": 2.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " full",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.986328125
+            },
+            {
+              "text": "-throated",
+              "start": 2.4,
+              "end": 2.8,
+              "probability": 0.9358723958333334
+            },
+            {
+              "text": " aaarh",
+              "start": 2.8,
+              "end": 3.28,
+              "probability": 0.2288818359375
+            },
+            {
+              "text": " of",
+              "start": 3.28,
+              "end": 3.98,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " tiger's",
+              "start": 4.12,
+              "end": 4.58,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " charge",
+              "start": 4.58,
+              "end": 4.88,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "purr",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "grew",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "louder",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "raw": "and",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "raw": "ended",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "the",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "raw": "full",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "-throated",
+          "start": 2.4,
+          "end": 2.8
+        },
+        {
+          "raw": "aaarh",
+          "start": 2.8,
+          "end": 3.28
+        },
+        {
+          "raw": "of",
+          "start": 3.28,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "raw": "tiger's",
+          "start": 4.12,
+          "end": 4.58
+        },
+        {
+          "raw": "charge",
+          "start": 4.58,
+          "end": 4.88
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "purr",
+        "grew",
+        "louder,",
+        "and",
+        "ended",
+        "in",
+        "the",
+        "full-throated",
+        "\"Aaarh!\"",
+        "of",
+        "the",
+        "tiger's",
+        "charge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          14,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "purr",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "grew",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "louder,",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "text": "and",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "text": "ended",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "in",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "the",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "text": "full-throated",
+          "start": 2.22,
+          "end": 2.51
+        },
+        {
+          "text": "\"Aaarh!\"",
+          "start": 2.8,
+          "end": 3.28
+        },
+        {
+          "text": "of",
+          "start": 3.28,
+          "end": 3.98
+        },
+        {
+          "text": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "text": "tiger's",
+          "start": 4.12,
+          "end": 4.58
+        },
+        {
+          "text": "charge.",
+          "start": 4.58,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.11748876702040434
+    },
+    {
+      "asr_seconds": 0.16271528135985136,
+      "alignment_seconds": 8.675549179315567e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The purr grew louder and ended in the full-throated hour of the tiger's charge.",
+          "start": 0.02,
+          "end": 4.9,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " purr",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.765869140625
+            },
+            {
+              "text": " grew",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " louder",
+              "start": 0.92,
+              "end": 1.26,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 1.26,
+              "end": 1.68,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " ended",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.12,
+              "end": 2.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " full",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.986328125
+            },
+            {
+              "text": "-throated",
+              "start": 2.4,
+              "end": 2.78,
+              "probability": 0.9358723958333334
+            },
+            {
+              "text": " hour",
+              "start": 2.78,
+              "end": 3.12,
+              "probability": 0.25732421875
+            },
+            {
+              "text": " of",
+              "start": 3.12,
+              "end": 3.98,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.12,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " tiger's",
+              "start": 4.12,
+              "end": 4.58,
+              "probability": 0.7381591796875
+            },
+            {
+              "text": " charge.",
+              "start": 4.58,
+              "end": 4.9,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "purr",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "grew",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "louder",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "raw": "and",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "raw": "ended",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "the",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "raw": "full",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "-throated",
+          "start": 2.4,
+          "end": 2.78
+        },
+        {
+          "raw": "hour",
+          "start": 2.78,
+          "end": 3.12
+        },
+        {
+          "raw": "of",
+          "start": 3.12,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "raw": "tiger's",
+          "start": 4.12,
+          "end": 4.58
+        },
+        {
+          "raw": "charge.",
+          "start": 4.58,
+          "end": 4.9
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "purr",
+        "grew",
+        "louder,",
+        "and",
+        "ended",
+        "in",
+        "the",
+        "full-throated",
+        "\"Aaarh!\"",
+        "of",
+        "the",
+        "tiger's",
+        "charge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          11
+        ],
+        [
+          "equal",
+          10,
+          14,
+          11,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          10,
+          8,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "purr",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "grew",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "louder,",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "text": "and",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "text": "ended",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "in",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "the",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "text": "full-throated",
+          "start": 2.22,
+          "end": 2.67
+        },
+        {
+          "text": "\"Aaarh!\"",
+          "start": 2.67,
+          "end": 2.895
+        },
+        {
+          "text": "of",
+          "start": 3.12,
+          "end": 3.98
+        },
+        {
+          "text": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "text": "tiger's",
+          "start": 4.12,
+          "end": 4.58
+        },
+        {
+          "text": "charge.",
+          "start": 4.58,
+          "end": 4.9
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.16283768508583307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ecd6b0b56f03c56eb10295fa9030a567f979f1d4147ef455c8fa8f351f278984",
+  "selected_reasons": []
+}

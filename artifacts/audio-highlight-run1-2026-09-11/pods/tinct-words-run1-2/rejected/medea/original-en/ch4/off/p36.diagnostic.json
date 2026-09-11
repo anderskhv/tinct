@@ -1,0 +1,340 @@
+{
+  "complete": true,
+  "signature": "3f6573a80a113a86dd3530ba19a99dc78020b53c25873230dfd38dce47238815",
+  "attempts": [
+    {
+      "asr_seconds": 0.15473251044750214,
+      "alignment_seconds": 0.00010401010513305664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aegius, not to spill life's wine nor seek for more.",
+          "start": 0.02,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " Aegius,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.42364501953125
+            },
+            {
+              "text": " not",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " to",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spill",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life's",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " wine",
+              "start": 2.06,
+              "end": 2.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " nor",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.791015625
+            },
+            {
+              "text": " seek",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.9921875
+            },
+            {
+              "text": " for",
+              "start": 2.82,
+              "end": 3.02,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " more.",
+              "start": 3.02,
+              "end": 3.28,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegius,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "not",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "spill",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "life's",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "wine",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "raw": "nor",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "seek",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "for",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "raw": "more.",
+          "start": 3.02,
+          "end": 3.28
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Not",
+        "to",
+        "spill",
+        "Life's",
+        "wine,",
+        "nor",
+        "seek",
+        "for",
+        "more.",
+        ".",
+        ".",
+        "."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ],
+        [
+          "delete",
+          10,
+          13,
+          10,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          10,
+          13,
+          10,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Not",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "to",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "spill",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "Life's",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "wine,",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "text": "nor",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "seek",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "for",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "text": "more.",
+          "start": 3.02,
+          "end": 3.28
+        },
+        {
+          "text": ".",
+          "start": 3.28,
+          "end": 3.28
+        },
+        {
+          "text": ".",
+          "start": 3.28,
+          "end": 3.28
+        },
+        {
+          "text": ".",
+          "start": 3.28,
+          "end": 3.28
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.6923076923076923,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1548783928155899
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ec1513c72b01b6304f1cad59e82e686f774268dc8a736b8b0944b0030a1fa45",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

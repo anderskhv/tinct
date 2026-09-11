@@ -1,0 +1,450 @@
+{
+  "complete": true,
+  "signature": "bc80bae138d4c22276741d835da1f1f28c1724c860ba73ea00884d67b4548ea5",
+  "attempts": [
+    {
+      "asr_seconds": 0.18035318702459335,
+      "alignment_seconds": 0.0001437366008758545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Undoubtedly, and yet if music and gymnastics are excluded, and the arts are also excluded, what remains?",
+          "start": 0.08,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " Undoubtedly,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " and",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " yet",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " if",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " music",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gymnastics",
+              "start": 2.54,
+              "end": 3.12,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " are",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " excluded,",
+              "start": 3.4,
+              "end": 3.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.32,
+              "end": 4.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 4.42,
+              "end": 4.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " arts",
+              "start": 4.52,
+              "end": 4.76,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " are",
+              "start": 4.76,
+              "end": 4.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " also",
+              "start": 4.92,
+              "end": 5.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " excluded,",
+              "start": 5.2,
+              "end": 5.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " what",
+              "start": 6.16,
+              "end": 6.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " remains?",
+              "start": 6.32,
+              "end": 6.7,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Undoubtedly,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "yet",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "if",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "music",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "gymnastics",
+          "start": 2.54,
+          "end": 3.12
+        },
+        {
+          "raw": "are",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "excluded,",
+          "start": 3.4,
+          "end": 3.86
+        },
+        {
+          "raw": "and",
+          "start": 4.32,
+          "end": 4.42
+        },
+        {
+          "raw": "the",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "raw": "arts",
+          "start": 4.52,
+          "end": 4.76
+        },
+        {
+          "raw": "are",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "raw": "also",
+          "start": 4.92,
+          "end": 5.2
+        },
+        {
+          "raw": "excluded,",
+          "start": 5.2,
+          "end": 5.72
+        },
+        {
+          "raw": "what",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "raw": "remains?",
+          "start": 6.32,
+          "end": 6.7
+        }
+      ],
+      "expected_tokens": [
+        "Undoubtedly;",
+        "and",
+        "yet",
+        "if",
+        "music",
+        "and",
+        "gymnastic",
+        "are",
+        "excluded,",
+        "and",
+        "the",
+        "arts",
+        "are",
+        "also",
+        "excluded,",
+        "what",
+        "remains?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          17,
+          7,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Undoubtedly;",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "and",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "yet",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "if",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "music",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "gymnastic",
+          "start": 2.54,
+          "end": 2.83
+        },
+        {
+          "text": "are",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "excluded,",
+          "start": 3.4,
+          "end": 3.86
+        },
+        {
+          "text": "and",
+          "start": 4.32,
+          "end": 4.42
+        },
+        {
+          "text": "the",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "text": "arts",
+          "start": 4.52,
+          "end": 4.76
+        },
+        {
+          "text": "are",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "text": "also",
+          "start": 4.92,
+          "end": 5.2
+        },
+        {
+          "text": "excluded,",
+          "start": 5.2,
+          "end": 5.72
+        },
+        {
+          "text": "what",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "text": "remains?",
+          "start": 6.32,
+          "end": 6.7
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.18056119978427887
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8bd8a2df11687c8b701d091d96c007dd1e6b64138f4c7b684181859d06d8a382",
+  "selected_reasons": []
+}

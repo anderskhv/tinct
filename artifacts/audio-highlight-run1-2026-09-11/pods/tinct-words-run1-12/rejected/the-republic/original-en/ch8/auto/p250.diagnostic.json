@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "e5cf9677cce7f011df1c52de59f8096cfdd43812cc1060bbbf7cdc810688664a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13942360365763307,
+      "alignment_seconds": 0.00015747779980301857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And of the pleasures of love, and all other pleasures, the same holds good?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And of the pleasures of love, and all other pleasures, the same holds good?",
+          "start": 0.08,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.4404296875
+            },
+            {
+              "text": " of",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pleasures",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 0.98,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " love,",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.9453125
+            },
+            {
+              "text": " and",
+              "start": 2.0,
+              "end": 2.06,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " all",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " other",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " pleasures,",
+              "start": 2.4,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.26,
+              "end": 3.32,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " same",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " holds",
+              "start": 3.56,
+              "end": 3.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good?",
+              "start": 3.88,
+              "end": 4.24,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "of",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "pleasures",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "of",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "raw": "love,",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.06
+        },
+        {
+          "raw": "all",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "other",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "pleasures,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.32
+        },
+        {
+          "raw": "same",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "holds",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "raw": "good?",
+          "start": 3.88,
+          "end": 4.24
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "of",
+        "the",
+        "pleasures",
+        "of",
+        "love,",
+        "and",
+        "all",
+        "other",
+        "pleasures,",
+        "the",
+        "same",
+        "holds",
+        "good?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "of",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "pleasures",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "of",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "text": "love,",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "and",
+          "start": 2.0,
+          "end": 2.06
+        },
+        {
+          "text": "all",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "other",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "pleasures,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "text": "the",
+          "start": 3.26,
+          "end": 3.32
+        },
+        {
+          "text": "same",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "holds",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "text": "good?",
+          "start": 3.88,
+          "end": 4.24
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13966031977906823
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "62713e18f622b6cc9d3b3e5c7221bc823bcbf5cd2acce2209b4d2c55bedaa94d",
+  "selected_reasons": []
+}

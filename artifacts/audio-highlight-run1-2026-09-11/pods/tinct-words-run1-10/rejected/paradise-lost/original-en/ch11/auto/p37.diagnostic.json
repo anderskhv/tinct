@@ -1,0 +1,3173 @@
+{
+  "complete": true,
+  "signature": "c176ec0231d76c6433cf0e495f6f970a33e2174fc7c05ba8f0c6bb867ede7225",
+  "attempts": [
+    {
+      "asr_seconds": 0.9244047160027549,
+      "alignment_seconds": 0.0005400079826358706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nor knowing us, nor known: And, if by prayer Incessant I could hope to change the will Of Him who all things can, I would not cease To weary him with my assiduous cries: But prayer against his absolute decree No more avails than breath against the wind, Blown stifling back on him that breathes it forth:",
+        "hotwords": "And, Incessant, I, Of, But, No, Blown"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And, if by prayer Incessant I could hope to change the will Of Him who all things can, I would not cease To weary him with my assiduous cries, But prayer against his absolute decree No more avails than breath against the wind, Blown stifling back on him that breathes it forth,",
+          "start": 1.27,
+          "end": 19.17,
+          "words": [
+            {
+              "text": " And,",
+              "start": 1.27,
+              "end": 1.79,
+              "probability": 0.004657745361328125
+            },
+            {
+              "text": " if",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " by",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " prayer",
+              "start": 3.25,
+              "end": 3.55,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Incessant",
+              "start": 3.55,
+              "end": 4.23,
+              "probability": 0.6511415640513102
+            },
+            {
+              "text": " I",
+              "start": 4.23,
+              "end": 4.39,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " could",
+              "start": 4.39,
+              "end": 4.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hope",
+              "start": 4.49,
+              "end": 4.67,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 4.67,
+              "end": 4.87,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " change",
+              "start": 4.87,
+              "end": 5.13,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " the",
+              "start": 5.13,
+              "end": 5.35,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " will",
+              "start": 5.35,
+              "end": 5.51,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " Of",
+              "start": 5.51,
+              "end": 5.71,
+              "probability": 0.17236328125
+            },
+            {
+              "text": " Him",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.31591796875
+            },
+            {
+              "text": " who",
+              "start": 5.91,
+              "end": 6.13,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " all",
+              "start": 6.13,
+              "end": 6.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " things",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " can,",
+              "start": 6.65,
+              "end": 7.05,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " I",
+              "start": 7.53,
+              "end": 7.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " would",
+              "start": 7.71,
+              "end": 7.81,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " not",
+              "start": 7.81,
+              "end": 8.03,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " cease",
+              "start": 8.03,
+              "end": 8.25,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " To",
+              "start": 8.25,
+              "end": 8.49,
+              "probability": 0.398193359375
+            },
+            {
+              "text": " weary",
+              "start": 8.49,
+              "end": 8.69,
+              "probability": 0.98828125
+            },
+            {
+              "text": " him",
+              "start": 8.69,
+              "end": 8.99,
+              "probability": 0.2171630859375
+            },
+            {
+              "text": " with",
+              "start": 8.99,
+              "end": 9.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 9.19,
+              "end": 9.39,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " assiduous",
+              "start": 9.39,
+              "end": 9.91,
+              "probability": 0.9796549479166666
+            },
+            {
+              "text": " cries,",
+              "start": 9.91,
+              "end": 10.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " But",
+              "start": 10.97,
+              "end": 11.19,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " prayer",
+              "start": 11.19,
+              "end": 11.53,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " against",
+              "start": 11.53,
+              "end": 11.89,
+              "probability": 0.978515625
+            },
+            {
+              "text": " his",
+              "start": 11.89,
+              "end": 12.11,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " absolute",
+              "start": 12.11,
+              "end": 12.63,
+              "probability": 0.939453125
+            },
+            {
+              "text": " decree",
+              "start": 12.63,
+              "end": 13.09,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " No",
+              "start": 13.09,
+              "end": 13.79,
+              "probability": 0.3564453125
+            },
+            {
+              "text": " more",
+              "start": 13.79,
+              "end": 14.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " avails",
+              "start": 14.05,
+              "end": 14.49,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " than",
+              "start": 14.49,
+              "end": 14.75,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " breath",
+              "start": 14.75,
+              "end": 15.03,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " against",
+              "start": 15.03,
+              "end": 15.37,
+              "probability": 0.951171875
+            },
+            {
+              "text": " the",
+              "start": 15.37,
+              "end": 15.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wind,",
+              "start": 15.59,
+              "end": 15.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Blown",
+              "start": 16.65,
+              "end": 16.83,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " stifling",
+              "start": 16.83,
+              "end": 17.39,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " back",
+              "start": 17.39,
+              "end": 17.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on",
+              "start": 17.71,
+              "end": 17.89,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " him",
+              "start": 17.89,
+              "end": 18.09,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " that",
+              "start": 18.09,
+              "end": 18.29,
+              "probability": 0.7109375
+            },
+            {
+              "text": " breathes",
+              "start": 18.29,
+              "end": 18.73,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " it",
+              "start": 18.73,
+              "end": 18.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " forth,",
+              "start": 18.89,
+              "end": 19.17,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " And, if by prayer Incessant I could hope to change the will Of His absolute decree No more avails than breath against the wind, Blown stifling back on him that breathes it forth, Blown stifling back on him that breathes it forth, Blown stifling back on him that breathes it forth,",
+          "start": 19.17,
+          "end": 19.85,
+          "words": [
+            {
+              "text": " And,",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0016937255859375
+            },
+            {
+              "text": " if",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.02130126953125
+            },
+            {
+              "text": " by",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.000431060791015625
+            },
+            {
+              "text": " prayer",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 3.516674041748047e-06
+            },
+            {
+              "text": " Incessant",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0013962785402933757
+            },
+            {
+              "text": " I",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0023097991943359375
+            },
+            {
+              "text": " could",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.00475311279296875
+            },
+            {
+              "text": " hope",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0003924369812011719
+            },
+            {
+              "text": " to",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.09210205078125
+            },
+            {
+              "text": " change",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.00402069091796875
+            },
+            {
+              "text": " the",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.1055908203125
+            },
+            {
+              "text": " will",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.00026154518127441406
+            },
+            {
+              "text": " Of",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0290069580078125
+            },
+            {
+              "text": " His",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.002002716064453125
+            },
+            {
+              "text": " absolute",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 4.559755325317383e-05
+            },
+            {
+              "text": " decree",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 7.808208465576172e-06
+            },
+            {
+              "text": " No",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0036468505859375
+            },
+            {
+              "text": " more",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.097412109375
+            },
+            {
+              "text": " avails",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.00045996904373168945
+            },
+            {
+              "text": " than",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.005443572998046875
+            },
+            {
+              "text": " breath",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0003521442413330078
+            },
+            {
+              "text": " against",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.00026726722717285156
+            },
+            {
+              "text": " the",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.18408203125
+            },
+            {
+              "text": " wind,",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0015153884887695312
+            },
+            {
+              "text": " Blown",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.007977664470672607
+            },
+            {
+              "text": " stifling",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0007958114147186279
+            },
+            {
+              "text": " back",
+              "start": 19.17,
+              "end": 19.17,
+              "probability": 0.0006999969482421875
+            },
+            {
+              "text": " on",
+              "start": 19.17,
+              "end": 19.19,
+              "probability": 0.017486572265625
+            },
+            {
+              "text": " him",
+              "start": 19.19,
+              "end": 19.19,
+              "probability": 0.0006203651428222656
+            },
+            {
+              "text": " that",
+              "start": 19.19,
+              "end": 19.19,
+              "probability": 0.00325775146484375
+            },
+            {
+              "text": " breathes",
+              "start": 19.19,
+              "end": 19.31,
+              "probability": 0.46850937604904175
+            },
+            {
+              "text": " it",
+              "start": 19.31,
+              "end": 19.37,
+              "probability": 0.0011377334594726562
+            },
+            {
+              "text": " forth,",
+              "start": 19.37,
+              "end": 19.37,
+              "probability": 0.1278076171875
+            },
+            {
+              "text": " Blown",
+              "start": 19.37,
+              "end": 19.85,
+              "probability": 0.06403350830078125
+            },
+            {
+              "text": " stifling",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.1610107421875
+            },
+            {
+              "text": " back",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " on",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " him",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.87109375
+            },
+            {
+              "text": " that",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " breathes",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " it",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " forth,",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Blown",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.678466796875
+            },
+            {
+              "text": " stifling",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.5167236328125
+            },
+            {
+              "text": " back",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " on",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " him",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.970703125
+            },
+            {
+              "text": " that",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " breathes",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " it",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.98046875
+            },
+            {
+              "text": " forth,",
+              "start": 19.85,
+              "end": 19.85,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And,",
+          "start": 1.27,
+          "end": 1.79
+        },
+        {
+          "raw": "if",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "by",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "prayer",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "raw": "Incessant",
+          "start": 3.55,
+          "end": 4.23
+        },
+        {
+          "raw": "I",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "raw": "could",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "raw": "hope",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "raw": "to",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "raw": "change",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "raw": "will",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "raw": "Of",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "raw": "Him",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "who",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "raw": "all",
+          "start": 6.13,
+          "end": 6.37
+        },
+        {
+          "raw": "things",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "raw": "can,",
+          "start": 6.65,
+          "end": 7.05
+        },
+        {
+          "raw": "I",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "raw": "would",
+          "start": 7.71,
+          "end": 7.81
+        },
+        {
+          "raw": "not",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "raw": "cease",
+          "start": 8.03,
+          "end": 8.25
+        },
+        {
+          "raw": "To",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "raw": "weary",
+          "start": 8.49,
+          "end": 8.69
+        },
+        {
+          "raw": "him",
+          "start": 8.69,
+          "end": 8.99
+        },
+        {
+          "raw": "with",
+          "start": 8.99,
+          "end": 9.19
+        },
+        {
+          "raw": "my",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "raw": "assiduous",
+          "start": 9.39,
+          "end": 9.91
+        },
+        {
+          "raw": "cries,",
+          "start": 9.91,
+          "end": 10.23
+        },
+        {
+          "raw": "But",
+          "start": 10.97,
+          "end": 11.19
+        },
+        {
+          "raw": "prayer",
+          "start": 11.19,
+          "end": 11.53
+        },
+        {
+          "raw": "against",
+          "start": 11.53,
+          "end": 11.89
+        },
+        {
+          "raw": "his",
+          "start": 11.89,
+          "end": 12.11
+        },
+        {
+          "raw": "absolute",
+          "start": 12.11,
+          "end": 12.63
+        },
+        {
+          "raw": "decree",
+          "start": 12.63,
+          "end": 13.09
+        },
+        {
+          "raw": "No",
+          "start": 13.09,
+          "end": 13.79
+        },
+        {
+          "raw": "more",
+          "start": 13.79,
+          "end": 14.05
+        },
+        {
+          "raw": "avails",
+          "start": 14.05,
+          "end": 14.49
+        },
+        {
+          "raw": "than",
+          "start": 14.49,
+          "end": 14.75
+        },
+        {
+          "raw": "breath",
+          "start": 14.75,
+          "end": 15.03
+        },
+        {
+          "raw": "against",
+          "start": 15.03,
+          "end": 15.37
+        },
+        {
+          "raw": "the",
+          "start": 15.37,
+          "end": 15.59
+        },
+        {
+          "raw": "wind,",
+          "start": 15.59,
+          "end": 15.97
+        },
+        {
+          "raw": "Blown",
+          "start": 16.65,
+          "end": 16.83
+        },
+        {
+          "raw": "stifling",
+          "start": 16.83,
+          "end": 17.39
+        },
+        {
+          "raw": "back",
+          "start": 17.39,
+          "end": 17.71
+        },
+        {
+          "raw": "on",
+          "start": 17.71,
+          "end": 17.89
+        },
+        {
+          "raw": "him",
+          "start": 17.89,
+          "end": 18.09
+        },
+        {
+          "raw": "that",
+          "start": 18.09,
+          "end": 18.29
+        },
+        {
+          "raw": "breathes",
+          "start": 18.29,
+          "end": 18.73
+        },
+        {
+          "raw": "it",
+          "start": 18.73,
+          "end": 18.89
+        },
+        {
+          "raw": "forth,",
+          "start": 18.89,
+          "end": 19.17
+        },
+        {
+          "raw": "And,",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "if",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "by",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "prayer",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "Incessant",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "I",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "could",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "hope",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "to",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "change",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "the",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "will",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "Of",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "His",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "absolute",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "decree",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "No",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "more",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "avails",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "than",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "breath",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "against",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "the",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "wind,",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "Blown",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "stifling",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "back",
+          "start": 19.17,
+          "end": 19.17
+        },
+        {
+          "raw": "on",
+          "start": 19.17,
+          "end": 19.19
+        },
+        {
+          "raw": "him",
+          "start": 19.19,
+          "end": 19.19
+        },
+        {
+          "raw": "that",
+          "start": 19.19,
+          "end": 19.19
+        },
+        {
+          "raw": "breathes",
+          "start": 19.19,
+          "end": 19.31
+        },
+        {
+          "raw": "it",
+          "start": 19.31,
+          "end": 19.37
+        },
+        {
+          "raw": "forth,",
+          "start": 19.37,
+          "end": 19.37
+        },
+        {
+          "raw": "Blown",
+          "start": 19.37,
+          "end": 19.85
+        },
+        {
+          "raw": "stifling",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "back",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "on",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "him",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "that",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "breathes",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "it",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "forth,",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "Blown",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "stifling",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "back",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "on",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "him",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "that",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "breathes",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "it",
+          "start": 19.85,
+          "end": 19.85
+        },
+        {
+          "raw": "forth,",
+          "start": 19.85,
+          "end": 19.85
+        }
+      ],
+      "expected_tokens": [
+        "Nor",
+        "knowing",
+        "us,",
+        "nor",
+        "known:",
+        "And,",
+        "if",
+        "by",
+        "prayer",
+        "Incessant",
+        "I",
+        "could",
+        "hope",
+        "to",
+        "change",
+        "the",
+        "will",
+        "Of",
+        "Him",
+        "who",
+        "all",
+        "things",
+        "can,",
+        "I",
+        "would",
+        "not",
+        "cease",
+        "To",
+        "weary",
+        "him",
+        "with",
+        "my",
+        "assiduous",
+        "cries:",
+        "But",
+        "prayer",
+        "against",
+        "his",
+        "absolute",
+        "decree",
+        "No",
+        "more",
+        "avails",
+        "than",
+        "breath",
+        "against",
+        "the",
+        "wind,",
+        "Blown",
+        "stifling",
+        "back",
+        "on",
+        "him",
+        "that",
+        "breathes",
+        "it",
+        "forth:"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          57,
+          0,
+          52
+        ],
+        [
+          "insert",
+          57,
+          57,
+          52,
+          103
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "insert",
+          57,
+          57,
+          52,
+          103
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Nor",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "knowing",
+          "start": 0.635,
+          "end": 0.953
+        },
+        {
+          "text": "us,",
+          "start": 0.953,
+          "end": 1.111
+        },
+        {
+          "text": "nor",
+          "start": 1.111,
+          "end": 1.191
+        },
+        {
+          "text": "known:",
+          "start": 1.191,
+          "end": 1.231
+        },
+        {
+          "text": "And,",
+          "start": 1.27,
+          "end": 1.79
+        },
+        {
+          "text": "if",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "by",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "prayer",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "text": "Incessant",
+          "start": 3.55,
+          "end": 4.23
+        },
+        {
+          "text": "I",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "text": "could",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "text": "hope",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "text": "to",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "text": "change",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "text": "the",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "text": "will",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "text": "Of",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "text": "Him",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "who",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "text": "all",
+          "start": 6.13,
+          "end": 6.37
+        },
+        {
+          "text": "things",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "text": "can,",
+          "start": 6.65,
+          "end": 7.05
+        },
+        {
+          "text": "I",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "text": "would",
+          "start": 7.71,
+          "end": 7.81
+        },
+        {
+          "text": "not",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "text": "cease",
+          "start": 8.03,
+          "end": 8.25
+        },
+        {
+          "text": "To",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "text": "weary",
+          "start": 8.49,
+          "end": 8.69
+        },
+        {
+          "text": "him",
+          "start": 8.69,
+          "end": 8.99
+        },
+        {
+          "text": "with",
+          "start": 8.99,
+          "end": 9.19
+        },
+        {
+          "text": "my",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "text": "assiduous",
+          "start": 9.39,
+          "end": 9.91
+        },
+        {
+          "text": "cries:",
+          "start": 9.91,
+          "end": 10.23
+        },
+        {
+          "text": "But",
+          "start": 10.97,
+          "end": 11.19
+        },
+        {
+          "text": "prayer",
+          "start": 11.19,
+          "end": 11.53
+        },
+        {
+          "text": "against",
+          "start": 11.53,
+          "end": 11.89
+        },
+        {
+          "text": "his",
+          "start": 11.89,
+          "end": 12.11
+        },
+        {
+          "text": "absolute",
+          "start": 12.11,
+          "end": 12.63
+        },
+        {
+          "text": "decree",
+          "start": 12.63,
+          "end": 13.09
+        },
+        {
+          "text": "No",
+          "start": 13.09,
+          "end": 13.79
+        },
+        {
+          "text": "more",
+          "start": 13.79,
+          "end": 14.05
+        },
+        {
+          "text": "avails",
+          "start": 14.05,
+          "end": 14.49
+        },
+        {
+          "text": "than",
+          "start": 14.49,
+          "end": 14.75
+        },
+        {
+          "text": "breath",
+          "start": 14.75,
+          "end": 15.03
+        },
+        {
+          "text": "against",
+          "start": 15.03,
+          "end": 15.37
+        },
+        {
+          "text": "the",
+          "start": 15.37,
+          "end": 15.59
+        },
+        {
+          "text": "wind,",
+          "start": 15.59,
+          "end": 15.97
+        },
+        {
+          "text": "Blown",
+          "start": 16.65,
+          "end": 16.83
+        },
+        {
+          "text": "stifling",
+          "start": 16.83,
+          "end": 17.39
+        },
+        {
+          "text": "back",
+          "start": 17.39,
+          "end": 17.71
+        },
+        {
+          "text": "on",
+          "start": 17.71,
+          "end": 17.89
+        },
+        {
+          "text": "him",
+          "start": 17.89,
+          "end": 18.09
+        },
+        {
+          "text": "that",
+          "start": 18.09,
+          "end": 18.29
+        },
+        {
+          "text": "breathes",
+          "start": 18.29,
+          "end": 18.73
+        },
+        {
+          "text": "it",
+          "start": 18.73,
+          "end": 18.89
+        },
+        {
+          "text": "forth:",
+          "start": 18.89,
+          "end": 19.17
+        }
+      ],
+      "stats": {
+        "expected_words": 57,
+        "heard_words": 103,
+        "matched_words": 52
+      },
+      "match_ratio": 0.9122807017543859,
+      "rejection_reasons": [],
+      "seconds": 0.925350862002233
+    },
+    {
+      "asr_seconds": 0.6605050390062388,
+      "alignment_seconds": 0.0003642080118879676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "And, Incessant, I, Of, But, No, Blown"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Nor knowing us, nor known. And, if by prayer incessant I could hope to change the will of him who all things can,",
+          "start": 0.05,
+          "end": 7.07,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.2880859375
+            },
+            {
+              "text": " knowing",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.9453125
+            },
+            {
+              "text": " us,",
+              "start": 0.89,
+              "end": 1.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " nor",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " known.",
+              "start": 1.57,
+              "end": 1.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " And,",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " if",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " by",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " prayer",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " incessant",
+              "start": 3.55,
+              "end": 4.25,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " I",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " could",
+              "start": 4.39,
+              "end": 4.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hope",
+              "start": 4.49,
+              "end": 4.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 4.67,
+              "end": 4.87,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " change",
+              "start": 4.87,
+              "end": 5.13,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 5.13,
+              "end": 5.35,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " will",
+              "start": 5.35,
+              "end": 5.51,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 5.51,
+              "end": 5.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.5263671875
+            },
+            {
+              "text": " who",
+              "start": 5.91,
+              "end": 6.13,
+              "probability": 0.85546875
+            },
+            {
+              "text": " all",
+              "start": 6.13,
+              "end": 6.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " things",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " can,",
+              "start": 6.65,
+              "end": 7.07,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " I would not cease to weary him with my assiduous cries.",
+          "start": 7.53,
+          "end": 10.23,
+          "words": [
+            {
+              "text": " I",
+              "start": 7.53,
+              "end": 7.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " would",
+              "start": 7.71,
+              "end": 7.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 7.81,
+              "end": 8.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cease",
+              "start": 8.03,
+              "end": 8.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.27,
+              "end": 8.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " weary",
+              "start": 8.51,
+              "end": 8.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " him",
+              "start": 8.69,
+              "end": 9.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 9.01,
+              "end": 9.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 9.19,
+              "end": 9.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " assiduous",
+              "start": 9.39,
+              "end": 9.91,
+              "probability": 0.9845377604166666
+            },
+            {
+              "text": " cries.",
+              "start": 9.91,
+              "end": 10.23,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " But prayer against his absolute decree, no more avails than breath against the wind,",
+          "start": 10.95,
+          "end": 15.95,
+          "words": [
+            {
+              "text": " But",
+              "start": 10.95,
+              "end": 11.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " prayer",
+              "start": 11.19,
+              "end": 11.53,
+              "probability": 0.875
+            },
+            {
+              "text": " against",
+              "start": 11.53,
+              "end": 11.89,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " his",
+              "start": 11.89,
+              "end": 12.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " absolute",
+              "start": 12.11,
+              "end": 12.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " decree,",
+              "start": 12.65,
+              "end": 13.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 13.61,
+              "end": 13.79,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " more",
+              "start": 13.79,
+              "end": 14.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " avails",
+              "start": 14.05,
+              "end": 14.49,
+              "probability": 0.940185546875
+            },
+            {
+              "text": " than",
+              "start": 14.49,
+              "end": 14.75,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " breath",
+              "start": 14.75,
+              "end": 15.03,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " against",
+              "start": 15.03,
+              "end": 15.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 15.37,
+              "end": 15.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wind,",
+              "start": 15.59,
+              "end": 15.95,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Blown stifling back on him that breathes it forth.",
+          "start": 16.63,
+          "end": 19.15,
+          "words": [
+            {
+              "text": " Blown",
+              "start": 16.63,
+              "end": 16.83,
+              "probability": 0.5618896484375
+            },
+            {
+              "text": " stifling",
+              "start": 16.83,
+              "end": 17.39,
+              "probability": 0.843017578125
+            },
+            {
+              "text": " back",
+              "start": 17.39,
+              "end": 17.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 17.71,
+              "end": 17.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him",
+              "start": 17.89,
+              "end": 18.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 18.07,
+              "end": 18.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " breathes",
+              "start": 18.29,
+              "end": 18.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it",
+              "start": 18.73,
+              "end": 18.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forth.",
+              "start": 18.89,
+              "end": 19.15,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nor",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "knowing",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "raw": "us,",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "raw": "nor",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "known.",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "raw": "And,",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "if",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "by",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "raw": "prayer",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "raw": "incessant",
+          "start": 3.55,
+          "end": 4.25
+        },
+        {
+          "raw": "I",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "could",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "raw": "hope",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "raw": "to",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "raw": "change",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "raw": "will",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "raw": "of",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "raw": "him",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "who",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "raw": "all",
+          "start": 6.13,
+          "end": 6.37
+        },
+        {
+          "raw": "things",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "raw": "can,",
+          "start": 6.65,
+          "end": 7.07
+        },
+        {
+          "raw": "I",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "raw": "would",
+          "start": 7.71,
+          "end": 7.81
+        },
+        {
+          "raw": "not",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "raw": "cease",
+          "start": 8.03,
+          "end": 8.27
+        },
+        {
+          "raw": "to",
+          "start": 8.27,
+          "end": 8.51
+        },
+        {
+          "raw": "weary",
+          "start": 8.51,
+          "end": 8.69
+        },
+        {
+          "raw": "him",
+          "start": 8.69,
+          "end": 9.01
+        },
+        {
+          "raw": "with",
+          "start": 9.01,
+          "end": 9.19
+        },
+        {
+          "raw": "my",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "raw": "assiduous",
+          "start": 9.39,
+          "end": 9.91
+        },
+        {
+          "raw": "cries.",
+          "start": 9.91,
+          "end": 10.23
+        },
+        {
+          "raw": "But",
+          "start": 10.95,
+          "end": 11.19
+        },
+        {
+          "raw": "prayer",
+          "start": 11.19,
+          "end": 11.53
+        },
+        {
+          "raw": "against",
+          "start": 11.53,
+          "end": 11.89
+        },
+        {
+          "raw": "his",
+          "start": 11.89,
+          "end": 12.11
+        },
+        {
+          "raw": "absolute",
+          "start": 12.11,
+          "end": 12.65
+        },
+        {
+          "raw": "decree,",
+          "start": 12.65,
+          "end": 13.11
+        },
+        {
+          "raw": "no",
+          "start": 13.61,
+          "end": 13.79
+        },
+        {
+          "raw": "more",
+          "start": 13.79,
+          "end": 14.05
+        },
+        {
+          "raw": "avails",
+          "start": 14.05,
+          "end": 14.49
+        },
+        {
+          "raw": "than",
+          "start": 14.49,
+          "end": 14.75
+        },
+        {
+          "raw": "breath",
+          "start": 14.75,
+          "end": 15.03
+        },
+        {
+          "raw": "against",
+          "start": 15.03,
+          "end": 15.37
+        },
+        {
+          "raw": "the",
+          "start": 15.37,
+          "end": 15.59
+        },
+        {
+          "raw": "wind,",
+          "start": 15.59,
+          "end": 15.95
+        },
+        {
+          "raw": "Blown",
+          "start": 16.63,
+          "end": 16.83
+        },
+        {
+          "raw": "stifling",
+          "start": 16.83,
+          "end": 17.39
+        },
+        {
+          "raw": "back",
+          "start": 17.39,
+          "end": 17.71
+        },
+        {
+          "raw": "on",
+          "start": 17.71,
+          "end": 17.89
+        },
+        {
+          "raw": "him",
+          "start": 17.89,
+          "end": 18.07
+        },
+        {
+          "raw": "that",
+          "start": 18.07,
+          "end": 18.29
+        },
+        {
+          "raw": "breathes",
+          "start": 18.29,
+          "end": 18.73
+        },
+        {
+          "raw": "it",
+          "start": 18.73,
+          "end": 18.89
+        },
+        {
+          "raw": "forth.",
+          "start": 18.89,
+          "end": 19.15
+        }
+      ],
+      "expected_tokens": [
+        "Nor",
+        "knowing",
+        "us,",
+        "nor",
+        "known:",
+        "And,",
+        "if",
+        "by",
+        "prayer",
+        "Incessant",
+        "I",
+        "could",
+        "hope",
+        "to",
+        "change",
+        "the",
+        "will",
+        "Of",
+        "Him",
+        "who",
+        "all",
+        "things",
+        "can,",
+        "I",
+        "would",
+        "not",
+        "cease",
+        "To",
+        "weary",
+        "him",
+        "with",
+        "my",
+        "assiduous",
+        "cries:",
+        "But",
+        "prayer",
+        "against",
+        "his",
+        "absolute",
+        "decree",
+        "No",
+        "more",
+        "avails",
+        "than",
+        "breath",
+        "against",
+        "the",
+        "wind,",
+        "Blown",
+        "stifling",
+        "back",
+        "on",
+        "him",
+        "that",
+        "breathes",
+        "it",
+        "forth:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          57,
+          0,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Nor",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "knowing",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "text": "us,",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "text": "nor",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "known:",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "text": "And,",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "text": "if",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "by",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "text": "prayer",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "text": "Incessant",
+          "start": 3.55,
+          "end": 4.25
+        },
+        {
+          "text": "I",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "could",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "text": "hope",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "text": "to",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "text": "change",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "text": "the",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "text": "will",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "text": "Of",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "text": "Him",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "who",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "text": "all",
+          "start": 6.13,
+          "end": 6.37
+        },
+        {
+          "text": "things",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "text": "can,",
+          "start": 6.65,
+          "end": 7.07
+        },
+        {
+          "text": "I",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "text": "would",
+          "start": 7.71,
+          "end": 7.81
+        },
+        {
+          "text": "not",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "text": "cease",
+          "start": 8.03,
+          "end": 8.27
+        },
+        {
+          "text": "To",
+          "start": 8.27,
+          "end": 8.51
+        },
+        {
+          "text": "weary",
+          "start": 8.51,
+          "end": 8.69
+        },
+        {
+          "text": "him",
+          "start": 8.69,
+          "end": 9.01
+        },
+        {
+          "text": "with",
+          "start": 9.01,
+          "end": 9.19
+        },
+        {
+          "text": "my",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "text": "assiduous",
+          "start": 9.39,
+          "end": 9.91
+        },
+        {
+          "text": "cries:",
+          "start": 9.91,
+          "end": 10.23
+        },
+        {
+          "text": "But",
+          "start": 10.95,
+          "end": 11.19
+        },
+        {
+          "text": "prayer",
+          "start": 11.19,
+          "end": 11.53
+        },
+        {
+          "text": "against",
+          "start": 11.53,
+          "end": 11.89
+        },
+        {
+          "text": "his",
+          "start": 11.89,
+          "end": 12.11
+        },
+        {
+          "text": "absolute",
+          "start": 12.11,
+          "end": 12.65
+        },
+        {
+          "text": "decree",
+          "start": 12.65,
+          "end": 13.11
+        },
+        {
+          "text": "No",
+          "start": 13.61,
+          "end": 13.79
+        },
+        {
+          "text": "more",
+          "start": 13.79,
+          "end": 14.05
+        },
+        {
+          "text": "avails",
+          "start": 14.05,
+          "end": 14.49
+        },
+        {
+          "text": "than",
+          "start": 14.49,
+          "end": 14.75
+        },
+        {
+          "text": "breath",
+          "start": 14.75,
+          "end": 15.03
+        },
+        {
+          "text": "against",
+          "start": 15.03,
+          "end": 15.37
+        },
+        {
+          "text": "the",
+          "start": 15.37,
+          "end": 15.59
+        },
+        {
+          "text": "wind,",
+          "start": 15.59,
+          "end": 15.95
+        },
+        {
+          "text": "Blown",
+          "start": 16.63,
+          "end": 16.83
+        },
+        {
+          "text": "stifling",
+          "start": 16.83,
+          "end": 17.39
+        },
+        {
+          "text": "back",
+          "start": 17.39,
+          "end": 17.71
+        },
+        {
+          "text": "on",
+          "start": 17.71,
+          "end": 17.89
+        },
+        {
+          "text": "him",
+          "start": 17.89,
+          "end": 18.07
+        },
+        {
+          "text": "that",
+          "start": 18.07,
+          "end": 18.29
+        },
+        {
+          "text": "breathes",
+          "start": 18.29,
+          "end": 18.73
+        },
+        {
+          "text": "it",
+          "start": 18.73,
+          "end": 18.89
+        },
+        {
+          "text": "forth:",
+          "start": 18.89,
+          "end": 19.15
+        }
+      ],
+      "stats": {
+        "expected_words": 57,
+        "heard_words": 57,
+        "matched_words": 57
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6610917860234622
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "ffa45b122ae3859785933abc31380539db7835b0ca4e668e9d74045962bf6cb8",
+  "selected_reasons": []
+}

@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "2238f9d2db685a6d66607561def0abbd19eaed04df2434f8cddf4f68f97a29a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08941242843866348,
+      "alignment_seconds": 5.926191806793213e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To spare them is infinitely better.",
+          "start": 0.0,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " spare",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " them",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 1.02,
+              "end": 1.3,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " infinitely",
+              "start": 1.3,
+              "end": 1.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " better.",
+              "start": 1.68,
+              "end": 2.12,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "spare",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "them",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "raw": "is",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "raw": "infinitely",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "raw": "better.",
+          "start": 1.68,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "spare",
+        "them",
+        "is",
+        "infinitely",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "spare",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "them",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "text": "is",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "text": "infinitely",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "text": "better.",
+          "start": 1.68,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08949852734804153
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "df059e0d82910a1559ea264e91f5ef935ec34a4be00e02fd7815f22856320958",
+  "selected_reasons": []
+}

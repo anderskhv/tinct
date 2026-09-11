@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "c8e1be1b62a88f5b6360cc32a4bb764f0ce41689904b7bd26967a1955096157c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14430472999811172,
+      "alignment_seconds": 7.946789264678955e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And which is wise and which is foolish?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And which is wise and which is foolish?",
+          "start": 0.14,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.39990234375
+            },
+            {
+              "text": " which",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.962890625
+            },
+            {
+              "text": " is",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wise",
+              "start": 0.8,
+              "end": 1.1,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " which",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " is",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " foolish?",
+              "start": 1.64,
+              "end": 1.94,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "which",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "is",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "wise",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "raw": "which",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "is",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "foolish?",
+          "start": 1.64,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "which",
+        "is",
+        "wise",
+        "and",
+        "which",
+        "is",
+        "foolish?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "which",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "is",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "wise",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "text": "which",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "is",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "foolish?",
+          "start": 1.64,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1444207951426506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aec2887774f8881ebff480700edc357d66fcc50e42c1487b893f3d8252aad7a8",
+  "selected_reasons": []
+}

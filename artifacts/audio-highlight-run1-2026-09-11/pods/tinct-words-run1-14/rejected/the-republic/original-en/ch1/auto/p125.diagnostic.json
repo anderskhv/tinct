@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "a02b91fad02a009bc8271f2ed676cbeb2410d57a2937fad893819445bd190c8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.06627311557531357,
+      "alignment_seconds": 4.459172487258911e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clearly.",
+        "hotwords": "Clearly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clearly.",
+          "start": 0.08,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Clearly.",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clearly.",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "Clearly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Clearly.",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06633295118808746
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "21fe2bdb80c06c09da5ab9d37702db22da0619fa3d94dfd685629451cbc5ac60",
+  "selected_reasons": []
+}

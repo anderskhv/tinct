@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "bf75ef6d70351aab5fea3079ec1649f80327ef4970ffbafd47493da2e720ec08",
+  "attempts": [
+    {
+      "asr_seconds": 0.10071004554629326,
+      "alignment_seconds": 4.3371692299842834e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what is that?",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " what",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " is",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that?",
+              "start": 0.81,
+              "end": 1.07,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "what",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "is",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "that?",
+          "start": 0.81,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "what",
+        "is",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "what",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "is",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "that?",
+          "start": 0.81,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10077108908444643
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5d8c8c16245d191f00346fafa9facc7087028b2c19ff56f67f09418be12aac5c",
+  "selected_reasons": []
+}

@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "b7b24209115717d80df178947ef088b28b7504105cb548bd3675711919f7832d",
+  "attempts": [
+    {
+      "asr_seconds": 0.09215603768825531,
+      "alignment_seconds": 7.580220699310303e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, that is our principle.",
+          "start": 0.02,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.921875
+            },
+            {
+              "text": " that",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " our",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " principle.",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.9248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "that",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "our",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "principle.",
+          "start": 1.48,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Yes;",
+        "that",
+        "is",
+        "our",
+        "principle."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes;",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "that",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "is",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "our",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "principle.",
+          "start": 1.48,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0922594666481018
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eeee9403d75e2cdd0db2bf34fe3b45da95363e79b8e9a038c16d65545fa4a6b6",
+  "selected_reasons": []
+}

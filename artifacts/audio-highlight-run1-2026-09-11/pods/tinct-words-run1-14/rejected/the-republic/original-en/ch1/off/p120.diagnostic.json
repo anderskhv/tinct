@@ -1,0 +1,567 @@
+{
+  "complete": true,
+  "signature": "21c5acfecbebc26d76586a88a4d6115407feac20f719beb3ff906befd20939c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.22128822654485703,
+      "alignment_seconds": 0.0001498386263847351,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Surely, he said, a man may be expected to love those whom he thinks good and to hate",
+          "start": 0.0,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Surely,",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " he",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " said,",
+              "start": 1.02,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.83203125
+            },
+            {
+              "text": " man",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " may",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " be",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " expected",
+              "start": 2.46,
+              "end": 2.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.84,
+              "end": 3.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " love",
+              "start": 3.16,
+              "end": 3.42,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " those",
+              "start": 3.42,
+              "end": 3.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " whom",
+              "start": 3.74,
+              "end": 3.94,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " he",
+              "start": 3.94,
+              "end": 4.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thinks",
+              "start": 4.06,
+              "end": 4.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 4.26,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.58,
+              "end": 5.16,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " to",
+              "start": 5.16,
+              "end": 5.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " hate",
+              "start": 5.26,
+              "end": 5.46,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " those whom he thinks evil.",
+          "start": 5.46,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " those",
+              "start": 5.46,
+              "end": 5.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whom",
+              "start": 5.74,
+              "end": 6.02,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 6.02,
+              "end": 6.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thinks",
+              "start": 6.16,
+              "end": 6.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " evil.",
+              "start": 6.36,
+              "end": 6.66,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Surely,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "raw": "said,",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "raw": "a",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "man",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "may",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "be",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "expected",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "raw": "to",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "raw": "love",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "raw": "those",
+          "start": 3.42,
+          "end": 3.74
+        },
+        {
+          "raw": "whom",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "raw": "he",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "raw": "thinks",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "raw": "good",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "raw": "and",
+          "start": 4.58,
+          "end": 5.16
+        },
+        {
+          "raw": "to",
+          "start": 5.16,
+          "end": 5.26
+        },
+        {
+          "raw": "hate",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "raw": "those",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "raw": "whom",
+          "start": 5.74,
+          "end": 6.02
+        },
+        {
+          "raw": "he",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "raw": "thinks",
+          "start": 6.16,
+          "end": 6.36
+        },
+        {
+          "raw": "evil.",
+          "start": 6.36,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "Surely,",
+        "he",
+        "said,",
+        "a",
+        "man",
+        "may",
+        "be",
+        "expected",
+        "to",
+        "love",
+        "those",
+        "whom",
+        "he",
+        "thinks",
+        "good,",
+        "and",
+        "to",
+        "hate",
+        "those",
+        "whom",
+        "he",
+        "thinks",
+        "evil."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Surely,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "he",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "text": "said,",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "text": "a",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "man",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "may",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "be",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "expected",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "text": "to",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "text": "love",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "text": "those",
+          "start": 3.42,
+          "end": 3.74
+        },
+        {
+          "text": "whom",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "text": "he",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "text": "thinks",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "text": "good,",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "text": "and",
+          "start": 4.58,
+          "end": 5.16
+        },
+        {
+          "text": "to",
+          "start": 5.16,
+          "end": 5.26
+        },
+        {
+          "text": "hate",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "text": "those",
+          "start": 5.46,
+          "end": 5.74
+        },
+        {
+          "text": "whom",
+          "start": 5.74,
+          "end": 6.02
+        },
+        {
+          "text": "he",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "text": "thinks",
+          "start": 6.16,
+          "end": 6.36
+        },
+        {
+          "text": "evil.",
+          "start": 6.36,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 23,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22151896357536316
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aef16812fc9cbd88bd615ba05bfeb9a61e761d183089ee8cbf17cb31dae83693",
+  "selected_reasons": []
+}

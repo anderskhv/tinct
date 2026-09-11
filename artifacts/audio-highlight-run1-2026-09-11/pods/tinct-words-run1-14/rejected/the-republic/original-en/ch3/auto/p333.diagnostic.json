@@ -1,0 +1,1163 @@
+{
+  "complete": true,
+  "signature": "2a0d6cecab63d0b54d1b5bdbbcb1e0655bb2a9c4e2009718a4607035625cfde5",
+  "attempts": [
+    {
+      "asr_seconds": 0.37890804558992386,
+      "alignment_seconds": 0.00033010542392730713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But when intemperance and diseases multiply in a State, halls of justice and medicine are always being opened; and the arts of the doctor and the lawyer give themselves airs, finding how keen is the interest which not only the slaves but the freemen of a city take about them.",
+        "hotwords": "State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But when intemperance and diseases multiply in a State, halls of justice and medicine are always being opened.",
+          "start": 0.05,
+          "end": 6.71,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.05,
+              "end": 0.47,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " when",
+              "start": 0.47,
+              "end": 0.61,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " intemperance",
+              "start": 0.61,
+              "end": 1.29,
+              "probability": 0.9219970703125
+            },
+            {
+              "text": " and",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " diseases",
+              "start": 1.47,
+              "end": 1.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " multiply",
+              "start": 1.83,
+              "end": 2.63,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " in",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " a",
+              "start": 2.87,
+              "end": 2.95,
+              "probability": 0.984375
+            },
+            {
+              "text": " State,",
+              "start": 2.95,
+              "end": 3.33,
+              "probability": 0.0027561187744140625
+            },
+            {
+              "text": " halls",
+              "start": 3.99,
+              "end": 3.99,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " of",
+              "start": 3.99,
+              "end": 4.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " justice",
+              "start": 4.23,
+              "end": 4.67,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " and",
+              "start": 4.67,
+              "end": 4.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " medicine",
+              "start": 4.97,
+              "end": 5.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " are",
+              "start": 5.35,
+              "end": 5.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " always",
+              "start": 5.63,
+              "end": 5.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " being",
+              "start": 5.99,
+              "end": 6.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " opened.",
+              "start": 6.27,
+              "end": 6.71,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " And the arts of the doctor and the lawyer give themselves airs, finding how keen is the interest which not only the slaves but the freemen of a city take about them.",
+          "start": 7.31,
+          "end": 16.27,
+          "words": [
+            {
+              "text": " And",
+              "start": 7.31,
+              "end": 7.47,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 7.47,
+              "end": 7.59,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " arts",
+              "start": 7.59,
+              "end": 7.81,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " of",
+              "start": 7.81,
+              "end": 7.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.97,
+              "end": 8.11,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " doctor",
+              "start": 8.11,
+              "end": 8.43,
+              "probability": 0.6640625
+            },
+            {
+              "text": " and",
+              "start": 8.43,
+              "end": 8.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 8.69,
+              "end": 8.83,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " lawyer",
+              "start": 8.83,
+              "end": 9.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " give",
+              "start": 9.15,
+              "end": 9.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " themselves",
+              "start": 9.41,
+              "end": 9.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " airs,",
+              "start": 9.89,
+              "end": 10.25,
+              "probability": 0.06829833984375
+            },
+            {
+              "text": " finding",
+              "start": 10.89,
+              "end": 11.13,
+              "probability": 0.978515625
+            },
+            {
+              "text": " how",
+              "start": 11.13,
+              "end": 11.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " keen",
+              "start": 11.45,
+              "end": 11.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 11.77,
+              "end": 12.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 12.01,
+              "end": 12.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " interest",
+              "start": 12.15,
+              "end": 12.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 12.55,
+              "end": 12.83,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " not",
+              "start": 12.83,
+              "end": 13.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " only",
+              "start": 13.07,
+              "end": 13.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 13.37,
+              "end": 13.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " slaves",
+              "start": 13.55,
+              "end": 13.93,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " but",
+              "start": 13.93,
+              "end": 14.35,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " the",
+              "start": 14.35,
+              "end": 14.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " freemen",
+              "start": 14.49,
+              "end": 14.87,
+              "probability": 0.885498046875
+            },
+            {
+              "text": " of",
+              "start": 14.87,
+              "end": 15.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 15.03,
+              "end": 15.19,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " city",
+              "start": 15.19,
+              "end": 15.37,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " take",
+              "start": 15.37,
+              "end": 15.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " about",
+              "start": 15.73,
+              "end": 15.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them.",
+              "start": 15.99,
+              "end": 16.27,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.47
+        },
+        {
+          "raw": "when",
+          "start": 0.47,
+          "end": 0.61
+        },
+        {
+          "raw": "intemperance",
+          "start": 0.61,
+          "end": 1.29
+        },
+        {
+          "raw": "and",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "diseases",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "raw": "multiply",
+          "start": 1.83,
+          "end": 2.63
+        },
+        {
+          "raw": "in",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "a",
+          "start": 2.87,
+          "end": 2.95
+        },
+        {
+          "raw": "State,",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "raw": "halls",
+          "start": 3.99,
+          "end": 3.99
+        },
+        {
+          "raw": "of",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "raw": "justice",
+          "start": 4.23,
+          "end": 4.67
+        },
+        {
+          "raw": "and",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "raw": "medicine",
+          "start": 4.97,
+          "end": 5.35
+        },
+        {
+          "raw": "are",
+          "start": 5.35,
+          "end": 5.63
+        },
+        {
+          "raw": "always",
+          "start": 5.63,
+          "end": 5.99
+        },
+        {
+          "raw": "being",
+          "start": 5.99,
+          "end": 6.27
+        },
+        {
+          "raw": "opened.",
+          "start": 6.27,
+          "end": 6.71
+        },
+        {
+          "raw": "And",
+          "start": 7.31,
+          "end": 7.47
+        },
+        {
+          "raw": "the",
+          "start": 7.47,
+          "end": 7.59
+        },
+        {
+          "raw": "arts",
+          "start": 7.59,
+          "end": 7.81
+        },
+        {
+          "raw": "of",
+          "start": 7.81,
+          "end": 7.97
+        },
+        {
+          "raw": "the",
+          "start": 7.97,
+          "end": 8.11
+        },
+        {
+          "raw": "doctor",
+          "start": 8.11,
+          "end": 8.43
+        },
+        {
+          "raw": "and",
+          "start": 8.43,
+          "end": 8.69
+        },
+        {
+          "raw": "the",
+          "start": 8.69,
+          "end": 8.83
+        },
+        {
+          "raw": "lawyer",
+          "start": 8.83,
+          "end": 9.15
+        },
+        {
+          "raw": "give",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "raw": "themselves",
+          "start": 9.41,
+          "end": 9.89
+        },
+        {
+          "raw": "airs,",
+          "start": 9.89,
+          "end": 10.25
+        },
+        {
+          "raw": "finding",
+          "start": 10.89,
+          "end": 11.13
+        },
+        {
+          "raw": "how",
+          "start": 11.13,
+          "end": 11.45
+        },
+        {
+          "raw": "keen",
+          "start": 11.45,
+          "end": 11.77
+        },
+        {
+          "raw": "is",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "raw": "the",
+          "start": 12.01,
+          "end": 12.15
+        },
+        {
+          "raw": "interest",
+          "start": 12.15,
+          "end": 12.55
+        },
+        {
+          "raw": "which",
+          "start": 12.55,
+          "end": 12.83
+        },
+        {
+          "raw": "not",
+          "start": 12.83,
+          "end": 13.07
+        },
+        {
+          "raw": "only",
+          "start": 13.07,
+          "end": 13.37
+        },
+        {
+          "raw": "the",
+          "start": 13.37,
+          "end": 13.55
+        },
+        {
+          "raw": "slaves",
+          "start": 13.55,
+          "end": 13.93
+        },
+        {
+          "raw": "but",
+          "start": 13.93,
+          "end": 14.35
+        },
+        {
+          "raw": "the",
+          "start": 14.35,
+          "end": 14.49
+        },
+        {
+          "raw": "freemen",
+          "start": 14.49,
+          "end": 14.87
+        },
+        {
+          "raw": "of",
+          "start": 14.87,
+          "end": 15.03
+        },
+        {
+          "raw": "a",
+          "start": 15.03,
+          "end": 15.19
+        },
+        {
+          "raw": "city",
+          "start": 15.19,
+          "end": 15.37
+        },
+        {
+          "raw": "take",
+          "start": 15.37,
+          "end": 15.73
+        },
+        {
+          "raw": "about",
+          "start": 15.73,
+          "end": 15.99
+        },
+        {
+          "raw": "them.",
+          "start": 15.99,
+          "end": 16.27
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "when",
+        "intemperance",
+        "and",
+        "diseases",
+        "multiply",
+        "in",
+        "a",
+        "State,",
+        "halls",
+        "of",
+        "justice",
+        "and",
+        "medicine",
+        "are",
+        "always",
+        "being",
+        "opened;",
+        "and",
+        "the",
+        "arts",
+        "of",
+        "the",
+        "doctor",
+        "and",
+        "the",
+        "lawyer",
+        "give",
+        "themselves",
+        "airs,",
+        "finding",
+        "how",
+        "keen",
+        "is",
+        "the",
+        "interest",
+        "which",
+        "not",
+        "only",
+        "the",
+        "slaves",
+        "but",
+        "the",
+        "freemen",
+        "of",
+        "a",
+        "city",
+        "take",
+        "about",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          50,
+          0,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.05,
+          "end": 0.47
+        },
+        {
+          "text": "when",
+          "start": 0.47,
+          "end": 0.61
+        },
+        {
+          "text": "intemperance",
+          "start": 0.61,
+          "end": 1.29
+        },
+        {
+          "text": "and",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "diseases",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "text": "multiply",
+          "start": 1.83,
+          "end": 2.63
+        },
+        {
+          "text": "in",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "a",
+          "start": 2.87,
+          "end": 2.95
+        },
+        {
+          "text": "State,",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "text": "halls",
+          "start": 3.99,
+          "end": 3.99
+        },
+        {
+          "text": "of",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "text": "justice",
+          "start": 4.23,
+          "end": 4.67
+        },
+        {
+          "text": "and",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "text": "medicine",
+          "start": 4.97,
+          "end": 5.35
+        },
+        {
+          "text": "are",
+          "start": 5.35,
+          "end": 5.63
+        },
+        {
+          "text": "always",
+          "start": 5.63,
+          "end": 5.99
+        },
+        {
+          "text": "being",
+          "start": 5.99,
+          "end": 6.27
+        },
+        {
+          "text": "opened;",
+          "start": 6.27,
+          "end": 6.71
+        },
+        {
+          "text": "and",
+          "start": 7.31,
+          "end": 7.47
+        },
+        {
+          "text": "the",
+          "start": 7.47,
+          "end": 7.59
+        },
+        {
+          "text": "arts",
+          "start": 7.59,
+          "end": 7.81
+        },
+        {
+          "text": "of",
+          "start": 7.81,
+          "end": 7.97
+        },
+        {
+          "text": "the",
+          "start": 7.97,
+          "end": 8.11
+        },
+        {
+          "text": "doctor",
+          "start": 8.11,
+          "end": 8.43
+        },
+        {
+          "text": "and",
+          "start": 8.43,
+          "end": 8.69
+        },
+        {
+          "text": "the",
+          "start": 8.69,
+          "end": 8.83
+        },
+        {
+          "text": "lawyer",
+          "start": 8.83,
+          "end": 9.15
+        },
+        {
+          "text": "give",
+          "start": 9.15,
+          "end": 9.41
+        },
+        {
+          "text": "themselves",
+          "start": 9.41,
+          "end": 9.89
+        },
+        {
+          "text": "airs,",
+          "start": 9.89,
+          "end": 10.25
+        },
+        {
+          "text": "finding",
+          "start": 10.89,
+          "end": 11.13
+        },
+        {
+          "text": "how",
+          "start": 11.13,
+          "end": 11.45
+        },
+        {
+          "text": "keen",
+          "start": 11.45,
+          "end": 11.77
+        },
+        {
+          "text": "is",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "text": "the",
+          "start": 12.01,
+          "end": 12.15
+        },
+        {
+          "text": "interest",
+          "start": 12.15,
+          "end": 12.55
+        },
+        {
+          "text": "which",
+          "start": 12.55,
+          "end": 12.83
+        },
+        {
+          "text": "not",
+          "start": 12.83,
+          "end": 13.07
+        },
+        {
+          "text": "only",
+          "start": 13.07,
+          "end": 13.37
+        },
+        {
+          "text": "the",
+          "start": 13.37,
+          "end": 13.55
+        },
+        {
+          "text": "slaves",
+          "start": 13.55,
+          "end": 13.93
+        },
+        {
+          "text": "but",
+          "start": 13.93,
+          "end": 14.35
+        },
+        {
+          "text": "the",
+          "start": 14.35,
+          "end": 14.49
+        },
+        {
+          "text": "freemen",
+          "start": 14.49,
+          "end": 14.87
+        },
+        {
+          "text": "of",
+          "start": 14.87,
+          "end": 15.03
+        },
+        {
+          "text": "a",
+          "start": 15.03,
+          "end": 15.19
+        },
+        {
+          "text": "city",
+          "start": 15.19,
+          "end": 15.37
+        },
+        {
+          "text": "take",
+          "start": 15.37,
+          "end": 15.73
+        },
+        {
+          "text": "about",
+          "start": 15.73,
+          "end": 15.99
+        },
+        {
+          "text": "them.",
+          "start": 15.99,
+          "end": 16.27
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 50,
+        "matched_words": 50
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.379434771835804
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4b7409a68a5e996788bd4ad251fe049395d738e5fc0147611e1a07675f4abe32",
+  "selected_reasons": []
+}

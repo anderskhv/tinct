@@ -1,0 +1,781 @@
+{
+  "complete": true,
+  "signature": "56bfecbbed80333266fb0b947591ae0d1bb2338d08cf9d5897dd1ce70d7f4ccf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3339650258421898,
+      "alignment_seconds": 0.00010305643081665039,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They do not set up any sectarian principles of their own, by which to shape and mould the proletarian movement.",
+        "hotwords": "They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They They do not set up any sectarian principles of their own, by which to shape and mould",
+          "start": 0.02,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " They",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 2.384185791015625e-07
+            },
+            {
+              "text": " do",
+              "start": 0.64,
+              "end": 0.64,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " not",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " set",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " up",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " any",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sectarian",
+              "start": 1.5,
+              "end": 2.08,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " principles",
+              "start": 2.08,
+              "end": 2.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 2.56,
+              "end": 2.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " their",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " own,",
+              "start": 2.98,
+              "end": 3.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 3.72,
+              "end": 3.94,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " which",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shape",
+              "start": 4.42,
+              "end": 4.7,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 4.7,
+              "end": 5.2,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " mould",
+              "start": 5.2,
+              "end": 5.48,
+              "probability": 0.07489013671875
+            }
+          ]
+        },
+        {
+          "text": " the proletarian movement.",
+          "start": 5.48,
+          "end": 6.78,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.48,
+              "end": 5.7,
+              "probability": 0.857421875
+            },
+            {
+              "text": " proletarian",
+              "start": 5.7,
+              "end": 6.2,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " movement.",
+              "start": 6.2,
+              "end": 6.78,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " They They do not set up any authoritarian principles of their own, by which to shape and mould the authoritarian movement.",
+          "start": 6.78,
+          "end": 6.94,
+          "words": [
+            {
+              "text": " They",
+              "start": 6.78,
+              "end": 6.78,
+              "probability": 0.0005412101745605469
+            },
+            {
+              "text": " They",
+              "start": 6.78,
+              "end": 6.78,
+              "probability": 5.626678466796875e-05
+            },
+            {
+              "text": " do",
+              "start": 6.78,
+              "end": 6.78,
+              "probability": 0.004425048828125
+            },
+            {
+              "text": " not",
+              "start": 6.78,
+              "end": 6.8,
+              "probability": 0.09088134765625
+            },
+            {
+              "text": " set",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.0012683868408203125
+            },
+            {
+              "text": " up",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.2191162109375
+            },
+            {
+              "text": " any",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.0823974609375
+            },
+            {
+              "text": " authoritarian",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 5.841255187988281e-06
+            },
+            {
+              "text": " principles",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.0015859603881835938
+            },
+            {
+              "text": " of",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.11553955078125
+            },
+            {
+              "text": " their",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.00960540771484375
+            },
+            {
+              "text": " own,",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.38623046875
+            },
+            {
+              "text": " by",
+              "start": 6.8,
+              "end": 6.8,
+              "probability": 0.006443023681640625
+            },
+            {
+              "text": " which",
+              "start": 6.8,
+              "end": 6.9,
+              "probability": 0.018310546875
+            },
+            {
+              "text": " to",
+              "start": 6.9,
+              "end": 6.9,
+              "probability": 0.01476287841796875
+            },
+            {
+              "text": " shape",
+              "start": 6.9,
+              "end": 6.9,
+              "probability": 0.000324249267578125
+            },
+            {
+              "text": " and",
+              "start": 6.9,
+              "end": 6.9,
+              "probability": 0.034393310546875
+            },
+            {
+              "text": " mould",
+              "start": 6.9,
+              "end": 6.94,
+              "probability": 8.589029312133789e-05
+            },
+            {
+              "text": " the",
+              "start": 6.94,
+              "end": 6.94,
+              "probability": 0.243896484375
+            },
+            {
+              "text": " authoritarian",
+              "start": 6.94,
+              "end": 6.94,
+              "probability": 0.00017976760864257812
+            },
+            {
+              "text": " movement.",
+              "start": 6.94,
+              "end": 6.94,
+              "probability": 0.0355224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "They",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "do",
+          "start": 0.64,
+          "end": 0.64
+        },
+        {
+          "raw": "not",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "set",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "up",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "any",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "sectarian",
+          "start": 1.5,
+          "end": 2.08
+        },
+        {
+          "raw": "principles",
+          "start": 2.08,
+          "end": 2.56
+        },
+        {
+          "raw": "of",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "raw": "their",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "raw": "own,",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "raw": "by",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "raw": "which",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "raw": "shape",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "raw": "and",
+          "start": 4.7,
+          "end": 5.2
+        },
+        {
+          "raw": "mould",
+          "start": 5.2,
+          "end": 5.48
+        },
+        {
+          "raw": "the",
+          "start": 5.48,
+          "end": 5.7
+        },
+        {
+          "raw": "proletarian",
+          "start": 5.7,
+          "end": 6.2
+        },
+        {
+          "raw": "movement.",
+          "start": 6.2,
+          "end": 6.78
+        },
+        {
+          "raw": "They",
+          "start": 6.78,
+          "end": 6.78
+        },
+        {
+          "raw": "They",
+          "start": 6.78,
+          "end": 6.78
+        },
+        {
+          "raw": "do",
+          "start": 6.78,
+          "end": 6.78
+        },
+        {
+          "raw": "not",
+          "start": 6.78,
+          "end": 6.8
+        },
+        {
+          "raw": "set",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "up",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "any",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "authoritarian",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "principles",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "their",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "own,",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "by",
+          "start": 6.8,
+          "end": 6.8
+        },
+        {
+          "raw": "which",
+          "start": 6.8,
+          "end": 6.9
+        },
+        {
+          "raw": "to",
+          "start": 6.9,
+          "end": 6.9
+        },
+        {
+          "raw": "shape",
+          "start": 6.9,
+          "end": 6.9
+        },
+        {
+          "raw": "and",
+          "start": 6.9,
+          "end": 6.9
+        },
+        {
+          "raw": "mould",
+          "start": 6.9,
+          "end": 6.94
+        },
+        {
+          "raw": "the",
+          "start": 6.94,
+          "end": 6.94
+        },
+        {
+          "raw": "authoritarian",
+          "start": 6.94,
+          "end": 6.94
+        },
+        {
+          "raw": "movement.",
+          "start": 6.94,
+          "end": 6.94
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "do",
+        "not",
+        "set",
+        "up",
+        "any",
+        "sectarian",
+        "principles",
+        "of",
+        "their",
+        "own,",
+        "by",
+        "which",
+        "to",
+        "shape",
+        "and",
+        "mould",
+        "the",
+        "proletarian",
+        "movement."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          20,
+          1,
+          21
+        ],
+        [
+          "insert",
+          20,
+          20,
+          21,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "insert",
+          20,
+          20,
+          21,
+          42
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "do",
+          "start": 0.64,
+          "end": 0.64
+        },
+        {
+          "text": "not",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "set",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "up",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "any",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "sectarian",
+          "start": 1.5,
+          "end": 2.08
+        },
+        {
+          "text": "principles",
+          "start": 2.08,
+          "end": 2.56
+        },
+        {
+          "text": "of",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "text": "their",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "text": "own,",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "text": "by",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "text": "which",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "to",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "text": "shape",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "text": "and",
+          "start": 4.7,
+          "end": 5.2
+        },
+        {
+          "text": "mould",
+          "start": 5.2,
+          "end": 5.48
+        },
+        {
+          "text": "the",
+          "start": 5.48,
+          "end": 5.7
+        },
+        {
+          "text": "proletarian",
+          "start": 5.7,
+          "end": 6.2
+        },
+        {
+          "text": "movement.",
+          "start": 6.2,
+          "end": 6.78
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 42,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33413883298635483
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c00ed5f465c494796584d7d64e6361273f69f155f46518519e8d3aac250b1fba",
+  "selected_reasons": []
+}

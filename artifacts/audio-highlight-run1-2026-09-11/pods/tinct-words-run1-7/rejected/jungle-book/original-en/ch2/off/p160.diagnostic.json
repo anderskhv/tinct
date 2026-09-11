@@ -1,0 +1,538 @@
+{
+  "complete": true,
+  "signature": "6e397951313295982fe04a85d0ef1bee8232e91ab8be001262315440bf20ea76",
+  "attempts": [
+    {
+      "asr_seconds": 0.18472085893154144,
+      "alignment_seconds": 9.459629654884338e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He knows more than we said Bagheera trembling in a little time had I stayed I should have walked down his throat",
+          "start": 0.05,
+          "end": 6.91,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.322265625
+            },
+            {
+              "text": " knows",
+              "start": 0.51,
+              "end": 0.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 0.75,
+              "end": 1.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " we",
+              "start": 1.23,
+              "end": 1.63,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said",
+              "start": 1.63,
+              "end": 2.07,
+              "probability": 0.126708984375
+            },
+            {
+              "text": " Bagheera",
+              "start": 2.07,
+              "end": 2.67,
+              "probability": 0.9103190104166666
+            },
+            {
+              "text": " trembling",
+              "start": 2.67,
+              "end": 3.17,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " in",
+              "start": 3.17,
+              "end": 4.01,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " a",
+              "start": 4.01,
+              "end": 4.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " little",
+              "start": 4.11,
+              "end": 4.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " time",
+              "start": 4.27,
+              "end": 4.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 4.71,
+              "end": 4.93,
+              "probability": 0.841796875
+            },
+            {
+              "text": " I",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " stayed",
+              "start": 5.07,
+              "end": 5.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 5.43,
+              "end": 5.71,
+              "probability": 0.87890625
+            },
+            {
+              "text": " should",
+              "start": 5.71,
+              "end": 5.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 5.83,
+              "end": 5.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " walked",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " down",
+              "start": 6.17,
+              "end": 6.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 6.43,
+              "end": 6.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " throat",
+              "start": 6.63,
+              "end": 6.91,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "knows",
+          "start": 0.51,
+          "end": 0.75
+        },
+        {
+          "raw": "more",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "raw": "than",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "we",
+          "start": 1.23,
+          "end": 1.63
+        },
+        {
+          "raw": "said",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "raw": "Bagheera",
+          "start": 2.07,
+          "end": 2.67
+        },
+        {
+          "raw": "trembling",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "raw": "in",
+          "start": 3.17,
+          "end": 4.01
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "raw": "little",
+          "start": 4.11,
+          "end": 4.27
+        },
+        {
+          "raw": "time",
+          "start": 4.27,
+          "end": 4.71
+        },
+        {
+          "raw": "had",
+          "start": 4.71,
+          "end": 4.93
+        },
+        {
+          "raw": "I",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "stayed",
+          "start": 5.07,
+          "end": 5.43
+        },
+        {
+          "raw": "I",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "raw": "should",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "raw": "have",
+          "start": 5.83,
+          "end": 5.93
+        },
+        {
+          "raw": "walked",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "down",
+          "start": 6.17,
+          "end": 6.43
+        },
+        {
+          "raw": "his",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "raw": "throat",
+          "start": 6.63,
+          "end": 6.91
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "knows",
+        "more",
+        "than",
+        "we,\"",
+        "said",
+        "Bagheera,",
+        "trembling.",
+        "\"In",
+        "a",
+        "little",
+        "time,",
+        "had",
+        "I",
+        "stayed,",
+        "I",
+        "should",
+        "have",
+        "walked",
+        "down",
+        "his",
+        "throat.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "knows",
+          "start": 0.51,
+          "end": 0.75
+        },
+        {
+          "text": "more",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "text": "than",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "we,\"",
+          "start": 1.23,
+          "end": 1.63
+        },
+        {
+          "text": "said",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "text": "Bagheera,",
+          "start": 2.07,
+          "end": 2.67
+        },
+        {
+          "text": "trembling.",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "text": "\"In",
+          "start": 3.17,
+          "end": 4.01
+        },
+        {
+          "text": "a",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "text": "little",
+          "start": 4.11,
+          "end": 4.27
+        },
+        {
+          "text": "time,",
+          "start": 4.27,
+          "end": 4.71
+        },
+        {
+          "text": "had",
+          "start": 4.71,
+          "end": 4.93
+        },
+        {
+          "text": "I",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "stayed,",
+          "start": 5.07,
+          "end": 5.43
+        },
+        {
+          "text": "I",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "text": "should",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "text": "have",
+          "start": 5.83,
+          "end": 5.93
+        },
+        {
+          "text": "walked",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "down",
+          "start": 6.17,
+          "end": 6.43
+        },
+        {
+          "text": "his",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "text": "throat.\"",
+          "start": 6.63,
+          "end": 6.91
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1848719697445631
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fcd510cc002fe76ef554e77d7537fc648fce2dda276e711c5d3d6b6b8672d21d",
+  "selected_reasons": []
+}

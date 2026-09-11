@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "f53434159dc7d0bf434c6005f2b27315a01a7f35a70777b97959f4dab8118577",
+  "attempts": [
+    {
+      "asr_seconds": 0.13103417307138443,
+      "alignment_seconds": 6.96033239364624e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. Art come, my child?",
+        "hotwords": "Oedipus, Art"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, Art come, my child?",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.942138671875
+            },
+            {
+              "text": " Art",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.400390625
+            },
+            {
+              "text": " come,",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.1390380859375
+            },
+            {
+              "text": " my",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.96875
+            },
+            {
+              "text": " child?",
+              "start": 1.8,
+              "end": 2.14,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "Art",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "come,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "my",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "child?",
+          "start": 1.8,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "Art",
+        "come,",
+        "my",
+        "child?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "Art",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "come,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "my",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "child?",
+          "start": 1.8,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13113021850585938
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2446bf472a38c0a4b4b3f87d4946ba66e017e8a67659867cb9445d3f3f1b21ca",
+  "selected_reasons": []
+}

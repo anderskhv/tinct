@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "843e3714048ca8b5f660e26ac87a15c04c0748ab94d975a713b16fe3de0bd976",
+  "attempts": [
+    {
+      "asr_seconds": 0.13173706829547882,
+      "alignment_seconds": 0.00010600686073303223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Those, I said, who are lovers of the vision of truth.",
+          "start": 0.08,
+          "end": 3.14,
+          "words": [
+            {
+              "text": " Those,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.453369140625
+            },
+            {
+              "text": " I",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said,",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " who",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lovers",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.4,
+              "end": 2.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " vision",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.7001953125
+            },
+            {
+              "text": " of",
+              "start": 2.68,
+              "end": 2.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " truth.",
+              "start": 2.88,
+              "end": 3.14,
+              "probability": 0.89697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Those,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "said,",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "who",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "are",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "lovers",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "the",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "raw": "vision",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "raw": "truth.",
+          "start": 2.88,
+          "end": 3.14
+        }
+      ],
+      "expected_tokens": [
+        "Those,",
+        "I",
+        "said,",
+        "who",
+        "are",
+        "lovers",
+        "of",
+        "the",
+        "vision",
+        "of",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Those,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "text": "said,",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "who",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "are",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "lovers",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "the",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "text": "vision",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "of",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "text": "truth.",
+          "start": 2.88,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1318880394101143
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba435f274d2a6520de2ed526bdbf8ecfa15f03d5eeff5f024280f5d97b1d92c7",
+  "selected_reasons": []
+}

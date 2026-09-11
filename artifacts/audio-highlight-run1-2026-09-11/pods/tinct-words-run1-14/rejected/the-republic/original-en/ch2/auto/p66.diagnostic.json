@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "f4eb26cc82e0da89f95c2e99be3328e480c78aa3ed982c1c4fe9189532390d16",
+  "attempts": [
+    {
+      "asr_seconds": 0.2412296086549759,
+      "alignment_seconds": 0.000125102698802948,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Now the first and greatest of necessities is food, which is the condition of life and existence.",
+        "hotwords": "Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now the first and greatest of necessities is food, which is the condition of life and existence.",
+          "start": 0.05,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " first",
+              "start": 0.85,
+              "end": 1.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 1.11,
+              "end": 1.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " greatest",
+              "start": 1.41,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " necessities",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 2.39,
+              "end": 2.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " food,",
+              "start": 2.79,
+              "end": 3.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " which",
+              "start": 3.17,
+              "end": 3.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 3.85,
+              "end": 4.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 4.01,
+              "end": 4.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " condition",
+              "start": 4.17,
+              "end": 4.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.51,
+              "end": 4.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " life",
+              "start": 4.79,
+              "end": 5.13,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 5.13,
+              "end": 5.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " existence.",
+              "start": 5.49,
+              "end": 5.95,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "first",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "raw": "greatest",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "raw": "of",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "necessities",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "is",
+          "start": 2.39,
+          "end": 2.79
+        },
+        {
+          "raw": "food,",
+          "start": 2.79,
+          "end": 3.17
+        },
+        {
+          "raw": "which",
+          "start": 3.17,
+          "end": 3.85
+        },
+        {
+          "raw": "is",
+          "start": 3.85,
+          "end": 4.01
+        },
+        {
+          "raw": "the",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "raw": "condition",
+          "start": 4.17,
+          "end": 4.51
+        },
+        {
+          "raw": "of",
+          "start": 4.51,
+          "end": 4.79
+        },
+        {
+          "raw": "life",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "raw": "and",
+          "start": 5.13,
+          "end": 5.49
+        },
+        {
+          "raw": "existence.",
+          "start": 5.49,
+          "end": 5.95
+        }
+      ],
+      "expected_tokens": [
+        "Now",
+        "the",
+        "first",
+        "and",
+        "greatest",
+        "of",
+        "necessities",
+        "is",
+        "food,",
+        "which",
+        "is",
+        "the",
+        "condition",
+        "of",
+        "life",
+        "and",
+        "existence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Now",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "first",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "text": "and",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "text": "greatest",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "text": "of",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "necessities",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "text": "is",
+          "start": 2.39,
+          "end": 2.79
+        },
+        {
+          "text": "food,",
+          "start": 2.79,
+          "end": 3.17
+        },
+        {
+          "text": "which",
+          "start": 3.17,
+          "end": 3.85
+        },
+        {
+          "text": "is",
+          "start": 3.85,
+          "end": 4.01
+        },
+        {
+          "text": "the",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "text": "condition",
+          "start": 4.17,
+          "end": 4.51
+        },
+        {
+          "text": "of",
+          "start": 4.51,
+          "end": 4.79
+        },
+        {
+          "text": "life",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "text": "and",
+          "start": 5.13,
+          "end": 5.49
+        },
+        {
+          "text": "existence.",
+          "start": 5.49,
+          "end": 5.95
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24141906946897507
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d9cabb752aa9e4e19215b67a7dc797513589609dd529b15d24aaaa592fd4655",
+  "selected_reasons": []
+}

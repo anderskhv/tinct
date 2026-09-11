@@ -1,0 +1,3766 @@
+{
+  "complete": true,
+  "signature": "7cf600a2a3aa70bda6635d6d41079af96f11196ea4f0224b63f7a5f8b9389130",
+  "attempts": [
+    {
+      "asr_seconds": 0.6830711141228676,
+      "alignment_seconds": 0.001477707177400589,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She put out her arms as if after a retreating figure, stretching them back and with clasped pale hands across the fading and narrow sheen of the window. Never see him! I saw him clearly enough then. I shall see this eloquent phantom as long as I live, and I shall see her, too, a tragic and familiar Shade, resembling in this gesture another one, tragic also, and bedecked with powerless charms, stretching bare brown arms over the glitter of the infernal stream, the stream of darkness. She said suddenly very low, 'He died as he lived.'",
+        "hotwords": "She, Never, I, Shade"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She, Never, I, Shade",
+          "start": 6.25,
+          "end": 14.65,
+          "words": [
+            {
+              "text": " She,",
+              "start": 6.25,
+              "end": 7.65,
+              "probability": 0.11651611328125
+            },
+            {
+              "text": " Never,",
+              "start": 7.65,
+              "end": 7.65,
+              "probability": 5.257129669189453e-05
+            },
+            {
+              "text": " I,",
+              "start": 9.01,
+              "end": 9.05,
+              "probability": 0.06890869140625
+            },
+            {
+              "text": " Shade",
+              "start": 10.03,
+              "end": 14.65,
+              "probability": 3.159046173095703e-06
+            }
+          ]
+        },
+        {
+          "text": " She, Never, I, Shade",
+          "start": 14.65,
+          "end": 16.01,
+          "words": [
+            {
+              "text": " She,",
+              "start": 14.65,
+              "end": 14.83,
+              "probability": 0.0084381103515625
+            },
+            {
+              "text": " Never,",
+              "start": 14.83,
+              "end": 15.01,
+              "probability": 2.384185791015625e-06
+            },
+            {
+              "text": " I,",
+              "start": 15.25,
+              "end": 15.33,
+              "probability": 0.011322021484375
+            },
+            {
+              "text": " Shade",
+              "start": 15.33,
+              "end": 16.01,
+              "probability": 1.4901161193847656e-06
+            }
+          ]
+        },
+        {
+          "text": " She, Never, I, Shade",
+          "start": 16.01,
+          "end": 22.95,
+          "words": [
+            {
+              "text": " She,",
+              "start": 16.01,
+              "end": 18.05,
+              "probability": 0.0174407958984375
+            },
+            {
+              "text": " Never,",
+              "start": 18.19,
+              "end": 18.21,
+              "probability": 7.3909759521484375e-06
+            },
+            {
+              "text": " I,",
+              "start": 20.73,
+              "end": 21.15,
+              "probability": 0.00861358642578125
+            },
+            {
+              "text": " Shade",
+              "start": 21.15,
+              "end": 22.95,
+              "probability": 1.9669532775878906e-06
+            }
+          ]
+        },
+        {
+          "text": " She, Never, I, Shade She, Never, I, Shade She, Never, I, Shade",
+          "start": 22.95,
+          "end": 30.95,
+          "words": [
+            {
+              "text": " She,",
+              "start": 22.95,
+              "end": 23.49,
+              "probability": 0.00020313262939453125
+            },
+            {
+              "text": " Never,",
+              "start": 23.69,
+              "end": 23.89,
+              "probability": 8.404254913330078e-06
+            },
+            {
+              "text": " I,",
+              "start": 24.57,
+              "end": 24.57,
+              "probability": 0.008758544921875
+            },
+            {
+              "text": " Shade",
+              "start": 24.73,
+              "end": 24.85,
+              "probability": 1.4901161193847656e-06
+            },
+            {
+              "text": " She,",
+              "start": 24.85,
+              "end": 25.37,
+              "probability": 0.016387939453125
+            },
+            {
+              "text": " Never,",
+              "start": 25.37,
+              "end": 25.37,
+              "probability": 0.228271484375
+            },
+            {
+              "text": " I,",
+              "start": 25.45,
+              "end": 26.41,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Shade",
+              "start": 26.41,
+              "end": 26.43,
+              "probability": 0.42724609375
+            },
+            {
+              "text": " She,",
+              "start": 26.43,
+              "end": 27.07,
+              "probability": 0.388671875
+            },
+            {
+              "text": " Never,",
+              "start": 27.39,
+              "end": 30.23,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " I,",
+              "start": 30.43,
+              "end": 30.95,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Shade",
+              "start": 30.95,
+              "end": 30.95,
+              "probability": 0.58837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She,",
+          "start": 6.25,
+          "end": 7.65
+        },
+        {
+          "raw": "Never,",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "raw": "I,",
+          "start": 9.01,
+          "end": 9.05
+        },
+        {
+          "raw": "Shade",
+          "start": 10.03,
+          "end": 14.65
+        },
+        {
+          "raw": "She,",
+          "start": 14.65,
+          "end": 14.83
+        },
+        {
+          "raw": "Never,",
+          "start": 14.83,
+          "end": 15.01
+        },
+        {
+          "raw": "I,",
+          "start": 15.25,
+          "end": 15.33
+        },
+        {
+          "raw": "Shade",
+          "start": 15.33,
+          "end": 16.01
+        },
+        {
+          "raw": "She,",
+          "start": 16.01,
+          "end": 18.05
+        },
+        {
+          "raw": "Never,",
+          "start": 18.19,
+          "end": 18.21
+        },
+        {
+          "raw": "I,",
+          "start": 20.73,
+          "end": 21.15
+        },
+        {
+          "raw": "Shade",
+          "start": 21.15,
+          "end": 22.95
+        },
+        {
+          "raw": "She,",
+          "start": 22.95,
+          "end": 23.49
+        },
+        {
+          "raw": "Never,",
+          "start": 23.69,
+          "end": 23.89
+        },
+        {
+          "raw": "I,",
+          "start": 24.57,
+          "end": 24.57
+        },
+        {
+          "raw": "Shade",
+          "start": 24.73,
+          "end": 24.85
+        },
+        {
+          "raw": "She,",
+          "start": 24.85,
+          "end": 25.37
+        },
+        {
+          "raw": "Never,",
+          "start": 25.37,
+          "end": 25.37
+        },
+        {
+          "raw": "I,",
+          "start": 25.45,
+          "end": 26.41
+        },
+        {
+          "raw": "Shade",
+          "start": 26.41,
+          "end": 26.43
+        },
+        {
+          "raw": "She,",
+          "start": 26.43,
+          "end": 27.07
+        },
+        {
+          "raw": "Never,",
+          "start": 27.39,
+          "end": 30.23
+        },
+        {
+          "raw": "I,",
+          "start": 30.43,
+          "end": 30.95
+        },
+        {
+          "raw": "Shade",
+          "start": 30.95,
+          "end": 30.95
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "put",
+        "out",
+        "her",
+        "arms",
+        "as",
+        "if",
+        "after",
+        "a",
+        "retreating",
+        "figure,",
+        "stretching",
+        "them",
+        "back",
+        "and",
+        "with",
+        "clasped",
+        "pale",
+        "hands",
+        "across",
+        "the",
+        "fading",
+        "and",
+        "narrow",
+        "sheen",
+        "of",
+        "the",
+        "window.",
+        "Never",
+        "see",
+        "him!",
+        "I",
+        "saw",
+        "him",
+        "clearly",
+        "enough",
+        "then.",
+        "I",
+        "shall",
+        "see",
+        "this",
+        "eloquent",
+        "phantom",
+        "as",
+        "long",
+        "as",
+        "I",
+        "live,",
+        "and",
+        "I",
+        "shall",
+        "see",
+        "her,",
+        "too,",
+        "a",
+        "tragic",
+        "and",
+        "familiar",
+        "Shade,",
+        "resembling",
+        "in",
+        "this",
+        "gesture",
+        "another",
+        "one,",
+        "tragic",
+        "also,",
+        "and",
+        "bedecked",
+        "with",
+        "powerless",
+        "charms,",
+        "stretching",
+        "bare",
+        "brown",
+        "arms",
+        "over",
+        "the",
+        "glitter",
+        "of",
+        "the",
+        "infernal",
+        "stream,",
+        "the",
+        "stream",
+        "of",
+        "darkness.",
+        "She",
+        "said",
+        "suddenly",
+        "very",
+        "low,",
+        "'He",
+        "died",
+        "as",
+        "he",
+        "lived.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          28,
+          1,
+          1
+        ],
+        [
+          "equal",
+          28,
+          29,
+          1,
+          2
+        ],
+        [
+          "delete",
+          29,
+          31,
+          2,
+          2
+        ],
+        [
+          "equal",
+          31,
+          32,
+          2,
+          3
+        ],
+        [
+          "replace",
+          32,
+          37,
+          3,
+          6
+        ],
+        [
+          "equal",
+          37,
+          38,
+          6,
+          7
+        ],
+        [
+          "replace",
+          38,
+          46,
+          7,
+          10
+        ],
+        [
+          "equal",
+          46,
+          47,
+          10,
+          11
+        ],
+        [
+          "replace",
+          47,
+          49,
+          11,
+          14
+        ],
+        [
+          "equal",
+          49,
+          50,
+          14,
+          15
+        ],
+        [
+          "delete",
+          50,
+          58,
+          15,
+          15
+        ],
+        [
+          "equal",
+          58,
+          59,
+          15,
+          16
+        ],
+        [
+          "delete",
+          59,
+          87,
+          16,
+          16
+        ],
+        [
+          "equal",
+          87,
+          88,
+          16,
+          17
+        ],
+        [
+          "replace",
+          88,
+          97,
+          17,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 88,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 89,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 91,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 92,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 93,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 94,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 95,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 96,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          28,
+          1,
+          1
+        ],
+        [
+          "delete",
+          29,
+          31,
+          2,
+          2
+        ],
+        [
+          "replace",
+          32,
+          37,
+          3,
+          6
+        ],
+        [
+          "replace",
+          38,
+          46,
+          7,
+          10
+        ],
+        [
+          "replace",
+          47,
+          49,
+          11,
+          14
+        ],
+        [
+          "delete",
+          50,
+          58,
+          15,
+          15
+        ],
+        [
+          "delete",
+          59,
+          87,
+          16,
+          16
+        ],
+        [
+          "replace",
+          88,
+          97,
+          17,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 6.25,
+          "end": 7.65
+        },
+        {
+          "text": "put",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "out",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "her",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "arms",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "as",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "if",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "after",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "a",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "retreating",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "figure,",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "stretching",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "them",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "back",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "and",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "with",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "clasped",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "pale",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "hands",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "across",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "the",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "fading",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "and",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "narrow",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "sheen",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "of",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "the",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "window.",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "Never",
+          "start": 7.65,
+          "end": 7.65
+        },
+        {
+          "text": "see",
+          "start": 7.65,
+          "end": 8.33
+        },
+        {
+          "text": "him!",
+          "start": 8.33,
+          "end": 8.67
+        },
+        {
+          "text": "I",
+          "start": 9.01,
+          "end": 9.05
+        },
+        {
+          "text": "saw",
+          "start": 9.05,
+          "end": 12.15
+        },
+        {
+          "text": "him",
+          "start": 12.15,
+          "end": 13.7
+        },
+        {
+          "text": "clearly",
+          "start": 13.7,
+          "end": 14.475
+        },
+        {
+          "text": "enough",
+          "start": 14.475,
+          "end": 14.863
+        },
+        {
+          "text": "then.",
+          "start": 14.863,
+          "end": 15.056
+        },
+        {
+          "text": "I",
+          "start": 15.25,
+          "end": 15.33
+        },
+        {
+          "text": "shall",
+          "start": 15.33,
+          "end": 18.03
+        },
+        {
+          "text": "see",
+          "start": 18.03,
+          "end": 19.38
+        },
+        {
+          "text": "this",
+          "start": 19.38,
+          "end": 20.055
+        },
+        {
+          "text": "eloquent",
+          "start": 20.055,
+          "end": 20.392
+        },
+        {
+          "text": "phantom",
+          "start": 20.392,
+          "end": 20.561
+        },
+        {
+          "text": "as",
+          "start": 20.561,
+          "end": 20.645
+        },
+        {
+          "text": "long",
+          "start": 20.645,
+          "end": 20.688
+        },
+        {
+          "text": "as",
+          "start": 20.688,
+          "end": 20.709
+        },
+        {
+          "text": "I",
+          "start": 20.73,
+          "end": 21.15
+        },
+        {
+          "text": "live,",
+          "start": 21.15,
+          "end": 22.86
+        },
+        {
+          "text": "and",
+          "start": 22.86,
+          "end": 23.715
+        },
+        {
+          "text": "I",
+          "start": 24.57,
+          "end": 24.57
+        },
+        {
+          "text": "shall",
+          "start": 24.57,
+          "end": 24.65
+        },
+        {
+          "text": "see",
+          "start": 24.65,
+          "end": 24.69
+        },
+        {
+          "text": "her,",
+          "start": 24.69,
+          "end": 24.71
+        },
+        {
+          "text": "too,",
+          "start": 24.71,
+          "end": 24.72
+        },
+        {
+          "text": "a",
+          "start": 24.72,
+          "end": 24.725
+        },
+        {
+          "text": "tragic",
+          "start": 24.725,
+          "end": 24.727
+        },
+        {
+          "text": "and",
+          "start": 24.727,
+          "end": 24.729
+        },
+        {
+          "text": "familiar",
+          "start": 24.729,
+          "end": 24.73
+        },
+        {
+          "text": "Shade,",
+          "start": 24.73,
+          "end": 24.85
+        },
+        {
+          "text": "resembling",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "in",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "this",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "gesture",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "another",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "one,",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "tragic",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "also,",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "and",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "bedecked",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "with",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "powerless",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "charms,",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "stretching",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "bare",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "brown",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "arms",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "over",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "the",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "glitter",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "of",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "the",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "infernal",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "stream,",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "the",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "stream",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "of",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "darkness.",
+          "start": 24.85,
+          "end": 24.85
+        },
+        {
+          "text": "She",
+          "start": 24.85,
+          "end": 25.37
+        },
+        {
+          "text": "said",
+          "start": 25.37,
+          "end": 28.16
+        },
+        {
+          "text": "suddenly",
+          "start": 28.16,
+          "end": 29.555
+        },
+        {
+          "text": "very",
+          "start": 29.555,
+          "end": 30.252
+        },
+        {
+          "text": "low,",
+          "start": 30.252,
+          "end": 30.601
+        },
+        {
+          "text": "'He",
+          "start": 30.601,
+          "end": 30.776
+        },
+        {
+          "text": "died",
+          "start": 30.776,
+          "end": 30.863
+        },
+        {
+          "text": "as",
+          "start": 30.863,
+          "end": 30.907
+        },
+        {
+          "text": "he",
+          "start": 30.907,
+          "end": 30.928
+        },
+        {
+          "text": "lived.'",
+          "start": 30.928,
+          "end": 30.939
+        }
+      ],
+      "stats": {
+        "expected_words": 97,
+        "heard_words": 24,
+        "matched_words": 8
+      },
+      "match_ratio": 0.08247422680412371,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6847691386938095
+    },
+    {
+      "asr_seconds": 0.8904232680797577,
+      "alignment_seconds": 0.0017022006213665009,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "She, Never, I, Shade"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " She put out her arms as if after a retreating figure, stretching them back and with clasped pale hands across the fading and narrow sheen of the window.",
+          "start": 0.05,
+          "end": 7.51,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.11590576171875
+            },
+            {
+              "text": " put",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " out",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " her",
+              "start": 0.77,
+              "end": 0.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " arms",
+              "start": 0.89,
+              "end": 1.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " if",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " after",
+              "start": 1.47,
+              "end": 1.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " retreating",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " figure,",
+              "start": 2.19,
+              "end": 2.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stretching",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " them",
+              "start": 3.41,
+              "end": 3.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 3.67,
+              "end": 3.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.95,
+              "end": 4.13,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " with",
+              "start": 4.13,
+              "end": 4.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " clasped",
+              "start": 4.27,
+              "end": 4.99,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " pale",
+              "start": 4.99,
+              "end": 4.99,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " hands",
+              "start": 4.99,
+              "end": 5.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " across",
+              "start": 5.37,
+              "end": 5.59,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 5.59,
+              "end": 5.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fading",
+              "start": 5.85,
+              "end": 6.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.19,
+              "end": 6.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " narrow",
+              "start": 6.43,
+              "end": 6.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sheen",
+              "start": 6.69,
+              "end": 7.03,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " of",
+              "start": 7.03,
+              "end": 7.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.13,
+              "end": 7.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " window.",
+              "start": 7.23,
+              "end": 7.51,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Never see him. I saw him clearly enough then. I shall see this eloquent phantom as long as I live, and I shall see her, too, a tragic and familiar shade, resembling in this gesture another one, tragic also, and bedecked with powerless charms, stretching bare brown arms over the glitter of the infernal stream, the stream of darkness.",
+          "start": 8.39,
+          "end": 27.97,
+          "words": [
+            {
+              "text": " Never",
+              "start": 8.39,
+              "end": 8.55,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " see",
+              "start": 8.55,
+              "end": 8.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him.",
+              "start": 8.83,
+              "end": 9.07,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 9.55,
+              "end": 9.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " saw",
+              "start": 9.73,
+              "end": 9.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 9.89,
+              "end": 10.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clearly",
+              "start": 10.07,
+              "end": 10.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enough",
+              "start": 10.31,
+              "end": 10.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then.",
+              "start": 10.61,
+              "end": 10.91,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " I",
+              "start": 11.49,
+              "end": 11.63,
+              "probability": 0.98828125
+            },
+            {
+              "text": " shall",
+              "start": 11.63,
+              "end": 11.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " see",
+              "start": 11.75,
+              "end": 11.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 11.93,
+              "end": 12.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eloquent",
+              "start": 12.09,
+              "end": 12.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " phantom",
+              "start": 12.51,
+              "end": 12.91,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " as",
+              "start": 12.91,
+              "end": 13.11,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " long",
+              "start": 13.11,
+              "end": 13.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 13.29,
+              "end": 13.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 13.45,
+              "end": 13.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " live,",
+              "start": 13.59,
+              "end": 13.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 14.31,
+              "end": 14.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 14.41,
+              "end": 14.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shall",
+              "start": 14.51,
+              "end": 14.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " see",
+              "start": 14.65,
+              "end": 14.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " her,",
+              "start": 14.83,
+              "end": 15.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " too,",
+              "start": 15.09,
+              "end": 15.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 15.69,
+              "end": 15.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tragic",
+              "start": 15.85,
+              "end": 16.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 16.29,
+              "end": 16.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " familiar",
+              "start": 16.47,
+              "end": 16.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shade,",
+              "start": 16.85,
+              "end": 17.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " resembling",
+              "start": 17.87,
+              "end": 18.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 18.21,
+              "end": 18.45,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " this",
+              "start": 18.45,
+              "end": 18.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gesture",
+              "start": 18.61,
+              "end": 18.95,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " another",
+              "start": 18.95,
+              "end": 19.25,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " one,",
+              "start": 19.25,
+              "end": 19.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tragic",
+              "start": 20.09,
+              "end": 20.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " also,",
+              "start": 20.29,
+              "end": 20.69,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 21.09,
+              "end": 21.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bedecked",
+              "start": 21.19,
+              "end": 21.59,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " with",
+              "start": 21.59,
+              "end": 21.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " powerless",
+              "start": 21.75,
+              "end": 22.25,
+              "probability": 0.9765625
+            },
+            {
+              "text": " charms,",
+              "start": 22.25,
+              "end": 22.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " stretching",
+              "start": 23.35,
+              "end": 23.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bare",
+              "start": 23.63,
+              "end": 23.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " brown",
+              "start": 23.95,
+              "end": 24.29,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " arms",
+              "start": 24.29,
+              "end": 24.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " over",
+              "start": 24.77,
+              "end": 24.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 24.93,
+              "end": 25.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " glitter",
+              "start": 25.05,
+              "end": 25.23,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 25.23,
+              "end": 25.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 25.45,
+              "end": 25.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " infernal",
+              "start": 25.59,
+              "end": 26.07,
+              "probability": 0.968017578125
+            },
+            {
+              "text": " stream,",
+              "start": 26.07,
+              "end": 26.51,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 26.97,
+              "end": 27.11,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " stream",
+              "start": 27.11,
+              "end": 27.39,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " of",
+              "start": 27.39,
+              "end": 27.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " darkness.",
+              "start": 27.61,
+              "end": 27.97,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " She said suddenly, very low. He died as he lived.",
+          "start": 28.77,
+          "end": 31.97,
+          "words": [
+            {
+              "text": " She",
+              "start": 28.77,
+              "end": 29.25,
+              "probability": 0.57373046875
+            },
+            {
+              "text": " said",
+              "start": 29.25,
+              "end": 29.47,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " suddenly,",
+              "start": 29.47,
+              "end": 29.85,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " very",
+              "start": 30.01,
+              "end": 30.15,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " low.",
+              "start": 30.15,
+              "end": 30.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 31.01,
+              "end": 31.11,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " died",
+              "start": 31.11,
+              "end": 31.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 31.35,
+              "end": 31.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 31.57,
+              "end": 31.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lived.",
+              "start": 31.69,
+              "end": 31.97,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "put",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "out",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "her",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "raw": "arms",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "raw": "as",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "if",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "after",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "raw": "a",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "retreating",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "raw": "figure,",
+          "start": 2.19,
+          "end": 2.71
+        },
+        {
+          "raw": "stretching",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "them",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "raw": "back",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "raw": "and",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "raw": "with",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "raw": "clasped",
+          "start": 4.27,
+          "end": 4.99
+        },
+        {
+          "raw": "pale",
+          "start": 4.99,
+          "end": 4.99
+        },
+        {
+          "raw": "hands",
+          "start": 4.99,
+          "end": 5.37
+        },
+        {
+          "raw": "across",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.85
+        },
+        {
+          "raw": "fading",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "raw": "and",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "raw": "narrow",
+          "start": 6.43,
+          "end": 6.69
+        },
+        {
+          "raw": "sheen",
+          "start": 6.69,
+          "end": 7.03
+        },
+        {
+          "raw": "of",
+          "start": 7.03,
+          "end": 7.13
+        },
+        {
+          "raw": "the",
+          "start": 7.13,
+          "end": 7.23
+        },
+        {
+          "raw": "window.",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "raw": "Never",
+          "start": 8.39,
+          "end": 8.55
+        },
+        {
+          "raw": "see",
+          "start": 8.55,
+          "end": 8.83
+        },
+        {
+          "raw": "him.",
+          "start": 8.83,
+          "end": 9.07
+        },
+        {
+          "raw": "I",
+          "start": 9.55,
+          "end": 9.73
+        },
+        {
+          "raw": "saw",
+          "start": 9.73,
+          "end": 9.89
+        },
+        {
+          "raw": "him",
+          "start": 9.89,
+          "end": 10.07
+        },
+        {
+          "raw": "clearly",
+          "start": 10.07,
+          "end": 10.31
+        },
+        {
+          "raw": "enough",
+          "start": 10.31,
+          "end": 10.61
+        },
+        {
+          "raw": "then.",
+          "start": 10.61,
+          "end": 10.91
+        },
+        {
+          "raw": "I",
+          "start": 11.49,
+          "end": 11.63
+        },
+        {
+          "raw": "shall",
+          "start": 11.63,
+          "end": 11.75
+        },
+        {
+          "raw": "see",
+          "start": 11.75,
+          "end": 11.93
+        },
+        {
+          "raw": "this",
+          "start": 11.93,
+          "end": 12.09
+        },
+        {
+          "raw": "eloquent",
+          "start": 12.09,
+          "end": 12.51
+        },
+        {
+          "raw": "phantom",
+          "start": 12.51,
+          "end": 12.91
+        },
+        {
+          "raw": "as",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "raw": "long",
+          "start": 13.11,
+          "end": 13.29
+        },
+        {
+          "raw": "as",
+          "start": 13.29,
+          "end": 13.45
+        },
+        {
+          "raw": "I",
+          "start": 13.45,
+          "end": 13.59
+        },
+        {
+          "raw": "live,",
+          "start": 13.59,
+          "end": 13.83
+        },
+        {
+          "raw": "and",
+          "start": 14.31,
+          "end": 14.41
+        },
+        {
+          "raw": "I",
+          "start": 14.41,
+          "end": 14.51
+        },
+        {
+          "raw": "shall",
+          "start": 14.51,
+          "end": 14.65
+        },
+        {
+          "raw": "see",
+          "start": 14.65,
+          "end": 14.83
+        },
+        {
+          "raw": "her,",
+          "start": 14.83,
+          "end": 15.03
+        },
+        {
+          "raw": "too,",
+          "start": 15.09,
+          "end": 15.37
+        },
+        {
+          "raw": "a",
+          "start": 15.69,
+          "end": 15.85
+        },
+        {
+          "raw": "tragic",
+          "start": 15.85,
+          "end": 16.29
+        },
+        {
+          "raw": "and",
+          "start": 16.29,
+          "end": 16.47
+        },
+        {
+          "raw": "familiar",
+          "start": 16.47,
+          "end": 16.85
+        },
+        {
+          "raw": "shade,",
+          "start": 16.85,
+          "end": 17.35
+        },
+        {
+          "raw": "resembling",
+          "start": 17.87,
+          "end": 18.21
+        },
+        {
+          "raw": "in",
+          "start": 18.21,
+          "end": 18.45
+        },
+        {
+          "raw": "this",
+          "start": 18.45,
+          "end": 18.61
+        },
+        {
+          "raw": "gesture",
+          "start": 18.61,
+          "end": 18.95
+        },
+        {
+          "raw": "another",
+          "start": 18.95,
+          "end": 19.25
+        },
+        {
+          "raw": "one,",
+          "start": 19.25,
+          "end": 19.63
+        },
+        {
+          "raw": "tragic",
+          "start": 20.09,
+          "end": 20.29
+        },
+        {
+          "raw": "also,",
+          "start": 20.29,
+          "end": 20.69
+        },
+        {
+          "raw": "and",
+          "start": 21.09,
+          "end": 21.19
+        },
+        {
+          "raw": "bedecked",
+          "start": 21.19,
+          "end": 21.59
+        },
+        {
+          "raw": "with",
+          "start": 21.59,
+          "end": 21.75
+        },
+        {
+          "raw": "powerless",
+          "start": 21.75,
+          "end": 22.25
+        },
+        {
+          "raw": "charms,",
+          "start": 22.25,
+          "end": 22.69
+        },
+        {
+          "raw": "stretching",
+          "start": 23.35,
+          "end": 23.63
+        },
+        {
+          "raw": "bare",
+          "start": 23.63,
+          "end": 23.95
+        },
+        {
+          "raw": "brown",
+          "start": 23.95,
+          "end": 24.29
+        },
+        {
+          "raw": "arms",
+          "start": 24.29,
+          "end": 24.77
+        },
+        {
+          "raw": "over",
+          "start": 24.77,
+          "end": 24.93
+        },
+        {
+          "raw": "the",
+          "start": 24.93,
+          "end": 25.05
+        },
+        {
+          "raw": "glitter",
+          "start": 25.05,
+          "end": 25.23
+        },
+        {
+          "raw": "of",
+          "start": 25.23,
+          "end": 25.45
+        },
+        {
+          "raw": "the",
+          "start": 25.45,
+          "end": 25.59
+        },
+        {
+          "raw": "infernal",
+          "start": 25.59,
+          "end": 26.07
+        },
+        {
+          "raw": "stream,",
+          "start": 26.07,
+          "end": 26.51
+        },
+        {
+          "raw": "the",
+          "start": 26.97,
+          "end": 27.11
+        },
+        {
+          "raw": "stream",
+          "start": 27.11,
+          "end": 27.39
+        },
+        {
+          "raw": "of",
+          "start": 27.39,
+          "end": 27.61
+        },
+        {
+          "raw": "darkness.",
+          "start": 27.61,
+          "end": 27.97
+        },
+        {
+          "raw": "She",
+          "start": 28.77,
+          "end": 29.25
+        },
+        {
+          "raw": "said",
+          "start": 29.25,
+          "end": 29.47
+        },
+        {
+          "raw": "suddenly,",
+          "start": 29.47,
+          "end": 29.85
+        },
+        {
+          "raw": "very",
+          "start": 30.01,
+          "end": 30.15
+        },
+        {
+          "raw": "low.",
+          "start": 30.15,
+          "end": 30.47
+        },
+        {
+          "raw": "He",
+          "start": 31.01,
+          "end": 31.11
+        },
+        {
+          "raw": "died",
+          "start": 31.11,
+          "end": 31.35
+        },
+        {
+          "raw": "as",
+          "start": 31.35,
+          "end": 31.57
+        },
+        {
+          "raw": "he",
+          "start": 31.57,
+          "end": 31.69
+        },
+        {
+          "raw": "lived.",
+          "start": 31.69,
+          "end": 31.97
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "put",
+        "out",
+        "her",
+        "arms",
+        "as",
+        "if",
+        "after",
+        "a",
+        "retreating",
+        "figure,",
+        "stretching",
+        "them",
+        "back",
+        "and",
+        "with",
+        "clasped",
+        "pale",
+        "hands",
+        "across",
+        "the",
+        "fading",
+        "and",
+        "narrow",
+        "sheen",
+        "of",
+        "the",
+        "window.",
+        "Never",
+        "see",
+        "him!",
+        "I",
+        "saw",
+        "him",
+        "clearly",
+        "enough",
+        "then.",
+        "I",
+        "shall",
+        "see",
+        "this",
+        "eloquent",
+        "phantom",
+        "as",
+        "long",
+        "as",
+        "I",
+        "live,",
+        "and",
+        "I",
+        "shall",
+        "see",
+        "her,",
+        "too,",
+        "a",
+        "tragic",
+        "and",
+        "familiar",
+        "Shade,",
+        "resembling",
+        "in",
+        "this",
+        "gesture",
+        "another",
+        "one,",
+        "tragic",
+        "also,",
+        "and",
+        "bedecked",
+        "with",
+        "powerless",
+        "charms,",
+        "stretching",
+        "bare",
+        "brown",
+        "arms",
+        "over",
+        "the",
+        "glitter",
+        "of",
+        "the",
+        "infernal",
+        "stream,",
+        "the",
+        "stream",
+        "of",
+        "darkness.",
+        "She",
+        "said",
+        "suddenly",
+        "very",
+        "low,",
+        "'He",
+        "died",
+        "as",
+        "he",
+        "lived.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          97,
+          0,
+          97
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "put",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "out",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "her",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "text": "arms",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "text": "as",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "if",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "after",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "text": "a",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "retreating",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "text": "figure,",
+          "start": 2.19,
+          "end": 2.71
+        },
+        {
+          "text": "stretching",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "them",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "text": "back",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "text": "and",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "text": "with",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "text": "clasped",
+          "start": 4.27,
+          "end": 4.99
+        },
+        {
+          "text": "pale",
+          "start": 4.99,
+          "end": 4.99
+        },
+        {
+          "text": "hands",
+          "start": 4.99,
+          "end": 5.37
+        },
+        {
+          "text": "across",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "text": "the",
+          "start": 5.59,
+          "end": 5.85
+        },
+        {
+          "text": "fading",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "text": "and",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "text": "narrow",
+          "start": 6.43,
+          "end": 6.69
+        },
+        {
+          "text": "sheen",
+          "start": 6.69,
+          "end": 7.03
+        },
+        {
+          "text": "of",
+          "start": 7.03,
+          "end": 7.13
+        },
+        {
+          "text": "the",
+          "start": 7.13,
+          "end": 7.23
+        },
+        {
+          "text": "window.",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "text": "Never",
+          "start": 8.39,
+          "end": 8.55
+        },
+        {
+          "text": "see",
+          "start": 8.55,
+          "end": 8.83
+        },
+        {
+          "text": "him!",
+          "start": 8.83,
+          "end": 9.07
+        },
+        {
+          "text": "I",
+          "start": 9.55,
+          "end": 9.73
+        },
+        {
+          "text": "saw",
+          "start": 9.73,
+          "end": 9.89
+        },
+        {
+          "text": "him",
+          "start": 9.89,
+          "end": 10.07
+        },
+        {
+          "text": "clearly",
+          "start": 10.07,
+          "end": 10.31
+        },
+        {
+          "text": "enough",
+          "start": 10.31,
+          "end": 10.61
+        },
+        {
+          "text": "then.",
+          "start": 10.61,
+          "end": 10.91
+        },
+        {
+          "text": "I",
+          "start": 11.49,
+          "end": 11.63
+        },
+        {
+          "text": "shall",
+          "start": 11.63,
+          "end": 11.75
+        },
+        {
+          "text": "see",
+          "start": 11.75,
+          "end": 11.93
+        },
+        {
+          "text": "this",
+          "start": 11.93,
+          "end": 12.09
+        },
+        {
+          "text": "eloquent",
+          "start": 12.09,
+          "end": 12.51
+        },
+        {
+          "text": "phantom",
+          "start": 12.51,
+          "end": 12.91
+        },
+        {
+          "text": "as",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "text": "long",
+          "start": 13.11,
+          "end": 13.29
+        },
+        {
+          "text": "as",
+          "start": 13.29,
+          "end": 13.45
+        },
+        {
+          "text": "I",
+          "start": 13.45,
+          "end": 13.59
+        },
+        {
+          "text": "live,",
+          "start": 13.59,
+          "end": 13.83
+        },
+        {
+          "text": "and",
+          "start": 14.31,
+          "end": 14.41
+        },
+        {
+          "text": "I",
+          "start": 14.41,
+          "end": 14.51
+        },
+        {
+          "text": "shall",
+          "start": 14.51,
+          "end": 14.65
+        },
+        {
+          "text": "see",
+          "start": 14.65,
+          "end": 14.83
+        },
+        {
+          "text": "her,",
+          "start": 14.83,
+          "end": 15.03
+        },
+        {
+          "text": "too,",
+          "start": 15.09,
+          "end": 15.37
+        },
+        {
+          "text": "a",
+          "start": 15.69,
+          "end": 15.85
+        },
+        {
+          "text": "tragic",
+          "start": 15.85,
+          "end": 16.29
+        },
+        {
+          "text": "and",
+          "start": 16.29,
+          "end": 16.47
+        },
+        {
+          "text": "familiar",
+          "start": 16.47,
+          "end": 16.85
+        },
+        {
+          "text": "Shade,",
+          "start": 16.85,
+          "end": 17.35
+        },
+        {
+          "text": "resembling",
+          "start": 17.87,
+          "end": 18.21
+        },
+        {
+          "text": "in",
+          "start": 18.21,
+          "end": 18.45
+        },
+        {
+          "text": "this",
+          "start": 18.45,
+          "end": 18.61
+        },
+        {
+          "text": "gesture",
+          "start": 18.61,
+          "end": 18.95
+        },
+        {
+          "text": "another",
+          "start": 18.95,
+          "end": 19.25
+        },
+        {
+          "text": "one,",
+          "start": 19.25,
+          "end": 19.63
+        },
+        {
+          "text": "tragic",
+          "start": 20.09,
+          "end": 20.29
+        },
+        {
+          "text": "also,",
+          "start": 20.29,
+          "end": 20.69
+        },
+        {
+          "text": "and",
+          "start": 21.09,
+          "end": 21.19
+        },
+        {
+          "text": "bedecked",
+          "start": 21.19,
+          "end": 21.59
+        },
+        {
+          "text": "with",
+          "start": 21.59,
+          "end": 21.75
+        },
+        {
+          "text": "powerless",
+          "start": 21.75,
+          "end": 22.25
+        },
+        {
+          "text": "charms,",
+          "start": 22.25,
+          "end": 22.69
+        },
+        {
+          "text": "stretching",
+          "start": 23.35,
+          "end": 23.63
+        },
+        {
+          "text": "bare",
+          "start": 23.63,
+          "end": 23.95
+        },
+        {
+          "text": "brown",
+          "start": 23.95,
+          "end": 24.29
+        },
+        {
+          "text": "arms",
+          "start": 24.29,
+          "end": 24.77
+        },
+        {
+          "text": "over",
+          "start": 24.77,
+          "end": 24.93
+        },
+        {
+          "text": "the",
+          "start": 24.93,
+          "end": 25.05
+        },
+        {
+          "text": "glitter",
+          "start": 25.05,
+          "end": 25.23
+        },
+        {
+          "text": "of",
+          "start": 25.23,
+          "end": 25.45
+        },
+        {
+          "text": "the",
+          "start": 25.45,
+          "end": 25.59
+        },
+        {
+          "text": "infernal",
+          "start": 25.59,
+          "end": 26.07
+        },
+        {
+          "text": "stream,",
+          "start": 26.07,
+          "end": 26.51
+        },
+        {
+          "text": "the",
+          "start": 26.97,
+          "end": 27.11
+        },
+        {
+          "text": "stream",
+          "start": 27.11,
+          "end": 27.39
+        },
+        {
+          "text": "of",
+          "start": 27.39,
+          "end": 27.61
+        },
+        {
+          "text": "darkness.",
+          "start": 27.61,
+          "end": 27.97
+        },
+        {
+          "text": "She",
+          "start": 28.77,
+          "end": 29.25
+        },
+        {
+          "text": "said",
+          "start": 29.25,
+          "end": 29.47
+        },
+        {
+          "text": "suddenly",
+          "start": 29.47,
+          "end": 29.85
+        },
+        {
+          "text": "very",
+          "start": 30.01,
+          "end": 30.15
+        },
+        {
+          "text": "low,",
+          "start": 30.15,
+          "end": 30.47
+        },
+        {
+          "text": "'He",
+          "start": 31.01,
+          "end": 31.11
+        },
+        {
+          "text": "died",
+          "start": 31.11,
+          "end": 31.35
+        },
+        {
+          "text": "as",
+          "start": 31.35,
+          "end": 31.57
+        },
+        {
+          "text": "he",
+          "start": 31.57,
+          "end": 31.69
+        },
+        {
+          "text": "lived.'",
+          "start": 31.69,
+          "end": 31.97
+        }
+      ],
+      "stats": {
+        "expected_words": 97,
+        "heard_words": 97,
+        "matched_words": 97
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8933766894042492
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "bb20d72c4d158f1a08175e2a04a049e38e4894ad8cf006333e1ff17f315b01f8",
+  "selected_reasons": []
+}

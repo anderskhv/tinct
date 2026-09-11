@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "12b2fcff39fffc56679a01c3449fa2f1a3c514c3c79fbedcb8fc345d8a916fa2",
+  "attempts": [
+    {
+      "asr_seconds": 0.18529602140188217,
+      "alignment_seconds": 0.00010485202074050903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "By Zeus, he said, the problem to be solved is anything but easy.",
+        "hotwords": "By, Zeus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By Zeus, he said, the problem to be solved is anything but easy.",
+          "start": 0.05,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.380126953125
+            },
+            {
+              "text": " Zeus,",
+              "start": 0.57,
+              "end": 0.87,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " he",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " said,",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " problem",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.43,
+              "end": 2.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " solved",
+              "start": 2.79,
+              "end": 3.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " anything",
+              "start": 3.33,
+              "end": 3.65,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " but",
+              "start": 3.65,
+              "end": 4.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " easy.",
+              "start": 4.03,
+              "end": 4.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Zeus,",
+          "start": 0.57,
+          "end": 0.87
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "said,",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "raw": "the",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "problem",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "raw": "be",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "solved",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "raw": "is",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "anything",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "raw": "but",
+          "start": 3.65,
+          "end": 4.03
+        },
+        {
+          "raw": "easy.",
+          "start": 4.03,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "Zeus,",
+        "he",
+        "said,",
+        "the",
+        "problem",
+        "to",
+        "be",
+        "solved",
+        "is",
+        "anything",
+        "but",
+        "easy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Zeus,",
+          "start": 0.57,
+          "end": 0.87
+        },
+        {
+          "text": "he",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "said,",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "text": "the",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "problem",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "to",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "be",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "solved",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "text": "is",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "anything",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "text": "but",
+          "start": 3.65,
+          "end": 4.03
+        },
+        {
+          "text": "easy.",
+          "start": 4.03,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18545272946357727
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b368d9e96146aebf4f37b759b789e8f4792a99ea5e75b36d04e4e9815ede0f7",
+  "selected_reasons": []
+}

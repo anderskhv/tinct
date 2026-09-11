@@ -1,0 +1,215 @@
+{
+  "complete": true,
+  "signature": "86e245b88e16bf1fd25b8513d635c1dc9898dc2fd5118054b04fd392b4441e97",
+  "attempts": [
+    {
+      "asr_seconds": 0.12373567372560501,
+      "alignment_seconds": 6.857514381408691e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 27, Lushini Greek, Simp, Aylapotai.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " 27,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Lushini",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.5263264973958334
+            },
+            {
+              "text": " Greek,",
+              "start": 1.45,
+              "end": 1.77,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Simp,",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.678466796875
+            },
+            {
+              "text": " Aylapotai.",
+              "start": 2.95,
+              "end": 3.59,
+              "probability": 0.56707763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "27,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Lushini",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "Greek,",
+          "start": 1.45,
+          "end": 1.77
+        },
+        {
+          "raw": "Simp,",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "Aylapotai.",
+          "start": 2.95,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "[27]",
+        "Luciani",
+        "[Greek:",
+        "symp.",
+        "ae",
+        "Lapithai]."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[27]",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Luciani",
+          "start": 0.95,
+          "end": 1.2
+        },
+        {
+          "text": "[Greek:",
+          "start": 1.45,
+          "end": 1.77
+        },
+        {
+          "text": "symp.",
+          "start": 1.77,
+          "end": 2.68
+        },
+        {
+          "text": "ae",
+          "start": 2.68,
+          "end": 3.135
+        },
+        {
+          "text": "Lapithai].",
+          "start": 3.135,
+          "end": 3.362
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12382252514362335
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2f7e3c4c166e07a4c3c2fc3d8970453b01f7ab9df2e29f41f472b5fbc898275",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

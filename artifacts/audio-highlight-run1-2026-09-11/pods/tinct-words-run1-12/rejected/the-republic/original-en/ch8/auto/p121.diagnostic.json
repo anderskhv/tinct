@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "6770fe00f896d9df18ff2bfcfe14113850d4045562b72df226630c1f77cc5239",
+  "attempts": [
+    {
+      "asr_seconds": 0.09511575615033507,
+      "alignment_seconds": 8.17389227449894e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Just so, Socrates.",
+        "hotwords": "Just, Socrates"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Just so, Socrates.",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " so,",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.5625
+            },
+            {
+              "text": " Socrates.",
+              "start": 1.14,
+              "end": 1.14,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "so,",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "Socrates.",
+          "start": 1.14,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "Just",
+        "so,",
+        "Socrates."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Just",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "so,",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "text": "Socrates.",
+          "start": 1.14,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0952276042662561
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "856255a5c610a6a4fcd0f5371894b051d8b087a89213418ae0791d47f0a44be2",
+  "selected_reasons": []
+}

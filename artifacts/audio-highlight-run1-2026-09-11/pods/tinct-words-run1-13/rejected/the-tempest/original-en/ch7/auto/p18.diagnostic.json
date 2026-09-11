@@ -1,0 +1,456 @@
+{
+  "complete": true,
+  "signature": "cce97e4a798587ae2e7dfabe3a67304f36aeefb9dce8828bdbff53312e842621",
+  "attempts": [
+    {
+      "asr_seconds": 0.11064248508773744,
+      "alignment_seconds": 0.00011559296399354935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Francisco. They vanish'd strangely.",
+        "hotwords": "Francisco, They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Francisco, They vanished strangely.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Francisco,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " They",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.011077880859375
+            },
+            {
+              "text": " vanished",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " strangely.",
+              "start": 1.79,
+              "end": 2.33,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Francisco,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "They",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "vanished",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "strangely.",
+          "start": 1.79,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Francisco.",
+        "They",
+        "vanish'd",
+        "strangely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Francisco.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "They",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "vanish'd",
+          "start": 1.53,
+          "end": 1.66
+        },
+        {
+          "text": "strangely.",
+          "start": 1.79,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1107989790616557
+    },
+    {
+      "asr_seconds": 0.10381699807476252,
+      "alignment_seconds": 0.00011139304842799902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Francisco, They"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Vanished Strangely.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Vanished",
+              "start": 0.05,
+              "end": 1.87,
+              "probability": 0.34814539551734924
+            },
+            {
+              "text": " Strangely.",
+              "start": 1.87,
+              "end": 2.75,
+              "probability": 0.50836181640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Vanished",
+          "start": 0.05,
+          "end": 1.87
+        },
+        {
+          "raw": "Strangely.",
+          "start": 1.87,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Francisco.",
+        "They",
+        "vanish'd",
+        "strangely."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Francisco.",
+          "start": 0.0,
+          "end": 0.935
+        },
+        {
+          "text": "They",
+          "start": 0.935,
+          "end": 1.403
+        },
+        {
+          "text": "vanish'd",
+          "start": 1.403,
+          "end": 1.637
+        },
+        {
+          "text": "strangely.",
+          "start": 1.87,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10395865107420832
+    },
+    {
+      "asr_seconds": 0.11203890200704336,
+      "alignment_seconds": 0.0001227830071002245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Francisco, they vanished strangely.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Francisco,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " they",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " vanished",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " strangely.",
+              "start": 1.83,
+              "end": 2.35,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Francisco,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "they",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "vanished",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "strangely.",
+          "start": 1.83,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Francisco.",
+        "They",
+        "vanish'd",
+        "strangely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Francisco.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "They",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "vanish'd",
+          "start": 1.53,
+          "end": 1.68
+        },
+        {
+          "text": "strangely.",
+          "start": 1.83,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11220203607808799
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "728117e38221eb50565d5130308957aba4a808844ae7428edcc21deff5042c9a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

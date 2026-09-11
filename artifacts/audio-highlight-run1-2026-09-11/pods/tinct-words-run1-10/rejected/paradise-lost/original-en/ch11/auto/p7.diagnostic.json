@@ -1,0 +1,1002 @@
+{
+  "complete": true,
+  "signature": "9afab04429d1c3055307567c6755341f832da74cc48ea4bb75be5e790093fe26",
+  "attempts": [
+    {
+      "asr_seconds": 0.4987190669926349,
+      "alignment_seconds": 0.0004569769953377545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But let us call to synod all the Blest, Through Heaven's wide bounds: from them I will not hide My judgements; how with mankind I proceed, As how with peccant Angels late they saw, And in their state, though firm, stood more confirmed.",
+        "hotwords": "But, Blest, Through, Heaven's, I, My, As, Angels, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But let us call to synod all the Blest, Through Heaven's wide bounds, from them I will not hide My judgements, How with mankind I proceed, As how with peccant Angels late they saw, And in their state, though firm, stood more confirmed.",
+          "start": 0.02,
+          "end": 14.14,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " let",
+              "start": 0.48,
+              "end": 0.64,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " us",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " synod",
+              "start": 1.2,
+              "end": 1.52,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " all",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Blest,",
+              "start": 1.9,
+              "end": 2.34,
+              "probability": 0.4793424606323242
+            },
+            {
+              "text": " Through",
+              "start": 2.76,
+              "end": 2.78,
+              "probability": 0.2269287109375
+            },
+            {
+              "text": " Heaven's",
+              "start": 2.78,
+              "end": 3.26,
+              "probability": 0.701171875
+            },
+            {
+              "text": " wide",
+              "start": 3.26,
+              "end": 3.52,
+              "probability": 0.94140625
+            },
+            {
+              "text": " bounds,",
+              "start": 3.52,
+              "end": 3.88,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " from",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.0765380859375
+            },
+            {
+              "text": " them",
+              "start": 4.78,
+              "end": 4.94,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " I",
+              "start": 4.94,
+              "end": 5.08,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " will",
+              "start": 5.08,
+              "end": 5.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " not",
+              "start": 5.2,
+              "end": 5.4,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " hide",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " My",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.2388916015625
+            },
+            {
+              "text": " judgements,",
+              "start": 5.88,
+              "end": 6.38,
+              "probability": 0.53753662109375
+            },
+            {
+              "text": " How",
+              "start": 6.86,
+              "end": 7.08,
+              "probability": 0.2880859375
+            },
+            {
+              "text": " with",
+              "start": 7.08,
+              "end": 7.22,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " mankind",
+              "start": 7.22,
+              "end": 7.68,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " I",
+              "start": 7.68,
+              "end": 8.02,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " proceed,",
+              "start": 8.02,
+              "end": 8.4,
+              "probability": 0.95703125
+            },
+            {
+              "text": " As",
+              "start": 8.92,
+              "end": 9.02,
+              "probability": 0.42041015625
+            },
+            {
+              "text": " how",
+              "start": 9.02,
+              "end": 9.24,
+              "probability": 0.94921875
+            },
+            {
+              "text": " with",
+              "start": 9.24,
+              "end": 9.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " peccant",
+              "start": 9.42,
+              "end": 9.82,
+              "probability": 0.762939453125
+            },
+            {
+              "text": " Angels",
+              "start": 9.82,
+              "end": 10.24,
+              "probability": 0.1531982421875
+            },
+            {
+              "text": " late",
+              "start": 10.24,
+              "end": 10.56,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " they",
+              "start": 10.56,
+              "end": 10.8,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " saw,",
+              "start": 10.8,
+              "end": 11.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " And",
+              "start": 11.54,
+              "end": 11.66,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " in",
+              "start": 11.66,
+              "end": 11.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " their",
+              "start": 11.82,
+              "end": 11.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " state,",
+              "start": 11.96,
+              "end": 12.36,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " though",
+              "start": 12.42,
+              "end": 12.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " firm,",
+              "start": 12.62,
+              "end": 12.96,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " stood",
+              "start": 13.18,
+              "end": 13.34,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " more",
+              "start": 13.34,
+              "end": 13.62,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " confirmed.",
+              "start": 13.62,
+              "end": 14.14,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "let",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "raw": "us",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "call",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "to",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "synod",
+          "start": 1.2,
+          "end": 1.52
+        },
+        {
+          "raw": "all",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "Blest,",
+          "start": 1.9,
+          "end": 2.34
+        },
+        {
+          "raw": "Through",
+          "start": 2.76,
+          "end": 2.78
+        },
+        {
+          "raw": "Heaven's",
+          "start": 2.78,
+          "end": 3.26
+        },
+        {
+          "raw": "wide",
+          "start": 3.26,
+          "end": 3.52
+        },
+        {
+          "raw": "bounds,",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "raw": "from",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "them",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "raw": "I",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "raw": "will",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "raw": "not",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "raw": "hide",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "My",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "judgements,",
+          "start": 5.88,
+          "end": 6.38
+        },
+        {
+          "raw": "How",
+          "start": 6.86,
+          "end": 7.08
+        },
+        {
+          "raw": "with",
+          "start": 7.08,
+          "end": 7.22
+        },
+        {
+          "raw": "mankind",
+          "start": 7.22,
+          "end": 7.68
+        },
+        {
+          "raw": "I",
+          "start": 7.68,
+          "end": 8.02
+        },
+        {
+          "raw": "proceed,",
+          "start": 8.02,
+          "end": 8.4
+        },
+        {
+          "raw": "As",
+          "start": 8.92,
+          "end": 9.02
+        },
+        {
+          "raw": "how",
+          "start": 9.02,
+          "end": 9.24
+        },
+        {
+          "raw": "with",
+          "start": 9.24,
+          "end": 9.42
+        },
+        {
+          "raw": "peccant",
+          "start": 9.42,
+          "end": 9.82
+        },
+        {
+          "raw": "Angels",
+          "start": 9.82,
+          "end": 10.24
+        },
+        {
+          "raw": "late",
+          "start": 10.24,
+          "end": 10.56
+        },
+        {
+          "raw": "they",
+          "start": 10.56,
+          "end": 10.8
+        },
+        {
+          "raw": "saw,",
+          "start": 10.8,
+          "end": 11.14
+        },
+        {
+          "raw": "And",
+          "start": 11.54,
+          "end": 11.66
+        },
+        {
+          "raw": "in",
+          "start": 11.66,
+          "end": 11.82
+        },
+        {
+          "raw": "their",
+          "start": 11.82,
+          "end": 11.96
+        },
+        {
+          "raw": "state,",
+          "start": 11.96,
+          "end": 12.36
+        },
+        {
+          "raw": "though",
+          "start": 12.42,
+          "end": 12.62
+        },
+        {
+          "raw": "firm,",
+          "start": 12.62,
+          "end": 12.96
+        },
+        {
+          "raw": "stood",
+          "start": 13.18,
+          "end": 13.34
+        },
+        {
+          "raw": "more",
+          "start": 13.34,
+          "end": 13.62
+        },
+        {
+          "raw": "confirmed.",
+          "start": 13.62,
+          "end": 14.14
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "let",
+        "us",
+        "call",
+        "to",
+        "synod",
+        "all",
+        "the",
+        "Blest,",
+        "Through",
+        "Heaven's",
+        "wide",
+        "bounds:",
+        "from",
+        "them",
+        "I",
+        "will",
+        "not",
+        "hide",
+        "My",
+        "judgements;",
+        "how",
+        "with",
+        "mankind",
+        "I",
+        "proceed,",
+        "As",
+        "how",
+        "with",
+        "peccant",
+        "Angels",
+        "late",
+        "they",
+        "saw,",
+        "And",
+        "in",
+        "their",
+        "state,",
+        "though",
+        "firm,",
+        "stood",
+        "more",
+        "confirmed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          43,
+          0,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "let",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "text": "us",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "call",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "to",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "synod",
+          "start": 1.2,
+          "end": 1.52
+        },
+        {
+          "text": "all",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "Blest,",
+          "start": 1.9,
+          "end": 2.34
+        },
+        {
+          "text": "Through",
+          "start": 2.76,
+          "end": 2.78
+        },
+        {
+          "text": "Heaven's",
+          "start": 2.78,
+          "end": 3.26
+        },
+        {
+          "text": "wide",
+          "start": 3.26,
+          "end": 3.52
+        },
+        {
+          "text": "bounds:",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "text": "from",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "them",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "text": "I",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "text": "will",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "text": "not",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "text": "hide",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "My",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "judgements;",
+          "start": 5.88,
+          "end": 6.38
+        },
+        {
+          "text": "how",
+          "start": 6.86,
+          "end": 7.08
+        },
+        {
+          "text": "with",
+          "start": 7.08,
+          "end": 7.22
+        },
+        {
+          "text": "mankind",
+          "start": 7.22,
+          "end": 7.68
+        },
+        {
+          "text": "I",
+          "start": 7.68,
+          "end": 8.02
+        },
+        {
+          "text": "proceed,",
+          "start": 8.02,
+          "end": 8.4
+        },
+        {
+          "text": "As",
+          "start": 8.92,
+          "end": 9.02
+        },
+        {
+          "text": "how",
+          "start": 9.02,
+          "end": 9.24
+        },
+        {
+          "text": "with",
+          "start": 9.24,
+          "end": 9.42
+        },
+        {
+          "text": "peccant",
+          "start": 9.42,
+          "end": 9.82
+        },
+        {
+          "text": "Angels",
+          "start": 9.82,
+          "end": 10.24
+        },
+        {
+          "text": "late",
+          "start": 10.24,
+          "end": 10.56
+        },
+        {
+          "text": "they",
+          "start": 10.56,
+          "end": 10.8
+        },
+        {
+          "text": "saw,",
+          "start": 10.8,
+          "end": 11.14
+        },
+        {
+          "text": "And",
+          "start": 11.54,
+          "end": 11.66
+        },
+        {
+          "text": "in",
+          "start": 11.66,
+          "end": 11.82
+        },
+        {
+          "text": "their",
+          "start": 11.82,
+          "end": 11.96
+        },
+        {
+          "text": "state,",
+          "start": 11.96,
+          "end": 12.36
+        },
+        {
+          "text": "though",
+          "start": 12.42,
+          "end": 12.62
+        },
+        {
+          "text": "firm,",
+          "start": 12.62,
+          "end": 12.96
+        },
+        {
+          "text": "stood",
+          "start": 13.18,
+          "end": 13.34
+        },
+        {
+          "text": "more",
+          "start": 13.34,
+          "end": 13.62
+        },
+        {
+          "text": "confirmed.",
+          "start": 13.62,
+          "end": 14.14
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 43,
+        "matched_words": 43
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4994522540073376
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70e21c6414798f379448b9f0832f64167c33bfbbf9ed3ac750f388db36132947",
+  "selected_reasons": []
+}

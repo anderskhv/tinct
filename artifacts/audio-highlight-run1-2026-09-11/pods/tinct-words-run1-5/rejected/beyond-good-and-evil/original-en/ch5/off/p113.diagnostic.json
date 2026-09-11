@@ -1,0 +1,450 @@
+{
+  "complete": true,
+  "signature": "53db515b67cbf953129767d7ef4fdd682cc7f4f59350f952b6fbddf94affdd27",
+  "attempts": [
+    {
+      "asr_seconds": 0.11852473020553589,
+      "alignment_seconds": 8.293986320495605e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 176. The vanity of others is only counter to our taste when it is counter to our vanity.",
+          "start": 0.05,
+          "end": 6.57,
+          "words": [
+            {
+              "text": " 176.",
+              "start": 0.05,
+              "end": 1.15,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " The",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.9296875
+            },
+            {
+              "text": " vanity",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " of",
+              "start": 2.75,
+              "end": 3.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " others",
+              "start": 3.01,
+              "end": 3.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " counter",
+              "start": 3.75,
+              "end": 4.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.05,
+              "end": 4.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " taste",
+              "start": 4.53,
+              "end": 4.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " when",
+              "start": 4.85,
+              "end": 5.27,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " it",
+              "start": 5.27,
+              "end": 5.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 5.35,
+              "end": 5.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " counter",
+              "start": 5.49,
+              "end": 5.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 6.05,
+              "end": 6.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " vanity.",
+              "start": 6.21,
+              "end": 6.57,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "176.",
+          "start": 0.05,
+          "end": 1.15
+        },
+        {
+          "raw": "The",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "vanity",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "of",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "raw": "others",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "raw": "is",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "raw": "only",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "counter",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "raw": "to",
+          "start": 4.05,
+          "end": 4.37
+        },
+        {
+          "raw": "our",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "taste",
+          "start": 4.53,
+          "end": 4.85
+        },
+        {
+          "raw": "when",
+          "start": 4.85,
+          "end": 5.27
+        },
+        {
+          "raw": "it",
+          "start": 5.27,
+          "end": 5.35
+        },
+        {
+          "raw": "is",
+          "start": 5.35,
+          "end": 5.49
+        },
+        {
+          "raw": "counter",
+          "start": 5.49,
+          "end": 5.75
+        },
+        {
+          "raw": "to",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "raw": "our",
+          "start": 6.05,
+          "end": 6.21
+        },
+        {
+          "raw": "vanity.",
+          "start": 6.21,
+          "end": 6.57
+        }
+      ],
+      "expected_tokens": [
+        "176.",
+        "The",
+        "vanity",
+        "of",
+        "others",
+        "is",
+        "only",
+        "counter",
+        "to",
+        "our",
+        "taste",
+        "when",
+        "it",
+        "is",
+        "counter",
+        "to",
+        "our",
+        "vanity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "176.",
+          "start": 0.05,
+          "end": 1.15
+        },
+        {
+          "text": "The",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "vanity",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "of",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "text": "others",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "text": "is",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "text": "only",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "counter",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "text": "to",
+          "start": 4.05,
+          "end": 4.37
+        },
+        {
+          "text": "our",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "taste",
+          "start": 4.53,
+          "end": 4.85
+        },
+        {
+          "text": "when",
+          "start": 4.85,
+          "end": 5.27
+        },
+        {
+          "text": "it",
+          "start": 5.27,
+          "end": 5.35
+        },
+        {
+          "text": "is",
+          "start": 5.35,
+          "end": 5.49
+        },
+        {
+          "text": "counter",
+          "start": 5.49,
+          "end": 5.75
+        },
+        {
+          "text": "to",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "text": "our",
+          "start": 6.05,
+          "end": 6.21
+        },
+        {
+          "text": "vanity.",
+          "start": 6.21,
+          "end": 6.57
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1186441108584404
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b55651c5fc41a53320b41cdaccf67298d5775576971cd2c1fd6afe7bb9fa2ae2",
+  "selected_reasons": []
+}

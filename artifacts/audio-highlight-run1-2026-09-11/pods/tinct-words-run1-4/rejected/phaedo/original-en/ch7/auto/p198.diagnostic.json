@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "8f4d45fcde7994fe95708bf017bd93a19022aa76ec41ba57967a1a567dd1e8ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.09760681353509426,
+      "alignment_seconds": 5.451217293739319e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There is, he said.",
+        "hotwords": "There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There is, he said.",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.389892578125
+            },
+            {
+              "text": " is,",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.98828125
+            },
+            {
+              "text": " he",
+              "start": 0.91,
+              "end": 0.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " said.",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is,",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "he",
+          "start": 0.91,
+          "end": 0.99
+        },
+        {
+          "raw": "said.",
+          "start": 0.99,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "is,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is,",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "he",
+          "start": 0.91,
+          "end": 0.99
+        },
+        {
+          "text": "said.",
+          "start": 0.99,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09767913445830345
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0820ed4c159160b65e5042ff183930a715108d062adec0a996d2809079693a6c",
+  "selected_reasons": []
+}

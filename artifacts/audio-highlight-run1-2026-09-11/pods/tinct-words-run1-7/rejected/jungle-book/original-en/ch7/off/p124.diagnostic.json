@@ -1,0 +1,245 @@
+{
+  "complete": true,
+  "signature": "a00f7765713205f0071ce3f1cab9b06422b2dce553886787fba07c265b0c02ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.13103350345045328,
+      "alignment_seconds": 7.659848779439926e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Few said the Bullocks he must be white",
+          "start": 0.11,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Few",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.1729736328125
+            },
+            {
+              "text": " said",
+              "start": 0.71,
+              "end": 1.15,
+              "probability": 0.3642578125
+            },
+            {
+              "text": " the",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Bullocks",
+              "start": 1.27,
+              "end": 1.65,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " he",
+              "start": 1.65,
+              "end": 2.07,
+              "probability": 0.427734375
+            },
+            {
+              "text": " must",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " white",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Few",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "said",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "Bullocks",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "raw": "he",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "raw": "must",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "be",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "raw": "white",
+          "start": 2.43,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Phew!\"",
+        "said",
+        "the",
+        "bullocks.",
+        "\"He",
+        "must",
+        "be",
+        "white!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Phew!\"",
+          "start": 0.0,
+          "end": 0.355
+        },
+        {
+          "text": "said",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "text": "the",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "bullocks.",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "text": "\"He",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "text": "must",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "be",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "text": "white!\"",
+          "start": 2.43,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.1311376029625535
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "505c323188d007050dd6a1485b7e184607b2ca9beca0a45b6c3e2fe6e6126921",
+  "selected_reasons": []
+}

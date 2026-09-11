@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "01884a4cab60711819418cdaf34a8e0f6655df855e7246d17147e7620dec4f10",
+  "attempts": [
+    {
+      "asr_seconds": 0.07983950385823846,
+      "alignment_seconds": 6.945803761482239e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What defect?",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " defect?",
+              "start": 0.6,
+              "end": 0.96,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "defect?",
+          "start": 0.6,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "defect?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "defect?",
+          "start": 0.6,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07993579190224409
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "42825c8ddfd65e39114dd9350b187ff2665e9dd20566f4e56f0c0223268b8b38",
+  "selected_reasons": []
+}

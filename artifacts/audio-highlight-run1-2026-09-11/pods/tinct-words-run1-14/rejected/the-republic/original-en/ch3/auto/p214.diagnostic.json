@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "847e3ba4d939a463ad7aa39776d42572a65ea355b07771cc41417ecc826cee48",
+  "attempts": [
+    {
+      "asr_seconds": 0.2349068596959114,
+      "alignment_seconds": 0.00014267116785049438,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I fear, said Glaucon, laughing, that the word 'every one' hardly includes me, for I cannot at the moment say what they should be; though I may guess.",
+        "hotwords": "I, Glaucon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I fear, said Glaucon, laughing, that the word, every one hardly includes me, for I cannot",
+          "start": 0.08,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.191650390625
+            },
+            {
+              "text": " fear,",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " said",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Glaucon,",
+              "start": 1.26,
+              "end": 1.68,
+              "probability": 0.5118815104166666
+            },
+            {
+              "text": " laughing,",
+              "start": 1.92,
+              "end": 2.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " word,",
+              "start": 3.0,
+              "end": 3.26,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " every",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.168212890625
+            },
+            {
+              "text": " one",
+              "start": 3.92,
+              "end": 4.22,
+              "probability": 0.984375
+            },
+            {
+              "text": " hardly",
+              "start": 4.22,
+              "end": 4.54,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " includes",
+              "start": 4.54,
+              "end": 5.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " me,",
+              "start": 5.02,
+              "end": 5.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 5.7,
+              "end": 5.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 5.8,
+              "end": 5.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cannot",
+              "start": 5.94,
+              "end": 6.18,
+              "probability": 0.9833984375
+            }
+          ]
+        },
+        {
+          "text": " at the moment say what they should be, though I may guess.",
+          "start": 6.18,
+          "end": 9.18,
+          "words": [
+            {
+              "text": " at",
+              "start": 6.18,
+              "end": 6.36,
+              "probability": 0.970703125
+            },
+            {
+              "text": " the",
+              "start": 6.36,
+              "end": 6.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " moment",
+              "start": 6.48,
+              "end": 6.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say",
+              "start": 6.7,
+              "end": 7.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " what",
+              "start": 7.04,
+              "end": 7.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 7.26,
+              "end": 7.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " should",
+              "start": 7.42,
+              "end": 7.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be,",
+              "start": 7.6,
+              "end": 7.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though",
+              "start": 8.4,
+              "end": 8.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 8.58,
+              "end": 8.74,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " may",
+              "start": 8.74,
+              "end": 8.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guess.",
+              "start": 8.9,
+              "end": 9.18,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "fear,",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "said",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "Glaucon,",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "raw": "laughing,",
+          "start": 1.92,
+          "end": 2.32
+        },
+        {
+          "raw": "that",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "the",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "word,",
+          "start": 3.0,
+          "end": 3.26
+        },
+        {
+          "raw": "every",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "one",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "raw": "hardly",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "raw": "includes",
+          "start": 4.54,
+          "end": 5.02
+        },
+        {
+          "raw": "me,",
+          "start": 5.02,
+          "end": 5.36
+        },
+        {
+          "raw": "for",
+          "start": 5.7,
+          "end": 5.8
+        },
+        {
+          "raw": "I",
+          "start": 5.8,
+          "end": 5.94
+        },
+        {
+          "raw": "cannot",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "raw": "at",
+          "start": 6.18,
+          "end": 6.36
+        },
+        {
+          "raw": "the",
+          "start": 6.36,
+          "end": 6.48
+        },
+        {
+          "raw": "moment",
+          "start": 6.48,
+          "end": 6.7
+        },
+        {
+          "raw": "say",
+          "start": 6.7,
+          "end": 7.04
+        },
+        {
+          "raw": "what",
+          "start": 7.04,
+          "end": 7.26
+        },
+        {
+          "raw": "they",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "raw": "should",
+          "start": 7.42,
+          "end": 7.6
+        },
+        {
+          "raw": "be,",
+          "start": 7.6,
+          "end": 7.92
+        },
+        {
+          "raw": "though",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "raw": "I",
+          "start": 8.58,
+          "end": 8.74
+        },
+        {
+          "raw": "may",
+          "start": 8.74,
+          "end": 8.9
+        },
+        {
+          "raw": "guess.",
+          "start": 8.9,
+          "end": 9.18
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "fear,",
+        "said",
+        "Glaucon,",
+        "laughing,",
+        "that",
+        "the",
+        "word",
+        "'every",
+        "one'",
+        "hardly",
+        "includes",
+        "me,",
+        "for",
+        "I",
+        "cannot",
+        "at",
+        "the",
+        "moment",
+        "say",
+        "what",
+        "they",
+        "should",
+        "be;",
+        "though",
+        "I",
+        "may",
+        "guess."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "fear,",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "said",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "Glaucon,",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "text": "laughing,",
+          "start": 1.92,
+          "end": 2.32
+        },
+        {
+          "text": "that",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "the",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "word",
+          "start": 3.0,
+          "end": 3.26
+        },
+        {
+          "text": "'every",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "one'",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "text": "hardly",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "text": "includes",
+          "start": 4.54,
+          "end": 5.02
+        },
+        {
+          "text": "me,",
+          "start": 5.02,
+          "end": 5.36
+        },
+        {
+          "text": "for",
+          "start": 5.7,
+          "end": 5.8
+        },
+        {
+          "text": "I",
+          "start": 5.8,
+          "end": 5.94
+        },
+        {
+          "text": "cannot",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "text": "at",
+          "start": 6.18,
+          "end": 6.36
+        },
+        {
+          "text": "the",
+          "start": 6.36,
+          "end": 6.48
+        },
+        {
+          "text": "moment",
+          "start": 6.48,
+          "end": 6.7
+        },
+        {
+          "text": "say",
+          "start": 6.7,
+          "end": 7.04
+        },
+        {
+          "text": "what",
+          "start": 7.04,
+          "end": 7.26
+        },
+        {
+          "text": "they",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "text": "should",
+          "start": 7.42,
+          "end": 7.6
+        },
+        {
+          "text": "be;",
+          "start": 7.6,
+          "end": 7.92
+        },
+        {
+          "text": "though",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "text": "I",
+          "start": 8.58,
+          "end": 8.74
+        },
+        {
+          "text": "may",
+          "start": 8.74,
+          "end": 8.9
+        },
+        {
+          "text": "guess.",
+          "start": 8.9,
+          "end": 9.18
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2351267859339714
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41ece20baae36e7c06a9566ad8ddd2b4b59a4d2f702c35a5628cc43217f20aeb",
+  "selected_reasons": []
+}

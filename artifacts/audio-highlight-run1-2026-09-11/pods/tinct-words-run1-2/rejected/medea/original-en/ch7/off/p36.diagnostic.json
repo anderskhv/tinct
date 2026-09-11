@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "e92f232c8e683ba7ee7d31fb522c1ef97f7a38647ffb1822eeb0053e149e820d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11614438146352768,
+      "alignment_seconds": 7.812678813934326e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Medea, sons, did he perish for your father's shame?",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " sons,",
+              "start": 1.45,
+              "end": 1.47,
+              "probability": 0.7578125
+            },
+            {
+              "text": " did",
+              "start": 1.81,
+              "end": 1.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.53369140625
+            },
+            {
+              "text": " perish",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " for",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " father's",
+              "start": 2.63,
+              "end": 3.05,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " shame?",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "sons,",
+          "start": 1.45,
+          "end": 1.47
+        },
+        {
+          "raw": "did",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "perish",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "raw": "for",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "raw": "your",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "father's",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "raw": "shame?",
+          "start": 3.05,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Sons,",
+        "did",
+        "ye",
+        "perish",
+        "for",
+        "your",
+        "father's",
+        "shame?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Sons,",
+          "start": 1.45,
+          "end": 1.47
+        },
+        {
+          "text": "did",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "text": "ye",
+          "start": 1.89,
+          "end": 1.95
+        },
+        {
+          "text": "perish",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "text": "for",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "text": "your",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "father's",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "text": "shame?",
+          "start": 3.05,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1162528470158577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fdccb9a68bb09f01f4991e9bf41018a1a6c9ee198ef4c719d0b4eb949de8a9f7",
+  "selected_reasons": []
+}

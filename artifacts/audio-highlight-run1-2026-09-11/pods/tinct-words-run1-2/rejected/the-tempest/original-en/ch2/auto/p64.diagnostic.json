@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "c7a77c6e02f13114d0c0b5391eeb6e17b7ff96c997d2ccc5629bc2373d6b3054",
+  "attempts": [
+    {
+      "asr_seconds": 0.26112375408411026,
+      "alignment_seconds": 0.00013790279626846313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ariel. Is there more toil? Since thou dost give me pains, Let me remember thee what thou hast promised, Which is not yet perform'd me.",
+        "hotwords": "Ariel, Since, Let, Which"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ariel, Is there more toil? Since thou dost give me pains, Let me remember thee what thou hast",
+          "start": 0.05,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " Is",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.03289794921875
+            },
+            {
+              "text": " there",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.916015625
+            },
+            {
+              "text": " more",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " toil?",
+              "start": 1.57,
+              "end": 2.09,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Since",
+              "start": 2.65,
+              "end": 2.85,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " thou",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " dost",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " give",
+              "start": 3.29,
+              "end": 3.47,
+              "probability": 0.95703125
+            },
+            {
+              "text": " me",
+              "start": 3.47,
+              "end": 3.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " pains,",
+              "start": 3.69,
+              "end": 4.07,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Let",
+              "start": 4.55,
+              "end": 4.63,
+              "probability": 0.60009765625
+            },
+            {
+              "text": " me",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " remember",
+              "start": 4.77,
+              "end": 5.03,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thee",
+              "start": 5.03,
+              "end": 5.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " what",
+              "start": 5.23,
+              "end": 5.41,
+              "probability": 0.96875
+            },
+            {
+              "text": " thou",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hast",
+              "start": 5.71,
+              "end": 6.13,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " promised, Which is not yet perform'd me.",
+          "start": 6.13,
+          "end": 8.47,
+          "words": [
+            {
+              "text": " promised,",
+              "start": 6.13,
+              "end": 6.55,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Which",
+              "start": 6.95,
+              "end": 7.13,
+              "probability": 0.0007181167602539062
+            },
+            {
+              "text": " is",
+              "start": 7.13,
+              "end": 7.29,
+              "probability": 0.376953125
+            },
+            {
+              "text": " not",
+              "start": 7.29,
+              "end": 7.51,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " yet",
+              "start": 7.51,
+              "end": 7.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " perform'd",
+              "start": 7.71,
+              "end": 8.31,
+              "probability": 0.46837496757507324
+            },
+            {
+              "text": " me.",
+              "start": 8.31,
+              "end": 8.47,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Is",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "there",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "more",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "toil?",
+          "start": 1.57,
+          "end": 2.09
+        },
+        {
+          "raw": "Since",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "raw": "thou",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "dost",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "give",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "raw": "me",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "raw": "pains,",
+          "start": 3.69,
+          "end": 4.07
+        },
+        {
+          "raw": "Let",
+          "start": 4.55,
+          "end": 4.63
+        },
+        {
+          "raw": "me",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "remember",
+          "start": 4.77,
+          "end": 5.03
+        },
+        {
+          "raw": "thee",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "raw": "what",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "raw": "thou",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "hast",
+          "start": 5.71,
+          "end": 6.13
+        },
+        {
+          "raw": "promised,",
+          "start": 6.13,
+          "end": 6.55
+        },
+        {
+          "raw": "Which",
+          "start": 6.95,
+          "end": 7.13
+        },
+        {
+          "raw": "is",
+          "start": 7.13,
+          "end": 7.29
+        },
+        {
+          "raw": "not",
+          "start": 7.29,
+          "end": 7.51
+        },
+        {
+          "raw": "yet",
+          "start": 7.51,
+          "end": 7.71
+        },
+        {
+          "raw": "perform'd",
+          "start": 7.71,
+          "end": 8.31
+        },
+        {
+          "raw": "me.",
+          "start": 8.31,
+          "end": 8.47
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "Is",
+        "there",
+        "more",
+        "toil?",
+        "Since",
+        "thou",
+        "dost",
+        "give",
+        "me",
+        "pains,",
+        "Let",
+        "me",
+        "remember",
+        "thee",
+        "what",
+        "thou",
+        "hast",
+        "promised,",
+        "Which",
+        "is",
+        "not",
+        "yet",
+        "perform'd",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Is",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "there",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "more",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "toil?",
+          "start": 1.57,
+          "end": 2.09
+        },
+        {
+          "text": "Since",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "text": "thou",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "dost",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "give",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "text": "me",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "text": "pains,",
+          "start": 3.69,
+          "end": 4.07
+        },
+        {
+          "text": "Let",
+          "start": 4.55,
+          "end": 4.63
+        },
+        {
+          "text": "me",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "remember",
+          "start": 4.77,
+          "end": 5.03
+        },
+        {
+          "text": "thee",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "text": "what",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "text": "thou",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "hast",
+          "start": 5.71,
+          "end": 6.13
+        },
+        {
+          "text": "promised,",
+          "start": 6.13,
+          "end": 6.55
+        },
+        {
+          "text": "Which",
+          "start": 6.95,
+          "end": 7.13
+        },
+        {
+          "text": "is",
+          "start": 7.13,
+          "end": 7.29
+        },
+        {
+          "text": "not",
+          "start": 7.29,
+          "end": 7.51
+        },
+        {
+          "text": "yet",
+          "start": 7.51,
+          "end": 7.71
+        },
+        {
+          "text": "perform'd",
+          "start": 7.71,
+          "end": 8.31
+        },
+        {
+          "text": "me.",
+          "start": 8.31,
+          "end": 8.47
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2613268718123436
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc8464cf746cefedb970d6cd473e7854ecbf0f2dc38a6344eae9ef5680cca658",
+  "selected_reasons": []
+}

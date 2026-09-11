@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "2f9744d198b65e309d032bdf9c9f6aadf3a3ab44a5288e7d74f38312991854ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.08336563408374786,
+      "alignment_seconds": 6.079673767089844e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And what in ours?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And what in ours?",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " what",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " in",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " ours?",
+              "start": 0.79,
+              "end": 1.09,
+              "probability": 0.20458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "in",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "ours?",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "what",
+        "in",
+        "ours?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "in",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "ours?",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08345180004835129
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42365f402a527cb31497cd480f9c92c39b605f73b0fc5dc0f8dc7f4c66bd18dc",
+  "selected_reasons": []
+}

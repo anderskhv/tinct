@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "46a35ad619001042bcffd9fa69d204d2ce2ce42221f31d008eb919285ca58f58",
+  "attempts": [
+    {
+      "asr_seconds": 0.13194914907217026,
+      "alignment_seconds": 7.42599368095398e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miranda. Would I might But ever see that man!",
+        "hotwords": "Miranda, Would, I, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miranda, Would I might But ever see that man!",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Would",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.005077362060546875
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " might",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " But",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.032745361328125
+            },
+            {
+              "text": " ever",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " see",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.873046875
+            },
+            {
+              "text": " that",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " man!",
+              "start": 2.51,
+              "end": 2.79,
+              "probability": 0.9443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Would",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "might",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "But",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "ever",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "see",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "that",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "man!",
+          "start": 2.51,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "Would",
+        "I",
+        "might",
+        "But",
+        "ever",
+        "see",
+        "that",
+        "man!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Would",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "might",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "But",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "ever",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "see",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "that",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "man!",
+          "start": 2.51,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13205572217702866
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5daedc725cf9de49d14fe2cdde940f2eb13a8e38e7a29388c922e30ccb398a99",
+  "selected_reasons": []
+}

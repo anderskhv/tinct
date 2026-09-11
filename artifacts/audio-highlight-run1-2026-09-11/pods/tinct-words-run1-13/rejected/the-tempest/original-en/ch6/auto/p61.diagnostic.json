@@ -1,0 +1,496 @@
+{
+  "complete": true,
+  "signature": "0251b38f6bcb4ebd32265346998af846c970c8daf95c33095abeeff95186a9de",
+  "attempts": [
+    {
+      "asr_seconds": 0.20486501301638782,
+      "alignment_seconds": 0.0001744850305840373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. If thou beest a man, show thyself in thy likeness: if thou beest a devil, take't as thou list.",
+        "hotwords": "Stephano"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano. If thou beest a man, show thyself in thy likeness. If thou beest a devil, take't as thou list.",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Stephano.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.5019645690917969
+            },
+            {
+              "text": " If",
+              "start": 1.63,
+              "end": 1.65,
+              "probability": 0.708984375
+            },
+            {
+              "text": " thou",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " beest",
+              "start": 1.83,
+              "end": 2.13,
+              "probability": 0.5245361328125
+            },
+            {
+              "text": " a",
+              "start": 2.13,
+              "end": 2.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " man,",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " show",
+              "start": 2.79,
+              "end": 2.83,
+              "probability": 0.939453125
+            },
+            {
+              "text": " thyself",
+              "start": 2.83,
+              "end": 3.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 3.25,
+              "end": 3.41,
+              "probability": 0.880859375
+            },
+            {
+              "text": " thy",
+              "start": 3.41,
+              "end": 3.53,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " likeness.",
+              "start": 3.53,
+              "end": 3.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " If",
+              "start": 4.53,
+              "end": 4.63,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thou",
+              "start": 4.63,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beest",
+              "start": 4.79,
+              "end": 5.11,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " a",
+              "start": 5.11,
+              "end": 5.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " devil,",
+              "start": 5.25,
+              "end": 5.51,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " take't",
+              "start": 5.79,
+              "end": 6.03,
+              "probability": 0.42999839782714844
+            },
+            {
+              "text": " as",
+              "start": 6.03,
+              "end": 6.11,
+              "probability": 0.394775390625
+            },
+            {
+              "text": " thou",
+              "start": 6.11,
+              "end": 6.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " list.",
+              "start": 6.29,
+              "end": 6.59,
+              "probability": 0.29248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "If",
+          "start": 1.63,
+          "end": 1.65
+        },
+        {
+          "raw": "thou",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "beest",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "raw": "a",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "raw": "man,",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "show",
+          "start": 2.79,
+          "end": 2.83
+        },
+        {
+          "raw": "thyself",
+          "start": 2.83,
+          "end": 3.25
+        },
+        {
+          "raw": "in",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "raw": "thy",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "raw": "likeness.",
+          "start": 3.53,
+          "end": 3.91
+        },
+        {
+          "raw": "If",
+          "start": 4.53,
+          "end": 4.63
+        },
+        {
+          "raw": "thou",
+          "start": 4.63,
+          "end": 4.79
+        },
+        {
+          "raw": "beest",
+          "start": 4.79,
+          "end": 5.11
+        },
+        {
+          "raw": "a",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "raw": "devil,",
+          "start": 5.25,
+          "end": 5.51
+        },
+        {
+          "raw": "take't",
+          "start": 5.79,
+          "end": 6.03
+        },
+        {
+          "raw": "as",
+          "start": 6.03,
+          "end": 6.11
+        },
+        {
+          "raw": "thou",
+          "start": 6.11,
+          "end": 6.29
+        },
+        {
+          "raw": "list.",
+          "start": 6.29,
+          "end": 6.59
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "If",
+        "thou",
+        "beest",
+        "a",
+        "man,",
+        "show",
+        "thyself",
+        "in",
+        "thy",
+        "likeness:",
+        "if",
+        "thou",
+        "beest",
+        "a",
+        "devil,",
+        "take't",
+        "as",
+        "thou",
+        "list."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "If",
+          "start": 1.63,
+          "end": 1.65
+        },
+        {
+          "text": "thou",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "beest",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "text": "a",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "text": "man,",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "text": "show",
+          "start": 2.79,
+          "end": 2.83
+        },
+        {
+          "text": "thyself",
+          "start": 2.83,
+          "end": 3.25
+        },
+        {
+          "text": "in",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "text": "thy",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "text": "likeness:",
+          "start": 3.53,
+          "end": 3.91
+        },
+        {
+          "text": "if",
+          "start": 4.53,
+          "end": 4.63
+        },
+        {
+          "text": "thou",
+          "start": 4.63,
+          "end": 4.79
+        },
+        {
+          "text": "beest",
+          "start": 4.79,
+          "end": 5.11
+        },
+        {
+          "text": "a",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "text": "devil,",
+          "start": 5.25,
+          "end": 5.51
+        },
+        {
+          "text": "take't",
+          "start": 5.79,
+          "end": 6.03
+        },
+        {
+          "text": "as",
+          "start": 6.03,
+          "end": 6.11
+        },
+        {
+          "text": "thou",
+          "start": 6.11,
+          "end": 6.29
+        },
+        {
+          "text": "list.",
+          "start": 6.29,
+          "end": 6.59
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20512580999638885
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "472f4b83f86fabc603e63ad87a01266ec873fe5a50e5b41765b9ed1349d043c6",
+  "selected_reasons": []
+}

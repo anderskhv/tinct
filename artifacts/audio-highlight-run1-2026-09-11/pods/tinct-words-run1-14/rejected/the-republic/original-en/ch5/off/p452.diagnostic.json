@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "054495d9b3e207352725ea5816be8375aac2906bcc972bb84bc10239b5c1f8a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09190753847360611,
+      "alignment_seconds": 6.260722875595093e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What is the proposition?",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " proposition?",
+              "start": 0.82,
+              "end": 1.22,
+              "probability": 0.75244140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "proposition?",
+          "start": 0.82,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "is",
+        "the",
+        "proposition?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "the",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "proposition?",
+          "start": 0.82,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09199695289134979
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c99e93d108ac4c78e80ae8f8f85a38413b050ea3cf5af24e3230b7d5d42f93b",
+  "selected_reasons": []
+}

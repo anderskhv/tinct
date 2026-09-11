@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "156eeb4e93cf55f72b9609f27cefa94ff3d5b782a47f86c5710a4ea047744ba2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1067451685667038,
+      "alignment_seconds": 5.909055471420288e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Lays down his mantle]",
+        "hotwords": "Lays"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lays down his mantle",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Lays",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.6197509765625
+            },
+            {
+              "text": " down",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " his",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " mantle",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.9404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lays",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "down",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "his",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "mantle",
+          "start": 1.09,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "[Lays",
+        "down",
+        "his",
+        "mantle]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Lays",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "down",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "his",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "mantle]",
+          "start": 1.09,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10683157294988632
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a32878b7574b4674025e36e3bab589d819fe9dd897172d0e80e530d9523d61ce",
+  "selected_reasons": []
+}

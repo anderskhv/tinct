@@ -1,0 +1,541 @@
+{
+  "complete": true,
+  "signature": "62cb46c8ce0c237b77445481c575db707612266c1a0977640e2bceeaec086d24",
+  "attempts": [
+    {
+      "asr_seconds": 0.2005874520400539,
+      "alignment_seconds": 0.00024965801276266575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stefano. Trinculo, if you trouble him any more in his tail, by this hand, I will supplant some of your teeth.",
+          "start": 0.53,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " Stefano.",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " Trinculo,",
+              "start": 1.75,
+              "end": 2.11,
+              "probability": 0.7599283854166666
+            },
+            {
+              "text": " if",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " you",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " trouble",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 2.93,
+              "end": 3.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " any",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.5859375
+            },
+            {
+              "text": " more",
+              "start": 3.39,
+              "end": 3.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 3.59,
+              "end": 3.77,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " his",
+              "start": 3.77,
+              "end": 3.89,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " tail,",
+              "start": 3.89,
+              "end": 4.17,
+              "probability": 0.58349609375
+            },
+            {
+              "text": " by",
+              "start": 4.43,
+              "end": 4.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 4.53,
+              "end": 4.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hand,",
+              "start": 4.73,
+              "end": 5.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 5.45,
+              "end": 5.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will",
+              "start": 5.53,
+              "end": 5.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " supplant",
+              "start": 5.65,
+              "end": 6.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " some",
+              "start": 6.13,
+              "end": 6.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 6.29,
+              "end": 6.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 6.41,
+              "end": 6.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " teeth.",
+              "start": 6.51,
+              "end": 6.83,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stefano.",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "Trinculo,",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "raw": "if",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "you",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "trouble",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "him",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "raw": "any",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "raw": "more",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "raw": "in",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "raw": "his",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "raw": "tail,",
+          "start": 3.89,
+          "end": 4.17
+        },
+        {
+          "raw": "by",
+          "start": 4.43,
+          "end": 4.53
+        },
+        {
+          "raw": "this",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "raw": "hand,",
+          "start": 4.73,
+          "end": 5.05
+        },
+        {
+          "raw": "I",
+          "start": 5.45,
+          "end": 5.53
+        },
+        {
+          "raw": "will",
+          "start": 5.53,
+          "end": 5.65
+        },
+        {
+          "raw": "supplant",
+          "start": 5.65,
+          "end": 6.13
+        },
+        {
+          "raw": "some",
+          "start": 6.13,
+          "end": 6.29
+        },
+        {
+          "raw": "of",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "raw": "your",
+          "start": 6.41,
+          "end": 6.51
+        },
+        {
+          "raw": "teeth.",
+          "start": 6.51,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Trinculo,",
+        "if",
+        "you",
+        "trouble",
+        "him",
+        "any",
+        "more",
+        "in's",
+        "tale,",
+        "by",
+        "this",
+        "hand,",
+        "I",
+        "will",
+        "supplant",
+        "some",
+        "of",
+        "your",
+        "teeth."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          11
+        ],
+        [
+          "equal",
+          10,
+          20,
+          11,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.0,
+          "end": 0.875
+        },
+        {
+          "text": "Trinculo,",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "text": "if",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "you",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "trouble",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "him",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "text": "any",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "text": "more",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "text": "in's",
+          "start": 3.59,
+          "end": 4.01
+        },
+        {
+          "text": "tale,",
+          "start": 4.01,
+          "end": 4.22
+        },
+        {
+          "text": "by",
+          "start": 4.43,
+          "end": 4.53
+        },
+        {
+          "text": "this",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "text": "hand,",
+          "start": 4.73,
+          "end": 5.05
+        },
+        {
+          "text": "I",
+          "start": 5.45,
+          "end": 5.53
+        },
+        {
+          "text": "will",
+          "start": 5.53,
+          "end": 5.65
+        },
+        {
+          "text": "supplant",
+          "start": 5.65,
+          "end": 6.13
+        },
+        {
+          "text": "some",
+          "start": 6.13,
+          "end": 6.29
+        },
+        {
+          "text": "of",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "text": "your",
+          "start": 6.41,
+          "end": 6.51
+        },
+        {
+          "text": "teeth.",
+          "start": 6.51,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.20095157402101904
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "564fff36868ee28459057ac7fa6af5d7cfcf22304356d125da2bd208ce68821a",
+  "selected_reasons": []
+}

@@ -1,0 +1,657 @@
+{
+  "complete": true,
+  "signature": "f697a5e28f61e48783e0d66ee234606c5a530f5fc654ffcea578423b8bd3e246",
+  "attempts": [
+    {
+      "asr_seconds": 0.21521481778472662,
+      "alignment_seconds": 0.00011278782039880753,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I've no nursery to fight for,\" said Kotick. \"I only want to show you all a place where you will be safe. What's the use of fighting?\"",
+        "hotwords": "I've, Kotick, I, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I've no nursery to fight for, said Kotick. I only want to show you all a place where you",
+          "start": 0.02,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " I've",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " no",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " nursery",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fight",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for,",
+              "start": 1.64,
+              "end": 2.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Kotick.",
+              "start": 2.54,
+              "end": 3.02,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " I",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " only",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " want",
+              "start": 3.96,
+              "end": 4.16,
+              "probability": 0.82421875
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " show",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 4.46,
+              "end": 4.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 4.62,
+              "end": 4.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 4.82,
+              "end": 4.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " place",
+              "start": 4.92,
+              "end": 5.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " where",
+              "start": 5.1,
+              "end": 5.32,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 5.32,
+              "end": 5.42,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " will be safe. What's the use of fighting?\"",
+          "start": 5.42,
+          "end": 7.7,
+          "words": [
+            {
+              "text": " will",
+              "start": 5.42,
+              "end": 5.52,
+              "probability": 0.982421875
+            },
+            {
+              "text": " be",
+              "start": 5.52,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " safe.",
+              "start": 5.68,
+              "end": 5.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " What's",
+              "start": 6.54,
+              "end": 6.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 6.76,
+              "end": 6.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " use",
+              "start": 6.88,
+              "end": 7.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 7.02,
+              "end": 7.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fighting?\"",
+              "start": 7.2,
+              "end": 7.7,
+              "probability": 0.561431884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I've",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "no",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "nursery",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "raw": "to",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "fight",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "for,",
+          "start": 1.64,
+          "end": 2.12
+        },
+        {
+          "raw": "said",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "Kotick.",
+          "start": 2.54,
+          "end": 3.02
+        },
+        {
+          "raw": "I",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "only",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "raw": "want",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "show",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "you",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "raw": "all",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "raw": "a",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "raw": "place",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "raw": "where",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "raw": "you",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "raw": "will",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "raw": "be",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "raw": "safe.",
+          "start": 5.68,
+          "end": 5.98
+        },
+        {
+          "raw": "What's",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "raw": "the",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "raw": "use",
+          "start": 6.88,
+          "end": 7.02
+        },
+        {
+          "raw": "of",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "raw": "fighting?\"",
+          "start": 7.2,
+          "end": 7.7
+        }
+      ],
+      "expected_tokens": [
+        "\"I've",
+        "no",
+        "nursery",
+        "to",
+        "fight",
+        "for,\"",
+        "said",
+        "Kotick.",
+        "\"I",
+        "only",
+        "want",
+        "to",
+        "show",
+        "you",
+        "all",
+        "a",
+        "place",
+        "where",
+        "you",
+        "will",
+        "be",
+        "safe.",
+        "What's",
+        "the",
+        "use",
+        "of",
+        "fighting?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"I've",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "no",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "nursery",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "text": "to",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "fight",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "for,\"",
+          "start": 1.64,
+          "end": 2.12
+        },
+        {
+          "text": "said",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "Kotick.",
+          "start": 2.54,
+          "end": 3.02
+        },
+        {
+          "text": "\"I",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "only",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "text": "want",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "text": "to",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "show",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "text": "you",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "text": "all",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "text": "a",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "text": "place",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "text": "where",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "text": "you",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "text": "will",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "text": "be",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "text": "safe.",
+          "start": 5.68,
+          "end": 5.98
+        },
+        {
+          "text": "What's",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "text": "the",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "text": "use",
+          "start": 6.88,
+          "end": 7.02
+        },
+        {
+          "text": "of",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "text": "fighting?\"",
+          "start": 7.2,
+          "end": 7.7
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21539108268916607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59ff6ed0aa9c23de82a77adfada730f70d70083059dbb5085b1f1ed139cfa783",
+  "selected_reasons": []
+}

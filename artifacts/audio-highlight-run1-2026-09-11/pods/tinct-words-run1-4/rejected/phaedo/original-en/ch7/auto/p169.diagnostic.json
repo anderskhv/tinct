@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "da25be43f036c0cd75cb74091fa9151b7493001564857758bea0110962f9cee7",
+  "attempts": [
+    {
+      "asr_seconds": 0.15675318893045187,
+      "alignment_seconds": 7.460638880729675e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Suppose, he said, that we endeavour, if possible, to determine what these are.",
+        "hotwords": "Suppose"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Suppose, he said, that we endeavour, if possible, to determine what these are.",
+          "start": 0.05,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " Suppose,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " he",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " said,",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.982421875
+            },
+            {
+              "text": " we",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " endeavour,",
+              "start": 2.21,
+              "end": 2.55,
+              "probability": 0.01415252685546875
+            },
+            {
+              "text": " if",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " possible,",
+              "start": 2.87,
+              "end": 3.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.49,
+              "end": 3.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " determine",
+              "start": 3.57,
+              "end": 3.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what",
+              "start": 3.89,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " these",
+              "start": 4.15,
+              "end": 4.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are.",
+              "start": 4.35,
+              "end": 4.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Suppose,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "he",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "said,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "that",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "we",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "endeavour,",
+          "start": 2.21,
+          "end": 2.55
+        },
+        {
+          "raw": "if",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "possible,",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "raw": "to",
+          "start": 3.49,
+          "end": 3.57
+        },
+        {
+          "raw": "determine",
+          "start": 3.57,
+          "end": 3.89
+        },
+        {
+          "raw": "what",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "raw": "these",
+          "start": 4.15,
+          "end": 4.35
+        },
+        {
+          "raw": "are.",
+          "start": 4.35,
+          "end": 4.63
+        }
+      ],
+      "expected_tokens": [
+        "Suppose,",
+        "he",
+        "said,",
+        "that",
+        "we",
+        "endeavour,",
+        "if",
+        "possible,",
+        "to",
+        "determine",
+        "what",
+        "these",
+        "are."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Suppose,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "he",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "said,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "that",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "we",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "endeavour,",
+          "start": 2.21,
+          "end": 2.55
+        },
+        {
+          "text": "if",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "possible,",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "text": "to",
+          "start": 3.49,
+          "end": 3.57
+        },
+        {
+          "text": "determine",
+          "start": 3.57,
+          "end": 3.89
+        },
+        {
+          "text": "what",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "text": "these",
+          "start": 4.15,
+          "end": 4.35
+        },
+        {
+          "text": "are.",
+          "start": 4.35,
+          "end": 4.63
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15686190780252218
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e08dd51873443e73a79181b5dc1e649ed6780fb52723e0eee2c6504ba118cc3",
+  "selected_reasons": []
+}

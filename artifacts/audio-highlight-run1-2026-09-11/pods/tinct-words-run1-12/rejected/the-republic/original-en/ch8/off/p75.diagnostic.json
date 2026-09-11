@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "9b45013285b6191b8c1f49f22fa4e688931746e9e36fcf70964194194e834f82",
+  "attempts": [
+    {
+      "asr_seconds": 0.0916426689364016,
+      "alignment_seconds": 9.10293310880661e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I understand,\" he replied.",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.385498046875
+            },
+            {
+              "text": " understand,\"",
+              "start": 0.54,
+              "end": 1.12,
+              "probability": 0.7174072265625
+            },
+            {
+              "text": " he",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " replied.",
+              "start": 1.2,
+              "end": 1.52,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "understand,\"",
+          "start": 0.54,
+          "end": 1.12
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "replied.",
+          "start": 1.2,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "understand,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "understand,",
+          "start": 0.54,
+          "end": 1.12
+        },
+        {
+          "text": "he",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "replied.",
+          "start": 1.2,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09176876675337553
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e841d51e449e2fc37b45bbea35fa738717778ba817bb13155cec11d99e49ff18",
+  "selected_reasons": []
+}

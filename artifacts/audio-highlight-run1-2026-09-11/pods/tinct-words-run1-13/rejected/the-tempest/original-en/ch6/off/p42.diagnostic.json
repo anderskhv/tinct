@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "34a3f7dd668cb656e5e3371bce790be57ef3024f028fabdc1ca1b524598fe42b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1432993260677904,
+      "alignment_seconds": 0.00012727407738566399,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caliban, beat him enough. After a little time, I'll beat him too.",
+          "start": 0.0,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.54461669921875
+            },
+            {
+              "text": " beat",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " him",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enough.",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " After",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.982421875
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " little",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time,",
+              "start": 2.76,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I'll",
+              "start": 3.2,
+              "end": 3.3,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " beat",
+              "start": 3.3,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 3.44,
+              "end": 3.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too.",
+              "start": 3.58,
+              "end": 3.86,
+              "probability": 0.8056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "beat",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "him",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "enough.",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "raw": "After",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "little",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "time,",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "raw": "I'll",
+          "start": 3.2,
+          "end": 3.3
+        },
+        {
+          "raw": "beat",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "raw": "him",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "raw": "too.",
+          "start": 3.58,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "Beat",
+        "him",
+        "enough:",
+        "after",
+        "a",
+        "little",
+        "time",
+        "I'll",
+        "beat",
+        "him",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "Beat",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "him",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "enough:",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "text": "after",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "little",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "time",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "text": "I'll",
+          "start": 3.2,
+          "end": 3.3
+        },
+        {
+          "text": "beat",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "text": "him",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "text": "too.",
+          "start": 3.58,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14348500210326165
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "740f26dca9358f050feeb1fcd91cc3d66b285ccafa7bb46accfd94811b0e29f8",
+  "selected_reasons": []
+}

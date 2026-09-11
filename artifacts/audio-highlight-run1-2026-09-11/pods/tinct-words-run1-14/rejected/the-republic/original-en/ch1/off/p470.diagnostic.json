@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "d7692baf87f4e26ab93c7985edce260b96ba025ba16ed15f222faca2fbd3feba",
+  "attempts": [
+    {
+      "asr_seconds": 0.07835730910301208,
+      "alignment_seconds": 4.731118679046631e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " to no other.",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.560546875
+            },
+            {
+              "text": " no",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.962890625
+            },
+            {
+              "text": " other.",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "no",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "other.",
+          "start": 0.71,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "no",
+        "other."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "no",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "other.",
+          "start": 0.71,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0784241110086441
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a94c232494d01f798e95852b8afb40c428decb312e235626f7d3c289c01c8111",
+  "selected_reasons": []
+}

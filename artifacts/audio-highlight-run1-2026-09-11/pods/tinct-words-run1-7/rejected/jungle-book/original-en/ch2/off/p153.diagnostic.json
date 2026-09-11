@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "f69051d5311414b725ccf7f26dc47b660728d494e4ac50750d1cc72abe8c9a03",
+  "attempts": [
+    {
+      "asr_seconds": 0.11225628480315208,
+      "alignment_seconds": 5.7161785662174225e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Good come all one pace nearer to me",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.869140625
+            },
+            {
+              "text": " come",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.25732421875
+            },
+            {
+              "text": " all",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " one",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " pace",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " nearer",
+              "start": 1.8,
+              "end": 2.08,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " to",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "come",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "raw": "all",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "one",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "pace",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "nearer",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "me",
+          "start": 2.3,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Good!",
+        "Come",
+        "all",
+        "one",
+        "pace",
+        "nearer",
+        "to",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Good!",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Come",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "text": "all",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "one",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "pace",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "nearer",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "me.\"",
+          "start": 2.3,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11234046146273613
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06c74e7e35ec342821fac545d5d08895aae0e4ee498fed6b796c8c0395e254c8",
+  "selected_reasons": []
+}

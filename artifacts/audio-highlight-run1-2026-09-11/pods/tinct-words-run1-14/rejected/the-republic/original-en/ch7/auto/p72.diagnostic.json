@@ -1,0 +1,3474 @@
+{
+  "complete": true,
+  "signature": "a5305fa334d940e39d2042c7221e668506563c177ee1a49a4e3038b337b5ce78",
+  "attempts": [
+    {
+      "asr_seconds": 0.2540474086999893,
+      "alignment_seconds": 0.00021792203187942505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Who then are those whom we shall compel to be guardians? Surely they will be the men who are wisest about affairs of State, and by whom the State is best administered, and who at the same time have other honours and another and a better life than that of politics?",
+        "hotwords": "Surely, State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Surely they will be the men who are wisest about affairs of State, and by whom the State is best administered, and who at the same time have other honours and another and a better life than that of politics?",
+          "start": 3.29,
+          "end": 14.89,
+          "words": [
+            {
+              "text": " Surely",
+              "start": 3.29,
+              "end": 3.77,
+              "probability": 0.00015366077423095703
+            },
+            {
+              "text": " they",
+              "start": 3.77,
+              "end": 4.25,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " will",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 4.39,
+              "end": 4.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.55,
+              "end": 4.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " men",
+              "start": 4.67,
+              "end": 4.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " who",
+              "start": 4.93,
+              "end": 5.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " are",
+              "start": 5.15,
+              "end": 5.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wisest",
+              "start": 5.27,
+              "end": 5.81,
+              "probability": 0.9954427083333334
+            },
+            {
+              "text": " about",
+              "start": 5.81,
+              "end": 6.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " affairs",
+              "start": 6.01,
+              "end": 6.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 6.41,
+              "end": 6.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " State,",
+              "start": 6.63,
+              "end": 6.97,
+              "probability": 0.118896484375
+            },
+            {
+              "text": " and",
+              "start": 7.53,
+              "end": 7.57,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " by",
+              "start": 7.57,
+              "end": 7.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whom",
+              "start": 7.73,
+              "end": 7.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 7.97,
+              "end": 8.15,
+              "probability": 0.986328125
+            },
+            {
+              "text": " State",
+              "start": 8.15,
+              "end": 8.43,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " is",
+              "start": 8.43,
+              "end": 8.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " best",
+              "start": 8.63,
+              "end": 8.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " administered,",
+              "start": 8.91,
+              "end": 9.53,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 10.17,
+              "end": 10.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " who",
+              "start": 10.27,
+              "end": 10.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 10.47,
+              "end": 10.59,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " the",
+              "start": 10.59,
+              "end": 10.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " same",
+              "start": 10.73,
+              "end": 10.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " time",
+              "start": 10.95,
+              "end": 11.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 11.35,
+              "end": 11.61,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " other",
+              "start": 11.61,
+              "end": 11.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " honours",
+              "start": 11.93,
+              "end": 12.39,
+              "probability": 0.508453369140625
+            },
+            {
+              "text": " and",
+              "start": 12.39,
+              "end": 12.59,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " another",
+              "start": 12.59,
+              "end": 12.91,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 12.91,
+              "end": 13.21,
+              "probability": 0.947265625
+            },
+            {
+              "text": " a",
+              "start": 13.21,
+              "end": 13.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " better",
+              "start": 13.31,
+              "end": 13.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life",
+              "start": 13.49,
+              "end": 13.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " than",
+              "start": 13.83,
+              "end": 14.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 14.11,
+              "end": 14.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.31,
+              "end": 14.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " politics?",
+              "start": 14.45,
+              "end": 14.89,
+              "probability": 0.91162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Surely",
+          "start": 3.29,
+          "end": 3.77
+        },
+        {
+          "raw": "they",
+          "start": 3.77,
+          "end": 4.25
+        },
+        {
+          "raw": "will",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "be",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "raw": "the",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "raw": "men",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "raw": "who",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "raw": "are",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "raw": "wisest",
+          "start": 5.27,
+          "end": 5.81
+        },
+        {
+          "raw": "about",
+          "start": 5.81,
+          "end": 6.01
+        },
+        {
+          "raw": "affairs",
+          "start": 6.01,
+          "end": 6.41
+        },
+        {
+          "raw": "of",
+          "start": 6.41,
+          "end": 6.63
+        },
+        {
+          "raw": "State,",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "raw": "and",
+          "start": 7.53,
+          "end": 7.57
+        },
+        {
+          "raw": "by",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "raw": "whom",
+          "start": 7.73,
+          "end": 7.97
+        },
+        {
+          "raw": "the",
+          "start": 7.97,
+          "end": 8.15
+        },
+        {
+          "raw": "State",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "raw": "is",
+          "start": 8.43,
+          "end": 8.63
+        },
+        {
+          "raw": "best",
+          "start": 8.63,
+          "end": 8.91
+        },
+        {
+          "raw": "administered,",
+          "start": 8.91,
+          "end": 9.53
+        },
+        {
+          "raw": "and",
+          "start": 10.17,
+          "end": 10.27
+        },
+        {
+          "raw": "who",
+          "start": 10.27,
+          "end": 10.47
+        },
+        {
+          "raw": "at",
+          "start": 10.47,
+          "end": 10.59
+        },
+        {
+          "raw": "the",
+          "start": 10.59,
+          "end": 10.73
+        },
+        {
+          "raw": "same",
+          "start": 10.73,
+          "end": 10.95
+        },
+        {
+          "raw": "time",
+          "start": 10.95,
+          "end": 11.35
+        },
+        {
+          "raw": "have",
+          "start": 11.35,
+          "end": 11.61
+        },
+        {
+          "raw": "other",
+          "start": 11.61,
+          "end": 11.93
+        },
+        {
+          "raw": "honours",
+          "start": 11.93,
+          "end": 12.39
+        },
+        {
+          "raw": "and",
+          "start": 12.39,
+          "end": 12.59
+        },
+        {
+          "raw": "another",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "raw": "and",
+          "start": 12.91,
+          "end": 13.21
+        },
+        {
+          "raw": "a",
+          "start": 13.21,
+          "end": 13.31
+        },
+        {
+          "raw": "better",
+          "start": 13.31,
+          "end": 13.49
+        },
+        {
+          "raw": "life",
+          "start": 13.49,
+          "end": 13.83
+        },
+        {
+          "raw": "than",
+          "start": 13.83,
+          "end": 14.11
+        },
+        {
+          "raw": "that",
+          "start": 14.11,
+          "end": 14.31
+        },
+        {
+          "raw": "of",
+          "start": 14.31,
+          "end": 14.45
+        },
+        {
+          "raw": "politics?",
+          "start": 14.45,
+          "end": 14.89
+        }
+      ],
+      "expected_tokens": [
+        "Who",
+        "then",
+        "are",
+        "those",
+        "whom",
+        "we",
+        "shall",
+        "compel",
+        "to",
+        "be",
+        "guardians?",
+        "Surely",
+        "they",
+        "will",
+        "be",
+        "the",
+        "men",
+        "who",
+        "are",
+        "wisest",
+        "about",
+        "affairs",
+        "of",
+        "State,",
+        "and",
+        "by",
+        "whom",
+        "the",
+        "State",
+        "is",
+        "best",
+        "administered,",
+        "and",
+        "who",
+        "at",
+        "the",
+        "same",
+        "time",
+        "have",
+        "other",
+        "honours",
+        "and",
+        "another",
+        "and",
+        "a",
+        "better",
+        "life",
+        "than",
+        "that",
+        "of",
+        "politics?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          11,
+          0,
+          0
+        ],
+        [
+          "equal",
+          11,
+          51,
+          0,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          11,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Who",
+          "start": 0.0,
+          "end": 1.645
+        },
+        {
+          "text": "then",
+          "start": 1.645,
+          "end": 2.468
+        },
+        {
+          "text": "are",
+          "start": 2.468,
+          "end": 2.879
+        },
+        {
+          "text": "those",
+          "start": 2.879,
+          "end": 3.085
+        },
+        {
+          "text": "whom",
+          "start": 3.085,
+          "end": 3.188
+        },
+        {
+          "text": "we",
+          "start": 3.188,
+          "end": 3.239
+        },
+        {
+          "text": "shall",
+          "start": 3.239,
+          "end": 3.264
+        },
+        {
+          "text": "compel",
+          "start": 3.264,
+          "end": 3.277
+        },
+        {
+          "text": "to",
+          "start": 3.277,
+          "end": 3.284
+        },
+        {
+          "text": "be",
+          "start": 3.284,
+          "end": 3.287
+        },
+        {
+          "text": "guardians?",
+          "start": 3.287,
+          "end": 3.288
+        },
+        {
+          "text": "Surely",
+          "start": 3.29,
+          "end": 3.77
+        },
+        {
+          "text": "they",
+          "start": 3.77,
+          "end": 4.25
+        },
+        {
+          "text": "will",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "be",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "text": "the",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "text": "men",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "text": "who",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "text": "are",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "text": "wisest",
+          "start": 5.27,
+          "end": 5.81
+        },
+        {
+          "text": "about",
+          "start": 5.81,
+          "end": 6.01
+        },
+        {
+          "text": "affairs",
+          "start": 6.01,
+          "end": 6.41
+        },
+        {
+          "text": "of",
+          "start": 6.41,
+          "end": 6.63
+        },
+        {
+          "text": "State,",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "text": "and",
+          "start": 7.53,
+          "end": 7.57
+        },
+        {
+          "text": "by",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "text": "whom",
+          "start": 7.73,
+          "end": 7.97
+        },
+        {
+          "text": "the",
+          "start": 7.97,
+          "end": 8.15
+        },
+        {
+          "text": "State",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "text": "is",
+          "start": 8.43,
+          "end": 8.63
+        },
+        {
+          "text": "best",
+          "start": 8.63,
+          "end": 8.91
+        },
+        {
+          "text": "administered,",
+          "start": 8.91,
+          "end": 9.53
+        },
+        {
+          "text": "and",
+          "start": 10.17,
+          "end": 10.27
+        },
+        {
+          "text": "who",
+          "start": 10.27,
+          "end": 10.47
+        },
+        {
+          "text": "at",
+          "start": 10.47,
+          "end": 10.59
+        },
+        {
+          "text": "the",
+          "start": 10.59,
+          "end": 10.73
+        },
+        {
+          "text": "same",
+          "start": 10.73,
+          "end": 10.95
+        },
+        {
+          "text": "time",
+          "start": 10.95,
+          "end": 11.35
+        },
+        {
+          "text": "have",
+          "start": 11.35,
+          "end": 11.61
+        },
+        {
+          "text": "other",
+          "start": 11.61,
+          "end": 11.93
+        },
+        {
+          "text": "honours",
+          "start": 11.93,
+          "end": 12.39
+        },
+        {
+          "text": "and",
+          "start": 12.39,
+          "end": 12.59
+        },
+        {
+          "text": "another",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "text": "and",
+          "start": 12.91,
+          "end": 13.21
+        },
+        {
+          "text": "a",
+          "start": 13.21,
+          "end": 13.31
+        },
+        {
+          "text": "better",
+          "start": 13.31,
+          "end": 13.49
+        },
+        {
+          "text": "life",
+          "start": 13.49,
+          "end": 13.83
+        },
+        {
+          "text": "than",
+          "start": 13.83,
+          "end": 14.11
+        },
+        {
+          "text": "that",
+          "start": 14.11,
+          "end": 14.31
+        },
+        {
+          "text": "of",
+          "start": 14.31,
+          "end": 14.45
+        },
+        {
+          "text": "politics?",
+          "start": 14.45,
+          "end": 14.89
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 40,
+        "matched_words": 40
+      },
+      "match_ratio": 0.7843137254901961,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.254372738301754
+    },
+    {
+      "asr_seconds": 0.3228728324174881,
+      "alignment_seconds": 0.00023815780878067017,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Surely, State"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Who then are those whom we shall compel to be guardians? Surely they will be the men who are wisest about affairs of State, and by whom the State is best administered, and who at the same time have other honors and another and a better life than that of politics?",
+          "start": 0.05,
+          "end": 14.89,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.2861328125
+            },
+            {
+              "text": " then",
+              "start": 0.49,
+              "end": 0.67,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " are",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " those",
+              "start": 0.85,
+              "end": 1.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " whom",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " we",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " shall",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " compel",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.966796875
+            },
+            {
+              "text": " to",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 2.33,
+              "end": 2.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " guardians?",
+              "start": 2.47,
+              "end": 2.89,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Surely",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " they",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " will",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.53,
+              "end": 4.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " men",
+              "start": 4.69,
+              "end": 4.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " who",
+              "start": 4.93,
+              "end": 5.15,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " are",
+              "start": 5.15,
+              "end": 5.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wisest",
+              "start": 5.29,
+              "end": 5.79,
+              "probability": 0.9967447916666666
+            },
+            {
+              "text": " about",
+              "start": 5.79,
+              "end": 6.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " affairs",
+              "start": 6.01,
+              "end": 6.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 6.39,
+              "end": 6.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " State,",
+              "start": 6.63,
+              "end": 6.95,
+              "probability": 0.11248779296875
+            },
+            {
+              "text": " and",
+              "start": 7.39,
+              "end": 7.57,
+              "probability": 0.9765625
+            },
+            {
+              "text": " by",
+              "start": 7.57,
+              "end": 7.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whom",
+              "start": 7.73,
+              "end": 7.97,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 7.97,
+              "end": 8.15,
+              "probability": 0.984375
+            },
+            {
+              "text": " State",
+              "start": 8.15,
+              "end": 8.41,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " is",
+              "start": 8.41,
+              "end": 8.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " best",
+              "start": 8.63,
+              "end": 8.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " administered,",
+              "start": 8.93,
+              "end": 9.51,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 10.03,
+              "end": 10.27,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " who",
+              "start": 10.27,
+              "end": 10.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 10.47,
+              "end": 10.59,
+              "probability": 0.91796875
+            },
+            {
+              "text": " the",
+              "start": 10.59,
+              "end": 10.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " same",
+              "start": 10.73,
+              "end": 10.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " time",
+              "start": 10.95,
+              "end": 11.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 11.33,
+              "end": 11.61,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " other",
+              "start": 11.61,
+              "end": 11.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " honors",
+              "start": 11.93,
+              "end": 12.27,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " and",
+              "start": 12.27,
+              "end": 12.59,
+              "probability": 0.857421875
+            },
+            {
+              "text": " another",
+              "start": 12.59,
+              "end": 12.91,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 12.91,
+              "end": 13.21,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " a",
+              "start": 13.21,
+              "end": 13.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " better",
+              "start": 13.31,
+              "end": 13.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " life",
+              "start": 13.49,
+              "end": 13.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " than",
+              "start": 13.83,
+              "end": 14.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that",
+              "start": 14.13,
+              "end": 14.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.29,
+              "end": 14.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " politics?",
+              "start": 14.49,
+              "end": 14.89,
+              "probability": 0.8984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "then",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "raw": "are",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "those",
+          "start": 0.85,
+          "end": 1.15
+        },
+        {
+          "raw": "whom",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "we",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "shall",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "compel",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "be",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "raw": "guardians?",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "raw": "Surely",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "they",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "will",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "be",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "the",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "raw": "men",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "raw": "who",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "raw": "are",
+          "start": 5.15,
+          "end": 5.29
+        },
+        {
+          "raw": "wisest",
+          "start": 5.29,
+          "end": 5.79
+        },
+        {
+          "raw": "about",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "raw": "affairs",
+          "start": 6.01,
+          "end": 6.39
+        },
+        {
+          "raw": "of",
+          "start": 6.39,
+          "end": 6.63
+        },
+        {
+          "raw": "State,",
+          "start": 6.63,
+          "end": 6.95
+        },
+        {
+          "raw": "and",
+          "start": 7.39,
+          "end": 7.57
+        },
+        {
+          "raw": "by",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "raw": "whom",
+          "start": 7.73,
+          "end": 7.97
+        },
+        {
+          "raw": "the",
+          "start": 7.97,
+          "end": 8.15
+        },
+        {
+          "raw": "State",
+          "start": 8.15,
+          "end": 8.41
+        },
+        {
+          "raw": "is",
+          "start": 8.41,
+          "end": 8.63
+        },
+        {
+          "raw": "best",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "raw": "administered,",
+          "start": 8.93,
+          "end": 9.51
+        },
+        {
+          "raw": "and",
+          "start": 10.03,
+          "end": 10.27
+        },
+        {
+          "raw": "who",
+          "start": 10.27,
+          "end": 10.47
+        },
+        {
+          "raw": "at",
+          "start": 10.47,
+          "end": 10.59
+        },
+        {
+          "raw": "the",
+          "start": 10.59,
+          "end": 10.73
+        },
+        {
+          "raw": "same",
+          "start": 10.73,
+          "end": 10.95
+        },
+        {
+          "raw": "time",
+          "start": 10.95,
+          "end": 11.33
+        },
+        {
+          "raw": "have",
+          "start": 11.33,
+          "end": 11.61
+        },
+        {
+          "raw": "other",
+          "start": 11.61,
+          "end": 11.93
+        },
+        {
+          "raw": "honors",
+          "start": 11.93,
+          "end": 12.27
+        },
+        {
+          "raw": "and",
+          "start": 12.27,
+          "end": 12.59
+        },
+        {
+          "raw": "another",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "raw": "and",
+          "start": 12.91,
+          "end": 13.21
+        },
+        {
+          "raw": "a",
+          "start": 13.21,
+          "end": 13.31
+        },
+        {
+          "raw": "better",
+          "start": 13.31,
+          "end": 13.49
+        },
+        {
+          "raw": "life",
+          "start": 13.49,
+          "end": 13.83
+        },
+        {
+          "raw": "than",
+          "start": 13.83,
+          "end": 14.13
+        },
+        {
+          "raw": "that",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "raw": "of",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "raw": "politics?",
+          "start": 14.49,
+          "end": 14.89
+        }
+      ],
+      "expected_tokens": [
+        "Who",
+        "then",
+        "are",
+        "those",
+        "whom",
+        "we",
+        "shall",
+        "compel",
+        "to",
+        "be",
+        "guardians?",
+        "Surely",
+        "they",
+        "will",
+        "be",
+        "the",
+        "men",
+        "who",
+        "are",
+        "wisest",
+        "about",
+        "affairs",
+        "of",
+        "State,",
+        "and",
+        "by",
+        "whom",
+        "the",
+        "State",
+        "is",
+        "best",
+        "administered,",
+        "and",
+        "who",
+        "at",
+        "the",
+        "same",
+        "time",
+        "have",
+        "other",
+        "honours",
+        "and",
+        "another",
+        "and",
+        "a",
+        "better",
+        "life",
+        "than",
+        "that",
+        "of",
+        "politics?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ],
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ],
+        [
+          "equal",
+          41,
+          51,
+          41,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Who",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "then",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "text": "are",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "those",
+          "start": 0.85,
+          "end": 1.15
+        },
+        {
+          "text": "whom",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "we",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "shall",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "compel",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "to",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "be",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "text": "guardians?",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "text": "Surely",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "they",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "text": "will",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "be",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "the",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "text": "men",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "text": "who",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "text": "are",
+          "start": 5.15,
+          "end": 5.29
+        },
+        {
+          "text": "wisest",
+          "start": 5.29,
+          "end": 5.79
+        },
+        {
+          "text": "about",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "text": "affairs",
+          "start": 6.01,
+          "end": 6.39
+        },
+        {
+          "text": "of",
+          "start": 6.39,
+          "end": 6.63
+        },
+        {
+          "text": "State,",
+          "start": 6.63,
+          "end": 6.95
+        },
+        {
+          "text": "and",
+          "start": 7.39,
+          "end": 7.57
+        },
+        {
+          "text": "by",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "text": "whom",
+          "start": 7.73,
+          "end": 7.97
+        },
+        {
+          "text": "the",
+          "start": 7.97,
+          "end": 8.15
+        },
+        {
+          "text": "State",
+          "start": 8.15,
+          "end": 8.41
+        },
+        {
+          "text": "is",
+          "start": 8.41,
+          "end": 8.63
+        },
+        {
+          "text": "best",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "text": "administered,",
+          "start": 8.93,
+          "end": 9.51
+        },
+        {
+          "text": "and",
+          "start": 10.03,
+          "end": 10.27
+        },
+        {
+          "text": "who",
+          "start": 10.27,
+          "end": 10.47
+        },
+        {
+          "text": "at",
+          "start": 10.47,
+          "end": 10.59
+        },
+        {
+          "text": "the",
+          "start": 10.59,
+          "end": 10.73
+        },
+        {
+          "text": "same",
+          "start": 10.73,
+          "end": 10.95
+        },
+        {
+          "text": "time",
+          "start": 10.95,
+          "end": 11.33
+        },
+        {
+          "text": "have",
+          "start": 11.33,
+          "end": 11.61
+        },
+        {
+          "text": "other",
+          "start": 11.61,
+          "end": 11.93
+        },
+        {
+          "text": "honours",
+          "start": 11.93,
+          "end": 12.1
+        },
+        {
+          "text": "and",
+          "start": 12.27,
+          "end": 12.59
+        },
+        {
+          "text": "another",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "text": "and",
+          "start": 12.91,
+          "end": 13.21
+        },
+        {
+          "text": "a",
+          "start": 13.21,
+          "end": 13.31
+        },
+        {
+          "text": "better",
+          "start": 13.31,
+          "end": 13.49
+        },
+        {
+          "text": "life",
+          "start": 13.49,
+          "end": 13.83
+        },
+        {
+          "text": "than",
+          "start": 13.83,
+          "end": 14.13
+        },
+        {
+          "text": "that",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "text": "of",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "text": "politics?",
+          "start": 14.49,
+          "end": 14.89
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9803921568627451,
+      "rejection_reasons": [],
+      "seconds": 0.32324211299419403
+    },
+    {
+      "asr_seconds": 0.34708119183778763,
+      "alignment_seconds": 0.00023671984672546387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " who then are those whom we shall compel to be guardians.",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.24853515625
+            },
+            {
+              "text": " then",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " are",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " those",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " whom",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " we",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " shall",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " compel",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.970703125
+            },
+            {
+              "text": " to",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 2.33,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guardians.",
+              "start": 2.47,
+              "end": 2.89,
+              "probability": 0.947265625
+            }
+          ]
+        },
+        {
+          "text": " Surely they will be the men who are wisest about affairs of state,",
+          "start": 3.79,
+          "end": 6.97,
+          "words": [
+            {
+              "text": " Surely",
+              "start": 3.79,
+              "end": 3.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " they",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " will",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.53,
+              "end": 4.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " men",
+              "start": 4.69,
+              "end": 4.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " who",
+              "start": 4.93,
+              "end": 5.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 5.15,
+              "end": 5.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wisest",
+              "start": 5.29,
+              "end": 5.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " about",
+              "start": 5.79,
+              "end": 6.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " affairs",
+              "start": 6.01,
+              "end": 6.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 6.39,
+              "end": 6.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " state,",
+              "start": 6.63,
+              "end": 6.97,
+              "probability": 0.90625
+            }
+          ]
+        },
+        {
+          "text": " and by whom the state is best administered,",
+          "start": 7.37,
+          "end": 9.53,
+          "words": [
+            {
+              "text": " and",
+              "start": 7.37,
+              "end": 7.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 7.57,
+              "end": 7.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whom",
+              "start": 7.73,
+              "end": 7.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.99,
+              "end": 8.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " state",
+              "start": 8.15,
+              "end": 8.43,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " is",
+              "start": 8.43,
+              "end": 8.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " best",
+              "start": 8.63,
+              "end": 8.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " administered,",
+              "start": 8.93,
+              "end": 9.53,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " and who at the same time have other honors and another and a better life than that of politics.",
+          "start": 10.03,
+          "end": 14.89,
+          "words": [
+            {
+              "text": " and",
+              "start": 10.03,
+              "end": 10.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " who",
+              "start": 10.27,
+              "end": 10.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 10.47,
+              "end": 10.59,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " the",
+              "start": 10.59,
+              "end": 10.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " same",
+              "start": 10.73,
+              "end": 10.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time",
+              "start": 10.95,
+              "end": 11.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 11.35,
+              "end": 11.61,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " other",
+              "start": 11.61,
+              "end": 11.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " honors",
+              "start": 11.93,
+              "end": 12.27,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 12.27,
+              "end": 12.59,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " another",
+              "start": 12.59,
+              "end": 12.91,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " and",
+              "start": 12.91,
+              "end": 13.21,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " a",
+              "start": 13.21,
+              "end": 13.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " better",
+              "start": 13.31,
+              "end": 13.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " life",
+              "start": 13.47,
+              "end": 13.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 13.83,
+              "end": 14.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 14.11,
+              "end": 14.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 14.29,
+              "end": 14.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " politics.",
+              "start": 14.45,
+              "end": 14.89,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "then",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "are",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "those",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "raw": "whom",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "we",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "shall",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "compel",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "be",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "raw": "guardians.",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "raw": "Surely",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "raw": "they",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "will",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "be",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "the",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "raw": "men",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "raw": "who",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "raw": "are",
+          "start": 5.15,
+          "end": 5.29
+        },
+        {
+          "raw": "wisest",
+          "start": 5.29,
+          "end": 5.79
+        },
+        {
+          "raw": "about",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "raw": "affairs",
+          "start": 6.01,
+          "end": 6.39
+        },
+        {
+          "raw": "of",
+          "start": 6.39,
+          "end": 6.63
+        },
+        {
+          "raw": "state,",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "raw": "and",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "raw": "by",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "raw": "whom",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "raw": "the",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "raw": "state",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "raw": "is",
+          "start": 8.43,
+          "end": 8.63
+        },
+        {
+          "raw": "best",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "raw": "administered,",
+          "start": 8.93,
+          "end": 9.53
+        },
+        {
+          "raw": "and",
+          "start": 10.03,
+          "end": 10.27
+        },
+        {
+          "raw": "who",
+          "start": 10.27,
+          "end": 10.47
+        },
+        {
+          "raw": "at",
+          "start": 10.47,
+          "end": 10.59
+        },
+        {
+          "raw": "the",
+          "start": 10.59,
+          "end": 10.73
+        },
+        {
+          "raw": "same",
+          "start": 10.73,
+          "end": 10.95
+        },
+        {
+          "raw": "time",
+          "start": 10.95,
+          "end": 11.35
+        },
+        {
+          "raw": "have",
+          "start": 11.35,
+          "end": 11.61
+        },
+        {
+          "raw": "other",
+          "start": 11.61,
+          "end": 11.93
+        },
+        {
+          "raw": "honors",
+          "start": 11.93,
+          "end": 12.27
+        },
+        {
+          "raw": "and",
+          "start": 12.27,
+          "end": 12.59
+        },
+        {
+          "raw": "another",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "raw": "and",
+          "start": 12.91,
+          "end": 13.21
+        },
+        {
+          "raw": "a",
+          "start": 13.21,
+          "end": 13.31
+        },
+        {
+          "raw": "better",
+          "start": 13.31,
+          "end": 13.47
+        },
+        {
+          "raw": "life",
+          "start": 13.47,
+          "end": 13.83
+        },
+        {
+          "raw": "than",
+          "start": 13.83,
+          "end": 14.11
+        },
+        {
+          "raw": "that",
+          "start": 14.11,
+          "end": 14.29
+        },
+        {
+          "raw": "of",
+          "start": 14.29,
+          "end": 14.45
+        },
+        {
+          "raw": "politics.",
+          "start": 14.45,
+          "end": 14.89
+        }
+      ],
+      "expected_tokens": [
+        "Who",
+        "then",
+        "are",
+        "those",
+        "whom",
+        "we",
+        "shall",
+        "compel",
+        "to",
+        "be",
+        "guardians?",
+        "Surely",
+        "they",
+        "will",
+        "be",
+        "the",
+        "men",
+        "who",
+        "are",
+        "wisest",
+        "about",
+        "affairs",
+        "of",
+        "State,",
+        "and",
+        "by",
+        "whom",
+        "the",
+        "State",
+        "is",
+        "best",
+        "administered,",
+        "and",
+        "who",
+        "at",
+        "the",
+        "same",
+        "time",
+        "have",
+        "other",
+        "honours",
+        "and",
+        "another",
+        "and",
+        "a",
+        "better",
+        "life",
+        "than",
+        "that",
+        "of",
+        "politics?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ],
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ],
+        [
+          "equal",
+          41,
+          51,
+          41,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "then",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "are",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "those",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "text": "whom",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "we",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "shall",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "compel",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "to",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "be",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "text": "guardians?",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "text": "Surely",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "text": "they",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "text": "will",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "be",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "the",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "text": "men",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "text": "who",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "text": "are",
+          "start": 5.15,
+          "end": 5.29
+        },
+        {
+          "text": "wisest",
+          "start": 5.29,
+          "end": 5.79
+        },
+        {
+          "text": "about",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "text": "affairs",
+          "start": 6.01,
+          "end": 6.39
+        },
+        {
+          "text": "of",
+          "start": 6.39,
+          "end": 6.63
+        },
+        {
+          "text": "State,",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "text": "and",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "text": "by",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "text": "whom",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "text": "the",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "text": "State",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "text": "is",
+          "start": 8.43,
+          "end": 8.63
+        },
+        {
+          "text": "best",
+          "start": 8.63,
+          "end": 8.93
+        },
+        {
+          "text": "administered,",
+          "start": 8.93,
+          "end": 9.53
+        },
+        {
+          "text": "and",
+          "start": 10.03,
+          "end": 10.27
+        },
+        {
+          "text": "who",
+          "start": 10.27,
+          "end": 10.47
+        },
+        {
+          "text": "at",
+          "start": 10.47,
+          "end": 10.59
+        },
+        {
+          "text": "the",
+          "start": 10.59,
+          "end": 10.73
+        },
+        {
+          "text": "same",
+          "start": 10.73,
+          "end": 10.95
+        },
+        {
+          "text": "time",
+          "start": 10.95,
+          "end": 11.35
+        },
+        {
+          "text": "have",
+          "start": 11.35,
+          "end": 11.61
+        },
+        {
+          "text": "other",
+          "start": 11.61,
+          "end": 11.93
+        },
+        {
+          "text": "honours",
+          "start": 11.93,
+          "end": 12.1
+        },
+        {
+          "text": "and",
+          "start": 12.27,
+          "end": 12.59
+        },
+        {
+          "text": "another",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "text": "and",
+          "start": 12.91,
+          "end": 13.21
+        },
+        {
+          "text": "a",
+          "start": 13.21,
+          "end": 13.31
+        },
+        {
+          "text": "better",
+          "start": 13.31,
+          "end": 13.47
+        },
+        {
+          "text": "life",
+          "start": 13.47,
+          "end": 13.83
+        },
+        {
+          "text": "than",
+          "start": 13.83,
+          "end": 14.11
+        },
+        {
+          "text": "that",
+          "start": 14.11,
+          "end": 14.29
+        },
+        {
+          "text": "of",
+          "start": 14.29,
+          "end": 14.45
+        },
+        {
+          "text": "politics?",
+          "start": 14.45,
+          "end": 14.89
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9803921568627451,
+      "rejection_reasons": [],
+      "seconds": 0.34745801240205765
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c049eff819fed8f2f95eea3360e9cc5cd72bc12138b184f1c1efc330354be24e",
+  "selected_reasons": []
+}

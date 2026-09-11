@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "1cd6bcec51162a0626bf3646bafad8e7f63166ce55bdfe69f262bf15dcb49e28",
+  "attempts": [
+    {
+      "asr_seconds": 0.12971635162830353,
+      "alignment_seconds": 7.382035255432129e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And an art requiring as much attention as shoemaking?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And an art requiring as much attention as shoemaking?",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.0977783203125
+            },
+            {
+              "text": " an",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " art",
+              "start": 0.61,
+              "end": 0.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " requiring",
+              "start": 0.89,
+              "end": 1.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " as",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " much",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " attention",
+              "start": 1.87,
+              "end": 2.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 2.31,
+              "end": 2.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " shoemaking?",
+              "start": 2.75,
+              "end": 3.25,
+              "probability": 0.9059244791666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "an",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "art",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "raw": "requiring",
+          "start": 0.89,
+          "end": 1.43
+        },
+        {
+          "raw": "as",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "attention",
+          "start": 1.87,
+          "end": 2.31
+        },
+        {
+          "raw": "as",
+          "start": 2.31,
+          "end": 2.75
+        },
+        {
+          "raw": "shoemaking?",
+          "start": 2.75,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "an",
+        "art",
+        "requiring",
+        "as",
+        "much",
+        "attention",
+        "as",
+        "shoemaking?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "an",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "art",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "text": "requiring",
+          "start": 0.89,
+          "end": 1.43
+        },
+        {
+          "text": "as",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "much",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "attention",
+          "start": 1.87,
+          "end": 2.31
+        },
+        {
+          "text": "as",
+          "start": 2.31,
+          "end": 2.75
+        },
+        {
+          "text": "shoemaking?",
+          "start": 2.75,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12982481718063354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cdb510e866ac4f2bcb372319651e9ef09adf9a4ec03d0dba3589b9327789bf86",
+  "selected_reasons": []
+}

@@ -1,0 +1,161 @@
+{
+  "complete": true,
+  "signature": "a3218266d426298ad90b19c737aaf48eec18a1ffb21a0d2a7af2ec1d57a02f85",
+  "attempts": [
+    {
+      "asr_seconds": 0.11311739683151245,
+      "alignment_seconds": 8.863955736160278e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ismeen, O disastrous plight.",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Ismeen,",
+              "start": 0.02,
+              "end": 0.98,
+              "probability": 0.58203125
+            },
+            {
+              "text": " O",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.493896484375
+            },
+            {
+              "text": " disastrous",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " plight.",
+              "start": 1.62,
+              "end": 2.04,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismeen,",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "raw": "O",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "disastrous",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "plight.",
+          "start": 1.62,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "O",
+        "disastrous",
+        "plight!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "O",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "disastrous",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "plight!",
+          "start": 1.62,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11323778331279755
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fec9cd9ecea291f49ad7c725df10756df4d43ca108d3061243c39da09e163305",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

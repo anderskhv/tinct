@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "f9e084f50fd0e1874a47bd963725e306fc8b4b12a83a86b3d49b10a22346c02b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13525710999965668,
+      "alignment_seconds": 9.122490882873535e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And inasmuch as they are two, each of them is one?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Inasmuch as they are two, each of them is one?",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " Inasmuch",
+              "start": 0.54,
+              "end": 1.06,
+              "probability": 0.34201622009277344
+            },
+            {
+              "text": " as",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " they",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " are",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " two,",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.447265625
+            },
+            {
+              "text": " each",
+              "start": 2.26,
+              "end": 2.36,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " of",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " them",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one?",
+              "start": 2.76,
+              "end": 3.02,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "Inasmuch",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "raw": "as",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "they",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "are",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "two,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "each",
+          "start": 2.26,
+          "end": 2.36
+        },
+        {
+          "raw": "of",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "them",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "is",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "one?",
+          "start": 2.76,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "inasmuch",
+        "as",
+        "they",
+        "are",
+        "two,",
+        "each",
+        "of",
+        "them",
+        "is",
+        "one?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "inasmuch",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "text": "as",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "they",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "are",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "two,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "each",
+          "start": 2.26,
+          "end": 2.36
+        },
+        {
+          "text": "of",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "them",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "is",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "one?",
+          "start": 2.76,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13539443910121918
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6929c025940d359321f27d3d1eb64b76ba2bffb7ffd32d88b0539e828fb51c1d",
+  "selected_reasons": []
+}

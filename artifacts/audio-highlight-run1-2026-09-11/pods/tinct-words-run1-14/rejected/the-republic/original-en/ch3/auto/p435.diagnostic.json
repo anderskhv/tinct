@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "256adaf1b0bd270f12c9e46069a0e85a34df188ab409943d034b20b873a55227",
+  "attempts": [
+    {
+      "asr_seconds": 0.1952548623085022,
+      "alignment_seconds": 0.00010227411985397339,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Now, are not the best husbandmen those who are most devoted to husbandry?",
+        "hotwords": "Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now are not the best husbandmen those who are most devoted to husbandry?",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.86328125
+            },
+            {
+              "text": " are",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.4814453125
+            },
+            {
+              "text": " not",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " best",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " husbandmen",
+              "start": 1.61,
+              "end": 2.21,
+              "probability": 0.5106353759765625
+            },
+            {
+              "text": " those",
+              "start": 2.21,
+              "end": 2.61,
+              "probability": 0.908203125
+            },
+            {
+              "text": " who",
+              "start": 2.61,
+              "end": 2.89,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " are",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " most",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " devoted",
+              "start": 3.21,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.65,
+              "end": 3.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " husbandry?",
+              "start": 3.85,
+              "end": 4.49,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "are",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "not",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "best",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "husbandmen",
+          "start": 1.61,
+          "end": 2.21
+        },
+        {
+          "raw": "those",
+          "start": 2.21,
+          "end": 2.61
+        },
+        {
+          "raw": "who",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "raw": "are",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "most",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "raw": "devoted",
+          "start": 3.21,
+          "end": 3.65
+        },
+        {
+          "raw": "to",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "raw": "husbandry?",
+          "start": 3.85,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "Now,",
+        "are",
+        "not",
+        "the",
+        "best",
+        "husbandmen",
+        "those",
+        "who",
+        "are",
+        "most",
+        "devoted",
+        "to",
+        "husbandry?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Now,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "are",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "text": "not",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "the",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "best",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "husbandmen",
+          "start": 1.61,
+          "end": 2.21
+        },
+        {
+          "text": "those",
+          "start": 2.21,
+          "end": 2.61
+        },
+        {
+          "text": "who",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "text": "are",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "most",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "text": "devoted",
+          "start": 3.21,
+          "end": 3.65
+        },
+        {
+          "text": "to",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "text": "husbandry?",
+          "start": 3.85,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19540802389383316
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db6ee5f14e9ccd9cad15f27a855247a8adb9ece06a3084531c92fb24cb33ae7b",
+  "selected_reasons": []
+}

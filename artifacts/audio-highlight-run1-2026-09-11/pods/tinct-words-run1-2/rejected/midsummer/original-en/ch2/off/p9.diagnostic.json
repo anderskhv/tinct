@@ -1,0 +1,267 @@
+{
+  "complete": true,
+  "signature": "e3c4b13ff2aa4e24e94034e199e8e2b064e44c22b3cb0f88dae5e055bbe7edce",
+  "attempts": [
+    {
+      "asr_seconds": 0.12005642801523209,
+      "alignment_seconds": 7.881224155426025e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quince, eunuch bottom are set down for Pyramus.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Quince,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.755859375
+            },
+            {
+              "text": " eunuch",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.7774251302083334
+            },
+            {
+              "text": " bottom",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " are",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " set",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " down",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Pyramus.",
+              "start": 2.69,
+              "end": 3.21,
+              "probability": 0.88818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quince,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "eunuch",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "bottom",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "raw": "are",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "set",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "down",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "for",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "Pyramus.",
+          "start": 2.69,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Quince.",
+        "You,",
+        "Nick",
+        "Bottom,",
+        "are",
+        "set",
+        "down",
+        "for",
+        "Pyramus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          9,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Quince.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "You,",
+          "start": 0.77,
+          "end": 1.15
+        },
+        {
+          "text": "Nick",
+          "start": 1.15,
+          "end": 1.34
+        },
+        {
+          "text": "Bottom,",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "text": "are",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "text": "set",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "down",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "for",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "Pyramus.",
+          "start": 2.69,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12016650289297104
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee021bcb104e10c02974b5776a347a50e1246dcd495a3da0ba3d96cfac325cd3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

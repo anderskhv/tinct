@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "c6c593eb6ae596fe024b153c4906669ce0514f286076c5cbdf07a55b52e0dd3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1283618975430727,
+      "alignment_seconds": 0.00012719910591840744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They both agreed to this statement of them.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.884765625
+            },
+            {
+              "text": " both",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " agreed",
+              "start": 0.77,
+              "end": 1.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.13,
+              "end": 1.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.7421875
+            },
+            {
+              "text": " statement",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " them.",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "both",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "agreed",
+          "start": 0.77,
+          "end": 1.13
+        },
+        {
+          "raw": "to",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "raw": "this",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "statement",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "raw": "of",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "them.",
+          "start": 2.09,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "both",
+        "agreed",
+        "to",
+        "this",
+        "statement",
+        "of",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "both",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "agreed",
+          "start": 0.77,
+          "end": 1.13
+        },
+        {
+          "text": "to",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "text": "this",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "statement",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "text": "of",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "them.",
+          "start": 2.09,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12854817975312471
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b3738e5577cefecac9cfb607dfff5f8ebb18082aee0cfbf15aa24143a3083f52",
+  "selected_reasons": []
+}

@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "1b2f0303d3ce48c53fb7b53901f822ad4228951dfce089eaef309e59200ed0f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08568711718544364,
+      "alignment_seconds": 6.980914622545242e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What good?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What good?",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.578125
+            },
+            {
+              "text": " good?",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "good?",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "good?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "good?",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08578364597633481
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc3aca071517bd1136a5c5e3e171ec76d32116f6fc4eeb181d44f6c9f5a68d6b",
+  "selected_reasons": []
+}

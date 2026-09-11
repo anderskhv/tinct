@@ -1,0 +1,496 @@
+{
+  "complete": true,
+  "signature": "c5b01b687810d01f4c512a9ccb949f2732bb8a7563715b4de5cff56ef5d0a65a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1646980345249176,
+      "alignment_seconds": 0.000140264630317688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Telemachus answered boldly, for Minerva had given him courage to ask about his father and get himself a good name.",
+        "hotwords": "Telemachus, Minerva"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Telemachus answered boldly, for Minerva had given him courage to ask about his father and get himself a good name.",
+          "start": 0.02,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " Telemachus",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.8087565104166666
+            },
+            {
+              "text": " answered",
+              "start": 0.92,
+              "end": 1.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boldly,",
+              "start": 1.44,
+              "end": 1.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " for",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Minerva",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.982421875
+            },
+            {
+              "text": " had",
+              "start": 2.96,
+              "end": 3.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " given",
+              "start": 3.28,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 3.44,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " courage",
+              "start": 3.7,
+              "end": 3.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 3.98,
+              "end": 4.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ask",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about",
+              "start": 4.52,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 4.72,
+              "end": 4.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " father",
+              "start": 4.9,
+              "end": 5.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 5.18,
+              "end": 5.58,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " get",
+              "start": 5.58,
+              "end": 5.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " himself",
+              "start": 5.72,
+              "end": 6.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 6.06,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 6.26,
+              "end": 6.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " name.",
+              "start": 6.4,
+              "end": 6.74,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Telemachus",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "answered",
+          "start": 0.92,
+          "end": 1.44
+        },
+        {
+          "raw": "boldly,",
+          "start": 1.44,
+          "end": 1.98
+        },
+        {
+          "raw": "for",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "Minerva",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "had",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "raw": "given",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "raw": "him",
+          "start": 3.44,
+          "end": 3.7
+        },
+        {
+          "raw": "courage",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "raw": "to",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "raw": "ask",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "about",
+          "start": 4.52,
+          "end": 4.72
+        },
+        {
+          "raw": "his",
+          "start": 4.72,
+          "end": 4.9
+        },
+        {
+          "raw": "father",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "raw": "and",
+          "start": 5.18,
+          "end": 5.58
+        },
+        {
+          "raw": "get",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "raw": "himself",
+          "start": 5.72,
+          "end": 6.06
+        },
+        {
+          "raw": "a",
+          "start": 6.06,
+          "end": 6.26
+        },
+        {
+          "raw": "good",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "raw": "name.",
+          "start": 6.4,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "Telemachus",
+        "answered",
+        "boldly,",
+        "for",
+        "Minerva",
+        "had",
+        "given",
+        "him",
+        "courage",
+        "to",
+        "ask",
+        "about",
+        "his",
+        "father",
+        "and",
+        "get",
+        "himself",
+        "a",
+        "good",
+        "name."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Telemachus",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "answered",
+          "start": 0.92,
+          "end": 1.44
+        },
+        {
+          "text": "boldly,",
+          "start": 1.44,
+          "end": 1.98
+        },
+        {
+          "text": "for",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "Minerva",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "had",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "given",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "text": "him",
+          "start": 3.44,
+          "end": 3.7
+        },
+        {
+          "text": "courage",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "text": "to",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "text": "ask",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "about",
+          "start": 4.52,
+          "end": 4.72
+        },
+        {
+          "text": "his",
+          "start": 4.72,
+          "end": 4.9
+        },
+        {
+          "text": "father",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "text": "and",
+          "start": 5.18,
+          "end": 5.58
+        },
+        {
+          "text": "get",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "text": "himself",
+          "start": 5.72,
+          "end": 6.06
+        },
+        {
+          "text": "a",
+          "start": 6.06,
+          "end": 6.26
+        },
+        {
+          "text": "good",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "text": "name.",
+          "start": 6.4,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16491108387708664
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a90606fb28f1561b364ecd874da281026c73c153303363384b21b3c3a1c47287",
+  "selected_reasons": []
+}

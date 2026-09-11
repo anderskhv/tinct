@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "7a241147c9fbea0e2e67e224c0ec3523c8acffe5f9330d978cbf342d04d545fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.12477514147758484,
+      "alignment_seconds": 0.00010572373867034912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Besides this overturning from without, governments are dissolved from within.",
+          "start": 0.02,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " Besides",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " this",
+              "start": 0.74,
+              "end": 1.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " overturning",
+              "start": 1.1,
+              "end": 1.74,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " from",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " without,",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.92578125
+            },
+            {
+              "text": " governments",
+              "start": 2.82,
+              "end": 3.02,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " are",
+              "start": 3.02,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dissolved",
+              "start": 3.3,
+              "end": 3.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 3.68,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " within.",
+              "start": 3.96,
+              "end": 4.24,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Besides",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "this",
+          "start": 0.74,
+          "end": 1.1
+        },
+        {
+          "raw": "overturning",
+          "start": 1.1,
+          "end": 1.74
+        },
+        {
+          "raw": "from",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "without,",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "governments",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "raw": "are",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "raw": "dissolved",
+          "start": 3.3,
+          "end": 3.68
+        },
+        {
+          "raw": "from",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "raw": "within.",
+          "start": 3.96,
+          "end": 4.24
+        }
+      ],
+      "expected_tokens": [
+        "Besides",
+        "this",
+        "over-turning",
+        "from",
+        "without,",
+        "governments",
+        "are",
+        "dissolved",
+        "from",
+        "within."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Besides",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "this",
+          "start": 0.74,
+          "end": 1.1
+        },
+        {
+          "text": "over-turning",
+          "start": 1.1,
+          "end": 1.74
+        },
+        {
+          "text": "from",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "without,",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "governments",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "text": "are",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "text": "dissolved",
+          "start": 3.3,
+          "end": 3.68
+        },
+        {
+          "text": "from",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "text": "within.",
+          "start": 3.96,
+          "end": 4.24
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1249258741736412
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "772e97924d5326f3a0ddae7fadddf202af4ac5fcaa364ebfc6a97330c5a795db",
+  "selected_reasons": []
+}

@@ -1,0 +1,450 @@
+{
+  "complete": true,
+  "signature": "06bbf67c13201e1ba9bf183b0bcd0e0ef2c6feef5e3836de493a829ab276bd47",
+  "attempts": [
+    {
+      "asr_seconds": 0.20356601988896728,
+      "alignment_seconds": 0.0001422991044819355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " So then should one do in other matters that the incidental matters may not exceed the direct ones",
+          "start": 0.05,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " then",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " should",
+              "start": 0.77,
+              "end": 0.99,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " one",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.61328125
+            },
+            {
+              "text": " other",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " matters",
+              "start": 1.89,
+              "end": 2.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 2.37,
+              "end": 2.91,
+              "probability": 0.455322265625
+            },
+            {
+              "text": " the",
+              "start": 2.91,
+              "end": 3.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " incidental",
+              "start": 3.05,
+              "end": 3.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " matters",
+              "start": 3.53,
+              "end": 4.07,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " may",
+              "start": 4.07,
+              "end": 4.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 4.37,
+              "end": 4.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " exceed",
+              "start": 4.61,
+              "end": 4.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 4.95,
+              "end": 5.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " direct",
+              "start": 5.15,
+              "end": 5.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ones",
+              "start": 5.41,
+              "end": 5.85,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "then",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "should",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "raw": "one",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "do",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "in",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "other",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "matters",
+          "start": 1.89,
+          "end": 2.37
+        },
+        {
+          "raw": "that",
+          "start": 2.37,
+          "end": 2.91
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "raw": "incidental",
+          "start": 3.05,
+          "end": 3.53
+        },
+        {
+          "raw": "matters",
+          "start": 3.53,
+          "end": 4.07
+        },
+        {
+          "raw": "may",
+          "start": 4.07,
+          "end": 4.37
+        },
+        {
+          "raw": "not",
+          "start": 4.37,
+          "end": 4.61
+        },
+        {
+          "raw": "exceed",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "raw": "the",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "raw": "direct",
+          "start": 5.15,
+          "end": 5.41
+        },
+        {
+          "raw": "ones",
+          "start": 5.41,
+          "end": 5.85
+        }
+      ],
+      "expected_tokens": [
+        "So",
+        "then",
+        "should",
+        "one",
+        "do",
+        "in",
+        "other",
+        "matters,",
+        "that",
+        "the",
+        "incidental",
+        "matters",
+        "may",
+        "not",
+        "exceed",
+        "the",
+        "direct",
+        "ones."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "So",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "then",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "should",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "text": "one",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "do",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "in",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "other",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "matters,",
+          "start": 1.89,
+          "end": 2.37
+        },
+        {
+          "text": "that",
+          "start": 2.37,
+          "end": 2.91
+        },
+        {
+          "text": "the",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "text": "incidental",
+          "start": 3.05,
+          "end": 3.53
+        },
+        {
+          "text": "matters",
+          "start": 3.53,
+          "end": 4.07
+        },
+        {
+          "text": "may",
+          "start": 4.07,
+          "end": 4.37
+        },
+        {
+          "text": "not",
+          "start": 4.37,
+          "end": 4.61
+        },
+        {
+          "text": "exceed",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "text": "the",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "text": "direct",
+          "start": 5.15,
+          "end": 5.41
+        },
+        {
+          "text": "ones.",
+          "start": 5.41,
+          "end": 5.85
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20377059979364276
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "12b6145e7a7ed31639a3612541bd0cc947a13c948ddcda14daaba41b35428b8b",
+  "selected_reasons": []
+}

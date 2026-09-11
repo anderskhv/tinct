@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "b0c3ab7f8bd193ad75412e2a19a3ede7a4f64942f9850fddd1aa3c2d106688d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.16061538457870483,
+      "alignment_seconds": 7.183849811553955e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Communists are further reproached with desiring to abolish countries and nationality.",
+        "hotwords": "The, Communists"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Communists are further reproached with desiring to abolish countries and nationality.",
+          "start": 0.02,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " Communists",
+              "start": 0.48,
+              "end": 0.82,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " are",
+              "start": 0.82,
+              "end": 1.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " further",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reproached",
+              "start": 1.58,
+              "end": 2.28,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " with",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.517578125
+            },
+            {
+              "text": " desiring",
+              "start": 2.58,
+              "end": 3.08,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " to",
+              "start": 3.08,
+              "end": 3.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " abolish",
+              "start": 3.3,
+              "end": 3.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " countries",
+              "start": 3.6,
+              "end": 4.3,
+              "probability": 0.9765625
+            },
+            {
+              "text": " and",
+              "start": 4.3,
+              "end": 4.64,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " nationality.",
+              "start": 4.64,
+              "end": 5.14,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Communists",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "raw": "are",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "raw": "further",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "raw": "reproached",
+          "start": 1.58,
+          "end": 2.28
+        },
+        {
+          "raw": "with",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "raw": "desiring",
+          "start": 2.58,
+          "end": 3.08
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "raw": "abolish",
+          "start": 3.3,
+          "end": 3.6
+        },
+        {
+          "raw": "countries",
+          "start": 3.6,
+          "end": 4.3
+        },
+        {
+          "raw": "and",
+          "start": 4.3,
+          "end": 4.64
+        },
+        {
+          "raw": "nationality.",
+          "start": 4.64,
+          "end": 5.14
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Communists",
+        "are",
+        "further",
+        "reproached",
+        "with",
+        "desiring",
+        "to",
+        "abolish",
+        "countries",
+        "and",
+        "nationality."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Communists",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "text": "are",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "text": "further",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "text": "reproached",
+          "start": 1.58,
+          "end": 2.28
+        },
+        {
+          "text": "with",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "text": "desiring",
+          "start": 2.58,
+          "end": 3.08
+        },
+        {
+          "text": "to",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "text": "abolish",
+          "start": 3.3,
+          "end": 3.6
+        },
+        {
+          "text": "countries",
+          "start": 3.6,
+          "end": 4.3
+        },
+        {
+          "text": "and",
+          "start": 4.3,
+          "end": 4.64
+        },
+        {
+          "text": "nationality.",
+          "start": 4.64,
+          "end": 5.14
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16071560978889465
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "94a66f9e00d8074b7968dfc6c378dc57a02dd4dc4798e054071ee8a4c2bac620",
+  "selected_reasons": []
+}

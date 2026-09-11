@@ -1,0 +1,1578 @@
+{
+  "complete": true,
+  "signature": "07a1124bb666e482eb52837002ae02321ab6a8b9d42f6da28205c9c2a04c2787",
+  "attempts": [
+    {
+      "asr_seconds": 0.25536273419857025,
+      "alignment_seconds": 0.00016001611948013306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We were saying, when we spoke of the subject-matter, that we had no need of lamentation and strains of sorrow?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We were saying, when we spoke of the subject-matter, that we had no need of lamentation and strains of sorrow?",
+          "start": 0.05,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " were",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " saying,",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " we",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spoke",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " subject",
+              "start": 2.31,
+              "end": 2.67,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "-matter,",
+              "start": 2.67,
+              "end": 2.99,
+              "probability": 0.512115478515625
+            },
+            {
+              "text": " that",
+              "start": 3.49,
+              "end": 3.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " we",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 3.73,
+              "end": 3.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 3.91,
+              "end": 4.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " need",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 4.37,
+              "end": 4.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lamentation",
+              "start": 4.55,
+              "end": 5.29,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " and",
+              "start": 5.29,
+              "end": 5.49,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " strains",
+              "start": 5.49,
+              "end": 5.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 5.87,
+              "end": 6.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sorrow?",
+              "start": 6.15,
+              "end": 6.41,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "were",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "saying,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "when",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "we",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "spoke",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "subject",
+          "start": 2.31,
+          "end": 2.67
+        },
+        {
+          "raw": "-matter,",
+          "start": 2.67,
+          "end": 2.99
+        },
+        {
+          "raw": "that",
+          "start": 3.49,
+          "end": 3.59
+        },
+        {
+          "raw": "we",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "had",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "raw": "no",
+          "start": 3.91,
+          "end": 4.17
+        },
+        {
+          "raw": "need",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "of",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "raw": "lamentation",
+          "start": 4.55,
+          "end": 5.29
+        },
+        {
+          "raw": "and",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "raw": "strains",
+          "start": 5.49,
+          "end": 5.87
+        },
+        {
+          "raw": "of",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "raw": "sorrow?",
+          "start": 6.15,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "were",
+        "saying,",
+        "when",
+        "we",
+        "spoke",
+        "of",
+        "the",
+        "subject-matter,",
+        "that",
+        "we",
+        "had",
+        "no",
+        "need",
+        "of",
+        "lamentation",
+        "and",
+        "strains",
+        "of",
+        "sorrow?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          20,
+          10,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "were",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "saying,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "when",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "we",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "spoke",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "subject-matter,",
+          "start": 2.31,
+          "end": 2.9
+        },
+        {
+          "text": "that",
+          "start": 3.49,
+          "end": 3.59
+        },
+        {
+          "text": "we",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "had",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "text": "no",
+          "start": 3.91,
+          "end": 4.17
+        },
+        {
+          "text": "need",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "of",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "text": "lamentation",
+          "start": 4.55,
+          "end": 5.29
+        },
+        {
+          "text": "and",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "text": "strains",
+          "start": 5.49,
+          "end": 5.87
+        },
+        {
+          "text": "of",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "text": "sorrow?",
+          "start": 6.15,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.25559740513563156
+    },
+    {
+      "asr_seconds": 0.20034923404455185,
+      "alignment_seconds": 0.00016442686319351196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " We were saying, when we spoke of the subject matter, that we had no need of lamentation",
+          "start": 0.05,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " were",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " saying,",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " we",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spoke",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " subject",
+              "start": 2.31,
+              "end": 2.67,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " matter,",
+              "start": 2.67,
+              "end": 3.03,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " that",
+              "start": 3.43,
+              "end": 3.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " we",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 3.73,
+              "end": 3.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " no",
+              "start": 3.91,
+              "end": 4.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " need",
+              "start": 4.15,
+              "end": 4.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lamentation",
+              "start": 4.53,
+              "end": 5.29,
+              "probability": 0.978271484375
+            }
+          ]
+        },
+        {
+          "text": " and strains of sorrow.",
+          "start": 5.29,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.29,
+              "end": 5.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " strains",
+              "start": 5.49,
+              "end": 5.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 5.87,
+              "end": 6.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sorrow.",
+              "start": 6.15,
+              "end": 6.41,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "were",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "saying,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "when",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "we",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "spoke",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "subject",
+          "start": 2.31,
+          "end": 2.67
+        },
+        {
+          "raw": "matter,",
+          "start": 2.67,
+          "end": 3.03
+        },
+        {
+          "raw": "that",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "raw": "we",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "had",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "raw": "no",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "raw": "need",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "raw": "of",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "lamentation",
+          "start": 4.53,
+          "end": 5.29
+        },
+        {
+          "raw": "and",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "raw": "strains",
+          "start": 5.49,
+          "end": 5.87
+        },
+        {
+          "raw": "of",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "raw": "sorrow.",
+          "start": 6.15,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "were",
+        "saying,",
+        "when",
+        "we",
+        "spoke",
+        "of",
+        "the",
+        "subject-matter,",
+        "that",
+        "we",
+        "had",
+        "no",
+        "need",
+        "of",
+        "lamentation",
+        "and",
+        "strains",
+        "of",
+        "sorrow?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          20,
+          10,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "were",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "saying,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "when",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "we",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "spoke",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "subject-matter,",
+          "start": 2.31,
+          "end": 2.87
+        },
+        {
+          "text": "that",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "text": "we",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "had",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "text": "no",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "text": "need",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "text": "of",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "lamentation",
+          "start": 4.53,
+          "end": 5.29
+        },
+        {
+          "text": "and",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "text": "strains",
+          "start": 5.49,
+          "end": 5.87
+        },
+        {
+          "text": "of",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "text": "sorrow?",
+          "start": 6.15,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.20058847963809967
+    },
+    {
+      "asr_seconds": 0.1992942914366722,
+      "alignment_seconds": 0.00016089528799057007,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We were saying, when we spoke of the subject matter, that we had no need of lamentation",
+          "start": 0.05,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " were",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " saying,",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " we",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spoke",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " subject",
+              "start": 2.31,
+              "end": 2.67,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " matter,",
+              "start": 2.67,
+              "end": 3.03,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " that",
+              "start": 3.43,
+              "end": 3.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " we",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 3.73,
+              "end": 3.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " no",
+              "start": 3.91,
+              "end": 4.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " need",
+              "start": 4.15,
+              "end": 4.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lamentation",
+              "start": 4.53,
+              "end": 5.29,
+              "probability": 0.978271484375
+            }
+          ]
+        },
+        {
+          "text": " and strains of sorrow.",
+          "start": 5.29,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.29,
+              "end": 5.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " strains",
+              "start": 5.49,
+              "end": 5.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 5.87,
+              "end": 6.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sorrow.",
+              "start": 6.15,
+              "end": 6.41,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "were",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "saying,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "when",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "we",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "spoke",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "subject",
+          "start": 2.31,
+          "end": 2.67
+        },
+        {
+          "raw": "matter,",
+          "start": 2.67,
+          "end": 3.03
+        },
+        {
+          "raw": "that",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "raw": "we",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "had",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "raw": "no",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "raw": "need",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "raw": "of",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "lamentation",
+          "start": 4.53,
+          "end": 5.29
+        },
+        {
+          "raw": "and",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "raw": "strains",
+          "start": 5.49,
+          "end": 5.87
+        },
+        {
+          "raw": "of",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "raw": "sorrow.",
+          "start": 6.15,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "were",
+        "saying,",
+        "when",
+        "we",
+        "spoke",
+        "of",
+        "the",
+        "subject-matter,",
+        "that",
+        "we",
+        "had",
+        "no",
+        "need",
+        "of",
+        "lamentation",
+        "and",
+        "strains",
+        "of",
+        "sorrow?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          20,
+          10,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "were",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "saying,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "when",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "we",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "spoke",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "subject-matter,",
+          "start": 2.31,
+          "end": 2.87
+        },
+        {
+          "text": "that",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "text": "we",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "had",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "text": "no",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "text": "need",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "text": "of",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "lamentation",
+          "start": 4.53,
+          "end": 5.29
+        },
+        {
+          "text": "and",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "text": "strains",
+          "start": 5.49,
+          "end": 5.87
+        },
+        {
+          "text": "of",
+          "start": 5.87,
+          "end": 6.15
+        },
+        {
+          "text": "sorrow?",
+          "start": 6.15,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.1995321661233902
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac86f7b941aba72ba304822d7d910970c86d16966b1dd0dfa98b432e45a68d42",
+  "selected_reasons": []
+}

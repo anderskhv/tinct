@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "862ba768bec693de5380a632a3c2c0967e7bc8b29472267ff910115d98733707",
+  "attempts": [
+    {
+      "asr_seconds": 0.08646196126937866,
+      "alignment_seconds": 6.41942024230957e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quite true, he replied.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Quite",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " true,",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " replied.",
+              "start": 1.13,
+              "end": 1.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quite",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "true,",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "he",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "replied.",
+          "start": 1.13,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "Quite",
+        "true,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Quite",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "true,",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "he",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "replied.",
+          "start": 1.13,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08655069768428802
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ead9e0b85b2caa878e7238040e7e4d1884bb8e3aec85392d2054f722a2d9d63",
+  "selected_reasons": []
+}

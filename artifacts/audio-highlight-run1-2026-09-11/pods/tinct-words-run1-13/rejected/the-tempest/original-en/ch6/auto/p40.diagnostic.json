@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "dea3b60db34ef2a3f6ae365a0d1295a75a185fb415b152ec8bf1581da847794a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1090895279776305,
+      "alignment_seconds": 9.405298624187708e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caliban. Ha, ha, ha!",
+        "hotwords": "Caliban"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caliban. Ha, ha, ha!",
+          "start": 0.57,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Caliban.",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.5640869140625
+            },
+            {
+              "text": " Ha,",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.455078125
+            },
+            {
+              "text": " ha,",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " ha!",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban.",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "Ha,",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "ha,",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "ha!",
+          "start": 1.53,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "Ha,",
+        "ha,",
+        "ha!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "Ha,",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "ha,",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "ha!",
+          "start": 1.53,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10921601206064224
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "01de7c6ce0fd8b5abeedb5add19ddca219cae04782bf959bef1de151d4fd64fe",
+  "selected_reasons": []
+}

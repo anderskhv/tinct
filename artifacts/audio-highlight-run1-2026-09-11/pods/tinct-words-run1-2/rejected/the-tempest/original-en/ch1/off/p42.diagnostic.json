@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "signature": "95c2cceef378eda955086307c7faf2d3bf5d2b9c65456da2a29e594afa5f9741",
+  "attempts": [
+    {
+      "asr_seconds": 0.08237938582897186,
+      "alignment_seconds": 6.157159805297852e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhumed.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Exhumed.",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.656005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhumed.",
+          "start": 0.05,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Exeunt]",
+          "start": 0.0,
+          "end": 0.525
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08245895057916641
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0aad9a3c3c37c5c332869f7e7453ae20c178b0ded4b261b9e117f12d5a3c4774",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

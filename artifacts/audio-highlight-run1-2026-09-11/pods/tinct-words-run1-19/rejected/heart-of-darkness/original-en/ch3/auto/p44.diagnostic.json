@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "7760c1a4d39bf7f6b29791b68a6d54133f1e8c7d7535d0be0a58fbbc4c74e06a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13914794102311134,
+      "alignment_seconds": 0.00014484673738479614,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'Mistah Kurtz—he dead.'",
+        "hotwords": "Mistah, Kurtz—he"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mistah Kurtz—he dead.\"",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Mistah",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.0806121826171875
+            },
+            {
+              "text": " Kurtz—he",
+              "start": 0.8,
+              "end": 1.3,
+              "probability": 0.5468244552612305
+            },
+            {
+              "text": " dead.\"",
+              "start": 1.3,
+              "end": 2.22,
+              "probability": 0.4836750030517578
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mistah",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Kurtz—he",
+          "start": 0.8,
+          "end": 1.3
+        },
+        {
+          "raw": "dead.\"",
+          "start": 1.3,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "\"'Mistah",
+        "Kurtz—he",
+        "dead.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"'Mistah",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Kurtz—he",
+          "start": 0.8,
+          "end": 1.3
+        },
+        {
+          "text": "dead.'",
+          "start": 1.3,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1393500380218029
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f65878c3909ae6128b3588c9a5022ec53ebd24021df4d1db8ba994db3a85117",
+  "selected_reasons": []
+}

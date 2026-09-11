@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "4de6f8beeb70741d729186d7883f1426c6241b6c8451dea927b59242a42cf572",
+  "attempts": [
+    {
+      "asr_seconds": 0.13161934912204742,
+      "alignment_seconds": 6.00963830947876e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, so slave, hence.",
+          "start": 0.67,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.835693359375
+            },
+            {
+              "text": " so",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " slave,",
+              "start": 1.27,
+              "end": 1.61,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " hence.",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "so",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "slave,",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "raw": "hence.",
+          "start": 1.79,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "So,",
+        "slave;",
+        "hence!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "text": "So,",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "slave;",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "text": "hence!",
+          "start": 1.79,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13170363008975983
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aefab34c6b52b7adbf43e96aed58e9d2237afd39f7bcc32097b130b23e1054d8",
+  "selected_reasons": []
+}

@@ -1,0 +1,479 @@
+{
+  "complete": true,
+  "signature": "00b61d51d79cdfb777421f4a420a65e3b99c8c5aafaf432af8f76ee09062709d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3268932820064947,
+      "alignment_seconds": 0.0004441770142875612,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And you admired him,\" she said.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.12371826171875
+            },
+            {
+              "text": " you",
+              "start": 0.57,
+              "end": 0.75,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " admired",
+              "start": 0.75,
+              "end": 1.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " him,\"",
+              "start": 1.17,
+              "end": 1.71,
+              "probability": 0.676025390625
+            },
+            {
+              "text": " she",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " said.",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " It was impossible to know him and not to admire him, was it?",
+          "start": 2.77,
+          "end": 6.19,
+          "words": [
+            {
+              "text": " It",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " was",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " impossible",
+              "start": 2.97,
+              "end": 3.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.37,
+              "end": 3.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " know",
+              "start": 3.77,
+              "end": 3.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 3.97,
+              "end": 4.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " not",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " admire",
+              "start": 4.71,
+              "end": 5.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,",
+              "start": 5.01,
+              "end": 5.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 5.75,
+              "end": 5.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it?",
+              "start": 5.89,
+              "end": 6.19,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "raw": "admired",
+          "start": 0.75,
+          "end": 1.17
+        },
+        {
+          "raw": "him,\"",
+          "start": 1.17,
+          "end": 1.71
+        },
+        {
+          "raw": "she",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "said.",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "raw": "It",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "was",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "impossible",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.77
+        },
+        {
+          "raw": "know",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "raw": "him",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "raw": "and",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "not",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "to",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "admire",
+          "start": 4.71,
+          "end": 5.01
+        },
+        {
+          "raw": "him,",
+          "start": 5.01,
+          "end": 5.49
+        },
+        {
+          "raw": "was",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "raw": "it?",
+          "start": 5.89,
+          "end": 6.19
+        }
+      ],
+      "expected_tokens": [
+        "\"'And",
+        "you",
+        "admired",
+        "him,'",
+        "she",
+        "said.",
+        "'It",
+        "was",
+        "impossible",
+        "to",
+        "know",
+        "him",
+        "and",
+        "not",
+        "to",
+        "admire",
+        "him.",
+        "Was",
+        "it?'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"'And",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "you",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "text": "admired",
+          "start": 0.75,
+          "end": 1.17
+        },
+        {
+          "text": "him,'",
+          "start": 1.17,
+          "end": 1.71
+        },
+        {
+          "text": "she",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "text": "said.",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "text": "'It",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "was",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "impossible",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "text": "to",
+          "start": 3.37,
+          "end": 3.77
+        },
+        {
+          "text": "know",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "text": "him",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "text": "and",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "not",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "text": "to",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "admire",
+          "start": 4.71,
+          "end": 5.01
+        },
+        {
+          "text": "him.",
+          "start": 5.01,
+          "end": 5.49
+        },
+        {
+          "text": "Was",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "text": "it?'",
+          "start": 5.89,
+          "end": 6.19
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32754908499191515
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7a094183cd460995494c5df3386bb1a7a58a26ca46e99cf3e793940fdae2d29",
+  "selected_reasons": []
+}

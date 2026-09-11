@@ -1,0 +1,405 @@
+{
+  "complete": true,
+  "signature": "3fc29526822d103b2efd4fca8a8388a2f0d5e8deb2d984c7d30b7fb762cde24e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1349084973335266,
+      "alignment_seconds": 0.00010567158460617065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Medea, thy words upon the wind are cast.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.679443359375
+            },
+            {
+              "text": " thy",
+              "start": 1.41,
+              "end": 1.41,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " words",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " upon",
+              "start": 1.69,
+              "end": 1.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wind",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " are",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " cast.",
+              "start": 2.49,
+              "end": 2.85,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " He casts himself upon the earth.",
+          "start": 3.35,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " He",
+              "start": 3.35,
+              "end": 3.43,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " casts",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " himself",
+              "start": 3.73,
+              "end": 4.05,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " upon",
+              "start": 4.05,
+              "end": 4.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " earth.",
+              "start": 4.51,
+              "end": 4.71,
+              "probability": 0.84716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "thy",
+          "start": 1.41,
+          "end": 1.41
+        },
+        {
+          "raw": "words",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "upon",
+          "start": 1.69,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "wind",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "are",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "cast.",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "raw": "He",
+          "start": 3.35,
+          "end": 3.43
+        },
+        {
+          "raw": "casts",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "himself",
+          "start": 3.73,
+          "end": 4.05
+        },
+        {
+          "raw": "upon",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "raw": "the",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "earth.",
+          "start": 4.51,
+          "end": 4.71
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Thy",
+        "words",
+        "upon",
+        "the",
+        "wind",
+        "are",
+        "cast.",
+        "[_He",
+        "casts",
+        "himself",
+        "upon",
+        "the",
+        "earth._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          13,
+          9,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Thy",
+          "start": 1.41,
+          "end": 1.41
+        },
+        {
+          "text": "words",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "upon",
+          "start": 1.69,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "wind",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "are",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "cast.",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "text": "[_He",
+          "start": 2.85,
+          "end": 3.14
+        },
+        {
+          "text": "casts",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "himself",
+          "start": 3.73,
+          "end": 4.05
+        },
+        {
+          "text": "upon",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "text": "the",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "earth._",
+          "start": 4.51,
+          "end": 4.61
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.13505522161722183
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1c4c97e9f62a6092039672ef862e475922da62031f59023607a36492fc4d8880",
+  "selected_reasons": []
+}

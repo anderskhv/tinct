@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "655e5eabdad403d6c67d28035c64a6f08626e3aa2a50dbef8e576ad9332ae3ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.08028607070446014,
+      "alignment_seconds": 6.008148193359375e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is my view.",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.90234375
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " my",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " view.",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "my",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "view.",
+          "start": 0.85,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "my",
+        "view."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "my",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "view.",
+          "start": 0.85,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08039123564958572
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c82da80a6076e9e466e616067bced24a0792ad3dba92353365edef8d892b6992",
+  "selected_reasons": []
+}

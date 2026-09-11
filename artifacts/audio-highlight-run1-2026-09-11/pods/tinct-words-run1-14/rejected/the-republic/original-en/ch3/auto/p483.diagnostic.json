@@ -1,0 +1,1156 @@
+{
+  "complete": true,
+  "signature": "f037d9f081c94e08c8a0ac51ce47399817ce299d9d742e583dee2508d0b38639",
+  "attempts": [
+    {
+      "asr_seconds": 0.23193488270044327,
+      "alignment_seconds": 0.00010607391595840454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I said; but they must be the houses of soldiers, and not of shop-keepers.",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, but they must be the houses of soldiers, and not of shop-keepers.",
+          "start": 0.02,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.140625
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said,",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.986328125
+            },
+            {
+              "text": " they",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " must",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " houses",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " of",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " soldiers,",
+              "start": 3.06,
+              "end": 3.42,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 3.9,
+              "end": 4.0,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " not",
+              "start": 4.0,
+              "end": 4.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " shop",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": "-keepers.",
+              "start": 4.52,
+              "end": 4.84,
+              "probability": 0.51385498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "said,",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "but",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "they",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "must",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "be",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "the",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "houses",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "soldiers,",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 4.0
+        },
+        {
+          "raw": "not",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "raw": "of",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "shop",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "-keepers.",
+          "start": 4.52,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said;",
+        "but",
+        "they",
+        "must",
+        "be",
+        "the",
+        "houses",
+        "of",
+        "soldiers,",
+        "and",
+        "not",
+        "of",
+        "shop-keepers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "said;",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "but",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "they",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "must",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "be",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "the",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "houses",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "of",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "soldiers,",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "text": "and",
+          "start": 3.9,
+          "end": 4.0
+        },
+        {
+          "text": "not",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "text": "of",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "shop-keepers.",
+          "start": 4.28,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2320926934480667
+    },
+    {
+      "asr_seconds": 0.1963256075978279,
+      "alignment_seconds": 0.00011897087097167969,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " said, but they must be the houses of soldiers and not of shopkeepers.",
+          "start": 0.02,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " said,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 3.910064697265625e-05
+            },
+            {
+              "text": " but",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.1043701171875
+            },
+            {
+              "text": " they",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " must",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 2.14,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " houses",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.958984375
+            },
+            {
+              "text": " of",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " soldiers",
+              "start": 3.06,
+              "end": 3.4,
+              "probability": 0.966796875
+            },
+            {
+              "text": " and",
+              "start": 3.4,
+              "end": 4.0,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " not",
+              "start": 4.0,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " shopkeepers.",
+              "start": 4.28,
+              "end": 4.86,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "said,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "but",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "they",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "must",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "be",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "houses",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "soldiers",
+          "start": 3.06,
+          "end": 3.4
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 4.0
+        },
+        {
+          "raw": "not",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "raw": "of",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "shopkeepers.",
+          "start": 4.28,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said;",
+        "but",
+        "they",
+        "must",
+        "be",
+        "the",
+        "houses",
+        "of",
+        "soldiers,",
+        "and",
+        "not",
+        "of",
+        "shop-keepers."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          15,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "I",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "said;",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "but",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "they",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "must",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "be",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "text": "the",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "houses",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "of",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "soldiers,",
+          "start": 3.06,
+          "end": 3.4
+        },
+        {
+          "text": "and",
+          "start": 3.4,
+          "end": 4.0
+        },
+        {
+          "text": "not",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "text": "of",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "shop-keepers.",
+          "start": 4.28,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.19650758057832718
+    },
+    {
+      "asr_seconds": 0.20914876461029053,
+      "alignment_seconds": 9.332597255706787e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, but they must be the houses of soldiers and not of shopkeepers.",
+          "start": 0.02,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.140625
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said,",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.986328125
+            },
+            {
+              "text": " they",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " must",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " houses",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " of",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " soldiers",
+              "start": 3.06,
+              "end": 3.42,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 3.42,
+              "end": 4.0,
+              "probability": 0.8046875
+            },
+            {
+              "text": " not",
+              "start": 4.0,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shopkeepers.",
+              "start": 4.28,
+              "end": 4.86,
+              "probability": 0.962646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "said,",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "but",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "they",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "must",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "be",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "the",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "houses",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "soldiers",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "raw": "and",
+          "start": 3.42,
+          "end": 4.0
+        },
+        {
+          "raw": "not",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "raw": "of",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "shopkeepers.",
+          "start": 4.28,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said;",
+        "but",
+        "they",
+        "must",
+        "be",
+        "the",
+        "houses",
+        "of",
+        "soldiers,",
+        "and",
+        "not",
+        "of",
+        "shop-keepers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "said;",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "but",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "they",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "must",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "be",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "the",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "houses",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "of",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "soldiers,",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "text": "and",
+          "start": 3.42,
+          "end": 4.0
+        },
+        {
+          "text": "not",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "text": "of",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "shop-keepers.",
+          "start": 4.28,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20928829908370972
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c6c523ec1f901df307e88834d1327d361d00bb070b1a064ae471e1a794a4c634",
+  "selected_reasons": []
+}

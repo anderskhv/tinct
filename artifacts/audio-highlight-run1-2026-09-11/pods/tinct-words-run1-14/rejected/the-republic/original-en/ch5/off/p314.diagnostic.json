@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "b63069de05b3b8525ff7aafbe8292843bcf57b720c612766d05cfd89decb0269",
+  "attempts": [
+    {
+      "asr_seconds": 0.0776916965842247,
+      "alignment_seconds": 6.0617923736572266e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That may be assumed.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " may",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " be",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " assumed.",
+              "start": 0.79,
+              "end": 1.13,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "may",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "be",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "assumed.",
+          "start": 0.79,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "may",
+        "be",
+        "assumed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "may",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "be",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "assumed.",
+          "start": 0.79,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07777721434831619
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1aef74924fe634e32e937802078bd465d9d3e3ed5f5cb9d6981d67d4d5417908",
+  "selected_reasons": []
+}

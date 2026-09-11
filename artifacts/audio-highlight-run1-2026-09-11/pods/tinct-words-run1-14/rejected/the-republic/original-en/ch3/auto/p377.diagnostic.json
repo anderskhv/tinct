@@ -1,0 +1,980 @@
+{
+  "complete": true,
+  "signature": "3e7107d7997753ed69619eebf97ffcfd6c3a2c99211a499cee8d13cb45d33c36",
+  "attempts": [
+    {
+      "asr_seconds": 0.3058973103761673,
+      "alignment_seconds": 0.00029865652322769165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Therefore, I said, the judge should not be young; he should have learned to know evil, not from his own soul, but from late and long observation of the nature of evil in others: knowledge should be his guide, not personal experience.",
+        "hotwords": "Therefore, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Therefore, I said, the judge should not be young. He should have learned to know evil, not from his own soul, but from late and long observation of the nature of evil in others. Knowledge should be his guide, not personal experience.",
+          "start": 0.02,
+          "end": 14.22,
+          "words": [
+            {
+              "text": " Therefore,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " I",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said,",
+              "start": 1.04,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " judge",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " should",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " young.",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " He",
+              "start": 3.62,
+              "end": 3.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " should",
+              "start": 3.72,
+              "end": 3.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 3.86,
+              "end": 4.0,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " learned",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 4.42,
+              "end": 4.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " evil,",
+              "start": 4.64,
+              "end": 4.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " not",
+              "start": 5.3,
+              "end": 5.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 5.48,
+              "end": 5.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 5.66,
+              "end": 5.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " own",
+              "start": 5.8,
+              "end": 6.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " soul,",
+              "start": 6.06,
+              "end": 6.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " but",
+              "start": 6.88,
+              "end": 7.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 7.02,
+              "end": 7.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " late",
+              "start": 7.2,
+              "end": 7.5,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 7.5,
+              "end": 7.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " long",
+              "start": 7.8,
+              "end": 8.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " observation",
+              "start": 8.1,
+              "end": 8.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 8.64,
+              "end": 9.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 9.0,
+              "end": 9.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " nature",
+              "start": 9.1,
+              "end": 9.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 9.32,
+              "end": 9.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " evil",
+              "start": 9.58,
+              "end": 9.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " others.",
+              "start": 10.1,
+              "end": 10.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Knowledge",
+              "start": 11.54,
+              "end": 11.54,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " should",
+              "start": 11.54,
+              "end": 11.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 11.78,
+              "end": 11.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 11.94,
+              "end": 12.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " guide,",
+              "start": 12.14,
+              "end": 12.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 12.88,
+              "end": 13.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " personal",
+              "start": 13.06,
+              "end": 13.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " experience.",
+              "start": 13.56,
+              "end": 14.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Therefore,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "said,",
+          "start": 1.04,
+          "end": 1.34
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "judge",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "should",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "not",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "be",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "young.",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "He",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "raw": "should",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "raw": "have",
+          "start": 3.86,
+          "end": 4.0
+        },
+        {
+          "raw": "learned",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "to",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "know",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "raw": "evil,",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "raw": "not",
+          "start": 5.3,
+          "end": 5.48
+        },
+        {
+          "raw": "from",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "raw": "his",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "raw": "own",
+          "start": 5.8,
+          "end": 6.06
+        },
+        {
+          "raw": "soul,",
+          "start": 6.06,
+          "end": 6.48
+        },
+        {
+          "raw": "but",
+          "start": 6.88,
+          "end": 7.02
+        },
+        {
+          "raw": "from",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "raw": "late",
+          "start": 7.2,
+          "end": 7.5
+        },
+        {
+          "raw": "and",
+          "start": 7.5,
+          "end": 7.8
+        },
+        {
+          "raw": "long",
+          "start": 7.8,
+          "end": 8.1
+        },
+        {
+          "raw": "observation",
+          "start": 8.1,
+          "end": 8.64
+        },
+        {
+          "raw": "of",
+          "start": 8.64,
+          "end": 9.0
+        },
+        {
+          "raw": "the",
+          "start": 9.0,
+          "end": 9.1
+        },
+        {
+          "raw": "nature",
+          "start": 9.1,
+          "end": 9.32
+        },
+        {
+          "raw": "of",
+          "start": 9.32,
+          "end": 9.58
+        },
+        {
+          "raw": "evil",
+          "start": 9.58,
+          "end": 9.88
+        },
+        {
+          "raw": "in",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "others.",
+          "start": 10.1,
+          "end": 10.36
+        },
+        {
+          "raw": "Knowledge",
+          "start": 11.54,
+          "end": 11.54
+        },
+        {
+          "raw": "should",
+          "start": 11.54,
+          "end": 11.78
+        },
+        {
+          "raw": "be",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "raw": "his",
+          "start": 11.94,
+          "end": 12.14
+        },
+        {
+          "raw": "guide,",
+          "start": 12.14,
+          "end": 12.5
+        },
+        {
+          "raw": "not",
+          "start": 12.88,
+          "end": 13.06
+        },
+        {
+          "raw": "personal",
+          "start": 13.06,
+          "end": 13.56
+        },
+        {
+          "raw": "experience.",
+          "start": 13.56,
+          "end": 14.22
+        }
+      ],
+      "expected_tokens": [
+        "Therefore,",
+        "I",
+        "said,",
+        "the",
+        "judge",
+        "should",
+        "not",
+        "be",
+        "young;",
+        "he",
+        "should",
+        "have",
+        "learned",
+        "to",
+        "know",
+        "evil,",
+        "not",
+        "from",
+        "his",
+        "own",
+        "soul,",
+        "but",
+        "from",
+        "late",
+        "and",
+        "long",
+        "observation",
+        "of",
+        "the",
+        "nature",
+        "of",
+        "evil",
+        "in",
+        "others:",
+        "knowledge",
+        "should",
+        "be",
+        "his",
+        "guide,",
+        "not",
+        "personal",
+        "experience."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Therefore,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "said,",
+          "start": 1.04,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "judge",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "should",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "not",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "be",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "young;",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "he",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "text": "should",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "text": "have",
+          "start": 3.86,
+          "end": 4.0
+        },
+        {
+          "text": "learned",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "to",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "know",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "text": "evil,",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "text": "not",
+          "start": 5.3,
+          "end": 5.48
+        },
+        {
+          "text": "from",
+          "start": 5.48,
+          "end": 5.66
+        },
+        {
+          "text": "his",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "text": "own",
+          "start": 5.8,
+          "end": 6.06
+        },
+        {
+          "text": "soul,",
+          "start": 6.06,
+          "end": 6.48
+        },
+        {
+          "text": "but",
+          "start": 6.88,
+          "end": 7.02
+        },
+        {
+          "text": "from",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "text": "late",
+          "start": 7.2,
+          "end": 7.5
+        },
+        {
+          "text": "and",
+          "start": 7.5,
+          "end": 7.8
+        },
+        {
+          "text": "long",
+          "start": 7.8,
+          "end": 8.1
+        },
+        {
+          "text": "observation",
+          "start": 8.1,
+          "end": 8.64
+        },
+        {
+          "text": "of",
+          "start": 8.64,
+          "end": 9.0
+        },
+        {
+          "text": "the",
+          "start": 9.0,
+          "end": 9.1
+        },
+        {
+          "text": "nature",
+          "start": 9.1,
+          "end": 9.32
+        },
+        {
+          "text": "of",
+          "start": 9.32,
+          "end": 9.58
+        },
+        {
+          "text": "evil",
+          "start": 9.58,
+          "end": 9.88
+        },
+        {
+          "text": "in",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "others:",
+          "start": 10.1,
+          "end": 10.36
+        },
+        {
+          "text": "knowledge",
+          "start": 11.54,
+          "end": 11.54
+        },
+        {
+          "text": "should",
+          "start": 11.54,
+          "end": 11.78
+        },
+        {
+          "text": "be",
+          "start": 11.78,
+          "end": 11.94
+        },
+        {
+          "text": "his",
+          "start": 11.94,
+          "end": 12.14
+        },
+        {
+          "text": "guide,",
+          "start": 12.14,
+          "end": 12.5
+        },
+        {
+          "text": "not",
+          "start": 12.88,
+          "end": 13.06
+        },
+        {
+          "text": "personal",
+          "start": 13.06,
+          "end": 13.56
+        },
+        {
+          "text": "experience.",
+          "start": 13.56,
+          "end": 14.22
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3063729256391525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4329dc6b835c1f18cc6d853cdaaaa42602368813833db3f93631f3fbe66ae487",
+  "selected_reasons": []
+}

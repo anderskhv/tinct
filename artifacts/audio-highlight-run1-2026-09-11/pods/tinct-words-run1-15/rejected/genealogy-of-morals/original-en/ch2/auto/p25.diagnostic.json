@@ -1,0 +1,2203 @@
+{
+  "complete": true,
+  "signature": "c73001d4ea48ae87b94dd4788c51a9beec4259b26010f8b3fc92db513e49da9d",
+  "attempts": [
+    {
+      "asr_seconds": 0.7048273757100105,
+      "alignment_seconds": 0.000700831413269043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"They are miserable, there is no doubt about it, all these whisperers and counterfeiters in the corners, although they try to get warm by crouching close to each other, but they tell me that their misery is a favour and distinction given to them by God, just as one beats the dogs one likes best; that perhaps this misery is also a preparation, a probation, a training; that perhaps it is still more something which will one day be compensated and paid back with a tremendous interest in gold, nay in happiness. This they call 'Blessedness.'\"",
+        "hotwords": "God, Blessedness"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They are miserable, there is no doubt about it, all these whisperers and counterfeiters",
+          "start": 0.05,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " are",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " miserable,",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " doubt",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 1.0
+            },
+            {
+              "text": " about",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it,",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " these",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " whisperers",
+              "start": 3.41,
+              "end": 3.93,
+              "probability": 0.7132568359375
+            },
+            {
+              "text": " and",
+              "start": 3.93,
+              "end": 4.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " counterfeiters",
+              "start": 4.15,
+              "end": 4.71,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " in the corners, although they try to get warm by crouching close to each other, but they",
+          "start": 4.71,
+          "end": 9.31,
+          "words": [
+            {
+              "text": " in",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.83,
+              "end": 4.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " corners,",
+              "start": 4.95,
+              "end": 5.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " although",
+              "start": 5.89,
+              "end": 6.07,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " they",
+              "start": 6.07,
+              "end": 6.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " try",
+              "start": 6.23,
+              "end": 6.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 6.43,
+              "end": 6.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " get",
+              "start": 6.55,
+              "end": 6.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " warm",
+              "start": 6.69,
+              "end": 7.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " by",
+              "start": 7.05,
+              "end": 7.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " crouching",
+              "start": 7.29,
+              "end": 7.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " close",
+              "start": 7.65,
+              "end": 7.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 7.91,
+              "end": 8.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " each",
+              "start": 8.13,
+              "end": 8.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " other,",
+              "start": 8.27,
+              "end": 8.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " but",
+              "start": 8.95,
+              "end": 9.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " they",
+              "start": 9.15,
+              "end": 9.31,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " tell me that their misery is a favour and distinction given to them by God, just as one beats the",
+          "start": 9.31,
+          "end": 14.49,
+          "words": [
+            {
+              "text": " tell",
+              "start": 9.31,
+              "end": 9.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 9.53,
+              "end": 9.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 9.71,
+              "end": 9.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " their",
+              "start": 9.85,
+              "end": 10.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " misery",
+              "start": 10.05,
+              "end": 10.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 10.33,
+              "end": 10.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 10.61,
+              "end": 10.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " favour",
+              "start": 10.79,
+              "end": 11.03,
+              "probability": 0.3876953125
+            },
+            {
+              "text": " and",
+              "start": 11.03,
+              "end": 11.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " distinction",
+              "start": 11.29,
+              "end": 11.65,
+              "probability": 0.98046875
+            },
+            {
+              "text": " given",
+              "start": 11.65,
+              "end": 11.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 11.97,
+              "end": 12.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them",
+              "start": 12.19,
+              "end": 12.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 12.31,
+              "end": 12.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " God,",
+              "start": 12.55,
+              "end": 12.89,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " just",
+              "start": 13.47,
+              "end": 13.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 13.67,
+              "end": 13.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " one",
+              "start": 13.83,
+              "end": 14.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " beats",
+              "start": 14.03,
+              "end": 14.27,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 14.27,
+              "end": 14.49,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " dogs one likes best, that perhaps this misery is also a preparation, a probation, a training,",
+          "start": 14.49,
+          "end": 20.85,
+          "words": [
+            {
+              "text": " dogs",
+              "start": 14.49,
+              "end": 14.73,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " one",
+              "start": 14.73,
+              "end": 15.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " likes",
+              "start": 15.01,
+              "end": 15.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " best,",
+              "start": 15.25,
+              "end": 15.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 16.27,
+              "end": 16.47,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " perhaps",
+              "start": 16.47,
+              "end": 16.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 16.75,
+              "end": 17.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " misery",
+              "start": 17.07,
+              "end": 17.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 17.43,
+              "end": 17.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " also",
+              "start": 17.67,
+              "end": 17.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 17.99,
+              "end": 18.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " preparation,",
+              "start": 18.15,
+              "end": 18.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 19.27,
+              "end": 19.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " probation,",
+              "start": 19.39,
+              "end": 19.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 20.37,
+              "end": 20.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " training,",
+              "start": 20.49,
+              "end": 20.85,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " that perhaps it is still more something which will one day be compensated and paid back with",
+          "start": 21.35,
+          "end": 26.01,
+          "words": [
+            {
+              "text": " that",
+              "start": 21.35,
+              "end": 21.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " perhaps",
+              "start": 21.59,
+              "end": 21.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 21.91,
+              "end": 22.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 22.05,
+              "end": 22.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " still",
+              "start": 22.13,
+              "end": 22.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " more",
+              "start": 22.35,
+              "end": 22.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " something",
+              "start": 22.59,
+              "end": 22.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " which",
+              "start": 22.97,
+              "end": 23.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 23.21,
+              "end": 23.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 23.43,
+              "end": 23.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " day",
+              "start": 23.67,
+              "end": 23.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 23.85,
+              "end": 24.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " compensated",
+              "start": 24.05,
+              "end": 24.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 24.63,
+              "end": 25.27,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " paid",
+              "start": 25.27,
+              "end": 25.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " back",
+              "start": 25.53,
+              "end": 25.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 25.87,
+              "end": 26.01,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " a tremendous interest in gold, nay in happiness. This they call blessedness.",
+          "start": 26.01,
+          "end": 31.47,
+          "words": [
+            {
+              "text": " a",
+              "start": 26.01,
+              "end": 26.09,
+              "probability": 0.3876953125
+            },
+            {
+              "text": " tremendous",
+              "start": 26.09,
+              "end": 26.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " interest",
+              "start": 26.47,
+              "end": 26.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 26.93,
+              "end": 27.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gold,",
+              "start": 27.19,
+              "end": 27.61,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " nay",
+              "start": 28.23,
+              "end": 28.27,
+              "probability": 0.942138671875
+            },
+            {
+              "text": " in",
+              "start": 28.27,
+              "end": 28.43,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " happiness.",
+              "start": 28.43,
+              "end": 28.87,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " This",
+              "start": 29.95,
+              "end": 30.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " they",
+              "start": 30.19,
+              "end": 30.37,
+              "probability": 0.96875
+            },
+            {
+              "text": " call",
+              "start": 30.37,
+              "end": 30.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " blessedness.",
+              "start": 30.67,
+              "end": 31.47,
+              "probability": 0.792236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "are",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "miserable,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "there",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "is",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "no",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "doubt",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "about",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "it,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "all",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "these",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "whisperers",
+          "start": 3.41,
+          "end": 3.93
+        },
+        {
+          "raw": "and",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "raw": "counterfeiters",
+          "start": 4.15,
+          "end": 4.71
+        },
+        {
+          "raw": "in",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "the",
+          "start": 4.83,
+          "end": 4.95
+        },
+        {
+          "raw": "corners,",
+          "start": 4.95,
+          "end": 5.27
+        },
+        {
+          "raw": "although",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "raw": "they",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "raw": "try",
+          "start": 6.23,
+          "end": 6.43
+        },
+        {
+          "raw": "to",
+          "start": 6.43,
+          "end": 6.55
+        },
+        {
+          "raw": "get",
+          "start": 6.55,
+          "end": 6.69
+        },
+        {
+          "raw": "warm",
+          "start": 6.69,
+          "end": 7.05
+        },
+        {
+          "raw": "by",
+          "start": 7.05,
+          "end": 7.29
+        },
+        {
+          "raw": "crouching",
+          "start": 7.29,
+          "end": 7.65
+        },
+        {
+          "raw": "close",
+          "start": 7.65,
+          "end": 7.91
+        },
+        {
+          "raw": "to",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "raw": "each",
+          "start": 8.13,
+          "end": 8.27
+        },
+        {
+          "raw": "other,",
+          "start": 8.27,
+          "end": 8.55
+        },
+        {
+          "raw": "but",
+          "start": 8.95,
+          "end": 9.15
+        },
+        {
+          "raw": "they",
+          "start": 9.15,
+          "end": 9.31
+        },
+        {
+          "raw": "tell",
+          "start": 9.31,
+          "end": 9.53
+        },
+        {
+          "raw": "me",
+          "start": 9.53,
+          "end": 9.71
+        },
+        {
+          "raw": "that",
+          "start": 9.71,
+          "end": 9.85
+        },
+        {
+          "raw": "their",
+          "start": 9.85,
+          "end": 10.05
+        },
+        {
+          "raw": "misery",
+          "start": 10.05,
+          "end": 10.33
+        },
+        {
+          "raw": "is",
+          "start": 10.33,
+          "end": 10.61
+        },
+        {
+          "raw": "a",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "raw": "favour",
+          "start": 10.79,
+          "end": 11.03
+        },
+        {
+          "raw": "and",
+          "start": 11.03,
+          "end": 11.29
+        },
+        {
+          "raw": "distinction",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "raw": "given",
+          "start": 11.65,
+          "end": 11.97
+        },
+        {
+          "raw": "to",
+          "start": 11.97,
+          "end": 12.19
+        },
+        {
+          "raw": "them",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "raw": "by",
+          "start": 12.31,
+          "end": 12.55
+        },
+        {
+          "raw": "God,",
+          "start": 12.55,
+          "end": 12.89
+        },
+        {
+          "raw": "just",
+          "start": 13.47,
+          "end": 13.67
+        },
+        {
+          "raw": "as",
+          "start": 13.67,
+          "end": 13.83
+        },
+        {
+          "raw": "one",
+          "start": 13.83,
+          "end": 14.03
+        },
+        {
+          "raw": "beats",
+          "start": 14.03,
+          "end": 14.27
+        },
+        {
+          "raw": "the",
+          "start": 14.27,
+          "end": 14.49
+        },
+        {
+          "raw": "dogs",
+          "start": 14.49,
+          "end": 14.73
+        },
+        {
+          "raw": "one",
+          "start": 14.73,
+          "end": 15.01
+        },
+        {
+          "raw": "likes",
+          "start": 15.01,
+          "end": 15.25
+        },
+        {
+          "raw": "best,",
+          "start": 15.25,
+          "end": 15.71
+        },
+        {
+          "raw": "that",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "raw": "perhaps",
+          "start": 16.47,
+          "end": 16.75
+        },
+        {
+          "raw": "this",
+          "start": 16.75,
+          "end": 17.07
+        },
+        {
+          "raw": "misery",
+          "start": 17.07,
+          "end": 17.43
+        },
+        {
+          "raw": "is",
+          "start": 17.43,
+          "end": 17.67
+        },
+        {
+          "raw": "also",
+          "start": 17.67,
+          "end": 17.99
+        },
+        {
+          "raw": "a",
+          "start": 17.99,
+          "end": 18.15
+        },
+        {
+          "raw": "preparation,",
+          "start": 18.15,
+          "end": 18.59
+        },
+        {
+          "raw": "a",
+          "start": 19.27,
+          "end": 19.39
+        },
+        {
+          "raw": "probation,",
+          "start": 19.39,
+          "end": 19.77
+        },
+        {
+          "raw": "a",
+          "start": 20.37,
+          "end": 20.49
+        },
+        {
+          "raw": "training,",
+          "start": 20.49,
+          "end": 20.85
+        },
+        {
+          "raw": "that",
+          "start": 21.35,
+          "end": 21.59
+        },
+        {
+          "raw": "perhaps",
+          "start": 21.59,
+          "end": 21.91
+        },
+        {
+          "raw": "it",
+          "start": 21.91,
+          "end": 22.05
+        },
+        {
+          "raw": "is",
+          "start": 22.05,
+          "end": 22.13
+        },
+        {
+          "raw": "still",
+          "start": 22.13,
+          "end": 22.35
+        },
+        {
+          "raw": "more",
+          "start": 22.35,
+          "end": 22.59
+        },
+        {
+          "raw": "something",
+          "start": 22.59,
+          "end": 22.97
+        },
+        {
+          "raw": "which",
+          "start": 22.97,
+          "end": 23.21
+        },
+        {
+          "raw": "will",
+          "start": 23.21,
+          "end": 23.43
+        },
+        {
+          "raw": "one",
+          "start": 23.43,
+          "end": 23.67
+        },
+        {
+          "raw": "day",
+          "start": 23.67,
+          "end": 23.85
+        },
+        {
+          "raw": "be",
+          "start": 23.85,
+          "end": 24.05
+        },
+        {
+          "raw": "compensated",
+          "start": 24.05,
+          "end": 24.63
+        },
+        {
+          "raw": "and",
+          "start": 24.63,
+          "end": 25.27
+        },
+        {
+          "raw": "paid",
+          "start": 25.27,
+          "end": 25.53
+        },
+        {
+          "raw": "back",
+          "start": 25.53,
+          "end": 25.87
+        },
+        {
+          "raw": "with",
+          "start": 25.87,
+          "end": 26.01
+        },
+        {
+          "raw": "a",
+          "start": 26.01,
+          "end": 26.09
+        },
+        {
+          "raw": "tremendous",
+          "start": 26.09,
+          "end": 26.47
+        },
+        {
+          "raw": "interest",
+          "start": 26.47,
+          "end": 26.93
+        },
+        {
+          "raw": "in",
+          "start": 26.93,
+          "end": 27.19
+        },
+        {
+          "raw": "gold,",
+          "start": 27.19,
+          "end": 27.61
+        },
+        {
+          "raw": "nay",
+          "start": 28.23,
+          "end": 28.27
+        },
+        {
+          "raw": "in",
+          "start": 28.27,
+          "end": 28.43
+        },
+        {
+          "raw": "happiness.",
+          "start": 28.43,
+          "end": 28.87
+        },
+        {
+          "raw": "This",
+          "start": 29.95,
+          "end": 30.19
+        },
+        {
+          "raw": "they",
+          "start": 30.19,
+          "end": 30.37
+        },
+        {
+          "raw": "call",
+          "start": 30.37,
+          "end": 30.67
+        },
+        {
+          "raw": "blessedness.",
+          "start": 30.67,
+          "end": 31.47
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "are",
+        "miserable,",
+        "there",
+        "is",
+        "no",
+        "doubt",
+        "about",
+        "it,",
+        "all",
+        "these",
+        "whisperers",
+        "and",
+        "counterfeiters",
+        "in",
+        "the",
+        "corners,",
+        "although",
+        "they",
+        "try",
+        "to",
+        "get",
+        "warm",
+        "by",
+        "crouching",
+        "close",
+        "to",
+        "each",
+        "other,",
+        "but",
+        "they",
+        "tell",
+        "me",
+        "that",
+        "their",
+        "misery",
+        "is",
+        "a",
+        "favour",
+        "and",
+        "distinction",
+        "given",
+        "to",
+        "them",
+        "by",
+        "God,",
+        "just",
+        "as",
+        "one",
+        "beats",
+        "the",
+        "dogs",
+        "one",
+        "likes",
+        "best;",
+        "that",
+        "perhaps",
+        "this",
+        "misery",
+        "is",
+        "also",
+        "a",
+        "preparation,",
+        "a",
+        "probation,",
+        "a",
+        "training;",
+        "that",
+        "perhaps",
+        "it",
+        "is",
+        "still",
+        "more",
+        "something",
+        "which",
+        "will",
+        "one",
+        "day",
+        "be",
+        "compensated",
+        "and",
+        "paid",
+        "back",
+        "with",
+        "a",
+        "tremendous",
+        "interest",
+        "in",
+        "gold,",
+        "nay",
+        "in",
+        "happiness.",
+        "This",
+        "they",
+        "call",
+        "'Blessedness.'\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          96,
+          0,
+          96
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "are",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "miserable,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "there",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "is",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "no",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "doubt",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "about",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "it,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "all",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "these",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "whisperers",
+          "start": 3.41,
+          "end": 3.93
+        },
+        {
+          "text": "and",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "text": "counterfeiters",
+          "start": 4.15,
+          "end": 4.71
+        },
+        {
+          "text": "in",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "the",
+          "start": 4.83,
+          "end": 4.95
+        },
+        {
+          "text": "corners,",
+          "start": 4.95,
+          "end": 5.27
+        },
+        {
+          "text": "although",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "text": "they",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "text": "try",
+          "start": 6.23,
+          "end": 6.43
+        },
+        {
+          "text": "to",
+          "start": 6.43,
+          "end": 6.55
+        },
+        {
+          "text": "get",
+          "start": 6.55,
+          "end": 6.69
+        },
+        {
+          "text": "warm",
+          "start": 6.69,
+          "end": 7.05
+        },
+        {
+          "text": "by",
+          "start": 7.05,
+          "end": 7.29
+        },
+        {
+          "text": "crouching",
+          "start": 7.29,
+          "end": 7.65
+        },
+        {
+          "text": "close",
+          "start": 7.65,
+          "end": 7.91
+        },
+        {
+          "text": "to",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "text": "each",
+          "start": 8.13,
+          "end": 8.27
+        },
+        {
+          "text": "other,",
+          "start": 8.27,
+          "end": 8.55
+        },
+        {
+          "text": "but",
+          "start": 8.95,
+          "end": 9.15
+        },
+        {
+          "text": "they",
+          "start": 9.15,
+          "end": 9.31
+        },
+        {
+          "text": "tell",
+          "start": 9.31,
+          "end": 9.53
+        },
+        {
+          "text": "me",
+          "start": 9.53,
+          "end": 9.71
+        },
+        {
+          "text": "that",
+          "start": 9.71,
+          "end": 9.85
+        },
+        {
+          "text": "their",
+          "start": 9.85,
+          "end": 10.05
+        },
+        {
+          "text": "misery",
+          "start": 10.05,
+          "end": 10.33
+        },
+        {
+          "text": "is",
+          "start": 10.33,
+          "end": 10.61
+        },
+        {
+          "text": "a",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "text": "favour",
+          "start": 10.79,
+          "end": 11.03
+        },
+        {
+          "text": "and",
+          "start": 11.03,
+          "end": 11.29
+        },
+        {
+          "text": "distinction",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "text": "given",
+          "start": 11.65,
+          "end": 11.97
+        },
+        {
+          "text": "to",
+          "start": 11.97,
+          "end": 12.19
+        },
+        {
+          "text": "them",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "text": "by",
+          "start": 12.31,
+          "end": 12.55
+        },
+        {
+          "text": "God,",
+          "start": 12.55,
+          "end": 12.89
+        },
+        {
+          "text": "just",
+          "start": 13.47,
+          "end": 13.67
+        },
+        {
+          "text": "as",
+          "start": 13.67,
+          "end": 13.83
+        },
+        {
+          "text": "one",
+          "start": 13.83,
+          "end": 14.03
+        },
+        {
+          "text": "beats",
+          "start": 14.03,
+          "end": 14.27
+        },
+        {
+          "text": "the",
+          "start": 14.27,
+          "end": 14.49
+        },
+        {
+          "text": "dogs",
+          "start": 14.49,
+          "end": 14.73
+        },
+        {
+          "text": "one",
+          "start": 14.73,
+          "end": 15.01
+        },
+        {
+          "text": "likes",
+          "start": 15.01,
+          "end": 15.25
+        },
+        {
+          "text": "best;",
+          "start": 15.25,
+          "end": 15.71
+        },
+        {
+          "text": "that",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "text": "perhaps",
+          "start": 16.47,
+          "end": 16.75
+        },
+        {
+          "text": "this",
+          "start": 16.75,
+          "end": 17.07
+        },
+        {
+          "text": "misery",
+          "start": 17.07,
+          "end": 17.43
+        },
+        {
+          "text": "is",
+          "start": 17.43,
+          "end": 17.67
+        },
+        {
+          "text": "also",
+          "start": 17.67,
+          "end": 17.99
+        },
+        {
+          "text": "a",
+          "start": 17.99,
+          "end": 18.15
+        },
+        {
+          "text": "preparation,",
+          "start": 18.15,
+          "end": 18.59
+        },
+        {
+          "text": "a",
+          "start": 19.27,
+          "end": 19.39
+        },
+        {
+          "text": "probation,",
+          "start": 19.39,
+          "end": 19.77
+        },
+        {
+          "text": "a",
+          "start": 20.37,
+          "end": 20.49
+        },
+        {
+          "text": "training;",
+          "start": 20.49,
+          "end": 20.85
+        },
+        {
+          "text": "that",
+          "start": 21.35,
+          "end": 21.59
+        },
+        {
+          "text": "perhaps",
+          "start": 21.59,
+          "end": 21.91
+        },
+        {
+          "text": "it",
+          "start": 21.91,
+          "end": 22.05
+        },
+        {
+          "text": "is",
+          "start": 22.05,
+          "end": 22.13
+        },
+        {
+          "text": "still",
+          "start": 22.13,
+          "end": 22.35
+        },
+        {
+          "text": "more",
+          "start": 22.35,
+          "end": 22.59
+        },
+        {
+          "text": "something",
+          "start": 22.59,
+          "end": 22.97
+        },
+        {
+          "text": "which",
+          "start": 22.97,
+          "end": 23.21
+        },
+        {
+          "text": "will",
+          "start": 23.21,
+          "end": 23.43
+        },
+        {
+          "text": "one",
+          "start": 23.43,
+          "end": 23.67
+        },
+        {
+          "text": "day",
+          "start": 23.67,
+          "end": 23.85
+        },
+        {
+          "text": "be",
+          "start": 23.85,
+          "end": 24.05
+        },
+        {
+          "text": "compensated",
+          "start": 24.05,
+          "end": 24.63
+        },
+        {
+          "text": "and",
+          "start": 24.63,
+          "end": 25.27
+        },
+        {
+          "text": "paid",
+          "start": 25.27,
+          "end": 25.53
+        },
+        {
+          "text": "back",
+          "start": 25.53,
+          "end": 25.87
+        },
+        {
+          "text": "with",
+          "start": 25.87,
+          "end": 26.01
+        },
+        {
+          "text": "a",
+          "start": 26.01,
+          "end": 26.09
+        },
+        {
+          "text": "tremendous",
+          "start": 26.09,
+          "end": 26.47
+        },
+        {
+          "text": "interest",
+          "start": 26.47,
+          "end": 26.93
+        },
+        {
+          "text": "in",
+          "start": 26.93,
+          "end": 27.19
+        },
+        {
+          "text": "gold,",
+          "start": 27.19,
+          "end": 27.61
+        },
+        {
+          "text": "nay",
+          "start": 28.23,
+          "end": 28.27
+        },
+        {
+          "text": "in",
+          "start": 28.27,
+          "end": 28.43
+        },
+        {
+          "text": "happiness.",
+          "start": 28.43,
+          "end": 28.87
+        },
+        {
+          "text": "This",
+          "start": 29.95,
+          "end": 30.19
+        },
+        {
+          "text": "they",
+          "start": 30.19,
+          "end": 30.37
+        },
+        {
+          "text": "call",
+          "start": 30.37,
+          "end": 30.67
+        },
+        {
+          "text": "'Blessedness.'\"",
+          "start": 30.67,
+          "end": 31.47
+        }
+      ],
+      "stats": {
+        "expected_words": 96,
+        "heard_words": 96,
+        "matched_words": 96
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.70596132427454
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "969c4f5aca1a2a56d33bc64a1c937a22f9c8b631a8b53bdc6c53e2a998a3db44",
+  "selected_reasons": []
+}

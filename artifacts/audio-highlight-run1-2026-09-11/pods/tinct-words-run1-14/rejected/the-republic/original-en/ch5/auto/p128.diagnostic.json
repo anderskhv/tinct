@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "c3de4f71a9e71a22a6ed8ba36efd0bca5c714d0e19a896c77880d6fb1f3f0b8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.09299109131097794,
+      "alignment_seconds": 6.585568189620972e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, by far the best.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, by far the best.",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " by",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " far",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " best.",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "by",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "far",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "best.",
+          "start": 1.2,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "by",
+        "far",
+        "the",
+        "best."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "by",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "far",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "best.",
+          "start": 1.2,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09308671951293945
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e83aeac093fe86b76774760609e86039094c31525bf66307efc53f56742152ea",
+  "selected_reasons": []
+}

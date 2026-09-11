@@ -1,0 +1,1320 @@
+{
+  "complete": true,
+  "signature": "ba765641f91370fcb51d4fe2ad3a72128f523921c2f36242e64dc579cba1b43d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1322733536362648,
+      "alignment_seconds": 0.00012955814599990845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aegeus. But thou . . . ? Thy frame is wasted, and the fire Dead in thine eyes.",
+        "hotwords": "Aegeus, But, Thy, Dead"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aegeus, But thou . . . Thy frame is wasted, and the fire Dead in thine eyes.",
+          "start": 0.02,
+          "end": 4.5,
+          "words": [
+            {
+              "text": " Aegeus,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.6403961181640625
+            },
+            {
+              "text": " But",
+              "start": 1.1,
+              "end": 1.18,
+              "probability": 0.02923583984375
+            },
+            {
+              "text": " thou",
+              "start": 1.18,
+              "end": 1.48,
+              "probability": 0.513671875
+            },
+            {
+              "text": " .",
+              "start": 1.48,
+              "end": 1.82,
+              "probability": 0.0003631114959716797
+            },
+            {
+              "text": " .",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " .",
+              "start": 1.92,
+              "end": 1.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Thy",
+              "start": 1.92,
+              "end": 2.0,
+              "probability": 0.37158203125
+            },
+            {
+              "text": " frame",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " is",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " wasted,",
+              "start": 2.48,
+              "end": 2.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.12,
+              "end": 3.16,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " fire",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " Dead",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.01800537109375
+            },
+            {
+              "text": " in",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thine",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " eyes.",
+              "start": 4.16,
+              "end": 4.5,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegeus,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "But",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "raw": "thou",
+          "start": 1.18,
+          "end": 1.48
+        },
+        {
+          "raw": ".",
+          "start": 1.48,
+          "end": 1.82
+        },
+        {
+          "raw": ".",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": ".",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "raw": "Thy",
+          "start": 1.92,
+          "end": 2.0
+        },
+        {
+          "raw": "frame",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "is",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "wasted,",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "raw": "and",
+          "start": 3.12,
+          "end": 3.16
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "fire",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "Dead",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "raw": "in",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "thine",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "eyes.",
+          "start": 4.16,
+          "end": 4.5
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "But",
+        "thou",
+        ".",
+        ".",
+        ".",
+        "?",
+        "Thy",
+        "frame",
+        "is",
+        "wasted,",
+        "and",
+        "the",
+        "fire",
+        "Dead",
+        "in",
+        "thine",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "equal",
+          4,
+          18,
+          3,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "But",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "text": "thou",
+          "start": 1.18,
+          "end": 1.48
+        },
+        {
+          "text": ".",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": ".",
+          "start": 1.48,
+          "end": 1.82
+        },
+        {
+          "text": ".",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "?",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "text": "Thy",
+          "start": 1.92,
+          "end": 2.0
+        },
+        {
+          "text": "frame",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "is",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "wasted,",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "text": "and",
+          "start": 3.12,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "fire",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "text": "Dead",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "text": "in",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "thine",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "eyes.",
+          "start": 4.16,
+          "end": 4.5
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.13246308267116547
+    },
+    {
+      "asr_seconds": 0.17959807068109512,
+      "alignment_seconds": 0.00013683736324310303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Aegeus, But, Thy, Dead"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Aegeus, But, Thou, Thy frame is wasted and the fire dead in thine eyes.",
+          "start": 0.02,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Aegeus,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.6405741373697916
+            },
+            {
+              "text": " But,",
+              "start": 1.1,
+              "end": 1.18,
+              "probability": 0.02923583984375
+            },
+            {
+              "text": " Thou,",
+              "start": 1.4,
+              "end": 1.44,
+              "probability": 0.326171875
+            },
+            {
+              "text": " Thy",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " frame",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " is",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " wasted",
+              "start": 2.48,
+              "end": 2.84,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " and",
+              "start": 2.84,
+              "end": 3.16,
+              "probability": 0.28125
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " fire",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " dead",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " in",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thine",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " eyes.",
+              "start": 4.16,
+              "end": 4.54,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegeus,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "But,",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "raw": "Thou,",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "raw": "Thy",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "frame",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "is",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "wasted",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "fire",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "dead",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "raw": "in",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "thine",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "eyes.",
+          "start": 4.16,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "But",
+        "thou",
+        ".",
+        ".",
+        ".",
+        "?",
+        "Thy",
+        "frame",
+        "is",
+        "wasted,",
+        "and",
+        "the",
+        "fire",
+        "Dead",
+        "in",
+        "thine",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "delete",
+          3,
+          7,
+          3,
+          3
+        ],
+        [
+          "equal",
+          7,
+          18,
+          3,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          3,
+          7,
+          3,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "But",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "text": "thou",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "text": ".",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": ".",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": ".",
+          "start": 1.74,
+          "end": 1.79
+        },
+        {
+          "text": "?",
+          "start": 1.79,
+          "end": 1.815
+        },
+        {
+          "text": "Thy",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "frame",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "is",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "wasted,",
+          "start": 2.48,
+          "end": 2.84
+        },
+        {
+          "text": "and",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "fire",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "Dead",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "text": "in",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "thine",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "eyes.",
+          "start": 4.16,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17978239804506302
+    },
+    {
+      "asr_seconds": 0.11741216480731964,
+      "alignment_seconds": 9.164214134216309e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aegius, but thou, thy frame is wasted, and the fire dead in thine eyes.",
+          "start": 0.02,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Aegius,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.324951171875
+            },
+            {
+              "text": " but",
+              "start": 1.12,
+              "end": 1.18,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " thou,",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " thy",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.93359375
+            },
+            {
+              "text": " frame",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wasted,",
+              "start": 2.48,
+              "end": 2.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 3.14,
+              "end": 3.16,
+              "probability": 0.853515625
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.859375
+            },
+            {
+              "text": " fire",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " dead",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " in",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thine",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eyes.",
+              "start": 4.14,
+              "end": 4.54,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegius,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "but",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "raw": "thou,",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "thy",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "frame",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "raw": "is",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "wasted,",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "raw": "and",
+          "start": 3.14,
+          "end": 3.16
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "fire",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "dead",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "raw": "in",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "thine",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "eyes.",
+          "start": 4.14,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "But",
+        "thou",
+        ".",
+        ".",
+        ".",
+        "?",
+        "Thy",
+        "frame",
+        "is",
+        "wasted,",
+        "and",
+        "the",
+        "fire",
+        "Dead",
+        "in",
+        "thine",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "delete",
+          3,
+          7,
+          3,
+          3
+        ],
+        [
+          "equal",
+          7,
+          18,
+          3,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          3,
+          7,
+          3,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "But",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "text": "thou",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": ".",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": ".",
+          "start": 1.68,
+          "end": 1.79
+        },
+        {
+          "text": ".",
+          "start": 1.79,
+          "end": 1.845
+        },
+        {
+          "text": "?",
+          "start": 1.845,
+          "end": 1.873
+        },
+        {
+          "text": "Thy",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "frame",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "is",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "wasted,",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "text": "and",
+          "start": 3.14,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "fire",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "text": "Dead",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "text": "in",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "thine",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "eyes.",
+          "start": 4.14,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.7222222222222222,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11754082888364792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d87c47b8854e6463c4daa99705ea1f85f63f493292833c9361f56fb53948bfd",
+  "selected_reasons": []
+}

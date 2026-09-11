@@ -1,0 +1,355 @@
+{
+  "complete": true,
+  "signature": "4d5fa2dc81e0f742a8161f823c8d394eb8c7999d99cbf59adeabead30ec66805",
+  "attempts": [
+    {
+      "asr_seconds": 0.13493716903030872,
+      "alignment_seconds": 7.46212899684906e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ballo clasped his paws over his ears and rolled to and fro moaning.",
+          "start": 0.08,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " Ballo",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.617919921875
+            },
+            {
+              "text": " clasped",
+              "start": 0.72,
+              "end": 1.12,
+              "probability": 0.760498046875
+            },
+            {
+              "text": " his",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " paws",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " over",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ears",
+              "start": 1.9,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.26,
+              "end": 2.78,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " rolled",
+              "start": 2.78,
+              "end": 3.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 3.0,
+              "end": 3.32,
+              "probability": 0.94140625
+            },
+            {
+              "text": " and",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " fro",
+              "start": 3.5,
+              "end": 3.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " moaning.",
+              "start": 3.76,
+              "end": 4.08,
+              "probability": 0.861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ballo",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "clasped",
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "raw": "his",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "paws",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "over",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "his",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "ears",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.78
+        },
+        {
+          "raw": "rolled",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "raw": "to",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "fro",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "raw": "moaning.",
+          "start": 3.76,
+          "end": 4.08
+        }
+      ],
+      "expected_tokens": [
+        "Baloo",
+        "clasped",
+        "his",
+        "paws",
+        "over",
+        "his",
+        "ears",
+        "and",
+        "rolled",
+        "to",
+        "and",
+        "fro",
+        "moaning."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          13,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Baloo",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "clasped",
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "text": "his",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "paws",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "over",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "his",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "ears",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.78
+        },
+        {
+          "text": "rolled",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "text": "to",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "text": "and",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "fro",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "text": "moaning.",
+          "start": 3.76,
+          "end": 4.08
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.13504425715655088
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88374092532bfe3d813519c27ece362089521724c13e8068e5c24ea57752259d",
+  "selected_reasons": []
+}

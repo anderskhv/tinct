@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "003f5827b1d3f7ea4424e245d4d7943c5385812d5bbab4f4e9cf725acf881fff",
+  "attempts": [
+    {
+      "asr_seconds": 0.17241121083498,
+      "alignment_seconds": 8.476525545120239e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To that resolution, said Glaucon, you may regard me as saying agreed.",
+          "start": 0.0,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.36474609375
+            },
+            {
+              "text": " that",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " resolution,",
+              "start": 0.7,
+              "end": 1.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Glaucon,",
+              "start": 1.8,
+              "end": 2.22,
+              "probability": 0.558349609375
+            },
+            {
+              "text": " you",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " may",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " regard",
+              "start": 2.9,
+              "end": 3.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 3.48,
+              "end": 3.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " saying",
+              "start": 3.62,
+              "end": 3.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " agreed.",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "that",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "resolution,",
+          "start": 0.7,
+          "end": 1.28
+        },
+        {
+          "raw": "said",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "Glaucon,",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "raw": "you",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "may",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "regard",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "raw": "me",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "raw": "as",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "raw": "saying",
+          "start": 3.62,
+          "end": 3.94
+        },
+        {
+          "raw": "agreed.",
+          "start": 3.94,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "that",
+        "resolution,",
+        "said",
+        "Glaucon,",
+        "you",
+        "may",
+        "regard",
+        "me",
+        "as",
+        "saying",
+        "Agreed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "that",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "resolution,",
+          "start": 0.7,
+          "end": 1.28
+        },
+        {
+          "text": "said",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "Glaucon,",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "text": "you",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "may",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "regard",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "text": "me",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "text": "as",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "text": "saying",
+          "start": 3.62,
+          "end": 3.94
+        },
+        {
+          "text": "Agreed.",
+          "start": 3.94,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17254628986120224
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6123170d6d8417ca3b60bf4bd9caa9de103fbefd39efe38b9ca5291490ec1477",
+  "selected_reasons": []
+}

@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "2073ae9fc63c3909228342a4398ba4bc819bdb8ac3d1a3a2d212925a68bbb99d",
+  "attempts": [
+    {
+      "asr_seconds": 0.09359905123710632,
+      "alignment_seconds": 7.311999797821045e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " So I should expect, he replied.",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " I",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " should",
+              "start": 0.59,
+              "end": 0.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " expect,",
+              "start": 0.69,
+              "end": 1.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " replied.",
+              "start": 1.35,
+              "end": 1.73,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "I",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "should",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "raw": "expect,",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "raw": "he",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "replied.",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "So",
+        "I",
+        "should",
+        "expect,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "So",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "I",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "should",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "text": "expect,",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "text": "he",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "replied.",
+          "start": 1.35,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09370443224906921
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79c92da141641927b01fb35c5a7d150ecee4758661610214fa68da8f88d90ac4",
+  "selected_reasons": []
+}

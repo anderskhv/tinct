@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "d531a445f5d99dd904d5ba4d3362ef7990607de533c928149d18b90cb08fd135",
+  "attempts": [
+    {
+      "asr_seconds": 0.08176922053098679,
+      "alignment_seconds": 7.145851850509644e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And in mine also.",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And in mine also.",
+          "start": 0.08,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.449951171875
+            },
+            {
+              "text": " in",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " mine",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " also.",
+              "start": 0.84,
+              "end": 1.3,
+              "probability": 0.74560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "in",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "mine",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "also.",
+          "start": 0.84,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "in",
+        "mine",
+        "also."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "in",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "mine",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "also.",
+          "start": 0.84,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08186560869216919
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "115fde730fb3f240d2c623e1fa757b5d8cef97b8629e9a0e0ba6eb6e2666b70d",
+  "selected_reasons": []
+}

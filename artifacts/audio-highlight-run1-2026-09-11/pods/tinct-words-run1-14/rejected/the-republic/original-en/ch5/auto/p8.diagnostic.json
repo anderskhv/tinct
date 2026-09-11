@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "26d63b71308f00090d5daae6bf00d826500d660ecd5cbe93f481dab5d73c2491",
+  "attempts": [
+    {
+      "asr_seconds": 0.10956238955259323,
+      "alignment_seconds": 7.3261559009552e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And was I not right, Adeimantus?",
+        "hotwords": "And, I, Adeimantus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And was I not right, Adeimantus?",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " was",
+              "start": 0.5,
+              "end": 0.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 0.72,
+              "end": 0.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " right,",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Adeimantus?",
+              "start": 1.4,
+              "end": 2.0,
+              "probability": 0.47647705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "raw": "I",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "not",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "raw": "right,",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "Adeimantus?",
+          "start": 1.4,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "was",
+        "I",
+        "not",
+        "right,",
+        "Adeimantus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "was",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "text": "I",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "not",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "text": "right,",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "Adeimantus?",
+          "start": 1.4,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10966873914003372
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9ce8b398689a4648cf26fb27041380a8d88eaff34de5042e4a841165f638211",
+  "selected_reasons": []
+}

@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "2c2ecf3b018d27a03e391005fa07329bf5b8e3a45b4a7731b46465e040076c2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14454041421413422,
+      "alignment_seconds": 8.59871506690979e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He was excellent above all men in theft and perjury.",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8359375
+            },
+            {
+              "text": " was",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " excellent",
+              "start": 0.61,
+              "end": 1.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " above",
+              "start": 1.07,
+              "end": 1.33,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " all",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " men",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.958984375
+            },
+            {
+              "text": " theft",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 2.43,
+              "end": 2.73,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " perjury.",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "excellent",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "raw": "above",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "raw": "all",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "raw": "men",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "in",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "theft",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "raw": "perjury.",
+          "start": 2.73,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "'He",
+        "was",
+        "excellent",
+        "above",
+        "all",
+        "men",
+        "in",
+        "theft",
+        "and",
+        "perjury.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "was",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "excellent",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "text": "above",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "text": "all",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "text": "men",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "in",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "theft",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "and",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "text": "perjury.'",
+          "start": 2.73,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14466949552297592
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9b8c48c084dabcb18894060c15657b1e278ceb9381f8df129ed271258871ed4c",
+  "selected_reasons": []
+}

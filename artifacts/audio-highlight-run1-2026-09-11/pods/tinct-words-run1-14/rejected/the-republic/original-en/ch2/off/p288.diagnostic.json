@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "cde46153bcb00cfb27286556c0ca70808c01f20412ebf9ff709602d6c0f92d84",
+  "attempts": [
+    {
+      "asr_seconds": 0.07932425290346146,
+      "alignment_seconds": 5.074590444564819e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Of course.",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " course.",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "course.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "course."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "course.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07939471304416656
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f5e00d7b35b891ba3fa115be293bb8d1a33059f4a41316600108911b8f2c288b",
+  "selected_reasons": []
+}

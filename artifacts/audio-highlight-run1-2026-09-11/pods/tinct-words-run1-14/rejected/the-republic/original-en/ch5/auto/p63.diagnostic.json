@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "f91269fde14bf0c341a438f23c244496a415a1c0e9501c47f67d2a1fa7ae1334",
+  "attempts": [
+    {
+      "asr_seconds": 0.22399866580963135,
+      "alignment_seconds": 0.0001112520694732666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Verily, Glaucon, I said, glorious is the power of the art of contradiction!",
+        "hotwords": "Verily, Glaucon, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Verily, Glaucon, I said, glorious is the power of the art of contradiction!",
+          "start": 0.08,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Verily,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.6575927734375
+            },
+            {
+              "text": " Glaucon,",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.5011393229166666
+            },
+            {
+              "text": " I",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said,",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glorious",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.1756591796875
+            },
+            {
+              "text": " is",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " power",
+              "start": 3.52,
+              "end": 3.74,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 3.74,
+              "end": 3.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " art",
+              "start": 4.1,
+              "end": 4.32,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " of",
+              "start": 4.32,
+              "end": 4.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " contradiction!",
+              "start": 4.48,
+              "end": 4.96,
+              "probability": 0.90869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Verily,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Glaucon,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "I",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "said,",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "glorious",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "power",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "raw": "of",
+          "start": 3.74,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "art",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "raw": "of",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "raw": "contradiction!",
+          "start": 4.48,
+          "end": 4.96
+        }
+      ],
+      "expected_tokens": [
+        "Verily,",
+        "Glaucon,",
+        "I",
+        "said,",
+        "glorious",
+        "is",
+        "the",
+        "power",
+        "of",
+        "the",
+        "art",
+        "of",
+        "contradiction!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Verily,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Glaucon,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "I",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "said,",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "glorious",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "is",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "the",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "power",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "text": "of",
+          "start": 3.74,
+          "end": 3.98
+        },
+        {
+          "text": "the",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "art",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "text": "of",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "contradiction!",
+          "start": 4.48,
+          "end": 4.96
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2241634726524353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "50774ff066bf3040bb8bd6f8262cb7e96acd6b7f02099cf3f777855b856e0a84",
+  "selected_reasons": []
+}

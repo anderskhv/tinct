@@ -1,0 +1,3960 @@
+{
+  "complete": true,
+  "signature": "96465fa2988bb6381f6ccba6da7dd52274b2971da3431615105eefee67420441",
+  "attempts": [
+    {
+      "asr_seconds": 0.47282657108735293,
+      "alignment_seconds": 0.00031630799639970064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. If in Naples I should report this now, would they believe me? If I should say, I saw such islanders-- For, certes, these are people of the island-- Who, though they are of monstrous shape, yet, note, Their manners are more gentle-kind than of Our human generation you shall find Many, nay, almost any.",
+        "hotwords": "Gonzalo, If, Naples, I, For, Who, Their, Our, Many"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, If in Naples I should report this now, would they believe me? If I should say, I saw such islanders-For, certes, these are people of the island-Who, though they are of monstrous shape, yet, note, Their manners are more gentle-kind than of Our human generation you shall find Many, nay, almost any.",
+          "start": 0.05,
+          "end": 18.55,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.587890625
+            },
+            {
+              "text": " If",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.02740478515625
+            },
+            {
+              "text": " in",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Naples",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 1.93,
+              "end": 2.21,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " should",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " report",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " now,",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.9921875
+            },
+            {
+              "text": " would",
+              "start": 3.51,
+              "end": 3.57,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " they",
+              "start": 3.57,
+              "end": 3.75,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " believe",
+              "start": 3.75,
+              "end": 4.05,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " me?",
+              "start": 4.05,
+              "end": 4.41,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " If",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " I",
+              "start": 5.11,
+              "end": 5.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " should",
+              "start": 5.25,
+              "end": 5.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " say,",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 5.99,
+              "end": 6.09,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " saw",
+              "start": 6.09,
+              "end": 6.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " such",
+              "start": 6.25,
+              "end": 6.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " islanders",
+              "start": 6.47,
+              "end": 7.01,
+              "probability": 0.832763671875
+            },
+            {
+              "text": "-For,",
+              "start": 7.01,
+              "end": 7.27,
+              "probability": 0.0023856163024902344
+            },
+            {
+              "text": " certes,",
+              "start": 7.59,
+              "end": 7.97,
+              "probability": 0.0890655517578125
+            },
+            {
+              "text": " these",
+              "start": 8.37,
+              "end": 8.53,
+              "probability": 0.708984375
+            },
+            {
+              "text": " are",
+              "start": 8.53,
+              "end": 8.71,
+              "probability": 0.96875
+            },
+            {
+              "text": " people",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " of",
+              "start": 8.89,
+              "end": 9.11,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 9.11,
+              "end": 9.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " island",
+              "start": 9.23,
+              "end": 9.51,
+              "probability": 0.890625
+            },
+            {
+              "text": "-Who,",
+              "start": 9.51,
+              "end": 9.87,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " though",
+              "start": 10.43,
+              "end": 10.57,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " they",
+              "start": 10.57,
+              "end": 10.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " are",
+              "start": 10.73,
+              "end": 10.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 10.91,
+              "end": 11.07,
+              "probability": 0.98828125
+            },
+            {
+              "text": " monstrous",
+              "start": 11.07,
+              "end": 11.51,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " shape,",
+              "start": 11.51,
+              "end": 11.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " yet,",
+              "start": 12.45,
+              "end": 12.57,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " note,",
+              "start": 12.91,
+              "end": 12.91,
+              "probability": 0.875
+            },
+            {
+              "text": " Their",
+              "start": 13.37,
+              "end": 13.49,
+              "probability": 0.2919921875
+            },
+            {
+              "text": " manners",
+              "start": 13.49,
+              "end": 13.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " are",
+              "start": 13.79,
+              "end": 14.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " more",
+              "start": 14.07,
+              "end": 14.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " gentle",
+              "start": 14.25,
+              "end": 14.63,
+              "probability": 0.98046875
+            },
+            {
+              "text": "-kind",
+              "start": 14.63,
+              "end": 14.93,
+              "probability": 0.508453369140625
+            },
+            {
+              "text": " than",
+              "start": 14.93,
+              "end": 15.17,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " of",
+              "start": 15.17,
+              "end": 15.27,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Our",
+              "start": 15.27,
+              "end": 15.43,
+              "probability": 0.01561737060546875
+            },
+            {
+              "text": " human",
+              "start": 15.43,
+              "end": 15.73,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " generation",
+              "start": 15.73,
+              "end": 16.21,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " you",
+              "start": 16.21,
+              "end": 16.59,
+              "probability": 0.59765625
+            },
+            {
+              "text": " shall",
+              "start": 16.59,
+              "end": 16.73,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " find",
+              "start": 16.73,
+              "end": 17.03,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Many,",
+              "start": 17.03,
+              "end": 17.37,
+              "probability": 0.11248779296875
+            },
+            {
+              "text": " nay,",
+              "start": 17.61,
+              "end": 17.71,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " almost",
+              "start": 17.95,
+              "end": 18.17,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " any.",
+              "start": 18.17,
+              "end": 18.55,
+              "probability": 0.89599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "If",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "in",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "Naples",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "I",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "raw": "should",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "report",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "raw": "this",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "raw": "now,",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "would",
+          "start": 3.51,
+          "end": 3.57
+        },
+        {
+          "raw": "they",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "raw": "believe",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "raw": "me?",
+          "start": 4.05,
+          "end": 4.41
+        },
+        {
+          "raw": "If",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "I",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "raw": "should",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "raw": "say,",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "I",
+          "start": 5.99,
+          "end": 6.09
+        },
+        {
+          "raw": "saw",
+          "start": 6.09,
+          "end": 6.25
+        },
+        {
+          "raw": "such",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "raw": "islanders",
+          "start": 6.47,
+          "end": 7.01
+        },
+        {
+          "raw": "-For,",
+          "start": 7.01,
+          "end": 7.27
+        },
+        {
+          "raw": "certes,",
+          "start": 7.59,
+          "end": 7.97
+        },
+        {
+          "raw": "these",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "raw": "are",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "raw": "people",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "of",
+          "start": 8.89,
+          "end": 9.11
+        },
+        {
+          "raw": "the",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "raw": "island",
+          "start": 9.23,
+          "end": 9.51
+        },
+        {
+          "raw": "-Who,",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "raw": "though",
+          "start": 10.43,
+          "end": 10.57
+        },
+        {
+          "raw": "they",
+          "start": 10.57,
+          "end": 10.73
+        },
+        {
+          "raw": "are",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "raw": "of",
+          "start": 10.91,
+          "end": 11.07
+        },
+        {
+          "raw": "monstrous",
+          "start": 11.07,
+          "end": 11.51
+        },
+        {
+          "raw": "shape,",
+          "start": 11.51,
+          "end": 11.91
+        },
+        {
+          "raw": "yet,",
+          "start": 12.45,
+          "end": 12.57
+        },
+        {
+          "raw": "note,",
+          "start": 12.91,
+          "end": 12.91
+        },
+        {
+          "raw": "Their",
+          "start": 13.37,
+          "end": 13.49
+        },
+        {
+          "raw": "manners",
+          "start": 13.49,
+          "end": 13.79
+        },
+        {
+          "raw": "are",
+          "start": 13.79,
+          "end": 14.07
+        },
+        {
+          "raw": "more",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "raw": "gentle",
+          "start": 14.25,
+          "end": 14.63
+        },
+        {
+          "raw": "-kind",
+          "start": 14.63,
+          "end": 14.93
+        },
+        {
+          "raw": "than",
+          "start": 14.93,
+          "end": 15.17
+        },
+        {
+          "raw": "of",
+          "start": 15.17,
+          "end": 15.27
+        },
+        {
+          "raw": "Our",
+          "start": 15.27,
+          "end": 15.43
+        },
+        {
+          "raw": "human",
+          "start": 15.43,
+          "end": 15.73
+        },
+        {
+          "raw": "generation",
+          "start": 15.73,
+          "end": 16.21
+        },
+        {
+          "raw": "you",
+          "start": 16.21,
+          "end": 16.59
+        },
+        {
+          "raw": "shall",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "raw": "find",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "raw": "Many,",
+          "start": 17.03,
+          "end": 17.37
+        },
+        {
+          "raw": "nay,",
+          "start": 17.61,
+          "end": 17.71
+        },
+        {
+          "raw": "almost",
+          "start": 17.95,
+          "end": 18.17
+        },
+        {
+          "raw": "any.",
+          "start": 18.17,
+          "end": 18.55
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "If",
+        "in",
+        "Naples",
+        "I",
+        "should",
+        "report",
+        "this",
+        "now,",
+        "would",
+        "they",
+        "believe",
+        "me?",
+        "If",
+        "I",
+        "should",
+        "say,",
+        "I",
+        "saw",
+        "such",
+        "islanders--",
+        "For,",
+        "certes,",
+        "these",
+        "are",
+        "people",
+        "of",
+        "the",
+        "island--",
+        "Who,",
+        "though",
+        "they",
+        "are",
+        "of",
+        "monstrous",
+        "shape,",
+        "yet,",
+        "note,",
+        "Their",
+        "manners",
+        "are",
+        "more",
+        "gentle-kind",
+        "than",
+        "of",
+        "Our",
+        "human",
+        "generation",
+        "you",
+        "shall",
+        "find",
+        "Many,",
+        "nay,",
+        "almost",
+        "any."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ],
+        [
+          "equal",
+          43,
+          55,
+          44,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "If",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "in",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "Naples",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "I",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "text": "should",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "report",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "text": "this",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "text": "now,",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "would",
+          "start": 3.51,
+          "end": 3.57
+        },
+        {
+          "text": "they",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "text": "believe",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "text": "me?",
+          "start": 4.05,
+          "end": 4.41
+        },
+        {
+          "text": "If",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "I",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "text": "should",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "text": "say,",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "I",
+          "start": 5.99,
+          "end": 6.09
+        },
+        {
+          "text": "saw",
+          "start": 6.09,
+          "end": 6.25
+        },
+        {
+          "text": "such",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "text": "islanders--",
+          "start": 6.47,
+          "end": 7.01
+        },
+        {
+          "text": "For,",
+          "start": 7.01,
+          "end": 7.27
+        },
+        {
+          "text": "certes,",
+          "start": 7.59,
+          "end": 7.97
+        },
+        {
+          "text": "these",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "text": "are",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "text": "people",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "of",
+          "start": 8.89,
+          "end": 9.11
+        },
+        {
+          "text": "the",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "text": "island--",
+          "start": 9.23,
+          "end": 9.51
+        },
+        {
+          "text": "Who,",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "text": "though",
+          "start": 10.43,
+          "end": 10.57
+        },
+        {
+          "text": "they",
+          "start": 10.57,
+          "end": 10.73
+        },
+        {
+          "text": "are",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "text": "of",
+          "start": 10.91,
+          "end": 11.07
+        },
+        {
+          "text": "monstrous",
+          "start": 11.07,
+          "end": 11.51
+        },
+        {
+          "text": "shape,",
+          "start": 11.51,
+          "end": 11.91
+        },
+        {
+          "text": "yet,",
+          "start": 12.45,
+          "end": 12.57
+        },
+        {
+          "text": "note,",
+          "start": 12.91,
+          "end": 12.91
+        },
+        {
+          "text": "Their",
+          "start": 13.37,
+          "end": 13.49
+        },
+        {
+          "text": "manners",
+          "start": 13.49,
+          "end": 13.79
+        },
+        {
+          "text": "are",
+          "start": 13.79,
+          "end": 14.07
+        },
+        {
+          "text": "more",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "text": "gentle-kind",
+          "start": 14.25,
+          "end": 14.59
+        },
+        {
+          "text": "than",
+          "start": 14.93,
+          "end": 15.17
+        },
+        {
+          "text": "of",
+          "start": 15.17,
+          "end": 15.27
+        },
+        {
+          "text": "Our",
+          "start": 15.27,
+          "end": 15.43
+        },
+        {
+          "text": "human",
+          "start": 15.43,
+          "end": 15.73
+        },
+        {
+          "text": "generation",
+          "start": 15.73,
+          "end": 16.21
+        },
+        {
+          "text": "you",
+          "start": 16.21,
+          "end": 16.59
+        },
+        {
+          "text": "shall",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "text": "find",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "text": "Many,",
+          "start": 17.03,
+          "end": 17.37
+        },
+        {
+          "text": "nay,",
+          "start": 17.61,
+          "end": 17.71
+        },
+        {
+          "text": "almost",
+          "start": 17.95,
+          "end": 18.17
+        },
+        {
+          "text": "any.",
+          "start": 18.17,
+          "end": 18.55
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 56,
+        "matched_words": 54
+      },
+      "match_ratio": 0.9818181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.4733244340168312
+    },
+    {
+      "asr_seconds": 0.539517721044831,
+      "alignment_seconds": 0.00034170900471508503,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Gonzalo, If, Naples, I, For, Who, Their, Our, Many"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, If, In Naples, I Should Report This Now, Would They Believe Me?",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.587890625
+            },
+            {
+              "text": " If,",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.02740478515625
+            },
+            {
+              "text": " In",
+              "start": 1.59,
+              "end": 1.63,
+              "probability": 0.01026153564453125
+            },
+            {
+              "text": " Naples,",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Should",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.282958984375
+            },
+            {
+              "text": " Report",
+              "start": 2.35,
+              "end": 2.67,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " This",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " Now,",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.919921875
+            },
+            {
+              "text": " Would",
+              "start": 3.51,
+              "end": 3.57,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " They",
+              "start": 3.57,
+              "end": 3.75,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Believe",
+              "start": 3.75,
+              "end": 4.03,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Me?",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " If I Should Say, I Saw Such Islanders For, Certies, These Are People Of The Island Who,",
+          "start": 4.91,
+          "end": 9.87,
+          "words": [
+            {
+              "text": " If",
+              "start": 4.91,
+              "end": 5.11,
+              "probability": 0.89453125
+            },
+            {
+              "text": " I",
+              "start": 5.11,
+              "end": 5.27,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Should",
+              "start": 5.27,
+              "end": 5.39,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Say,",
+              "start": 5.39,
+              "end": 5.71,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 5.93,
+              "end": 6.09,
+              "probability": 0.77734375
+            },
+            {
+              "text": " Saw",
+              "start": 6.09,
+              "end": 6.25,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Such",
+              "start": 6.25,
+              "end": 6.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Islanders",
+              "start": 6.49,
+              "end": 6.83,
+              "probability": 0.88671875
+            },
+            {
+              "text": " For,",
+              "start": 6.83,
+              "end": 7.29,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " Certies,",
+              "start": 7.63,
+              "end": 7.97,
+              "probability": 0.466552734375
+            },
+            {
+              "text": " These",
+              "start": 8.39,
+              "end": 8.53,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Are",
+              "start": 8.53,
+              "end": 8.71,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " People",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Of",
+              "start": 8.89,
+              "end": 9.11,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " The",
+              "start": 9.11,
+              "end": 9.25,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Island",
+              "start": 9.25,
+              "end": 9.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Who,",
+              "start": 9.49,
+              "end": 9.87,
+              "probability": 0.9677734375
+            }
+          ]
+        },
+        {
+          "text": " Though They Are Of Monstrous Shape, Yet Note, Their Manners Are More Gentle Kind Than Of",
+          "start": 10.45,
+          "end": 15.27,
+          "words": [
+            {
+              "text": " Though",
+              "start": 10.45,
+              "end": 10.55,
+              "probability": 0.92578125
+            },
+            {
+              "text": " They",
+              "start": 10.55,
+              "end": 10.73,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Are",
+              "start": 10.73,
+              "end": 10.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Of",
+              "start": 10.91,
+              "end": 11.09,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Monstrous",
+              "start": 11.09,
+              "end": 11.51,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " Shape,",
+              "start": 11.51,
+              "end": 11.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Yet",
+              "start": 12.43,
+              "end": 12.57,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Note,",
+              "start": 12.57,
+              "end": 12.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Their",
+              "start": 13.33,
+              "end": 13.51,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Manners",
+              "start": 13.51,
+              "end": 13.85,
+              "probability": 0.887939453125
+            },
+            {
+              "text": " Are",
+              "start": 13.85,
+              "end": 14.07,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " More",
+              "start": 14.07,
+              "end": 14.25,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Gentle",
+              "start": 14.25,
+              "end": 14.57,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Kind",
+              "start": 14.57,
+              "end": 14.93,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Than",
+              "start": 14.93,
+              "end": 15.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Of",
+              "start": 15.17,
+              "end": 15.27,
+              "probability": 0.9697265625
+            }
+          ]
+        },
+        {
+          "text": " Our Human Generation You Shall Find Many, Nay, Almost Any.",
+          "start": 15.27,
+          "end": 18.51,
+          "words": [
+            {
+              "text": " Our",
+              "start": 15.27,
+              "end": 15.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Human",
+              "start": 15.41,
+              "end": 15.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Generation",
+              "start": 15.73,
+              "end": 16.21,
+              "probability": 0.982421875
+            },
+            {
+              "text": " You",
+              "start": 16.21,
+              "end": 16.59,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " Shall",
+              "start": 16.59,
+              "end": 16.73,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Find",
+              "start": 16.73,
+              "end": 17.03,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Many,",
+              "start": 17.03,
+              "end": 17.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Nay,",
+              "start": 17.65,
+              "end": 17.67,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Almost",
+              "start": 17.95,
+              "end": 18.17,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Any.",
+              "start": 18.17,
+              "end": 18.51,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "If,",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "In",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "raw": "Naples,",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "I",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "Should",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "Report",
+          "start": 2.35,
+          "end": 2.67
+        },
+        {
+          "raw": "This",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "Now,",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "Would",
+          "start": 3.51,
+          "end": 3.57
+        },
+        {
+          "raw": "They",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "raw": "Believe",
+          "start": 3.75,
+          "end": 4.03
+        },
+        {
+          "raw": "Me?",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "raw": "If",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "raw": "I",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "raw": "Should",
+          "start": 5.27,
+          "end": 5.39
+        },
+        {
+          "raw": "Say,",
+          "start": 5.39,
+          "end": 5.71
+        },
+        {
+          "raw": "I",
+          "start": 5.93,
+          "end": 6.09
+        },
+        {
+          "raw": "Saw",
+          "start": 6.09,
+          "end": 6.25
+        },
+        {
+          "raw": "Such",
+          "start": 6.25,
+          "end": 6.49
+        },
+        {
+          "raw": "Islanders",
+          "start": 6.49,
+          "end": 6.83
+        },
+        {
+          "raw": "For,",
+          "start": 6.83,
+          "end": 7.29
+        },
+        {
+          "raw": "Certies,",
+          "start": 7.63,
+          "end": 7.97
+        },
+        {
+          "raw": "These",
+          "start": 8.39,
+          "end": 8.53
+        },
+        {
+          "raw": "Are",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "raw": "People",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "Of",
+          "start": 8.89,
+          "end": 9.11
+        },
+        {
+          "raw": "The",
+          "start": 9.11,
+          "end": 9.25
+        },
+        {
+          "raw": "Island",
+          "start": 9.25,
+          "end": 9.49
+        },
+        {
+          "raw": "Who,",
+          "start": 9.49,
+          "end": 9.87
+        },
+        {
+          "raw": "Though",
+          "start": 10.45,
+          "end": 10.55
+        },
+        {
+          "raw": "They",
+          "start": 10.55,
+          "end": 10.73
+        },
+        {
+          "raw": "Are",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "raw": "Of",
+          "start": 10.91,
+          "end": 11.09
+        },
+        {
+          "raw": "Monstrous",
+          "start": 11.09,
+          "end": 11.51
+        },
+        {
+          "raw": "Shape,",
+          "start": 11.51,
+          "end": 11.91
+        },
+        {
+          "raw": "Yet",
+          "start": 12.43,
+          "end": 12.57
+        },
+        {
+          "raw": "Note,",
+          "start": 12.57,
+          "end": 12.93
+        },
+        {
+          "raw": "Their",
+          "start": 13.33,
+          "end": 13.51
+        },
+        {
+          "raw": "Manners",
+          "start": 13.51,
+          "end": 13.85
+        },
+        {
+          "raw": "Are",
+          "start": 13.85,
+          "end": 14.07
+        },
+        {
+          "raw": "More",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "raw": "Gentle",
+          "start": 14.25,
+          "end": 14.57
+        },
+        {
+          "raw": "Kind",
+          "start": 14.57,
+          "end": 14.93
+        },
+        {
+          "raw": "Than",
+          "start": 14.93,
+          "end": 15.17
+        },
+        {
+          "raw": "Of",
+          "start": 15.17,
+          "end": 15.27
+        },
+        {
+          "raw": "Our",
+          "start": 15.27,
+          "end": 15.41
+        },
+        {
+          "raw": "Human",
+          "start": 15.41,
+          "end": 15.73
+        },
+        {
+          "raw": "Generation",
+          "start": 15.73,
+          "end": 16.21
+        },
+        {
+          "raw": "You",
+          "start": 16.21,
+          "end": 16.59
+        },
+        {
+          "raw": "Shall",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "raw": "Find",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "raw": "Many,",
+          "start": 17.03,
+          "end": 17.35
+        },
+        {
+          "raw": "Nay,",
+          "start": 17.65,
+          "end": 17.67
+        },
+        {
+          "raw": "Almost",
+          "start": 17.95,
+          "end": 18.17
+        },
+        {
+          "raw": "Any.",
+          "start": 18.17,
+          "end": 18.51
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "If",
+        "in",
+        "Naples",
+        "I",
+        "should",
+        "report",
+        "this",
+        "now,",
+        "would",
+        "they",
+        "believe",
+        "me?",
+        "If",
+        "I",
+        "should",
+        "say,",
+        "I",
+        "saw",
+        "such",
+        "islanders--",
+        "For,",
+        "certes,",
+        "these",
+        "are",
+        "people",
+        "of",
+        "the",
+        "island--",
+        "Who,",
+        "though",
+        "they",
+        "are",
+        "of",
+        "monstrous",
+        "shape,",
+        "yet,",
+        "note,",
+        "Their",
+        "manners",
+        "are",
+        "more",
+        "gentle-kind",
+        "than",
+        "of",
+        "Our",
+        "human",
+        "generation",
+        "you",
+        "shall",
+        "find",
+        "Many,",
+        "nay,",
+        "almost",
+        "any."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          42,
+          23,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ],
+        [
+          "equal",
+          43,
+          55,
+          44,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "If",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "in",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "text": "Naples",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "I",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "should",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "report",
+          "start": 2.35,
+          "end": 2.67
+        },
+        {
+          "text": "this",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "now,",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "text": "would",
+          "start": 3.51,
+          "end": 3.57
+        },
+        {
+          "text": "they",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "text": "believe",
+          "start": 3.75,
+          "end": 4.03
+        },
+        {
+          "text": "me?",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "text": "If",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "text": "I",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "text": "should",
+          "start": 5.27,
+          "end": 5.39
+        },
+        {
+          "text": "say,",
+          "start": 5.39,
+          "end": 5.71
+        },
+        {
+          "text": "I",
+          "start": 5.93,
+          "end": 6.09
+        },
+        {
+          "text": "saw",
+          "start": 6.09,
+          "end": 6.25
+        },
+        {
+          "text": "such",
+          "start": 6.25,
+          "end": 6.49
+        },
+        {
+          "text": "islanders--",
+          "start": 6.49,
+          "end": 6.83
+        },
+        {
+          "text": "For,",
+          "start": 6.83,
+          "end": 7.29
+        },
+        {
+          "text": "certes,",
+          "start": 7.29,
+          "end": 7.84
+        },
+        {
+          "text": "these",
+          "start": 8.39,
+          "end": 8.53
+        },
+        {
+          "text": "are",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "text": "people",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "of",
+          "start": 8.89,
+          "end": 9.11
+        },
+        {
+          "text": "the",
+          "start": 9.11,
+          "end": 9.25
+        },
+        {
+          "text": "island--",
+          "start": 9.25,
+          "end": 9.49
+        },
+        {
+          "text": "Who,",
+          "start": 9.49,
+          "end": 9.87
+        },
+        {
+          "text": "though",
+          "start": 10.45,
+          "end": 10.55
+        },
+        {
+          "text": "they",
+          "start": 10.55,
+          "end": 10.73
+        },
+        {
+          "text": "are",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "text": "of",
+          "start": 10.91,
+          "end": 11.09
+        },
+        {
+          "text": "monstrous",
+          "start": 11.09,
+          "end": 11.51
+        },
+        {
+          "text": "shape,",
+          "start": 11.51,
+          "end": 11.91
+        },
+        {
+          "text": "yet,",
+          "start": 12.43,
+          "end": 12.57
+        },
+        {
+          "text": "note,",
+          "start": 12.57,
+          "end": 12.93
+        },
+        {
+          "text": "Their",
+          "start": 13.33,
+          "end": 13.51
+        },
+        {
+          "text": "manners",
+          "start": 13.51,
+          "end": 13.85
+        },
+        {
+          "text": "are",
+          "start": 13.85,
+          "end": 14.07
+        },
+        {
+          "text": "more",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "text": "gentle-kind",
+          "start": 14.25,
+          "end": 14.59
+        },
+        {
+          "text": "than",
+          "start": 14.93,
+          "end": 15.17
+        },
+        {
+          "text": "of",
+          "start": 15.17,
+          "end": 15.27
+        },
+        {
+          "text": "Our",
+          "start": 15.27,
+          "end": 15.41
+        },
+        {
+          "text": "human",
+          "start": 15.41,
+          "end": 15.73
+        },
+        {
+          "text": "generation",
+          "start": 15.73,
+          "end": 16.21
+        },
+        {
+          "text": "you",
+          "start": 16.21,
+          "end": 16.59
+        },
+        {
+          "text": "shall",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "text": "find",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "text": "Many,",
+          "start": 17.03,
+          "end": 17.35
+        },
+        {
+          "text": "nay,",
+          "start": 17.65,
+          "end": 17.67
+        },
+        {
+          "text": "almost",
+          "start": 17.95,
+          "end": 18.17
+        },
+        {
+          "text": "any.",
+          "start": 18.17,
+          "end": 18.51
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 56,
+        "matched_words": 53
+      },
+      "match_ratio": 0.9636363636363636,
+      "rejection_reasons": [],
+      "seconds": 0.5400427649728954
+    },
+    {
+      "asr_seconds": 0.48726379696745425,
+      "alignment_seconds": 0.0003465790068730712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, if in Naples I should report this now, would they believe me?",
+          "start": 0.05,
+          "end": 4.39,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.587890625
+            },
+            {
+              "text": " if",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " in",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Naples",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 1.91,
+              "end": 2.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " should",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " report",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now,",
+              "start": 2.93,
+              "end": 3.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " would",
+              "start": 3.51,
+              "end": 3.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 3.57,
+              "end": 3.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " believe",
+              "start": 3.75,
+              "end": 4.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me?",
+              "start": 4.05,
+              "end": 4.39,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " If I should say, I saw such islanders for, Serdes, these are people of the island who,",
+          "start": 4.97,
+          "end": 9.87,
+          "words": [
+            {
+              "text": " If",
+              "start": 4.97,
+              "end": 5.11,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " I",
+              "start": 5.11,
+              "end": 5.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " should",
+              "start": 5.25,
+              "end": 5.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " say,",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 5.99,
+              "end": 6.09,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " saw",
+              "start": 6.09,
+              "end": 6.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " such",
+              "start": 6.25,
+              "end": 6.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " islanders",
+              "start": 6.47,
+              "end": 7.01,
+              "probability": 0.868408203125
+            },
+            {
+              "text": " for,",
+              "start": 7.01,
+              "end": 7.29,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Serdes,",
+              "start": 7.61,
+              "end": 7.89,
+              "probability": 0.2115936279296875
+            },
+            {
+              "text": " these",
+              "start": 8.37,
+              "end": 8.53,
+              "probability": 0.982421875
+            },
+            {
+              "text": " are",
+              "start": 8.53,
+              "end": 8.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " people",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 8.89,
+              "end": 9.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 9.11,
+              "end": 9.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " island",
+              "start": 9.23,
+              "end": 9.51,
+              "probability": 0.951171875
+            },
+            {
+              "text": " who,",
+              "start": 9.51,
+              "end": 9.87,
+              "probability": 0.96826171875
+            }
+          ]
+        },
+        {
+          "text": " though they are of monstrous shape, yet note, their manners are more gentle kind than of",
+          "start": 10.45,
+          "end": 15.27,
+          "words": [
+            {
+              "text": " though",
+              "start": 10.45,
+              "end": 10.55,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " they",
+              "start": 10.55,
+              "end": 10.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 10.73,
+              "end": 10.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 10.91,
+              "end": 11.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " monstrous",
+              "start": 11.03,
+              "end": 11.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shape,",
+              "start": 11.49,
+              "end": 11.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " yet",
+              "start": 12.43,
+              "end": 12.57,
+              "probability": 0.9921875
+            },
+            {
+              "text": " note,",
+              "start": 12.57,
+              "end": 12.93,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " their",
+              "start": 13.35,
+              "end": 13.49,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " manners",
+              "start": 13.49,
+              "end": 13.79,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " are",
+              "start": 13.79,
+              "end": 14.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 14.07,
+              "end": 14.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " gentle",
+              "start": 14.25,
+              "end": 14.63,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " kind",
+              "start": 14.63,
+              "end": 14.97,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " than",
+              "start": 14.97,
+              "end": 15.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 15.17,
+              "end": 15.27,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " our human generation you shall find many, nay, almost any.",
+          "start": 15.27,
+          "end": 18.57,
+          "words": [
+            {
+              "text": " our",
+              "start": 15.27,
+              "end": 15.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " human",
+              "start": 15.41,
+              "end": 15.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " generation",
+              "start": 15.69,
+              "end": 16.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 16.23,
+              "end": 16.59,
+              "probability": 0.880859375
+            },
+            {
+              "text": " shall",
+              "start": 16.59,
+              "end": 16.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " find",
+              "start": 16.73,
+              "end": 17.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " many,",
+              "start": 17.03,
+              "end": 17.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nay,",
+              "start": 17.61,
+              "end": 17.71,
+              "probability": 0.909423828125
+            },
+            {
+              "text": " almost",
+              "start": 17.93,
+              "end": 18.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any.",
+              "start": 18.17,
+              "end": 18.57,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "if",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "in",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "Naples",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "raw": "should",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "report",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "raw": "this",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "raw": "now,",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "raw": "would",
+          "start": 3.51,
+          "end": 3.57
+        },
+        {
+          "raw": "they",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "raw": "believe",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "raw": "me?",
+          "start": 4.05,
+          "end": 4.39
+        },
+        {
+          "raw": "If",
+          "start": 4.97,
+          "end": 5.11
+        },
+        {
+          "raw": "I",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "raw": "should",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "raw": "say,",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "I",
+          "start": 5.99,
+          "end": 6.09
+        },
+        {
+          "raw": "saw",
+          "start": 6.09,
+          "end": 6.25
+        },
+        {
+          "raw": "such",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "raw": "islanders",
+          "start": 6.47,
+          "end": 7.01
+        },
+        {
+          "raw": "for,",
+          "start": 7.01,
+          "end": 7.29
+        },
+        {
+          "raw": "Serdes,",
+          "start": 7.61,
+          "end": 7.89
+        },
+        {
+          "raw": "these",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "raw": "are",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "raw": "people",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "of",
+          "start": 8.89,
+          "end": 9.11
+        },
+        {
+          "raw": "the",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "raw": "island",
+          "start": 9.23,
+          "end": 9.51
+        },
+        {
+          "raw": "who,",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "raw": "though",
+          "start": 10.45,
+          "end": 10.55
+        },
+        {
+          "raw": "they",
+          "start": 10.55,
+          "end": 10.73
+        },
+        {
+          "raw": "are",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "raw": "of",
+          "start": 10.91,
+          "end": 11.03
+        },
+        {
+          "raw": "monstrous",
+          "start": 11.03,
+          "end": 11.49
+        },
+        {
+          "raw": "shape,",
+          "start": 11.49,
+          "end": 11.93
+        },
+        {
+          "raw": "yet",
+          "start": 12.43,
+          "end": 12.57
+        },
+        {
+          "raw": "note,",
+          "start": 12.57,
+          "end": 12.93
+        },
+        {
+          "raw": "their",
+          "start": 13.35,
+          "end": 13.49
+        },
+        {
+          "raw": "manners",
+          "start": 13.49,
+          "end": 13.79
+        },
+        {
+          "raw": "are",
+          "start": 13.79,
+          "end": 14.07
+        },
+        {
+          "raw": "more",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "raw": "gentle",
+          "start": 14.25,
+          "end": 14.63
+        },
+        {
+          "raw": "kind",
+          "start": 14.63,
+          "end": 14.97
+        },
+        {
+          "raw": "than",
+          "start": 14.97,
+          "end": 15.17
+        },
+        {
+          "raw": "of",
+          "start": 15.17,
+          "end": 15.27
+        },
+        {
+          "raw": "our",
+          "start": 15.27,
+          "end": 15.41
+        },
+        {
+          "raw": "human",
+          "start": 15.41,
+          "end": 15.69
+        },
+        {
+          "raw": "generation",
+          "start": 15.69,
+          "end": 16.23
+        },
+        {
+          "raw": "you",
+          "start": 16.23,
+          "end": 16.59
+        },
+        {
+          "raw": "shall",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "raw": "find",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "raw": "many,",
+          "start": 17.03,
+          "end": 17.35
+        },
+        {
+          "raw": "nay,",
+          "start": 17.61,
+          "end": 17.71
+        },
+        {
+          "raw": "almost",
+          "start": 17.93,
+          "end": 18.17
+        },
+        {
+          "raw": "any.",
+          "start": 18.17,
+          "end": 18.57
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "If",
+        "in",
+        "Naples",
+        "I",
+        "should",
+        "report",
+        "this",
+        "now,",
+        "would",
+        "they",
+        "believe",
+        "me?",
+        "If",
+        "I",
+        "should",
+        "say,",
+        "I",
+        "saw",
+        "such",
+        "islanders--",
+        "For,",
+        "certes,",
+        "these",
+        "are",
+        "people",
+        "of",
+        "the",
+        "island--",
+        "Who,",
+        "though",
+        "they",
+        "are",
+        "of",
+        "monstrous",
+        "shape,",
+        "yet,",
+        "note,",
+        "Their",
+        "manners",
+        "are",
+        "more",
+        "gentle-kind",
+        "than",
+        "of",
+        "Our",
+        "human",
+        "generation",
+        "you",
+        "shall",
+        "find",
+        "Many,",
+        "nay,",
+        "almost",
+        "any."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          42,
+          23,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ],
+        [
+          "equal",
+          43,
+          55,
+          44,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "If",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "in",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "Naples",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "I",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "text": "should",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "report",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "text": "this",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "text": "now,",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "text": "would",
+          "start": 3.51,
+          "end": 3.57
+        },
+        {
+          "text": "they",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "text": "believe",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "text": "me?",
+          "start": 4.05,
+          "end": 4.39
+        },
+        {
+          "text": "If",
+          "start": 4.97,
+          "end": 5.11
+        },
+        {
+          "text": "I",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "text": "should",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "text": "say,",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "I",
+          "start": 5.99,
+          "end": 6.09
+        },
+        {
+          "text": "saw",
+          "start": 6.09,
+          "end": 6.25
+        },
+        {
+          "text": "such",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "text": "islanders--",
+          "start": 6.47,
+          "end": 7.01
+        },
+        {
+          "text": "For,",
+          "start": 7.01,
+          "end": 7.29
+        },
+        {
+          "text": "certes,",
+          "start": 7.29,
+          "end": 7.83
+        },
+        {
+          "text": "these",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "text": "are",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "text": "people",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "of",
+          "start": 8.89,
+          "end": 9.11
+        },
+        {
+          "text": "the",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "text": "island--",
+          "start": 9.23,
+          "end": 9.51
+        },
+        {
+          "text": "Who,",
+          "start": 9.51,
+          "end": 9.87
+        },
+        {
+          "text": "though",
+          "start": 10.45,
+          "end": 10.55
+        },
+        {
+          "text": "they",
+          "start": 10.55,
+          "end": 10.73
+        },
+        {
+          "text": "are",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "text": "of",
+          "start": 10.91,
+          "end": 11.03
+        },
+        {
+          "text": "monstrous",
+          "start": 11.03,
+          "end": 11.49
+        },
+        {
+          "text": "shape,",
+          "start": 11.49,
+          "end": 11.93
+        },
+        {
+          "text": "yet,",
+          "start": 12.43,
+          "end": 12.57
+        },
+        {
+          "text": "note,",
+          "start": 12.57,
+          "end": 12.93
+        },
+        {
+          "text": "Their",
+          "start": 13.35,
+          "end": 13.49
+        },
+        {
+          "text": "manners",
+          "start": 13.49,
+          "end": 13.79
+        },
+        {
+          "text": "are",
+          "start": 13.79,
+          "end": 14.07
+        },
+        {
+          "text": "more",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "text": "gentle-kind",
+          "start": 14.25,
+          "end": 14.61
+        },
+        {
+          "text": "than",
+          "start": 14.97,
+          "end": 15.17
+        },
+        {
+          "text": "of",
+          "start": 15.17,
+          "end": 15.27
+        },
+        {
+          "text": "Our",
+          "start": 15.27,
+          "end": 15.41
+        },
+        {
+          "text": "human",
+          "start": 15.41,
+          "end": 15.69
+        },
+        {
+          "text": "generation",
+          "start": 15.69,
+          "end": 16.23
+        },
+        {
+          "text": "you",
+          "start": 16.23,
+          "end": 16.59
+        },
+        {
+          "text": "shall",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "text": "find",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "text": "Many,",
+          "start": 17.03,
+          "end": 17.35
+        },
+        {
+          "text": "nay,",
+          "start": 17.61,
+          "end": 17.71
+        },
+        {
+          "text": "almost",
+          "start": 17.93,
+          "end": 18.17
+        },
+        {
+          "text": "any.",
+          "start": 18.17,
+          "end": 18.57
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 56,
+        "matched_words": 53
+      },
+      "match_ratio": 0.9636363636363636,
+      "rejection_reasons": [],
+      "seconds": 0.4877937310375273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7272d0c56f2a7b8b5bdb950451edeec616200a8dc77922e6d23f0f5d43539327",
+  "selected_reasons": []
+}

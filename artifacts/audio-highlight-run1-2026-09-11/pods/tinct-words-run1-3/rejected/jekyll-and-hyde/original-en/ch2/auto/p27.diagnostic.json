@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "b57b72d62be3b4f97ae4024a6553e8a397ffcdfa3560e781e9381abbc3dfde79",
+  "attempts": [
+    {
+      "asr_seconds": 0.12610825151205063,
+      "alignment_seconds": 6.306171417236328e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And now,\" said the other, \"how did you know me?\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And now, said the other, how did you know me?",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.319580078125
+            },
+            {
+              "text": " now,",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " said",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " other,",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " how",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " did",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 2.08,
+              "end": 2.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me?",
+              "start": 2.34,
+              "end": 2.56,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "now,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "said",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "other,",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "how",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "did",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "you",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "raw": "know",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "me?",
+          "start": 2.34,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "now,\"",
+        "said",
+        "the",
+        "other,",
+        "\"how",
+        "did",
+        "you",
+        "know",
+        "me?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "now,\"",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "text": "said",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "other,",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "\"how",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "did",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "text": "you",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "know",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "me?\"",
+          "start": 2.34,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12619603425264359
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a4698436cd54e80f727982244dbb60114aab488fda7c1c2e74bd6bd7986a6c1",
+  "selected_reasons": []
+}

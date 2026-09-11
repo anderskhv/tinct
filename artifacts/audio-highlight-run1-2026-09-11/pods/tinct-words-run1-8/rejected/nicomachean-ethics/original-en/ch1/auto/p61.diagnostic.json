@@ -1,0 +1,1778 @@
+{
+  "complete": true,
+  "signature": "43cf6f79db3b47eb6f2d2093f1f251aa0b109da44028fb17afa3e7f894a22dae",
+  "attempts": [
+    {
+      "asr_seconds": 0.2951920456252992,
+      "alignment_seconds": 0.00019829999655485153,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Thus then Happiness is most excellent, most noble, and most pleasant, and these attributes are not separated as in the well-known Delian inscription—",
+        "hotwords": "Thus, Happiness, Delian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thus then Happiness is most excellent, most noble, and most pleasant, and these attributes are not separated as in the well-known Delian inscription—",
+          "start": 0.02,
+          "end": 9.8,
+          "words": [
+            {
+              "text": " Thus",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " then",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " Happiness",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.0221710205078125
+            },
+            {
+              "text": " is",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " most",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " excellent,",
+              "start": 1.82,
+              "end": 2.36,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " most",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " noble,",
+              "start": 3.1,
+              "end": 3.46,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 3.96,
+              "end": 4.04,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " most",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pleasant,",
+              "start": 4.28,
+              "end": 4.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 5.26,
+              "end": 5.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " these",
+              "start": 5.36,
+              "end": 5.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " attributes",
+              "start": 5.54,
+              "end": 6.0,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " are",
+              "start": 6.0,
+              "end": 6.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 6.26,
+              "end": 6.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " separated",
+              "start": 6.46,
+              "end": 6.96,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " as",
+              "start": 6.96,
+              "end": 7.26,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " in",
+              "start": 7.26,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.42,
+              "end": 7.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " well",
+              "start": 7.54,
+              "end": 7.72,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-known",
+              "start": 7.72,
+              "end": 8.0,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Delian",
+              "start": 8.0,
+              "end": 8.5,
+              "probability": 0.846435546875
+            },
+            {
+              "text": " inscription—",
+              "start": 8.5,
+              "end": 9.8,
+              "probability": 0.44841158390045166
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thus",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "then",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "Happiness",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "is",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "most",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "excellent,",
+          "start": 1.82,
+          "end": 2.36
+        },
+        {
+          "raw": "most",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "noble,",
+          "start": 3.1,
+          "end": 3.46
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "raw": "most",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "pleasant,",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "raw": "these",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "raw": "attributes",
+          "start": 5.54,
+          "end": 6.0
+        },
+        {
+          "raw": "are",
+          "start": 6.0,
+          "end": 6.26
+        },
+        {
+          "raw": "not",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "raw": "separated",
+          "start": 6.46,
+          "end": 6.96
+        },
+        {
+          "raw": "as",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "raw": "in",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "raw": "the",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "raw": "well",
+          "start": 7.54,
+          "end": 7.72
+        },
+        {
+          "raw": "-known",
+          "start": 7.72,
+          "end": 8.0
+        },
+        {
+          "raw": "Delian",
+          "start": 8.0,
+          "end": 8.5
+        },
+        {
+          "raw": "inscription—",
+          "start": 8.5,
+          "end": 9.8
+        }
+      ],
+      "expected_tokens": [
+        "Thus",
+        "then",
+        "Happiness",
+        "is",
+        "most",
+        "excellent,",
+        "most",
+        "noble,",
+        "and",
+        "most",
+        "pleasant,",
+        "and",
+        "these",
+        "attributes",
+        "are",
+        "not",
+        "separated",
+        "as",
+        "in",
+        "the",
+        "well-known",
+        "Delian",
+        "inscription—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          23,
+          22,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Thus",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "then",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "Happiness",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "is",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "most",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "excellent,",
+          "start": 1.82,
+          "end": 2.36
+        },
+        {
+          "text": "most",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "noble,",
+          "start": 3.1,
+          "end": 3.46
+        },
+        {
+          "text": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "text": "most",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "text": "pleasant,",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "text": "and",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "text": "these",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "text": "attributes",
+          "start": 5.54,
+          "end": 6.0
+        },
+        {
+          "text": "are",
+          "start": 6.0,
+          "end": 6.26
+        },
+        {
+          "text": "not",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "text": "separated",
+          "start": 6.46,
+          "end": 6.96
+        },
+        {
+          "text": "as",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "text": "in",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "text": "the",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "text": "well-known",
+          "start": 7.54,
+          "end": 7.77
+        },
+        {
+          "text": "Delian",
+          "start": 8.0,
+          "end": 8.5
+        },
+        {
+          "text": "inscription—",
+          "start": 8.5,
+          "end": 9.8
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9565217391304348,
+      "rejection_reasons": [],
+      "seconds": 0.2954848948866129
+    },
+    {
+      "asr_seconds": 0.3015182171948254,
+      "alignment_seconds": 0.00015546893700957298,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Thus, Happiness, Delian"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Thus then happiness is most excellent, most noble, and most pleasant, and these attributes",
+          "start": 0.02,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " Thus",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " then",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " happiness",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.775390625
+            },
+            {
+              "text": " is",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " most",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " excellent,",
+              "start": 1.82,
+              "end": 2.38,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " most",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " noble,",
+              "start": 3.1,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.96,
+              "end": 4.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " most",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pleasant,",
+              "start": 4.28,
+              "end": 4.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 5.24,
+              "end": 5.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " these",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " attributes",
+              "start": 5.52,
+              "end": 6.02,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " are not separated as in the well-known Delian inscription.",
+          "start": 6.02,
+          "end": 8.92,
+          "words": [
+            {
+              "text": " are",
+              "start": 6.02,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 6.26,
+              "end": 6.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " separated",
+              "start": 6.44,
+              "end": 6.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " as",
+              "start": 6.96,
+              "end": 7.26,
+              "probability": 0.978515625
+            },
+            {
+              "text": " in",
+              "start": 7.26,
+              "end": 7.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.42,
+              "end": 7.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " well",
+              "start": 7.54,
+              "end": 7.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": "-known",
+              "start": 7.72,
+              "end": 8.0,
+              "probability": 0.951904296875
+            },
+            {
+              "text": " Delian",
+              "start": 8.0,
+              "end": 8.5,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " inscription.",
+              "start": 8.5,
+              "end": 8.92,
+              "probability": 0.9453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thus",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "then",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "happiness",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "is",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "most",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "excellent,",
+          "start": 1.82,
+          "end": 2.38
+        },
+        {
+          "raw": "most",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "noble,",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "raw": "most",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "pleasant,",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "raw": "and",
+          "start": 5.24,
+          "end": 5.34
+        },
+        {
+          "raw": "these",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "attributes",
+          "start": 5.52,
+          "end": 6.02
+        },
+        {
+          "raw": "are",
+          "start": 6.02,
+          "end": 6.26
+        },
+        {
+          "raw": "not",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "raw": "separated",
+          "start": 6.44,
+          "end": 6.96
+        },
+        {
+          "raw": "as",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "raw": "in",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "raw": "the",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "raw": "well",
+          "start": 7.54,
+          "end": 7.72
+        },
+        {
+          "raw": "-known",
+          "start": 7.72,
+          "end": 8.0
+        },
+        {
+          "raw": "Delian",
+          "start": 8.0,
+          "end": 8.5
+        },
+        {
+          "raw": "inscription.",
+          "start": 8.5,
+          "end": 8.92
+        }
+      ],
+      "expected_tokens": [
+        "Thus",
+        "then",
+        "Happiness",
+        "is",
+        "most",
+        "excellent,",
+        "most",
+        "noble,",
+        "and",
+        "most",
+        "pleasant,",
+        "and",
+        "these",
+        "attributes",
+        "are",
+        "not",
+        "separated",
+        "as",
+        "in",
+        "the",
+        "well-known",
+        "Delian",
+        "inscription—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          23,
+          22,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Thus",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "then",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "text": "Happiness",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "is",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "most",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "excellent,",
+          "start": 1.82,
+          "end": 2.38
+        },
+        {
+          "text": "most",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "noble,",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "text": "most",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "text": "pleasant,",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "text": "and",
+          "start": 5.24,
+          "end": 5.34
+        },
+        {
+          "text": "these",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "attributes",
+          "start": 5.52,
+          "end": 6.02
+        },
+        {
+          "text": "are",
+          "start": 6.02,
+          "end": 6.26
+        },
+        {
+          "text": "not",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "text": "separated",
+          "start": 6.44,
+          "end": 6.96
+        },
+        {
+          "text": "as",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "text": "in",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "text": "the",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "text": "well-known",
+          "start": 7.54,
+          "end": 7.77
+        },
+        {
+          "text": "Delian",
+          "start": 8.0,
+          "end": 8.5
+        },
+        {
+          "text": "inscription—",
+          "start": 8.5,
+          "end": 8.92
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9565217391304348,
+      "rejection_reasons": [],
+      "seconds": 0.3017579261213541
+    },
+    {
+      "asr_seconds": 0.29296143306419253,
+      "alignment_seconds": 0.00015615997835993767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Thus then happiness is most excellent, most noble, and most pleasant, and these attributes",
+          "start": 0.02,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " Thus",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " then",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " happiness",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.775390625
+            },
+            {
+              "text": " is",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " most",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " excellent,",
+              "start": 1.82,
+              "end": 2.38,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " most",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " noble,",
+              "start": 3.1,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.96,
+              "end": 4.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " most",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pleasant,",
+              "start": 4.28,
+              "end": 4.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 5.24,
+              "end": 5.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " these",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " attributes",
+              "start": 5.52,
+              "end": 6.02,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " are not separated as in the well-known Delian inscription.",
+          "start": 6.02,
+          "end": 8.92,
+          "words": [
+            {
+              "text": " are",
+              "start": 6.02,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 6.26,
+              "end": 6.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " separated",
+              "start": 6.44,
+              "end": 6.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " as",
+              "start": 6.96,
+              "end": 7.26,
+              "probability": 0.978515625
+            },
+            {
+              "text": " in",
+              "start": 7.26,
+              "end": 7.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.42,
+              "end": 7.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " well",
+              "start": 7.54,
+              "end": 7.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": "-known",
+              "start": 7.72,
+              "end": 8.0,
+              "probability": 0.951904296875
+            },
+            {
+              "text": " Delian",
+              "start": 8.0,
+              "end": 8.5,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " inscription.",
+              "start": 8.5,
+              "end": 8.92,
+              "probability": 0.9453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thus",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "then",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "happiness",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "is",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "most",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "excellent,",
+          "start": 1.82,
+          "end": 2.38
+        },
+        {
+          "raw": "most",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "noble,",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "raw": "most",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "pleasant,",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "raw": "and",
+          "start": 5.24,
+          "end": 5.34
+        },
+        {
+          "raw": "these",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "attributes",
+          "start": 5.52,
+          "end": 6.02
+        },
+        {
+          "raw": "are",
+          "start": 6.02,
+          "end": 6.26
+        },
+        {
+          "raw": "not",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "raw": "separated",
+          "start": 6.44,
+          "end": 6.96
+        },
+        {
+          "raw": "as",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "raw": "in",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "raw": "the",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "raw": "well",
+          "start": 7.54,
+          "end": 7.72
+        },
+        {
+          "raw": "-known",
+          "start": 7.72,
+          "end": 8.0
+        },
+        {
+          "raw": "Delian",
+          "start": 8.0,
+          "end": 8.5
+        },
+        {
+          "raw": "inscription.",
+          "start": 8.5,
+          "end": 8.92
+        }
+      ],
+      "expected_tokens": [
+        "Thus",
+        "then",
+        "Happiness",
+        "is",
+        "most",
+        "excellent,",
+        "most",
+        "noble,",
+        "and",
+        "most",
+        "pleasant,",
+        "and",
+        "these",
+        "attributes",
+        "are",
+        "not",
+        "separated",
+        "as",
+        "in",
+        "the",
+        "well-known",
+        "Delian",
+        "inscription—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          23,
+          22,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Thus",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "then",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "text": "Happiness",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "is",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "most",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "excellent,",
+          "start": 1.82,
+          "end": 2.38
+        },
+        {
+          "text": "most",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "noble,",
+          "start": 3.1,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 3.96,
+          "end": 4.04
+        },
+        {
+          "text": "most",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "text": "pleasant,",
+          "start": 4.28,
+          "end": 4.68
+        },
+        {
+          "text": "and",
+          "start": 5.24,
+          "end": 5.34
+        },
+        {
+          "text": "these",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "attributes",
+          "start": 5.52,
+          "end": 6.02
+        },
+        {
+          "text": "are",
+          "start": 6.02,
+          "end": 6.26
+        },
+        {
+          "text": "not",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "text": "separated",
+          "start": 6.44,
+          "end": 6.96
+        },
+        {
+          "text": "as",
+          "start": 6.96,
+          "end": 7.26
+        },
+        {
+          "text": "in",
+          "start": 7.26,
+          "end": 7.42
+        },
+        {
+          "text": "the",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "text": "well-known",
+          "start": 7.54,
+          "end": 7.77
+        },
+        {
+          "text": "Delian",
+          "start": 8.0,
+          "end": 8.5
+        },
+        {
+          "text": "inscription—",
+          "start": 8.5,
+          "end": 8.92
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9565217391304348,
+      "rejection_reasons": [],
+      "seconds": 0.29319125320762396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a2e5c8e5626ea21c73ad42077ba4ffeb5ac80d29223aaef61f314cb6ef32ef09",
+  "selected_reasons": []
+}

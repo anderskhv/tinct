@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "d386c4bb05ca313f63d0cf6fcf181de0b131a32a8d8e8d442d3aeb959d90bf44",
+  "attempts": [
+    {
+      "asr_seconds": 0.11137534026056528,
+      "alignment_seconds": 7.679499685764313e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The troop horse gave a kick and a bound and a snort.",
+          "start": 0.02,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " troop",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " horse",
+              "start": 0.66,
+              "end": 0.9,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " gave",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kick",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.736328125
+            },
+            {
+              "text": " a",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " bound",
+              "start": 1.84,
+              "end": 2.12,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " and",
+              "start": 2.12,
+              "end": 2.46,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " a",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " snort.",
+              "start": 2.58,
+              "end": 2.94,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "troop",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "raw": "horse",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "raw": "gave",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "a",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "kick",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "bound",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "raw": "a",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "snort.",
+          "start": 2.58,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "troop-horse",
+        "gave",
+        "a",
+        "kick",
+        "and",
+        "a",
+        "bound",
+        "and",
+        "a",
+        "snort."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          11,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "troop-horse",
+          "start": 0.48,
+          "end": 0.69
+        },
+        {
+          "text": "gave",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "a",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "kick",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "and",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "text": "a",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "bound",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "text": "and",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "text": "a",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "snort.",
+          "start": 2.58,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.11149057373404503
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee85f6fc0585a4ee8d525c4c2fa2aba513da17601bf22c2f06d32e1e54d966e0",
+  "selected_reasons": []
+}

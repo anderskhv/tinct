@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "dca79604b49b003e0cfb1d02d7d4ce3eb180d105fb85bab49da96d11693ce2c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.18457285314798355,
+      "alignment_seconds": 0.00011896342039108276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly, he said, that is the model which such a speaker must necessarily take.",
+          "start": 0.08,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " Certainly,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.337158203125
+            },
+            {
+              "text": " he",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " said,",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " is",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " model",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " such",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.16,
+              "end": 3.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " speaker",
+              "start": 3.32,
+              "end": 3.66,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " must",
+              "start": 3.66,
+              "end": 3.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " necessarily",
+              "start": 3.96,
+              "end": 4.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " take.",
+              "start": 4.48,
+              "end": 4.98,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "he",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "said,",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "raw": "that",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "is",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "model",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "which",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "raw": "such",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "a",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "raw": "speaker",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "raw": "must",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "raw": "necessarily",
+          "start": 3.96,
+          "end": 4.48
+        },
+        {
+          "raw": "take.",
+          "start": 4.48,
+          "end": 4.98
+        }
+      ],
+      "expected_tokens": [
+        "Certainly,",
+        "he",
+        "said;",
+        "that",
+        "is",
+        "the",
+        "model",
+        "which",
+        "such",
+        "a",
+        "speaker",
+        "must",
+        "necessarily",
+        "take."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "he",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "said;",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "text": "that",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "is",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "text": "the",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "model",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "which",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "text": "such",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "a",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "text": "speaker",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "text": "must",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "text": "necessarily",
+          "start": 3.96,
+          "end": 4.48
+        },
+        {
+          "text": "take.",
+          "start": 4.48,
+          "end": 4.98
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1847458854317665
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "152687b5f28366c71cff267290f523f59f3ec5c86d6ed62b6edd5d2ae01ea169",
+  "selected_reasons": []
+}

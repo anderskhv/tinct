@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "0828df81e2f0d7de8ae94af6d7ba1fb860a99c0509e47edda3356d7db8c5309a",
+  "attempts": [
+    {
+      "asr_seconds": 0.18514978140592575,
+      "alignment_seconds": 0.00011315196752548218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is also good, he said; but I should like to know what you mean?",
+        "hotwords": "That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is also good, he said, but I should like to know what you mean?",
+          "start": 0.02,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.30126953125
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " also",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " good,",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said,",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " I",
+              "start": 2.56,
+              "end": 2.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " should",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 3.3,
+              "end": 3.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mean?",
+              "start": 3.6,
+              "end": 3.88,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "also",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "raw": "good,",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "raw": "he",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "said,",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "but",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "I",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "raw": "should",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "like",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "to",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "know",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "what",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "raw": "you",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "mean?",
+          "start": 3.6,
+          "end": 3.88
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "also",
+        "good,",
+        "he",
+        "said;",
+        "but",
+        "I",
+        "should",
+        "like",
+        "to",
+        "know",
+        "what",
+        "you",
+        "mean?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "is",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "also",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "text": "good,",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "text": "he",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "said;",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "but",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "I",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "should",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "like",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "to",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "know",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "what",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "text": "you",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "mean?",
+          "start": 3.6,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1853216588497162
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9e1506d78afb1687779d4e7b3086f17f5d3f7d7450947530cc37786527a48d31",
+  "selected_reasons": []
+}

@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "e6eeacbb64d39c78305f8063645ef7fba4a1827d4e01a65c9e9a6149b67c95ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.12468079477548599,
+      "alignment_seconds": 7.724761962890625e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then now for a definition, he said.",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then now for a definition, he said.",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " now",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " for",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " a",
+              "start": 0.9,
+              "end": 0.94,
+              "probability": 0.09637451171875
+            },
+            {
+              "text": " definition,",
+              "start": 0.94,
+              "end": 1.4,
+              "probability": 0.9765625
+            },
+            {
+              "text": " he",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said.",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "now",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "for",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "a",
+          "start": 0.9,
+          "end": 0.94
+        },
+        {
+          "raw": "definition,",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "raw": "he",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "said.",
+          "start": 1.86,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "now",
+        "for",
+        "a",
+        "definition,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "now",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "for",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "a",
+          "start": 0.9,
+          "end": 0.94
+        },
+        {
+          "text": "definition,",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "text": "he",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "said.",
+          "start": 1.86,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12479089945554733
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b508d6e729a4146b1103eea60d1acfbb61dbf877ff418193344a57ef47203c3",
+  "selected_reasons": []
+}

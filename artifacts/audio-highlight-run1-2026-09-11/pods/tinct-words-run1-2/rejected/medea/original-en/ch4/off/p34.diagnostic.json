@@ -1,0 +1,223 @@
+{
+  "complete": true,
+  "signature": "0d59e46c8b46fe374f5f66ed97d151eaef13bbdc888f4df49f5ecb71b93a150f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14732690900564194,
+      "alignment_seconds": 9.578466415405273e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aegius, assuredly they need a rarer wit.",
+          "start": 0.08,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Aegius,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.30364990234375
+            },
+            {
+              "text": " assuredly",
+              "start": 1.2,
+              "end": 1.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " they",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.556640625
+            },
+            {
+              "text": " need",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rarer",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.94140625
+            },
+            {
+              "text": " wit.",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegius,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "assuredly",
+          "start": 1.2,
+          "end": 1.76
+        },
+        {
+          "raw": "they",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "raw": "need",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "rarer",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "wit.",
+          "start": 2.64,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Assuredly:",
+        "they",
+        "need",
+        "A",
+        "rarer",
+        "wit."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "Assuredly:",
+          "start": 1.2,
+          "end": 1.76
+        },
+        {
+          "text": "they",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "text": "need",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "A",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "rarer",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "wit.",
+          "start": 2.64,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.14746180176734924
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "279c67cbffc448cf51d121b5c633667674f3dadd0d538e473cb4cf0bd3e281c6",
+  "selected_reasons": []
+}

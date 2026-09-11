@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "6e209fca2bf8b50426db7ef41ba5876cecf7bc64b70d1926433b2617b7d44407",
+  "attempts": [
+    {
+      "asr_seconds": 0.10833938885480165,
+      "alignment_seconds": 5.800090730190277e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Speak then cried 20 voices",
+          "start": 0.14,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Speak",
+              "start": 0.14,
+              "end": 0.62,
+              "probability": 0.3095703125
+            },
+            {
+              "text": " then",
+              "start": 0.62,
+              "end": 1.0,
+              "probability": 0.857421875
+            },
+            {
+              "text": " cried",
+              "start": 1.0,
+              "end": 1.44,
+              "probability": 0.464599609375
+            },
+            {
+              "text": " 20",
+              "start": 1.44,
+              "end": 1.78,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " voices",
+              "start": 1.78,
+              "end": 2.2,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Speak",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "raw": "then",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "raw": "cried",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "raw": "20",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "raw": "voices",
+          "start": 1.78,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "\"Speak",
+        "then,\"",
+        "cried",
+        "twenty",
+        "voices."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Speak",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "text": "then,\"",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "text": "cried",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "text": "twenty",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "text": "voices.",
+          "start": 1.78,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10841893590986729
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "148f205b42add6d7fb9c31c5a08a57df579112ece7d399862c1680ec2bf62183",
+  "selected_reasons": []
+}

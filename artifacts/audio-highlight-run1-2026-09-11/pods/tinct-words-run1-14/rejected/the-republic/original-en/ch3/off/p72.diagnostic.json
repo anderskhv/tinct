@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "e49f085e744abb850b1f46fa706a040fe0849149715abb8627e31ac93358bad6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1052718237042427,
+      "alignment_seconds": 6.955116987228394e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In the next place, our youth must be temperate.",
+          "start": 0.05,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.89453125
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " next",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " place,",
+              "start": 0.85,
+              "end": 1.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " our",
+              "start": 1.59,
+              "end": 1.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " youth",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " must",
+              "start": 1.89,
+              "end": 2.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " temperate.",
+              "start": 2.31,
+              "end": 2.81,
+              "probability": 0.992431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "next",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "place,",
+          "start": 0.85,
+          "end": 1.21
+        },
+        {
+          "raw": "our",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "raw": "youth",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "must",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "raw": "be",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "temperate.",
+          "start": 2.31,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "the",
+        "next",
+        "place",
+        "our",
+        "youth",
+        "must",
+        "be",
+        "temperate?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "next",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "place",
+          "start": 0.85,
+          "end": 1.21
+        },
+        {
+          "text": "our",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "text": "youth",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "must",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "text": "be",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "temperate?",
+          "start": 2.31,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10537410527467728
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9a14efe60c3c08a8fef0d4e223de23ecac5070368d2c94fe98c03f70cea45205",
+  "selected_reasons": []
+}

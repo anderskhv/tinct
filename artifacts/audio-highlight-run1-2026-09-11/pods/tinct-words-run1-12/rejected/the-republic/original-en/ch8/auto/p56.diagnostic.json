@@ -1,0 +1,635 @@
+{
+  "complete": true,
+  "signature": "e5a45c1eebfc441b4ff45effc65370cf108538d809b8015a18534ada3ffff67c",
+  "attempts": [
+    {
+      "asr_seconds": 0.25263157300651073,
+      "alignment_seconds": 0.00018529687076807022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Philosophy, I said, tempered with music, who comes and takes up her abode in a man, and is the only saviour of his virtue throughout life.",
+        "hotwords": "Philosophy, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Philosophy, I said, tempered with music, who comes and takes up her abode in a man, and",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Philosophy,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.4404296875
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said,",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tempered",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " with",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " music,",
+              "start": 2.59,
+              "end": 2.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " who",
+              "start": 3.45,
+              "end": 3.61,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " comes",
+              "start": 3.61,
+              "end": 3.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " takes",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " up",
+              "start": 4.37,
+              "end": 4.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 4.55,
+              "end": 4.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " abode",
+              "start": 4.67,
+              "end": 4.99,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " in",
+              "start": 4.99,
+              "end": 5.13,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " a",
+              "start": 5.13,
+              "end": 5.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man,",
+              "start": 5.21,
+              "end": 5.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.97,
+              "end": 6.01,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " is the only saviour of his virtue throughout life.",
+          "start": 6.01,
+          "end": 8.51,
+          "words": [
+            {
+              "text": " is",
+              "start": 6.01,
+              "end": 6.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.11,
+              "end": 6.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " only",
+              "start": 6.25,
+              "end": 6.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " saviour",
+              "start": 6.59,
+              "end": 7.09,
+              "probability": 0.5211181640625
+            },
+            {
+              "text": " of",
+              "start": 7.09,
+              "end": 7.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 7.23,
+              "end": 7.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " virtue",
+              "start": 7.35,
+              "end": 7.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " throughout",
+              "start": 7.75,
+              "end": 8.11,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " life.",
+              "start": 8.11,
+              "end": 8.51,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Philosophy,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "said,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "tempered",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "with",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "music,",
+          "start": 2.59,
+          "end": 2.99
+        },
+        {
+          "raw": "who",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "raw": "comes",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "raw": "and",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "takes",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "up",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "raw": "her",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "raw": "abode",
+          "start": 4.67,
+          "end": 4.99
+        },
+        {
+          "raw": "in",
+          "start": 4.99,
+          "end": 5.13
+        },
+        {
+          "raw": "a",
+          "start": 5.13,
+          "end": 5.21
+        },
+        {
+          "raw": "man,",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "raw": "and",
+          "start": 5.97,
+          "end": 6.01
+        },
+        {
+          "raw": "is",
+          "start": 6.01,
+          "end": 6.11
+        },
+        {
+          "raw": "the",
+          "start": 6.11,
+          "end": 6.25
+        },
+        {
+          "raw": "only",
+          "start": 6.25,
+          "end": 6.59
+        },
+        {
+          "raw": "saviour",
+          "start": 6.59,
+          "end": 7.09
+        },
+        {
+          "raw": "of",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "raw": "his",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "raw": "virtue",
+          "start": 7.35,
+          "end": 7.75
+        },
+        {
+          "raw": "throughout",
+          "start": 7.75,
+          "end": 8.11
+        },
+        {
+          "raw": "life.",
+          "start": 8.11,
+          "end": 8.51
+        }
+      ],
+      "expected_tokens": [
+        "Philosophy,",
+        "I",
+        "said,",
+        "tempered",
+        "with",
+        "music,",
+        "who",
+        "comes",
+        "and",
+        "takes",
+        "up",
+        "her",
+        "abode",
+        "in",
+        "a",
+        "man,",
+        "and",
+        "is",
+        "the",
+        "only",
+        "saviour",
+        "of",
+        "his",
+        "virtue",
+        "throughout",
+        "life."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Philosophy,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "said,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "tempered",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "with",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "music,",
+          "start": 2.59,
+          "end": 2.99
+        },
+        {
+          "text": "who",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "text": "comes",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "text": "and",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "takes",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "up",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "text": "her",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "text": "abode",
+          "start": 4.67,
+          "end": 4.99
+        },
+        {
+          "text": "in",
+          "start": 4.99,
+          "end": 5.13
+        },
+        {
+          "text": "a",
+          "start": 5.13,
+          "end": 5.21
+        },
+        {
+          "text": "man,",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "text": "and",
+          "start": 5.97,
+          "end": 6.01
+        },
+        {
+          "text": "is",
+          "start": 6.01,
+          "end": 6.11
+        },
+        {
+          "text": "the",
+          "start": 6.11,
+          "end": 6.25
+        },
+        {
+          "text": "only",
+          "start": 6.25,
+          "end": 6.59
+        },
+        {
+          "text": "saviour",
+          "start": 6.59,
+          "end": 7.09
+        },
+        {
+          "text": "of",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "text": "his",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "text": "virtue",
+          "start": 7.35,
+          "end": 7.75
+        },
+        {
+          "text": "throughout",
+          "start": 7.75,
+          "end": 8.11
+        },
+        {
+          "text": "life.",
+          "start": 8.11,
+          "end": 8.51
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2529264083132148
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e82115467ee5ba761baad3941769d9e3428b9ea46191b3e55c248b55923cda3e",
+  "selected_reasons": []
+}

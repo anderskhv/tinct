@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "d68098763015bdb792aca08396251b588c854c3d6e773c32ac39d81fe3a71054",
+  "attempts": [
+    {
+      "asr_seconds": 0.13740850985050201,
+      "alignment_seconds": 0.00012023001909255981,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I should like to know whether you have the same notion which I have of this study.",
+          "start": 0.05,
+          "end": 4.25,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " should",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " like",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.89,
+              "end": 1.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 1.07,
+              "end": 1.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whether",
+              "start": 1.33,
+              "end": 1.83,
+              "probability": 0.939453125
+            },
+            {
+              "text": " you",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " same",
+              "start": 2.41,
+              "end": 2.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " notion",
+              "start": 2.67,
+              "end": 3.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " which",
+              "start": 3.09,
+              "end": 3.33,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " I",
+              "start": 3.33,
+              "end": 3.51,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " have",
+              "start": 3.51,
+              "end": 3.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 3.83,
+              "end": 3.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " study.",
+              "start": 3.93,
+              "end": 4.25,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "should",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "like",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "to",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "raw": "know",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "raw": "whether",
+          "start": 1.33,
+          "end": 1.83
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "have",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "the",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "same",
+          "start": 2.41,
+          "end": 2.67
+        },
+        {
+          "raw": "notion",
+          "start": 2.67,
+          "end": 3.09
+        },
+        {
+          "raw": "which",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "raw": "I",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "raw": "have",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "raw": "of",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "this",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "raw": "study.",
+          "start": 3.93,
+          "end": 4.25
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "should",
+        "like",
+        "to",
+        "know",
+        "whether",
+        "you",
+        "have",
+        "the",
+        "same",
+        "notion",
+        "which",
+        "I",
+        "have",
+        "of",
+        "this",
+        "study?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "should",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "like",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "to",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "text": "know",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "text": "whether",
+          "start": 1.33,
+          "end": 1.83
+        },
+        {
+          "text": "you",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "have",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "the",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "same",
+          "start": 2.41,
+          "end": 2.67
+        },
+        {
+          "text": "notion",
+          "start": 2.67,
+          "end": 3.09
+        },
+        {
+          "text": "which",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "text": "I",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "text": "have",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "text": "of",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "this",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "text": "study?",
+          "start": 3.93,
+          "end": 4.25
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1375928819179535
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "191cafeb322c97fcb25cf50b95bcdf765d58a4ad4d631ab70030798d7237c39e",
+  "selected_reasons": []
+}

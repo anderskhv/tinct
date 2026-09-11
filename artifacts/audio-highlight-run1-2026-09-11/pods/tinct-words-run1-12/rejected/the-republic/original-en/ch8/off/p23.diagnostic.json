@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "9230034315dcdc6b741d9bb60dfafce68bb5fb20c415efdc4376e5af3fb03ca7",
+  "attempts": [
+    {
+      "asr_seconds": 0.08810902433469892,
+      "alignment_seconds": 0.00013516657054424286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very true, he said.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.28857421875
+            },
+            {
+              "text": " true,",
+              "start": 0.67,
+              "end": 0.95,
+              "probability": 0.95703125
+            },
+            {
+              "text": " he",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " said.",
+              "start": 1.19,
+              "end": 1.47,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "true,",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "raw": "he",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "said.",
+          "start": 1.19,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "true,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "true,",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "text": "he",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "said.",
+          "start": 1.19,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08830018015578389
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9dacda78c776f7f98f216c939d209002c83a312a0aae7484a4ef0b7bf19d7521",
+  "selected_reasons": []
+}

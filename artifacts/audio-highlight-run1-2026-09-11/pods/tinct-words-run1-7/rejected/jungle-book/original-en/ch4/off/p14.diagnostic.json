@@ -1,0 +1,611 @@
+{
+  "complete": true,
+  "signature": "87492446879f198118252c3f598b6e54a705a229a89a25d037fa0f890131d545",
+  "attempts": [
+    {
+      "asr_seconds": 0.17758421320468187,
+      "alignment_seconds": 0.0001080268993973732,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bah, only the Holaskiki go to Otter Island. If we went there, they would say we were afraid.",
+          "start": 0.05,
+          "end": 5.55,
+          "words": [
+            {
+              "text": " Bah,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " only",
+              "start": 1.03,
+              "end": 1.25,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Holaskiki",
+              "start": 1.43,
+              "end": 1.89,
+              "probability": 0.3714192708333333
+            },
+            {
+              "text": " go",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Otter",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Island.",
+              "start": 2.59,
+              "end": 2.87,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " If",
+              "start": 3.63,
+              "end": 3.71,
+              "probability": 0.982421875
+            },
+            {
+              "text": " we",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " went",
+              "start": 3.85,
+              "end": 4.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there,",
+              "start": 4.03,
+              "end": 4.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 4.33,
+              "end": 4.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " would",
+              "start": 4.41,
+              "end": 4.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " say",
+              "start": 4.55,
+              "end": 4.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " we",
+              "start": 4.81,
+              "end": 5.01,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " were",
+              "start": 5.01,
+              "end": 5.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " afraid.",
+              "start": 5.17,
+              "end": 5.55,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " We must preserve appearances, my dear.",
+          "start": 6.21,
+          "end": 8.19,
+          "words": [
+            {
+              "text": " We",
+              "start": 6.21,
+              "end": 6.31,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " must",
+              "start": 6.31,
+              "end": 6.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " preserve",
+              "start": 6.51,
+              "end": 6.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " appearances,",
+              "start": 6.99,
+              "end": 7.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " my",
+              "start": 7.85,
+              "end": 7.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " dear.",
+              "start": 7.95,
+              "end": 8.19,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bah,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "only",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "Holaskiki",
+          "start": 1.43,
+          "end": 1.89
+        },
+        {
+          "raw": "go",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "to",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "Otter",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "Island.",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "raw": "If",
+          "start": 3.63,
+          "end": 3.71
+        },
+        {
+          "raw": "we",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "went",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "raw": "there,",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "raw": "they",
+          "start": 4.33,
+          "end": 4.41
+        },
+        {
+          "raw": "would",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "raw": "say",
+          "start": 4.55,
+          "end": 4.81
+        },
+        {
+          "raw": "we",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "raw": "were",
+          "start": 5.01,
+          "end": 5.17
+        },
+        {
+          "raw": "afraid.",
+          "start": 5.17,
+          "end": 5.55
+        },
+        {
+          "raw": "We",
+          "start": 6.21,
+          "end": 6.31
+        },
+        {
+          "raw": "must",
+          "start": 6.31,
+          "end": 6.51
+        },
+        {
+          "raw": "preserve",
+          "start": 6.51,
+          "end": 6.99
+        },
+        {
+          "raw": "appearances,",
+          "start": 6.99,
+          "end": 7.55
+        },
+        {
+          "raw": "my",
+          "start": 7.85,
+          "end": 7.95
+        },
+        {
+          "raw": "dear.",
+          "start": 7.95,
+          "end": 8.19
+        }
+      ],
+      "expected_tokens": [
+        "\"Bah!",
+        "Only",
+        "the",
+        "holluschickie",
+        "go",
+        "to",
+        "Otter",
+        "Island.",
+        "If",
+        "we",
+        "went",
+        "there",
+        "they",
+        "would",
+        "say",
+        "we",
+        "were",
+        "afraid.",
+        "We",
+        "must",
+        "preserve",
+        "appearances,",
+        "my",
+        "dear.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          24,
+          4,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Bah!",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Only",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "text": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "holluschickie",
+          "start": 1.43,
+          "end": 1.66
+        },
+        {
+          "text": "go",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "to",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "Otter",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "Island.",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "text": "If",
+          "start": 3.63,
+          "end": 3.71
+        },
+        {
+          "text": "we",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "went",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "text": "there",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "text": "they",
+          "start": 4.33,
+          "end": 4.41
+        },
+        {
+          "text": "would",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "text": "say",
+          "start": 4.55,
+          "end": 4.81
+        },
+        {
+          "text": "we",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "text": "were",
+          "start": 5.01,
+          "end": 5.17
+        },
+        {
+          "text": "afraid.",
+          "start": 5.17,
+          "end": 5.55
+        },
+        {
+          "text": "We",
+          "start": 6.21,
+          "end": 6.31
+        },
+        {
+          "text": "must",
+          "start": 6.31,
+          "end": 6.51
+        },
+        {
+          "text": "preserve",
+          "start": 6.51,
+          "end": 6.99
+        },
+        {
+          "text": "appearances,",
+          "start": 6.99,
+          "end": 7.55
+        },
+        {
+          "text": "my",
+          "start": 7.85,
+          "end": 7.95
+        },
+        {
+          "text": "dear.\"",
+          "start": 7.95,
+          "end": 8.19
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 0.9583333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.17774408124387264
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "715071c4a7db5f534c74ecfa86672f85b0ed964b79a8251d28efd40d214d2b9d",
+  "selected_reasons": []
+}

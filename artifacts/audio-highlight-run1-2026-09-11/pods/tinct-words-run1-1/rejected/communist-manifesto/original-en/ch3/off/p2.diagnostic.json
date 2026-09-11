@@ -1,0 +1,384 @@
+{
+  "complete": true,
+  "signature": "3f19dc52142c82faf93fe28091ba1458168a18d50101035ca67c235fb2d9653a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15376023203134537,
+      "alignment_seconds": 7.416307926177979e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They have no interests separate and apart from those of the proletariat as a whole",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.904296875
+            },
+            {
+              "text": " have",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 0.67,
+              "end": 0.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " interests",
+              "start": 0.91,
+              "end": 1.31,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " separate",
+              "start": 1.31,
+              "end": 2.01,
+              "probability": 0.314697265625
+            },
+            {
+              "text": " and",
+              "start": 2.01,
+              "end": 2.49,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " apart",
+              "start": 2.49,
+              "end": 2.79,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " from",
+              "start": 2.79,
+              "end": 3.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " those",
+              "start": 3.05,
+              "end": 3.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.45,
+              "end": 3.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " proletariat",
+              "start": 3.55,
+              "end": 3.99,
+              "probability": 0.986328125
+            },
+            {
+              "text": " as",
+              "start": 3.99,
+              "end": 4.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 4.47,
+              "end": 4.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whole",
+              "start": 4.57,
+              "end": 4.85,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "have",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "no",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "raw": "interests",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "raw": "separate",
+          "start": 1.31,
+          "end": 2.01
+        },
+        {
+          "raw": "and",
+          "start": 2.01,
+          "end": 2.49
+        },
+        {
+          "raw": "apart",
+          "start": 2.49,
+          "end": 2.79
+        },
+        {
+          "raw": "from",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "raw": "those",
+          "start": 3.05,
+          "end": 3.29
+        },
+        {
+          "raw": "of",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "raw": "proletariat",
+          "start": 3.55,
+          "end": 3.99
+        },
+        {
+          "raw": "as",
+          "start": 3.99,
+          "end": 4.47
+        },
+        {
+          "raw": "a",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "raw": "whole",
+          "start": 4.57,
+          "end": 4.85
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "have",
+        "no",
+        "interests",
+        "separate",
+        "and",
+        "apart",
+        "from",
+        "those",
+        "of",
+        "the",
+        "proletariat",
+        "as",
+        "a",
+        "whole."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "have",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "no",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "text": "interests",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "text": "separate",
+          "start": 1.31,
+          "end": 2.01
+        },
+        {
+          "text": "and",
+          "start": 2.01,
+          "end": 2.49
+        },
+        {
+          "text": "apart",
+          "start": 2.49,
+          "end": 2.79
+        },
+        {
+          "text": "from",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "text": "those",
+          "start": 3.05,
+          "end": 3.29
+        },
+        {
+          "text": "of",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "the",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "text": "proletariat",
+          "start": 3.55,
+          "end": 3.99
+        },
+        {
+          "text": "as",
+          "start": 3.99,
+          "end": 4.47
+        },
+        {
+          "text": "a",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "text": "whole.",
+          "start": 4.57,
+          "end": 4.85
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15386644005775452
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2bbd98fa03ad9d0422d30066bb0a9345ba77199c9081cc0eedbdf3d83f4717cb",
+  "selected_reasons": []
+}

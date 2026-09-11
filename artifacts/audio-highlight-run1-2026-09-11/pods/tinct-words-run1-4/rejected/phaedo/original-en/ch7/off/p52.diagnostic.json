@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "317dadca58251a83e3390ce1f5e536ca1179e381d69274efcaae8056af908e71",
+  "attempts": [
+    {
+      "asr_seconds": 0.11454116925597191,
+      "alignment_seconds": 5.2859075367450714e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That would be impossible, he replied.",
+          "start": 0.11,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.402587890625
+            },
+            {
+              "text": " would",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " impossible,",
+              "start": 0.79,
+              "end": 1.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " replied.",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "would",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "be",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "impossible,",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "raw": "he",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "replied.",
+          "start": 1.75,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "would",
+        "be",
+        "impossible,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "would",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "be",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "impossible,",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "text": "he",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "replied.",
+          "start": 1.75,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11461486760526896
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ae38453f0ec37304770d198d3be8095a8714515e911eaecce00a6d44fcc634d4",
+  "selected_reasons": []
+}

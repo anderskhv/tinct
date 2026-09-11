@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "743c8f2a6e90e8e276cf94d48b084ac352f8a298dd9b8f5d286ea870305deba3",
+  "attempts": [
+    {
+      "asr_seconds": 0.06882988661527634,
+      "alignment_seconds": 4.629790782928467e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " True",
+          "start": 0.08,
+          "end": 0.6,
+          "words": [
+            {
+              "text": " True",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.80224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True",
+          "start": 0.08,
+          "end": 0.6
+        }
+      ],
+      "expected_tokens": [
+        "True."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "True.",
+          "start": 0.08,
+          "end": 0.6
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06889353692531586
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40d6ec11819dc8decda00412bc6e936ca3e8e01bd6a0d757abe9a5f662bdbb06",
+  "selected_reasons": []
+}

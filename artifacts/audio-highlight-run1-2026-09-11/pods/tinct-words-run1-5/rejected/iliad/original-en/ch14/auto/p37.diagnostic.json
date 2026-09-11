@@ -1,0 +1,2518 @@
+{
+  "complete": true,
+  "signature": "44df0f3cf22e0bec25fcedc58965ef547e606cf8f44b07595a61e796e926ecdb",
+  "attempts": [
+    {
+      "asr_seconds": 0.7046798467636108,
+      "alignment_seconds": 0.0002929121255874634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But he knew well who it was, and the Trojans were greatly angered. Acamas then bestrode his brother's body and wounded Promachus the Boeotian with his spear, for he was trying to drag his brother's body away. Acamas vaunted loudly over him saying, \"Argive archers, braggarts that you are, toil and suffering shall not be for us only, but some of you too shall fall here as well as ourselves. See how Promachus now sleeps, vanquished by my spear; payment for my brother's blood has not been long delayed; a man, therefore, may well be thankful if he leaves a kinsman in his house behind him to avenge his fall.\"",
+        "hotwords": "Trojans, Acamas, Promachus, Boeotian, Argive, See"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But he knew well who it was, and the Trojans were greatly angered. Acamas then bestrode",
+          "start": 0.02,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.1962890625
+            },
+            {
+              "text": " he",
+              "start": 0.48,
+              "end": 0.56,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " knew",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.970703125
+            },
+            {
+              "text": " well",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " who",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was,",
+              "start": 1.22,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Trojans",
+              "start": 2.22,
+              "end": 2.6,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " were",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " greatly",
+              "start": 2.84,
+              "end": 3.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " angered.",
+              "start": 3.14,
+              "end": 3.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Acamas",
+              "start": 4.4,
+              "end": 4.72,
+              "probability": 0.2972412109375
+            },
+            {
+              "text": " then",
+              "start": 4.72,
+              "end": 5.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " bestrode",
+              "start": 5.04,
+              "end": 5.6,
+              "probability": 0.7177734375
+            }
+          ]
+        },
+        {
+          "text": " his brother's body and wounded Promachus the Boeotian with his spear, for he was trying",
+          "start": 5.6,
+          "end": 10.06,
+          "words": [
+            {
+              "text": " his",
+              "start": 5.6,
+              "end": 5.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " brother's",
+              "start": 5.76,
+              "end": 6.2,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " body",
+              "start": 6.2,
+              "end": 6.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 6.44,
+              "end": 6.74,
+              "probability": 0.703125
+            },
+            {
+              "text": " wounded",
+              "start": 6.74,
+              "end": 7.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Promachus",
+              "start": 7.12,
+              "end": 7.62,
+              "probability": 0.4635009765625
+            },
+            {
+              "text": " the",
+              "start": 7.62,
+              "end": 7.88,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Boeotian",
+              "start": 7.88,
+              "end": 8.32,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " with",
+              "start": 8.32,
+              "end": 8.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 8.48,
+              "end": 8.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " spear,",
+              "start": 8.64,
+              "end": 8.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 9.42,
+              "end": 9.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 9.6,
+              "end": 9.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 9.72,
+              "end": 9.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " trying",
+              "start": 9.84,
+              "end": 10.06,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " to drag his brother's body away. Acamas vaunted loudly over him saying,",
+          "start": 10.06,
+          "end": 14.74,
+          "words": [
+            {
+              "text": " to",
+              "start": 10.06,
+              "end": 10.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drag",
+              "start": 10.26,
+              "end": 10.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 10.48,
+              "end": 10.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brother's",
+              "start": 10.7,
+              "end": 11.16,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " body",
+              "start": 11.16,
+              "end": 11.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away.",
+              "start": 11.34,
+              "end": 11.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Acamas",
+              "start": 12.62,
+              "end": 13.06,
+              "probability": 0.906982421875
+            },
+            {
+              "text": " vaunted",
+              "start": 13.06,
+              "end": 13.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " loudly",
+              "start": 13.48,
+              "end": 13.8,
+              "probability": 0.994140625
+            },
+            {
+              "text": " over",
+              "start": 13.8,
+              "end": 14.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 14.2,
+              "end": 14.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " saying,",
+              "start": 14.4,
+              "end": 14.74,
+              "probability": 0.15380859375
+            }
+          ]
+        },
+        {
+          "text": " \"'Argive archers, braggarts that you are, toil and suffering shall not be for us only,",
+          "start": 14.74,
+          "end": 20.18,
+          "words": [
+            {
+              "text": " \"'Argive",
+              "start": 14.74,
+              "end": 15.58,
+              "probability": 0.21330263217290243
+            },
+            {
+              "text": " archers,",
+              "start": 15.58,
+              "end": 16.18,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " braggarts",
+              "start": 16.54,
+              "end": 16.96,
+              "probability": 0.9430338541666666
+            },
+            {
+              "text": " that",
+              "start": 16.96,
+              "end": 17.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 17.16,
+              "end": 17.34,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " are,",
+              "start": 17.34,
+              "end": 17.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " toil",
+              "start": 18.08,
+              "end": 18.34,
+              "probability": 0.869384765625
+            },
+            {
+              "text": " and",
+              "start": 18.34,
+              "end": 18.56,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " suffering",
+              "start": 18.56,
+              "end": 18.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shall",
+              "start": 18.96,
+              "end": 19.18,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " not",
+              "start": 19.18,
+              "end": 19.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 19.4,
+              "end": 19.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 19.56,
+              "end": 19.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " us",
+              "start": 19.68,
+              "end": 19.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " only,",
+              "start": 19.8,
+              "end": 20.18,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " but some of you too shall fall here as well as ourselves. See how Promachus now sleeps,",
+          "start": 20.62,
+          "end": 26.02,
+          "words": [
+            {
+              "text": " but",
+              "start": 20.62,
+              "end": 20.76,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " some",
+              "start": 20.76,
+              "end": 20.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 20.96,
+              "end": 21.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 21.1,
+              "end": 21.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 21.22,
+              "end": 21.46,
+              "probability": 0.775390625
+            },
+            {
+              "text": " shall",
+              "start": 21.46,
+              "end": 21.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fall",
+              "start": 21.7,
+              "end": 21.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " here",
+              "start": 21.98,
+              "end": 22.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 22.26,
+              "end": 22.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " well",
+              "start": 22.42,
+              "end": 22.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 22.6,
+              "end": 22.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ourselves.",
+              "start": 22.76,
+              "end": 23.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " See",
+              "start": 24.3,
+              "end": 24.56,
+              "probability": 0.607421875
+            },
+            {
+              "text": " how",
+              "start": 24.56,
+              "end": 24.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Promachus",
+              "start": 24.8,
+              "end": 25.28,
+              "probability": 0.24005126953125
+            },
+            {
+              "text": " now",
+              "start": 25.28,
+              "end": 25.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sleeps,",
+              "start": 25.6,
+              "end": 26.02,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " vanquished by my spear. Payment for my brother's blood has not been long delayed. A man, therefore,",
+          "start": 26.56,
+          "end": 32.62,
+          "words": [
+            {
+              "text": " vanquished",
+              "start": 26.56,
+              "end": 26.86,
+              "probability": 0.98046875
+            },
+            {
+              "text": " by",
+              "start": 26.86,
+              "end": 27.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 27.24,
+              "end": 27.44,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " spear.",
+              "start": 27.44,
+              "end": 27.8,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Payment",
+              "start": 28.7,
+              "end": 28.7,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " for",
+              "start": 28.7,
+              "end": 28.92,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " my",
+              "start": 28.92,
+              "end": 29.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brother's",
+              "start": 29.1,
+              "end": 29.5,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " blood",
+              "start": 29.5,
+              "end": 29.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " has",
+              "start": 29.74,
+              "end": 29.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 29.98,
+              "end": 30.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " been",
+              "start": 30.2,
+              "end": 30.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " long",
+              "start": 30.4,
+              "end": 30.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " delayed.",
+              "start": 30.62,
+              "end": 31.04,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " A",
+              "start": 31.72,
+              "end": 31.88,
+              "probability": 0.984375
+            },
+            {
+              "text": " man,",
+              "start": 31.88,
+              "end": 32.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " therefore,",
+              "start": 32.24,
+              "end": 32.62,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " may well be thankful if he leaves a kinsman in his house behind him to avenge his fall.'\"",
+          "start": 32.98,
+          "end": 37.68,
+          "words": [
+            {
+              "text": " may",
+              "start": 32.98,
+              "end": 33.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " well",
+              "start": 33.08,
+              "end": 33.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 33.3,
+              "end": 33.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thankful",
+              "start": 33.48,
+              "end": 33.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " if",
+              "start": 33.92,
+              "end": 34.16,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " he",
+              "start": 34.16,
+              "end": 34.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " leaves",
+              "start": 34.28,
+              "end": 34.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 34.52,
+              "end": 34.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " kinsman",
+              "start": 34.7,
+              "end": 35.12,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " in",
+              "start": 35.12,
+              "end": 35.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 35.3,
+              "end": 35.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house",
+              "start": 35.44,
+              "end": 35.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " behind",
+              "start": 35.68,
+              "end": 36.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 36.12,
+              "end": 36.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 36.4,
+              "end": 36.66,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " avenge",
+              "start": 36.66,
+              "end": 36.96,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " his",
+              "start": 36.96,
+              "end": 37.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fall.'\"",
+              "start": 37.2,
+              "end": 37.68,
+              "probability": 0.788330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "he",
+          "start": 0.48,
+          "end": 0.56
+        },
+        {
+          "raw": "knew",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "well",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "who",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "it",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "was,",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "raw": "and",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "raw": "Trojans",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "raw": "were",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "raw": "greatly",
+          "start": 2.84,
+          "end": 3.14
+        },
+        {
+          "raw": "angered.",
+          "start": 3.14,
+          "end": 3.64
+        },
+        {
+          "raw": "Acamas",
+          "start": 4.4,
+          "end": 4.72
+        },
+        {
+          "raw": "then",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "raw": "bestrode",
+          "start": 5.04,
+          "end": 5.6
+        },
+        {
+          "raw": "his",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "raw": "brother's",
+          "start": 5.76,
+          "end": 6.2
+        },
+        {
+          "raw": "body",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "raw": "and",
+          "start": 6.44,
+          "end": 6.74
+        },
+        {
+          "raw": "wounded",
+          "start": 6.74,
+          "end": 7.12
+        },
+        {
+          "raw": "Promachus",
+          "start": 7.12,
+          "end": 7.62
+        },
+        {
+          "raw": "the",
+          "start": 7.62,
+          "end": 7.88
+        },
+        {
+          "raw": "Boeotian",
+          "start": 7.88,
+          "end": 8.32
+        },
+        {
+          "raw": "with",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "raw": "his",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "raw": "spear,",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "raw": "for",
+          "start": 9.42,
+          "end": 9.6
+        },
+        {
+          "raw": "he",
+          "start": 9.6,
+          "end": 9.72
+        },
+        {
+          "raw": "was",
+          "start": 9.72,
+          "end": 9.84
+        },
+        {
+          "raw": "trying",
+          "start": 9.84,
+          "end": 10.06
+        },
+        {
+          "raw": "to",
+          "start": 10.06,
+          "end": 10.26
+        },
+        {
+          "raw": "drag",
+          "start": 10.26,
+          "end": 10.48
+        },
+        {
+          "raw": "his",
+          "start": 10.48,
+          "end": 10.7
+        },
+        {
+          "raw": "brother's",
+          "start": 10.7,
+          "end": 11.16
+        },
+        {
+          "raw": "body",
+          "start": 11.16,
+          "end": 11.34
+        },
+        {
+          "raw": "away.",
+          "start": 11.34,
+          "end": 11.74
+        },
+        {
+          "raw": "Acamas",
+          "start": 12.62,
+          "end": 13.06
+        },
+        {
+          "raw": "vaunted",
+          "start": 13.06,
+          "end": 13.48
+        },
+        {
+          "raw": "loudly",
+          "start": 13.48,
+          "end": 13.8
+        },
+        {
+          "raw": "over",
+          "start": 13.8,
+          "end": 14.2
+        },
+        {
+          "raw": "him",
+          "start": 14.2,
+          "end": 14.4
+        },
+        {
+          "raw": "saying,",
+          "start": 14.4,
+          "end": 14.74
+        },
+        {
+          "raw": "\"'Argive",
+          "start": 14.74,
+          "end": 15.58
+        },
+        {
+          "raw": "archers,",
+          "start": 15.58,
+          "end": 16.18
+        },
+        {
+          "raw": "braggarts",
+          "start": 16.54,
+          "end": 16.96
+        },
+        {
+          "raw": "that",
+          "start": 16.96,
+          "end": 17.16
+        },
+        {
+          "raw": "you",
+          "start": 17.16,
+          "end": 17.34
+        },
+        {
+          "raw": "are,",
+          "start": 17.34,
+          "end": 17.66
+        },
+        {
+          "raw": "toil",
+          "start": 18.08,
+          "end": 18.34
+        },
+        {
+          "raw": "and",
+          "start": 18.34,
+          "end": 18.56
+        },
+        {
+          "raw": "suffering",
+          "start": 18.56,
+          "end": 18.96
+        },
+        {
+          "raw": "shall",
+          "start": 18.96,
+          "end": 19.18
+        },
+        {
+          "raw": "not",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "raw": "be",
+          "start": 19.4,
+          "end": 19.56
+        },
+        {
+          "raw": "for",
+          "start": 19.56,
+          "end": 19.68
+        },
+        {
+          "raw": "us",
+          "start": 19.68,
+          "end": 19.8
+        },
+        {
+          "raw": "only,",
+          "start": 19.8,
+          "end": 20.18
+        },
+        {
+          "raw": "but",
+          "start": 20.62,
+          "end": 20.76
+        },
+        {
+          "raw": "some",
+          "start": 20.76,
+          "end": 20.96
+        },
+        {
+          "raw": "of",
+          "start": 20.96,
+          "end": 21.1
+        },
+        {
+          "raw": "you",
+          "start": 21.1,
+          "end": 21.22
+        },
+        {
+          "raw": "too",
+          "start": 21.22,
+          "end": 21.46
+        },
+        {
+          "raw": "shall",
+          "start": 21.46,
+          "end": 21.7
+        },
+        {
+          "raw": "fall",
+          "start": 21.7,
+          "end": 21.98
+        },
+        {
+          "raw": "here",
+          "start": 21.98,
+          "end": 22.26
+        },
+        {
+          "raw": "as",
+          "start": 22.26,
+          "end": 22.42
+        },
+        {
+          "raw": "well",
+          "start": 22.42,
+          "end": 22.6
+        },
+        {
+          "raw": "as",
+          "start": 22.6,
+          "end": 22.76
+        },
+        {
+          "raw": "ourselves.",
+          "start": 22.76,
+          "end": 23.18
+        },
+        {
+          "raw": "See",
+          "start": 24.3,
+          "end": 24.56
+        },
+        {
+          "raw": "how",
+          "start": 24.56,
+          "end": 24.8
+        },
+        {
+          "raw": "Promachus",
+          "start": 24.8,
+          "end": 25.28
+        },
+        {
+          "raw": "now",
+          "start": 25.28,
+          "end": 25.6
+        },
+        {
+          "raw": "sleeps,",
+          "start": 25.6,
+          "end": 26.02
+        },
+        {
+          "raw": "vanquished",
+          "start": 26.56,
+          "end": 26.86
+        },
+        {
+          "raw": "by",
+          "start": 26.86,
+          "end": 27.24
+        },
+        {
+          "raw": "my",
+          "start": 27.24,
+          "end": 27.44
+        },
+        {
+          "raw": "spear.",
+          "start": 27.44,
+          "end": 27.8
+        },
+        {
+          "raw": "Payment",
+          "start": 28.7,
+          "end": 28.7
+        },
+        {
+          "raw": "for",
+          "start": 28.7,
+          "end": 28.92
+        },
+        {
+          "raw": "my",
+          "start": 28.92,
+          "end": 29.1
+        },
+        {
+          "raw": "brother's",
+          "start": 29.1,
+          "end": 29.5
+        },
+        {
+          "raw": "blood",
+          "start": 29.5,
+          "end": 29.74
+        },
+        {
+          "raw": "has",
+          "start": 29.74,
+          "end": 29.98
+        },
+        {
+          "raw": "not",
+          "start": 29.98,
+          "end": 30.2
+        },
+        {
+          "raw": "been",
+          "start": 30.2,
+          "end": 30.4
+        },
+        {
+          "raw": "long",
+          "start": 30.4,
+          "end": 30.62
+        },
+        {
+          "raw": "delayed.",
+          "start": 30.62,
+          "end": 31.04
+        },
+        {
+          "raw": "A",
+          "start": 31.72,
+          "end": 31.88
+        },
+        {
+          "raw": "man,",
+          "start": 31.88,
+          "end": 32.14
+        },
+        {
+          "raw": "therefore,",
+          "start": 32.24,
+          "end": 32.62
+        },
+        {
+          "raw": "may",
+          "start": 32.98,
+          "end": 33.08
+        },
+        {
+          "raw": "well",
+          "start": 33.08,
+          "end": 33.3
+        },
+        {
+          "raw": "be",
+          "start": 33.3,
+          "end": 33.48
+        },
+        {
+          "raw": "thankful",
+          "start": 33.48,
+          "end": 33.92
+        },
+        {
+          "raw": "if",
+          "start": 33.92,
+          "end": 34.16
+        },
+        {
+          "raw": "he",
+          "start": 34.16,
+          "end": 34.28
+        },
+        {
+          "raw": "leaves",
+          "start": 34.28,
+          "end": 34.52
+        },
+        {
+          "raw": "a",
+          "start": 34.52,
+          "end": 34.7
+        },
+        {
+          "raw": "kinsman",
+          "start": 34.7,
+          "end": 35.12
+        },
+        {
+          "raw": "in",
+          "start": 35.12,
+          "end": 35.3
+        },
+        {
+          "raw": "his",
+          "start": 35.3,
+          "end": 35.44
+        },
+        {
+          "raw": "house",
+          "start": 35.44,
+          "end": 35.68
+        },
+        {
+          "raw": "behind",
+          "start": 35.68,
+          "end": 36.12
+        },
+        {
+          "raw": "him",
+          "start": 36.12,
+          "end": 36.4
+        },
+        {
+          "raw": "to",
+          "start": 36.4,
+          "end": 36.66
+        },
+        {
+          "raw": "avenge",
+          "start": 36.66,
+          "end": 36.96
+        },
+        {
+          "raw": "his",
+          "start": 36.96,
+          "end": 37.2
+        },
+        {
+          "raw": "fall.'\"",
+          "start": 37.2,
+          "end": 37.68
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "he",
+        "knew",
+        "well",
+        "who",
+        "it",
+        "was,",
+        "and",
+        "the",
+        "Trojans",
+        "were",
+        "greatly",
+        "angered.",
+        "Acamas",
+        "then",
+        "bestrode",
+        "his",
+        "brother's",
+        "body",
+        "and",
+        "wounded",
+        "Promachus",
+        "the",
+        "Boeotian",
+        "with",
+        "his",
+        "spear,",
+        "for",
+        "he",
+        "was",
+        "trying",
+        "to",
+        "drag",
+        "his",
+        "brother's",
+        "body",
+        "away.",
+        "Acamas",
+        "vaunted",
+        "loudly",
+        "over",
+        "him",
+        "saying,",
+        "\"Argive",
+        "archers,",
+        "braggarts",
+        "that",
+        "you",
+        "are,",
+        "toil",
+        "and",
+        "suffering",
+        "shall",
+        "not",
+        "be",
+        "for",
+        "us",
+        "only,",
+        "but",
+        "some",
+        "of",
+        "you",
+        "too",
+        "shall",
+        "fall",
+        "here",
+        "as",
+        "well",
+        "as",
+        "ourselves.",
+        "See",
+        "how",
+        "Promachus",
+        "now",
+        "sleeps,",
+        "vanquished",
+        "by",
+        "my",
+        "spear;",
+        "payment",
+        "for",
+        "my",
+        "brother's",
+        "blood",
+        "has",
+        "not",
+        "been",
+        "long",
+        "delayed;",
+        "a",
+        "man,",
+        "therefore,",
+        "may",
+        "well",
+        "be",
+        "thankful",
+        "if",
+        "he",
+        "leaves",
+        "a",
+        "kinsman",
+        "in",
+        "his",
+        "house",
+        "behind",
+        "him",
+        "to",
+        "avenge",
+        "his",
+        "fall.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          110,
+          0,
+          110
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "he",
+          "start": 0.48,
+          "end": 0.56
+        },
+        {
+          "text": "knew",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "well",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "who",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "it",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "was,",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "text": "and",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "text": "Trojans",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "text": "were",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "text": "greatly",
+          "start": 2.84,
+          "end": 3.14
+        },
+        {
+          "text": "angered.",
+          "start": 3.14,
+          "end": 3.64
+        },
+        {
+          "text": "Acamas",
+          "start": 4.4,
+          "end": 4.72
+        },
+        {
+          "text": "then",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "text": "bestrode",
+          "start": 5.04,
+          "end": 5.6
+        },
+        {
+          "text": "his",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "text": "brother's",
+          "start": 5.76,
+          "end": 6.2
+        },
+        {
+          "text": "body",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "text": "and",
+          "start": 6.44,
+          "end": 6.74
+        },
+        {
+          "text": "wounded",
+          "start": 6.74,
+          "end": 7.12
+        },
+        {
+          "text": "Promachus",
+          "start": 7.12,
+          "end": 7.62
+        },
+        {
+          "text": "the",
+          "start": 7.62,
+          "end": 7.88
+        },
+        {
+          "text": "Boeotian",
+          "start": 7.88,
+          "end": 8.32
+        },
+        {
+          "text": "with",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "text": "his",
+          "start": 8.48,
+          "end": 8.64
+        },
+        {
+          "text": "spear,",
+          "start": 8.64,
+          "end": 8.96
+        },
+        {
+          "text": "for",
+          "start": 9.42,
+          "end": 9.6
+        },
+        {
+          "text": "he",
+          "start": 9.6,
+          "end": 9.72
+        },
+        {
+          "text": "was",
+          "start": 9.72,
+          "end": 9.84
+        },
+        {
+          "text": "trying",
+          "start": 9.84,
+          "end": 10.06
+        },
+        {
+          "text": "to",
+          "start": 10.06,
+          "end": 10.26
+        },
+        {
+          "text": "drag",
+          "start": 10.26,
+          "end": 10.48
+        },
+        {
+          "text": "his",
+          "start": 10.48,
+          "end": 10.7
+        },
+        {
+          "text": "brother's",
+          "start": 10.7,
+          "end": 11.16
+        },
+        {
+          "text": "body",
+          "start": 11.16,
+          "end": 11.34
+        },
+        {
+          "text": "away.",
+          "start": 11.34,
+          "end": 11.74
+        },
+        {
+          "text": "Acamas",
+          "start": 12.62,
+          "end": 13.06
+        },
+        {
+          "text": "vaunted",
+          "start": 13.06,
+          "end": 13.48
+        },
+        {
+          "text": "loudly",
+          "start": 13.48,
+          "end": 13.8
+        },
+        {
+          "text": "over",
+          "start": 13.8,
+          "end": 14.2
+        },
+        {
+          "text": "him",
+          "start": 14.2,
+          "end": 14.4
+        },
+        {
+          "text": "saying,",
+          "start": 14.4,
+          "end": 14.74
+        },
+        {
+          "text": "\"Argive",
+          "start": 14.74,
+          "end": 15.58
+        },
+        {
+          "text": "archers,",
+          "start": 15.58,
+          "end": 16.18
+        },
+        {
+          "text": "braggarts",
+          "start": 16.54,
+          "end": 16.96
+        },
+        {
+          "text": "that",
+          "start": 16.96,
+          "end": 17.16
+        },
+        {
+          "text": "you",
+          "start": 17.16,
+          "end": 17.34
+        },
+        {
+          "text": "are,",
+          "start": 17.34,
+          "end": 17.66
+        },
+        {
+          "text": "toil",
+          "start": 18.08,
+          "end": 18.34
+        },
+        {
+          "text": "and",
+          "start": 18.34,
+          "end": 18.56
+        },
+        {
+          "text": "suffering",
+          "start": 18.56,
+          "end": 18.96
+        },
+        {
+          "text": "shall",
+          "start": 18.96,
+          "end": 19.18
+        },
+        {
+          "text": "not",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "text": "be",
+          "start": 19.4,
+          "end": 19.56
+        },
+        {
+          "text": "for",
+          "start": 19.56,
+          "end": 19.68
+        },
+        {
+          "text": "us",
+          "start": 19.68,
+          "end": 19.8
+        },
+        {
+          "text": "only,",
+          "start": 19.8,
+          "end": 20.18
+        },
+        {
+          "text": "but",
+          "start": 20.62,
+          "end": 20.76
+        },
+        {
+          "text": "some",
+          "start": 20.76,
+          "end": 20.96
+        },
+        {
+          "text": "of",
+          "start": 20.96,
+          "end": 21.1
+        },
+        {
+          "text": "you",
+          "start": 21.1,
+          "end": 21.22
+        },
+        {
+          "text": "too",
+          "start": 21.22,
+          "end": 21.46
+        },
+        {
+          "text": "shall",
+          "start": 21.46,
+          "end": 21.7
+        },
+        {
+          "text": "fall",
+          "start": 21.7,
+          "end": 21.98
+        },
+        {
+          "text": "here",
+          "start": 21.98,
+          "end": 22.26
+        },
+        {
+          "text": "as",
+          "start": 22.26,
+          "end": 22.42
+        },
+        {
+          "text": "well",
+          "start": 22.42,
+          "end": 22.6
+        },
+        {
+          "text": "as",
+          "start": 22.6,
+          "end": 22.76
+        },
+        {
+          "text": "ourselves.",
+          "start": 22.76,
+          "end": 23.18
+        },
+        {
+          "text": "See",
+          "start": 24.3,
+          "end": 24.56
+        },
+        {
+          "text": "how",
+          "start": 24.56,
+          "end": 24.8
+        },
+        {
+          "text": "Promachus",
+          "start": 24.8,
+          "end": 25.28
+        },
+        {
+          "text": "now",
+          "start": 25.28,
+          "end": 25.6
+        },
+        {
+          "text": "sleeps,",
+          "start": 25.6,
+          "end": 26.02
+        },
+        {
+          "text": "vanquished",
+          "start": 26.56,
+          "end": 26.86
+        },
+        {
+          "text": "by",
+          "start": 26.86,
+          "end": 27.24
+        },
+        {
+          "text": "my",
+          "start": 27.24,
+          "end": 27.44
+        },
+        {
+          "text": "spear;",
+          "start": 27.44,
+          "end": 27.8
+        },
+        {
+          "text": "payment",
+          "start": 28.7,
+          "end": 28.7
+        },
+        {
+          "text": "for",
+          "start": 28.7,
+          "end": 28.92
+        },
+        {
+          "text": "my",
+          "start": 28.92,
+          "end": 29.1
+        },
+        {
+          "text": "brother's",
+          "start": 29.1,
+          "end": 29.5
+        },
+        {
+          "text": "blood",
+          "start": 29.5,
+          "end": 29.74
+        },
+        {
+          "text": "has",
+          "start": 29.74,
+          "end": 29.98
+        },
+        {
+          "text": "not",
+          "start": 29.98,
+          "end": 30.2
+        },
+        {
+          "text": "been",
+          "start": 30.2,
+          "end": 30.4
+        },
+        {
+          "text": "long",
+          "start": 30.4,
+          "end": 30.62
+        },
+        {
+          "text": "delayed;",
+          "start": 30.62,
+          "end": 31.04
+        },
+        {
+          "text": "a",
+          "start": 31.72,
+          "end": 31.88
+        },
+        {
+          "text": "man,",
+          "start": 31.88,
+          "end": 32.14
+        },
+        {
+          "text": "therefore,",
+          "start": 32.24,
+          "end": 32.62
+        },
+        {
+          "text": "may",
+          "start": 32.98,
+          "end": 33.08
+        },
+        {
+          "text": "well",
+          "start": 33.08,
+          "end": 33.3
+        },
+        {
+          "text": "be",
+          "start": 33.3,
+          "end": 33.48
+        },
+        {
+          "text": "thankful",
+          "start": 33.48,
+          "end": 33.92
+        },
+        {
+          "text": "if",
+          "start": 33.92,
+          "end": 34.16
+        },
+        {
+          "text": "he",
+          "start": 34.16,
+          "end": 34.28
+        },
+        {
+          "text": "leaves",
+          "start": 34.28,
+          "end": 34.52
+        },
+        {
+          "text": "a",
+          "start": 34.52,
+          "end": 34.7
+        },
+        {
+          "text": "kinsman",
+          "start": 34.7,
+          "end": 35.12
+        },
+        {
+          "text": "in",
+          "start": 35.12,
+          "end": 35.3
+        },
+        {
+          "text": "his",
+          "start": 35.3,
+          "end": 35.44
+        },
+        {
+          "text": "house",
+          "start": 35.44,
+          "end": 35.68
+        },
+        {
+          "text": "behind",
+          "start": 35.68,
+          "end": 36.12
+        },
+        {
+          "text": "him",
+          "start": 36.12,
+          "end": 36.4
+        },
+        {
+          "text": "to",
+          "start": 36.4,
+          "end": 36.66
+        },
+        {
+          "text": "avenge",
+          "start": 36.66,
+          "end": 36.96
+        },
+        {
+          "text": "his",
+          "start": 36.96,
+          "end": 37.2
+        },
+        {
+          "text": "fall.\"",
+          "start": 37.2,
+          "end": 37.68
+        }
+      ],
+      "stats": {
+        "expected_words": 110,
+        "heard_words": 110,
+        "matched_words": 110
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7051316872239113
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a524f2722d7e733d050b90c891edb74af2a7d933bbb4cafe07706bad9aaeb595",
+  "selected_reasons": []
+}

@@ -1,0 +1,1442 @@
+{
+  "complete": true,
+  "signature": "a416365a2a3dc0399793ff624f87d906733528809114bb835cc0720b4a7ca9d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.49743568897247314,
+      "alignment_seconds": 0.00046894699335098267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He called so loud that all the hollow deep Of Hell resounded:—\"Princes, Potentates, Warriors, the Flower of Heaven—once yours; now lost, If such astonishment as this can seize Eternal Spirits! Or have ye chosen this place After the toil of battle to repose Your wearied virtue, for the ease you find To slumber here, as in the vales of Heaven?",
+        "hotwords": "He, Hell, Potentates, Warriors, Flower, Heaven—once, If, Eternal, Spirits, Or, After, Your, Heaven"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He called so loud that all the hollow deep Of Hell resounded—\"Princes, Potentates, Warriors, the Flower of Heaven—once yours, now lost, If such astonishment as this can seize Eternal Spirits! Or have ye chosen this place After the toil of battle to repose Your wearied virtue, for the ease you find To slumber here, as in the vales of Heaven?",
+          "start": 0.05,
+          "end": 21.27,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.84375
+            },
+            {
+              "text": " called",
+              "start": 0.49,
+              "end": 0.71,
+              "probability": 0.98828125
+            },
+            {
+              "text": " so",
+              "start": 0.71,
+              "end": 1.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " loud",
+              "start": 1.01,
+              "end": 1.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " all",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hollow",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.96484375
+            },
+            {
+              "text": " deep",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " Of",
+              "start": 2.37,
+              "end": 2.57,
+              "probability": 0.00024116039276123047
+            },
+            {
+              "text": " Hell",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.11083984375
+            },
+            {
+              "text": " resounded—\"Princes,",
+              "start": 2.71,
+              "end": 4.27,
+              "probability": 0.6512150764465332
+            },
+            {
+              "text": " Potentates,",
+              "start": 4.87,
+              "end": 5.47,
+              "probability": 0.6606953938802084
+            },
+            {
+              "text": " Warriors,",
+              "start": 5.83,
+              "end": 6.05,
+              "probability": 0.828125
+            },
+            {
+              "text": " the",
+              "start": 6.45,
+              "end": 6.51,
+              "probability": 0.446044921875
+            },
+            {
+              "text": " Flower",
+              "start": 6.51,
+              "end": 6.75,
+              "probability": 0.8984375
+            },
+            {
+              "text": " of",
+              "start": 6.75,
+              "end": 7.01,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Heaven—once",
+              "start": 7.01,
+              "end": 8.03,
+              "probability": 0.644775390625
+            },
+            {
+              "text": " yours,",
+              "start": 8.03,
+              "end": 8.31,
+              "probability": 0.6171875
+            },
+            {
+              "text": " now",
+              "start": 8.93,
+              "end": 9.13,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " lost,",
+              "start": 9.13,
+              "end": 9.45,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " If",
+              "start": 9.69,
+              "end": 9.79,
+              "probability": 0.42724609375
+            },
+            {
+              "text": " such",
+              "start": 9.79,
+              "end": 9.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " astonishment",
+              "start": 9.99,
+              "end": 10.63,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " as",
+              "start": 10.63,
+              "end": 10.91,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " this",
+              "start": 10.91,
+              "end": 11.17,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " can",
+              "start": 11.17,
+              "end": 11.35,
+              "probability": 0.4560546875
+            },
+            {
+              "text": " seize",
+              "start": 11.35,
+              "end": 11.69,
+              "probability": 0.9140625
+            },
+            {
+              "text": " Eternal",
+              "start": 11.69,
+              "end": 12.17,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Spirits!",
+              "start": 12.17,
+              "end": 12.59,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " Or",
+              "start": 13.29,
+              "end": 13.55,
+              "probability": 0.787109375
+            },
+            {
+              "text": " have",
+              "start": 13.55,
+              "end": 13.67,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " ye",
+              "start": 13.67,
+              "end": 13.79,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " chosen",
+              "start": 13.79,
+              "end": 14.03,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " this",
+              "start": 14.03,
+              "end": 14.39,
+              "probability": 0.93359375
+            },
+            {
+              "text": " place",
+              "start": 14.39,
+              "end": 14.61,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " After",
+              "start": 14.61,
+              "end": 14.95,
+              "probability": 0.418701171875
+            },
+            {
+              "text": " the",
+              "start": 14.95,
+              "end": 15.13,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " toil",
+              "start": 15.13,
+              "end": 15.35,
+              "probability": 0.934326171875
+            },
+            {
+              "text": " of",
+              "start": 15.35,
+              "end": 15.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " battle",
+              "start": 15.53,
+              "end": 15.77,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " to",
+              "start": 15.77,
+              "end": 16.03,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " repose",
+              "start": 16.03,
+              "end": 16.43,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " Your",
+              "start": 16.43,
+              "end": 16.61,
+              "probability": 0.60595703125
+            },
+            {
+              "text": " wearied",
+              "start": 16.61,
+              "end": 16.99,
+              "probability": 0.947265625
+            },
+            {
+              "text": " virtue,",
+              "start": 16.99,
+              "end": 17.39,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " for",
+              "start": 17.87,
+              "end": 18.01,
+              "probability": 0.09222412109375
+            },
+            {
+              "text": " the",
+              "start": 18.01,
+              "end": 18.19,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " ease",
+              "start": 18.19,
+              "end": 18.39,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " you",
+              "start": 18.39,
+              "end": 18.61,
+              "probability": 0.5166015625
+            },
+            {
+              "text": " find",
+              "start": 18.61,
+              "end": 18.85,
+              "probability": 0.904296875
+            },
+            {
+              "text": " To",
+              "start": 18.85,
+              "end": 19.01,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " slumber",
+              "start": 19.01,
+              "end": 19.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here,",
+              "start": 19.33,
+              "end": 19.69,
+              "probability": 0.98828125
+            },
+            {
+              "text": " as",
+              "start": 20.07,
+              "end": 20.23,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " in",
+              "start": 20.23,
+              "end": 20.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 20.39,
+              "end": 20.55,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " vales",
+              "start": 20.55,
+              "end": 20.89,
+              "probability": 0.5301361083984375
+            },
+            {
+              "text": " of",
+              "start": 20.89,
+              "end": 20.99,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Heaven?",
+              "start": 20.99,
+              "end": 21.27,
+              "probability": 0.6435546875
+            }
+          ]
+        },
+        {
+          "text": " The toil of Heaven!",
+          "start": 21.27,
+          "end": 21.39,
+          "words": [
+            {
+              "text": " The",
+              "start": 21.27,
+              "end": 21.27,
+              "probability": 0.0036182403564453125
+            },
+            {
+              "text": " toil",
+              "start": 21.27,
+              "end": 21.27,
+              "probability": 0.0030222535133361816
+            },
+            {
+              "text": " of",
+              "start": 21.27,
+              "end": 21.27,
+              "probability": 0.0305633544921875
+            },
+            {
+              "text": " Heaven!",
+              "start": 21.27,
+              "end": 21.39,
+              "probability": 1.4126300811767578e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "called",
+          "start": 0.49,
+          "end": 0.71
+        },
+        {
+          "raw": "so",
+          "start": 0.71,
+          "end": 1.01
+        },
+        {
+          "raw": "loud",
+          "start": 1.01,
+          "end": 1.27
+        },
+        {
+          "raw": "that",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "all",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "hollow",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "deep",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "Of",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "raw": "Hell",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "resounded—\"Princes,",
+          "start": 2.71,
+          "end": 4.27
+        },
+        {
+          "raw": "Potentates,",
+          "start": 4.87,
+          "end": 5.47
+        },
+        {
+          "raw": "Warriors,",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.51
+        },
+        {
+          "raw": "Flower",
+          "start": 6.51,
+          "end": 6.75
+        },
+        {
+          "raw": "of",
+          "start": 6.75,
+          "end": 7.01
+        },
+        {
+          "raw": "Heaven—once",
+          "start": 7.01,
+          "end": 8.03
+        },
+        {
+          "raw": "yours,",
+          "start": 8.03,
+          "end": 8.31
+        },
+        {
+          "raw": "now",
+          "start": 8.93,
+          "end": 9.13
+        },
+        {
+          "raw": "lost,",
+          "start": 9.13,
+          "end": 9.45
+        },
+        {
+          "raw": "If",
+          "start": 9.69,
+          "end": 9.79
+        },
+        {
+          "raw": "such",
+          "start": 9.79,
+          "end": 9.99
+        },
+        {
+          "raw": "astonishment",
+          "start": 9.99,
+          "end": 10.63
+        },
+        {
+          "raw": "as",
+          "start": 10.63,
+          "end": 10.91
+        },
+        {
+          "raw": "this",
+          "start": 10.91,
+          "end": 11.17
+        },
+        {
+          "raw": "can",
+          "start": 11.17,
+          "end": 11.35
+        },
+        {
+          "raw": "seize",
+          "start": 11.35,
+          "end": 11.69
+        },
+        {
+          "raw": "Eternal",
+          "start": 11.69,
+          "end": 12.17
+        },
+        {
+          "raw": "Spirits!",
+          "start": 12.17,
+          "end": 12.59
+        },
+        {
+          "raw": "Or",
+          "start": 13.29,
+          "end": 13.55
+        },
+        {
+          "raw": "have",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "raw": "ye",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "raw": "chosen",
+          "start": 13.79,
+          "end": 14.03
+        },
+        {
+          "raw": "this",
+          "start": 14.03,
+          "end": 14.39
+        },
+        {
+          "raw": "place",
+          "start": 14.39,
+          "end": 14.61
+        },
+        {
+          "raw": "After",
+          "start": 14.61,
+          "end": 14.95
+        },
+        {
+          "raw": "the",
+          "start": 14.95,
+          "end": 15.13
+        },
+        {
+          "raw": "toil",
+          "start": 15.13,
+          "end": 15.35
+        },
+        {
+          "raw": "of",
+          "start": 15.35,
+          "end": 15.53
+        },
+        {
+          "raw": "battle",
+          "start": 15.53,
+          "end": 15.77
+        },
+        {
+          "raw": "to",
+          "start": 15.77,
+          "end": 16.03
+        },
+        {
+          "raw": "repose",
+          "start": 16.03,
+          "end": 16.43
+        },
+        {
+          "raw": "Your",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "raw": "wearied",
+          "start": 16.61,
+          "end": 16.99
+        },
+        {
+          "raw": "virtue,",
+          "start": 16.99,
+          "end": 17.39
+        },
+        {
+          "raw": "for",
+          "start": 17.87,
+          "end": 18.01
+        },
+        {
+          "raw": "the",
+          "start": 18.01,
+          "end": 18.19
+        },
+        {
+          "raw": "ease",
+          "start": 18.19,
+          "end": 18.39
+        },
+        {
+          "raw": "you",
+          "start": 18.39,
+          "end": 18.61
+        },
+        {
+          "raw": "find",
+          "start": 18.61,
+          "end": 18.85
+        },
+        {
+          "raw": "To",
+          "start": 18.85,
+          "end": 19.01
+        },
+        {
+          "raw": "slumber",
+          "start": 19.01,
+          "end": 19.33
+        },
+        {
+          "raw": "here,",
+          "start": 19.33,
+          "end": 19.69
+        },
+        {
+          "raw": "as",
+          "start": 20.07,
+          "end": 20.23
+        },
+        {
+          "raw": "in",
+          "start": 20.23,
+          "end": 20.39
+        },
+        {
+          "raw": "the",
+          "start": 20.39,
+          "end": 20.55
+        },
+        {
+          "raw": "vales",
+          "start": 20.55,
+          "end": 20.89
+        },
+        {
+          "raw": "of",
+          "start": 20.89,
+          "end": 20.99
+        },
+        {
+          "raw": "Heaven?",
+          "start": 20.99,
+          "end": 21.27
+        },
+        {
+          "raw": "The",
+          "start": 21.27,
+          "end": 21.27
+        },
+        {
+          "raw": "toil",
+          "start": 21.27,
+          "end": 21.27
+        },
+        {
+          "raw": "of",
+          "start": 21.27,
+          "end": 21.27
+        },
+        {
+          "raw": "Heaven!",
+          "start": 21.27,
+          "end": 21.39
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "called",
+        "so",
+        "loud",
+        "that",
+        "all",
+        "the",
+        "hollow",
+        "deep",
+        "Of",
+        "Hell",
+        "resounded:—\"Princes,",
+        "Potentates,",
+        "Warriors,",
+        "the",
+        "Flower",
+        "of",
+        "Heaven—once",
+        "yours;",
+        "now",
+        "lost,",
+        "If",
+        "such",
+        "astonishment",
+        "as",
+        "this",
+        "can",
+        "seize",
+        "Eternal",
+        "Spirits!",
+        "Or",
+        "have",
+        "ye",
+        "chosen",
+        "this",
+        "place",
+        "After",
+        "the",
+        "toil",
+        "of",
+        "battle",
+        "to",
+        "repose",
+        "Your",
+        "wearied",
+        "virtue,",
+        "for",
+        "the",
+        "ease",
+        "you",
+        "find",
+        "To",
+        "slumber",
+        "here,",
+        "as",
+        "in",
+        "the",
+        "vales",
+        "of",
+        "Heaven?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          60,
+          0,
+          60
+        ],
+        [
+          "insert",
+          60,
+          60,
+          60,
+          64
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          60,
+          60,
+          60,
+          64
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "called",
+          "start": 0.49,
+          "end": 0.71
+        },
+        {
+          "text": "so",
+          "start": 0.71,
+          "end": 1.01
+        },
+        {
+          "text": "loud",
+          "start": 1.01,
+          "end": 1.27
+        },
+        {
+          "text": "that",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "all",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "the",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "hollow",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "text": "deep",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "Of",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "text": "Hell",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "resounded:—\"Princes,",
+          "start": 2.71,
+          "end": 4.27
+        },
+        {
+          "text": "Potentates,",
+          "start": 4.87,
+          "end": 5.47
+        },
+        {
+          "text": "Warriors,",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "text": "the",
+          "start": 6.45,
+          "end": 6.51
+        },
+        {
+          "text": "Flower",
+          "start": 6.51,
+          "end": 6.75
+        },
+        {
+          "text": "of",
+          "start": 6.75,
+          "end": 7.01
+        },
+        {
+          "text": "Heaven—once",
+          "start": 7.01,
+          "end": 8.03
+        },
+        {
+          "text": "yours;",
+          "start": 8.03,
+          "end": 8.31
+        },
+        {
+          "text": "now",
+          "start": 8.93,
+          "end": 9.13
+        },
+        {
+          "text": "lost,",
+          "start": 9.13,
+          "end": 9.45
+        },
+        {
+          "text": "If",
+          "start": 9.69,
+          "end": 9.79
+        },
+        {
+          "text": "such",
+          "start": 9.79,
+          "end": 9.99
+        },
+        {
+          "text": "astonishment",
+          "start": 9.99,
+          "end": 10.63
+        },
+        {
+          "text": "as",
+          "start": 10.63,
+          "end": 10.91
+        },
+        {
+          "text": "this",
+          "start": 10.91,
+          "end": 11.17
+        },
+        {
+          "text": "can",
+          "start": 11.17,
+          "end": 11.35
+        },
+        {
+          "text": "seize",
+          "start": 11.35,
+          "end": 11.69
+        },
+        {
+          "text": "Eternal",
+          "start": 11.69,
+          "end": 12.17
+        },
+        {
+          "text": "Spirits!",
+          "start": 12.17,
+          "end": 12.59
+        },
+        {
+          "text": "Or",
+          "start": 13.29,
+          "end": 13.55
+        },
+        {
+          "text": "have",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "text": "ye",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "text": "chosen",
+          "start": 13.79,
+          "end": 14.03
+        },
+        {
+          "text": "this",
+          "start": 14.03,
+          "end": 14.39
+        },
+        {
+          "text": "place",
+          "start": 14.39,
+          "end": 14.61
+        },
+        {
+          "text": "After",
+          "start": 14.61,
+          "end": 14.95
+        },
+        {
+          "text": "the",
+          "start": 14.95,
+          "end": 15.13
+        },
+        {
+          "text": "toil",
+          "start": 15.13,
+          "end": 15.35
+        },
+        {
+          "text": "of",
+          "start": 15.35,
+          "end": 15.53
+        },
+        {
+          "text": "battle",
+          "start": 15.53,
+          "end": 15.77
+        },
+        {
+          "text": "to",
+          "start": 15.77,
+          "end": 16.03
+        },
+        {
+          "text": "repose",
+          "start": 16.03,
+          "end": 16.43
+        },
+        {
+          "text": "Your",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "text": "wearied",
+          "start": 16.61,
+          "end": 16.99
+        },
+        {
+          "text": "virtue,",
+          "start": 16.99,
+          "end": 17.39
+        },
+        {
+          "text": "for",
+          "start": 17.87,
+          "end": 18.01
+        },
+        {
+          "text": "the",
+          "start": 18.01,
+          "end": 18.19
+        },
+        {
+          "text": "ease",
+          "start": 18.19,
+          "end": 18.39
+        },
+        {
+          "text": "you",
+          "start": 18.39,
+          "end": 18.61
+        },
+        {
+          "text": "find",
+          "start": 18.61,
+          "end": 18.85
+        },
+        {
+          "text": "To",
+          "start": 18.85,
+          "end": 19.01
+        },
+        {
+          "text": "slumber",
+          "start": 19.01,
+          "end": 19.33
+        },
+        {
+          "text": "here,",
+          "start": 19.33,
+          "end": 19.69
+        },
+        {
+          "text": "as",
+          "start": 20.07,
+          "end": 20.23
+        },
+        {
+          "text": "in",
+          "start": 20.23,
+          "end": 20.39
+        },
+        {
+          "text": "the",
+          "start": 20.39,
+          "end": 20.55
+        },
+        {
+          "text": "vales",
+          "start": 20.55,
+          "end": 20.89
+        },
+        {
+          "text": "of",
+          "start": 20.89,
+          "end": 20.99
+        },
+        {
+          "text": "Heaven?",
+          "start": 20.99,
+          "end": 21.27
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 64,
+        "matched_words": 60
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.49820341914892197
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e3b92a17742dbd7f87298c8aca07e32a86b2753e3a5d337f9eacb9eec47b49e8",
+  "selected_reasons": []
+}

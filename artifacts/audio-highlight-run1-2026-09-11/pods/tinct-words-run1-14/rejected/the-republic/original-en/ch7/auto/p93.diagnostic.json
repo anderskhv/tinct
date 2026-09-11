@@ -1,0 +1,1557 @@
+{
+  "complete": true,
+  "signature": "288b18e4fa2c2545721f944962b865f89a27099650ff0faca67fea8df7a5d234",
+  "attempts": [
+    {
+      "asr_seconds": 0.4297836348414421,
+      "alignment_seconds": 0.00028453022241592407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Music, he said, as you will remember, was the counterpart of gymnastic, and trained the guardians by the influences of habit, by harmony making them harmonious, by rhythm rhythmical, but not giving them science; and the words, whether fabulous or possibly true, had kindred elements of rhythm and harmony in them. But in music there was nothing which tended to that good which you are now seeking."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Music, he said, as you will remember, was the counterpart of gymnastic, and trained the guardians",
+          "start": 0.08,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Music,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.378662109375
+            },
+            {
+              "text": " he",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " said,",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " you",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " remember,",
+              "start": 2.08,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 2.66,
+              "end": 2.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " counterpart",
+              "start": 2.92,
+              "end": 3.36,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " of",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gymnastic,",
+              "start": 3.68,
+              "end": 4.32,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " and",
+              "start": 4.82,
+              "end": 4.96,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " trained",
+              "start": 4.96,
+              "end": 5.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " guardians",
+              "start": 5.44,
+              "end": 5.84,
+              "probability": 0.86767578125
+            }
+          ]
+        },
+        {
+          "text": " by the influences of habit, by harmony making them harmonious, by rhythm rhythmical, but",
+          "start": 5.84,
+          "end": 11.6,
+          "words": [
+            {
+              "text": " by",
+              "start": 5.84,
+              "end": 6.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 6.16,
+              "end": 6.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " influences",
+              "start": 6.28,
+              "end": 6.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 6.76,
+              "end": 7.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " habit,",
+              "start": 7.1,
+              "end": 7.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " by",
+              "start": 7.92,
+              "end": 8.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " harmony",
+              "start": 8.04,
+              "end": 8.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " making",
+              "start": 8.42,
+              "end": 8.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " them",
+              "start": 8.72,
+              "end": 8.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " harmonious,",
+              "start": 8.94,
+              "end": 9.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 10.08,
+              "end": 10.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rhythm",
+              "start": 10.22,
+              "end": 10.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rhythmical,",
+              "start": 10.52,
+              "end": 11.12,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " but",
+              "start": 11.5,
+              "end": 11.6,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " not giving them science. And the words, whether fabulous or possibly true, had kindred elements",
+          "start": 11.6,
+          "end": 17.86,
+          "words": [
+            {
+              "text": " not",
+              "start": 11.6,
+              "end": 11.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " giving",
+              "start": 11.78,
+              "end": 11.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " them",
+              "start": 11.98,
+              "end": 12.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " science.",
+              "start": 12.26,
+              "end": 12.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " And",
+              "start": 13.3,
+              "end": 13.48,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 13.48,
+              "end": 13.58,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " words,",
+              "start": 13.58,
+              "end": 13.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whether",
+              "start": 14.32,
+              "end": 14.52,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " fabulous",
+              "start": 14.52,
+              "end": 15.04,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " or",
+              "start": 15.04,
+              "end": 15.4,
+              "probability": 0.98046875
+            },
+            {
+              "text": " possibly",
+              "start": 15.4,
+              "end": 15.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " true,",
+              "start": 15.92,
+              "end": 16.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 16.7,
+              "end": 16.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " kindred",
+              "start": 16.96,
+              "end": 17.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " elements",
+              "start": 17.34,
+              "end": 17.86,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " of rhythm and harmony in them. But in music there was nothing which tended to that good",
+          "start": 17.86,
+          "end": 22.6,
+          "words": [
+            {
+              "text": " of",
+              "start": 17.86,
+              "end": 18.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rhythm",
+              "start": 18.1,
+              "end": 18.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 18.34,
+              "end": 18.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " harmony",
+              "start": 18.62,
+              "end": 18.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 18.96,
+              "end": 19.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them.",
+              "start": 19.2,
+              "end": 19.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " But",
+              "start": 19.96,
+              "end": 20.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 20.2,
+              "end": 20.3,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " music",
+              "start": 20.3,
+              "end": 20.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " there",
+              "start": 20.62,
+              "end": 20.86,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " was",
+              "start": 20.86,
+              "end": 20.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nothing",
+              "start": 20.98,
+              "end": 21.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 21.32,
+              "end": 21.54,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " tended",
+              "start": 21.54,
+              "end": 21.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 21.92,
+              "end": 22.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 22.14,
+              "end": 22.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 22.34,
+              "end": 22.6,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " which you are now seeking.",
+          "start": 22.6,
+          "end": 23.64,
+          "words": [
+            {
+              "text": " which",
+              "start": 22.6,
+              "end": 22.84,
+              "probability": 0.970703125
+            },
+            {
+              "text": " you",
+              "start": 22.84,
+              "end": 23.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 23.04,
+              "end": 23.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " now",
+              "start": 23.16,
+              "end": 23.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seeking.",
+              "start": 23.32,
+              "end": 23.64,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Music,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "he",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "said,",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "as",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "will",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "remember,",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "raw": "was",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "raw": "the",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "counterpart",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "raw": "of",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "gymnastic,",
+          "start": 3.68,
+          "end": 4.32
+        },
+        {
+          "raw": "and",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "raw": "trained",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "raw": "the",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "guardians",
+          "start": 5.44,
+          "end": 5.84
+        },
+        {
+          "raw": "by",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "raw": "the",
+          "start": 6.16,
+          "end": 6.28
+        },
+        {
+          "raw": "influences",
+          "start": 6.28,
+          "end": 6.76
+        },
+        {
+          "raw": "of",
+          "start": 6.76,
+          "end": 7.1
+        },
+        {
+          "raw": "habit,",
+          "start": 7.1,
+          "end": 7.38
+        },
+        {
+          "raw": "by",
+          "start": 7.92,
+          "end": 8.04
+        },
+        {
+          "raw": "harmony",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "raw": "making",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "raw": "them",
+          "start": 8.72,
+          "end": 8.94
+        },
+        {
+          "raw": "harmonious,",
+          "start": 8.94,
+          "end": 9.64
+        },
+        {
+          "raw": "by",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "raw": "rhythm",
+          "start": 10.22,
+          "end": 10.52
+        },
+        {
+          "raw": "rhythmical,",
+          "start": 10.52,
+          "end": 11.12
+        },
+        {
+          "raw": "but",
+          "start": 11.5,
+          "end": 11.6
+        },
+        {
+          "raw": "not",
+          "start": 11.6,
+          "end": 11.78
+        },
+        {
+          "raw": "giving",
+          "start": 11.78,
+          "end": 11.98
+        },
+        {
+          "raw": "them",
+          "start": 11.98,
+          "end": 12.26
+        },
+        {
+          "raw": "science.",
+          "start": 12.26,
+          "end": 12.6
+        },
+        {
+          "raw": "And",
+          "start": 13.3,
+          "end": 13.48
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.58
+        },
+        {
+          "raw": "words,",
+          "start": 13.58,
+          "end": 13.96
+        },
+        {
+          "raw": "whether",
+          "start": 14.32,
+          "end": 14.52
+        },
+        {
+          "raw": "fabulous",
+          "start": 14.52,
+          "end": 15.04
+        },
+        {
+          "raw": "or",
+          "start": 15.04,
+          "end": 15.4
+        },
+        {
+          "raw": "possibly",
+          "start": 15.4,
+          "end": 15.92
+        },
+        {
+          "raw": "true,",
+          "start": 15.92,
+          "end": 16.38
+        },
+        {
+          "raw": "had",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "raw": "kindred",
+          "start": 16.96,
+          "end": 17.34
+        },
+        {
+          "raw": "elements",
+          "start": 17.34,
+          "end": 17.86
+        },
+        {
+          "raw": "of",
+          "start": 17.86,
+          "end": 18.1
+        },
+        {
+          "raw": "rhythm",
+          "start": 18.1,
+          "end": 18.34
+        },
+        {
+          "raw": "and",
+          "start": 18.34,
+          "end": 18.62
+        },
+        {
+          "raw": "harmony",
+          "start": 18.62,
+          "end": 18.96
+        },
+        {
+          "raw": "in",
+          "start": 18.96,
+          "end": 19.2
+        },
+        {
+          "raw": "them.",
+          "start": 19.2,
+          "end": 19.44
+        },
+        {
+          "raw": "But",
+          "start": 19.96,
+          "end": 20.2
+        },
+        {
+          "raw": "in",
+          "start": 20.2,
+          "end": 20.3
+        },
+        {
+          "raw": "music",
+          "start": 20.3,
+          "end": 20.62
+        },
+        {
+          "raw": "there",
+          "start": 20.62,
+          "end": 20.86
+        },
+        {
+          "raw": "was",
+          "start": 20.86,
+          "end": 20.98
+        },
+        {
+          "raw": "nothing",
+          "start": 20.98,
+          "end": 21.32
+        },
+        {
+          "raw": "which",
+          "start": 21.32,
+          "end": 21.54
+        },
+        {
+          "raw": "tended",
+          "start": 21.54,
+          "end": 21.92
+        },
+        {
+          "raw": "to",
+          "start": 21.92,
+          "end": 22.14
+        },
+        {
+          "raw": "that",
+          "start": 22.14,
+          "end": 22.34
+        },
+        {
+          "raw": "good",
+          "start": 22.34,
+          "end": 22.6
+        },
+        {
+          "raw": "which",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "raw": "you",
+          "start": 22.84,
+          "end": 23.04
+        },
+        {
+          "raw": "are",
+          "start": 23.04,
+          "end": 23.16
+        },
+        {
+          "raw": "now",
+          "start": 23.16,
+          "end": 23.32
+        },
+        {
+          "raw": "seeking.",
+          "start": 23.32,
+          "end": 23.64
+        }
+      ],
+      "expected_tokens": [
+        "Music,",
+        "he",
+        "said,",
+        "as",
+        "you",
+        "will",
+        "remember,",
+        "was",
+        "the",
+        "counterpart",
+        "of",
+        "gymnastic,",
+        "and",
+        "trained",
+        "the",
+        "guardians",
+        "by",
+        "the",
+        "influences",
+        "of",
+        "habit,",
+        "by",
+        "harmony",
+        "making",
+        "them",
+        "harmonious,",
+        "by",
+        "rhythm",
+        "rhythmical,",
+        "but",
+        "not",
+        "giving",
+        "them",
+        "science;",
+        "and",
+        "the",
+        "words,",
+        "whether",
+        "fabulous",
+        "or",
+        "possibly",
+        "true,",
+        "had",
+        "kindred",
+        "elements",
+        "of",
+        "rhythm",
+        "and",
+        "harmony",
+        "in",
+        "them.",
+        "But",
+        "in",
+        "music",
+        "there",
+        "was",
+        "nothing",
+        "which",
+        "tended",
+        "to",
+        "that",
+        "good",
+        "which",
+        "you",
+        "are",
+        "now",
+        "seeking."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          67,
+          0,
+          67
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Music,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "he",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "said,",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "as",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "you",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "will",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "remember,",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "text": "was",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "text": "the",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "counterpart",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "text": "of",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "text": "gymnastic,",
+          "start": 3.68,
+          "end": 4.32
+        },
+        {
+          "text": "and",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "text": "trained",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "text": "the",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "guardians",
+          "start": 5.44,
+          "end": 5.84
+        },
+        {
+          "text": "by",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "text": "the",
+          "start": 6.16,
+          "end": 6.28
+        },
+        {
+          "text": "influences",
+          "start": 6.28,
+          "end": 6.76
+        },
+        {
+          "text": "of",
+          "start": 6.76,
+          "end": 7.1
+        },
+        {
+          "text": "habit,",
+          "start": 7.1,
+          "end": 7.38
+        },
+        {
+          "text": "by",
+          "start": 7.92,
+          "end": 8.04
+        },
+        {
+          "text": "harmony",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "text": "making",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "text": "them",
+          "start": 8.72,
+          "end": 8.94
+        },
+        {
+          "text": "harmonious,",
+          "start": 8.94,
+          "end": 9.64
+        },
+        {
+          "text": "by",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "text": "rhythm",
+          "start": 10.22,
+          "end": 10.52
+        },
+        {
+          "text": "rhythmical,",
+          "start": 10.52,
+          "end": 11.12
+        },
+        {
+          "text": "but",
+          "start": 11.5,
+          "end": 11.6
+        },
+        {
+          "text": "not",
+          "start": 11.6,
+          "end": 11.78
+        },
+        {
+          "text": "giving",
+          "start": 11.78,
+          "end": 11.98
+        },
+        {
+          "text": "them",
+          "start": 11.98,
+          "end": 12.26
+        },
+        {
+          "text": "science;",
+          "start": 12.26,
+          "end": 12.6
+        },
+        {
+          "text": "and",
+          "start": 13.3,
+          "end": 13.48
+        },
+        {
+          "text": "the",
+          "start": 13.48,
+          "end": 13.58
+        },
+        {
+          "text": "words,",
+          "start": 13.58,
+          "end": 13.96
+        },
+        {
+          "text": "whether",
+          "start": 14.32,
+          "end": 14.52
+        },
+        {
+          "text": "fabulous",
+          "start": 14.52,
+          "end": 15.04
+        },
+        {
+          "text": "or",
+          "start": 15.04,
+          "end": 15.4
+        },
+        {
+          "text": "possibly",
+          "start": 15.4,
+          "end": 15.92
+        },
+        {
+          "text": "true,",
+          "start": 15.92,
+          "end": 16.38
+        },
+        {
+          "text": "had",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "text": "kindred",
+          "start": 16.96,
+          "end": 17.34
+        },
+        {
+          "text": "elements",
+          "start": 17.34,
+          "end": 17.86
+        },
+        {
+          "text": "of",
+          "start": 17.86,
+          "end": 18.1
+        },
+        {
+          "text": "rhythm",
+          "start": 18.1,
+          "end": 18.34
+        },
+        {
+          "text": "and",
+          "start": 18.34,
+          "end": 18.62
+        },
+        {
+          "text": "harmony",
+          "start": 18.62,
+          "end": 18.96
+        },
+        {
+          "text": "in",
+          "start": 18.96,
+          "end": 19.2
+        },
+        {
+          "text": "them.",
+          "start": 19.2,
+          "end": 19.44
+        },
+        {
+          "text": "But",
+          "start": 19.96,
+          "end": 20.2
+        },
+        {
+          "text": "in",
+          "start": 20.2,
+          "end": 20.3
+        },
+        {
+          "text": "music",
+          "start": 20.3,
+          "end": 20.62
+        },
+        {
+          "text": "there",
+          "start": 20.62,
+          "end": 20.86
+        },
+        {
+          "text": "was",
+          "start": 20.86,
+          "end": 20.98
+        },
+        {
+          "text": "nothing",
+          "start": 20.98,
+          "end": 21.32
+        },
+        {
+          "text": "which",
+          "start": 21.32,
+          "end": 21.54
+        },
+        {
+          "text": "tended",
+          "start": 21.54,
+          "end": 21.92
+        },
+        {
+          "text": "to",
+          "start": 21.92,
+          "end": 22.14
+        },
+        {
+          "text": "that",
+          "start": 22.14,
+          "end": 22.34
+        },
+        {
+          "text": "good",
+          "start": 22.34,
+          "end": 22.6
+        },
+        {
+          "text": "which",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "text": "you",
+          "start": 22.84,
+          "end": 23.04
+        },
+        {
+          "text": "are",
+          "start": 23.04,
+          "end": 23.16
+        },
+        {
+          "text": "now",
+          "start": 23.16,
+          "end": 23.32
+        },
+        {
+          "text": "seeking.",
+          "start": 23.32,
+          "end": 23.64
+        }
+      ],
+      "stats": {
+        "expected_words": 67,
+        "heard_words": 67,
+        "matched_words": 67
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.43023882806301117
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0748a7d99e85f1a8fb7370dd063803483d8352134b0410ff9ba7e6c1ddf07f03",
+  "selected_reasons": []
+}

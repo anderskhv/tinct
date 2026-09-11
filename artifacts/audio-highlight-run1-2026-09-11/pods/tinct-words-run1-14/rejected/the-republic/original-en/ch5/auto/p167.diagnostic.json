@@ -1,0 +1,407 @@
+{
+  "complete": true,
+  "signature": "79257d99ab17b2cfce880e7065cf5423f11a514b18893ac5baa05a6a2f0215ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.16852205991744995,
+      "alignment_seconds": 9.625405073165894e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And if care was not taken in the breeding, your dogs and birds would greatly deteriorate?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And if care was not taken in the breeding, your dogs and birds would greatly deteriorate?",
+          "start": 0.05,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " if",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.978515625
+            },
+            {
+              "text": " care",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 0.87,
+              "end": 1.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " taken",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " breeding,",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " dogs",
+              "start": 2.79,
+              "end": 3.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.21,
+              "end": 3.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " birds",
+              "start": 3.43,
+              "end": 3.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 3.79,
+              "end": 4.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " greatly",
+              "start": 4.01,
+              "end": 4.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deteriorate?",
+              "start": 4.35,
+              "end": 5.17,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "care",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "was",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "raw": "not",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "taken",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "in",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "the",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "breeding,",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "raw": "your",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "dogs",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "raw": "birds",
+          "start": 3.43,
+          "end": 3.79
+        },
+        {
+          "raw": "would",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "raw": "greatly",
+          "start": 4.01,
+          "end": 4.35
+        },
+        {
+          "raw": "deteriorate?",
+          "start": 4.35,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "if",
+        "care",
+        "was",
+        "not",
+        "taken",
+        "in",
+        "the",
+        "breeding,",
+        "your",
+        "dogs",
+        "and",
+        "birds",
+        "would",
+        "greatly",
+        "deteriorate?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "if",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "care",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "was",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "text": "not",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "taken",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "text": "in",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "the",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "breeding,",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "text": "your",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "dogs",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "text": "and",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "text": "birds",
+          "start": 3.43,
+          "end": 3.79
+        },
+        {
+          "text": "would",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "text": "greatly",
+          "start": 4.01,
+          "end": 4.35
+        },
+        {
+          "text": "deteriorate?",
+          "start": 4.35,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16866738349199295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "793c8cd19e050810f2d4fb97e93e2ee7f624d9b0f84beaf58ce24672e8bb96b4",
+  "selected_reasons": []
+}

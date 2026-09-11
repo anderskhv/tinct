@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "5dbf58a6310e2e3ba4b386cfed78dbca111deaa9638822eb195736cf882ff92f",
+  "attempts": [
+    {
+      "asr_seconds": 0.22700300812721252,
+      "alignment_seconds": 0.00011593103408813477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then are we to impose all our enactments on men and none of them on women?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then are we to impose all our enactments on men and none of them on women?",
+          "start": 0.05,
+          "end": 4.65,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " are",
+              "start": 0.61,
+              "end": 0.87,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " we",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " impose",
+              "start": 1.31,
+              "end": 1.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " our",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " enactments",
+              "start": 2.33,
+              "end": 2.83,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " on",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " men",
+              "start": 2.99,
+              "end": 3.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 3.25,
+              "end": 3.81,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " none",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 4.03,
+              "end": 4.15,
+              "probability": 1.0
+            },
+            {
+              "text": " on",
+              "start": 4.15,
+              "end": 4.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " women?",
+              "start": 4.35,
+              "end": 4.65,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "are",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "raw": "we",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "to",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "impose",
+          "start": 1.31,
+          "end": 1.83
+        },
+        {
+          "raw": "all",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "raw": "our",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "enactments",
+          "start": 2.33,
+          "end": 2.83
+        },
+        {
+          "raw": "on",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "men",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "raw": "and",
+          "start": 3.25,
+          "end": 3.81
+        },
+        {
+          "raw": "none",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "raw": "them",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "raw": "on",
+          "start": 4.15,
+          "end": 4.35
+        },
+        {
+          "raw": "women?",
+          "start": 4.35,
+          "end": 4.65
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "are",
+        "we",
+        "to",
+        "impose",
+        "all",
+        "our",
+        "enactments",
+        "on",
+        "men",
+        "and",
+        "none",
+        "of",
+        "them",
+        "on",
+        "women?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "are",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "text": "we",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "to",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "impose",
+          "start": 1.31,
+          "end": 1.83
+        },
+        {
+          "text": "all",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "text": "our",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "enactments",
+          "start": 2.33,
+          "end": 2.83
+        },
+        {
+          "text": "on",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "men",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "text": "and",
+          "start": 3.25,
+          "end": 3.81
+        },
+        {
+          "text": "none",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "text": "them",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "text": "on",
+          "start": 4.15,
+          "end": 4.35
+        },
+        {
+          "text": "women?",
+          "start": 4.35,
+          "end": 4.65
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2271815612912178
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8bae31294af0ada04adfc7bab5f72996f28180562a9f9b07e52d8493a6cac052",
+  "selected_reasons": []
+}

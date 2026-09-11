@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "89a0eee433c5ccc4cef880a5dcf21cc710304e74635e352e23bfe3b3cb8f680a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21548373252153397,
+      "alignment_seconds": 0.00011882930994033813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Neither may they imitate smiths or other artificers, or oarsmen, or boatswains, or the like?",
+        "hotwords": "Neither"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Neither may they imitate smiths or other artificers, or oarsmen, or boatswains, or the like?",
+          "start": 0.05,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " Neither",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " may",
+              "start": 0.61,
+              "end": 0.89,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " they",
+              "start": 0.89,
+              "end": 1.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " imitate",
+              "start": 1.07,
+              "end": 1.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " smiths",
+              "start": 1.51,
+              "end": 1.99,
+              "probability": 0.6068115234375
+            },
+            {
+              "text": " or",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " other",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " artificers,",
+              "start": 2.39,
+              "end": 3.15,
+              "probability": 0.645263671875
+            },
+            {
+              "text": " or",
+              "start": 3.57,
+              "end": 3.63,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " oarsmen,",
+              "start": 3.63,
+              "end": 4.11,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " or",
+              "start": 4.43,
+              "end": 4.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " boatswains,",
+              "start": 4.51,
+              "end": 5.13,
+              "probability": 0.19023704528808594
+            },
+            {
+              "text": " or",
+              "start": 5.35,
+              "end": 5.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 5.43,
+              "end": 5.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like?",
+              "start": 5.55,
+              "end": 5.83,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Neither",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "may",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "raw": "they",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "raw": "imitate",
+          "start": 1.07,
+          "end": 1.51
+        },
+        {
+          "raw": "smiths",
+          "start": 1.51,
+          "end": 1.99
+        },
+        {
+          "raw": "or",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "other",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "artificers,",
+          "start": 2.39,
+          "end": 3.15
+        },
+        {
+          "raw": "or",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "raw": "oarsmen,",
+          "start": 3.63,
+          "end": 4.11
+        },
+        {
+          "raw": "or",
+          "start": 4.43,
+          "end": 4.51
+        },
+        {
+          "raw": "boatswains,",
+          "start": 4.51,
+          "end": 5.13
+        },
+        {
+          "raw": "or",
+          "start": 5.35,
+          "end": 5.43
+        },
+        {
+          "raw": "the",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "raw": "like?",
+          "start": 5.55,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "Neither",
+        "may",
+        "they",
+        "imitate",
+        "smiths",
+        "or",
+        "other",
+        "artificers,",
+        "or",
+        "oarsmen,",
+        "or",
+        "boatswains,",
+        "or",
+        "the",
+        "like?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Neither",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "may",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "text": "they",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "text": "imitate",
+          "start": 1.07,
+          "end": 1.51
+        },
+        {
+          "text": "smiths",
+          "start": 1.51,
+          "end": 1.99
+        },
+        {
+          "text": "or",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "other",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "artificers,",
+          "start": 2.39,
+          "end": 3.15
+        },
+        {
+          "text": "or",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "text": "oarsmen,",
+          "start": 3.63,
+          "end": 4.11
+        },
+        {
+          "text": "or",
+          "start": 4.43,
+          "end": 4.51
+        },
+        {
+          "text": "boatswains,",
+          "start": 4.51,
+          "end": 5.13
+        },
+        {
+          "text": "or",
+          "start": 5.35,
+          "end": 5.43
+        },
+        {
+          "text": "the",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "text": "like?",
+          "start": 5.55,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21566152572631836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d65d4fdde8c892525f4bdb7dd27504fce4c21e0b2a256c5dd88a136f929e878e",
+  "selected_reasons": []
+}

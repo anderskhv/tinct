@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "95eb8533f1f33aed26896971a39658422a23005bc7f0a904fb89c8b535c58166",
+  "attempts": [
+    {
+      "asr_seconds": 0.1577376201748848,
+      "alignment_seconds": 7.827579975128174e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Is not Polemarchus your heir? I said.",
+        "hotwords": "Is, Polemarchus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is not Polemarchus your heir? I said.",
+          "start": 0.02,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.07244873046875
+            },
+            {
+              "text": " not",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Polemarchus",
+              "start": 0.7,
+              "end": 1.22,
+              "probability": 0.42706298828125
+            },
+            {
+              "text": " your",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.908203125
+            },
+            {
+              "text": " heir?",
+              "start": 1.36,
+              "end": 1.64,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " I",
+              "start": 1.98,
+              "end": 2.06,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " said.",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "not",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "Polemarchus",
+          "start": 0.7,
+          "end": 1.22
+        },
+        {
+          "raw": "your",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "heir?",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.98,
+          "end": 2.06
+        },
+        {
+          "raw": "said.",
+          "start": 2.06,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Is",
+        "not",
+        "Polemarchus",
+        "your",
+        "heir?",
+        "I",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Is",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "not",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "Polemarchus",
+          "start": 0.7,
+          "end": 1.22
+        },
+        {
+          "text": "your",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "heir?",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.98,
+          "end": 2.06
+        },
+        {
+          "text": "said.",
+          "start": 2.06,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15785178542137146
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9ba8df7ce053b6d07d4eb73b5080a9bacae393e205ab6af9bbbed22fbdcf461c",
+  "selected_reasons": []
+}

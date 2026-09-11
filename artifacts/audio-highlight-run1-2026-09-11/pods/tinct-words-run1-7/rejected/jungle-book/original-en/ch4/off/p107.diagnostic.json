@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "signature": "13683c56f6d0f19de47bbfec9c44e3a7b9c9f759b7116f7ca6199aa15e07a1ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.07275994122028351,
+      "alignment_seconds": 5.140434950590134e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucanin",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Lucanin",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.4368489583333333
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucanin",
+          "start": 0.05,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "Lukannon"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Lukannon",
+          "start": 0.0,
+          "end": 0.495
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07283084187656641
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16d98cd74b95b8a32f6d524fb756c19de40f3c2e7a99059f85a4c3e2ce888f53",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

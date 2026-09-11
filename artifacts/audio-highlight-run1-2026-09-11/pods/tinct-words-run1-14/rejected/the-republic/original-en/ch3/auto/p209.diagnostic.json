@@ -1,0 +1,826 @@
+{
+  "complete": true,
+  "signature": "856d1d3664e6cd6b9eb3d821c70673f867dcd2f037c8a8a9b9d766d0e603cdc2",
+  "attempts": [
+    {
+      "asr_seconds": 0.29115527123212814,
+      "alignment_seconds": 0.00016583502292633057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then now, my friend, I said, that part of music or literary education which relates to the story or myth may be considered to be finished; for the matter and manner have both been discussed.",
+        "hotwords": "Then, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then now, my friend, I said, that part of music or literary education which relates to the story or myth may be considered to be finished, for the matter and manner have both been discussed.",
+          "start": 0.05,
+          "end": 11.25,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.38232421875
+            },
+            {
+              "text": " now,",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.91015625
+            },
+            {
+              "text": " my",
+              "start": 0.89,
+              "end": 1.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " friend,",
+              "start": 1.11,
+              "end": 1.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " said,",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 2.63,
+              "end": 2.81,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " part",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.01,
+              "end": 3.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " music",
+              "start": 3.15,
+              "end": 3.51,
+              "probability": 0.990234375
+            },
+            {
+              "text": " or",
+              "start": 3.51,
+              "end": 3.79,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " literary",
+              "start": 3.79,
+              "end": 4.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " education",
+              "start": 4.19,
+              "end": 4.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " which",
+              "start": 4.87,
+              "end": 5.15,
+              "probability": 0.970703125
+            },
+            {
+              "text": " relates",
+              "start": 5.15,
+              "end": 5.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 5.51,
+              "end": 5.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.79,
+              "end": 5.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " story",
+              "start": 5.89,
+              "end": 6.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " or",
+              "start": 6.19,
+              "end": 6.45,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " myth",
+              "start": 6.45,
+              "end": 6.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " may",
+              "start": 6.81,
+              "end": 7.23,
+              "probability": 0.939453125
+            },
+            {
+              "text": " be",
+              "start": 7.23,
+              "end": 7.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " considered",
+              "start": 7.41,
+              "end": 7.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 7.73,
+              "end": 7.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 7.91,
+              "end": 8.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " finished,",
+              "start": 8.03,
+              "end": 8.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 9.01,
+              "end": 9.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 9.19,
+              "end": 9.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " matter",
+              "start": 9.33,
+              "end": 9.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 9.57,
+              "end": 9.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " manner",
+              "start": 9.81,
+              "end": 10.11,
+              "probability": 0.9765625
+            },
+            {
+              "text": " have",
+              "start": 10.11,
+              "end": 10.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " both",
+              "start": 10.35,
+              "end": 10.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " been",
+              "start": 10.57,
+              "end": 10.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " discussed.",
+              "start": 10.83,
+              "end": 11.25,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "now,",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "my",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "raw": "friend,",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "said,",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "raw": "that",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "raw": "part",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "of",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "raw": "music",
+          "start": 3.15,
+          "end": 3.51
+        },
+        {
+          "raw": "or",
+          "start": 3.51,
+          "end": 3.79
+        },
+        {
+          "raw": "literary",
+          "start": 3.79,
+          "end": 4.19
+        },
+        {
+          "raw": "education",
+          "start": 4.19,
+          "end": 4.87
+        },
+        {
+          "raw": "which",
+          "start": 4.87,
+          "end": 5.15
+        },
+        {
+          "raw": "relates",
+          "start": 5.15,
+          "end": 5.51
+        },
+        {
+          "raw": "to",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.89
+        },
+        {
+          "raw": "story",
+          "start": 5.89,
+          "end": 6.19
+        },
+        {
+          "raw": "or",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "raw": "myth",
+          "start": 6.45,
+          "end": 6.81
+        },
+        {
+          "raw": "may",
+          "start": 6.81,
+          "end": 7.23
+        },
+        {
+          "raw": "be",
+          "start": 7.23,
+          "end": 7.41
+        },
+        {
+          "raw": "considered",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "raw": "to",
+          "start": 7.73,
+          "end": 7.91
+        },
+        {
+          "raw": "be",
+          "start": 7.91,
+          "end": 8.03
+        },
+        {
+          "raw": "finished,",
+          "start": 8.03,
+          "end": 8.51
+        },
+        {
+          "raw": "for",
+          "start": 9.01,
+          "end": 9.19
+        },
+        {
+          "raw": "the",
+          "start": 9.19,
+          "end": 9.33
+        },
+        {
+          "raw": "matter",
+          "start": 9.33,
+          "end": 9.57
+        },
+        {
+          "raw": "and",
+          "start": 9.57,
+          "end": 9.81
+        },
+        {
+          "raw": "manner",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "raw": "have",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "raw": "both",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "raw": "been",
+          "start": 10.57,
+          "end": 10.83
+        },
+        {
+          "raw": "discussed.",
+          "start": 10.83,
+          "end": 11.25
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "now,",
+        "my",
+        "friend,",
+        "I",
+        "said,",
+        "that",
+        "part",
+        "of",
+        "music",
+        "or",
+        "literary",
+        "education",
+        "which",
+        "relates",
+        "to",
+        "the",
+        "story",
+        "or",
+        "myth",
+        "may",
+        "be",
+        "considered",
+        "to",
+        "be",
+        "finished;",
+        "for",
+        "the",
+        "matter",
+        "and",
+        "manner",
+        "have",
+        "both",
+        "been",
+        "discussed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          35,
+          0,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "now,",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "my",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "text": "friend,",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "text": "I",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "said,",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "text": "that",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "text": "part",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "of",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "text": "music",
+          "start": 3.15,
+          "end": 3.51
+        },
+        {
+          "text": "or",
+          "start": 3.51,
+          "end": 3.79
+        },
+        {
+          "text": "literary",
+          "start": 3.79,
+          "end": 4.19
+        },
+        {
+          "text": "education",
+          "start": 4.19,
+          "end": 4.87
+        },
+        {
+          "text": "which",
+          "start": 4.87,
+          "end": 5.15
+        },
+        {
+          "text": "relates",
+          "start": 5.15,
+          "end": 5.51
+        },
+        {
+          "text": "to",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "the",
+          "start": 5.79,
+          "end": 5.89
+        },
+        {
+          "text": "story",
+          "start": 5.89,
+          "end": 6.19
+        },
+        {
+          "text": "or",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "text": "myth",
+          "start": 6.45,
+          "end": 6.81
+        },
+        {
+          "text": "may",
+          "start": 6.81,
+          "end": 7.23
+        },
+        {
+          "text": "be",
+          "start": 7.23,
+          "end": 7.41
+        },
+        {
+          "text": "considered",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "text": "to",
+          "start": 7.73,
+          "end": 7.91
+        },
+        {
+          "text": "be",
+          "start": 7.91,
+          "end": 8.03
+        },
+        {
+          "text": "finished;",
+          "start": 8.03,
+          "end": 8.51
+        },
+        {
+          "text": "for",
+          "start": 9.01,
+          "end": 9.19
+        },
+        {
+          "text": "the",
+          "start": 9.19,
+          "end": 9.33
+        },
+        {
+          "text": "matter",
+          "start": 9.33,
+          "end": 9.57
+        },
+        {
+          "text": "and",
+          "start": 9.57,
+          "end": 9.81
+        },
+        {
+          "text": "manner",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "text": "have",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "text": "both",
+          "start": 10.35,
+          "end": 10.57
+        },
+        {
+          "text": "been",
+          "start": 10.57,
+          "end": 10.83
+        },
+        {
+          "text": "discussed.",
+          "start": 10.83,
+          "end": 11.25
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 35
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29141315817832947
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1cdb930356087f8047071c9567c219adfa2b51b3724d1a8753566ae5cbabf87",
+  "selected_reasons": []
+}

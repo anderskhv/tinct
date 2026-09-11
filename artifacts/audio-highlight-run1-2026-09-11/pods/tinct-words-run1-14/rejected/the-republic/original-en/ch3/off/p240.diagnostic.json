@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "155c38ed5f79ca71765f18c25a3bb9abb6b9764726b592cd425f1199d6e2baf9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08017712831497192,
+      "alignment_seconds": 5.155056715011597e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clearly not.",
+          "start": 0.0,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Clearly",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.76953125
+            },
+            {
+              "text": " not.",
+              "start": 0.6,
+              "end": 0.96,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clearly",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "not.",
+          "start": 0.6,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "Clearly",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Clearly",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "not.",
+          "start": 0.6,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0802469402551651
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8055f3b67e9674573177a162d79eaf1dc7ff4287f72b714397f7b21346fc3c2",
+  "selected_reasons": []
+}

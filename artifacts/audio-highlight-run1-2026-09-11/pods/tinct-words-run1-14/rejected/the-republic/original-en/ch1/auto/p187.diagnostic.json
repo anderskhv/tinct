@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "80b90b429b1c8eb60a30917c00dd1948e3c3c89105f2e9f580d4975f1e9aaaf2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12429825216531754,
+      "alignment_seconds": 0.00010172277688980103,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Just as if the two cases were at all alike! he said.",
+        "hotwords": "Just"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Just as if the two cases were at all alike! he said.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.415771484375
+            },
+            {
+              "text": " as",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " if",
+              "start": 0.77,
+              "end": 0.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 0.87,
+              "end": 0.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " two",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " cases",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " were",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " all",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " alike!",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " he",
+              "start": 2.75,
+              "end": 2.81,
+              "probability": 0.40234375
+            },
+            {
+              "text": " said.",
+              "start": 2.81,
+              "end": 3.11,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "as",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "if",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "raw": "the",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "raw": "two",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "cases",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "were",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "at",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "all",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "alike!",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "he",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "raw": "said.",
+          "start": 2.81,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Just",
+        "as",
+        "if",
+        "the",
+        "two",
+        "cases",
+        "were",
+        "at",
+        "all",
+        "alike!",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Just",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "as",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "if",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "text": "the",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "text": "two",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "cases",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "were",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "at",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "all",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "alike!",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "text": "he",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "text": "said.",
+          "start": 2.81,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12444909662008286
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "535338854bed2bec7658b95c70074ff50d410104512e3da1606d6cc360411838",
+  "selected_reasons": []
+}

@@ -1,0 +1,5467 @@
+{
+  "complete": true,
+  "signature": "055f0abcf4dcc15efa7a54c7c4ac9df34fc996862bc0b9fcb13f2e05346e22a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.6644346937537193,
+      "alignment_seconds": 0.0007456280291080475,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The dusk was falling. I had to wait in a lofty drawing-room with three long windows from floor to ceiling that were like three luminous and bedraped columns. The bent gilt legs and backs of the furniture shone in indistinct curves. The tall marble fireplace had a cold and monumental whiteness. A grand piano stood massively in a corner; with dark gleams on the flat surfaces like a sombre and polished sarcophagus. A high door opened—closed. I rose.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I had to wait in a lofty drawing-room with three long windows from floor to ceiling that were like three luminous and bedraped columns. The bent gilt legs and backs of the furniture shone in indistinct curves. The tall marble fireplace had a cold and monumental whiteness. A grand piano stood massively in a corner, with dark gleams on the flat surfaces like a sombre and polished sarcophagus. A high door opened—closed. I rose.",
+          "start": 1.13,
+          "end": 26.71,
+          "words": [
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.67,
+              "probability": 0.005512237548828125
+            },
+            {
+              "text": " had",
+              "start": 1.67,
+              "end": 2.21,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " to",
+              "start": 2.21,
+              "end": 2.31,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " wait",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lofty",
+              "start": 2.67,
+              "end": 3.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " drawing",
+              "start": 3.05,
+              "end": 3.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": "-room",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.7120361328125
+            },
+            {
+              "text": " with",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " three",
+              "start": 3.83,
+              "end": 4.09,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " long",
+              "start": 4.09,
+              "end": 4.31,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " windows",
+              "start": 4.31,
+              "end": 4.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 4.75,
+              "end": 5.05,
+              "probability": 0.970703125
+            },
+            {
+              "text": " floor",
+              "start": 5.05,
+              "end": 5.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.35,
+              "end": 5.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ceiling",
+              "start": 5.57,
+              "end": 5.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 5.89,
+              "end": 6.11,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " were",
+              "start": 6.11,
+              "end": 6.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " like",
+              "start": 6.21,
+              "end": 6.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " three",
+              "start": 6.37,
+              "end": 6.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " luminous",
+              "start": 6.67,
+              "end": 7.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 7.19,
+              "end": 7.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " bedraped",
+              "start": 7.35,
+              "end": 7.71,
+              "probability": 0.654296875
+            },
+            {
+              "text": " columns.",
+              "start": 7.71,
+              "end": 8.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " The",
+              "start": 8.89,
+              "end": 9.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bent",
+              "start": 9.05,
+              "end": 9.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gilt",
+              "start": 9.25,
+              "end": 9.51,
+              "probability": 0.937744140625
+            },
+            {
+              "text": " legs",
+              "start": 9.51,
+              "end": 9.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 9.91,
+              "end": 10.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " backs",
+              "start": 10.19,
+              "end": 10.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 10.41,
+              "end": 10.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 10.55,
+              "end": 10.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " furniture",
+              "start": 10.67,
+              "end": 10.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shone",
+              "start": 10.99,
+              "end": 11.35,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " in",
+              "start": 11.35,
+              "end": 11.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " indistinct",
+              "start": 11.57,
+              "end": 12.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " curves.",
+              "start": 12.07,
+              "end": 12.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " The",
+              "start": 13.17,
+              "end": 13.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tall",
+              "start": 13.33,
+              "end": 13.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " marble",
+              "start": 13.57,
+              "end": 13.87,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " fireplace",
+              "start": 13.87,
+              "end": 14.47,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " had",
+              "start": 14.47,
+              "end": 14.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 14.71,
+              "end": 14.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cold",
+              "start": 14.83,
+              "end": 15.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 15.17,
+              "end": 15.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " monumental",
+              "start": 15.35,
+              "end": 15.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whiteness.",
+              "start": 15.77,
+              "end": 16.35,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " A",
+              "start": 16.91,
+              "end": 17.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grand",
+              "start": 17.03,
+              "end": 17.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " piano",
+              "start": 17.27,
+              "end": 17.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " stood",
+              "start": 17.67,
+              "end": 17.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " massively",
+              "start": 17.95,
+              "end": 18.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 18.45,
+              "end": 18.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 18.71,
+              "end": 18.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " corner,",
+              "start": 18.83,
+              "end": 19.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 19.39,
+              "end": 19.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dark",
+              "start": 19.65,
+              "end": 19.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gleams",
+              "start": 19.93,
+              "end": 20.37,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " on",
+              "start": 20.37,
+              "end": 20.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 20.53,
+              "end": 20.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flat",
+              "start": 20.65,
+              "end": 20.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " surfaces",
+              "start": 20.87,
+              "end": 21.33,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " like",
+              "start": 21.33,
+              "end": 21.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " a",
+              "start": 21.63,
+              "end": 21.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sombre",
+              "start": 21.81,
+              "end": 22.21,
+              "probability": 0.8546549479166666
+            },
+            {
+              "text": " and",
+              "start": 22.21,
+              "end": 22.47,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " polished",
+              "start": 22.47,
+              "end": 22.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sarcophagus.",
+              "start": 22.85,
+              "end": 23.57,
+              "probability": 0.9982096354166666
+            },
+            {
+              "text": " A",
+              "start": 24.17,
+              "end": 24.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " high",
+              "start": 24.35,
+              "end": 24.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " door",
+              "start": 24.57,
+              "end": 24.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " opened—closed.",
+              "start": 24.77,
+              "end": 25.63,
+              "probability": 0.6626154581705729
+            },
+            {
+              "text": " I",
+              "start": 26.25,
+              "end": 26.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " rose.",
+              "start": 26.45,
+              "end": 26.71,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.67
+        },
+        {
+          "raw": "had",
+          "start": 1.67,
+          "end": 2.21
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.31
+        },
+        {
+          "raw": "wait",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "a",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "lofty",
+          "start": 2.67,
+          "end": 3.05
+        },
+        {
+          "raw": "drawing",
+          "start": 3.05,
+          "end": 3.37
+        },
+        {
+          "raw": "-room",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "with",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "three",
+          "start": 3.83,
+          "end": 4.09
+        },
+        {
+          "raw": "long",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "raw": "windows",
+          "start": 4.31,
+          "end": 4.75
+        },
+        {
+          "raw": "from",
+          "start": 4.75,
+          "end": 5.05
+        },
+        {
+          "raw": "floor",
+          "start": 5.05,
+          "end": 5.35
+        },
+        {
+          "raw": "to",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "raw": "ceiling",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "raw": "that",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "raw": "were",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "raw": "like",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "raw": "three",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "raw": "luminous",
+          "start": 6.67,
+          "end": 7.19
+        },
+        {
+          "raw": "and",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "raw": "bedraped",
+          "start": 7.35,
+          "end": 7.71
+        },
+        {
+          "raw": "columns.",
+          "start": 7.71,
+          "end": 8.23
+        },
+        {
+          "raw": "The",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "raw": "bent",
+          "start": 9.05,
+          "end": 9.25
+        },
+        {
+          "raw": "gilt",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "raw": "legs",
+          "start": 9.51,
+          "end": 9.91
+        },
+        {
+          "raw": "and",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "raw": "backs",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "raw": "of",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "raw": "the",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "raw": "furniture",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "raw": "shone",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "raw": "in",
+          "start": 11.35,
+          "end": 11.57
+        },
+        {
+          "raw": "indistinct",
+          "start": 11.57,
+          "end": 12.07
+        },
+        {
+          "raw": "curves.",
+          "start": 12.07,
+          "end": 12.55
+        },
+        {
+          "raw": "The",
+          "start": 13.17,
+          "end": 13.33
+        },
+        {
+          "raw": "tall",
+          "start": 13.33,
+          "end": 13.57
+        },
+        {
+          "raw": "marble",
+          "start": 13.57,
+          "end": 13.87
+        },
+        {
+          "raw": "fireplace",
+          "start": 13.87,
+          "end": 14.47
+        },
+        {
+          "raw": "had",
+          "start": 14.47,
+          "end": 14.71
+        },
+        {
+          "raw": "a",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "raw": "cold",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "raw": "and",
+          "start": 15.17,
+          "end": 15.35
+        },
+        {
+          "raw": "monumental",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "raw": "whiteness.",
+          "start": 15.77,
+          "end": 16.35
+        },
+        {
+          "raw": "A",
+          "start": 16.91,
+          "end": 17.03
+        },
+        {
+          "raw": "grand",
+          "start": 17.03,
+          "end": 17.27
+        },
+        {
+          "raw": "piano",
+          "start": 17.27,
+          "end": 17.67
+        },
+        {
+          "raw": "stood",
+          "start": 17.67,
+          "end": 17.95
+        },
+        {
+          "raw": "massively",
+          "start": 17.95,
+          "end": 18.45
+        },
+        {
+          "raw": "in",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "raw": "a",
+          "start": 18.71,
+          "end": 18.83
+        },
+        {
+          "raw": "corner,",
+          "start": 18.83,
+          "end": 19.09
+        },
+        {
+          "raw": "with",
+          "start": 19.39,
+          "end": 19.65
+        },
+        {
+          "raw": "dark",
+          "start": 19.65,
+          "end": 19.93
+        },
+        {
+          "raw": "gleams",
+          "start": 19.93,
+          "end": 20.37
+        },
+        {
+          "raw": "on",
+          "start": 20.37,
+          "end": 20.53
+        },
+        {
+          "raw": "the",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "raw": "flat",
+          "start": 20.65,
+          "end": 20.87
+        },
+        {
+          "raw": "surfaces",
+          "start": 20.87,
+          "end": 21.33
+        },
+        {
+          "raw": "like",
+          "start": 21.33,
+          "end": 21.63
+        },
+        {
+          "raw": "a",
+          "start": 21.63,
+          "end": 21.81
+        },
+        {
+          "raw": "sombre",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "raw": "and",
+          "start": 22.21,
+          "end": 22.47
+        },
+        {
+          "raw": "polished",
+          "start": 22.47,
+          "end": 22.85
+        },
+        {
+          "raw": "sarcophagus.",
+          "start": 22.85,
+          "end": 23.57
+        },
+        {
+          "raw": "A",
+          "start": 24.17,
+          "end": 24.35
+        },
+        {
+          "raw": "high",
+          "start": 24.35,
+          "end": 24.57
+        },
+        {
+          "raw": "door",
+          "start": 24.57,
+          "end": 24.77
+        },
+        {
+          "raw": "opened—closed.",
+          "start": 24.77,
+          "end": 25.63
+        },
+        {
+          "raw": "I",
+          "start": 26.25,
+          "end": 26.45
+        },
+        {
+          "raw": "rose.",
+          "start": 26.45,
+          "end": 26.71
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "dusk",
+        "was",
+        "falling.",
+        "I",
+        "had",
+        "to",
+        "wait",
+        "in",
+        "a",
+        "lofty",
+        "drawing-room",
+        "with",
+        "three",
+        "long",
+        "windows",
+        "from",
+        "floor",
+        "to",
+        "ceiling",
+        "that",
+        "were",
+        "like",
+        "three",
+        "luminous",
+        "and",
+        "bedraped",
+        "columns.",
+        "The",
+        "bent",
+        "gilt",
+        "legs",
+        "and",
+        "backs",
+        "of",
+        "the",
+        "furniture",
+        "shone",
+        "in",
+        "indistinct",
+        "curves.",
+        "The",
+        "tall",
+        "marble",
+        "fireplace",
+        "had",
+        "a",
+        "cold",
+        "and",
+        "monumental",
+        "whiteness.",
+        "A",
+        "grand",
+        "piano",
+        "stood",
+        "massively",
+        "in",
+        "a",
+        "corner;",
+        "with",
+        "dark",
+        "gleams",
+        "on",
+        "the",
+        "flat",
+        "surfaces",
+        "like",
+        "a",
+        "sombre",
+        "and",
+        "polished",
+        "sarcophagus.",
+        "A",
+        "high",
+        "door",
+        "opened—closed.",
+        "I",
+        "rose."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          11,
+          0,
+          7
+        ],
+        [
+          "replace",
+          11,
+          12,
+          7,
+          9
+        ],
+        [
+          "equal",
+          12,
+          78,
+          9,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          11,
+          12,
+          7,
+          9
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "dusk",
+          "start": 0.565,
+          "end": 0.847
+        },
+        {
+          "text": "was",
+          "start": 0.847,
+          "end": 0.988
+        },
+        {
+          "text": "falling.",
+          "start": 0.988,
+          "end": 1.059
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.67
+        },
+        {
+          "text": "had",
+          "start": 1.67,
+          "end": 2.21
+        },
+        {
+          "text": "to",
+          "start": 2.21,
+          "end": 2.31
+        },
+        {
+          "text": "wait",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "a",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "lofty",
+          "start": 2.67,
+          "end": 3.05
+        },
+        {
+          "text": "drawing-room",
+          "start": 3.05,
+          "end": 3.34
+        },
+        {
+          "text": "with",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "three",
+          "start": 3.83,
+          "end": 4.09
+        },
+        {
+          "text": "long",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "text": "windows",
+          "start": 4.31,
+          "end": 4.75
+        },
+        {
+          "text": "from",
+          "start": 4.75,
+          "end": 5.05
+        },
+        {
+          "text": "floor",
+          "start": 5.05,
+          "end": 5.35
+        },
+        {
+          "text": "to",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "text": "ceiling",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "text": "that",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "text": "were",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "text": "like",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "text": "three",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "text": "luminous",
+          "start": 6.67,
+          "end": 7.19
+        },
+        {
+          "text": "and",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "text": "bedraped",
+          "start": 7.35,
+          "end": 7.71
+        },
+        {
+          "text": "columns.",
+          "start": 7.71,
+          "end": 8.23
+        },
+        {
+          "text": "The",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "text": "bent",
+          "start": 9.05,
+          "end": 9.25
+        },
+        {
+          "text": "gilt",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "text": "legs",
+          "start": 9.51,
+          "end": 9.91
+        },
+        {
+          "text": "and",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "text": "backs",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "text": "of",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "text": "the",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "text": "furniture",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "text": "shone",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "text": "in",
+          "start": 11.35,
+          "end": 11.57
+        },
+        {
+          "text": "indistinct",
+          "start": 11.57,
+          "end": 12.07
+        },
+        {
+          "text": "curves.",
+          "start": 12.07,
+          "end": 12.55
+        },
+        {
+          "text": "The",
+          "start": 13.17,
+          "end": 13.33
+        },
+        {
+          "text": "tall",
+          "start": 13.33,
+          "end": 13.57
+        },
+        {
+          "text": "marble",
+          "start": 13.57,
+          "end": 13.87
+        },
+        {
+          "text": "fireplace",
+          "start": 13.87,
+          "end": 14.47
+        },
+        {
+          "text": "had",
+          "start": 14.47,
+          "end": 14.71
+        },
+        {
+          "text": "a",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "text": "cold",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "text": "and",
+          "start": 15.17,
+          "end": 15.35
+        },
+        {
+          "text": "monumental",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "text": "whiteness.",
+          "start": 15.77,
+          "end": 16.35
+        },
+        {
+          "text": "A",
+          "start": 16.91,
+          "end": 17.03
+        },
+        {
+          "text": "grand",
+          "start": 17.03,
+          "end": 17.27
+        },
+        {
+          "text": "piano",
+          "start": 17.27,
+          "end": 17.67
+        },
+        {
+          "text": "stood",
+          "start": 17.67,
+          "end": 17.95
+        },
+        {
+          "text": "massively",
+          "start": 17.95,
+          "end": 18.45
+        },
+        {
+          "text": "in",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "text": "a",
+          "start": 18.71,
+          "end": 18.83
+        },
+        {
+          "text": "corner;",
+          "start": 18.83,
+          "end": 19.09
+        },
+        {
+          "text": "with",
+          "start": 19.39,
+          "end": 19.65
+        },
+        {
+          "text": "dark",
+          "start": 19.65,
+          "end": 19.93
+        },
+        {
+          "text": "gleams",
+          "start": 19.93,
+          "end": 20.37
+        },
+        {
+          "text": "on",
+          "start": 20.37,
+          "end": 20.53
+        },
+        {
+          "text": "the",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "text": "flat",
+          "start": 20.65,
+          "end": 20.87
+        },
+        {
+          "text": "surfaces",
+          "start": 20.87,
+          "end": 21.33
+        },
+        {
+          "text": "like",
+          "start": 21.33,
+          "end": 21.63
+        },
+        {
+          "text": "a",
+          "start": 21.63,
+          "end": 21.81
+        },
+        {
+          "text": "sombre",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "text": "and",
+          "start": 22.21,
+          "end": 22.47
+        },
+        {
+          "text": "polished",
+          "start": 22.47,
+          "end": 22.85
+        },
+        {
+          "text": "sarcophagus.",
+          "start": 22.85,
+          "end": 23.57
+        },
+        {
+          "text": "A",
+          "start": 24.17,
+          "end": 24.35
+        },
+        {
+          "text": "high",
+          "start": 24.35,
+          "end": 24.57
+        },
+        {
+          "text": "door",
+          "start": 24.57,
+          "end": 24.77
+        },
+        {
+          "text": "opened—closed.",
+          "start": 24.77,
+          "end": 25.63
+        },
+        {
+          "text": "I",
+          "start": 26.25,
+          "end": 26.45
+        },
+        {
+          "text": "rose.",
+          "start": 26.45,
+          "end": 26.71
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 75,
+        "matched_words": 73
+      },
+      "match_ratio": 0.9358974358974359,
+      "rejection_reasons": [],
+      "seconds": 0.6656117029488087
+    },
+    {
+      "asr_seconds": 0.8652857653796673,
+      "alignment_seconds": 0.0012054964900016785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " had to wait in a lofty drawing room with three long windows from floor to ceiling",
+          "start": 1.59,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " had",
+              "start": 1.59,
+              "end": 2.11,
+              "probability": 9.703636169433594e-05
+            },
+            {
+              "text": " to",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " wait",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " lofty",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " drawing",
+              "start": 3.05,
+              "end": 3.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " room",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " with",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " three",
+              "start": 3.83,
+              "end": 4.09,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " long",
+              "start": 4.09,
+              "end": 4.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " windows",
+              "start": 4.31,
+              "end": 4.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 4.77,
+              "end": 5.05,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " floor",
+              "start": 5.05,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.33,
+              "end": 5.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ceiling",
+              "start": 5.57,
+              "end": 5.89,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " that were like three luminous and bedraped columns, the bent gilt legs and backs of the",
+          "start": 5.89,
+          "end": 10.67,
+          "words": [
+            {
+              "text": " that",
+              "start": 5.89,
+              "end": 6.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " were",
+              "start": 6.11,
+              "end": 6.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " like",
+              "start": 6.21,
+              "end": 6.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " three",
+              "start": 6.37,
+              "end": 6.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " luminous",
+              "start": 6.67,
+              "end": 7.19,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " and",
+              "start": 7.19,
+              "end": 7.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bedraped",
+              "start": 7.35,
+              "end": 7.73,
+              "probability": 0.667724609375
+            },
+            {
+              "text": " columns,",
+              "start": 7.73,
+              "end": 8.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 8.97,
+              "end": 9.05,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bent",
+              "start": 9.05,
+              "end": 9.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gilt",
+              "start": 9.25,
+              "end": 9.51,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " legs",
+              "start": 9.51,
+              "end": 9.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 9.89,
+              "end": 10.19,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " backs",
+              "start": 10.19,
+              "end": 10.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 10.41,
+              "end": 10.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.55,
+              "end": 10.67,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " furniture shown in indistinct curves. The tall marble fireplace had a cold and monumental",
+          "start": 10.67,
+          "end": 15.77,
+          "words": [
+            {
+              "text": " furniture",
+              "start": 10.67,
+              "end": 10.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shown",
+              "start": 10.99,
+              "end": 11.35,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " in",
+              "start": 11.35,
+              "end": 11.57,
+              "probability": 0.990234375
+            },
+            {
+              "text": " indistinct",
+              "start": 11.57,
+              "end": 12.07,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " curves.",
+              "start": 12.07,
+              "end": 12.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " The",
+              "start": 13.13,
+              "end": 13.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tall",
+              "start": 13.33,
+              "end": 13.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marble",
+              "start": 13.55,
+              "end": 13.87,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " fireplace",
+              "start": 13.87,
+              "end": 14.47,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " had",
+              "start": 14.47,
+              "end": 14.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 14.71,
+              "end": 14.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cold",
+              "start": 14.83,
+              "end": 15.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 15.17,
+              "end": 15.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " monumental",
+              "start": 15.35,
+              "end": 15.77,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " whiteness. A grand piano stood massively in a corner, with dark gleams on the flat surfaces",
+          "start": 15.77,
+          "end": 21.35,
+          "words": [
+            {
+              "text": " whiteness.",
+              "start": 15.77,
+              "end": 16.33,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " A",
+              "start": 16.93,
+              "end": 17.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " grand",
+              "start": 17.03,
+              "end": 17.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " piano",
+              "start": 17.27,
+              "end": 17.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " stood",
+              "start": 17.67,
+              "end": 17.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " massively",
+              "start": 17.95,
+              "end": 18.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 18.45,
+              "end": 18.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 18.71,
+              "end": 18.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " corner,",
+              "start": 18.83,
+              "end": 19.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 19.35,
+              "end": 19.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dark",
+              "start": 19.67,
+              "end": 19.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gleams",
+              "start": 19.93,
+              "end": 20.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " on",
+              "start": 20.37,
+              "end": 20.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 20.53,
+              "end": 20.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flat",
+              "start": 20.65,
+              "end": 20.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " surfaces",
+              "start": 20.87,
+              "end": 21.35,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " like a sombre and polished sarcophagus. A high door opened closed. I rose.",
+          "start": 21.35,
+          "end": 26.71,
+          "words": [
+            {
+              "text": " like",
+              "start": 21.35,
+              "end": 21.63,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " a",
+              "start": 21.63,
+              "end": 21.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sombre",
+              "start": 21.79,
+              "end": 22.23,
+              "probability": 0.7903645833333334
+            },
+            {
+              "text": " and",
+              "start": 22.23,
+              "end": 22.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " polished",
+              "start": 22.45,
+              "end": 22.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sarcophagus.",
+              "start": 22.87,
+              "end": 23.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " A",
+              "start": 24.19,
+              "end": 24.35,
+              "probability": 0.978515625
+            },
+            {
+              "text": " high",
+              "start": 24.35,
+              "end": 24.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " door",
+              "start": 24.57,
+              "end": 24.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " opened",
+              "start": 24.77,
+              "end": 25.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " closed.",
+              "start": 25.21,
+              "end": 25.67,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " I",
+              "start": 26.31,
+              "end": 26.45,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " rose.",
+              "start": 26.45,
+              "end": 26.71,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "had",
+          "start": 1.59,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "wait",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "a",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "lofty",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "drawing",
+          "start": 3.05,
+          "end": 3.37
+        },
+        {
+          "raw": "room",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "with",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "three",
+          "start": 3.83,
+          "end": 4.09
+        },
+        {
+          "raw": "long",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "raw": "windows",
+          "start": 4.31,
+          "end": 4.77
+        },
+        {
+          "raw": "from",
+          "start": 4.77,
+          "end": 5.05
+        },
+        {
+          "raw": "floor",
+          "start": 5.05,
+          "end": 5.33
+        },
+        {
+          "raw": "to",
+          "start": 5.33,
+          "end": 5.57
+        },
+        {
+          "raw": "ceiling",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "raw": "that",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "raw": "were",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "raw": "like",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "raw": "three",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "raw": "luminous",
+          "start": 6.67,
+          "end": 7.19
+        },
+        {
+          "raw": "and",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "raw": "bedraped",
+          "start": 7.35,
+          "end": 7.73
+        },
+        {
+          "raw": "columns,",
+          "start": 7.73,
+          "end": 8.23
+        },
+        {
+          "raw": "the",
+          "start": 8.97,
+          "end": 9.05
+        },
+        {
+          "raw": "bent",
+          "start": 9.05,
+          "end": 9.25
+        },
+        {
+          "raw": "gilt",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "raw": "legs",
+          "start": 9.51,
+          "end": 9.89
+        },
+        {
+          "raw": "and",
+          "start": 9.89,
+          "end": 10.19
+        },
+        {
+          "raw": "backs",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "raw": "of",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "raw": "the",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "raw": "furniture",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "raw": "shown",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "raw": "in",
+          "start": 11.35,
+          "end": 11.57
+        },
+        {
+          "raw": "indistinct",
+          "start": 11.57,
+          "end": 12.07
+        },
+        {
+          "raw": "curves.",
+          "start": 12.07,
+          "end": 12.57
+        },
+        {
+          "raw": "The",
+          "start": 13.13,
+          "end": 13.33
+        },
+        {
+          "raw": "tall",
+          "start": 13.33,
+          "end": 13.55
+        },
+        {
+          "raw": "marble",
+          "start": 13.55,
+          "end": 13.87
+        },
+        {
+          "raw": "fireplace",
+          "start": 13.87,
+          "end": 14.47
+        },
+        {
+          "raw": "had",
+          "start": 14.47,
+          "end": 14.71
+        },
+        {
+          "raw": "a",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "raw": "cold",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "raw": "and",
+          "start": 15.17,
+          "end": 15.35
+        },
+        {
+          "raw": "monumental",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "raw": "whiteness.",
+          "start": 15.77,
+          "end": 16.33
+        },
+        {
+          "raw": "A",
+          "start": 16.93,
+          "end": 17.03
+        },
+        {
+          "raw": "grand",
+          "start": 17.03,
+          "end": 17.27
+        },
+        {
+          "raw": "piano",
+          "start": 17.27,
+          "end": 17.67
+        },
+        {
+          "raw": "stood",
+          "start": 17.67,
+          "end": 17.95
+        },
+        {
+          "raw": "massively",
+          "start": 17.95,
+          "end": 18.45
+        },
+        {
+          "raw": "in",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "raw": "a",
+          "start": 18.71,
+          "end": 18.83
+        },
+        {
+          "raw": "corner,",
+          "start": 18.83,
+          "end": 19.09
+        },
+        {
+          "raw": "with",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "raw": "dark",
+          "start": 19.67,
+          "end": 19.93
+        },
+        {
+          "raw": "gleams",
+          "start": 19.93,
+          "end": 20.37
+        },
+        {
+          "raw": "on",
+          "start": 20.37,
+          "end": 20.53
+        },
+        {
+          "raw": "the",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "raw": "flat",
+          "start": 20.65,
+          "end": 20.87
+        },
+        {
+          "raw": "surfaces",
+          "start": 20.87,
+          "end": 21.35
+        },
+        {
+          "raw": "like",
+          "start": 21.35,
+          "end": 21.63
+        },
+        {
+          "raw": "a",
+          "start": 21.63,
+          "end": 21.79
+        },
+        {
+          "raw": "sombre",
+          "start": 21.79,
+          "end": 22.23
+        },
+        {
+          "raw": "and",
+          "start": 22.23,
+          "end": 22.45
+        },
+        {
+          "raw": "polished",
+          "start": 22.45,
+          "end": 22.87
+        },
+        {
+          "raw": "sarcophagus.",
+          "start": 22.87,
+          "end": 23.65
+        },
+        {
+          "raw": "A",
+          "start": 24.19,
+          "end": 24.35
+        },
+        {
+          "raw": "high",
+          "start": 24.35,
+          "end": 24.57
+        },
+        {
+          "raw": "door",
+          "start": 24.57,
+          "end": 24.77
+        },
+        {
+          "raw": "opened",
+          "start": 24.77,
+          "end": 25.21
+        },
+        {
+          "raw": "closed.",
+          "start": 25.21,
+          "end": 25.67
+        },
+        {
+          "raw": "I",
+          "start": 26.31,
+          "end": 26.45
+        },
+        {
+          "raw": "rose.",
+          "start": 26.45,
+          "end": 26.71
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "dusk",
+        "was",
+        "falling.",
+        "I",
+        "had",
+        "to",
+        "wait",
+        "in",
+        "a",
+        "lofty",
+        "drawing-room",
+        "with",
+        "three",
+        "long",
+        "windows",
+        "from",
+        "floor",
+        "to",
+        "ceiling",
+        "that",
+        "were",
+        "like",
+        "three",
+        "luminous",
+        "and",
+        "bedraped",
+        "columns.",
+        "The",
+        "bent",
+        "gilt",
+        "legs",
+        "and",
+        "backs",
+        "of",
+        "the",
+        "furniture",
+        "shone",
+        "in",
+        "indistinct",
+        "curves.",
+        "The",
+        "tall",
+        "marble",
+        "fireplace",
+        "had",
+        "a",
+        "cold",
+        "and",
+        "monumental",
+        "whiteness.",
+        "A",
+        "grand",
+        "piano",
+        "stood",
+        "massively",
+        "in",
+        "a",
+        "corner;",
+        "with",
+        "dark",
+        "gleams",
+        "on",
+        "the",
+        "flat",
+        "surfaces",
+        "like",
+        "a",
+        "sombre",
+        "and",
+        "polished",
+        "sarcophagus.",
+        "A",
+        "high",
+        "door",
+        "opened—closed.",
+        "I",
+        "rose."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          11,
+          0,
+          6
+        ],
+        [
+          "replace",
+          11,
+          12,
+          6,
+          8
+        ],
+        [
+          "equal",
+          12,
+          37,
+          8,
+          33
+        ],
+        [
+          "replace",
+          37,
+          38,
+          33,
+          34
+        ],
+        [
+          "equal",
+          38,
+          75,
+          34,
+          71
+        ],
+        [
+          "replace",
+          75,
+          76,
+          71,
+          73
+        ],
+        [
+          "equal",
+          76,
+          78,
+          73,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "replace",
+          11,
+          12,
+          6,
+          8
+        ],
+        [
+          "replace",
+          37,
+          38,
+          33,
+          34
+        ],
+        [
+          "replace",
+          75,
+          76,
+          71,
+          73
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.0,
+          "end": 0.795
+        },
+        {
+          "text": "dusk",
+          "start": 0.795,
+          "end": 1.193
+        },
+        {
+          "text": "was",
+          "start": 1.193,
+          "end": 1.392
+        },
+        {
+          "text": "falling.",
+          "start": 1.392,
+          "end": 1.491
+        },
+        {
+          "text": "I",
+          "start": 1.491,
+          "end": 1.541
+        },
+        {
+          "text": "had",
+          "start": 1.59,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "wait",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "a",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "lofty",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "drawing-room",
+          "start": 3.05,
+          "end": 3.34
+        },
+        {
+          "text": "with",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "three",
+          "start": 3.83,
+          "end": 4.09
+        },
+        {
+          "text": "long",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "text": "windows",
+          "start": 4.31,
+          "end": 4.77
+        },
+        {
+          "text": "from",
+          "start": 4.77,
+          "end": 5.05
+        },
+        {
+          "text": "floor",
+          "start": 5.05,
+          "end": 5.33
+        },
+        {
+          "text": "to",
+          "start": 5.33,
+          "end": 5.57
+        },
+        {
+          "text": "ceiling",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "text": "that",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "text": "were",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "text": "like",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "text": "three",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "text": "luminous",
+          "start": 6.67,
+          "end": 7.19
+        },
+        {
+          "text": "and",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "text": "bedraped",
+          "start": 7.35,
+          "end": 7.73
+        },
+        {
+          "text": "columns.",
+          "start": 7.73,
+          "end": 8.23
+        },
+        {
+          "text": "The",
+          "start": 8.97,
+          "end": 9.05
+        },
+        {
+          "text": "bent",
+          "start": 9.05,
+          "end": 9.25
+        },
+        {
+          "text": "gilt",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "text": "legs",
+          "start": 9.51,
+          "end": 9.89
+        },
+        {
+          "text": "and",
+          "start": 9.89,
+          "end": 10.19
+        },
+        {
+          "text": "backs",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "text": "of",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "text": "the",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "text": "furniture",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "text": "shone",
+          "start": 10.99,
+          "end": 11.17
+        },
+        {
+          "text": "in",
+          "start": 11.35,
+          "end": 11.57
+        },
+        {
+          "text": "indistinct",
+          "start": 11.57,
+          "end": 12.07
+        },
+        {
+          "text": "curves.",
+          "start": 12.07,
+          "end": 12.57
+        },
+        {
+          "text": "The",
+          "start": 13.13,
+          "end": 13.33
+        },
+        {
+          "text": "tall",
+          "start": 13.33,
+          "end": 13.55
+        },
+        {
+          "text": "marble",
+          "start": 13.55,
+          "end": 13.87
+        },
+        {
+          "text": "fireplace",
+          "start": 13.87,
+          "end": 14.47
+        },
+        {
+          "text": "had",
+          "start": 14.47,
+          "end": 14.71
+        },
+        {
+          "text": "a",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "text": "cold",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "text": "and",
+          "start": 15.17,
+          "end": 15.35
+        },
+        {
+          "text": "monumental",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "text": "whiteness.",
+          "start": 15.77,
+          "end": 16.33
+        },
+        {
+          "text": "A",
+          "start": 16.93,
+          "end": 17.03
+        },
+        {
+          "text": "grand",
+          "start": 17.03,
+          "end": 17.27
+        },
+        {
+          "text": "piano",
+          "start": 17.27,
+          "end": 17.67
+        },
+        {
+          "text": "stood",
+          "start": 17.67,
+          "end": 17.95
+        },
+        {
+          "text": "massively",
+          "start": 17.95,
+          "end": 18.45
+        },
+        {
+          "text": "in",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "text": "a",
+          "start": 18.71,
+          "end": 18.83
+        },
+        {
+          "text": "corner;",
+          "start": 18.83,
+          "end": 19.09
+        },
+        {
+          "text": "with",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "text": "dark",
+          "start": 19.67,
+          "end": 19.93
+        },
+        {
+          "text": "gleams",
+          "start": 19.93,
+          "end": 20.37
+        },
+        {
+          "text": "on",
+          "start": 20.37,
+          "end": 20.53
+        },
+        {
+          "text": "the",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "text": "flat",
+          "start": 20.65,
+          "end": 20.87
+        },
+        {
+          "text": "surfaces",
+          "start": 20.87,
+          "end": 21.35
+        },
+        {
+          "text": "like",
+          "start": 21.35,
+          "end": 21.63
+        },
+        {
+          "text": "a",
+          "start": 21.63,
+          "end": 21.79
+        },
+        {
+          "text": "sombre",
+          "start": 21.79,
+          "end": 22.23
+        },
+        {
+          "text": "and",
+          "start": 22.23,
+          "end": 22.45
+        },
+        {
+          "text": "polished",
+          "start": 22.45,
+          "end": 22.87
+        },
+        {
+          "text": "sarcophagus.",
+          "start": 22.87,
+          "end": 23.65
+        },
+        {
+          "text": "A",
+          "start": 24.19,
+          "end": 24.35
+        },
+        {
+          "text": "high",
+          "start": 24.35,
+          "end": 24.57
+        },
+        {
+          "text": "door",
+          "start": 24.57,
+          "end": 24.77
+        },
+        {
+          "text": "opened—closed.",
+          "start": 24.77,
+          "end": 25.54
+        },
+        {
+          "text": "I",
+          "start": 26.31,
+          "end": 26.45
+        },
+        {
+          "text": "rose.",
+          "start": 26.45,
+          "end": 26.71
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 75,
+        "matched_words": 70
+      },
+      "match_ratio": 0.8974358974358975,
+      "rejection_reasons": [],
+      "seconds": 0.8671223185956478
+    },
+    {
+      "asr_seconds": 1.0495652742683887,
+      "alignment_seconds": 0.0011938214302062988,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The dusk was falling. I had to wait in a lofty drawing-room with three long windows from",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " dusk",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.947265625
+            },
+            {
+              "text": " was",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " falling.",
+              "start": 1.03,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " had",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wait",
+              "start": 2.33,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lofty",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " drawing",
+              "start": 3.05,
+              "end": 3.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "-room",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " with",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " three",
+              "start": 3.83,
+              "end": 4.09,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " long",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " windows",
+              "start": 4.33,
+              "end": 4.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 4.75,
+              "end": 5.05,
+              "probability": 0.9716796875
+            }
+          ]
+        },
+        {
+          "text": " floor to ceiling that were like three luminous and bedraped columns. The bent gilt legs and",
+          "start": 5.05,
+          "end": 10.19,
+          "words": [
+            {
+              "text": " floor",
+              "start": 5.05,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.33,
+              "end": 5.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ceiling",
+              "start": 5.57,
+              "end": 5.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 5.89,
+              "end": 6.11,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " were",
+              "start": 6.11,
+              "end": 6.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 6.21,
+              "end": 6.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " three",
+              "start": 6.37,
+              "end": 6.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " luminous",
+              "start": 6.67,
+              "end": 7.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 7.19,
+              "end": 7.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bedraped",
+              "start": 7.35,
+              "end": 7.71,
+              "probability": 0.657470703125
+            },
+            {
+              "text": " columns.",
+              "start": 7.71,
+              "end": 8.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 8.91,
+              "end": 9.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bent",
+              "start": 9.05,
+              "end": 9.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gilt",
+              "start": 9.25,
+              "end": 9.51,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " legs",
+              "start": 9.51,
+              "end": 9.89,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 9.89,
+              "end": 10.19,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " backs of the furniture shone in indistinct curves. The tall marble fireplace had a cold",
+          "start": 10.19,
+          "end": 15.17,
+          "words": [
+            {
+              "text": " backs",
+              "start": 10.19,
+              "end": 10.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 10.41,
+              "end": 10.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 10.55,
+              "end": 10.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " furniture",
+              "start": 10.67,
+              "end": 10.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shone",
+              "start": 10.99,
+              "end": 11.35,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " in",
+              "start": 11.35,
+              "end": 11.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " indistinct",
+              "start": 11.59,
+              "end": 12.07,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " curves.",
+              "start": 12.07,
+              "end": 12.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " The",
+              "start": 13.15,
+              "end": 13.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tall",
+              "start": 13.33,
+              "end": 13.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " marble",
+              "start": 13.57,
+              "end": 13.89,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " fireplace",
+              "start": 13.89,
+              "end": 14.47,
+              "probability": 0.98828125
+            },
+            {
+              "text": " had",
+              "start": 14.47,
+              "end": 14.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 14.71,
+              "end": 14.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cold",
+              "start": 14.83,
+              "end": 15.17,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " and monumental whiteness. A grand piano stood massively in a corner, with dark gleams on",
+          "start": 15.17,
+          "end": 20.53,
+          "words": [
+            {
+              "text": " and",
+              "start": 15.17,
+              "end": 15.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " monumental",
+              "start": 15.35,
+              "end": 15.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whiteness.",
+              "start": 15.77,
+              "end": 16.33,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " A",
+              "start": 16.93,
+              "end": 17.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " grand",
+              "start": 17.05,
+              "end": 17.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " piano",
+              "start": 17.27,
+              "end": 17.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " stood",
+              "start": 17.67,
+              "end": 17.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " massively",
+              "start": 17.95,
+              "end": 18.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 18.45,
+              "end": 18.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 18.71,
+              "end": 18.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " corner,",
+              "start": 18.83,
+              "end": 19.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 19.35,
+              "end": 19.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dark",
+              "start": 19.67,
+              "end": 19.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gleams",
+              "start": 19.93,
+              "end": 20.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 20.37,
+              "end": 20.53,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " the flat surfaces like a sombre and polished sarcophagus. A high door opened closed. I",
+          "start": 20.53,
+          "end": 26.45,
+          "words": [
+            {
+              "text": " the",
+              "start": 20.53,
+              "end": 20.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flat",
+              "start": 20.65,
+              "end": 20.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " surfaces",
+              "start": 20.87,
+              "end": 21.33,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " like",
+              "start": 21.33,
+              "end": 21.63,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 21.63,
+              "end": 21.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sombre",
+              "start": 21.81,
+              "end": 22.21,
+              "probability": 0.857421875
+            },
+            {
+              "text": " and",
+              "start": 22.21,
+              "end": 22.47,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " polished",
+              "start": 22.47,
+              "end": 22.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sarcophagus.",
+              "start": 22.85,
+              "end": 23.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " A",
+              "start": 24.17,
+              "end": 24.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " high",
+              "start": 24.35,
+              "end": 24.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " door",
+              "start": 24.57,
+              "end": 24.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " opened",
+              "start": 24.77,
+              "end": 25.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " closed.",
+              "start": 25.21,
+              "end": 25.65,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " I",
+              "start": 26.25,
+              "end": 26.45,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "dusk",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "was",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "falling.",
+          "start": 1.03,
+          "end": 1.47
+        },
+        {
+          "raw": "I",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "had",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "wait",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "a",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "lofty",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "drawing",
+          "start": 3.05,
+          "end": 3.37
+        },
+        {
+          "raw": "-room",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "with",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "three",
+          "start": 3.83,
+          "end": 4.09
+        },
+        {
+          "raw": "long",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "windows",
+          "start": 4.33,
+          "end": 4.75
+        },
+        {
+          "raw": "from",
+          "start": 4.75,
+          "end": 5.05
+        },
+        {
+          "raw": "floor",
+          "start": 5.05,
+          "end": 5.33
+        },
+        {
+          "raw": "to",
+          "start": 5.33,
+          "end": 5.57
+        },
+        {
+          "raw": "ceiling",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "raw": "that",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "raw": "were",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "raw": "like",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "raw": "three",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "raw": "luminous",
+          "start": 6.67,
+          "end": 7.19
+        },
+        {
+          "raw": "and",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "raw": "bedraped",
+          "start": 7.35,
+          "end": 7.71
+        },
+        {
+          "raw": "columns.",
+          "start": 7.71,
+          "end": 8.23
+        },
+        {
+          "raw": "The",
+          "start": 8.91,
+          "end": 9.05
+        },
+        {
+          "raw": "bent",
+          "start": 9.05,
+          "end": 9.25
+        },
+        {
+          "raw": "gilt",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "raw": "legs",
+          "start": 9.51,
+          "end": 9.89
+        },
+        {
+          "raw": "and",
+          "start": 9.89,
+          "end": 10.19
+        },
+        {
+          "raw": "backs",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "raw": "of",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "raw": "the",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "raw": "furniture",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "raw": "shone",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "raw": "in",
+          "start": 11.35,
+          "end": 11.59
+        },
+        {
+          "raw": "indistinct",
+          "start": 11.59,
+          "end": 12.07
+        },
+        {
+          "raw": "curves.",
+          "start": 12.07,
+          "end": 12.55
+        },
+        {
+          "raw": "The",
+          "start": 13.15,
+          "end": 13.33
+        },
+        {
+          "raw": "tall",
+          "start": 13.33,
+          "end": 13.57
+        },
+        {
+          "raw": "marble",
+          "start": 13.57,
+          "end": 13.89
+        },
+        {
+          "raw": "fireplace",
+          "start": 13.89,
+          "end": 14.47
+        },
+        {
+          "raw": "had",
+          "start": 14.47,
+          "end": 14.71
+        },
+        {
+          "raw": "a",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "raw": "cold",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "raw": "and",
+          "start": 15.17,
+          "end": 15.35
+        },
+        {
+          "raw": "monumental",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "raw": "whiteness.",
+          "start": 15.77,
+          "end": 16.33
+        },
+        {
+          "raw": "A",
+          "start": 16.93,
+          "end": 17.05
+        },
+        {
+          "raw": "grand",
+          "start": 17.05,
+          "end": 17.27
+        },
+        {
+          "raw": "piano",
+          "start": 17.27,
+          "end": 17.67
+        },
+        {
+          "raw": "stood",
+          "start": 17.67,
+          "end": 17.95
+        },
+        {
+          "raw": "massively",
+          "start": 17.95,
+          "end": 18.45
+        },
+        {
+          "raw": "in",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "raw": "a",
+          "start": 18.71,
+          "end": 18.83
+        },
+        {
+          "raw": "corner,",
+          "start": 18.83,
+          "end": 19.09
+        },
+        {
+          "raw": "with",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "raw": "dark",
+          "start": 19.67,
+          "end": 19.93
+        },
+        {
+          "raw": "gleams",
+          "start": 19.93,
+          "end": 20.37
+        },
+        {
+          "raw": "on",
+          "start": 20.37,
+          "end": 20.53
+        },
+        {
+          "raw": "the",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "raw": "flat",
+          "start": 20.65,
+          "end": 20.87
+        },
+        {
+          "raw": "surfaces",
+          "start": 20.87,
+          "end": 21.33
+        },
+        {
+          "raw": "like",
+          "start": 21.33,
+          "end": 21.63
+        },
+        {
+          "raw": "a",
+          "start": 21.63,
+          "end": 21.81
+        },
+        {
+          "raw": "sombre",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "raw": "and",
+          "start": 22.21,
+          "end": 22.47
+        },
+        {
+          "raw": "polished",
+          "start": 22.47,
+          "end": 22.85
+        },
+        {
+          "raw": "sarcophagus.",
+          "start": 22.85,
+          "end": 23.55
+        },
+        {
+          "raw": "A",
+          "start": 24.17,
+          "end": 24.35
+        },
+        {
+          "raw": "high",
+          "start": 24.35,
+          "end": 24.57
+        },
+        {
+          "raw": "door",
+          "start": 24.57,
+          "end": 24.77
+        },
+        {
+          "raw": "opened",
+          "start": 24.77,
+          "end": 25.21
+        },
+        {
+          "raw": "closed.",
+          "start": 25.21,
+          "end": 25.65
+        },
+        {
+          "raw": "I",
+          "start": 26.25,
+          "end": 26.45
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "dusk",
+        "was",
+        "falling.",
+        "I",
+        "had",
+        "to",
+        "wait",
+        "in",
+        "a",
+        "lofty",
+        "drawing-room",
+        "with",
+        "three",
+        "long",
+        "windows",
+        "from",
+        "floor",
+        "to",
+        "ceiling",
+        "that",
+        "were",
+        "like",
+        "three",
+        "luminous",
+        "and",
+        "bedraped",
+        "columns.",
+        "The",
+        "bent",
+        "gilt",
+        "legs",
+        "and",
+        "backs",
+        "of",
+        "the",
+        "furniture",
+        "shone",
+        "in",
+        "indistinct",
+        "curves.",
+        "The",
+        "tall",
+        "marble",
+        "fireplace",
+        "had",
+        "a",
+        "cold",
+        "and",
+        "monumental",
+        "whiteness.",
+        "A",
+        "grand",
+        "piano",
+        "stood",
+        "massively",
+        "in",
+        "a",
+        "corner;",
+        "with",
+        "dark",
+        "gleams",
+        "on",
+        "the",
+        "flat",
+        "surfaces",
+        "like",
+        "a",
+        "sombre",
+        "and",
+        "polished",
+        "sarcophagus.",
+        "A",
+        "high",
+        "door",
+        "opened—closed.",
+        "I",
+        "rose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          75,
+          13,
+          76
+        ],
+        [
+          "replace",
+          75,
+          76,
+          76,
+          78
+        ],
+        [
+          "equal",
+          76,
+          77,
+          78,
+          79
+        ],
+        [
+          "delete",
+          77,
+          78,
+          79,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "replace",
+          75,
+          76,
+          76,
+          78
+        ],
+        [
+          "delete",
+          77,
+          78,
+          79,
+          79
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "dusk",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "was",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "text": "falling.",
+          "start": 1.03,
+          "end": 1.47
+        },
+        {
+          "text": "I",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "had",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "to",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "wait",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "a",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "lofty",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "drawing-room",
+          "start": 3.05,
+          "end": 3.34
+        },
+        {
+          "text": "with",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "three",
+          "start": 3.83,
+          "end": 4.09
+        },
+        {
+          "text": "long",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "windows",
+          "start": 4.33,
+          "end": 4.75
+        },
+        {
+          "text": "from",
+          "start": 4.75,
+          "end": 5.05
+        },
+        {
+          "text": "floor",
+          "start": 5.05,
+          "end": 5.33
+        },
+        {
+          "text": "to",
+          "start": 5.33,
+          "end": 5.57
+        },
+        {
+          "text": "ceiling",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "text": "that",
+          "start": 5.89,
+          "end": 6.11
+        },
+        {
+          "text": "were",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "text": "like",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "text": "three",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "text": "luminous",
+          "start": 6.67,
+          "end": 7.19
+        },
+        {
+          "text": "and",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "text": "bedraped",
+          "start": 7.35,
+          "end": 7.71
+        },
+        {
+          "text": "columns.",
+          "start": 7.71,
+          "end": 8.23
+        },
+        {
+          "text": "The",
+          "start": 8.91,
+          "end": 9.05
+        },
+        {
+          "text": "bent",
+          "start": 9.05,
+          "end": 9.25
+        },
+        {
+          "text": "gilt",
+          "start": 9.25,
+          "end": 9.51
+        },
+        {
+          "text": "legs",
+          "start": 9.51,
+          "end": 9.89
+        },
+        {
+          "text": "and",
+          "start": 9.89,
+          "end": 10.19
+        },
+        {
+          "text": "backs",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "text": "of",
+          "start": 10.41,
+          "end": 10.55
+        },
+        {
+          "text": "the",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "text": "furniture",
+          "start": 10.67,
+          "end": 10.99
+        },
+        {
+          "text": "shone",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "text": "in",
+          "start": 11.35,
+          "end": 11.59
+        },
+        {
+          "text": "indistinct",
+          "start": 11.59,
+          "end": 12.07
+        },
+        {
+          "text": "curves.",
+          "start": 12.07,
+          "end": 12.55
+        },
+        {
+          "text": "The",
+          "start": 13.15,
+          "end": 13.33
+        },
+        {
+          "text": "tall",
+          "start": 13.33,
+          "end": 13.57
+        },
+        {
+          "text": "marble",
+          "start": 13.57,
+          "end": 13.89
+        },
+        {
+          "text": "fireplace",
+          "start": 13.89,
+          "end": 14.47
+        },
+        {
+          "text": "had",
+          "start": 14.47,
+          "end": 14.71
+        },
+        {
+          "text": "a",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "text": "cold",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "text": "and",
+          "start": 15.17,
+          "end": 15.35
+        },
+        {
+          "text": "monumental",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "text": "whiteness.",
+          "start": 15.77,
+          "end": 16.33
+        },
+        {
+          "text": "A",
+          "start": 16.93,
+          "end": 17.05
+        },
+        {
+          "text": "grand",
+          "start": 17.05,
+          "end": 17.27
+        },
+        {
+          "text": "piano",
+          "start": 17.27,
+          "end": 17.67
+        },
+        {
+          "text": "stood",
+          "start": 17.67,
+          "end": 17.95
+        },
+        {
+          "text": "massively",
+          "start": 17.95,
+          "end": 18.45
+        },
+        {
+          "text": "in",
+          "start": 18.45,
+          "end": 18.71
+        },
+        {
+          "text": "a",
+          "start": 18.71,
+          "end": 18.83
+        },
+        {
+          "text": "corner;",
+          "start": 18.83,
+          "end": 19.09
+        },
+        {
+          "text": "with",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "text": "dark",
+          "start": 19.67,
+          "end": 19.93
+        },
+        {
+          "text": "gleams",
+          "start": 19.93,
+          "end": 20.37
+        },
+        {
+          "text": "on",
+          "start": 20.37,
+          "end": 20.53
+        },
+        {
+          "text": "the",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "text": "flat",
+          "start": 20.65,
+          "end": 20.87
+        },
+        {
+          "text": "surfaces",
+          "start": 20.87,
+          "end": 21.33
+        },
+        {
+          "text": "like",
+          "start": 21.33,
+          "end": 21.63
+        },
+        {
+          "text": "a",
+          "start": 21.63,
+          "end": 21.81
+        },
+        {
+          "text": "sombre",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "text": "and",
+          "start": 22.21,
+          "end": 22.47
+        },
+        {
+          "text": "polished",
+          "start": 22.47,
+          "end": 22.85
+        },
+        {
+          "text": "sarcophagus.",
+          "start": 22.85,
+          "end": 23.55
+        },
+        {
+          "text": "A",
+          "start": 24.17,
+          "end": 24.35
+        },
+        {
+          "text": "high",
+          "start": 24.35,
+          "end": 24.57
+        },
+        {
+          "text": "door",
+          "start": 24.57,
+          "end": 24.77
+        },
+        {
+          "text": "opened—closed.",
+          "start": 24.77,
+          "end": 25.51
+        },
+        {
+          "text": "I",
+          "start": 26.25,
+          "end": 26.45
+        },
+        {
+          "text": "rose.",
+          "start": 26.45,
+          "end": 26.45
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 79,
+        "matched_words": 75
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 1.0514001324772835
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc837e7c75cafe2f48a5328008fb3407e80653a6d74dcb83dc019028280d7d7c",
+  "selected_reasons": []
+}

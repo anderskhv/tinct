@@ -1,0 +1,855 @@
+{
+  "complete": true,
+  "signature": "a57255d6df8691f0bb620dde9231c43290fca9460e2788e6a3ecf73acfef5607",
+  "attempts": [
+    {
+      "asr_seconds": 0.3990871086716652,
+      "alignment_seconds": 0.00027549266815185547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. Go make thyself like a nymph o' the sea: be subject To no sight but thine and mine, invisible To every eyeball else. Go take this shape And hither come in't: go, hence with diligence!",
+        "hotwords": "Prospero, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, Go make thyself like a nymph o' the sea, be subject To no sight but thine and mine, invisible To every eyeball else.",
+          "start": 0.02,
+          "end": 8.22,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.810546875
+            },
+            {
+              "text": " Go",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.093017578125
+            },
+            {
+              "text": " make",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " thyself",
+              "start": 1.7,
+              "end": 2.08,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " like",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " a",
+              "start": 2.28,
+              "end": 2.42,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " nymph",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " o'",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " the",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.95703125
+            },
+            {
+              "text": " sea,",
+              "start": 3.0,
+              "end": 3.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 3.8,
+              "end": 3.92,
+              "probability": 0.1724853515625
+            },
+            {
+              "text": " subject",
+              "start": 3.92,
+              "end": 4.22,
+              "probability": 0.986328125
+            },
+            {
+              "text": " To",
+              "start": 4.22,
+              "end": 4.54,
+              "probability": 0.0826416015625
+            },
+            {
+              "text": " no",
+              "start": 4.54,
+              "end": 4.74,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sight",
+              "start": 4.74,
+              "end": 5.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " but",
+              "start": 5.06,
+              "end": 5.3,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " thine",
+              "start": 5.3,
+              "end": 5.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " mine,",
+              "start": 5.78,
+              "end": 6.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " invisible",
+              "start": 6.7,
+              "end": 6.72,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " To",
+              "start": 6.72,
+              "end": 7.12,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " every",
+              "start": 7.12,
+              "end": 7.42,
+              "probability": 0.96875
+            },
+            {
+              "text": " eyeball",
+              "start": 7.42,
+              "end": 7.92,
+              "probability": 0.964599609375
+            },
+            {
+              "text": " else.",
+              "start": 7.92,
+              "end": 8.22,
+              "probability": 0.91796875
+            }
+          ]
+        },
+        {
+          "text": " Go take this shape And hither come in't. Go, hence with diligence!",
+          "start": 8.22,
+          "end": 12.42,
+          "words": [
+            {
+              "text": " Go",
+              "start": 8.22,
+              "end": 9.06,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " take",
+              "start": 9.06,
+              "end": 9.24,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " this",
+              "start": 9.24,
+              "end": 9.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " shape",
+              "start": 9.48,
+              "end": 9.76,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " And",
+              "start": 9.76,
+              "end": 9.96,
+              "probability": 0.00244140625
+            },
+            {
+              "text": " hither",
+              "start": 9.96,
+              "end": 10.16,
+              "probability": 0.947265625
+            },
+            {
+              "text": " come",
+              "start": 10.16,
+              "end": 10.46,
+              "probability": 0.98046875
+            },
+            {
+              "text": " in't.",
+              "start": 10.46,
+              "end": 11.04,
+              "probability": 0.4681396484375
+            },
+            {
+              "text": " Go,",
+              "start": 11.32,
+              "end": 11.42,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " hence",
+              "start": 11.62,
+              "end": 11.78,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " with",
+              "start": 11.78,
+              "end": 12.06,
+              "probability": 0.8203125
+            },
+            {
+              "text": " diligence!",
+              "start": 12.06,
+              "end": 12.42,
+              "probability": 0.939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "Go",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "make",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "thyself",
+          "start": 1.7,
+          "end": 2.08
+        },
+        {
+          "raw": "like",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "a",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "raw": "nymph",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "o'",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "the",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "sea,",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "raw": "be",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "raw": "subject",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "raw": "To",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "raw": "no",
+          "start": 4.54,
+          "end": 4.74
+        },
+        {
+          "raw": "sight",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "raw": "but",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "raw": "thine",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "raw": "and",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "raw": "mine,",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "raw": "invisible",
+          "start": 6.7,
+          "end": 6.72
+        },
+        {
+          "raw": "To",
+          "start": 6.72,
+          "end": 7.12
+        },
+        {
+          "raw": "every",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "raw": "eyeball",
+          "start": 7.42,
+          "end": 7.92
+        },
+        {
+          "raw": "else.",
+          "start": 7.92,
+          "end": 8.22
+        },
+        {
+          "raw": "Go",
+          "start": 8.22,
+          "end": 9.06
+        },
+        {
+          "raw": "take",
+          "start": 9.06,
+          "end": 9.24
+        },
+        {
+          "raw": "this",
+          "start": 9.24,
+          "end": 9.48
+        },
+        {
+          "raw": "shape",
+          "start": 9.48,
+          "end": 9.76
+        },
+        {
+          "raw": "And",
+          "start": 9.76,
+          "end": 9.96
+        },
+        {
+          "raw": "hither",
+          "start": 9.96,
+          "end": 10.16
+        },
+        {
+          "raw": "come",
+          "start": 10.16,
+          "end": 10.46
+        },
+        {
+          "raw": "in't.",
+          "start": 10.46,
+          "end": 11.04
+        },
+        {
+          "raw": "Go,",
+          "start": 11.32,
+          "end": 11.42
+        },
+        {
+          "raw": "hence",
+          "start": 11.62,
+          "end": 11.78
+        },
+        {
+          "raw": "with",
+          "start": 11.78,
+          "end": 12.06
+        },
+        {
+          "raw": "diligence!",
+          "start": 12.06,
+          "end": 12.42
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Go",
+        "make",
+        "thyself",
+        "like",
+        "a",
+        "nymph",
+        "o'",
+        "the",
+        "sea:",
+        "be",
+        "subject",
+        "To",
+        "no",
+        "sight",
+        "but",
+        "thine",
+        "and",
+        "mine,",
+        "invisible",
+        "To",
+        "every",
+        "eyeball",
+        "else.",
+        "Go",
+        "take",
+        "this",
+        "shape",
+        "And",
+        "hither",
+        "come",
+        "in't:",
+        "go,",
+        "hence",
+        "with",
+        "diligence!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "text": "Go",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "make",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "thyself",
+          "start": 1.7,
+          "end": 2.08
+        },
+        {
+          "text": "like",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "a",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "text": "nymph",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "o'",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "the",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "sea:",
+          "start": 3.0,
+          "end": 3.32
+        },
+        {
+          "text": "be",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "text": "subject",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "text": "To",
+          "start": 4.22,
+          "end": 4.54
+        },
+        {
+          "text": "no",
+          "start": 4.54,
+          "end": 4.74
+        },
+        {
+          "text": "sight",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "text": "but",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "text": "thine",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "text": "and",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "text": "mine,",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "text": "invisible",
+          "start": 6.7,
+          "end": 6.72
+        },
+        {
+          "text": "To",
+          "start": 6.72,
+          "end": 7.12
+        },
+        {
+          "text": "every",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "text": "eyeball",
+          "start": 7.42,
+          "end": 7.92
+        },
+        {
+          "text": "else.",
+          "start": 7.92,
+          "end": 8.22
+        },
+        {
+          "text": "Go",
+          "start": 8.22,
+          "end": 9.06
+        },
+        {
+          "text": "take",
+          "start": 9.06,
+          "end": 9.24
+        },
+        {
+          "text": "this",
+          "start": 9.24,
+          "end": 9.48
+        },
+        {
+          "text": "shape",
+          "start": 9.48,
+          "end": 9.76
+        },
+        {
+          "text": "And",
+          "start": 9.76,
+          "end": 9.96
+        },
+        {
+          "text": "hither",
+          "start": 9.96,
+          "end": 10.16
+        },
+        {
+          "text": "come",
+          "start": 10.16,
+          "end": 10.46
+        },
+        {
+          "text": "in't:",
+          "start": 10.46,
+          "end": 11.04
+        },
+        {
+          "text": "go,",
+          "start": 11.32,
+          "end": 11.42
+        },
+        {
+          "text": "hence",
+          "start": 11.62,
+          "end": 11.78
+        },
+        {
+          "text": "with",
+          "start": 11.78,
+          "end": 12.06
+        },
+        {
+          "text": "diligence!",
+          "start": 12.06,
+          "end": 12.42
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39949778467416763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "11c38818210bfbb852b0e16c5ae236a4272deac1ef7c6b87ba7a74622a6724bd",
+  "selected_reasons": []
+}

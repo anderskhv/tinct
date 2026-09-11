@@ -1,0 +1,4720 @@
+{
+  "complete": true,
+  "signature": "b7ddf8057825e914477c0a59676f3a427438c59565103ab28f24b5553d3ed732",
+  "attempts": [
+    {
+      "asr_seconds": 0.4775196313858032,
+      "alignment_seconds": 0.00020223110914230347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "19. Though it be too obvious to escape observation, that different ideas are connected together; I do not find that any philosopher has attempted to enumerate or class all the principles of association; a subject, however, that seems worthy of curiosity. To me, there appear to be only three principles of connexion among ideas, namely, _Resemblance_, _Contiguity_ in time or place, and _Cause or Effect_.",
+        "hotwords": "Though, I, Effect_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 19. Though it be too obvious to escape observation, that different ideas are connected together,",
+          "start": 0.11,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " 19.",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Though",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " it",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " too",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " obvious",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " escape",
+              "start": 2.73,
+              "end": 3.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " observation,",
+              "start": 3.07,
+              "end": 3.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " different",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ideas",
+              "start": 4.69,
+              "end": 5.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " are",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " connected",
+              "start": 5.31,
+              "end": 5.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " together,",
+              "start": 5.65,
+              "end": 6.07,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " I do not find that any philosopher has attempted to enumerate or class all the principles of",
+          "start": 6.63,
+          "end": 11.27,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.63,
+              "end": 6.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " do",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 6.93,
+              "end": 7.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " find",
+              "start": 7.11,
+              "end": 7.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 7.37,
+              "end": 7.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " any",
+              "start": 7.55,
+              "end": 7.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " philosopher",
+              "start": 7.77,
+              "end": 8.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " has",
+              "start": 8.23,
+              "end": 8.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " attempted",
+              "start": 8.55,
+              "end": 8.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.91,
+              "end": 9.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enumerate",
+              "start": 9.19,
+              "end": 9.73,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " or",
+              "start": 9.73,
+              "end": 9.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " class",
+              "start": 9.95,
+              "end": 10.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " all",
+              "start": 10.25,
+              "end": 10.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.53,
+              "end": 10.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " principles",
+              "start": 10.73,
+              "end": 10.97,
+              "probability": 0.96875
+            },
+            {
+              "text": " of",
+              "start": 10.97,
+              "end": 11.27,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " association, a subject, however, that seems worthy of curiosity. To me, there appear to",
+          "start": 11.27,
+          "end": 17.57,
+          "words": [
+            {
+              "text": " association,",
+              "start": 11.27,
+              "end": 11.79,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " a",
+              "start": 12.51,
+              "end": 12.71,
+              "probability": 0.984375
+            },
+            {
+              "text": " subject,",
+              "start": 12.71,
+              "end": 13.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " however,",
+              "start": 13.23,
+              "end": 13.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 13.99,
+              "end": 14.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seems",
+              "start": 14.15,
+              "end": 14.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " worthy",
+              "start": 14.39,
+              "end": 14.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.73,
+              "end": 14.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " curiosity.",
+              "start": 14.99,
+              "end": 15.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " To",
+              "start": 16.35,
+              "end": 16.51,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me,",
+              "start": 16.51,
+              "end": 16.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there",
+              "start": 16.99,
+              "end": 17.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " appear",
+              "start": 17.21,
+              "end": 17.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 17.45,
+              "end": 17.57,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " be only three principles of connexion among ideas, namely,",
+          "start": 17.57,
+          "end": 21.05,
+          "words": [
+            {
+              "text": " be",
+              "start": 17.57,
+              "end": 17.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 17.69,
+              "end": 17.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " three",
+              "start": 17.93,
+              "end": 18.29,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " principles",
+              "start": 18.29,
+              "end": 18.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 18.67,
+              "end": 18.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " connexion",
+              "start": 18.95,
+              "end": 19.47,
+              "probability": 0.6221040089925131
+            },
+            {
+              "text": " among",
+              "start": 19.47,
+              "end": 19.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ideas,",
+              "start": 19.67,
+              "end": 20.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " namely,",
+              "start": 20.63,
+              "end": 21.05,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " %Resemblance, %Contiguity in time or place, and %Cause or Effect_.",
+          "start": 21.05,
+          "end": 25.69,
+          "words": [
+            {
+              "text": " %Resemblance,",
+              "start": 21.05,
+              "end": 22.09,
+              "probability": 0.3880799114704132
+            },
+            {
+              "text": " %Contiguity",
+              "start": 22.53,
+              "end": 22.99,
+              "probability": 0.520550549030304
+            },
+            {
+              "text": " in",
+              "start": 22.99,
+              "end": 23.25,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " time",
+              "start": 23.25,
+              "end": 23.59,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " or",
+              "start": 23.59,
+              "end": 23.85,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " place,",
+              "start": 23.85,
+              "end": 24.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 24.53,
+              "end": 24.63,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " %Cause",
+              "start": 24.63,
+              "end": 25.01,
+              "probability": 0.697021484375
+            },
+            {
+              "text": " or",
+              "start": 25.01,
+              "end": 25.31,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Effect_.",
+              "start": 25.31,
+              "end": 25.69,
+              "probability": 0.019285738468170166
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "19.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "Though",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "too",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "obvious",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "to",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "escape",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "raw": "observation,",
+          "start": 3.07,
+          "end": 3.79
+        },
+        {
+          "raw": "that",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "different",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "ideas",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "raw": "are",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "connected",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "raw": "together,",
+          "start": 5.65,
+          "end": 6.07
+        },
+        {
+          "raw": "I",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "raw": "do",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "not",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "raw": "find",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "raw": "that",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "raw": "any",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "raw": "philosopher",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "raw": "has",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "raw": "attempted",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "raw": "to",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "raw": "enumerate",
+          "start": 9.19,
+          "end": 9.73
+        },
+        {
+          "raw": "or",
+          "start": 9.73,
+          "end": 9.95
+        },
+        {
+          "raw": "class",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "raw": "all",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "raw": "the",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "raw": "principles",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "raw": "of",
+          "start": 10.97,
+          "end": 11.27
+        },
+        {
+          "raw": "association,",
+          "start": 11.27,
+          "end": 11.79
+        },
+        {
+          "raw": "a",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "raw": "subject,",
+          "start": 12.71,
+          "end": 13.09
+        },
+        {
+          "raw": "however,",
+          "start": 13.23,
+          "end": 13.51
+        },
+        {
+          "raw": "that",
+          "start": 13.99,
+          "end": 14.15
+        },
+        {
+          "raw": "seems",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "raw": "worthy",
+          "start": 14.39,
+          "end": 14.73
+        },
+        {
+          "raw": "of",
+          "start": 14.73,
+          "end": 14.99
+        },
+        {
+          "raw": "curiosity.",
+          "start": 14.99,
+          "end": 15.41
+        },
+        {
+          "raw": "To",
+          "start": 16.35,
+          "end": 16.51
+        },
+        {
+          "raw": "me,",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "raw": "there",
+          "start": 16.99,
+          "end": 17.21
+        },
+        {
+          "raw": "appear",
+          "start": 17.21,
+          "end": 17.45
+        },
+        {
+          "raw": "to",
+          "start": 17.45,
+          "end": 17.57
+        },
+        {
+          "raw": "be",
+          "start": 17.57,
+          "end": 17.69
+        },
+        {
+          "raw": "only",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "raw": "three",
+          "start": 17.93,
+          "end": 18.29
+        },
+        {
+          "raw": "principles",
+          "start": 18.29,
+          "end": 18.67
+        },
+        {
+          "raw": "of",
+          "start": 18.67,
+          "end": 18.95
+        },
+        {
+          "raw": "connexion",
+          "start": 18.95,
+          "end": 19.47
+        },
+        {
+          "raw": "among",
+          "start": 19.47,
+          "end": 19.67
+        },
+        {
+          "raw": "ideas,",
+          "start": 19.67,
+          "end": 20.15
+        },
+        {
+          "raw": "namely,",
+          "start": 20.63,
+          "end": 21.05
+        },
+        {
+          "raw": "%Resemblance,",
+          "start": 21.05,
+          "end": 22.09
+        },
+        {
+          "raw": "%Contiguity",
+          "start": 22.53,
+          "end": 22.99
+        },
+        {
+          "raw": "in",
+          "start": 22.99,
+          "end": 23.25
+        },
+        {
+          "raw": "time",
+          "start": 23.25,
+          "end": 23.59
+        },
+        {
+          "raw": "or",
+          "start": 23.59,
+          "end": 23.85
+        },
+        {
+          "raw": "place,",
+          "start": 23.85,
+          "end": 24.13
+        },
+        {
+          "raw": "and",
+          "start": 24.53,
+          "end": 24.63
+        },
+        {
+          "raw": "%Cause",
+          "start": 24.63,
+          "end": 25.01
+        },
+        {
+          "raw": "or",
+          "start": 25.01,
+          "end": 25.31
+        },
+        {
+          "raw": "Effect_.",
+          "start": 25.31,
+          "end": 25.69
+        }
+      ],
+      "expected_tokens": [
+        "19.",
+        "Though",
+        "it",
+        "be",
+        "too",
+        "obvious",
+        "to",
+        "escape",
+        "observation,",
+        "that",
+        "different",
+        "ideas",
+        "are",
+        "connected",
+        "together;",
+        "I",
+        "do",
+        "not",
+        "find",
+        "that",
+        "any",
+        "philosopher",
+        "has",
+        "attempted",
+        "to",
+        "enumerate",
+        "or",
+        "class",
+        "all",
+        "the",
+        "principles",
+        "of",
+        "association;",
+        "a",
+        "subject,",
+        "however,",
+        "that",
+        "seems",
+        "worthy",
+        "of",
+        "curiosity.",
+        "To",
+        "me,",
+        "there",
+        "appear",
+        "to",
+        "be",
+        "only",
+        "three",
+        "principles",
+        "of",
+        "connexion",
+        "among",
+        "ideas,",
+        "namely,",
+        "_Resemblance_,",
+        "_Contiguity_",
+        "in",
+        "time",
+        "or",
+        "place,",
+        "and",
+        "_Cause",
+        "or",
+        "Effect_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          55,
+          0,
+          55
+        ],
+        [
+          "replace",
+          55,
+          57,
+          55,
+          57
+        ],
+        [
+          "equal",
+          57,
+          62,
+          57,
+          62
+        ],
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ],
+        [
+          "equal",
+          63,
+          65,
+          63,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          55,
+          57,
+          55,
+          57
+        ],
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "19.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "Though",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "too",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "obvious",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "to",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "escape",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "text": "observation,",
+          "start": 3.07,
+          "end": 3.79
+        },
+        {
+          "text": "that",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "different",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "ideas",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "text": "are",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "connected",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "text": "together;",
+          "start": 5.65,
+          "end": 6.07
+        },
+        {
+          "text": "I",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "text": "do",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "not",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "text": "find",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "text": "that",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "text": "any",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "text": "philosopher",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "text": "has",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "text": "attempted",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "text": "to",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "text": "enumerate",
+          "start": 9.19,
+          "end": 9.73
+        },
+        {
+          "text": "or",
+          "start": 9.73,
+          "end": 9.95
+        },
+        {
+          "text": "class",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "text": "all",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "text": "the",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "text": "principles",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "text": "of",
+          "start": 10.97,
+          "end": 11.27
+        },
+        {
+          "text": "association;",
+          "start": 11.27,
+          "end": 11.79
+        },
+        {
+          "text": "a",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "text": "subject,",
+          "start": 12.71,
+          "end": 13.09
+        },
+        {
+          "text": "however,",
+          "start": 13.23,
+          "end": 13.51
+        },
+        {
+          "text": "that",
+          "start": 13.99,
+          "end": 14.15
+        },
+        {
+          "text": "seems",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "text": "worthy",
+          "start": 14.39,
+          "end": 14.73
+        },
+        {
+          "text": "of",
+          "start": 14.73,
+          "end": 14.99
+        },
+        {
+          "text": "curiosity.",
+          "start": 14.99,
+          "end": 15.41
+        },
+        {
+          "text": "To",
+          "start": 16.35,
+          "end": 16.51
+        },
+        {
+          "text": "me,",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "text": "there",
+          "start": 16.99,
+          "end": 17.21
+        },
+        {
+          "text": "appear",
+          "start": 17.21,
+          "end": 17.45
+        },
+        {
+          "text": "to",
+          "start": 17.45,
+          "end": 17.57
+        },
+        {
+          "text": "be",
+          "start": 17.57,
+          "end": 17.69
+        },
+        {
+          "text": "only",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "text": "three",
+          "start": 17.93,
+          "end": 18.29
+        },
+        {
+          "text": "principles",
+          "start": 18.29,
+          "end": 18.67
+        },
+        {
+          "text": "of",
+          "start": 18.67,
+          "end": 18.95
+        },
+        {
+          "text": "connexion",
+          "start": 18.95,
+          "end": 19.47
+        },
+        {
+          "text": "among",
+          "start": 19.47,
+          "end": 19.67
+        },
+        {
+          "text": "ideas,",
+          "start": 19.67,
+          "end": 20.15
+        },
+        {
+          "text": "namely,",
+          "start": 20.63,
+          "end": 21.05
+        },
+        {
+          "text": "_Resemblance_,",
+          "start": 21.05,
+          "end": 22.02
+        },
+        {
+          "text": "_Contiguity_",
+          "start": 22.02,
+          "end": 22.505
+        },
+        {
+          "text": "in",
+          "start": 22.99,
+          "end": 23.25
+        },
+        {
+          "text": "time",
+          "start": 23.25,
+          "end": 23.59
+        },
+        {
+          "text": "or",
+          "start": 23.59,
+          "end": 23.85
+        },
+        {
+          "text": "place,",
+          "start": 23.85,
+          "end": 24.13
+        },
+        {
+          "text": "and",
+          "start": 24.53,
+          "end": 24.63
+        },
+        {
+          "text": "_Cause",
+          "start": 24.63,
+          "end": 24.82
+        },
+        {
+          "text": "or",
+          "start": 25.01,
+          "end": 25.31
+        },
+        {
+          "text": "Effect_.",
+          "start": 25.31,
+          "end": 25.69
+        }
+      ],
+      "stats": {
+        "expected_words": 65,
+        "heard_words": 65,
+        "matched_words": 62
+      },
+      "match_ratio": 0.9538461538461539,
+      "rejection_reasons": [],
+      "seconds": 0.47782251983880997
+    },
+    {
+      "asr_seconds": 0.3978313282132149,
+      "alignment_seconds": 0.00020362436771392822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Though, I, Effect_"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 19. Though it be too obvious to escape observation, that different ideas are connected together,",
+          "start": 0.11,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " 19.",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Though",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " it",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " too",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " obvious",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " escape",
+              "start": 2.73,
+              "end": 3.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " observation,",
+              "start": 3.07,
+              "end": 3.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " different",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ideas",
+              "start": 4.69,
+              "end": 5.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " are",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " connected",
+              "start": 5.31,
+              "end": 5.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " together,",
+              "start": 5.65,
+              "end": 6.07,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " I do not find that any philosopher has attempted to enumerate or class all the principles of association.",
+          "start": 6.63,
+          "end": 11.79,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.63,
+              "end": 6.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " do",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 6.93,
+              "end": 7.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " find",
+              "start": 7.11,
+              "end": 7.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 7.37,
+              "end": 7.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " any",
+              "start": 7.55,
+              "end": 7.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " philosopher",
+              "start": 7.77,
+              "end": 8.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " has",
+              "start": 8.23,
+              "end": 8.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " attempted",
+              "start": 8.55,
+              "end": 8.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.91,
+              "end": 9.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enumerate",
+              "start": 9.19,
+              "end": 9.73,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " or",
+              "start": 9.73,
+              "end": 9.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " class",
+              "start": 9.95,
+              "end": 10.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " all",
+              "start": 10.25,
+              "end": 10.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.53,
+              "end": 10.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " principles",
+              "start": 10.73,
+              "end": 10.97,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " of",
+              "start": 10.97,
+              "end": 11.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " association.",
+              "start": 11.27,
+              "end": 11.79,
+              "probability": 0.96630859375
+            }
+          ]
+        },
+        {
+          "text": " A subject, however, that seems worthy of curiosity.",
+          "start": 12.51,
+          "end": 15.37,
+          "words": [
+            {
+              "text": " A",
+              "start": 12.51,
+              "end": 12.71,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " subject,",
+              "start": 12.71,
+              "end": 13.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " however,",
+              "start": 13.23,
+              "end": 13.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 14.01,
+              "end": 14.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seems",
+              "start": 14.15,
+              "end": 14.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " worthy",
+              "start": 14.39,
+              "end": 14.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.73,
+              "end": 14.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " curiosity.",
+              "start": 14.99,
+              "end": 15.37,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " To me, there appear to be only three principles of connection among ideas,",
+          "start": 16.39,
+          "end": 20.15,
+          "words": [
+            {
+              "text": " To",
+              "start": 16.39,
+              "end": 16.51,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me,",
+              "start": 16.51,
+              "end": 16.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there",
+              "start": 16.99,
+              "end": 17.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " appear",
+              "start": 17.21,
+              "end": 17.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 17.45,
+              "end": 17.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 17.57,
+              "end": 17.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 17.69,
+              "end": 17.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " three",
+              "start": 17.93,
+              "end": 18.29,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " principles",
+              "start": 18.29,
+              "end": 18.65,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 18.65,
+              "end": 18.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " connection",
+              "start": 18.95,
+              "end": 19.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " among",
+              "start": 19.35,
+              "end": 19.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ideas,",
+              "start": 19.67,
+              "end": 20.15,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " namely, resemblance, contiguity in time or place, and cause or effect.",
+          "start": 20.61,
+          "end": 25.67,
+          "words": [
+            {
+              "text": " namely,",
+              "start": 20.61,
+              "end": 21.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " resemblance,",
+              "start": 21.49,
+              "end": 21.81,
+              "probability": 0.904296875
+            },
+            {
+              "text": " contiguity",
+              "start": 22.53,
+              "end": 22.97,
+              "probability": 0.966796875
+            },
+            {
+              "text": " in",
+              "start": 22.97,
+              "end": 23.25,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " time",
+              "start": 23.25,
+              "end": 23.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " or",
+              "start": 23.59,
+              "end": 23.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " place,",
+              "start": 23.85,
+              "end": 24.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 24.47,
+              "end": 24.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cause",
+              "start": 24.65,
+              "end": 25.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " or",
+              "start": 25.03,
+              "end": 25.31,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " effect.",
+              "start": 25.31,
+              "end": 25.67,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "19.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "Though",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "too",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "obvious",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "to",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "escape",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "raw": "observation,",
+          "start": 3.07,
+          "end": 3.79
+        },
+        {
+          "raw": "that",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "different",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "ideas",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "raw": "are",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "connected",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "raw": "together,",
+          "start": 5.65,
+          "end": 6.07
+        },
+        {
+          "raw": "I",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "raw": "do",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "not",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "raw": "find",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "raw": "that",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "raw": "any",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "raw": "philosopher",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "raw": "has",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "raw": "attempted",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "raw": "to",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "raw": "enumerate",
+          "start": 9.19,
+          "end": 9.73
+        },
+        {
+          "raw": "or",
+          "start": 9.73,
+          "end": 9.95
+        },
+        {
+          "raw": "class",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "raw": "all",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "raw": "the",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "raw": "principles",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "raw": "of",
+          "start": 10.97,
+          "end": 11.27
+        },
+        {
+          "raw": "association.",
+          "start": 11.27,
+          "end": 11.79
+        },
+        {
+          "raw": "A",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "raw": "subject,",
+          "start": 12.71,
+          "end": 13.09
+        },
+        {
+          "raw": "however,",
+          "start": 13.23,
+          "end": 13.49
+        },
+        {
+          "raw": "that",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "raw": "seems",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "raw": "worthy",
+          "start": 14.39,
+          "end": 14.73
+        },
+        {
+          "raw": "of",
+          "start": 14.73,
+          "end": 14.99
+        },
+        {
+          "raw": "curiosity.",
+          "start": 14.99,
+          "end": 15.37
+        },
+        {
+          "raw": "To",
+          "start": 16.39,
+          "end": 16.51
+        },
+        {
+          "raw": "me,",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "raw": "there",
+          "start": 16.99,
+          "end": 17.21
+        },
+        {
+          "raw": "appear",
+          "start": 17.21,
+          "end": 17.45
+        },
+        {
+          "raw": "to",
+          "start": 17.45,
+          "end": 17.57
+        },
+        {
+          "raw": "be",
+          "start": 17.57,
+          "end": 17.69
+        },
+        {
+          "raw": "only",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "raw": "three",
+          "start": 17.93,
+          "end": 18.29
+        },
+        {
+          "raw": "principles",
+          "start": 18.29,
+          "end": 18.65
+        },
+        {
+          "raw": "of",
+          "start": 18.65,
+          "end": 18.95
+        },
+        {
+          "raw": "connection",
+          "start": 18.95,
+          "end": 19.35
+        },
+        {
+          "raw": "among",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "raw": "ideas,",
+          "start": 19.67,
+          "end": 20.15
+        },
+        {
+          "raw": "namely,",
+          "start": 20.61,
+          "end": 21.01
+        },
+        {
+          "raw": "resemblance,",
+          "start": 21.49,
+          "end": 21.81
+        },
+        {
+          "raw": "contiguity",
+          "start": 22.53,
+          "end": 22.97
+        },
+        {
+          "raw": "in",
+          "start": 22.97,
+          "end": 23.25
+        },
+        {
+          "raw": "time",
+          "start": 23.25,
+          "end": 23.59
+        },
+        {
+          "raw": "or",
+          "start": 23.59,
+          "end": 23.85
+        },
+        {
+          "raw": "place,",
+          "start": 23.85,
+          "end": 24.15
+        },
+        {
+          "raw": "and",
+          "start": 24.47,
+          "end": 24.65
+        },
+        {
+          "raw": "cause",
+          "start": 24.65,
+          "end": 25.03
+        },
+        {
+          "raw": "or",
+          "start": 25.03,
+          "end": 25.31
+        },
+        {
+          "raw": "effect.",
+          "start": 25.31,
+          "end": 25.67
+        }
+      ],
+      "expected_tokens": [
+        "19.",
+        "Though",
+        "it",
+        "be",
+        "too",
+        "obvious",
+        "to",
+        "escape",
+        "observation,",
+        "that",
+        "different",
+        "ideas",
+        "are",
+        "connected",
+        "together;",
+        "I",
+        "do",
+        "not",
+        "find",
+        "that",
+        "any",
+        "philosopher",
+        "has",
+        "attempted",
+        "to",
+        "enumerate",
+        "or",
+        "class",
+        "all",
+        "the",
+        "principles",
+        "of",
+        "association;",
+        "a",
+        "subject,",
+        "however,",
+        "that",
+        "seems",
+        "worthy",
+        "of",
+        "curiosity.",
+        "To",
+        "me,",
+        "there",
+        "appear",
+        "to",
+        "be",
+        "only",
+        "three",
+        "principles",
+        "of",
+        "connexion",
+        "among",
+        "ideas,",
+        "namely,",
+        "_Resemblance_,",
+        "_Contiguity_",
+        "in",
+        "time",
+        "or",
+        "place,",
+        "and",
+        "_Cause",
+        "or",
+        "Effect_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ],
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          55,
+          52,
+          55
+        ],
+        [
+          "replace",
+          55,
+          57,
+          55,
+          57
+        ],
+        [
+          "equal",
+          57,
+          62,
+          57,
+          62
+        ],
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ],
+        [
+          "equal",
+          63,
+          64,
+          63,
+          64
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "replace",
+          55,
+          57,
+          55,
+          57
+        ],
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "19.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "Though",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "too",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "obvious",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "to",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "escape",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "text": "observation,",
+          "start": 3.07,
+          "end": 3.79
+        },
+        {
+          "text": "that",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "different",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "ideas",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "text": "are",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "connected",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "text": "together;",
+          "start": 5.65,
+          "end": 6.07
+        },
+        {
+          "text": "I",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "text": "do",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "not",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "text": "find",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "text": "that",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "text": "any",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "text": "philosopher",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "text": "has",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "text": "attempted",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "text": "to",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "text": "enumerate",
+          "start": 9.19,
+          "end": 9.73
+        },
+        {
+          "text": "or",
+          "start": 9.73,
+          "end": 9.95
+        },
+        {
+          "text": "class",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "text": "all",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "text": "the",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "text": "principles",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "text": "of",
+          "start": 10.97,
+          "end": 11.27
+        },
+        {
+          "text": "association;",
+          "start": 11.27,
+          "end": 11.79
+        },
+        {
+          "text": "a",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "text": "subject,",
+          "start": 12.71,
+          "end": 13.09
+        },
+        {
+          "text": "however,",
+          "start": 13.23,
+          "end": 13.49
+        },
+        {
+          "text": "that",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "text": "seems",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "text": "worthy",
+          "start": 14.39,
+          "end": 14.73
+        },
+        {
+          "text": "of",
+          "start": 14.73,
+          "end": 14.99
+        },
+        {
+          "text": "curiosity.",
+          "start": 14.99,
+          "end": 15.37
+        },
+        {
+          "text": "To",
+          "start": 16.39,
+          "end": 16.51
+        },
+        {
+          "text": "me,",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "text": "there",
+          "start": 16.99,
+          "end": 17.21
+        },
+        {
+          "text": "appear",
+          "start": 17.21,
+          "end": 17.45
+        },
+        {
+          "text": "to",
+          "start": 17.45,
+          "end": 17.57
+        },
+        {
+          "text": "be",
+          "start": 17.57,
+          "end": 17.69
+        },
+        {
+          "text": "only",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "text": "three",
+          "start": 17.93,
+          "end": 18.29
+        },
+        {
+          "text": "principles",
+          "start": 18.29,
+          "end": 18.65
+        },
+        {
+          "text": "of",
+          "start": 18.65,
+          "end": 18.95
+        },
+        {
+          "text": "connexion",
+          "start": 18.95,
+          "end": 19.15
+        },
+        {
+          "text": "among",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "text": "ideas,",
+          "start": 19.67,
+          "end": 20.15
+        },
+        {
+          "text": "namely,",
+          "start": 20.61,
+          "end": 21.01
+        },
+        {
+          "text": "_Resemblance_,",
+          "start": 21.01,
+          "end": 21.99
+        },
+        {
+          "text": "_Contiguity_",
+          "start": 21.99,
+          "end": 22.48
+        },
+        {
+          "text": "in",
+          "start": 22.97,
+          "end": 23.25
+        },
+        {
+          "text": "time",
+          "start": 23.25,
+          "end": 23.59
+        },
+        {
+          "text": "or",
+          "start": 23.59,
+          "end": 23.85
+        },
+        {
+          "text": "place,",
+          "start": 23.85,
+          "end": 24.15
+        },
+        {
+          "text": "and",
+          "start": 24.47,
+          "end": 24.65
+        },
+        {
+          "text": "_Cause",
+          "start": 24.65,
+          "end": 24.84
+        },
+        {
+          "text": "or",
+          "start": 25.03,
+          "end": 25.31
+        },
+        {
+          "text": "Effect_.",
+          "start": 25.31,
+          "end": 25.49
+        }
+      ],
+      "stats": {
+        "expected_words": 65,
+        "heard_words": 65,
+        "matched_words": 60
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.3981342166662216
+    },
+    {
+      "asr_seconds": 0.4715772420167923,
+      "alignment_seconds": 0.00021228939294815063,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 19. Though it be too obvious to escape observation, that different ideas are connected together,",
+          "start": 0.11,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " 19.",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Though",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " it",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " too",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " obvious",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " escape",
+              "start": 2.73,
+              "end": 3.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " observation,",
+              "start": 3.07,
+              "end": 3.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " different",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ideas",
+              "start": 4.69,
+              "end": 5.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " are",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " connected",
+              "start": 5.31,
+              "end": 5.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " together,",
+              "start": 5.65,
+              "end": 6.07,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " I do not find that any philosopher has attempted to enumerate or class all the principles of",
+          "start": 6.63,
+          "end": 11.27,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.63,
+              "end": 6.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " do",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 6.93,
+              "end": 7.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " find",
+              "start": 7.11,
+              "end": 7.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 7.37,
+              "end": 7.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " any",
+              "start": 7.55,
+              "end": 7.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " philosopher",
+              "start": 7.77,
+              "end": 8.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " has",
+              "start": 8.23,
+              "end": 8.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " attempted",
+              "start": 8.55,
+              "end": 8.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.91,
+              "end": 9.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enumerate",
+              "start": 9.19,
+              "end": 9.73,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " or",
+              "start": 9.73,
+              "end": 9.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " class",
+              "start": 9.95,
+              "end": 10.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " all",
+              "start": 10.25,
+              "end": 10.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.53,
+              "end": 10.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " principles",
+              "start": 10.73,
+              "end": 10.97,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " of",
+              "start": 10.97,
+              "end": 11.27,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " association. A subject, however, that seems worthy of curiosity. To me, there appear to",
+          "start": 11.27,
+          "end": 17.57,
+          "words": [
+            {
+              "text": " association.",
+              "start": 11.27,
+              "end": 11.79,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " A",
+              "start": 12.51,
+              "end": 12.71,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " subject,",
+              "start": 12.71,
+              "end": 13.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " however,",
+              "start": 13.23,
+              "end": 13.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 14.01,
+              "end": 14.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seems",
+              "start": 14.15,
+              "end": 14.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " worthy",
+              "start": 14.39,
+              "end": 14.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.73,
+              "end": 14.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " curiosity.",
+              "start": 14.99,
+              "end": 15.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " To",
+              "start": 16.39,
+              "end": 16.51,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me,",
+              "start": 16.51,
+              "end": 16.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there",
+              "start": 16.99,
+              "end": 17.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " appear",
+              "start": 17.21,
+              "end": 17.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 17.45,
+              "end": 17.57,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " be only three principles of connection among ideas, namely, resemblance, contiguity in time",
+          "start": 17.57,
+          "end": 23.59,
+          "words": [
+            {
+              "text": " be",
+              "start": 17.57,
+              "end": 17.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 17.69,
+              "end": 17.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " three",
+              "start": 17.93,
+              "end": 18.29,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " principles",
+              "start": 18.29,
+              "end": 18.65,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 18.65,
+              "end": 18.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " connection",
+              "start": 18.95,
+              "end": 19.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " among",
+              "start": 19.35,
+              "end": 19.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ideas,",
+              "start": 19.67,
+              "end": 20.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " namely,",
+              "start": 20.61,
+              "end": 21.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " resemblance,",
+              "start": 21.49,
+              "end": 21.81,
+              "probability": 0.904296875
+            },
+            {
+              "text": " contiguity",
+              "start": 22.53,
+              "end": 22.97,
+              "probability": 0.966796875
+            },
+            {
+              "text": " in",
+              "start": 22.97,
+              "end": 23.25,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " time",
+              "start": 23.25,
+              "end": 23.59,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " or place, and cause or effect.",
+          "start": 23.59,
+          "end": 25.63,
+          "words": [
+            {
+              "text": " or",
+              "start": 23.59,
+              "end": 23.81,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " place,",
+              "start": 23.81,
+              "end": 24.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 24.55,
+              "end": 24.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " cause",
+              "start": 24.65,
+              "end": 25.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " or",
+              "start": 25.03,
+              "end": 25.31,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " effect.",
+              "start": 25.31,
+              "end": 25.63,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "19.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "Though",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "too",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "obvious",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "to",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "escape",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "raw": "observation,",
+          "start": 3.07,
+          "end": 3.79
+        },
+        {
+          "raw": "that",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "different",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "ideas",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "raw": "are",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "connected",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "raw": "together,",
+          "start": 5.65,
+          "end": 6.07
+        },
+        {
+          "raw": "I",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "raw": "do",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "not",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "raw": "find",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "raw": "that",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "raw": "any",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "raw": "philosopher",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "raw": "has",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "raw": "attempted",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "raw": "to",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "raw": "enumerate",
+          "start": 9.19,
+          "end": 9.73
+        },
+        {
+          "raw": "or",
+          "start": 9.73,
+          "end": 9.95
+        },
+        {
+          "raw": "class",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "raw": "all",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "raw": "the",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "raw": "principles",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "raw": "of",
+          "start": 10.97,
+          "end": 11.27
+        },
+        {
+          "raw": "association.",
+          "start": 11.27,
+          "end": 11.79
+        },
+        {
+          "raw": "A",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "raw": "subject,",
+          "start": 12.71,
+          "end": 13.09
+        },
+        {
+          "raw": "however,",
+          "start": 13.23,
+          "end": 13.49
+        },
+        {
+          "raw": "that",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "raw": "seems",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "raw": "worthy",
+          "start": 14.39,
+          "end": 14.73
+        },
+        {
+          "raw": "of",
+          "start": 14.73,
+          "end": 14.99
+        },
+        {
+          "raw": "curiosity.",
+          "start": 14.99,
+          "end": 15.37
+        },
+        {
+          "raw": "To",
+          "start": 16.39,
+          "end": 16.51
+        },
+        {
+          "raw": "me,",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "raw": "there",
+          "start": 16.99,
+          "end": 17.21
+        },
+        {
+          "raw": "appear",
+          "start": 17.21,
+          "end": 17.45
+        },
+        {
+          "raw": "to",
+          "start": 17.45,
+          "end": 17.57
+        },
+        {
+          "raw": "be",
+          "start": 17.57,
+          "end": 17.69
+        },
+        {
+          "raw": "only",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "raw": "three",
+          "start": 17.93,
+          "end": 18.29
+        },
+        {
+          "raw": "principles",
+          "start": 18.29,
+          "end": 18.65
+        },
+        {
+          "raw": "of",
+          "start": 18.65,
+          "end": 18.95
+        },
+        {
+          "raw": "connection",
+          "start": 18.95,
+          "end": 19.35
+        },
+        {
+          "raw": "among",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "raw": "ideas,",
+          "start": 19.67,
+          "end": 20.15
+        },
+        {
+          "raw": "namely,",
+          "start": 20.61,
+          "end": 21.01
+        },
+        {
+          "raw": "resemblance,",
+          "start": 21.49,
+          "end": 21.81
+        },
+        {
+          "raw": "contiguity",
+          "start": 22.53,
+          "end": 22.97
+        },
+        {
+          "raw": "in",
+          "start": 22.97,
+          "end": 23.25
+        },
+        {
+          "raw": "time",
+          "start": 23.25,
+          "end": 23.59
+        },
+        {
+          "raw": "or",
+          "start": 23.59,
+          "end": 23.81
+        },
+        {
+          "raw": "place,",
+          "start": 23.81,
+          "end": 24.13
+        },
+        {
+          "raw": "and",
+          "start": 24.55,
+          "end": 24.65
+        },
+        {
+          "raw": "cause",
+          "start": 24.65,
+          "end": 25.03
+        },
+        {
+          "raw": "or",
+          "start": 25.03,
+          "end": 25.31
+        },
+        {
+          "raw": "effect.",
+          "start": 25.31,
+          "end": 25.63
+        }
+      ],
+      "expected_tokens": [
+        "19.",
+        "Though",
+        "it",
+        "be",
+        "too",
+        "obvious",
+        "to",
+        "escape",
+        "observation,",
+        "that",
+        "different",
+        "ideas",
+        "are",
+        "connected",
+        "together;",
+        "I",
+        "do",
+        "not",
+        "find",
+        "that",
+        "any",
+        "philosopher",
+        "has",
+        "attempted",
+        "to",
+        "enumerate",
+        "or",
+        "class",
+        "all",
+        "the",
+        "principles",
+        "of",
+        "association;",
+        "a",
+        "subject,",
+        "however,",
+        "that",
+        "seems",
+        "worthy",
+        "of",
+        "curiosity.",
+        "To",
+        "me,",
+        "there",
+        "appear",
+        "to",
+        "be",
+        "only",
+        "three",
+        "principles",
+        "of",
+        "connexion",
+        "among",
+        "ideas,",
+        "namely,",
+        "_Resemblance_,",
+        "_Contiguity_",
+        "in",
+        "time",
+        "or",
+        "place,",
+        "and",
+        "_Cause",
+        "or",
+        "Effect_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ],
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          55,
+          52,
+          55
+        ],
+        [
+          "replace",
+          55,
+          57,
+          55,
+          57
+        ],
+        [
+          "equal",
+          57,
+          62,
+          57,
+          62
+        ],
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ],
+        [
+          "equal",
+          63,
+          64,
+          63,
+          64
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "replace",
+          55,
+          57,
+          55,
+          57
+        ],
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ],
+        [
+          "replace",
+          64,
+          65,
+          64,
+          65
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "19.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "Though",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "it",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "too",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "obvious",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "to",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "escape",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "text": "observation,",
+          "start": 3.07,
+          "end": 3.79
+        },
+        {
+          "text": "that",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "different",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "ideas",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "text": "are",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "connected",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "text": "together;",
+          "start": 5.65,
+          "end": 6.07
+        },
+        {
+          "text": "I",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "text": "do",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "not",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "text": "find",
+          "start": 7.11,
+          "end": 7.37
+        },
+        {
+          "text": "that",
+          "start": 7.37,
+          "end": 7.55
+        },
+        {
+          "text": "any",
+          "start": 7.55,
+          "end": 7.77
+        },
+        {
+          "text": "philosopher",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "text": "has",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "text": "attempted",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "text": "to",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "text": "enumerate",
+          "start": 9.19,
+          "end": 9.73
+        },
+        {
+          "text": "or",
+          "start": 9.73,
+          "end": 9.95
+        },
+        {
+          "text": "class",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "text": "all",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "text": "the",
+          "start": 10.53,
+          "end": 10.73
+        },
+        {
+          "text": "principles",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "text": "of",
+          "start": 10.97,
+          "end": 11.27
+        },
+        {
+          "text": "association;",
+          "start": 11.27,
+          "end": 11.79
+        },
+        {
+          "text": "a",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "text": "subject,",
+          "start": 12.71,
+          "end": 13.09
+        },
+        {
+          "text": "however,",
+          "start": 13.23,
+          "end": 13.49
+        },
+        {
+          "text": "that",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "text": "seems",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "text": "worthy",
+          "start": 14.39,
+          "end": 14.73
+        },
+        {
+          "text": "of",
+          "start": 14.73,
+          "end": 14.99
+        },
+        {
+          "text": "curiosity.",
+          "start": 14.99,
+          "end": 15.37
+        },
+        {
+          "text": "To",
+          "start": 16.39,
+          "end": 16.51
+        },
+        {
+          "text": "me,",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "text": "there",
+          "start": 16.99,
+          "end": 17.21
+        },
+        {
+          "text": "appear",
+          "start": 17.21,
+          "end": 17.45
+        },
+        {
+          "text": "to",
+          "start": 17.45,
+          "end": 17.57
+        },
+        {
+          "text": "be",
+          "start": 17.57,
+          "end": 17.69
+        },
+        {
+          "text": "only",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "text": "three",
+          "start": 17.93,
+          "end": 18.29
+        },
+        {
+          "text": "principles",
+          "start": 18.29,
+          "end": 18.65
+        },
+        {
+          "text": "of",
+          "start": 18.65,
+          "end": 18.95
+        },
+        {
+          "text": "connexion",
+          "start": 18.95,
+          "end": 19.15
+        },
+        {
+          "text": "among",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "text": "ideas,",
+          "start": 19.67,
+          "end": 20.15
+        },
+        {
+          "text": "namely,",
+          "start": 20.61,
+          "end": 21.01
+        },
+        {
+          "text": "_Resemblance_,",
+          "start": 21.01,
+          "end": 21.99
+        },
+        {
+          "text": "_Contiguity_",
+          "start": 21.99,
+          "end": 22.48
+        },
+        {
+          "text": "in",
+          "start": 22.97,
+          "end": 23.25
+        },
+        {
+          "text": "time",
+          "start": 23.25,
+          "end": 23.59
+        },
+        {
+          "text": "or",
+          "start": 23.59,
+          "end": 23.81
+        },
+        {
+          "text": "place,",
+          "start": 23.81,
+          "end": 24.13
+        },
+        {
+          "text": "and",
+          "start": 24.55,
+          "end": 24.65
+        },
+        {
+          "text": "_Cause",
+          "start": 24.65,
+          "end": 24.84
+        },
+        {
+          "text": "or",
+          "start": 25.03,
+          "end": 25.31
+        },
+        {
+          "text": "Effect_.",
+          "start": 25.31,
+          "end": 25.47
+        }
+      ],
+      "stats": {
+        "expected_words": 65,
+        "heard_words": 65,
+        "matched_words": 60
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.4718874767422676
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8de76f2cdcf13ccf31dc3a335286daac9a81523251188e721609dd9d6e2f86b0",
+  "selected_reasons": []
+}

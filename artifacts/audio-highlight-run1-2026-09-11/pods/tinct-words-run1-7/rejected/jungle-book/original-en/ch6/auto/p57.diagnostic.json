@@ -1,0 +1,7320 @@
+{
+  "complete": true,
+  "signature": "044c0b7164182db8fe4cde31db81dee661e166b1ec4449438cc70675f93826c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.6079570353031158,
+      "alignment_seconds": 0.00033271219581365585,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The grass began to get squashy, and Kala Nag's feet sucked and squelched as he put them down, and the night mist at the bottom of the valley chilled Little Toomai. There was a splash and a trample, and the rush of running water, and Kala Nag strode through the bed of a river, feeling his way at each step. Above the noise of the water, as it swirled round the elephant's legs, Little Toomai could hear more splashing and some trumpeting both upstream and down--great grunts and angry snortings, and all the mist about him seemed to be full of rolling, wavy shadows.",
+        "hotwords": "Kala, Nag's, Little, Toomai, There, Nag, Above"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The grass began to get squashy, and Kala Nag's feet sucked and squelched as he put them down,",
+          "start": 0.02,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " grass",
+              "start": 0.48,
+              "end": 0.76,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " began",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " get",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " squashy,",
+              "start": 1.4,
+              "end": 2.14,
+              "probability": 0.832763671875
+            },
+            {
+              "text": " and",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Kala",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.437225341796875
+            },
+            {
+              "text": " Nag's",
+              "start": 2.9,
+              "end": 3.34,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " feet",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sucked",
+              "start": 3.48,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.9,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " squelched",
+              "start": 4.18,
+              "end": 4.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 4.64,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 4.82,
+              "end": 4.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " put",
+              "start": 4.92,
+              "end": 5.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down,",
+              "start": 5.18,
+              "end": 5.5,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " and the night mist at the bottom of the valley chilled Little Toomai. There was a splash and",
+          "start": 5.86,
+          "end": 10.72,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.86,
+              "end": 6.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.1,
+              "end": 6.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " night",
+              "start": 6.2,
+              "end": 6.38,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " mist",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.744140625
+            },
+            {
+              "text": " at",
+              "start": 6.66,
+              "end": 6.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.86,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bottom",
+              "start": 6.98,
+              "end": 7.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.2,
+              "end": 7.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.36,
+              "end": 7.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " valley",
+              "start": 7.46,
+              "end": 7.74,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " chilled",
+              "start": 7.74,
+              "end": 8.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Little",
+              "start": 8.16,
+              "end": 8.44,
+              "probability": 0.595703125
+            },
+            {
+              "text": " Toomai.",
+              "start": 8.44,
+              "end": 8.94,
+              "probability": 0.3121134440104167
+            },
+            {
+              "text": " There",
+              "start": 9.58,
+              "end": 9.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 9.84,
+              "end": 9.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 9.94,
+              "end": 10.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " splash",
+              "start": 10.14,
+              "end": 10.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 10.46,
+              "end": 10.72,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " a trample, and the rush of running water, and Kala Nag strode through the bed of a river,",
+          "start": 10.72,
+          "end": 15.54,
+          "words": [
+            {
+              "text": " a",
+              "start": 10.72,
+              "end": 10.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " trample,",
+              "start": 10.84,
+              "end": 11.22,
+              "probability": 0.98046875
+            },
+            {
+              "text": " and",
+              "start": 11.6,
+              "end": 11.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 11.76,
+              "end": 11.9,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " rush",
+              "start": 11.9,
+              "end": 12.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 12.1,
+              "end": 12.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " running",
+              "start": 12.3,
+              "end": 12.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " water,",
+              "start": 12.54,
+              "end": 12.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 13.34,
+              "end": 13.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kala",
+              "start": 13.52,
+              "end": 13.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Nag",
+              "start": 13.8,
+              "end": 14.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " strode",
+              "start": 14.16,
+              "end": 14.6,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " through",
+              "start": 14.6,
+              "end": 14.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 14.76,
+              "end": 14.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bed",
+              "start": 14.88,
+              "end": 15.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.04,
+              "end": 15.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 15.14,
+              "end": 15.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " river,",
+              "start": 15.26,
+              "end": 15.54,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " feeling his way at each step. Above the noise of the water, as it swirled round the elephant's",
+          "start": 15.88,
+          "end": 21.6,
+          "words": [
+            {
+              "text": " feeling",
+              "start": 15.88,
+              "end": 16.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 16.12,
+              "end": 16.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way",
+              "start": 16.38,
+              "end": 16.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 16.6,
+              "end": 16.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " each",
+              "start": 16.78,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " step.",
+              "start": 17.0,
+              "end": 17.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Above",
+              "start": 18.38,
+              "end": 18.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 18.6,
+              "end": 18.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " noise",
+              "start": 18.8,
+              "end": 19.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 19.02,
+              "end": 19.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 19.18,
+              "end": 19.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " water,",
+              "start": 19.3,
+              "end": 19.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 19.92,
+              "end": 20.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 20.08,
+              "end": 20.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " swirled",
+              "start": 20.3,
+              "end": 20.64,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " round",
+              "start": 20.64,
+              "end": 20.86,
+              "probability": 0.802734375
+            },
+            {
+              "text": " the",
+              "start": 20.86,
+              "end": 21.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " elephant's",
+              "start": 21.06,
+              "end": 21.6,
+              "probability": 0.94384765625
+            }
+          ]
+        },
+        {
+          "text": " legs, Little Toomai could hear more splashing and some trumpeting both upstream and down-great",
+          "start": 21.6,
+          "end": 27.42,
+          "words": [
+            {
+              "text": " legs,",
+              "start": 21.6,
+              "end": 21.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Little",
+              "start": 22.48,
+              "end": 22.64,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Toomai",
+              "start": 22.64,
+              "end": 23.06,
+              "probability": 0.9939778645833334
+            },
+            {
+              "text": " could",
+              "start": 23.06,
+              "end": 23.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hear",
+              "start": 23.22,
+              "end": 23.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 23.42,
+              "end": 23.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " splashing",
+              "start": 23.66,
+              "end": 24.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 24.26,
+              "end": 24.78,
+              "probability": 0.568359375
+            },
+            {
+              "text": " some",
+              "start": 24.78,
+              "end": 25.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trumpeting",
+              "start": 25.0,
+              "end": 25.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " both",
+              "start": 25.46,
+              "end": 25.74,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " upstream",
+              "start": 25.74,
+              "end": 26.36,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " and",
+              "start": 26.36,
+              "end": 26.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " down",
+              "start": 26.82,
+              "end": 27.12,
+              "probability": 0.962890625
+            },
+            {
+              "text": "-great",
+              "start": 27.12,
+              "end": 27.42,
+              "probability": 0.6431884765625
+            }
+          ]
+        },
+        {
+          "text": " grunts and angry snortings, and all the mist about him seemed to be full of rolling, wavy",
+          "start": 27.42,
+          "end": 33.26,
+          "words": [
+            {
+              "text": " grunts",
+              "start": 27.42,
+              "end": 27.9,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " and",
+              "start": 27.9,
+              "end": 28.24,
+              "probability": 0.875
+            },
+            {
+              "text": " angry",
+              "start": 28.24,
+              "end": 28.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " snortings,",
+              "start": 28.62,
+              "end": 29.3,
+              "probability": 0.9650065104166666
+            },
+            {
+              "text": " and",
+              "start": 29.7,
+              "end": 29.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 29.92,
+              "end": 30.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 30.12,
+              "end": 30.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mist",
+              "start": 30.28,
+              "end": 30.44,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " about",
+              "start": 30.44,
+              "end": 30.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 30.74,
+              "end": 31.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seemed",
+              "start": 31.02,
+              "end": 31.28,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " to",
+              "start": 31.28,
+              "end": 31.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 31.46,
+              "end": 31.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " full",
+              "start": 31.6,
+              "end": 31.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 31.86,
+              "end": 32.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rolling,",
+              "start": 32.08,
+              "end": 32.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wavy",
+              "start": 33.1,
+              "end": 33.26,
+              "probability": 0.996826171875
+            }
+          ]
+        },
+        {
+          "text": " shadows.",
+          "start": 33.26,
+          "end": 33.7,
+          "words": [
+            {
+              "text": " shadows.",
+              "start": 33.26,
+              "end": 33.7,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "grass",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "raw": "began",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "to",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "get",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "squashy,",
+          "start": 1.4,
+          "end": 2.14
+        },
+        {
+          "raw": "and",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "Kala",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "Nag's",
+          "start": 2.9,
+          "end": 3.34
+        },
+        {
+          "raw": "feet",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "sucked",
+          "start": 3.48,
+          "end": 3.9
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "raw": "squelched",
+          "start": 4.18,
+          "end": 4.64
+        },
+        {
+          "raw": "as",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "raw": "he",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "raw": "put",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "raw": "them",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "down,",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "raw": "and",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "raw": "the",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "raw": "night",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "raw": "mist",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "at",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "raw": "bottom",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "raw": "of",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "raw": "the",
+          "start": 7.36,
+          "end": 7.46
+        },
+        {
+          "raw": "valley",
+          "start": 7.46,
+          "end": 7.74
+        },
+        {
+          "raw": "chilled",
+          "start": 7.74,
+          "end": 8.16
+        },
+        {
+          "raw": "Little",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "raw": "Toomai.",
+          "start": 8.44,
+          "end": 8.94
+        },
+        {
+          "raw": "There",
+          "start": 9.58,
+          "end": 9.84
+        },
+        {
+          "raw": "was",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "raw": "a",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "raw": "splash",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "raw": "and",
+          "start": 10.46,
+          "end": 10.72
+        },
+        {
+          "raw": "a",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "raw": "trample,",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "raw": "and",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "raw": "rush",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "raw": "of",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "raw": "running",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "raw": "water,",
+          "start": 12.54,
+          "end": 12.98
+        },
+        {
+          "raw": "and",
+          "start": 13.34,
+          "end": 13.52
+        },
+        {
+          "raw": "Kala",
+          "start": 13.52,
+          "end": 13.8
+        },
+        {
+          "raw": "Nag",
+          "start": 13.8,
+          "end": 14.16
+        },
+        {
+          "raw": "strode",
+          "start": 14.16,
+          "end": 14.6
+        },
+        {
+          "raw": "through",
+          "start": 14.6,
+          "end": 14.76
+        },
+        {
+          "raw": "the",
+          "start": 14.76,
+          "end": 14.88
+        },
+        {
+          "raw": "bed",
+          "start": 14.88,
+          "end": 15.04
+        },
+        {
+          "raw": "of",
+          "start": 15.04,
+          "end": 15.14
+        },
+        {
+          "raw": "a",
+          "start": 15.14,
+          "end": 15.26
+        },
+        {
+          "raw": "river,",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "raw": "feeling",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "raw": "his",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "raw": "way",
+          "start": 16.38,
+          "end": 16.6
+        },
+        {
+          "raw": "at",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "raw": "each",
+          "start": 16.78,
+          "end": 17.0
+        },
+        {
+          "raw": "step.",
+          "start": 17.0,
+          "end": 17.4
+        },
+        {
+          "raw": "Above",
+          "start": 18.38,
+          "end": 18.6
+        },
+        {
+          "raw": "the",
+          "start": 18.6,
+          "end": 18.8
+        },
+        {
+          "raw": "noise",
+          "start": 18.8,
+          "end": 19.02
+        },
+        {
+          "raw": "of",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "raw": "the",
+          "start": 19.18,
+          "end": 19.3
+        },
+        {
+          "raw": "water,",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "raw": "as",
+          "start": 19.92,
+          "end": 20.08
+        },
+        {
+          "raw": "it",
+          "start": 20.08,
+          "end": 20.3
+        },
+        {
+          "raw": "swirled",
+          "start": 20.3,
+          "end": 20.64
+        },
+        {
+          "raw": "round",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "raw": "the",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "raw": "elephant's",
+          "start": 21.06,
+          "end": 21.6
+        },
+        {
+          "raw": "legs,",
+          "start": 21.6,
+          "end": 21.82
+        },
+        {
+          "raw": "Little",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "raw": "Toomai",
+          "start": 22.64,
+          "end": 23.06
+        },
+        {
+          "raw": "could",
+          "start": 23.06,
+          "end": 23.22
+        },
+        {
+          "raw": "hear",
+          "start": 23.22,
+          "end": 23.42
+        },
+        {
+          "raw": "more",
+          "start": 23.42,
+          "end": 23.66
+        },
+        {
+          "raw": "splashing",
+          "start": 23.66,
+          "end": 24.26
+        },
+        {
+          "raw": "and",
+          "start": 24.26,
+          "end": 24.78
+        },
+        {
+          "raw": "some",
+          "start": 24.78,
+          "end": 25.0
+        },
+        {
+          "raw": "trumpeting",
+          "start": 25.0,
+          "end": 25.46
+        },
+        {
+          "raw": "both",
+          "start": 25.46,
+          "end": 25.74
+        },
+        {
+          "raw": "upstream",
+          "start": 25.74,
+          "end": 26.36
+        },
+        {
+          "raw": "and",
+          "start": 26.36,
+          "end": 26.82
+        },
+        {
+          "raw": "down",
+          "start": 26.82,
+          "end": 27.12
+        },
+        {
+          "raw": "-great",
+          "start": 27.12,
+          "end": 27.42
+        },
+        {
+          "raw": "grunts",
+          "start": 27.42,
+          "end": 27.9
+        },
+        {
+          "raw": "and",
+          "start": 27.9,
+          "end": 28.24
+        },
+        {
+          "raw": "angry",
+          "start": 28.24,
+          "end": 28.62
+        },
+        {
+          "raw": "snortings,",
+          "start": 28.62,
+          "end": 29.3
+        },
+        {
+          "raw": "and",
+          "start": 29.7,
+          "end": 29.92
+        },
+        {
+          "raw": "all",
+          "start": 29.92,
+          "end": 30.12
+        },
+        {
+          "raw": "the",
+          "start": 30.12,
+          "end": 30.28
+        },
+        {
+          "raw": "mist",
+          "start": 30.28,
+          "end": 30.44
+        },
+        {
+          "raw": "about",
+          "start": 30.44,
+          "end": 30.74
+        },
+        {
+          "raw": "him",
+          "start": 30.74,
+          "end": 31.02
+        },
+        {
+          "raw": "seemed",
+          "start": 31.02,
+          "end": 31.28
+        },
+        {
+          "raw": "to",
+          "start": 31.28,
+          "end": 31.46
+        },
+        {
+          "raw": "be",
+          "start": 31.46,
+          "end": 31.6
+        },
+        {
+          "raw": "full",
+          "start": 31.6,
+          "end": 31.86
+        },
+        {
+          "raw": "of",
+          "start": 31.86,
+          "end": 32.08
+        },
+        {
+          "raw": "rolling,",
+          "start": 32.08,
+          "end": 32.58
+        },
+        {
+          "raw": "wavy",
+          "start": 33.1,
+          "end": 33.26
+        },
+        {
+          "raw": "shadows.",
+          "start": 33.26,
+          "end": 33.7
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "grass",
+        "began",
+        "to",
+        "get",
+        "squashy,",
+        "and",
+        "Kala",
+        "Nag's",
+        "feet",
+        "sucked",
+        "and",
+        "squelched",
+        "as",
+        "he",
+        "put",
+        "them",
+        "down,",
+        "and",
+        "the",
+        "night",
+        "mist",
+        "at",
+        "the",
+        "bottom",
+        "of",
+        "the",
+        "valley",
+        "chilled",
+        "Little",
+        "Toomai.",
+        "There",
+        "was",
+        "a",
+        "splash",
+        "and",
+        "a",
+        "trample,",
+        "and",
+        "the",
+        "rush",
+        "of",
+        "running",
+        "water,",
+        "and",
+        "Kala",
+        "Nag",
+        "strode",
+        "through",
+        "the",
+        "bed",
+        "of",
+        "a",
+        "river,",
+        "feeling",
+        "his",
+        "way",
+        "at",
+        "each",
+        "step.",
+        "Above",
+        "the",
+        "noise",
+        "of",
+        "the",
+        "water,",
+        "as",
+        "it",
+        "swirled",
+        "round",
+        "the",
+        "elephant's",
+        "legs,",
+        "Little",
+        "Toomai",
+        "could",
+        "hear",
+        "more",
+        "splashing",
+        "and",
+        "some",
+        "trumpeting",
+        "both",
+        "upstream",
+        "and",
+        "down--great",
+        "grunts",
+        "and",
+        "angry",
+        "snortings,",
+        "and",
+        "all",
+        "the",
+        "mist",
+        "about",
+        "him",
+        "seemed",
+        "to",
+        "be",
+        "full",
+        "of",
+        "rolling,",
+        "wavy",
+        "shadows."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          85,
+          0,
+          85
+        ],
+        [
+          "replace",
+          85,
+          86,
+          85,
+          87
+        ],
+        [
+          "equal",
+          86,
+          104,
+          87,
+          105
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 104
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          85,
+          86,
+          85,
+          87
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "grass",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "began",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "text": "to",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "get",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "squashy,",
+          "start": 1.4,
+          "end": 2.14
+        },
+        {
+          "text": "and",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "Kala",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "Nag's",
+          "start": 2.9,
+          "end": 3.34
+        },
+        {
+          "text": "feet",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "sucked",
+          "start": 3.48,
+          "end": 3.9
+        },
+        {
+          "text": "and",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "text": "squelched",
+          "start": 4.18,
+          "end": 4.64
+        },
+        {
+          "text": "as",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "text": "he",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "text": "put",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "text": "them",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "down,",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "text": "and",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "text": "the",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "text": "night",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "text": "mist",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "at",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "text": "the",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "text": "bottom",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "text": "of",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "text": "the",
+          "start": 7.36,
+          "end": 7.46
+        },
+        {
+          "text": "valley",
+          "start": 7.46,
+          "end": 7.74
+        },
+        {
+          "text": "chilled",
+          "start": 7.74,
+          "end": 8.16
+        },
+        {
+          "text": "Little",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "text": "Toomai.",
+          "start": 8.44,
+          "end": 8.94
+        },
+        {
+          "text": "There",
+          "start": 9.58,
+          "end": 9.84
+        },
+        {
+          "text": "was",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "text": "a",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "text": "splash",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "text": "and",
+          "start": 10.46,
+          "end": 10.72
+        },
+        {
+          "text": "a",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "text": "trample,",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "text": "and",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "text": "the",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "text": "rush",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "text": "of",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "text": "running",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "text": "water,",
+          "start": 12.54,
+          "end": 12.98
+        },
+        {
+          "text": "and",
+          "start": 13.34,
+          "end": 13.52
+        },
+        {
+          "text": "Kala",
+          "start": 13.52,
+          "end": 13.8
+        },
+        {
+          "text": "Nag",
+          "start": 13.8,
+          "end": 14.16
+        },
+        {
+          "text": "strode",
+          "start": 14.16,
+          "end": 14.6
+        },
+        {
+          "text": "through",
+          "start": 14.6,
+          "end": 14.76
+        },
+        {
+          "text": "the",
+          "start": 14.76,
+          "end": 14.88
+        },
+        {
+          "text": "bed",
+          "start": 14.88,
+          "end": 15.04
+        },
+        {
+          "text": "of",
+          "start": 15.04,
+          "end": 15.14
+        },
+        {
+          "text": "a",
+          "start": 15.14,
+          "end": 15.26
+        },
+        {
+          "text": "river,",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "text": "feeling",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "text": "his",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "text": "way",
+          "start": 16.38,
+          "end": 16.6
+        },
+        {
+          "text": "at",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "text": "each",
+          "start": 16.78,
+          "end": 17.0
+        },
+        {
+          "text": "step.",
+          "start": 17.0,
+          "end": 17.4
+        },
+        {
+          "text": "Above",
+          "start": 18.38,
+          "end": 18.6
+        },
+        {
+          "text": "the",
+          "start": 18.6,
+          "end": 18.8
+        },
+        {
+          "text": "noise",
+          "start": 18.8,
+          "end": 19.02
+        },
+        {
+          "text": "of",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "text": "the",
+          "start": 19.18,
+          "end": 19.3
+        },
+        {
+          "text": "water,",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "text": "as",
+          "start": 19.92,
+          "end": 20.08
+        },
+        {
+          "text": "it",
+          "start": 20.08,
+          "end": 20.3
+        },
+        {
+          "text": "swirled",
+          "start": 20.3,
+          "end": 20.64
+        },
+        {
+          "text": "round",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "text": "the",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "text": "elephant's",
+          "start": 21.06,
+          "end": 21.6
+        },
+        {
+          "text": "legs,",
+          "start": 21.6,
+          "end": 21.82
+        },
+        {
+          "text": "Little",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "text": "Toomai",
+          "start": 22.64,
+          "end": 23.06
+        },
+        {
+          "text": "could",
+          "start": 23.06,
+          "end": 23.22
+        },
+        {
+          "text": "hear",
+          "start": 23.22,
+          "end": 23.42
+        },
+        {
+          "text": "more",
+          "start": 23.42,
+          "end": 23.66
+        },
+        {
+          "text": "splashing",
+          "start": 23.66,
+          "end": 24.26
+        },
+        {
+          "text": "and",
+          "start": 24.26,
+          "end": 24.78
+        },
+        {
+          "text": "some",
+          "start": 24.78,
+          "end": 25.0
+        },
+        {
+          "text": "trumpeting",
+          "start": 25.0,
+          "end": 25.46
+        },
+        {
+          "text": "both",
+          "start": 25.46,
+          "end": 25.74
+        },
+        {
+          "text": "upstream",
+          "start": 25.74,
+          "end": 26.36
+        },
+        {
+          "text": "and",
+          "start": 26.36,
+          "end": 26.82
+        },
+        {
+          "text": "down--great",
+          "start": 26.82,
+          "end": 27.12
+        },
+        {
+          "text": "grunts",
+          "start": 27.42,
+          "end": 27.9
+        },
+        {
+          "text": "and",
+          "start": 27.9,
+          "end": 28.24
+        },
+        {
+          "text": "angry",
+          "start": 28.24,
+          "end": 28.62
+        },
+        {
+          "text": "snortings,",
+          "start": 28.62,
+          "end": 29.3
+        },
+        {
+          "text": "and",
+          "start": 29.7,
+          "end": 29.92
+        },
+        {
+          "text": "all",
+          "start": 29.92,
+          "end": 30.12
+        },
+        {
+          "text": "the",
+          "start": 30.12,
+          "end": 30.28
+        },
+        {
+          "text": "mist",
+          "start": 30.28,
+          "end": 30.44
+        },
+        {
+          "text": "about",
+          "start": 30.44,
+          "end": 30.74
+        },
+        {
+          "text": "him",
+          "start": 30.74,
+          "end": 31.02
+        },
+        {
+          "text": "seemed",
+          "start": 31.02,
+          "end": 31.28
+        },
+        {
+          "text": "to",
+          "start": 31.28,
+          "end": 31.46
+        },
+        {
+          "text": "be",
+          "start": 31.46,
+          "end": 31.6
+        },
+        {
+          "text": "full",
+          "start": 31.6,
+          "end": 31.86
+        },
+        {
+          "text": "of",
+          "start": 31.86,
+          "end": 32.08
+        },
+        {
+          "text": "rolling,",
+          "start": 32.08,
+          "end": 32.58
+        },
+        {
+          "text": "wavy",
+          "start": 33.1,
+          "end": 33.26
+        },
+        {
+          "text": "shadows.",
+          "start": 33.26,
+          "end": 33.7
+        }
+      ],
+      "stats": {
+        "expected_words": 104,
+        "heard_words": 105,
+        "matched_words": 103
+      },
+      "match_ratio": 0.9903846153846154,
+      "rejection_reasons": [],
+      "seconds": 0.6084708059206605
+    },
+    {
+      "asr_seconds": 0.6314979465678334,
+      "alignment_seconds": 0.00033302605152130127,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Kala, Nag's, Little, Toomai, There, Nag, Above"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The grass began to get squashy, and Kala Nag's feet sucked and squelched as he put",
+          "start": 0.02,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " grass",
+              "start": 0.48,
+              "end": 0.76,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " began",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " get",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " squashy,",
+              "start": 1.4,
+              "end": 2.14,
+              "probability": 0.832763671875
+            },
+            {
+              "text": " and",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Kala",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.437225341796875
+            },
+            {
+              "text": " Nag's",
+              "start": 2.9,
+              "end": 3.34,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " feet",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sucked",
+              "start": 3.48,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.9,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " squelched",
+              "start": 4.18,
+              "end": 4.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 4.64,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 4.82,
+              "end": 4.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " put",
+              "start": 4.92,
+              "end": 5.04,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " them down, and the night mist at the bottom of the valley chilled Little Toomai.",
+          "start": 5.04,
+          "end": 8.94,
+          "words": [
+            {
+              "text": " them",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down,",
+              "start": 5.18,
+              "end": 5.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.86,
+              "end": 6.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.1,
+              "end": 6.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " night",
+              "start": 6.2,
+              "end": 6.38,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " mist",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.744140625
+            },
+            {
+              "text": " at",
+              "start": 6.66,
+              "end": 6.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.86,
+              "end": 6.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bottom",
+              "start": 6.98,
+              "end": 7.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.2,
+              "end": 7.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.36,
+              "end": 7.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " valley",
+              "start": 7.46,
+              "end": 7.74,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " chilled",
+              "start": 7.74,
+              "end": 8.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Little",
+              "start": 8.16,
+              "end": 8.44,
+              "probability": 0.595703125
+            },
+            {
+              "text": " Toomai.",
+              "start": 8.44,
+              "end": 8.94,
+              "probability": 0.3121134440104167
+            }
+          ]
+        },
+        {
+          "text": " There was a splash and a trample, and the rush of running water, and Kala Nag strode",
+          "start": 9.58,
+          "end": 14.6,
+          "words": [
+            {
+              "text": " There",
+              "start": 9.58,
+              "end": 9.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 9.84,
+              "end": 9.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 9.94,
+              "end": 10.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " splash",
+              "start": 10.14,
+              "end": 10.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 10.46,
+              "end": 10.72,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 10.72,
+              "end": 10.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " trample,",
+              "start": 10.84,
+              "end": 11.22,
+              "probability": 0.98046875
+            },
+            {
+              "text": " and",
+              "start": 11.6,
+              "end": 11.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 11.76,
+              "end": 11.9,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " rush",
+              "start": 11.9,
+              "end": 12.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 12.1,
+              "end": 12.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " running",
+              "start": 12.3,
+              "end": 12.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " water,",
+              "start": 12.54,
+              "end": 12.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 13.34,
+              "end": 13.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kala",
+              "start": 13.52,
+              "end": 13.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Nag",
+              "start": 13.8,
+              "end": 14.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " strode",
+              "start": 14.16,
+              "end": 14.6,
+              "probability": 0.95751953125
+            }
+          ]
+        },
+        {
+          "text": " through the bed of a river, feeling his way at each step.",
+          "start": 14.6,
+          "end": 17.4,
+          "words": [
+            {
+              "text": " through",
+              "start": 14.6,
+              "end": 14.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 14.76,
+              "end": 14.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bed",
+              "start": 14.88,
+              "end": 15.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.04,
+              "end": 15.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 15.14,
+              "end": 15.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " river,",
+              "start": 15.26,
+              "end": 15.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " feeling",
+              "start": 15.88,
+              "end": 16.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 16.12,
+              "end": 16.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way",
+              "start": 16.38,
+              "end": 16.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 16.6,
+              "end": 16.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " each",
+              "start": 16.78,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " step.",
+              "start": 17.0,
+              "end": 17.4,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Above the noise of the water, as it swirled round the elephant's legs, Little Toomai",
+          "start": 18.38,
+          "end": 23.06,
+          "words": [
+            {
+              "text": " Above",
+              "start": 18.38,
+              "end": 18.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 18.6,
+              "end": 18.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " noise",
+              "start": 18.8,
+              "end": 19.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 19.02,
+              "end": 19.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 19.18,
+              "end": 19.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " water,",
+              "start": 19.3,
+              "end": 19.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 19.92,
+              "end": 20.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 20.08,
+              "end": 20.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " swirled",
+              "start": 20.3,
+              "end": 20.64,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " round",
+              "start": 20.64,
+              "end": 20.86,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " the",
+              "start": 20.86,
+              "end": 21.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " elephant's",
+              "start": 21.06,
+              "end": 21.6,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " legs,",
+              "start": 21.6,
+              "end": 21.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Little",
+              "start": 22.48,
+              "end": 22.64,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Toomai",
+              "start": 22.64,
+              "end": 23.06,
+              "probability": 0.9939778645833334
+            }
+          ]
+        },
+        {
+          "text": " could hear more splashing and some trumpeting both upstream and down-great grunts and angry",
+          "start": 23.06,
+          "end": 28.64,
+          "words": [
+            {
+              "text": " could",
+              "start": 23.06,
+              "end": 23.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hear",
+              "start": 23.22,
+              "end": 23.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 23.42,
+              "end": 23.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " splashing",
+              "start": 23.66,
+              "end": 24.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 24.26,
+              "end": 24.78,
+              "probability": 0.568359375
+            },
+            {
+              "text": " some",
+              "start": 24.78,
+              "end": 25.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trumpeting",
+              "start": 25.0,
+              "end": 25.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " both",
+              "start": 25.46,
+              "end": 25.74,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " upstream",
+              "start": 25.74,
+              "end": 26.36,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " and",
+              "start": 26.36,
+              "end": 26.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " down",
+              "start": 26.82,
+              "end": 27.12,
+              "probability": 0.96240234375
+            },
+            {
+              "text": "-great",
+              "start": 27.12,
+              "end": 27.38,
+              "probability": 0.6412353515625
+            },
+            {
+              "text": " grunts",
+              "start": 27.38,
+              "end": 27.86,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " and",
+              "start": 27.86,
+              "end": 28.22,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " angry",
+              "start": 28.22,
+              "end": 28.64,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " snortings, and all the mist about him seemed to be full of rolling, wavy shadows.",
+          "start": 28.64,
+          "end": 33.7,
+          "words": [
+            {
+              "text": " snortings,",
+              "start": 28.64,
+              "end": 29.28,
+              "probability": 0.9166666666666666
+            },
+            {
+              "text": " and",
+              "start": 29.74,
+              "end": 29.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " all",
+              "start": 29.92,
+              "end": 30.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 30.12,
+              "end": 30.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " mist",
+              "start": 30.28,
+              "end": 30.46,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " about",
+              "start": 30.46,
+              "end": 30.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 30.74,
+              "end": 31.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seemed",
+              "start": 31.0,
+              "end": 31.28,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " to",
+              "start": 31.28,
+              "end": 31.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 31.46,
+              "end": 31.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " full",
+              "start": 31.64,
+              "end": 31.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 31.84,
+              "end": 32.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rolling,",
+              "start": 32.08,
+              "end": 32.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wavy",
+              "start": 33.1,
+              "end": 33.26,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " shadows.",
+              "start": 33.26,
+              "end": 33.7,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "grass",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "raw": "began",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "to",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "get",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "squashy,",
+          "start": 1.4,
+          "end": 2.14
+        },
+        {
+          "raw": "and",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "Kala",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "Nag's",
+          "start": 2.9,
+          "end": 3.34
+        },
+        {
+          "raw": "feet",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "sucked",
+          "start": 3.48,
+          "end": 3.9
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "raw": "squelched",
+          "start": 4.18,
+          "end": 4.64
+        },
+        {
+          "raw": "as",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "raw": "he",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "raw": "put",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "raw": "them",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "down,",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "raw": "and",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "raw": "the",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "raw": "night",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "raw": "mist",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "at",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "raw": "bottom",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "raw": "of",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "raw": "the",
+          "start": 7.36,
+          "end": 7.46
+        },
+        {
+          "raw": "valley",
+          "start": 7.46,
+          "end": 7.74
+        },
+        {
+          "raw": "chilled",
+          "start": 7.74,
+          "end": 8.16
+        },
+        {
+          "raw": "Little",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "raw": "Toomai.",
+          "start": 8.44,
+          "end": 8.94
+        },
+        {
+          "raw": "There",
+          "start": 9.58,
+          "end": 9.84
+        },
+        {
+          "raw": "was",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "raw": "a",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "raw": "splash",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "raw": "and",
+          "start": 10.46,
+          "end": 10.72
+        },
+        {
+          "raw": "a",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "raw": "trample,",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "raw": "and",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "raw": "rush",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "raw": "of",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "raw": "running",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "raw": "water,",
+          "start": 12.54,
+          "end": 12.98
+        },
+        {
+          "raw": "and",
+          "start": 13.34,
+          "end": 13.52
+        },
+        {
+          "raw": "Kala",
+          "start": 13.52,
+          "end": 13.8
+        },
+        {
+          "raw": "Nag",
+          "start": 13.8,
+          "end": 14.16
+        },
+        {
+          "raw": "strode",
+          "start": 14.16,
+          "end": 14.6
+        },
+        {
+          "raw": "through",
+          "start": 14.6,
+          "end": 14.76
+        },
+        {
+          "raw": "the",
+          "start": 14.76,
+          "end": 14.88
+        },
+        {
+          "raw": "bed",
+          "start": 14.88,
+          "end": 15.04
+        },
+        {
+          "raw": "of",
+          "start": 15.04,
+          "end": 15.14
+        },
+        {
+          "raw": "a",
+          "start": 15.14,
+          "end": 15.26
+        },
+        {
+          "raw": "river,",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "raw": "feeling",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "raw": "his",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "raw": "way",
+          "start": 16.38,
+          "end": 16.6
+        },
+        {
+          "raw": "at",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "raw": "each",
+          "start": 16.78,
+          "end": 17.0
+        },
+        {
+          "raw": "step.",
+          "start": 17.0,
+          "end": 17.4
+        },
+        {
+          "raw": "Above",
+          "start": 18.38,
+          "end": 18.6
+        },
+        {
+          "raw": "the",
+          "start": 18.6,
+          "end": 18.8
+        },
+        {
+          "raw": "noise",
+          "start": 18.8,
+          "end": 19.02
+        },
+        {
+          "raw": "of",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "raw": "the",
+          "start": 19.18,
+          "end": 19.3
+        },
+        {
+          "raw": "water,",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "raw": "as",
+          "start": 19.92,
+          "end": 20.08
+        },
+        {
+          "raw": "it",
+          "start": 20.08,
+          "end": 20.3
+        },
+        {
+          "raw": "swirled",
+          "start": 20.3,
+          "end": 20.64
+        },
+        {
+          "raw": "round",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "raw": "the",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "raw": "elephant's",
+          "start": 21.06,
+          "end": 21.6
+        },
+        {
+          "raw": "legs,",
+          "start": 21.6,
+          "end": 21.82
+        },
+        {
+          "raw": "Little",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "raw": "Toomai",
+          "start": 22.64,
+          "end": 23.06
+        },
+        {
+          "raw": "could",
+          "start": 23.06,
+          "end": 23.22
+        },
+        {
+          "raw": "hear",
+          "start": 23.22,
+          "end": 23.42
+        },
+        {
+          "raw": "more",
+          "start": 23.42,
+          "end": 23.66
+        },
+        {
+          "raw": "splashing",
+          "start": 23.66,
+          "end": 24.26
+        },
+        {
+          "raw": "and",
+          "start": 24.26,
+          "end": 24.78
+        },
+        {
+          "raw": "some",
+          "start": 24.78,
+          "end": 25.0
+        },
+        {
+          "raw": "trumpeting",
+          "start": 25.0,
+          "end": 25.46
+        },
+        {
+          "raw": "both",
+          "start": 25.46,
+          "end": 25.74
+        },
+        {
+          "raw": "upstream",
+          "start": 25.74,
+          "end": 26.36
+        },
+        {
+          "raw": "and",
+          "start": 26.36,
+          "end": 26.82
+        },
+        {
+          "raw": "down",
+          "start": 26.82,
+          "end": 27.12
+        },
+        {
+          "raw": "-great",
+          "start": 27.12,
+          "end": 27.38
+        },
+        {
+          "raw": "grunts",
+          "start": 27.38,
+          "end": 27.86
+        },
+        {
+          "raw": "and",
+          "start": 27.86,
+          "end": 28.22
+        },
+        {
+          "raw": "angry",
+          "start": 28.22,
+          "end": 28.64
+        },
+        {
+          "raw": "snortings,",
+          "start": 28.64,
+          "end": 29.28
+        },
+        {
+          "raw": "and",
+          "start": 29.74,
+          "end": 29.92
+        },
+        {
+          "raw": "all",
+          "start": 29.92,
+          "end": 30.12
+        },
+        {
+          "raw": "the",
+          "start": 30.12,
+          "end": 30.28
+        },
+        {
+          "raw": "mist",
+          "start": 30.28,
+          "end": 30.46
+        },
+        {
+          "raw": "about",
+          "start": 30.46,
+          "end": 30.74
+        },
+        {
+          "raw": "him",
+          "start": 30.74,
+          "end": 31.0
+        },
+        {
+          "raw": "seemed",
+          "start": 31.0,
+          "end": 31.28
+        },
+        {
+          "raw": "to",
+          "start": 31.28,
+          "end": 31.46
+        },
+        {
+          "raw": "be",
+          "start": 31.46,
+          "end": 31.64
+        },
+        {
+          "raw": "full",
+          "start": 31.64,
+          "end": 31.84
+        },
+        {
+          "raw": "of",
+          "start": 31.84,
+          "end": 32.08
+        },
+        {
+          "raw": "rolling,",
+          "start": 32.08,
+          "end": 32.6
+        },
+        {
+          "raw": "wavy",
+          "start": 33.1,
+          "end": 33.26
+        },
+        {
+          "raw": "shadows.",
+          "start": 33.26,
+          "end": 33.7
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "grass",
+        "began",
+        "to",
+        "get",
+        "squashy,",
+        "and",
+        "Kala",
+        "Nag's",
+        "feet",
+        "sucked",
+        "and",
+        "squelched",
+        "as",
+        "he",
+        "put",
+        "them",
+        "down,",
+        "and",
+        "the",
+        "night",
+        "mist",
+        "at",
+        "the",
+        "bottom",
+        "of",
+        "the",
+        "valley",
+        "chilled",
+        "Little",
+        "Toomai.",
+        "There",
+        "was",
+        "a",
+        "splash",
+        "and",
+        "a",
+        "trample,",
+        "and",
+        "the",
+        "rush",
+        "of",
+        "running",
+        "water,",
+        "and",
+        "Kala",
+        "Nag",
+        "strode",
+        "through",
+        "the",
+        "bed",
+        "of",
+        "a",
+        "river,",
+        "feeling",
+        "his",
+        "way",
+        "at",
+        "each",
+        "step.",
+        "Above",
+        "the",
+        "noise",
+        "of",
+        "the",
+        "water,",
+        "as",
+        "it",
+        "swirled",
+        "round",
+        "the",
+        "elephant's",
+        "legs,",
+        "Little",
+        "Toomai",
+        "could",
+        "hear",
+        "more",
+        "splashing",
+        "and",
+        "some",
+        "trumpeting",
+        "both",
+        "upstream",
+        "and",
+        "down--great",
+        "grunts",
+        "and",
+        "angry",
+        "snortings,",
+        "and",
+        "all",
+        "the",
+        "mist",
+        "about",
+        "him",
+        "seemed",
+        "to",
+        "be",
+        "full",
+        "of",
+        "rolling,",
+        "wavy",
+        "shadows."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          85,
+          0,
+          85
+        ],
+        [
+          "replace",
+          85,
+          86,
+          85,
+          87
+        ],
+        [
+          "equal",
+          86,
+          104,
+          87,
+          105
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 104
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          85,
+          86,
+          85,
+          87
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "grass",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "began",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "text": "to",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "get",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "squashy,",
+          "start": 1.4,
+          "end": 2.14
+        },
+        {
+          "text": "and",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "Kala",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "Nag's",
+          "start": 2.9,
+          "end": 3.34
+        },
+        {
+          "text": "feet",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "sucked",
+          "start": 3.48,
+          "end": 3.9
+        },
+        {
+          "text": "and",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "text": "squelched",
+          "start": 4.18,
+          "end": 4.64
+        },
+        {
+          "text": "as",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "text": "he",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "text": "put",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "text": "them",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "down,",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "text": "and",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "text": "the",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "text": "night",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "text": "mist",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "at",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "text": "the",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "text": "bottom",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "text": "of",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "text": "the",
+          "start": 7.36,
+          "end": 7.46
+        },
+        {
+          "text": "valley",
+          "start": 7.46,
+          "end": 7.74
+        },
+        {
+          "text": "chilled",
+          "start": 7.74,
+          "end": 8.16
+        },
+        {
+          "text": "Little",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "text": "Toomai.",
+          "start": 8.44,
+          "end": 8.94
+        },
+        {
+          "text": "There",
+          "start": 9.58,
+          "end": 9.84
+        },
+        {
+          "text": "was",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "text": "a",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "text": "splash",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "text": "and",
+          "start": 10.46,
+          "end": 10.72
+        },
+        {
+          "text": "a",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "text": "trample,",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "text": "and",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "text": "the",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "text": "rush",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "text": "of",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "text": "running",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "text": "water,",
+          "start": 12.54,
+          "end": 12.98
+        },
+        {
+          "text": "and",
+          "start": 13.34,
+          "end": 13.52
+        },
+        {
+          "text": "Kala",
+          "start": 13.52,
+          "end": 13.8
+        },
+        {
+          "text": "Nag",
+          "start": 13.8,
+          "end": 14.16
+        },
+        {
+          "text": "strode",
+          "start": 14.16,
+          "end": 14.6
+        },
+        {
+          "text": "through",
+          "start": 14.6,
+          "end": 14.76
+        },
+        {
+          "text": "the",
+          "start": 14.76,
+          "end": 14.88
+        },
+        {
+          "text": "bed",
+          "start": 14.88,
+          "end": 15.04
+        },
+        {
+          "text": "of",
+          "start": 15.04,
+          "end": 15.14
+        },
+        {
+          "text": "a",
+          "start": 15.14,
+          "end": 15.26
+        },
+        {
+          "text": "river,",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "text": "feeling",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "text": "his",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "text": "way",
+          "start": 16.38,
+          "end": 16.6
+        },
+        {
+          "text": "at",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "text": "each",
+          "start": 16.78,
+          "end": 17.0
+        },
+        {
+          "text": "step.",
+          "start": 17.0,
+          "end": 17.4
+        },
+        {
+          "text": "Above",
+          "start": 18.38,
+          "end": 18.6
+        },
+        {
+          "text": "the",
+          "start": 18.6,
+          "end": 18.8
+        },
+        {
+          "text": "noise",
+          "start": 18.8,
+          "end": 19.02
+        },
+        {
+          "text": "of",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "text": "the",
+          "start": 19.18,
+          "end": 19.3
+        },
+        {
+          "text": "water,",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "text": "as",
+          "start": 19.92,
+          "end": 20.08
+        },
+        {
+          "text": "it",
+          "start": 20.08,
+          "end": 20.3
+        },
+        {
+          "text": "swirled",
+          "start": 20.3,
+          "end": 20.64
+        },
+        {
+          "text": "round",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "text": "the",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "text": "elephant's",
+          "start": 21.06,
+          "end": 21.6
+        },
+        {
+          "text": "legs,",
+          "start": 21.6,
+          "end": 21.82
+        },
+        {
+          "text": "Little",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "text": "Toomai",
+          "start": 22.64,
+          "end": 23.06
+        },
+        {
+          "text": "could",
+          "start": 23.06,
+          "end": 23.22
+        },
+        {
+          "text": "hear",
+          "start": 23.22,
+          "end": 23.42
+        },
+        {
+          "text": "more",
+          "start": 23.42,
+          "end": 23.66
+        },
+        {
+          "text": "splashing",
+          "start": 23.66,
+          "end": 24.26
+        },
+        {
+          "text": "and",
+          "start": 24.26,
+          "end": 24.78
+        },
+        {
+          "text": "some",
+          "start": 24.78,
+          "end": 25.0
+        },
+        {
+          "text": "trumpeting",
+          "start": 25.0,
+          "end": 25.46
+        },
+        {
+          "text": "both",
+          "start": 25.46,
+          "end": 25.74
+        },
+        {
+          "text": "upstream",
+          "start": 25.74,
+          "end": 26.36
+        },
+        {
+          "text": "and",
+          "start": 26.36,
+          "end": 26.82
+        },
+        {
+          "text": "down--great",
+          "start": 26.82,
+          "end": 27.1
+        },
+        {
+          "text": "grunts",
+          "start": 27.38,
+          "end": 27.86
+        },
+        {
+          "text": "and",
+          "start": 27.86,
+          "end": 28.22
+        },
+        {
+          "text": "angry",
+          "start": 28.22,
+          "end": 28.64
+        },
+        {
+          "text": "snortings,",
+          "start": 28.64,
+          "end": 29.28
+        },
+        {
+          "text": "and",
+          "start": 29.74,
+          "end": 29.92
+        },
+        {
+          "text": "all",
+          "start": 29.92,
+          "end": 30.12
+        },
+        {
+          "text": "the",
+          "start": 30.12,
+          "end": 30.28
+        },
+        {
+          "text": "mist",
+          "start": 30.28,
+          "end": 30.46
+        },
+        {
+          "text": "about",
+          "start": 30.46,
+          "end": 30.74
+        },
+        {
+          "text": "him",
+          "start": 30.74,
+          "end": 31.0
+        },
+        {
+          "text": "seemed",
+          "start": 31.0,
+          "end": 31.28
+        },
+        {
+          "text": "to",
+          "start": 31.28,
+          "end": 31.46
+        },
+        {
+          "text": "be",
+          "start": 31.46,
+          "end": 31.64
+        },
+        {
+          "text": "full",
+          "start": 31.64,
+          "end": 31.84
+        },
+        {
+          "text": "of",
+          "start": 31.84,
+          "end": 32.08
+        },
+        {
+          "text": "rolling,",
+          "start": 32.08,
+          "end": 32.6
+        },
+        {
+          "text": "wavy",
+          "start": 33.1,
+          "end": 33.26
+        },
+        {
+          "text": "shadows.",
+          "start": 33.26,
+          "end": 33.7
+        }
+      ],
+      "stats": {
+        "expected_words": 104,
+        "heard_words": 105,
+        "matched_words": 103
+      },
+      "match_ratio": 0.9903846153846154,
+      "rejection_reasons": [],
+      "seconds": 0.6320164576172829
+    },
+    {
+      "asr_seconds": 0.5831998037174344,
+      "alignment_seconds": 0.00040472298860549927,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The grass began to get squashy, and Collin Ag's feet sucked and squelched as he put",
+          "start": 0.02,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " grass",
+              "start": 0.48,
+              "end": 0.76,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " began",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " get",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " squashy,",
+              "start": 1.4,
+              "end": 2.14,
+              "probability": 0.832763671875
+            },
+            {
+              "text": " and",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Collin",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.54669189453125
+            },
+            {
+              "text": " Ag's",
+              "start": 2.96,
+              "end": 3.34,
+              "probability": 0.59759521484375
+            },
+            {
+              "text": " feet",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sucked",
+              "start": 3.48,
+              "end": 3.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.88,
+              "end": 4.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " squelched",
+              "start": 4.18,
+              "end": 4.64,
+              "probability": 0.9933268229166666
+            },
+            {
+              "text": " as",
+              "start": 4.64,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 4.82,
+              "end": 4.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " put",
+              "start": 4.94,
+              "end": 5.04,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " them down, and the night mist at the bottom of the valley chilled Little Tumai.",
+          "start": 5.04,
+          "end": 8.94,
+          "words": [
+            {
+              "text": " them",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down,",
+              "start": 5.18,
+              "end": 5.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.86,
+              "end": 6.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.1,
+              "end": 6.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " night",
+              "start": 6.2,
+              "end": 6.38,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " mist",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " at",
+              "start": 6.66,
+              "end": 6.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.86,
+              "end": 6.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bottom",
+              "start": 6.98,
+              "end": 7.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 7.2,
+              "end": 7.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.36,
+              "end": 7.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " valley",
+              "start": 7.46,
+              "end": 7.74,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " chilled",
+              "start": 7.74,
+              "end": 8.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Little",
+              "start": 8.16,
+              "end": 8.44,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " Tumai.",
+              "start": 8.44,
+              "end": 8.94,
+              "probability": 0.5410970052083334
+            }
+          ]
+        },
+        {
+          "text": " There was a splash and a trample, and the rush of running water, and Collin Ag strode",
+          "start": 9.56,
+          "end": 14.6,
+          "words": [
+            {
+              "text": " There",
+              "start": 9.56,
+              "end": 9.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 9.84,
+              "end": 9.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 9.94,
+              "end": 10.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " splash",
+              "start": 10.14,
+              "end": 10.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 10.46,
+              "end": 10.72,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 10.72,
+              "end": 10.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " trample,",
+              "start": 10.84,
+              "end": 11.22,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " and",
+              "start": 11.6,
+              "end": 11.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 11.76,
+              "end": 11.9,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " rush",
+              "start": 11.9,
+              "end": 12.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 12.1,
+              "end": 12.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " running",
+              "start": 12.3,
+              "end": 12.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " water,",
+              "start": 12.54,
+              "end": 12.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 13.36,
+              "end": 13.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Collin",
+              "start": 13.54,
+              "end": 13.88,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " Ag",
+              "start": 13.88,
+              "end": 14.16,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " strode",
+              "start": 14.16,
+              "end": 14.6,
+              "probability": 0.96337890625
+            }
+          ]
+        },
+        {
+          "text": " through the bed of a river, feeling his way at each step.",
+          "start": 14.6,
+          "end": 17.4,
+          "words": [
+            {
+              "text": " through",
+              "start": 14.6,
+              "end": 14.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 14.76,
+              "end": 14.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bed",
+              "start": 14.88,
+              "end": 15.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 15.04,
+              "end": 15.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 15.14,
+              "end": 15.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " river,",
+              "start": 15.26,
+              "end": 15.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " feeling",
+              "start": 15.88,
+              "end": 16.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 16.12,
+              "end": 16.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " way",
+              "start": 16.38,
+              "end": 16.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 16.6,
+              "end": 16.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " each",
+              "start": 16.78,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " step.",
+              "start": 17.0,
+              "end": 17.4,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Above the noise of the water, as it swirled round the elephant's legs, Little Tumai could",
+          "start": 18.38,
+          "end": 23.2,
+          "words": [
+            {
+              "text": " Above",
+              "start": 18.38,
+              "end": 18.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 18.6,
+              "end": 18.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " noise",
+              "start": 18.8,
+              "end": 19.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 19.02,
+              "end": 19.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 19.18,
+              "end": 19.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " water,",
+              "start": 19.3,
+              "end": 19.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 19.92,
+              "end": 20.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 20.08,
+              "end": 20.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " swirled",
+              "start": 20.3,
+              "end": 20.64,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " round",
+              "start": 20.64,
+              "end": 20.86,
+              "probability": 0.81640625
+            },
+            {
+              "text": " the",
+              "start": 20.86,
+              "end": 21.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " elephant's",
+              "start": 21.06,
+              "end": 21.6,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " legs,",
+              "start": 21.6,
+              "end": 21.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Little",
+              "start": 22.48,
+              "end": 22.64,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Tumai",
+              "start": 22.64,
+              "end": 23.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " could",
+              "start": 23.08,
+              "end": 23.2,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " hear more splashing and some trumpeting both upstream and down-great grunts and angry snortings,",
+          "start": 23.2,
+          "end": 29.3,
+          "words": [
+            {
+              "text": " hear",
+              "start": 23.2,
+              "end": 23.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 23.42,
+              "end": 23.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " splashing",
+              "start": 23.66,
+              "end": 24.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 24.26,
+              "end": 24.78,
+              "probability": 0.5908203125
+            },
+            {
+              "text": " some",
+              "start": 24.78,
+              "end": 25.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trumpeting",
+              "start": 25.0,
+              "end": 25.46,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " both",
+              "start": 25.46,
+              "end": 25.74,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " upstream",
+              "start": 25.74,
+              "end": 26.36,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " and",
+              "start": 26.36,
+              "end": 26.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " down",
+              "start": 26.82,
+              "end": 27.12,
+              "probability": 0.962890625
+            },
+            {
+              "text": "-great",
+              "start": 27.12,
+              "end": 27.38,
+              "probability": 0.6488037109375
+            },
+            {
+              "text": " grunts",
+              "start": 27.38,
+              "end": 27.86,
+              "probability": 0.982421875
+            },
+            {
+              "text": " and",
+              "start": 27.86,
+              "end": 28.22,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " angry",
+              "start": 28.22,
+              "end": 28.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " snortings,",
+              "start": 28.64,
+              "end": 29.3,
+              "probability": 0.9708658854166666
+            }
+          ]
+        },
+        {
+          "text": " and all the mist about him seemed to be full of rolling, wavy shadows.",
+          "start": 29.3,
+          "end": 33.7,
+          "words": [
+            {
+              "text": " and",
+              "start": 29.3,
+              "end": 29.92,
+              "probability": 0.630859375
+            },
+            {
+              "text": " all",
+              "start": 29.92,
+              "end": 30.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 30.12,
+              "end": 30.28,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " mist",
+              "start": 30.28,
+              "end": 30.46,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " about",
+              "start": 30.46,
+              "end": 30.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 30.74,
+              "end": 31.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seemed",
+              "start": 31.0,
+              "end": 31.28,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " to",
+              "start": 31.28,
+              "end": 31.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 31.46,
+              "end": 31.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " full",
+              "start": 31.64,
+              "end": 31.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 31.84,
+              "end": 32.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rolling,",
+              "start": 32.08,
+              "end": 32.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wavy",
+              "start": 33.1,
+              "end": 33.26,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " shadows.",
+              "start": 33.26,
+              "end": 33.7,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "grass",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "raw": "began",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "to",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "get",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "squashy,",
+          "start": 1.4,
+          "end": 2.14
+        },
+        {
+          "raw": "and",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "Collin",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "raw": "Ag's",
+          "start": 2.96,
+          "end": 3.34
+        },
+        {
+          "raw": "feet",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "sucked",
+          "start": 3.48,
+          "end": 3.88
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.18
+        },
+        {
+          "raw": "squelched",
+          "start": 4.18,
+          "end": 4.64
+        },
+        {
+          "raw": "as",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "raw": "he",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "raw": "put",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "raw": "them",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "down,",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "raw": "and",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "raw": "the",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "raw": "night",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "raw": "mist",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "at",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "raw": "bottom",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "raw": "of",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "raw": "the",
+          "start": 7.36,
+          "end": 7.46
+        },
+        {
+          "raw": "valley",
+          "start": 7.46,
+          "end": 7.74
+        },
+        {
+          "raw": "chilled",
+          "start": 7.74,
+          "end": 8.16
+        },
+        {
+          "raw": "Little",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "raw": "Tumai.",
+          "start": 8.44,
+          "end": 8.94
+        },
+        {
+          "raw": "There",
+          "start": 9.56,
+          "end": 9.84
+        },
+        {
+          "raw": "was",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "raw": "a",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "raw": "splash",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "raw": "and",
+          "start": 10.46,
+          "end": 10.72
+        },
+        {
+          "raw": "a",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "raw": "trample,",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "raw": "and",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "raw": "the",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "raw": "rush",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "raw": "of",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "raw": "running",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "raw": "water,",
+          "start": 12.54,
+          "end": 12.98
+        },
+        {
+          "raw": "and",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "raw": "Collin",
+          "start": 13.54,
+          "end": 13.88
+        },
+        {
+          "raw": "Ag",
+          "start": 13.88,
+          "end": 14.16
+        },
+        {
+          "raw": "strode",
+          "start": 14.16,
+          "end": 14.6
+        },
+        {
+          "raw": "through",
+          "start": 14.6,
+          "end": 14.76
+        },
+        {
+          "raw": "the",
+          "start": 14.76,
+          "end": 14.88
+        },
+        {
+          "raw": "bed",
+          "start": 14.88,
+          "end": 15.04
+        },
+        {
+          "raw": "of",
+          "start": 15.04,
+          "end": 15.14
+        },
+        {
+          "raw": "a",
+          "start": 15.14,
+          "end": 15.26
+        },
+        {
+          "raw": "river,",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "raw": "feeling",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "raw": "his",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "raw": "way",
+          "start": 16.38,
+          "end": 16.6
+        },
+        {
+          "raw": "at",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "raw": "each",
+          "start": 16.78,
+          "end": 17.0
+        },
+        {
+          "raw": "step.",
+          "start": 17.0,
+          "end": 17.4
+        },
+        {
+          "raw": "Above",
+          "start": 18.38,
+          "end": 18.6
+        },
+        {
+          "raw": "the",
+          "start": 18.6,
+          "end": 18.8
+        },
+        {
+          "raw": "noise",
+          "start": 18.8,
+          "end": 19.02
+        },
+        {
+          "raw": "of",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "raw": "the",
+          "start": 19.18,
+          "end": 19.3
+        },
+        {
+          "raw": "water,",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "raw": "as",
+          "start": 19.92,
+          "end": 20.08
+        },
+        {
+          "raw": "it",
+          "start": 20.08,
+          "end": 20.3
+        },
+        {
+          "raw": "swirled",
+          "start": 20.3,
+          "end": 20.64
+        },
+        {
+          "raw": "round",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "raw": "the",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "raw": "elephant's",
+          "start": 21.06,
+          "end": 21.6
+        },
+        {
+          "raw": "legs,",
+          "start": 21.6,
+          "end": 21.82
+        },
+        {
+          "raw": "Little",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "raw": "Tumai",
+          "start": 22.64,
+          "end": 23.08
+        },
+        {
+          "raw": "could",
+          "start": 23.08,
+          "end": 23.2
+        },
+        {
+          "raw": "hear",
+          "start": 23.2,
+          "end": 23.42
+        },
+        {
+          "raw": "more",
+          "start": 23.42,
+          "end": 23.66
+        },
+        {
+          "raw": "splashing",
+          "start": 23.66,
+          "end": 24.26
+        },
+        {
+          "raw": "and",
+          "start": 24.26,
+          "end": 24.78
+        },
+        {
+          "raw": "some",
+          "start": 24.78,
+          "end": 25.0
+        },
+        {
+          "raw": "trumpeting",
+          "start": 25.0,
+          "end": 25.46
+        },
+        {
+          "raw": "both",
+          "start": 25.46,
+          "end": 25.74
+        },
+        {
+          "raw": "upstream",
+          "start": 25.74,
+          "end": 26.36
+        },
+        {
+          "raw": "and",
+          "start": 26.36,
+          "end": 26.82
+        },
+        {
+          "raw": "down",
+          "start": 26.82,
+          "end": 27.12
+        },
+        {
+          "raw": "-great",
+          "start": 27.12,
+          "end": 27.38
+        },
+        {
+          "raw": "grunts",
+          "start": 27.38,
+          "end": 27.86
+        },
+        {
+          "raw": "and",
+          "start": 27.86,
+          "end": 28.22
+        },
+        {
+          "raw": "angry",
+          "start": 28.22,
+          "end": 28.64
+        },
+        {
+          "raw": "snortings,",
+          "start": 28.64,
+          "end": 29.3
+        },
+        {
+          "raw": "and",
+          "start": 29.3,
+          "end": 29.92
+        },
+        {
+          "raw": "all",
+          "start": 29.92,
+          "end": 30.12
+        },
+        {
+          "raw": "the",
+          "start": 30.12,
+          "end": 30.28
+        },
+        {
+          "raw": "mist",
+          "start": 30.28,
+          "end": 30.46
+        },
+        {
+          "raw": "about",
+          "start": 30.46,
+          "end": 30.74
+        },
+        {
+          "raw": "him",
+          "start": 30.74,
+          "end": 31.0
+        },
+        {
+          "raw": "seemed",
+          "start": 31.0,
+          "end": 31.28
+        },
+        {
+          "raw": "to",
+          "start": 31.28,
+          "end": 31.46
+        },
+        {
+          "raw": "be",
+          "start": 31.46,
+          "end": 31.64
+        },
+        {
+          "raw": "full",
+          "start": 31.64,
+          "end": 31.84
+        },
+        {
+          "raw": "of",
+          "start": 31.84,
+          "end": 32.08
+        },
+        {
+          "raw": "rolling,",
+          "start": 32.08,
+          "end": 32.58
+        },
+        {
+          "raw": "wavy",
+          "start": 33.1,
+          "end": 33.26
+        },
+        {
+          "raw": "shadows.",
+          "start": 33.26,
+          "end": 33.7
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "grass",
+        "began",
+        "to",
+        "get",
+        "squashy,",
+        "and",
+        "Kala",
+        "Nag's",
+        "feet",
+        "sucked",
+        "and",
+        "squelched",
+        "as",
+        "he",
+        "put",
+        "them",
+        "down,",
+        "and",
+        "the",
+        "night",
+        "mist",
+        "at",
+        "the",
+        "bottom",
+        "of",
+        "the",
+        "valley",
+        "chilled",
+        "Little",
+        "Toomai.",
+        "There",
+        "was",
+        "a",
+        "splash",
+        "and",
+        "a",
+        "trample,",
+        "and",
+        "the",
+        "rush",
+        "of",
+        "running",
+        "water,",
+        "and",
+        "Kala",
+        "Nag",
+        "strode",
+        "through",
+        "the",
+        "bed",
+        "of",
+        "a",
+        "river,",
+        "feeling",
+        "his",
+        "way",
+        "at",
+        "each",
+        "step.",
+        "Above",
+        "the",
+        "noise",
+        "of",
+        "the",
+        "water,",
+        "as",
+        "it",
+        "swirled",
+        "round",
+        "the",
+        "elephant's",
+        "legs,",
+        "Little",
+        "Toomai",
+        "could",
+        "hear",
+        "more",
+        "splashing",
+        "and",
+        "some",
+        "trumpeting",
+        "both",
+        "upstream",
+        "and",
+        "down--great",
+        "grunts",
+        "and",
+        "angry",
+        "snortings,",
+        "and",
+        "all",
+        "the",
+        "mist",
+        "about",
+        "him",
+        "seemed",
+        "to",
+        "be",
+        "full",
+        "of",
+        "rolling,",
+        "wavy",
+        "shadows."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          30,
+          9,
+          30
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "equal",
+          31,
+          45,
+          31,
+          45
+        ],
+        [
+          "replace",
+          45,
+          47,
+          45,
+          47
+        ],
+        [
+          "equal",
+          47,
+          74,
+          47,
+          74
+        ],
+        [
+          "replace",
+          74,
+          75,
+          74,
+          75
+        ],
+        [
+          "equal",
+          75,
+          85,
+          75,
+          85
+        ],
+        [
+          "replace",
+          85,
+          86,
+          85,
+          87
+        ],
+        [
+          "equal",
+          86,
+          104,
+          87,
+          105
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 104
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "replace",
+          45,
+          47,
+          45,
+          47
+        ],
+        [
+          "replace",
+          74,
+          75,
+          74,
+          75
+        ],
+        [
+          "replace",
+          85,
+          86,
+          85,
+          87
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "grass",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "began",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "text": "to",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "get",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "squashy,",
+          "start": 1.4,
+          "end": 2.14
+        },
+        {
+          "text": "and",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "Kala",
+          "start": 2.7,
+          "end": 3.02
+        },
+        {
+          "text": "Nag's",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "feet",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "sucked",
+          "start": 3.48,
+          "end": 3.88
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 4.18
+        },
+        {
+          "text": "squelched",
+          "start": 4.18,
+          "end": 4.64
+        },
+        {
+          "text": "as",
+          "start": 4.64,
+          "end": 4.82
+        },
+        {
+          "text": "he",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "text": "put",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "text": "them",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "down,",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "text": "and",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "text": "the",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "text": "night",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "text": "mist",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "at",
+          "start": 6.66,
+          "end": 6.86
+        },
+        {
+          "text": "the",
+          "start": 6.86,
+          "end": 6.98
+        },
+        {
+          "text": "bottom",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "text": "of",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "text": "the",
+          "start": 7.36,
+          "end": 7.46
+        },
+        {
+          "text": "valley",
+          "start": 7.46,
+          "end": 7.74
+        },
+        {
+          "text": "chilled",
+          "start": 7.74,
+          "end": 8.16
+        },
+        {
+          "text": "Little",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "text": "Toomai.",
+          "start": 8.44,
+          "end": 9.0
+        },
+        {
+          "text": "There",
+          "start": 9.56,
+          "end": 9.84
+        },
+        {
+          "text": "was",
+          "start": 9.84,
+          "end": 9.94
+        },
+        {
+          "text": "a",
+          "start": 9.94,
+          "end": 10.14
+        },
+        {
+          "text": "splash",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "text": "and",
+          "start": 10.46,
+          "end": 10.72
+        },
+        {
+          "text": "a",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "text": "trample,",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "text": "and",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "text": "the",
+          "start": 11.76,
+          "end": 11.9
+        },
+        {
+          "text": "rush",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "text": "of",
+          "start": 12.1,
+          "end": 12.3
+        },
+        {
+          "text": "running",
+          "start": 12.3,
+          "end": 12.54
+        },
+        {
+          "text": "water,",
+          "start": 12.54,
+          "end": 12.98
+        },
+        {
+          "text": "and",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "text": "Kala",
+          "start": 13.54,
+          "end": 13.85
+        },
+        {
+          "text": "Nag",
+          "start": 13.85,
+          "end": 14.005
+        },
+        {
+          "text": "strode",
+          "start": 14.16,
+          "end": 14.6
+        },
+        {
+          "text": "through",
+          "start": 14.6,
+          "end": 14.76
+        },
+        {
+          "text": "the",
+          "start": 14.76,
+          "end": 14.88
+        },
+        {
+          "text": "bed",
+          "start": 14.88,
+          "end": 15.04
+        },
+        {
+          "text": "of",
+          "start": 15.04,
+          "end": 15.14
+        },
+        {
+          "text": "a",
+          "start": 15.14,
+          "end": 15.26
+        },
+        {
+          "text": "river,",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "text": "feeling",
+          "start": 15.88,
+          "end": 16.12
+        },
+        {
+          "text": "his",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "text": "way",
+          "start": 16.38,
+          "end": 16.6
+        },
+        {
+          "text": "at",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "text": "each",
+          "start": 16.78,
+          "end": 17.0
+        },
+        {
+          "text": "step.",
+          "start": 17.0,
+          "end": 17.4
+        },
+        {
+          "text": "Above",
+          "start": 18.38,
+          "end": 18.6
+        },
+        {
+          "text": "the",
+          "start": 18.6,
+          "end": 18.8
+        },
+        {
+          "text": "noise",
+          "start": 18.8,
+          "end": 19.02
+        },
+        {
+          "text": "of",
+          "start": 19.02,
+          "end": 19.18
+        },
+        {
+          "text": "the",
+          "start": 19.18,
+          "end": 19.3
+        },
+        {
+          "text": "water,",
+          "start": 19.3,
+          "end": 19.64
+        },
+        {
+          "text": "as",
+          "start": 19.92,
+          "end": 20.08
+        },
+        {
+          "text": "it",
+          "start": 20.08,
+          "end": 20.3
+        },
+        {
+          "text": "swirled",
+          "start": 20.3,
+          "end": 20.64
+        },
+        {
+          "text": "round",
+          "start": 20.64,
+          "end": 20.86
+        },
+        {
+          "text": "the",
+          "start": 20.86,
+          "end": 21.06
+        },
+        {
+          "text": "elephant's",
+          "start": 21.06,
+          "end": 21.6
+        },
+        {
+          "text": "legs,",
+          "start": 21.6,
+          "end": 21.82
+        },
+        {
+          "text": "Little",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "text": "Toomai",
+          "start": 22.64,
+          "end": 22.86
+        },
+        {
+          "text": "could",
+          "start": 23.08,
+          "end": 23.2
+        },
+        {
+          "text": "hear",
+          "start": 23.2,
+          "end": 23.42
+        },
+        {
+          "text": "more",
+          "start": 23.42,
+          "end": 23.66
+        },
+        {
+          "text": "splashing",
+          "start": 23.66,
+          "end": 24.26
+        },
+        {
+          "text": "and",
+          "start": 24.26,
+          "end": 24.78
+        },
+        {
+          "text": "some",
+          "start": 24.78,
+          "end": 25.0
+        },
+        {
+          "text": "trumpeting",
+          "start": 25.0,
+          "end": 25.46
+        },
+        {
+          "text": "both",
+          "start": 25.46,
+          "end": 25.74
+        },
+        {
+          "text": "upstream",
+          "start": 25.74,
+          "end": 26.36
+        },
+        {
+          "text": "and",
+          "start": 26.36,
+          "end": 26.82
+        },
+        {
+          "text": "down--great",
+          "start": 26.82,
+          "end": 27.1
+        },
+        {
+          "text": "grunts",
+          "start": 27.38,
+          "end": 27.86
+        },
+        {
+          "text": "and",
+          "start": 27.86,
+          "end": 28.22
+        },
+        {
+          "text": "angry",
+          "start": 28.22,
+          "end": 28.64
+        },
+        {
+          "text": "snortings,",
+          "start": 28.64,
+          "end": 29.3
+        },
+        {
+          "text": "and",
+          "start": 29.3,
+          "end": 29.92
+        },
+        {
+          "text": "all",
+          "start": 29.92,
+          "end": 30.12
+        },
+        {
+          "text": "the",
+          "start": 30.12,
+          "end": 30.28
+        },
+        {
+          "text": "mist",
+          "start": 30.28,
+          "end": 30.46
+        },
+        {
+          "text": "about",
+          "start": 30.46,
+          "end": 30.74
+        },
+        {
+          "text": "him",
+          "start": 30.74,
+          "end": 31.0
+        },
+        {
+          "text": "seemed",
+          "start": 31.0,
+          "end": 31.28
+        },
+        {
+          "text": "to",
+          "start": 31.28,
+          "end": 31.46
+        },
+        {
+          "text": "be",
+          "start": 31.46,
+          "end": 31.64
+        },
+        {
+          "text": "full",
+          "start": 31.64,
+          "end": 31.84
+        },
+        {
+          "text": "of",
+          "start": 31.84,
+          "end": 32.08
+        },
+        {
+          "text": "rolling,",
+          "start": 32.08,
+          "end": 32.58
+        },
+        {
+          "text": "wavy",
+          "start": 33.1,
+          "end": 33.26
+        },
+        {
+          "text": "shadows.",
+          "start": 33.26,
+          "end": 33.7
+        }
+      ],
+      "stats": {
+        "expected_words": 104,
+        "heard_words": 105,
+        "matched_words": 97
+      },
+      "match_ratio": 0.9326923076923077,
+      "rejection_reasons": [],
+      "seconds": 0.5837877653539181
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "53cc38b05c013683d88c0ed64f9192a3983b0168c3907550ec9f8f72c962d1c0",
+  "selected_reasons": []
+}

@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "78c25985bb5d791e882d67610d0ee98d4df7b1a8d3981cf380bfa5b7f50671aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.09314706921577454,
+      "alignment_seconds": 6.413459777832031e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Do you mean to say you don't mind how you die?",
+          "start": 0.02,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " you",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mean",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " say",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.1,
+              "end": 1.56,
+              "probability": 0.383056640625
+            },
+            {
+              "text": " don't",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " mind",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " how",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " die?",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "mean",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "say",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "you",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "raw": "don't",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "mind",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "how",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "you",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "die?",
+          "start": 2.24,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "\"Do",
+        "you",
+        "mean",
+        "to",
+        "say,",
+        "you",
+        "don't",
+        "mind",
+        "how",
+        "you",
+        "die?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Do",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "mean",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "to",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "say,",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "you",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "text": "don't",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "mind",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "how",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "you",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "die?\"",
+          "start": 2.24,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09324101358652115
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7bf6210bafea417c942d22f06ec8cf3960d4474bdbdd59270df986304f0709bc",
+  "selected_reasons": []
+}

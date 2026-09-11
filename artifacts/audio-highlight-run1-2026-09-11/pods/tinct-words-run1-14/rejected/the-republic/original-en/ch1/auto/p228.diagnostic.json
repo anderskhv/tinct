@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "5935764ca9295440f50da0e593aa44d1257633c1e65417409b42522b4388b332",
+  "attempts": [
+    {
+      "asr_seconds": 0.15857543051242828,
+      "alignment_seconds": 7.968395948410034e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nothing can be clearer, Socrates, said Polemarchus.",
+        "hotwords": "Nothing, Socrates, Polemarchus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nothing can be clearer, Socrates, said Polemarchus.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Nothing",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.259521484375
+            },
+            {
+              "text": " can",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 0.91,
+              "end": 1.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " clearer,",
+              "start": 1.05,
+              "end": 1.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Socrates,",
+              "start": 1.77,
+              "end": 2.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Polemarchus.",
+              "start": 2.67,
+              "end": 3.33,
+              "probability": 0.632965087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "can",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "be",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "raw": "clearer,",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "raw": "Socrates,",
+          "start": 1.77,
+          "end": 2.19
+        },
+        {
+          "raw": "said",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "Polemarchus.",
+          "start": 2.67,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Nothing",
+        "can",
+        "be",
+        "clearer,",
+        "Socrates,",
+        "said",
+        "Polemarchus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Nothing",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "can",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "be",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "text": "clearer,",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "text": "Socrates,",
+          "start": 1.77,
+          "end": 2.19
+        },
+        {
+          "text": "said",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "Polemarchus.",
+          "start": 2.67,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1586897373199463
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3472184ece54e94f2f6ba32368582b2fdb3160c8d68f8128e9c1f7fc013ce271",
+  "selected_reasons": []
+}

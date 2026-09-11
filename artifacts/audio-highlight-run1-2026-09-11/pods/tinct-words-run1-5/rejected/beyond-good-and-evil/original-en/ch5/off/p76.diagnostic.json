@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9946caf0692e1304569e1105ea89b8676c214b68cf3417e9614deed2f90d818f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14129523187875748,
+      "alignment_seconds": 6.783753633499146e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 139. In revenge and in love, woman is more barbarous than man.",
+          "start": 0.05,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " 139.",
+              "start": 0.05,
+              "end": 1.21,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " In",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " revenge",
+              "start": 2.33,
+              "end": 2.69,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " and",
+              "start": 2.69,
+              "end": 3.09,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " in",
+              "start": 3.09,
+              "end": 3.21,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " love,",
+              "start": 3.21,
+              "end": 3.45,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " woman",
+              "start": 3.65,
+              "end": 3.79,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " is",
+              "start": 3.79,
+              "end": 4.09,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " more",
+              "start": 4.09,
+              "end": 4.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " barbarous",
+              "start": 4.31,
+              "end": 4.89,
+              "probability": 0.982421875
+            },
+            {
+              "text": " than",
+              "start": 4.89,
+              "end": 5.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " man.",
+              "start": 5.03,
+              "end": 5.35,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "139.",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "raw": "In",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "revenge",
+          "start": 2.33,
+          "end": 2.69
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "raw": "in",
+          "start": 3.09,
+          "end": 3.21
+        },
+        {
+          "raw": "love,",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "raw": "woman",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "raw": "is",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "raw": "more",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "raw": "barbarous",
+          "start": 4.31,
+          "end": 4.89
+        },
+        {
+          "raw": "than",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "raw": "man.",
+          "start": 5.03,
+          "end": 5.35
+        }
+      ],
+      "expected_tokens": [
+        "139.",
+        "In",
+        "revenge",
+        "and",
+        "in",
+        "love",
+        "woman",
+        "is",
+        "more",
+        "barbarous",
+        "than",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "139.",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "text": "In",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "revenge",
+          "start": 2.33,
+          "end": 2.69
+        },
+        {
+          "text": "and",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "text": "in",
+          "start": 3.09,
+          "end": 3.21
+        },
+        {
+          "text": "love",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "text": "woman",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "text": "is",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "text": "more",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "text": "barbarous",
+          "start": 4.31,
+          "end": 4.89
+        },
+        {
+          "text": "than",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "text": "man.",
+          "start": 5.03,
+          "end": 5.35
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1413913145661354
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3f67529880bdb4e1c5f6d6c50d19d1345869e54cdea9c79959864a883a9ff15c",
+  "selected_reasons": []
+}

@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "530e5acfaadf1382e1c1e30d804c18e87ddbda8d47164054125d6bfbcb44714d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16586735099554062,
+      "alignment_seconds": 7.055699825286865e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He said, who then are the true philosophers?",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " said,",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " who",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.09033203125
+            },
+            {
+              "text": " then",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " are",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " true",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " philosophers?",
+              "start": 2.01,
+              "end": 2.47,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "said,",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "who",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "then",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "are",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "true",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "philosophers?",
+          "start": 2.01,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "said:",
+        "Who",
+        "then",
+        "are",
+        "the",
+        "true",
+        "philosophers?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "said:",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "Who",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "then",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "are",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "true",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "philosophers?",
+          "start": 2.01,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16596990823745728
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "13c07a85dba3cdae331feb61f804a7224df515b822d39fcba7d760d1a3b3fedf",
+  "selected_reasons": []
+}

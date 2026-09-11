@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "b68c5acd10e90b9a100f5cacaf039dfb5522b47f0cd9b95ca2d3f1149485a16b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13476835936307907,
+      "alignment_seconds": 9.998679161071777e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then the superhuman and divine is absolutely incapable of falsehood?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then the superhuman and divine is absolutely incapable of falsehood?",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " superhuman",
+              "start": 0.79,
+              "end": 1.27,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.91,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " divine",
+              "start": 1.91,
+              "end": 2.31,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " is",
+              "start": 2.31,
+              "end": 2.81,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " absolutely",
+              "start": 2.81,
+              "end": 3.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " incapable",
+              "start": 3.41,
+              "end": 3.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " falsehood?",
+              "start": 4.31,
+              "end": 4.75,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "superhuman",
+          "start": 0.79,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.91
+        },
+        {
+          "raw": "divine",
+          "start": 1.91,
+          "end": 2.31
+        },
+        {
+          "raw": "is",
+          "start": 2.31,
+          "end": 2.81
+        },
+        {
+          "raw": "absolutely",
+          "start": 2.81,
+          "end": 3.41
+        },
+        {
+          "raw": "incapable",
+          "start": 3.41,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.31
+        },
+        {
+          "raw": "falsehood?",
+          "start": 4.31,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "the",
+        "superhuman",
+        "and",
+        "divine",
+        "is",
+        "absolutely",
+        "incapable",
+        "of",
+        "falsehood?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "superhuman",
+          "start": 0.79,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.91
+        },
+        {
+          "text": "divine",
+          "start": 1.91,
+          "end": 2.31
+        },
+        {
+          "text": "is",
+          "start": 2.31,
+          "end": 2.81
+        },
+        {
+          "text": "absolutely",
+          "start": 2.81,
+          "end": 3.41
+        },
+        {
+          "text": "incapable",
+          "start": 3.41,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.31
+        },
+        {
+          "text": "falsehood?",
+          "start": 4.31,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13491353392601013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3ebf457f9d4e65e1f48cf92a751a32fe2bc955ad01a9517b29626eaeb37f5215",
+  "selected_reasons": []
+}

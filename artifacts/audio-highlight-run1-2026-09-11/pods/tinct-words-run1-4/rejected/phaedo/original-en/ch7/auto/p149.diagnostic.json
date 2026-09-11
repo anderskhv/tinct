@@ -1,0 +1,2709 @@
+{
+  "complete": true,
+  "signature": "a32a726d83bac7474b4b26bfe45f2da78773d88f5428c0f77cc703e8d1beed7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19414770789444447,
+      "alignment_seconds": 0.00016149785369634628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yet once more let me ask you to consider the question from another point of view, and see whether you agree with me:--There is a thing which you term heat, and another thing which you term cold?",
+        "hotwords": "Yet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yet once more let me ask you to consider the question from another point of view, and see whether you agree with me?",
+          "start": 0.05,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " Yet",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " once",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " more",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " let",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " me",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ask",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " consider",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " question",
+              "start": 2.45,
+              "end": 2.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " another",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " point",
+              "start": 3.35,
+              "end": 3.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.65,
+              "end": 3.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " view,",
+              "start": 3.81,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.15,
+              "end": 4.75,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " see",
+              "start": 4.75,
+              "end": 4.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whether",
+              "start": 4.95,
+              "end": 5.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " agree",
+              "start": 5.39,
+              "end": 5.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 5.65,
+              "end": 5.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me?",
+              "start": 5.83,
+              "end": 6.15,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " There is a thing which you term heat, and another thing which you term cold?",
+          "start": 6.65,
+          "end": 10.59,
+          "words": [
+            {
+              "text": " There",
+              "start": 6.65,
+              "end": 6.89,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " is",
+              "start": 6.89,
+              "end": 7.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 7.05,
+              "end": 7.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thing",
+              "start": 7.21,
+              "end": 7.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 7.41,
+              "end": 7.63,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " you",
+              "start": 7.63,
+              "end": 7.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " term",
+              "start": 7.85,
+              "end": 8.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heat,",
+              "start": 8.11,
+              "end": 8.45,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " and",
+              "start": 8.85,
+              "end": 9.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " another",
+              "start": 9.01,
+              "end": 9.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thing",
+              "start": 9.27,
+              "end": 9.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you",
+              "start": 9.75,
+              "end": 9.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " term",
+              "start": 9.95,
+              "end": 10.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cold?",
+              "start": 10.23,
+              "end": 10.59,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yet",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "once",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "more",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "let",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "ask",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "consider",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "raw": "the",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "question",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "raw": "from",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "another",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "point",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "raw": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "raw": "view,",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "raw": "and",
+          "start": 4.15,
+          "end": 4.75
+        },
+        {
+          "raw": "see",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "raw": "whether",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "raw": "you",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "agree",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "raw": "with",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "raw": "me?",
+          "start": 5.83,
+          "end": 6.15
+        },
+        {
+          "raw": "There",
+          "start": 6.65,
+          "end": 6.89
+        },
+        {
+          "raw": "is",
+          "start": 6.89,
+          "end": 7.05
+        },
+        {
+          "raw": "a",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "raw": "thing",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "raw": "which",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "raw": "you",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "raw": "term",
+          "start": 7.85,
+          "end": 8.11
+        },
+        {
+          "raw": "heat,",
+          "start": 8.11,
+          "end": 8.45
+        },
+        {
+          "raw": "and",
+          "start": 8.85,
+          "end": 9.01
+        },
+        {
+          "raw": "another",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "raw": "thing",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "raw": "which",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "you",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "raw": "term",
+          "start": 9.95,
+          "end": 10.23
+        },
+        {
+          "raw": "cold?",
+          "start": 10.23,
+          "end": 10.59
+        }
+      ],
+      "expected_tokens": [
+        "Yet",
+        "once",
+        "more",
+        "let",
+        "me",
+        "ask",
+        "you",
+        "to",
+        "consider",
+        "the",
+        "question",
+        "from",
+        "another",
+        "point",
+        "of",
+        "view,",
+        "and",
+        "see",
+        "whether",
+        "you",
+        "agree",
+        "with",
+        "me:--There",
+        "is",
+        "a",
+        "thing",
+        "which",
+        "you",
+        "term",
+        "heat,",
+        "and",
+        "another",
+        "thing",
+        "which",
+        "you",
+        "term",
+        "cold?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "equal",
+          23,
+          37,
+          24,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yet",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "once",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "more",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "let",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "ask",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "text": "you",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "to",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "consider",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "the",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "question",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "text": "from",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "another",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "point",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "text": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "text": "view,",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "text": "and",
+          "start": 4.15,
+          "end": 4.75
+        },
+        {
+          "text": "see",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "text": "whether",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "text": "you",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "text": "agree",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "text": "with",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "text": "me:--There",
+          "start": 5.83,
+          "end": 6.36
+        },
+        {
+          "text": "is",
+          "start": 6.89,
+          "end": 7.05
+        },
+        {
+          "text": "a",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "text": "thing",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "text": "which",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "text": "you",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "text": "term",
+          "start": 7.85,
+          "end": 8.11
+        },
+        {
+          "text": "heat,",
+          "start": 8.11,
+          "end": 8.45
+        },
+        {
+          "text": "and",
+          "start": 8.85,
+          "end": 9.01
+        },
+        {
+          "text": "another",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "text": "thing",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "text": "which",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "you",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "text": "term",
+          "start": 9.95,
+          "end": 10.23
+        },
+        {
+          "text": "cold?",
+          "start": 10.23,
+          "end": 10.59
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 38,
+        "matched_words": 36
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.19438793044537306
+    },
+    {
+      "asr_seconds": 0.18431331310421228,
+      "alignment_seconds": 0.00014451611787080765,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yet"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yet once more let me ask you to consider the question from another point of view and see whether you agree with me",
+          "start": 0.05,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " Yet",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " once",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " more",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " let",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " me",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ask",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " consider",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " question",
+              "start": 2.45,
+              "end": 2.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " another",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " point",
+              "start": 3.35,
+              "end": 3.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.65,
+              "end": 3.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " view",
+              "start": 3.81,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.15,
+              "end": 4.73,
+              "probability": 0.810546875
+            },
+            {
+              "text": " see",
+              "start": 4.73,
+              "end": 4.95,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " whether",
+              "start": 4.95,
+              "end": 5.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " agree",
+              "start": 5.39,
+              "end": 5.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 5.65,
+              "end": 5.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " me",
+              "start": 5.83,
+              "end": 6.15,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " There is a thing which you term heat and another thing which you term cold",
+          "start": 6.15,
+          "end": 10.61,
+          "words": [
+            {
+              "text": " There",
+              "start": 6.15,
+              "end": 6.87,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " is",
+              "start": 6.87,
+              "end": 7.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 7.05,
+              "end": 7.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 7.21,
+              "end": 7.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 7.41,
+              "end": 7.63,
+              "probability": 0.89453125
+            },
+            {
+              "text": " you",
+              "start": 7.63,
+              "end": 7.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " term",
+              "start": 7.85,
+              "end": 8.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " heat",
+              "start": 8.13,
+              "end": 8.45,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " and",
+              "start": 8.45,
+              "end": 9.01,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " another",
+              "start": 9.01,
+              "end": 9.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 9.27,
+              "end": 9.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " which",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.92578125
+            },
+            {
+              "text": " you",
+              "start": 9.75,
+              "end": 9.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " term",
+              "start": 9.95,
+              "end": 10.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cold",
+              "start": 10.23,
+              "end": 10.61,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yet",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "once",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "more",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "let",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "ask",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "consider",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "raw": "the",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "question",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "raw": "from",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "another",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "point",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "raw": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "raw": "view",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "raw": "and",
+          "start": 4.15,
+          "end": 4.73
+        },
+        {
+          "raw": "see",
+          "start": 4.73,
+          "end": 4.95
+        },
+        {
+          "raw": "whether",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "raw": "you",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "agree",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "raw": "with",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "raw": "me",
+          "start": 5.83,
+          "end": 6.15
+        },
+        {
+          "raw": "There",
+          "start": 6.15,
+          "end": 6.87
+        },
+        {
+          "raw": "is",
+          "start": 6.87,
+          "end": 7.05
+        },
+        {
+          "raw": "a",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "raw": "thing",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "raw": "which",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "raw": "you",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "raw": "term",
+          "start": 7.85,
+          "end": 8.13
+        },
+        {
+          "raw": "heat",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "raw": "and",
+          "start": 8.45,
+          "end": 9.01
+        },
+        {
+          "raw": "another",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "raw": "thing",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "raw": "which",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "you",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "raw": "term",
+          "start": 9.95,
+          "end": 10.23
+        },
+        {
+          "raw": "cold",
+          "start": 10.23,
+          "end": 10.61
+        }
+      ],
+      "expected_tokens": [
+        "Yet",
+        "once",
+        "more",
+        "let",
+        "me",
+        "ask",
+        "you",
+        "to",
+        "consider",
+        "the",
+        "question",
+        "from",
+        "another",
+        "point",
+        "of",
+        "view,",
+        "and",
+        "see",
+        "whether",
+        "you",
+        "agree",
+        "with",
+        "me:--There",
+        "is",
+        "a",
+        "thing",
+        "which",
+        "you",
+        "term",
+        "heat,",
+        "and",
+        "another",
+        "thing",
+        "which",
+        "you",
+        "term",
+        "cold?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "equal",
+          23,
+          37,
+          24,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yet",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "once",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "more",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "let",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "ask",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "text": "you",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "to",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "consider",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "the",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "question",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "text": "from",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "another",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "point",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "text": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "text": "view,",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "text": "and",
+          "start": 4.15,
+          "end": 4.73
+        },
+        {
+          "text": "see",
+          "start": 4.73,
+          "end": 4.95
+        },
+        {
+          "text": "whether",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "text": "you",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "text": "agree",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "text": "with",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "text": "me:--There",
+          "start": 5.83,
+          "end": 6.35
+        },
+        {
+          "text": "is",
+          "start": 6.87,
+          "end": 7.05
+        },
+        {
+          "text": "a",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "text": "thing",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "text": "which",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "text": "you",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "text": "term",
+          "start": 7.85,
+          "end": 8.13
+        },
+        {
+          "text": "heat,",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "text": "and",
+          "start": 8.45,
+          "end": 9.01
+        },
+        {
+          "text": "another",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "text": "thing",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "text": "which",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "you",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "text": "term",
+          "start": 9.95,
+          "end": 10.23
+        },
+        {
+          "text": "cold?",
+          "start": 10.23,
+          "end": 10.61
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 38,
+        "matched_words": 36
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.1845347573980689
+    },
+    {
+      "asr_seconds": 0.18512626830488443,
+      "alignment_seconds": 0.00014443323016166687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yet once more let me ask you to consider the question from another point of view and see whether you agree with me",
+          "start": 0.05,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " Yet",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " once",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " more",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " let",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " me",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ask",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " consider",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " question",
+              "start": 2.45,
+              "end": 2.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " another",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " point",
+              "start": 3.35,
+              "end": 3.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.65,
+              "end": 3.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " view",
+              "start": 3.81,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.15,
+              "end": 4.73,
+              "probability": 0.810546875
+            },
+            {
+              "text": " see",
+              "start": 4.73,
+              "end": 4.95,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " whether",
+              "start": 4.95,
+              "end": 5.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " agree",
+              "start": 5.39,
+              "end": 5.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 5.65,
+              "end": 5.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " me",
+              "start": 5.83,
+              "end": 6.15,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " There is a thing which you term heat and another thing which you term cold",
+          "start": 6.15,
+          "end": 10.61,
+          "words": [
+            {
+              "text": " There",
+              "start": 6.15,
+              "end": 6.87,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " is",
+              "start": 6.87,
+              "end": 7.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 7.05,
+              "end": 7.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 7.21,
+              "end": 7.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 7.41,
+              "end": 7.63,
+              "probability": 0.89453125
+            },
+            {
+              "text": " you",
+              "start": 7.63,
+              "end": 7.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " term",
+              "start": 7.85,
+              "end": 8.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " heat",
+              "start": 8.13,
+              "end": 8.45,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " and",
+              "start": 8.45,
+              "end": 9.01,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " another",
+              "start": 9.01,
+              "end": 9.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 9.27,
+              "end": 9.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " which",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.92578125
+            },
+            {
+              "text": " you",
+              "start": 9.75,
+              "end": 9.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " term",
+              "start": 9.95,
+              "end": 10.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cold",
+              "start": 10.23,
+              "end": 10.61,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yet",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "once",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "more",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "let",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "ask",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "raw": "you",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "consider",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "raw": "the",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "question",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "raw": "from",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "another",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "point",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "raw": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "raw": "view",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "raw": "and",
+          "start": 4.15,
+          "end": 4.73
+        },
+        {
+          "raw": "see",
+          "start": 4.73,
+          "end": 4.95
+        },
+        {
+          "raw": "whether",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "raw": "you",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "agree",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "raw": "with",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "raw": "me",
+          "start": 5.83,
+          "end": 6.15
+        },
+        {
+          "raw": "There",
+          "start": 6.15,
+          "end": 6.87
+        },
+        {
+          "raw": "is",
+          "start": 6.87,
+          "end": 7.05
+        },
+        {
+          "raw": "a",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "raw": "thing",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "raw": "which",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "raw": "you",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "raw": "term",
+          "start": 7.85,
+          "end": 8.13
+        },
+        {
+          "raw": "heat",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "raw": "and",
+          "start": 8.45,
+          "end": 9.01
+        },
+        {
+          "raw": "another",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "raw": "thing",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "raw": "which",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "you",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "raw": "term",
+          "start": 9.95,
+          "end": 10.23
+        },
+        {
+          "raw": "cold",
+          "start": 10.23,
+          "end": 10.61
+        }
+      ],
+      "expected_tokens": [
+        "Yet",
+        "once",
+        "more",
+        "let",
+        "me",
+        "ask",
+        "you",
+        "to",
+        "consider",
+        "the",
+        "question",
+        "from",
+        "another",
+        "point",
+        "of",
+        "view,",
+        "and",
+        "see",
+        "whether",
+        "you",
+        "agree",
+        "with",
+        "me:--There",
+        "is",
+        "a",
+        "thing",
+        "which",
+        "you",
+        "term",
+        "heat,",
+        "and",
+        "another",
+        "thing",
+        "which",
+        "you",
+        "term",
+        "cold?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "equal",
+          23,
+          37,
+          24,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yet",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "once",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "more",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "let",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "ask",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "text": "you",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "to",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "consider",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "the",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "question",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "text": "from",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "another",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "point",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "text": "of",
+          "start": 3.65,
+          "end": 3.81
+        },
+        {
+          "text": "view,",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "text": "and",
+          "start": 4.15,
+          "end": 4.73
+        },
+        {
+          "text": "see",
+          "start": 4.73,
+          "end": 4.95
+        },
+        {
+          "text": "whether",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "text": "you",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "text": "agree",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "text": "with",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "text": "me:--There",
+          "start": 5.83,
+          "end": 6.35
+        },
+        {
+          "text": "is",
+          "start": 6.87,
+          "end": 7.05
+        },
+        {
+          "text": "a",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "text": "thing",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "text": "which",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "text": "you",
+          "start": 7.63,
+          "end": 7.85
+        },
+        {
+          "text": "term",
+          "start": 7.85,
+          "end": 8.13
+        },
+        {
+          "text": "heat,",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "text": "and",
+          "start": 8.45,
+          "end": 9.01
+        },
+        {
+          "text": "another",
+          "start": 9.01,
+          "end": 9.27
+        },
+        {
+          "text": "thing",
+          "start": 9.27,
+          "end": 9.57
+        },
+        {
+          "text": "which",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "you",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "text": "term",
+          "start": 9.95,
+          "end": 10.23
+        },
+        {
+          "text": "cold?",
+          "start": 10.23,
+          "end": 10.61
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 38,
+        "matched_words": 36
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.18534220661967993
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f653f323ac784c79f4729b479a16d545575fe970d5922a9232465dbd519898db",
+  "selected_reasons": []
+}

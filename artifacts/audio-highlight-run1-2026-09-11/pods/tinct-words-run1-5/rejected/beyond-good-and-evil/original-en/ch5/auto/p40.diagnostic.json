@@ -1,0 +1,1712 @@
+{
+  "complete": true,
+  "signature": "99adf5fd35cf3b883fef3302885f1dffaec0c5b46a093e3d62317dc2085ad846",
+  "attempts": [
+    {
+      "asr_seconds": 0.18352241069078445,
+      "alignment_seconds": 0.00010908395051956177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "103. The Danger In Happiness.--\"Everything now turns out best for me, I now love every fate:--who would like to be my fate?\"",
+        "hotwords": "The, Danger, In, Happiness.--\"Everything, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 103. The Danger In Happiness.--Everything now turns out best for me, I now love every fate,",
+          "start": 0.05,
+          "end": 6.71,
+          "words": [
+            {
+              "text": " 103.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.9453125
+            },
+            {
+              "text": " The",
+              "start": 1.73,
+              "end": 1.77,
+              "probability": 0.869140625
+            },
+            {
+              "text": " Danger",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " In",
+              "start": 2.05,
+              "end": 2.37,
+              "probability": 0.09991455078125
+            },
+            {
+              "text": " Happiness.--Everything",
+              "start": 2.37,
+              "end": 3.79,
+              "probability": 0.3560182253519694
+            },
+            {
+              "text": " now",
+              "start": 3.79,
+              "end": 4.07,
+              "probability": 0.292236328125
+            },
+            {
+              "text": " turns",
+              "start": 4.07,
+              "end": 4.31,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " out",
+              "start": 4.31,
+              "end": 4.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " best",
+              "start": 4.59,
+              "end": 4.77,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " for",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me,",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 5.47,
+              "end": 5.59,
+              "probability": 0.96875
+            },
+            {
+              "text": " now",
+              "start": 5.59,
+              "end": 5.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " love",
+              "start": 5.79,
+              "end": 6.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " every",
+              "start": 6.05,
+              "end": 6.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " fate,",
+              "start": 6.37,
+              "end": 6.71,
+              "probability": 0.958984375
+            }
+          ]
+        },
+        {
+          "text": " who would like to be my fate?\"",
+          "start": 7.15,
+          "end": 8.95,
+          "words": [
+            {
+              "text": " who",
+              "start": 7.15,
+              "end": 7.27,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " would",
+              "start": 7.27,
+              "end": 7.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 7.39,
+              "end": 7.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 7.53,
+              "end": 7.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 7.69,
+              "end": 7.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 7.79,
+              "end": 7.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fate?\"",
+              "start": 7.97,
+              "end": 8.95,
+              "probability": 0.5136871337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "103.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "The",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "raw": "Danger",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "In",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "raw": "Happiness.--Everything",
+          "start": 2.37,
+          "end": 3.79
+        },
+        {
+          "raw": "now",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "raw": "turns",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "raw": "out",
+          "start": 4.31,
+          "end": 4.59
+        },
+        {
+          "raw": "best",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "raw": "for",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "me,",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "I",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "raw": "now",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "raw": "love",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "raw": "every",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "raw": "fate,",
+          "start": 6.37,
+          "end": 6.71
+        },
+        {
+          "raw": "who",
+          "start": 7.15,
+          "end": 7.27
+        },
+        {
+          "raw": "would",
+          "start": 7.27,
+          "end": 7.39
+        },
+        {
+          "raw": "like",
+          "start": 7.39,
+          "end": 7.53
+        },
+        {
+          "raw": "to",
+          "start": 7.53,
+          "end": 7.69
+        },
+        {
+          "raw": "be",
+          "start": 7.69,
+          "end": 7.79
+        },
+        {
+          "raw": "my",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "raw": "fate?\"",
+          "start": 7.97,
+          "end": 8.95
+        }
+      ],
+      "expected_tokens": [
+        "103.",
+        "The",
+        "Danger",
+        "In",
+        "Happiness.--\"Everything",
+        "now",
+        "turns",
+        "out",
+        "best",
+        "for",
+        "me,",
+        "I",
+        "now",
+        "love",
+        "every",
+        "fate:--who",
+        "would",
+        "like",
+        "to",
+        "be",
+        "my",
+        "fate?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "equal",
+          16,
+          22,
+          17,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "103.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "The",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "text": "Danger",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "In",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "text": "Happiness.--\"Everything",
+          "start": 2.37,
+          "end": 3.79
+        },
+        {
+          "text": "now",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "text": "turns",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "text": "out",
+          "start": 4.31,
+          "end": 4.59
+        },
+        {
+          "text": "best",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "text": "for",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "me,",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "I",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "text": "now",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "text": "love",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "text": "every",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "text": "fate:--who",
+          "start": 6.37,
+          "end": 6.82
+        },
+        {
+          "text": "would",
+          "start": 7.27,
+          "end": 7.39
+        },
+        {
+          "text": "like",
+          "start": 7.39,
+          "end": 7.53
+        },
+        {
+          "text": "to",
+          "start": 7.53,
+          "end": 7.69
+        },
+        {
+          "text": "be",
+          "start": 7.69,
+          "end": 7.79
+        },
+        {
+          "text": "my",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "text": "fate?\"",
+          "start": 7.97,
+          "end": 8.95
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.18367424607276917
+    },
+    {
+      "asr_seconds": 0.17396371066570282,
+      "alignment_seconds": 0.00010782480239868164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "The, Danger, In, Happiness.--\"Everything, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " now turns out best for me. I now love every fate. Who would like to be my fate?\"",
+          "start": 3.39,
+          "end": 8.95,
+          "words": [
+            {
+              "text": " now",
+              "start": 3.39,
+              "end": 3.83,
+              "probability": 6.556510925292969e-07
+            },
+            {
+              "text": " turns",
+              "start": 3.83,
+              "end": 4.27,
+              "probability": 0.317138671875
+            },
+            {
+              "text": " out",
+              "start": 4.27,
+              "end": 4.57,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " best",
+              "start": 4.57,
+              "end": 4.79,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " for",
+              "start": 4.79,
+              "end": 5.01,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " me.",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " I",
+              "start": 5.59,
+              "end": 5.59,
+              "probability": 0.8515625
+            },
+            {
+              "text": " now",
+              "start": 5.59,
+              "end": 5.79,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " love",
+              "start": 5.79,
+              "end": 6.05,
+              "probability": 0.96484375
+            },
+            {
+              "text": " every",
+              "start": 6.05,
+              "end": 6.37,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " fate.",
+              "start": 6.37,
+              "end": 6.75,
+              "probability": 0.916015625
+            },
+            {
+              "text": " Who",
+              "start": 7.19,
+              "end": 7.27,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " would",
+              "start": 7.27,
+              "end": 7.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " like",
+              "start": 7.39,
+              "end": 7.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 7.55,
+              "end": 7.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 7.67,
+              "end": 7.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 7.79,
+              "end": 7.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fate?\"",
+              "start": 7.97,
+              "end": 8.95,
+              "probability": 0.5009231567382812
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "now",
+          "start": 3.39,
+          "end": 3.83
+        },
+        {
+          "raw": "turns",
+          "start": 3.83,
+          "end": 4.27
+        },
+        {
+          "raw": "out",
+          "start": 4.27,
+          "end": 4.57
+        },
+        {
+          "raw": "best",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "raw": "for",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "raw": "me.",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "I",
+          "start": 5.59,
+          "end": 5.59
+        },
+        {
+          "raw": "now",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "raw": "love",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "raw": "every",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "raw": "fate.",
+          "start": 6.37,
+          "end": 6.75
+        },
+        {
+          "raw": "Who",
+          "start": 7.19,
+          "end": 7.27
+        },
+        {
+          "raw": "would",
+          "start": 7.27,
+          "end": 7.39
+        },
+        {
+          "raw": "like",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "raw": "to",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "raw": "be",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "raw": "my",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "raw": "fate?\"",
+          "start": 7.97,
+          "end": 8.95
+        }
+      ],
+      "expected_tokens": [
+        "103.",
+        "The",
+        "Danger",
+        "In",
+        "Happiness.--\"Everything",
+        "now",
+        "turns",
+        "out",
+        "best",
+        "for",
+        "me,",
+        "I",
+        "now",
+        "love",
+        "every",
+        "fate:--who",
+        "would",
+        "like",
+        "to",
+        "be",
+        "my",
+        "fate?\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          15,
+          0,
+          10
+        ],
+        [
+          "replace",
+          15,
+          16,
+          10,
+          12
+        ],
+        [
+          "equal",
+          16,
+          22,
+          12,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "replace",
+          15,
+          16,
+          10,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "103.",
+          "start": 0.0,
+          "end": 1.695
+        },
+        {
+          "text": "The",
+          "start": 1.695,
+          "end": 2.542
+        },
+        {
+          "text": "Danger",
+          "start": 2.542,
+          "end": 2.966
+        },
+        {
+          "text": "In",
+          "start": 2.966,
+          "end": 3.178
+        },
+        {
+          "text": "Happiness.--\"Everything",
+          "start": 3.178,
+          "end": 3.284
+        },
+        {
+          "text": "now",
+          "start": 3.39,
+          "end": 3.83
+        },
+        {
+          "text": "turns",
+          "start": 3.83,
+          "end": 4.27
+        },
+        {
+          "text": "out",
+          "start": 4.27,
+          "end": 4.57
+        },
+        {
+          "text": "best",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "text": "for",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "text": "me,",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "I",
+          "start": 5.59,
+          "end": 5.59
+        },
+        {
+          "text": "now",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "text": "love",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "text": "every",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "text": "fate:--who",
+          "start": 6.37,
+          "end": 6.82
+        },
+        {
+          "text": "would",
+          "start": 7.27,
+          "end": 7.39
+        },
+        {
+          "text": "like",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "text": "to",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "text": "be",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "text": "my",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "text": "fate?\"",
+          "start": 7.97,
+          "end": 8.95
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17411638051271439
+    },
+    {
+      "asr_seconds": 0.21686945110559464,
+      "alignment_seconds": 0.00011108815670013428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 103, The Danger in Happiness.",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " 103,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.9453125
+            },
+            {
+              "text": " The",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " Danger",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " in",
+              "start": 2.05,
+              "end": 2.37,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " Happiness.",
+              "start": 2.37,
+              "end": 2.77,
+              "probability": 0.94873046875
+            }
+          ]
+        },
+        {
+          "text": " Everything now turns out best for me, I now love every fate.",
+          "start": 3.59,
+          "end": 6.71,
+          "words": [
+            {
+              "text": " Everything",
+              "start": 3.59,
+              "end": 3.79,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " now",
+              "start": 3.79,
+              "end": 4.09,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " turns",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 4.33,
+              "end": 4.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " best",
+              "start": 4.59,
+              "end": 4.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " for",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me,",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 5.47,
+              "end": 5.59,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " now",
+              "start": 5.59,
+              "end": 5.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " love",
+              "start": 5.79,
+              "end": 6.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " every",
+              "start": 6.05,
+              "end": 6.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fate.",
+              "start": 6.37,
+              "end": 6.71,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " Who would like to be my fate?",
+          "start": 7.17,
+          "end": 8.25,
+          "words": [
+            {
+              "text": " Who",
+              "start": 7.17,
+              "end": 7.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " would",
+              "start": 7.25,
+              "end": 7.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " like",
+              "start": 7.39,
+              "end": 7.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 7.55,
+              "end": 7.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 7.67,
+              "end": 7.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 7.79,
+              "end": 7.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fate?",
+              "start": 7.97,
+              "end": 8.25,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "103,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "The",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "Danger",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "in",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "raw": "Happiness.",
+          "start": 2.37,
+          "end": 2.77
+        },
+        {
+          "raw": "Everything",
+          "start": 3.59,
+          "end": 3.79
+        },
+        {
+          "raw": "now",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "raw": "turns",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "out",
+          "start": 4.33,
+          "end": 4.59
+        },
+        {
+          "raw": "best",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "raw": "for",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "me,",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "I",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "raw": "now",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "raw": "love",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "raw": "every",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "raw": "fate.",
+          "start": 6.37,
+          "end": 6.71
+        },
+        {
+          "raw": "Who",
+          "start": 7.17,
+          "end": 7.25
+        },
+        {
+          "raw": "would",
+          "start": 7.25,
+          "end": 7.39
+        },
+        {
+          "raw": "like",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "raw": "to",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "raw": "be",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "raw": "my",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "raw": "fate?",
+          "start": 7.97,
+          "end": 8.25
+        }
+      ],
+      "expected_tokens": [
+        "103.",
+        "The",
+        "Danger",
+        "In",
+        "Happiness.--\"Everything",
+        "now",
+        "turns",
+        "out",
+        "best",
+        "for",
+        "me,",
+        "I",
+        "now",
+        "love",
+        "every",
+        "fate:--who",
+        "would",
+        "like",
+        "to",
+        "be",
+        "my",
+        "fate?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          15,
+          6,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ],
+        [
+          "equal",
+          16,
+          22,
+          18,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "103.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "The",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "Danger",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "In",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "text": "Happiness.--\"Everything",
+          "start": 2.37,
+          "end": 3.08
+        },
+        {
+          "text": "now",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "text": "turns",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "out",
+          "start": 4.33,
+          "end": 4.59
+        },
+        {
+          "text": "best",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "text": "for",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "me,",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "I",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "text": "now",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "text": "love",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "text": "every",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "text": "fate:--who",
+          "start": 6.37,
+          "end": 6.81
+        },
+        {
+          "text": "would",
+          "start": 7.25,
+          "end": 7.39
+        },
+        {
+          "text": "like",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "text": "to",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "text": "be",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "text": "my",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "text": "fate?\"",
+          "start": 7.97,
+          "end": 8.25
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 24,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.21702467650175095
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d4a1b777b5c5a81eb629caf9103144cb2f9173ecd4259c21fc397ab363b29245",
+  "selected_reasons": []
+}

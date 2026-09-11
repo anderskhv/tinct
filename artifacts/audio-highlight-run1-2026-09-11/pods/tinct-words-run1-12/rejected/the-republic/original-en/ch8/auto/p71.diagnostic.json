@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "bf1b61b9c69fe9e39f05d9f1f23a3ff69260f02103269884e8558d457efaab9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.08657829137519002,
+      "alignment_seconds": 0.00012496765702962875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "By all means.",
+        "hotwords": "By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By all means.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.426025390625
+            },
+            {
+              "text": " all",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " means.",
+              "start": 0.69,
+              "end": 0.99,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "all",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "means.",
+          "start": 0.69,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "all",
+        "means."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "all",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "means.",
+          "start": 0.69,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08675163798034191
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "14dd3eac0b80fcac72740a75f1f956ed3ed5c914d9150ffd378c48105e68e582",
+  "selected_reasons": []
+}

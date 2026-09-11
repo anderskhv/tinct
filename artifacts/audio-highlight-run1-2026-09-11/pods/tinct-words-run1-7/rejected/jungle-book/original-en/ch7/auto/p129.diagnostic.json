@@ -1,0 +1,767 @@
+{
+  "complete": true,
+  "signature": "72c00326801d72bdc8ab22e5572ea749352b5d01c0b4af749ac9493ffec25c8d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2814050707966089,
+      "alignment_seconds": 0.00012116227298974991,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The bullocks went off into the long hissing snorts that Indian cattle give, and pushed and crowded and slued and stamped and slipped and nearly fell down in the mud, grunting savagely.",
+        "hotwords": "Indian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The bullocks went off into the long hissing snorts that Indian cattle give, and pushed",
+          "start": 0.02,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " bullocks",
+              "start": 0.48,
+              "end": 0.82,
+              "probability": 0.765625
+            },
+            {
+              "text": " went",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " off",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " into",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " long",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hissing",
+              "start": 1.86,
+              "end": 2.24,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " snorts",
+              "start": 2.24,
+              "end": 2.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Indian",
+              "start": 2.96,
+              "end": 3.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cattle",
+              "start": 3.32,
+              "end": 3.68,
+              "probability": 0.98828125
+            },
+            {
+              "text": " give,",
+              "start": 3.68,
+              "end": 4.08,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 4.54,
+              "end": 4.76,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " pushed",
+              "start": 4.76,
+              "end": 5.04,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " and crowded and slued and stamped and slipped and nearly fell down in the mud, grunting savagely.",
+          "start": 5.04,
+          "end": 11.1,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.04,
+              "end": 5.3,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " crowded",
+              "start": 5.3,
+              "end": 5.66,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " and",
+              "start": 5.66,
+              "end": 6.06,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " slued",
+              "start": 6.06,
+              "end": 6.52,
+              "probability": 0.4278564453125
+            },
+            {
+              "text": " and",
+              "start": 6.52,
+              "end": 6.72,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " stamped",
+              "start": 6.72,
+              "end": 7.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 7.12,
+              "end": 7.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " slipped",
+              "start": 7.44,
+              "end": 7.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 7.76,
+              "end": 8.3,
+              "probability": 0.4111328125
+            },
+            {
+              "text": " nearly",
+              "start": 8.3,
+              "end": 8.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fell",
+              "start": 8.58,
+              "end": 8.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " down",
+              "start": 8.84,
+              "end": 9.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 9.12,
+              "end": 9.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 9.28,
+              "end": 9.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mud,",
+              "start": 9.38,
+              "end": 9.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " grunting",
+              "start": 10.22,
+              "end": 10.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " savagely.",
+              "start": 10.52,
+              "end": 11.1,
+              "probability": 0.996337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "bullocks",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "raw": "went",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "off",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "into",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "the",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "long",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "hissing",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "raw": "snorts",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "raw": "that",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "Indian",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "raw": "cattle",
+          "start": 3.32,
+          "end": 3.68
+        },
+        {
+          "raw": "give,",
+          "start": 3.68,
+          "end": 4.08
+        },
+        {
+          "raw": "and",
+          "start": 4.54,
+          "end": 4.76
+        },
+        {
+          "raw": "pushed",
+          "start": 4.76,
+          "end": 5.04
+        },
+        {
+          "raw": "and",
+          "start": 5.04,
+          "end": 5.3
+        },
+        {
+          "raw": "crowded",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "raw": "and",
+          "start": 5.66,
+          "end": 6.06
+        },
+        {
+          "raw": "slued",
+          "start": 6.06,
+          "end": 6.52
+        },
+        {
+          "raw": "and",
+          "start": 6.52,
+          "end": 6.72
+        },
+        {
+          "raw": "stamped",
+          "start": 6.72,
+          "end": 7.12
+        },
+        {
+          "raw": "and",
+          "start": 7.12,
+          "end": 7.44
+        },
+        {
+          "raw": "slipped",
+          "start": 7.44,
+          "end": 7.76
+        },
+        {
+          "raw": "and",
+          "start": 7.76,
+          "end": 8.3
+        },
+        {
+          "raw": "nearly",
+          "start": 8.3,
+          "end": 8.58
+        },
+        {
+          "raw": "fell",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "raw": "down",
+          "start": 8.84,
+          "end": 9.12
+        },
+        {
+          "raw": "in",
+          "start": 9.12,
+          "end": 9.28
+        },
+        {
+          "raw": "the",
+          "start": 9.28,
+          "end": 9.38
+        },
+        {
+          "raw": "mud,",
+          "start": 9.38,
+          "end": 9.7
+        },
+        {
+          "raw": "grunting",
+          "start": 10.22,
+          "end": 10.52
+        },
+        {
+          "raw": "savagely.",
+          "start": 10.52,
+          "end": 11.1
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "bullocks",
+        "went",
+        "off",
+        "into",
+        "the",
+        "long",
+        "hissing",
+        "snorts",
+        "that",
+        "Indian",
+        "cattle",
+        "give,",
+        "and",
+        "pushed",
+        "and",
+        "crowded",
+        "and",
+        "slued",
+        "and",
+        "stamped",
+        "and",
+        "slipped",
+        "and",
+        "nearly",
+        "fell",
+        "down",
+        "in",
+        "the",
+        "mud,",
+        "grunting",
+        "savagely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "bullocks",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "text": "went",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "off",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "into",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "the",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "long",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "hissing",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "text": "snorts",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "text": "that",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "Indian",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "text": "cattle",
+          "start": 3.32,
+          "end": 3.68
+        },
+        {
+          "text": "give,",
+          "start": 3.68,
+          "end": 4.08
+        },
+        {
+          "text": "and",
+          "start": 4.54,
+          "end": 4.76
+        },
+        {
+          "text": "pushed",
+          "start": 4.76,
+          "end": 5.04
+        },
+        {
+          "text": "and",
+          "start": 5.04,
+          "end": 5.3
+        },
+        {
+          "text": "crowded",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "text": "and",
+          "start": 5.66,
+          "end": 6.06
+        },
+        {
+          "text": "slued",
+          "start": 6.06,
+          "end": 6.52
+        },
+        {
+          "text": "and",
+          "start": 6.52,
+          "end": 6.72
+        },
+        {
+          "text": "stamped",
+          "start": 6.72,
+          "end": 7.12
+        },
+        {
+          "text": "and",
+          "start": 7.12,
+          "end": 7.44
+        },
+        {
+          "text": "slipped",
+          "start": 7.44,
+          "end": 7.76
+        },
+        {
+          "text": "and",
+          "start": 7.76,
+          "end": 8.3
+        },
+        {
+          "text": "nearly",
+          "start": 8.3,
+          "end": 8.58
+        },
+        {
+          "text": "fell",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "text": "down",
+          "start": 8.84,
+          "end": 9.12
+        },
+        {
+          "text": "in",
+          "start": 9.12,
+          "end": 9.28
+        },
+        {
+          "text": "the",
+          "start": 9.28,
+          "end": 9.38
+        },
+        {
+          "text": "mud,",
+          "start": 9.38,
+          "end": 9.7
+        },
+        {
+          "text": "grunting",
+          "start": 10.22,
+          "end": 10.52
+        },
+        {
+          "text": "savagely.",
+          "start": 10.52,
+          "end": 11.1
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28159028477966785
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "adcf6ca27f11d7168197371c28d3fd6a9911af84ecd81f8c801e9b320c82d6a9",
+  "selected_reasons": []
+}

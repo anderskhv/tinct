@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "23a0112776da83fe463b7f0e01e04f9c587e2bdf2a20215faae54820503eb925",
+  "attempts": [
+    {
+      "asr_seconds": 0.1548585295677185,
+      "alignment_seconds": 9.299814701080322e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'Better to be the poor servant of a poor master,'",
+        "hotwords": "Better"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Better to be the poor servant of a poor master.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Better",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " to",
+              "start": 0.67,
+              "end": 0.87,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " be",
+              "start": 0.87,
+              "end": 1.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " poor",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " servant",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " poor",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " master.",
+              "start": 2.23,
+              "end": 2.65,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Better",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "to",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "raw": "be",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "poor",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "servant",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "of",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "poor",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "master.",
+          "start": 2.23,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "'Better",
+        "to",
+        "be",
+        "the",
+        "poor",
+        "servant",
+        "of",
+        "a",
+        "poor",
+        "master,'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'Better",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "to",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "text": "be",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "text": "the",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "poor",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "servant",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "of",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "a",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "poor",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "master,'",
+          "start": 2.23,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15499473363161087
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4432ea00d3a03b93c7cdf91e00d39c33b27b47c4e6343712a0830e79ff4173a5",
+  "selected_reasons": []
+}

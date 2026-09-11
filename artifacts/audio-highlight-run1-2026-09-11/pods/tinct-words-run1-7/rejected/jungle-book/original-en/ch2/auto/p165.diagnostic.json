@@ -1,0 +1,5516 @@
+{
+  "complete": true,
+  "signature": "c2c44abd3e69103f177f7aa8a51d955dc2f856974845c44bcc3ce10a8b93c209",
+  "attempts": [
+    {
+      "asr_seconds": 0.4593888511881232,
+      "alignment_seconds": 0.0002653850242495537,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"True, but he has cost us heavily in time which might have been spent in good hunting, in wounds, in hair--I am half plucked along my back--and last of all, in honor. For, remember, Mowgli, I, who am the Black Panther, was forced to call upon Kaa for protection, and Baloo and I were both made stupid as little birds by the Hunger Dance. All this, man-cub, came of thy playing with the Bandar-log.\"",
+        "hotwords": "True, Mowgli, I, Black, Panther, Kaa, Baloo, Hunger, Dance, Bandar-log"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " True, but he has cost us heavily in time which might have been spent in good hunting, in wounds,",
+          "start": 0.08,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " True,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " but",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.955078125
+            },
+            {
+              "text": " has",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " cost",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.986328125
+            },
+            {
+              "text": " us",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heavily",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " time",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " which",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " might",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 3.12,
+              "end": 3.24,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " been",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " spent",
+              "start": 3.4,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " good",
+              "start": 3.88,
+              "end": 4.02,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hunting,",
+              "start": 4.02,
+              "end": 4.42,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 4.94,
+              "end": 5.06,
+              "probability": 0.962890625
+            },
+            {
+              "text": " wounds,",
+              "start": 5.06,
+              "end": 5.42,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " in hair I am half plucked along my back-and last of all, in honor. For, remember, Mowgli,",
+          "start": 6.02,
+          "end": 10.84,
+          "words": [
+            {
+              "text": " in",
+              "start": 6.02,
+              "end": 6.12,
+              "probability": 0.95703125
+            },
+            {
+              "text": " hair",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.923828125
+            },
+            {
+              "text": " I",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " am",
+              "start": 6.5,
+              "end": 6.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " half",
+              "start": 6.64,
+              "end": 6.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " plucked",
+              "start": 6.88,
+              "end": 7.2,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " along",
+              "start": 7.2,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 7.42,
+              "end": 7.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " back",
+              "start": 7.62,
+              "end": 7.88,
+              "probability": 0.978515625
+            },
+            {
+              "text": "-and",
+              "start": 7.88,
+              "end": 8.06,
+              "probability": 0.14294719696044922
+            },
+            {
+              "text": " last",
+              "start": 8.06,
+              "end": 8.38,
+              "probability": 0.8125
+            },
+            {
+              "text": " of",
+              "start": 8.38,
+              "end": 8.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all,",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 8.8,
+              "end": 8.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " honor.",
+              "start": 8.9,
+              "end": 9.18,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " For,",
+              "start": 9.84,
+              "end": 10.02,
+              "probability": 0.986328125
+            },
+            {
+              "text": " remember,",
+              "start": 10.24,
+              "end": 10.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Mowgli,",
+              "start": 10.52,
+              "end": 10.84,
+              "probability": 0.969482421875
+            }
+          ]
+        },
+        {
+          "text": " I, who am the Black Panther, was forced to call upon Kaa for protection, and Baloo and",
+          "start": 11.36,
+          "end": 16.24,
+          "words": [
+            {
+              "text": " I,",
+              "start": 11.36,
+              "end": 11.6,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " who",
+              "start": 11.84,
+              "end": 11.94,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " am",
+              "start": 11.94,
+              "end": 12.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 12.12,
+              "end": 12.26,
+              "probability": 0.96875
+            },
+            {
+              "text": " Black",
+              "start": 12.26,
+              "end": 12.5,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " Panther,",
+              "start": 12.5,
+              "end": 12.92,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " was",
+              "start": 13.04,
+              "end": 13.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forced",
+              "start": 13.18,
+              "end": 13.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 13.42,
+              "end": 13.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 13.64,
+              "end": 13.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 13.82,
+              "end": 14.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Kaa",
+              "start": 14.22,
+              "end": 14.48,
+              "probability": 0.1243438720703125
+            },
+            {
+              "text": " for",
+              "start": 14.48,
+              "end": 14.66,
+              "probability": 0.9765625
+            },
+            {
+              "text": " protection,",
+              "start": 14.66,
+              "end": 15.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 15.6,
+              "end": 15.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Baloo",
+              "start": 15.82,
+              "end": 16.14,
+              "probability": 0.5472412109375
+            },
+            {
+              "text": " and",
+              "start": 16.14,
+              "end": 16.24,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " I were both made stupid as little birds by the Hunger Dance. All this, man-cub, came",
+          "start": 16.24,
+          "end": 21.6,
+          "words": [
+            {
+              "text": " I",
+              "start": 16.24,
+              "end": 16.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 16.4,
+              "end": 16.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " both",
+              "start": 16.56,
+              "end": 16.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " made",
+              "start": 16.76,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stupid",
+              "start": 17.0,
+              "end": 17.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 17.36,
+              "end": 17.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " little",
+              "start": 17.6,
+              "end": 17.84,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " birds",
+              "start": 17.84,
+              "end": 18.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " by",
+              "start": 18.18,
+              "end": 18.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 18.46,
+              "end": 18.62,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Hunger",
+              "start": 18.62,
+              "end": 18.84,
+              "probability": 0.2139892578125
+            },
+            {
+              "text": " Dance.",
+              "start": 18.84,
+              "end": 19.24,
+              "probability": 0.943359375
+            },
+            {
+              "text": " All",
+              "start": 20.02,
+              "end": 20.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this,",
+              "start": 20.2,
+              "end": 20.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " man",
+              "start": 20.62,
+              "end": 20.7,
+              "probability": 0.5859375
+            },
+            {
+              "text": "-cub,",
+              "start": 20.7,
+              "end": 20.98,
+              "probability": 0.86328125
+            },
+            {
+              "text": " came",
+              "start": 21.48,
+              "end": 21.6,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " of thy playing with the Bandar-log.\"",
+          "start": 21.6,
+          "end": 23.56,
+          "words": [
+            {
+              "text": " of",
+              "start": 21.6,
+              "end": 21.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thy",
+              "start": 21.74,
+              "end": 21.86,
+              "probability": 0.9765625
+            },
+            {
+              "text": " playing",
+              "start": 21.86,
+              "end": 22.16,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " with",
+              "start": 22.16,
+              "end": 22.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 22.34,
+              "end": 22.48,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Bandar",
+              "start": 22.48,
+              "end": 22.84,
+              "probability": 0.826904296875
+            },
+            {
+              "text": "-log.\"",
+              "start": 22.84,
+              "end": 23.56,
+              "probability": 0.2205810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "but",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "has",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "cost",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "us",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "heavily",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "in",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "time",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "which",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "might",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "have",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "raw": "been",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "spent",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "raw": "in",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "good",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "raw": "hunting,",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "raw": "in",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "raw": "wounds,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "raw": "hair",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "I",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "am",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "raw": "half",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "raw": "plucked",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "raw": "along",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "raw": "my",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "raw": "back",
+          "start": 7.62,
+          "end": 7.88
+        },
+        {
+          "raw": "-and",
+          "start": 7.88,
+          "end": 8.06
+        },
+        {
+          "raw": "last",
+          "start": 8.06,
+          "end": 8.38
+        },
+        {
+          "raw": "of",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "raw": "all,",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "in",
+          "start": 8.8,
+          "end": 8.9
+        },
+        {
+          "raw": "honor.",
+          "start": 8.9,
+          "end": 9.18
+        },
+        {
+          "raw": "For,",
+          "start": 9.84,
+          "end": 10.02
+        },
+        {
+          "raw": "remember,",
+          "start": 10.24,
+          "end": 10.32
+        },
+        {
+          "raw": "Mowgli,",
+          "start": 10.52,
+          "end": 10.84
+        },
+        {
+          "raw": "I,",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "raw": "who",
+          "start": 11.84,
+          "end": 11.94
+        },
+        {
+          "raw": "am",
+          "start": 11.94,
+          "end": 12.12
+        },
+        {
+          "raw": "the",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "raw": "Black",
+          "start": 12.26,
+          "end": 12.5
+        },
+        {
+          "raw": "Panther,",
+          "start": 12.5,
+          "end": 12.92
+        },
+        {
+          "raw": "was",
+          "start": 13.04,
+          "end": 13.18
+        },
+        {
+          "raw": "forced",
+          "start": 13.18,
+          "end": 13.42
+        },
+        {
+          "raw": "to",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "raw": "call",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "raw": "upon",
+          "start": 13.82,
+          "end": 14.22
+        },
+        {
+          "raw": "Kaa",
+          "start": 14.22,
+          "end": 14.48
+        },
+        {
+          "raw": "for",
+          "start": 14.48,
+          "end": 14.66
+        },
+        {
+          "raw": "protection,",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "raw": "and",
+          "start": 15.6,
+          "end": 15.82
+        },
+        {
+          "raw": "Baloo",
+          "start": 15.82,
+          "end": 16.14
+        },
+        {
+          "raw": "and",
+          "start": 16.14,
+          "end": 16.24
+        },
+        {
+          "raw": "I",
+          "start": 16.24,
+          "end": 16.4
+        },
+        {
+          "raw": "were",
+          "start": 16.4,
+          "end": 16.56
+        },
+        {
+          "raw": "both",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "raw": "made",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "raw": "stupid",
+          "start": 17.0,
+          "end": 17.36
+        },
+        {
+          "raw": "as",
+          "start": 17.36,
+          "end": 17.6
+        },
+        {
+          "raw": "little",
+          "start": 17.6,
+          "end": 17.84
+        },
+        {
+          "raw": "birds",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "raw": "by",
+          "start": 18.18,
+          "end": 18.46
+        },
+        {
+          "raw": "the",
+          "start": 18.46,
+          "end": 18.62
+        },
+        {
+          "raw": "Hunger",
+          "start": 18.62,
+          "end": 18.84
+        },
+        {
+          "raw": "Dance.",
+          "start": 18.84,
+          "end": 19.24
+        },
+        {
+          "raw": "All",
+          "start": 20.02,
+          "end": 20.2
+        },
+        {
+          "raw": "this,",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "raw": "man",
+          "start": 20.62,
+          "end": 20.7
+        },
+        {
+          "raw": "-cub,",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "raw": "came",
+          "start": 21.48,
+          "end": 21.6
+        },
+        {
+          "raw": "of",
+          "start": 21.6,
+          "end": 21.74
+        },
+        {
+          "raw": "thy",
+          "start": 21.74,
+          "end": 21.86
+        },
+        {
+          "raw": "playing",
+          "start": 21.86,
+          "end": 22.16
+        },
+        {
+          "raw": "with",
+          "start": 22.16,
+          "end": 22.34
+        },
+        {
+          "raw": "the",
+          "start": 22.34,
+          "end": 22.48
+        },
+        {
+          "raw": "Bandar",
+          "start": 22.48,
+          "end": 22.84
+        },
+        {
+          "raw": "-log.\"",
+          "start": 22.84,
+          "end": 23.56
+        }
+      ],
+      "expected_tokens": [
+        "\"True,",
+        "but",
+        "he",
+        "has",
+        "cost",
+        "us",
+        "heavily",
+        "in",
+        "time",
+        "which",
+        "might",
+        "have",
+        "been",
+        "spent",
+        "in",
+        "good",
+        "hunting,",
+        "in",
+        "wounds,",
+        "in",
+        "hair--I",
+        "am",
+        "half",
+        "plucked",
+        "along",
+        "my",
+        "back--and",
+        "last",
+        "of",
+        "all,",
+        "in",
+        "honor.",
+        "For,",
+        "remember,",
+        "Mowgli,",
+        "I,",
+        "who",
+        "am",
+        "the",
+        "Black",
+        "Panther,",
+        "was",
+        "forced",
+        "to",
+        "call",
+        "upon",
+        "Kaa",
+        "for",
+        "protection,",
+        "and",
+        "Baloo",
+        "and",
+        "I",
+        "were",
+        "both",
+        "made",
+        "stupid",
+        "as",
+        "little",
+        "birds",
+        "by",
+        "the",
+        "Hunger",
+        "Dance.",
+        "All",
+        "this,",
+        "man-cub,",
+        "came",
+        "of",
+        "thy",
+        "playing",
+        "with",
+        "the",
+        "Bandar-log.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          26,
+          22,
+          27
+        ],
+        [
+          "replace",
+          26,
+          27,
+          27,
+          29
+        ],
+        [
+          "equal",
+          27,
+          66,
+          29,
+          68
+        ],
+        [
+          "replace",
+          66,
+          67,
+          68,
+          70
+        ],
+        [
+          "equal",
+          67,
+          73,
+          70,
+          76
+        ],
+        [
+          "replace",
+          73,
+          74,
+          76,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "replace",
+          26,
+          27,
+          27,
+          29
+        ],
+        [
+          "replace",
+          66,
+          67,
+          68,
+          70
+        ],
+        [
+          "replace",
+          73,
+          74,
+          76,
+          78
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"True,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "but",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "has",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "cost",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "us",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "heavily",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "in",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "time",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "which",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "might",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "have",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "text": "been",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "spent",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "text": "in",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "good",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "text": "hunting,",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "text": "in",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "text": "wounds,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "text": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "text": "hair--I",
+          "start": 6.12,
+          "end": 6.31
+        },
+        {
+          "text": "am",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "text": "half",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "text": "plucked",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "text": "along",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "text": "my",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "text": "back--and",
+          "start": 7.62,
+          "end": 7.84
+        },
+        {
+          "text": "last",
+          "start": 8.06,
+          "end": 8.38
+        },
+        {
+          "text": "of",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "text": "all,",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "in",
+          "start": 8.8,
+          "end": 8.9
+        },
+        {
+          "text": "honor.",
+          "start": 8.9,
+          "end": 9.18
+        },
+        {
+          "text": "For,",
+          "start": 9.84,
+          "end": 10.02
+        },
+        {
+          "text": "remember,",
+          "start": 10.24,
+          "end": 10.32
+        },
+        {
+          "text": "Mowgli,",
+          "start": 10.52,
+          "end": 10.84
+        },
+        {
+          "text": "I,",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "text": "who",
+          "start": 11.84,
+          "end": 11.94
+        },
+        {
+          "text": "am",
+          "start": 11.94,
+          "end": 12.12
+        },
+        {
+          "text": "the",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "text": "Black",
+          "start": 12.26,
+          "end": 12.5
+        },
+        {
+          "text": "Panther,",
+          "start": 12.5,
+          "end": 12.92
+        },
+        {
+          "text": "was",
+          "start": 13.04,
+          "end": 13.18
+        },
+        {
+          "text": "forced",
+          "start": 13.18,
+          "end": 13.42
+        },
+        {
+          "text": "to",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "text": "call",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "upon",
+          "start": 13.82,
+          "end": 14.22
+        },
+        {
+          "text": "Kaa",
+          "start": 14.22,
+          "end": 14.48
+        },
+        {
+          "text": "for",
+          "start": 14.48,
+          "end": 14.66
+        },
+        {
+          "text": "protection,",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "text": "and",
+          "start": 15.6,
+          "end": 15.82
+        },
+        {
+          "text": "Baloo",
+          "start": 15.82,
+          "end": 16.14
+        },
+        {
+          "text": "and",
+          "start": 16.14,
+          "end": 16.24
+        },
+        {
+          "text": "I",
+          "start": 16.24,
+          "end": 16.4
+        },
+        {
+          "text": "were",
+          "start": 16.4,
+          "end": 16.56
+        },
+        {
+          "text": "both",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "text": "made",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "text": "stupid",
+          "start": 17.0,
+          "end": 17.36
+        },
+        {
+          "text": "as",
+          "start": 17.36,
+          "end": 17.6
+        },
+        {
+          "text": "little",
+          "start": 17.6,
+          "end": 17.84
+        },
+        {
+          "text": "birds",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "text": "by",
+          "start": 18.18,
+          "end": 18.46
+        },
+        {
+          "text": "the",
+          "start": 18.46,
+          "end": 18.62
+        },
+        {
+          "text": "Hunger",
+          "start": 18.62,
+          "end": 18.84
+        },
+        {
+          "text": "Dance.",
+          "start": 18.84,
+          "end": 19.24
+        },
+        {
+          "text": "All",
+          "start": 20.02,
+          "end": 20.2
+        },
+        {
+          "text": "this,",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "text": "man-cub,",
+          "start": 20.44,
+          "end": 20.96
+        },
+        {
+          "text": "came",
+          "start": 21.48,
+          "end": 21.6
+        },
+        {
+          "text": "of",
+          "start": 21.6,
+          "end": 21.74
+        },
+        {
+          "text": "thy",
+          "start": 21.74,
+          "end": 21.86
+        },
+        {
+          "text": "playing",
+          "start": 21.86,
+          "end": 22.16
+        },
+        {
+          "text": "with",
+          "start": 22.16,
+          "end": 22.34
+        },
+        {
+          "text": "the",
+          "start": 22.34,
+          "end": 22.48
+        },
+        {
+          "text": "Bandar-log.\"",
+          "start": 22.48,
+          "end": 23.02
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 78,
+        "matched_words": 70
+      },
+      "match_ratio": 0.9459459459459459,
+      "rejection_reasons": [],
+      "seconds": 0.45979719888418913
+    },
+    {
+      "asr_seconds": 0.38103346806019545,
+      "alignment_seconds": 0.00025907251983880997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "True, Mowgli, I, Black, Panther, Kaa, Baloo, Hunger, Dance, Bandar-log"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " True, but he has cost us heavily in time which might have been spent in good hunting, in wounds, in hair",
+          "start": 0.08,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " True,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " but",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.955078125
+            },
+            {
+              "text": " has",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " cost",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.986328125
+            },
+            {
+              "text": " us",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heavily",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " time",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " which",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " might",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 3.12,
+              "end": 3.24,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " been",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " spent",
+              "start": 3.4,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " good",
+              "start": 3.88,
+              "end": 4.02,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hunting,",
+              "start": 4.02,
+              "end": 4.42,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 4.94,
+              "end": 5.06,
+              "probability": 0.962890625
+            },
+            {
+              "text": " wounds,",
+              "start": 5.06,
+              "end": 5.42,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 6.02,
+              "end": 6.12,
+              "probability": 0.95703125
+            },
+            {
+              "text": " hair",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.923828125
+            }
+          ]
+        },
+        {
+          "text": " I am half plucked along my back and last of all in honor. For remember, Mowgli,",
+          "start": 6.32,
+          "end": 10.84,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " am",
+              "start": 6.5,
+              "end": 6.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " half",
+              "start": 6.64,
+              "end": 6.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " plucked",
+              "start": 6.88,
+              "end": 7.2,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " along",
+              "start": 7.2,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 7.42,
+              "end": 7.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " back",
+              "start": 7.62,
+              "end": 7.88,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 7.88,
+              "end": 8.08,
+              "probability": 0.2149658203125
+            },
+            {
+              "text": " last",
+              "start": 8.08,
+              "end": 8.38,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " of",
+              "start": 8.38,
+              "end": 8.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " all",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.85546875
+            },
+            {
+              "text": " honor.",
+              "start": 8.88,
+              "end": 9.2,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " For",
+              "start": 9.8,
+              "end": 10.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " remember,",
+              "start": 10.02,
+              "end": 10.34,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Mowgli,",
+              "start": 10.46,
+              "end": 10.84,
+              "probability": 0.9708251953125
+            }
+          ]
+        },
+        {
+          "text": " I, who am the Black Panther, was forced to call upon Kaa for protection, and",
+          "start": 11.36,
+          "end": 15.82,
+          "words": [
+            {
+              "text": " I,",
+              "start": 11.36,
+              "end": 11.6,
+              "probability": 0.974609375
+            },
+            {
+              "text": " who",
+              "start": 11.84,
+              "end": 11.94,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " am",
+              "start": 11.94,
+              "end": 12.12,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 12.12,
+              "end": 12.26,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Black",
+              "start": 12.26,
+              "end": 12.5,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " Panther,",
+              "start": 12.5,
+              "end": 12.92,
+              "probability": 0.986328125
+            },
+            {
+              "text": " was",
+              "start": 13.02,
+              "end": 13.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forced",
+              "start": 13.18,
+              "end": 13.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 13.42,
+              "end": 13.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 13.64,
+              "end": 13.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " upon",
+              "start": 13.82,
+              "end": 14.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Kaa",
+              "start": 14.22,
+              "end": 14.46,
+              "probability": 0.1246490478515625
+            },
+            {
+              "text": " for",
+              "start": 14.46,
+              "end": 14.66,
+              "probability": 0.978515625
+            },
+            {
+              "text": " protection,",
+              "start": 14.66,
+              "end": 15.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 15.6,
+              "end": 15.82,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " Baloo and I were both made stupid as little birds by the Hunger Dance. All this, man-cub, came of thy playing with the Bandar-log.",
+          "start": 15.82,
+          "end": 23.0,
+          "words": [
+            {
+              "text": " Baloo",
+              "start": 15.82,
+              "end": 16.14,
+              "probability": 0.5426025390625
+            },
+            {
+              "text": " and",
+              "start": 16.14,
+              "end": 16.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 16.24,
+              "end": 16.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 16.4,
+              "end": 16.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " both",
+              "start": 16.56,
+              "end": 16.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " made",
+              "start": 16.76,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stupid",
+              "start": 17.0,
+              "end": 17.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 17.36,
+              "end": 17.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " little",
+              "start": 17.6,
+              "end": 17.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " birds",
+              "start": 17.84,
+              "end": 18.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " by",
+              "start": 18.18,
+              "end": 18.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 18.46,
+              "end": 18.62,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Hunger",
+              "start": 18.62,
+              "end": 18.84,
+              "probability": 0.196533203125
+            },
+            {
+              "text": " Dance.",
+              "start": 18.84,
+              "end": 19.24,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " All",
+              "start": 20.02,
+              "end": 20.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " this,",
+              "start": 20.2,
+              "end": 20.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " man",
+              "start": 20.62,
+              "end": 20.7,
+              "probability": 0.56396484375
+            },
+            {
+              "text": "-cub,",
+              "start": 20.7,
+              "end": 20.98,
+              "probability": 0.8414713541666666
+            },
+            {
+              "text": " came",
+              "start": 21.48,
+              "end": 21.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 21.6,
+              "end": 21.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thy",
+              "start": 21.74,
+              "end": 21.86,
+              "probability": 0.974609375
+            },
+            {
+              "text": " playing",
+              "start": 21.86,
+              "end": 22.16,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " with",
+              "start": 22.16,
+              "end": 22.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 22.34,
+              "end": 22.48,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Bandar",
+              "start": 22.48,
+              "end": 22.84,
+              "probability": 0.82763671875
+            },
+            {
+              "text": "-log.",
+              "start": 22.84,
+              "end": 23.0,
+              "probability": 0.251708984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "but",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "has",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "cost",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "us",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "heavily",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "in",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "time",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "which",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "might",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "have",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "raw": "been",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "spent",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "raw": "in",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "good",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "raw": "hunting,",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "raw": "in",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "raw": "wounds,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "raw": "hair",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "I",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "am",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "raw": "half",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "raw": "plucked",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "raw": "along",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "raw": "my",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "raw": "back",
+          "start": 7.62,
+          "end": 7.88
+        },
+        {
+          "raw": "and",
+          "start": 7.88,
+          "end": 8.08
+        },
+        {
+          "raw": "last",
+          "start": 8.08,
+          "end": 8.38
+        },
+        {
+          "raw": "of",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "raw": "all",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "in",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "honor.",
+          "start": 8.88,
+          "end": 9.2
+        },
+        {
+          "raw": "For",
+          "start": 9.8,
+          "end": 10.02
+        },
+        {
+          "raw": "remember,",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "raw": "Mowgli,",
+          "start": 10.46,
+          "end": 10.84
+        },
+        {
+          "raw": "I,",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "raw": "who",
+          "start": 11.84,
+          "end": 11.94
+        },
+        {
+          "raw": "am",
+          "start": 11.94,
+          "end": 12.12
+        },
+        {
+          "raw": "the",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "raw": "Black",
+          "start": 12.26,
+          "end": 12.5
+        },
+        {
+          "raw": "Panther,",
+          "start": 12.5,
+          "end": 12.92
+        },
+        {
+          "raw": "was",
+          "start": 13.02,
+          "end": 13.18
+        },
+        {
+          "raw": "forced",
+          "start": 13.18,
+          "end": 13.42
+        },
+        {
+          "raw": "to",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "raw": "call",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "raw": "upon",
+          "start": 13.82,
+          "end": 14.22
+        },
+        {
+          "raw": "Kaa",
+          "start": 14.22,
+          "end": 14.46
+        },
+        {
+          "raw": "for",
+          "start": 14.46,
+          "end": 14.66
+        },
+        {
+          "raw": "protection,",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "raw": "and",
+          "start": 15.6,
+          "end": 15.82
+        },
+        {
+          "raw": "Baloo",
+          "start": 15.82,
+          "end": 16.14
+        },
+        {
+          "raw": "and",
+          "start": 16.14,
+          "end": 16.24
+        },
+        {
+          "raw": "I",
+          "start": 16.24,
+          "end": 16.4
+        },
+        {
+          "raw": "were",
+          "start": 16.4,
+          "end": 16.56
+        },
+        {
+          "raw": "both",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "raw": "made",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "raw": "stupid",
+          "start": 17.0,
+          "end": 17.36
+        },
+        {
+          "raw": "as",
+          "start": 17.36,
+          "end": 17.6
+        },
+        {
+          "raw": "little",
+          "start": 17.6,
+          "end": 17.84
+        },
+        {
+          "raw": "birds",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "raw": "by",
+          "start": 18.18,
+          "end": 18.46
+        },
+        {
+          "raw": "the",
+          "start": 18.46,
+          "end": 18.62
+        },
+        {
+          "raw": "Hunger",
+          "start": 18.62,
+          "end": 18.84
+        },
+        {
+          "raw": "Dance.",
+          "start": 18.84,
+          "end": 19.24
+        },
+        {
+          "raw": "All",
+          "start": 20.02,
+          "end": 20.2
+        },
+        {
+          "raw": "this,",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "raw": "man",
+          "start": 20.62,
+          "end": 20.7
+        },
+        {
+          "raw": "-cub,",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "raw": "came",
+          "start": 21.48,
+          "end": 21.6
+        },
+        {
+          "raw": "of",
+          "start": 21.6,
+          "end": 21.74
+        },
+        {
+          "raw": "thy",
+          "start": 21.74,
+          "end": 21.86
+        },
+        {
+          "raw": "playing",
+          "start": 21.86,
+          "end": 22.16
+        },
+        {
+          "raw": "with",
+          "start": 22.16,
+          "end": 22.34
+        },
+        {
+          "raw": "the",
+          "start": 22.34,
+          "end": 22.48
+        },
+        {
+          "raw": "Bandar",
+          "start": 22.48,
+          "end": 22.84
+        },
+        {
+          "raw": "-log.",
+          "start": 22.84,
+          "end": 23.0
+        }
+      ],
+      "expected_tokens": [
+        "\"True,",
+        "but",
+        "he",
+        "has",
+        "cost",
+        "us",
+        "heavily",
+        "in",
+        "time",
+        "which",
+        "might",
+        "have",
+        "been",
+        "spent",
+        "in",
+        "good",
+        "hunting,",
+        "in",
+        "wounds,",
+        "in",
+        "hair--I",
+        "am",
+        "half",
+        "plucked",
+        "along",
+        "my",
+        "back--and",
+        "last",
+        "of",
+        "all,",
+        "in",
+        "honor.",
+        "For,",
+        "remember,",
+        "Mowgli,",
+        "I,",
+        "who",
+        "am",
+        "the",
+        "Black",
+        "Panther,",
+        "was",
+        "forced",
+        "to",
+        "call",
+        "upon",
+        "Kaa",
+        "for",
+        "protection,",
+        "and",
+        "Baloo",
+        "and",
+        "I",
+        "were",
+        "both",
+        "made",
+        "stupid",
+        "as",
+        "little",
+        "birds",
+        "by",
+        "the",
+        "Hunger",
+        "Dance.",
+        "All",
+        "this,",
+        "man-cub,",
+        "came",
+        "of",
+        "thy",
+        "playing",
+        "with",
+        "the",
+        "Bandar-log.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          26,
+          22,
+          27
+        ],
+        [
+          "replace",
+          26,
+          27,
+          27,
+          29
+        ],
+        [
+          "equal",
+          27,
+          66,
+          29,
+          68
+        ],
+        [
+          "replace",
+          66,
+          67,
+          68,
+          70
+        ],
+        [
+          "equal",
+          67,
+          73,
+          70,
+          76
+        ],
+        [
+          "replace",
+          73,
+          74,
+          76,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "replace",
+          26,
+          27,
+          27,
+          29
+        ],
+        [
+          "replace",
+          66,
+          67,
+          68,
+          70
+        ],
+        [
+          "replace",
+          73,
+          74,
+          76,
+          78
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"True,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "but",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "has",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "cost",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "us",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "heavily",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "in",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "time",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "which",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "might",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "have",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "text": "been",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "spent",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "text": "in",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "good",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "text": "hunting,",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "text": "in",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "text": "wounds,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "text": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "text": "hair--I",
+          "start": 6.12,
+          "end": 6.31
+        },
+        {
+          "text": "am",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "text": "half",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "text": "plucked",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "text": "along",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "text": "my",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "text": "back--and",
+          "start": 7.62,
+          "end": 7.85
+        },
+        {
+          "text": "last",
+          "start": 8.08,
+          "end": 8.38
+        },
+        {
+          "text": "of",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "text": "all,",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "in",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "honor.",
+          "start": 8.88,
+          "end": 9.2
+        },
+        {
+          "text": "For,",
+          "start": 9.8,
+          "end": 10.02
+        },
+        {
+          "text": "remember,",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "text": "Mowgli,",
+          "start": 10.46,
+          "end": 10.84
+        },
+        {
+          "text": "I,",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "text": "who",
+          "start": 11.84,
+          "end": 11.94
+        },
+        {
+          "text": "am",
+          "start": 11.94,
+          "end": 12.12
+        },
+        {
+          "text": "the",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "text": "Black",
+          "start": 12.26,
+          "end": 12.5
+        },
+        {
+          "text": "Panther,",
+          "start": 12.5,
+          "end": 12.92
+        },
+        {
+          "text": "was",
+          "start": 13.02,
+          "end": 13.18
+        },
+        {
+          "text": "forced",
+          "start": 13.18,
+          "end": 13.42
+        },
+        {
+          "text": "to",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "text": "call",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "upon",
+          "start": 13.82,
+          "end": 14.22
+        },
+        {
+          "text": "Kaa",
+          "start": 14.22,
+          "end": 14.46
+        },
+        {
+          "text": "for",
+          "start": 14.46,
+          "end": 14.66
+        },
+        {
+          "text": "protection,",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "text": "and",
+          "start": 15.6,
+          "end": 15.82
+        },
+        {
+          "text": "Baloo",
+          "start": 15.82,
+          "end": 16.14
+        },
+        {
+          "text": "and",
+          "start": 16.14,
+          "end": 16.24
+        },
+        {
+          "text": "I",
+          "start": 16.24,
+          "end": 16.4
+        },
+        {
+          "text": "were",
+          "start": 16.4,
+          "end": 16.56
+        },
+        {
+          "text": "both",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "text": "made",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "text": "stupid",
+          "start": 17.0,
+          "end": 17.36
+        },
+        {
+          "text": "as",
+          "start": 17.36,
+          "end": 17.6
+        },
+        {
+          "text": "little",
+          "start": 17.6,
+          "end": 17.84
+        },
+        {
+          "text": "birds",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "text": "by",
+          "start": 18.18,
+          "end": 18.46
+        },
+        {
+          "text": "the",
+          "start": 18.46,
+          "end": 18.62
+        },
+        {
+          "text": "Hunger",
+          "start": 18.62,
+          "end": 18.84
+        },
+        {
+          "text": "Dance.",
+          "start": 18.84,
+          "end": 19.24
+        },
+        {
+          "text": "All",
+          "start": 20.02,
+          "end": 20.2
+        },
+        {
+          "text": "this,",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "text": "man-cub,",
+          "start": 20.44,
+          "end": 20.96
+        },
+        {
+          "text": "came",
+          "start": 21.48,
+          "end": 21.6
+        },
+        {
+          "text": "of",
+          "start": 21.6,
+          "end": 21.74
+        },
+        {
+          "text": "thy",
+          "start": 21.74,
+          "end": 21.86
+        },
+        {
+          "text": "playing",
+          "start": 21.86,
+          "end": 22.16
+        },
+        {
+          "text": "with",
+          "start": 22.16,
+          "end": 22.34
+        },
+        {
+          "text": "the",
+          "start": 22.34,
+          "end": 22.48
+        },
+        {
+          "text": "Bandar-log.\"",
+          "start": 22.48,
+          "end": 22.74
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 78,
+        "matched_words": 70
+      },
+      "match_ratio": 0.9459459459459459,
+      "rejection_reasons": [],
+      "seconds": 0.38143311254680157
+    },
+    {
+      "asr_seconds": 0.4779338566586375,
+      "alignment_seconds": 0.0003089439123868942,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " True, but he has cost us heavily in time which might have been spent in good hunting, in",
+          "start": 0.08,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " True,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " but",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.955078125
+            },
+            {
+              "text": " has",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " cost",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.986328125
+            },
+            {
+              "text": " us",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heavily",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " time",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " which",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " might",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 3.12,
+              "end": 3.24,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " been",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " spent",
+              "start": 3.4,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " good",
+              "start": 3.88,
+              "end": 4.02,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hunting,",
+              "start": 4.02,
+              "end": 4.42,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 4.94,
+              "end": 5.06,
+              "probability": 0.962890625
+            }
+          ]
+        },
+        {
+          "text": " wounds, in hair I am half plucked along my back end last of all in honor.",
+          "start": 5.06,
+          "end": 9.2,
+          "words": [
+            {
+              "text": " wounds,",
+              "start": 5.06,
+              "end": 5.42,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 6.02,
+              "end": 6.12,
+              "probability": 0.95703125
+            },
+            {
+              "text": " hair",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.923828125
+            },
+            {
+              "text": " I",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " am",
+              "start": 6.5,
+              "end": 6.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " half",
+              "start": 6.64,
+              "end": 6.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " plucked",
+              "start": 6.88,
+              "end": 7.2,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " along",
+              "start": 7.2,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 7.42,
+              "end": 7.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " back",
+              "start": 7.62,
+              "end": 7.88,
+              "probability": 0.978515625
+            },
+            {
+              "text": " end",
+              "start": 7.88,
+              "end": 8.08,
+              "probability": 0.427490234375
+            },
+            {
+              "text": " last",
+              "start": 8.08,
+              "end": 8.36,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " of",
+              "start": 8.36,
+              "end": 8.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " honor.",
+              "start": 8.88,
+              "end": 9.2,
+              "probability": 0.7919921875
+            }
+          ]
+        },
+        {
+          "text": " For remember Mowgli, I, who am the Black Panther, was forced to call upon Ka for protection,",
+          "start": 9.82,
+          "end": 15.14,
+          "words": [
+            {
+              "text": " For",
+              "start": 9.82,
+              "end": 10.02,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " remember",
+              "start": 10.02,
+              "end": 10.32,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Mowgli,",
+              "start": 10.32,
+              "end": 10.84,
+              "probability": 0.9124755859375
+            },
+            {
+              "text": " I,",
+              "start": 11.36,
+              "end": 11.6,
+              "probability": 0.9765625
+            },
+            {
+              "text": " who",
+              "start": 11.86,
+              "end": 11.94,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " am",
+              "start": 11.94,
+              "end": 12.12,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 12.12,
+              "end": 12.26,
+              "probability": 0.96875
+            },
+            {
+              "text": " Black",
+              "start": 12.26,
+              "end": 12.5,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " Panther,",
+              "start": 12.5,
+              "end": 12.92,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " was",
+              "start": 13.02,
+              "end": 13.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forced",
+              "start": 13.18,
+              "end": 13.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 13.42,
+              "end": 13.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 13.64,
+              "end": 13.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 13.82,
+              "end": 14.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Ka",
+              "start": 14.2,
+              "end": 14.38,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " for",
+              "start": 14.38,
+              "end": 14.66,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " protection,",
+              "start": 14.66,
+              "end": 15.14,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " and Balu and I were both made stupid as little birds by the hunger dance.",
+          "start": 15.6,
+          "end": 19.24,
+          "words": [
+            {
+              "text": " and",
+              "start": 15.6,
+              "end": 15.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Balu",
+              "start": 15.84,
+              "end": 16.12,
+              "probability": 0.606201171875
+            },
+            {
+              "text": " and",
+              "start": 16.12,
+              "end": 16.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 16.24,
+              "end": 16.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 16.4,
+              "end": 16.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " both",
+              "start": 16.56,
+              "end": 16.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " made",
+              "start": 16.76,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stupid",
+              "start": 17.0,
+              "end": 17.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 17.36,
+              "end": 17.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " little",
+              "start": 17.6,
+              "end": 17.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " birds",
+              "start": 17.84,
+              "end": 18.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " by",
+              "start": 18.18,
+              "end": 18.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 18.46,
+              "end": 18.62,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " hunger",
+              "start": 18.62,
+              "end": 18.82,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " dance.",
+              "start": 18.82,
+              "end": 19.24,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " All this, man-cub, came of thy playing with the Bandar log.",
+          "start": 19.24,
+          "end": 23.06,
+          "words": [
+            {
+              "text": " All",
+              "start": 19.24,
+              "end": 20.18,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " this,",
+              "start": 20.18,
+              "end": 20.42,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " man",
+              "start": 20.6,
+              "end": 20.7,
+              "probability": 0.5517578125
+            },
+            {
+              "text": "-cub,",
+              "start": 20.7,
+              "end": 21.04,
+              "probability": 0.8460286458333334
+            },
+            {
+              "text": " came",
+              "start": 21.48,
+              "end": 21.6,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " of",
+              "start": 21.6,
+              "end": 21.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thy",
+              "start": 21.74,
+              "end": 21.86,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " playing",
+              "start": 21.86,
+              "end": 22.16,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " with",
+              "start": 22.16,
+              "end": 22.34,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 22.34,
+              "end": 22.46,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Bandar",
+              "start": 22.46,
+              "end": 22.82,
+              "probability": 0.780029296875
+            },
+            {
+              "text": " log.",
+              "start": 22.82,
+              "end": 23.06,
+              "probability": 0.471435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "but",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "has",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "cost",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "us",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "heavily",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "in",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "time",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "which",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "might",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "have",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "raw": "been",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "spent",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "raw": "in",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "good",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "raw": "hunting,",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "raw": "in",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "raw": "wounds,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "raw": "hair",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "I",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "am",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "raw": "half",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "raw": "plucked",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "raw": "along",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "raw": "my",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "raw": "back",
+          "start": 7.62,
+          "end": 7.88
+        },
+        {
+          "raw": "end",
+          "start": 7.88,
+          "end": 8.08
+        },
+        {
+          "raw": "last",
+          "start": 8.08,
+          "end": 8.36
+        },
+        {
+          "raw": "of",
+          "start": 8.36,
+          "end": 8.52
+        },
+        {
+          "raw": "all",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "in",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "honor.",
+          "start": 8.88,
+          "end": 9.2
+        },
+        {
+          "raw": "For",
+          "start": 9.82,
+          "end": 10.02
+        },
+        {
+          "raw": "remember",
+          "start": 10.02,
+          "end": 10.32
+        },
+        {
+          "raw": "Mowgli,",
+          "start": 10.32,
+          "end": 10.84
+        },
+        {
+          "raw": "I,",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "raw": "who",
+          "start": 11.86,
+          "end": 11.94
+        },
+        {
+          "raw": "am",
+          "start": 11.94,
+          "end": 12.12
+        },
+        {
+          "raw": "the",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "raw": "Black",
+          "start": 12.26,
+          "end": 12.5
+        },
+        {
+          "raw": "Panther,",
+          "start": 12.5,
+          "end": 12.92
+        },
+        {
+          "raw": "was",
+          "start": 13.02,
+          "end": 13.18
+        },
+        {
+          "raw": "forced",
+          "start": 13.18,
+          "end": 13.42
+        },
+        {
+          "raw": "to",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "raw": "call",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "raw": "upon",
+          "start": 13.82,
+          "end": 14.2
+        },
+        {
+          "raw": "Ka",
+          "start": 14.2,
+          "end": 14.38
+        },
+        {
+          "raw": "for",
+          "start": 14.38,
+          "end": 14.66
+        },
+        {
+          "raw": "protection,",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "raw": "and",
+          "start": 15.6,
+          "end": 15.84
+        },
+        {
+          "raw": "Balu",
+          "start": 15.84,
+          "end": 16.12
+        },
+        {
+          "raw": "and",
+          "start": 16.12,
+          "end": 16.24
+        },
+        {
+          "raw": "I",
+          "start": 16.24,
+          "end": 16.4
+        },
+        {
+          "raw": "were",
+          "start": 16.4,
+          "end": 16.56
+        },
+        {
+          "raw": "both",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "raw": "made",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "raw": "stupid",
+          "start": 17.0,
+          "end": 17.36
+        },
+        {
+          "raw": "as",
+          "start": 17.36,
+          "end": 17.6
+        },
+        {
+          "raw": "little",
+          "start": 17.6,
+          "end": 17.84
+        },
+        {
+          "raw": "birds",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "raw": "by",
+          "start": 18.18,
+          "end": 18.46
+        },
+        {
+          "raw": "the",
+          "start": 18.46,
+          "end": 18.62
+        },
+        {
+          "raw": "hunger",
+          "start": 18.62,
+          "end": 18.82
+        },
+        {
+          "raw": "dance.",
+          "start": 18.82,
+          "end": 19.24
+        },
+        {
+          "raw": "All",
+          "start": 19.24,
+          "end": 20.18
+        },
+        {
+          "raw": "this,",
+          "start": 20.18,
+          "end": 20.42
+        },
+        {
+          "raw": "man",
+          "start": 20.6,
+          "end": 20.7
+        },
+        {
+          "raw": "-cub,",
+          "start": 20.7,
+          "end": 21.04
+        },
+        {
+          "raw": "came",
+          "start": 21.48,
+          "end": 21.6
+        },
+        {
+          "raw": "of",
+          "start": 21.6,
+          "end": 21.74
+        },
+        {
+          "raw": "thy",
+          "start": 21.74,
+          "end": 21.86
+        },
+        {
+          "raw": "playing",
+          "start": 21.86,
+          "end": 22.16
+        },
+        {
+          "raw": "with",
+          "start": 22.16,
+          "end": 22.34
+        },
+        {
+          "raw": "the",
+          "start": 22.34,
+          "end": 22.46
+        },
+        {
+          "raw": "Bandar",
+          "start": 22.46,
+          "end": 22.82
+        },
+        {
+          "raw": "log.",
+          "start": 22.82,
+          "end": 23.06
+        }
+      ],
+      "expected_tokens": [
+        "\"True,",
+        "but",
+        "he",
+        "has",
+        "cost",
+        "us",
+        "heavily",
+        "in",
+        "time",
+        "which",
+        "might",
+        "have",
+        "been",
+        "spent",
+        "in",
+        "good",
+        "hunting,",
+        "in",
+        "wounds,",
+        "in",
+        "hair--I",
+        "am",
+        "half",
+        "plucked",
+        "along",
+        "my",
+        "back--and",
+        "last",
+        "of",
+        "all,",
+        "in",
+        "honor.",
+        "For,",
+        "remember,",
+        "Mowgli,",
+        "I,",
+        "who",
+        "am",
+        "the",
+        "Black",
+        "Panther,",
+        "was",
+        "forced",
+        "to",
+        "call",
+        "upon",
+        "Kaa",
+        "for",
+        "protection,",
+        "and",
+        "Baloo",
+        "and",
+        "I",
+        "were",
+        "both",
+        "made",
+        "stupid",
+        "as",
+        "little",
+        "birds",
+        "by",
+        "the",
+        "Hunger",
+        "Dance.",
+        "All",
+        "this,",
+        "man-cub,",
+        "came",
+        "of",
+        "thy",
+        "playing",
+        "with",
+        "the",
+        "Bandar-log.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          26,
+          22,
+          27
+        ],
+        [
+          "replace",
+          26,
+          27,
+          27,
+          29
+        ],
+        [
+          "equal",
+          27,
+          46,
+          29,
+          48
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          49
+        ],
+        [
+          "equal",
+          47,
+          50,
+          49,
+          52
+        ],
+        [
+          "replace",
+          50,
+          51,
+          52,
+          53
+        ],
+        [
+          "equal",
+          51,
+          66,
+          53,
+          68
+        ],
+        [
+          "replace",
+          66,
+          67,
+          68,
+          70
+        ],
+        [
+          "equal",
+          67,
+          73,
+          70,
+          76
+        ],
+        [
+          "replace",
+          73,
+          74,
+          76,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "replace",
+          26,
+          27,
+          27,
+          29
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          49
+        ],
+        [
+          "replace",
+          50,
+          51,
+          52,
+          53
+        ],
+        [
+          "replace",
+          66,
+          67,
+          68,
+          70
+        ],
+        [
+          "replace",
+          73,
+          74,
+          76,
+          78
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"True,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "but",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "he",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "has",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "cost",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "us",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "heavily",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "in",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "time",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "which",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "might",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "have",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "text": "been",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "spent",
+          "start": 3.4,
+          "end": 3.7
+        },
+        {
+          "text": "in",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "good",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "text": "hunting,",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "text": "in",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "text": "wounds,",
+          "start": 5.06,
+          "end": 5.42
+        },
+        {
+          "text": "in",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "text": "hair--I",
+          "start": 6.12,
+          "end": 6.31
+        },
+        {
+          "text": "am",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "text": "half",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "text": "plucked",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "text": "along",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "text": "my",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "text": "back--and",
+          "start": 7.62,
+          "end": 7.85
+        },
+        {
+          "text": "last",
+          "start": 8.08,
+          "end": 8.36
+        },
+        {
+          "text": "of",
+          "start": 8.36,
+          "end": 8.52
+        },
+        {
+          "text": "all,",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "in",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "honor.",
+          "start": 8.88,
+          "end": 9.2
+        },
+        {
+          "text": "For,",
+          "start": 9.82,
+          "end": 10.02
+        },
+        {
+          "text": "remember,",
+          "start": 10.02,
+          "end": 10.32
+        },
+        {
+          "text": "Mowgli,",
+          "start": 10.32,
+          "end": 10.84
+        },
+        {
+          "text": "I,",
+          "start": 11.36,
+          "end": 11.6
+        },
+        {
+          "text": "who",
+          "start": 11.86,
+          "end": 11.94
+        },
+        {
+          "text": "am",
+          "start": 11.94,
+          "end": 12.12
+        },
+        {
+          "text": "the",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "text": "Black",
+          "start": 12.26,
+          "end": 12.5
+        },
+        {
+          "text": "Panther,",
+          "start": 12.5,
+          "end": 12.92
+        },
+        {
+          "text": "was",
+          "start": 13.02,
+          "end": 13.18
+        },
+        {
+          "text": "forced",
+          "start": 13.18,
+          "end": 13.42
+        },
+        {
+          "text": "to",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "text": "call",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "upon",
+          "start": 13.82,
+          "end": 14.2
+        },
+        {
+          "text": "Kaa",
+          "start": 14.2,
+          "end": 14.29
+        },
+        {
+          "text": "for",
+          "start": 14.38,
+          "end": 14.66
+        },
+        {
+          "text": "protection,",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "text": "and",
+          "start": 15.6,
+          "end": 15.84
+        },
+        {
+          "text": "Baloo",
+          "start": 15.84,
+          "end": 15.98
+        },
+        {
+          "text": "and",
+          "start": 16.12,
+          "end": 16.24
+        },
+        {
+          "text": "I",
+          "start": 16.24,
+          "end": 16.4
+        },
+        {
+          "text": "were",
+          "start": 16.4,
+          "end": 16.56
+        },
+        {
+          "text": "both",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "text": "made",
+          "start": 16.76,
+          "end": 17.0
+        },
+        {
+          "text": "stupid",
+          "start": 17.0,
+          "end": 17.36
+        },
+        {
+          "text": "as",
+          "start": 17.36,
+          "end": 17.6
+        },
+        {
+          "text": "little",
+          "start": 17.6,
+          "end": 17.84
+        },
+        {
+          "text": "birds",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "text": "by",
+          "start": 18.18,
+          "end": 18.46
+        },
+        {
+          "text": "the",
+          "start": 18.46,
+          "end": 18.62
+        },
+        {
+          "text": "Hunger",
+          "start": 18.62,
+          "end": 18.82
+        },
+        {
+          "text": "Dance.",
+          "start": 18.82,
+          "end": 19.24
+        },
+        {
+          "text": "All",
+          "start": 19.24,
+          "end": 20.18
+        },
+        {
+          "text": "this,",
+          "start": 20.18,
+          "end": 20.42
+        },
+        {
+          "text": "man-cub,",
+          "start": 20.42,
+          "end": 20.95
+        },
+        {
+          "text": "came",
+          "start": 21.48,
+          "end": 21.6
+        },
+        {
+          "text": "of",
+          "start": 21.6,
+          "end": 21.74
+        },
+        {
+          "text": "thy",
+          "start": 21.74,
+          "end": 21.86
+        },
+        {
+          "text": "playing",
+          "start": 21.86,
+          "end": 22.16
+        },
+        {
+          "text": "with",
+          "start": 22.16,
+          "end": 22.34
+        },
+        {
+          "text": "the",
+          "start": 22.34,
+          "end": 22.46
+        },
+        {
+          "text": "Bandar-log.\"",
+          "start": 22.46,
+          "end": 22.76
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 78,
+        "matched_words": 68
+      },
+      "match_ratio": 0.918918918918919,
+      "rejection_reasons": [],
+      "seconds": 0.47838278394192457
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "04fc14c19f9b690f4ef5bee5accaadfbdfbb0805f90d8ef7026e537123cb47a1",
+  "selected_reasons": []
+}

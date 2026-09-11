@@ -1,0 +1,501 @@
+{
+  "complete": true,
+  "signature": "598073cbce00ef85a952184e3aa57ed85e6e40c5b2c6e8bd2411b5a479db423b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1802156576886773,
+      "alignment_seconds": 9.781867265701294e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The lines of the monkeys swayed forward helplessly, and Balu and Bagheera took one stiff step",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " lines",
+              "start": 0.48,
+              "end": 0.82,
+              "probability": 0.982421875
+            },
+            {
+              "text": " of",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 0.98,
+              "end": 1.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " monkeys",
+              "start": 1.08,
+              "end": 1.5,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " swayed",
+              "start": 1.5,
+              "end": 2.02,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " forward",
+              "start": 2.02,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " helplessly,",
+              "start": 2.5,
+              "end": 3.46,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " and",
+              "start": 3.78,
+              "end": 3.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Balu",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " and",
+              "start": 4.16,
+              "end": 4.3,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Bagheera",
+              "start": 4.3,
+              "end": 4.78,
+              "probability": 0.9539388020833334
+            },
+            {
+              "text": " took",
+              "start": 4.78,
+              "end": 4.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " one",
+              "start": 4.96,
+              "end": 5.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stiff",
+              "start": 5.3,
+              "end": 5.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " step",
+              "start": 5.62,
+              "end": 5.92,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " forward with them.",
+          "start": 5.92,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " forward",
+              "start": 5.92,
+              "end": 6.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 6.24,
+              "end": 6.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them.",
+              "start": 6.5,
+              "end": 6.72,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "lines",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "raw": "of",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "the",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "raw": "monkeys",
+          "start": 1.08,
+          "end": 1.5
+        },
+        {
+          "raw": "swayed",
+          "start": 1.5,
+          "end": 2.02
+        },
+        {
+          "raw": "forward",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "raw": "helplessly,",
+          "start": 2.5,
+          "end": 3.46
+        },
+        {
+          "raw": "and",
+          "start": 3.78,
+          "end": 3.84
+        },
+        {
+          "raw": "Balu",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "and",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "raw": "Bagheera",
+          "start": 4.3,
+          "end": 4.78
+        },
+        {
+          "raw": "took",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "raw": "one",
+          "start": 4.96,
+          "end": 5.3
+        },
+        {
+          "raw": "stiff",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "raw": "step",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "raw": "forward",
+          "start": 5.92,
+          "end": 6.24
+        },
+        {
+          "raw": "with",
+          "start": 6.24,
+          "end": 6.5
+        },
+        {
+          "raw": "them.",
+          "start": 6.5,
+          "end": 6.72
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "lines",
+        "of",
+        "the",
+        "monkeys",
+        "swayed",
+        "forward",
+        "helplessly,",
+        "and",
+        "Baloo",
+        "and",
+        "Bagheera",
+        "took",
+        "one",
+        "stiff",
+        "step",
+        "forward",
+        "with",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          19,
+          10,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "lines",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "text": "of",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "the",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "text": "monkeys",
+          "start": 1.08,
+          "end": 1.5
+        },
+        {
+          "text": "swayed",
+          "start": 1.5,
+          "end": 2.02
+        },
+        {
+          "text": "forward",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "text": "helplessly,",
+          "start": 2.5,
+          "end": 3.46
+        },
+        {
+          "text": "and",
+          "start": 3.78,
+          "end": 3.84
+        },
+        {
+          "text": "Baloo",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "and",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "text": "Bagheera",
+          "start": 4.3,
+          "end": 4.78
+        },
+        {
+          "text": "took",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "text": "one",
+          "start": 4.96,
+          "end": 5.3
+        },
+        {
+          "text": "stiff",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "text": "step",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "text": "forward",
+          "start": 5.92,
+          "end": 6.24
+        },
+        {
+          "text": "with",
+          "start": 6.24,
+          "end": 6.5
+        },
+        {
+          "text": "them.",
+          "start": 6.5,
+          "end": 6.72
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.18035839963704348
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "043dc757596f8da1bf3618fd2d19af4384bb0cc31330c8847bbdc4340139fcb6",
+  "selected_reasons": []
+}
