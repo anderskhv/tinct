@@ -61,3 +61,16 @@ twelfth-night, utilitarianism, werther.
 
 Reading position was unchanged by opening a card in every browser scenario
 (`lab-root` place before/after compared).
+
+## Production — 2026-09-11 12:41 UTC
+
+- Deploy run 42 succeeded: https://github.com/anderskhv/tinct/actions/runs/34599344277
+  (CI byte-compared the served bundle against its build; 15 smoke checks passed).
+  Live bundle `index-CKqpk5xE.js`.
+- All 38 new sidecars served from tinct.app at `?v=2026-09-11.2` with the right
+  `bookId` and schema (38/38).
+- A live click-test was attempted from the cloud sandbox and could not run:
+  the sandbox's outbound tunnel drops Chromium's TLS handshake to tinct.app
+  (curl gets through, the browser does not). The click-tests above were run
+  against the local build of the same commit CI deployed; nothing in the
+  character path depends on the origin.
