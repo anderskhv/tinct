@@ -7,9 +7,9 @@ partial re-render before it's safe to call done. FAIL = confirmed defects reader
 today (missing/invented/reversed content, half-or-more untranslated, or the file is not
 legally what it's labeled). Staged book (treasure-island) is listed separately at the end.
 
+## FAIL (16)
 
-## FAIL (15)
-
+- **symposium** (3.7, Mixed, RETRANSLATE) — moved from Question Mark 2026-09-11: confirmed missing 648-word true opening of the dialogue (see per-book-notes/symposium.md)
 - **iliad** (4.0, Mixed, RETRANSLATE)
 - **bible** (3.6, Mixed, USE HUMAN EDITION)
 - **brothers-karamazov** (3.6, Mixed, RETRANSLATE)
@@ -26,7 +26,7 @@ legally what it's labeled). Staged book (treasure-island) is listed separately a
 - **moby-dick** (2.3, Poor, RETRANSLATE)
 - **jerusalem** (1.9, Poor, RETRANSLATE)
 
-## QUESTION MARK (26)
+## QUESTION MARK (25)
 
 - **bacchae** (4.9, Strong, BLOCKED)
 - **communist-manifesto** (4.8, Strong, SOURCE + GLOSSES)
@@ -42,7 +42,7 @@ legally what it's labeled). Staged book (treasure-island) is listed separately a
 - **genealogy-of-morals** (3.7, Mixed, RETRANSLATE)
 - **kant-groundwork** (3.7, Mixed, LIGHT EDIT)
 - **notes-from-underground** (3.7, Mixed, RETRANSLATE)
-- **symposium** (3.7, Mixed, RETRANSLATE)
+
 - **gilgamesh** (3.6, Good with fixes, BLOCKED)
 - **the-awakening** (3.6, Mixed, RETRANSLATE)
 - **the-art-of-war** (3.6, Mixed, LIGHT EDIT)

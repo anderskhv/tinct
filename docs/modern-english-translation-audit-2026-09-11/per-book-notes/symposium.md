@@ -2,6 +2,56 @@
 
 **Reviewer:** batch agent, 2026-09-11 · **Scope:** public
 
+## UPDATE (2026-09-11, post-batch, in response to Anders spotting it) — confirmed missing opening
+
+**The dialogue's true opening is absent from every English edition.** Anders asked whether
+Symposium "starts in the wrong place" — checked directly against Project Gutenberg #1600
+(Jowett, the same translation credited as our `original-en`). Confirmed:
+
+Our `original-en` chapter 1, paragraph 0 opens: *"APOLLODORUS: Yes, friend, and the reason
+why I am said to be mad, and out of my wits, is just because I have these notions of myself
+and you; no other evidence is required."* This is **not** the start of the dialogue — it is
+Apollodorus's third line of dialogue, replying to a question the reader never sees.
+
+The real opening (Gutenberg #1600), missing from our file in full, is **648 words**: Apollodorus's
+unlabeled first-person frame narration — meeting an acquaintance (named "Glaucon" in the source
+text) on the road from Phalerum, being asked to retell the speeches given at Agathon's banquet,
+explaining the story is old (from "our boyhood," the day after Agathon won his first tragic
+victory) and that he has it from Aristodemus, "a little fellow who never wore any shoes" and a
+devoted follower of Socrates — plus the Companion's first reply ("I see, Apollodorus, that you
+are just the same — always speaking evil of yourself... true in this to your old name... of
+Apollodorus the madman"), which is what our paragraph 0's "the reason why I am said to be mad"
+is actually replying to. Without it, the callback is unmotivated and the Companion's own
+identity (Glaucon) never appears anywhere in the book.
+
+**`modern-en` paragraph 0 is a direct modernization of the same truncated starting line**
+("APOLLODORUS: Yes, friend, and the reason people say I'm crazy..."), confirming the omission
+is upstream, in `original-en`/the original source ingestion, not something either translation
+pass introduced independently. `modern-da`, translated from `modern-en`, necessarily inherits
+the same gap.
+
+**Checked the other 5 Plato/Jowett dialogues from this same batch for the same failure
+mode — none of them have it.** The likely mechanism: Symposium's true opening is *unlabeled*
+first-person narration running for several exchanges before the first explicit speaker tag
+("APOLLODORUS:"/"COMPANION:") appears, which is a plausible trap for a parser keying off the
+first all-caps speaker label as the dialogue's start. The-republic and apology both open with
+similarly unlabeled first-person narration but the narrator (Socrates in both cases) *never*
+gets a speaker tag at all in Book 1's opening, so there's no early tag to mistakenly seize on —
+both check out correct against their canonical openings. Crito, phaedo, and phaedrus all open
+with speaker-tagged dialogue from their very first line, so the same trap doesn't apply. This
+appears to be isolated to Symposium's specific structure, not a systemic Plato-set bug — but
+any other book in the inventory with a similar "unlabeled narrator, then a mid-scene speaker
+tag" opening should get the same direct check before being cleared.
+
+**Impact on this book's rating:** this is a confirmed, precise, reader-facing completeness
+defect at the very start of the book — every reader opening Symposium misses Plato's own
+frame-setting and meets Apollodorus already mid-conversation. It sits alongside, not instead
+of, the previously-documented pass-through problem in chapters 6–7. Recommendation stands at
+RETRANSLATE, but the **first fix, before any translation work, is re-ingesting the missing 648
+words from Gutenberg #1600 into `original-en`** (as a new paragraph 0, or folded into the
+existing chapter 1 opening), then producing `modern-en`/`modern-da` for it — this cannot be
+recovered by re-translating the existing (incomplete) `original-en`.
+
 ## Edition snapshot (from Phase 1 mechanical data)
 
 | edition | sha256_16 | chapters | paragraphs | words | label |

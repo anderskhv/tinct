@@ -328,3 +328,35 @@ whole corpus**, not just isolated cases — confirmed independently by at least 
 British/American spelling defeating exact string matching while leaving near-total
 non-modernization undetected underneath. A token-sequence-based retention metric, computed
 per chapter, is the fix every batch converged on independently.
+
+## Confirmed missing dialogue opening — symposium (flagged by Anders, verified 2026-09-11)
+
+Anders asked directly whether Symposium "starts in the wrong place" with content missing.
+Verified against Project Gutenberg #1600 (the same Jowett translation credited as our
+`original-en`): **648 words of the dialogue's true opening are absent from every English
+edition.** `original-en` chapter 1 paragraph 0 currently opens on Apollodorus's third line
+of dialogue ("Yes, friend, and the reason why I am said to be mad...") — a reply to a
+question and a reputation ("Apollodorus the madman") the reader never sees established.
+The missing text is Apollodorus's unlabeled first-person frame narration (meeting an
+acquaintance named Glaucon on the road from Phalerum, being asked to retell the speeches
+from Agathon's banquet, dating the event and naming his source, Aristodemus) plus the
+Companion's first reply. `modern-en` paragraph 0 is a direct modernization of the same
+truncated start, confirming the loss happened upstream in `original-en`/ingestion, not in
+either translation pass; `modern-da` (translated from `modern-en`) necessarily inherits it.
+Moved from Question Mark to FAIL in the final ranking.
+
+**Checked all 5 other Plato/Jowett dialogues in the B9 batch for the same failure mode —
+isolated to Symposium, not systemic.** Working hypothesis: the risk pattern is a dialogue
+whose true opening is *unlabeled* first-person narration running for several exchanges
+before the first explicit speaker tag appears (plausible trap for a parser that keys off
+the first all-caps speaker label as the start of the dialogue text). the-republic and
+apology both open with unlabeled first-person narration too, but their narrator (Socrates,
+in both) never receives a speaker tag at all in the opening — nothing for a parser to
+mistake for "dialogue starts here." crito, phaedo, and phaedrus all open with a speaker tag
+on their very first line. Symposium is structurally unique in this set: unlabeled narration,
+*then* two tagged exchanges appear a few hundred words in, which is exactly where our file
+picks up. **Any other book in the inventory sharing that specific shape (unlabeled narrator
+preamble, then a speaker tag mid-scene) should get this same direct opening-vs-source check**
+— it would not be caught by word-count comparison (original-en and modern-en's word counts
+matched each other throughout, since both are missing the same material) or by any of the
+Phase 1 mechanical flags, since the loss is shared by both sides of the comparison.
