@@ -734,7 +734,7 @@ Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not producti
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
-| Paradise Lost | COMMIT | 167 / 171 | build_paradise_lost.py |
+| Paradise Lost | d489a282 | 167 / 171 | build_paradise_lost.py |
 
 | Book | original-en | modern-en |
 |---|---|---|
