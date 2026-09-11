@@ -23,7 +23,9 @@
 .lab-contents-v2 .lc-path svg { width:13px;height:13px;color:var(--lc-muted); }
 .lab-contents-v2 .lc-path .lc-jump { color:var(--lc-muted);font-size:13px;padding:8px 0 8px 12px;white-space:nowrap; }
 .lab-contents-v2 .lc-tabs { display:flex;gap:25px;border-bottom:1px solid var(--lc-line);margin-top:5px; }
-.lab-contents-v2 .lc-tabs button { padding:10px 0;font-size:12px;color:var(--lc-muted); }
+.lab-contents-v2 .lc-tabs button { position:relative;padding:10px 0;font-size:12px;color:var(--lc-muted); }
+/* "All" paints 13px wide; the tap target reaches into the 25px gaps on both sides. */
+.lab-contents-v2 .lc-tabs button::before { content:'';position:absolute;inset:0 -12px; }
 .lab-contents-v2 .lc-tabs [aria-pressed=true] { color:var(--lab-ink);box-shadow:inset 0 -1px var(--lab-ink); }
 .lab-contents-v2 .lc-body { flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 24px 12px;scrollbar-width:thin;scrollbar-color:var(--lc-line) transparent; }
 .lab-contents-v2 .lc-chapter { border-bottom:1px solid var(--lc-line); }
