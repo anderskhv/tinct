@@ -88,7 +88,11 @@ interface LabPreReaderApi {
   }) => unknown | null
   openBook?: (bookId: string) => Promise<boolean>
   coverFor?: (bookId: string) => CoverSource | null
-  bookProgress?: (bookId: string, place: { chapterNumber: number; page?: number; totalPages?: number | null; paragraphIndex?: number }) => number | null
+  bookProgress?: (
+    bookId: string,
+    place: { chapterNumber: number; page?: number; totalPages?: number | null; paragraphIndex?: number },
+    finishedChapters?: number[],
+  ) => number | null
 }
 
 const READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
@@ -219,13 +223,20 @@ function coverMarkup(book: CatalogueBook | undefined, bookId: string): string {
   return `<span class="lib-cover"><img src="${escapeHtml(cover.src)}"${cover.srcSet ? ` srcset="${escapeHtml(cover.srcSet)}"` : ''} alt="" decoding="async"></span>`
 }
 
-function progressNote(target: ContinueTarget, session: ReadingListRow['session']): string | null {
+/**
+ * "54% read" under Continue. The number is the catalogue runtime's
+ * (lab/library-2-model.js `wholeBookProgress`): position-derived for a
+ * linear book; for the Bible the paragraphs of the row's finished chapters
+ * plus the current chapter's fraction.
+ */
+function progressNote(row: Pick<ReadingListRow, 'target' | 'session' | 'finishedChapters'>): string | null {
+  const { target, session } = row
   const percent = preReader()?.bookProgress?.(target.bookId, {
     chapterNumber: target.chapterNumber,
     page: target.pageIndex,
     totalPages: session && session.anchor.chapterNumber === target.chapterNumber ? session.anchor.totalPages : null,
     paragraphIndex: target.paragraphIndex,
-  })
+  }, row.finishedChapters)
   if (typeof percent !== 'number' || !Number.isFinite(percent)) return null
   if (percent > 0 && percent < 1) return '<1% read'
   return `${Math.round(percent)}% read`
@@ -521,7 +532,7 @@ function summaryMarkup(summaryKey: string): string {
 
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
-  const note = progressNote(row.target, row.session)
+  const note = progressNote(row)
   const request = summaryRequestFor(row, books)
   const summaryKey = request ? summaryKeyFor(row, request) : ''
   const summary = request && summaryBlockReserved(row, books) ? summaryMarkup(summaryKey) : ''
@@ -848,7 +859,7 @@ function bootSnapshot(list: ReadingList, userId: string | null, books: Map<strin
       headline: heroHeadline(hero),
       coverSrc: safeCoverSource(cover?.src),
       coverSrcSet: safeCoverSource(cover?.src) && cover?.srcSet ? cover.srcSet : null,
-      note: progressNote(hero.target, hero.session),
+      note: progressNote(hero),
     } : null,
   }
 }

@@ -24,6 +24,7 @@ import { bibleChapterFixture, platoDialogueFixture, sessionFor } from './reading
 import { RECAP_SUMMARY_STORAGE_KEY } from './preReader/recapSummaryClient'
 import { recapCacheKey } from './recapSummary'
 import type { ReadingMemoryState, ReadingSession } from './readingMemory/types'
+import { wholeBookProgress } from '../public/lab/library-2-model.js'
 
 const USER = 'user-anders'
 vi.mock('./services/supabase', () => ({
@@ -649,5 +650,66 @@ describe('cross-device library refresh', () => {
     expect(section.dataset.book).toBe('plato-republic')
     release()
     await refreshing
+  })
+})
+
+describe('recap hero: "N% read" under Continue', () => {
+  /**
+   * The number comes from the catalogue runtime (`window.__tinctLabPreReader
+   * .bookProgress`), which is not loaded here; stand it in with the real
+   * model over the test's own Bible structure, and record what the recap
+   * hands it.
+   */
+  const bibleStructure = {
+    id: 'bible',
+    readingStructure: {
+      totalParagraphs: BIBLE_CHAPTERS.reduce((sum, chapter) => sum + chapter.paragraphCount, 0),
+      chapters: BIBLE_CHAPTERS,
+    },
+  }
+  let progressCalls: Array<{ bookId: string; place: Record<string, unknown>; finishedChapters: number[] | undefined }> = []
+
+  function stubPreReaderProgress() {
+    progressCalls = []
+    ;(window as Window & { __tinctLabPreReader?: unknown }).__tinctLabPreReader = {
+      bookProgress: (bookId: string, place: Record<string, unknown>, finishedChapters?: number[]) => {
+        progressCalls.push({ bookId, place, finishedChapters })
+        return bookId === 'bible' ? wholeBookProgress(bibleStructure, place, { finishedChapters }) : null
+      },
+    }
+  }
+
+  afterEach(() => {
+    delete (window as Window & { __tinctLabPreReader?: unknown }).__tinctLabPreReader
+  })
+
+  it('counts the Bible by finished chapters from both stores, plus the current chapter', async () => {
+    stubPreReaderProgress()
+    // Finished per the position record: Genesis 1 (7) and Psalms 150 (3).
+    // Finished per reading memory: Proverbs 16 (7), a completed session.
+    // Resume: paragraph 2 of 6 in Proverbs 17 → 2 more.  (7+3+7+2)/23 = 83%.
+    const proverbs16 = sessionFor({ ...bibleChapterFixture(), chapterNumber: 644, chapterLabel: 'Proverbs 16' }, {
+      id: 'bible-yesterday', state: 'completed', startedAt: ago(DAY + HOUR), lastActiveAt: ago(DAY), owner: USER,
+    })
+    const section = await renderLibrary(
+      [proverbs16, bibleSession(ago(5 * MINUTE))],
+      positionState([biblePlace(ago(4 * MINUTE))], 'proverbs', { bible: [1, 631] }),
+    )
+    expect(section.querySelector('[data-testid=lab-recap-progress]')!.textContent).toBe('83% read')
+    const call = progressCalls.find(item => item.bookId === 'bible')!
+    expect(call.finishedChapters).toEqual([1, 631, 644])
+    expect(call.place).toMatchObject({ chapterNumber: 645, paragraphIndex: 2 })
+  })
+
+  it('reads low, never high, for a Bible reader with nothing finished', async () => {
+    stubPreReaderProgress()
+    const section = await renderLibrary(
+      [bibleSession(ago(5 * MINUTE))],
+      positionState([biblePlace(ago(4 * MINUTE))], 'proverbs'),
+    )
+    // 2 of Proverbs 17's 6 paragraphs, over 23: 8.7% — not "the chapters
+    // before Proverbs" and never the legacy record's high-water mark.
+    expect(section.querySelector('[data-testid=lab-recap-progress]')!.textContent).toBe('9% read')
+    expect(progressCalls.find(item => item.bookId === 'bible')!.finishedChapters).toEqual([])
   })
 })
