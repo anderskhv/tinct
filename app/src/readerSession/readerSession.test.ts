@@ -170,6 +170,54 @@ describe('readerSessionReducer', () => {
     expect(next.location).toMatchObject({ chapterNumber: 678, scrollFraction: 0 })
     expect(prev.location).toMatchObject({ chapterNumber: 677, scrollFraction: 1 })
   })
+
+  describe('withheld editions keep the reader\'s place', () => {
+    // Bible modern-en / modern-da were withdrawn on 2026-09-11 (NIV-derived text).
+    // A saved location in either must move to web-en at the same chapter and
+    // paragraph, never reset to chapter 1.
+    const bibleAfterWithdrawal: Book = {
+      ...bible,
+      editions: [
+        { key: 'kjv-en', language: 'en', style: 'kjv', label: 'KJV', aligned: true },
+        { key: 'web-en', language: 'en', style: 'web', label: 'WEB', aligned: true },
+      ],
+    }
+    const context: ReaderBookContext = { book: bibleAfterWithdrawal, editionData: editionData(40, 5) }
+
+    it('migrates a locally restored modern-en location to web-en at the same place', () => {
+      const opened = readerSessionReducer(initialReaderSession(), { type: 'OPEN_BOOK', bookId: 'bible', now: 1 })
+      const ready = readerSessionReducer(opened, {
+        type: 'EDITION_READY',
+        context,
+        restored: { chapterNumber: 30, paragraphIndex: 3, editionKey: 'modern-en', scrollFraction: 0.4 },
+        now: 2,
+      })
+      expect(ready.location).toMatchObject({ bookId: 'bible', chapterNumber: 30, paragraphIndex: 3, editionKey: 'web-en', scrollFraction: 0.4 })
+    })
+
+    it('migrates a cloud-restored modern-da location to web-en at the same place', () => {
+      const state = initialReaderSession(location({ bookId: 'bible', chapterNumber: 1, editionKey: 'kjv-en' }))
+      const restored = readerSessionReducer(state, {
+        type: 'RESTORE_POSITION',
+        location: location({ bookId: 'bible', chapterNumber: 12, paragraphIndex: 2, editionKey: 'modern-da' }),
+        context,
+        source: 'cloud-restore',
+        now: 3,
+      })
+      expect(restored.location).toMatchObject({ chapterNumber: 12, paragraphIndex: 2, editionKey: 'web-en' })
+    })
+
+    it('still resets an unknown edition that has no successor', () => {
+      const opened = readerSessionReducer(initialReaderSession(), { type: 'OPEN_BOOK', bookId: 'bible', now: 1 })
+      const ready = readerSessionReducer(opened, {
+        type: 'EDITION_READY',
+        context,
+        restored: { chapterNumber: 30, paragraphIndex: 3, editionKey: 'nonexistent-en' },
+        now: 2,
+      })
+      expect(ready.location.chapterNumber).toBe(1)
+    })
+  })
 })
 
 describe('readerSession writer', () => {

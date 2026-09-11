@@ -5,8 +5,6 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "anna-karenina-modern-en",
   "anna-karenina-original-en",
   "bible-kjv-en",
-  "bible-modern-da",
-  "bible-modern-en",
   "bible-web-en",
   "brothers-karamazov-modern-da",
   "brothers-karamazov-modern-en",

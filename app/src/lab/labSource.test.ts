@@ -114,7 +114,7 @@ describe('loadLabSource', () => {
       if (url.includes('bible-kjv-en/ch0001.json')) {
         return { ok: true, json: async () => ({ number: 1, title: 'Genesis 1', paragraphs: ['In the beginning God created the heaven and the earth.'] }) }
       }
-      if (url.includes('bible-modern-en/ch0001.json')) {
+      if (url.includes('bible-web-en/ch0001.json')) {
         return { ok: true, json: async () => ({ paragraphs: ['At the start God made the sky and the land.'] }) }
       }
       if (url.includes('bible-threads.json')) {

@@ -23,7 +23,7 @@ afterEach(() => {
 function withCompare() {
   localStorage.setItem(LAB_PREFS_KEY, JSON.stringify({
     version: 2,
-    shared: { primaryEdition: 'kjv-en', compareEdition: 'modern-en', audioEdition: 'kjv-en', audioSpeed: 1, compareOpen: true },
+    shared: { primaryEdition: 'kjv-en', compareEdition: 'web-en', audioEdition: 'kjv-en', audioSpeed: 1, compareOpen: true },
     phone: {},
     desktop: {},
     seenOnce: {},
@@ -126,11 +126,11 @@ describe('what Compare says about itself', () => {
     expect(screen.queryByTestId('lab-v2-version-pill')).toBeNull()
     swipe(screen.getByTestId('lab-book'), 0, -110)
     const pill = screen.getByTestId('lab-v2-version-pill')
-    expect(pill.textContent).toBe(editionLabelFor('modern-en', bibleEditions()))
+    expect(pill.textContent).toBe(editionLabelFor('web-en', bibleEditions()))
     // Every swap, on the page landed on: back again names the primary.
     swipe(screen.getByTestId('lab-book'), 0, 110)
     expect(screen.getByTestId('lab-v2-version-pill').textContent).toBe(editionLabelFor('kjv-en', bibleEditions()))
-    expect(editionLabelFor('kjv-en', bibleEditions())).not.toBe(editionLabelFor('modern-en', bibleEditions()))
+    expect(editionLabelFor('kjv-en', bibleEditions())).not.toBe(editionLabelFor('web-en', bibleEditions()))
     // And it never persists: about a second, then gone.
     act(() => { vi.advanceTimersByTime(LAB_V2_VERSION_PILL_MS + 5) })
     expect(screen.queryByTestId('lab-v2-version-pill')).toBeNull()
