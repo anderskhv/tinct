@@ -27,11 +27,15 @@ import {
   readingTimeLine,
   revealDelayMs,
   searchPlaceholder,
+  searchDrawerState,
+  searchRevealed,
+  markSearchRevealed,
+  searchRevealScrollTop,
   shelfFocusIndex,
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260910-availability-1'
+} from './library-model.js?v=20260911-search-drawer-1'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -51,6 +55,8 @@ import {
     query: '',
     fullLibrary: false,
     searchOpen: false,
+    /** The search drawer has been pulled open this browser session (phone widths). */
+    searchRevealed: false,
     sampleExpanded: false,
     prefaceToken: 0,
     onboarding: null,
@@ -169,10 +175,27 @@ import {
     root.querySelector('[data-shelf-scroll="-1"]').disabled=shelf.scrollLeft<2
     root.querySelector('[data-shelf-scroll="1"]').disabled=shelf.scrollLeft+shelf.clientWidth>=shelf.scrollWidth-2
   }
+  /**
+   * The one search field has two homes: the drawer at the hero's foot
+   * ([data-search-drawer], between the hero and the index) and, on a wide
+   * screen while the search is open, the header slot. searchDrawerState in
+   * library-model.js decides; this moves the field and sets the drawer's
+   * state. The field is never hidden in the drawer — a closed drawer shows
+   * its top (CSS "peek") and is opened by revealSearch().
+   */
+  const searchDrawer = () => root.querySelector('[data-search-drawer]')
   function arrangeSearch() {
-    const search=root.querySelector('.lib-search'),slot=root.querySelector('[data-search-slot]')
-    if(centreSnap.matches) {root.querySelector('.lib-main').insertBefore(search,root.querySelector('.lib-index'));search.hidden=false;root.querySelector('[data-library-search]').tabIndex=0}
-    else {slot.append(search);search.hidden=!state.searchOpen;root.querySelector('[data-library-search]').tabIndex=state.searchOpen?0:-1}
+    const search=root.querySelector('.lib-search'),slot=root.querySelector('[data-search-slot]'),drawer=searchDrawer(),input=root.querySelector('[data-library-search]')
+    const place=searchDrawerState({ phone:centreSnap.matches, searchOpen:state.searchOpen, query:state.query, revealed:state.searchRevealed })
+    if(place==='slot') { if(search.parentElement!==slot) slot.append(search) }
+    else {
+      if(search.parentElement!==drawer) drawer.append(search)
+      // An opening in progress finishes on its own (see revealSearch).
+      if(drawer.dataset.searchDrawer!=='opening') drawer.dataset.searchDrawer=place
+    }
+    search.hidden=false;input.tabIndex=0
+    // The boot paint's early answer (lab/library-boot.js) is superseded by the runtime's.
+    document.documentElement.removeAttribute('data-lab-search-revealed')
   }
   function toggleSearch(open=!state.searchOpen) {
     state.searchOpen=open
@@ -180,6 +203,65 @@ import {
     arrangeSearch()
     if(open) root.querySelector('[data-library-search]').focus()
     else {state.query='';root.querySelector('[data-library-search]').value='';renderIndex();button.focus()}
+  }
+  /** Space above the opened drawer once the page has glided to it: the page's own top padding on a phone. */
+  const SEARCH_REVEAL_MARGIN_PX = 28
+  /** Longer than the CSS height transition, so a missed transitionend cannot leave the drawer half open. */
+  const SEARCH_REVEAL_SETTLE_MS = 700
+  /**
+   * Open the search drawer. Reached by touching or clicking it, or by
+   * focusing its field (Tab), so a keyboard reader opens it the same way.
+   *
+   * Phone widths: the drawer's height runs from the peek to the field's own
+   * height, the page glides so the field sits at the top with the index
+   * under it (searchRevealScrollTop), and the field keeps focus — the tap
+   * on the <label> focused it inside the gesture, so the keyboard opens.
+   * The reveal is remembered for the session (SEARCH_REVEAL_SESSION_KEY),
+   * so Back and a reload find the drawer open.
+   *
+   * Wide screens: the drawer only ever peeks. Opening hands the field to the
+   * header slot (the existing search: toggleSearch) and opens the full
+   * library under it, the same view "See full library" opens.
+   */
+  function revealSearch() {
+    const drawer=searchDrawer(),search=root.querySelector('.lib-search'),input=root.querySelector('[data-library-search]')
+    if(!drawer||search.parentElement!==drawer||drawer.dataset.searchDrawer!=='peek') return
+    if(!centreSnap.matches) {
+      toggleSearch(true)
+      if(!state.fullLibrary) {navigateView('library-index');window.scrollTo(0,0)}
+      return
+    }
+    state.searchRevealed=true
+    markSearchRevealed(safeSessionStorage())
+    const box=drawer.getBoundingClientRect()
+    // The page's reach is read after the state changes: an opening drawer
+    // gives the index a minimum height (lab/index.html) sized so the page can
+    // bring the field to the top while the drawer is still at its peek
+    // height — a smooth scroll is clamped to the page as it is when asked.
+    const reach=() => searchRevealScrollTop({ drawerTop:box.top, scrollY:window.scrollY, margin:SEARCH_REVEAL_MARGIN_PX, maxScroll:document.documentElement.scrollHeight-window.innerHeight })
+    if(reducedMotion()) {
+      drawer.dataset.searchDrawer='open'
+      window.scrollTo({ top:reach(), left:0, behavior:'auto' })
+    } else {
+      // From the peek height to the field's own (the field keeps its natural
+      // height inside the clipped drawer), then hand the height back to CSS.
+      drawer.style.height=`${box.height}px`
+      drawer.dataset.searchDrawer='opening'
+      let settled=false
+      const settle=() => {
+        if(settled) return
+        settled=true
+        drawer.removeEventListener('transitionend',onEnd)
+        drawer.style.height=''
+        drawer.dataset.searchDrawer='open'
+      }
+      const onEnd=event => { if(event.target===drawer&&event.propertyName==='height') settle() }
+      drawer.addEventListener('transitionend',onEnd)
+      setTimeout(settle,SEARCH_REVEAL_SETTLE_MS)
+      requestAnimationFrame(() => { drawer.style.height=`${search.offsetHeight}px` })
+      window.scrollTo({ top:reach(), left:0, behavior:'smooth' })
+    }
+    if(document.activeElement!==input) input.focus({ preventScroll:true })
   }
   const prefaceCache=new Map()
   async function renderInlinePreface(book) {
@@ -437,14 +519,14 @@ import {
   /**
    * The lead over the popular row. Only a reader with nothing in Reading now
    * sees this row at all, so it is written for that reader: the action in the
-   * page's headline face, the row named quietly under it, and one line
-   * saying where the rest of the library is. Copy lives in library-model.js.
+   * page's headline face and the row named quietly under it. Where the rest
+   * of the library is, the search drawer at the hero's foot shows. Copy lives
+   * in library-model.js.
    */
   function renderPopularLead() {
     const lead = popularLead()
     root.querySelector('[data-popular-lead-title]').textContent = lead.title
     root.querySelector('[data-popular-lead-row]').textContent = lead.row
-    root.querySelector('[data-popular-lead-more]').textContent = lead.more
   }
 
   function renderCaption() {
@@ -665,6 +747,8 @@ import {
     if (search.value !== snapshot.query) search.value = snapshot.query
     state.query = snapshot.query
     state.searchOpen = Boolean(snapshot.query)
+    // The results the reader was looking at came through the drawer; it is open.
+    if (snapshot.query && !state.searchRevealed) { state.searchRevealed = true; markSearchRevealed(safeSessionStorage()) }
     arrangeSearch()
     root.querySelector('[data-search-toggle]').setAttribute('aria-expanded',String(state.searchOpen))
     state.expandedHouseId = snapshot.expandedHouseId
@@ -1091,6 +1175,7 @@ import {
     const target = event.target instanceof Element ? event.target : null
     const scrollButton = target?.closest('[data-shelf-scroll]')
     if (scrollButton) { const shelf = root.querySelector('[data-popular-shelf]'); shelf.scrollBy({left:Number(scrollButton.dataset.shelfScroll)*shelf.clientWidth*.75,behavior:reducedMotion()?'auto':'smooth'}); return }
+    if (target?.closest('[data-search-drawer]')) { revealSearch(); return }
     if (target?.closest('[data-search-toggle]')) { toggleSearch(); return }
     if (target?.closest('[data-open-full-library]')) { navigateView('library-index'); window.scrollTo(0,0); return }
     if (target?.closest('[data-library-selection]')) { navigateView('library'); return }
@@ -1294,6 +1379,12 @@ import {
   if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
   // The shelf selection outlives a trip into a book or the reader.
   state.shelfIndex = Number.parseInt(readSession(LIBRARY_SHELF_SESSION_KEY) ?? '', 10) || 0
+  state.searchRevealed = searchRevealed(safeSessionStorage())
+  // Focus reaching the field in a closed drawer (Tab, or the tap on its
+  // <label>) opens the drawer; see revealSearch.
+  root.addEventListener('focusin', event => {
+    if (event.target instanceof Element && event.target.matches('[data-library-search]')) revealSearch()
+  })
   // The library restores its own scroll position on the way back.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 

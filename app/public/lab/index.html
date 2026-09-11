@@ -27,7 +27,7 @@
     button, input { -webkit-tap-highlight-color: transparent; }
 
 </style>
-  <script src="/lab/library-boot.js?v=20260911-2"></script>
+  <script src="/lab/library-boot.js?v=20260911-3"></script>
   <style>
     /* Boot paint (lab/library-boot.js, above): the panel the URL asks for,
        from the first frame. catalogue-runtime.js drops the attribute once it
@@ -146,9 +146,10 @@
               <header class="lib-popular-lead" data-popular-head><h1 class="lib-h1" data-popular-lead-title></h1><p class="lib-eyebrow is-dim" data-popular-lead-row></p></header>
               <div class="entry-featured" data-featured></div><div class="entry-shelf-arrows"><button type="button" data-shelf-scroll="-1" aria-label="Previous books">‹</button><button type="button" data-shelf-scroll="1" aria-label="Next books">›</button></div><div class="lib-shelf" data-popular-shelf role="group" aria-label="Popular books"></div>
               <div class="lib-caption" data-popular-caption aria-live="polite"></div>
-              <p class="lib-popular-more" data-popular-lead-more></p><button class="entry-full-library" type="button" data-open-full-library>See full library <span aria-hidden="true">→</span></button>
+              <button class="entry-full-library" type="button" data-open-full-library>See full library <span aria-hidden="true">→</span></button>
             </section>
-            <label class="lib-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" id="library-search-input" data-library-search placeholder="Search books" aria-label="Search by title or author" autocomplete="off" spellcheck="false"></label>
+            <!-- The search drawer: the one search field, at the foot of whichever hero shows (the popular row or the recap). Closed it peeks; library-boot.js opens it before the first paint when this session has opened it before; catalogue-runtime.js owns it from there. No whitespace inside: an empty drawer (field in the header slot) is :empty. -->
+            <div class="lib-search-drawer" data-search-drawer="peek"><label class="lib-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" id="library-search-input" data-library-search placeholder="Search books…" aria-label="Search by title or author" autocomplete="off" spellcheck="false"></label></div>
             <section class="lib-index" aria-label="All books">
               <button class="entry-library-back" type="button" data-library-selection>← Book selection</button><header class="lib-index-head"><span class="lib-eyebrow is-dim" data-index-label>All books</span><span class="lib-cnt" data-index-count></span></header>
               <div class="lib-index-body" data-library-index></div>
@@ -962,10 +963,9 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      cover's foot, so selecting never moves the page. */
   #tinct-onboarding-worlds-v5 .lib-popular { --lib-shelf-w:124px; --lib-shelf-scale:1.22; --lib-shelf-lift:44px; display:flex; flex-direction:column; gap:22px; }
   /* The lead over the row, for the reader who has nothing yet: the action in
-     the page's headline face, the row named quietly under it, and one line
-     under the row saying where the rest of the library is. */
+     the page's headline face and the row named quietly under it. Where the
+     rest of the library is, the search drawer under the row shows. */
   #tinct-onboarding-worlds-v5 .lib-popular-lead { display:flex; flex-direction:column; gap:8px; margin:0; padding:0; border:0; }
-  #tinct-onboarding-worlds-v5 .lib-popular-more { margin:0; font-size:15px; line-height:1.4; color:var(--lib-muted); }
   #tinct-onboarding-worlds-v5 .lib-shelf { display:flex; gap:16px; align-items:flex-start; margin:0 calc(-1 * var(--lib-pad-r)) 0 calc(-1 * var(--lib-pad-l)); padding:var(--lib-shelf-lift) var(--lib-pad-r) 12px var(--lib-pad-l); overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
   #tinct-onboarding-worlds-v5 .lib-shelf::-webkit-scrollbar { display:none; }
   #tinct-onboarding-worlds-v5 .lib-shelf-item { position:relative; flex:0 0 var(--lib-shelf-w); display:flex; flex-direction:column; text-align:left; opacity:.55; transition:opacity .32s ease; }
@@ -993,6 +993,53 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-search input::placeholder { color:var(--lib-muted); opacity:1; }
   #tinct-onboarding-worlds-v5 .lib-search input::-webkit-search-cancel-button,#tinct-onboarding-worlds-v5 .lib-search input::-webkit-search-decoration { -webkit-appearance:none; appearance:none; }
   #tinct-onboarding-worlds-v5 .lib-search:focus-within { border-bottom-color:var(--lib-rule-strong); }
+
+  /* Search drawer (2026-09-11) — the one field, at the foot of whichever
+     hero shows. Closed ("peek") it is cut at --lib-search-peek: the top rule,
+     the magnifier and the placeholder show, the bottom padding and rule stay
+     below a hairline, and a faint light rises from that edge, so it reads as
+     the top of a drawer. Opening ("opening" → "open") lets the height run to
+     the field's own, fades the edge and the light, and the page glides so the
+     field sits at the top with the index under it. --lib-search-peek is the
+     field's top rule + padding + the placeholder's line to just under its
+     baseline, so no letter is cut: it mirrors the .lib-search sizes above. */
+  #tinct-onboarding-worlds-v5 .lib-search-drawer { --lib-search-peek:39px; --lib-drawer-light:rgba(244,237,223,.075); position:relative; isolation:isolate; }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer:empty { display:none; }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"],#tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="opening"] { overflow:hidden; }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] { height:var(--lib-search-peek); }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] .lib-search { cursor:pointer; }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="opening"] { transition:height 520ms cubic-bezier(.2,.7,.2,1); }
+  /* The light behind the field and the hairline at the drawer's edge. */
+  #tinct-onboarding-worlds-v5 .lib-search-drawer::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(to top,var(--lib-drawer-light),transparent 70%); opacity:0; transition:opacity 420ms ease; pointer-events:none; }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer::after { content:''; position:absolute; left:0; right:0; bottom:0; height:1px; background:var(--lib-rule-strong); box-shadow:0 1px 14px rgba(244,237,223,.07); opacity:0; transition:opacity 420ms ease; pointer-events:none; }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]::before,#tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]::after { opacity:1; }
+  @media (hover:hover) {
+    #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]:hover { --lib-drawer-light:rgba(244,237,223,.12); }
+    #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]:hover::after { background:var(--lib-cream); opacity:.45; }
+  }
+  /* Keyboard: the closed drawer is reached through its field (Tab), and
+     focusing the field is what opens the drawer; the field wears the
+     library's own focus ring (.lib :focus-visible, above) as it opens. */
+  /* Opened earlier this session (lab/library-boot.js stamps the html before
+     the first paint): open from the first frame, no jump when the runtime
+     confirms it. A wide screen only ever peeks — see the desktop block. */
+  @media (max-width:899px) {
+    html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] { height:auto; overflow:visible; }
+    html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] .lib-search { cursor:text; }
+    html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]::before,html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]::after { opacity:0; }
+    /* With the drawer opening or open the page can always glide the field
+       to the top (revealSearch in catalogue-runtime.js): the index under it
+       is at least the rest of a screen tall. --lib-search-reach is the page's
+       top margin above the field (28) + the drawer at its PEEK height (the
+       scroll is asked for while it is still that tall) + the gap under it +
+       the page's bottom padding, mirrored from .lib-main, .lib-search and
+       --lib-search-peek above: 28 + 39 + 44 + 56 here, 28 + 46 + 64 + 96
+       from 601px. */
+    #tinct-onboarding-worlds-v5 .lib-main:has(.lib-search-drawer[data-search-drawer="opening"],.lib-search-drawer[data-search-drawer="open"]) > .lib-index,html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-index { min-height:calc(100dvh - var(--lib-search-reach,167px)); }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="opening"],#tinct-onboarding-worlds-v5 .lib-search-drawer::before,#tinct-onboarding-worlds-v5 .lib-search-drawer::after { transition:none; }
+  }
 
   /* Index: houses as rows with counts; a house opens a cover grid; search results use the same grid. */
   #tinct-onboarding-worlds-v5 .lib-index { display:flex; flex-direction:column; gap:8px; }
@@ -1055,7 +1102,6 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-shelf { gap:24px; }
     #tinct-onboarding-worlds-v5 .lib-caption { gap:14px; padding-top:8px; min-height:220px; }
     #tinct-onboarding-worlds-v5 .lib-popular-lead { gap:10px; }
-    #tinct-onboarding-worlds-v5 .lib-popular-more { font-size:17px; }
     #tinct-onboarding-worlds-v5 .lib-h1 { font-size:56px; }
     #tinct-onboarding-worlds-v5 .lib-caption .lib-h1 { font-size:34px; }
     #tinct-onboarding-worlds-v5 .lib-lede { font-size:22px; max-width:680px; }
@@ -1064,6 +1110,8 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-search { gap:16px; padding:22px 0; }
     #tinct-onboarding-worlds-v5 .lib-search svg { width:20px; height:20px; }
     #tinct-onboarding-worlds-v5 .lib-search input { font-size:22px; }
+    #tinct-onboarding-worlds-v5 .lib-search-drawer { --lib-search-peek:46px; }
+    #tinct-onboarding-worlds-v5 .lib-main { --lib-search-reach:234px; }
     #tinct-onboarding-worlds-v5 .lib-index { gap:20px; }
     #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:56px; }
     #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px 24px; padding:24px 0 28px; }
@@ -1081,11 +1129,13 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-cells { grid-template-columns:repeat(6,minmax(0,1fr)); }
     #tinct-onboarding-worlds-v5 .lib-recap-others { grid-template-columns:repeat(3,minmax(0,1fr)); }
   }
-  /* Desktop: search is available immediately; each category owns its row of books. */
+  /* From 601px: a live query hides the hero sections and leaves the field
+     and the index (the field is in the drawer, a div, so it stays); each
+     category owns its row of books. The field used to order itself to the
+     top of the page here; since 2026-09-11 it stays at the hero's foot in
+     its drawer on every width under 900px, where the phone surface applies. */
   @media (min-width:601px) {
-    #tinct-onboarding-worlds-v5 .lib-search { order:-1; }
     #tinct-onboarding-worlds-v5 .lib-main:has([data-library-search]:not(:placeholder-shown)) > section:not(.lib-index) { display:none; }
-    #tinct-onboarding-worlds-v5 .lib-popular-more { display:none; }
     #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:minmax(0,1fr); }
     #tinct-onboarding-worlds-v5 .lib-index-group { display:block; min-width:0; }
   }
@@ -1350,8 +1400,8 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   }
 </style>
 
-<link rel="stylesheet" href="/lab/entry.css?v=20260909-1">
-<script type="module" src="/lab/catalogue-runtime.js?v=20260910-availability-1"></script>
+<link rel="stylesheet" href="/lab/entry.css?v=20260911-1">
+<script type="module" src="/lab/catalogue-runtime.js?v=20260911-search-drawer-1"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
 </body>
