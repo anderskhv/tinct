@@ -4,6 +4,9 @@ const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5197',dir=process.env.AR
 const book=process.env.TEST_BOOK||'hamlet'
 const asset=JSON.parse(fs.readFileSync(`public/data/characters/${book}.v1.json`,'utf8'))
 const reviewedCases = {
+  'us-founding-documents': [['king',1,'george-iii',2],['divine-providence',1,'god',32],['dating-formula',2,'jesus',92]],
+  'kant-groundwork': [['wolf',1,'wolff'],['sulzer',3,'sulzer'],['hutcheson',3,'hutcheson'],['gospel-epithet',3,'jesus']],
+  'descartes-meditations': [['leo',1,'leo'],['apollonius',1,'apollonius'],['demon-first',4,'demon',11],['demon-later',5,'demon',2]],
   crito: [['socrates',1,'socrates'],['keeper',1,'keeper'],['laws',3,'laws']],
   apology: [['meletus',1,'meletus'],['critobulus',1,'critobulus',72],['ariston',1,'ariston',73],['odysseus',3,'odysseus']],
   'the-manual': [['socrates',5,'socrates'],['apollo',32,'apollo'],['zeus',52,'zeus'],['caesar',29,'caesar']],

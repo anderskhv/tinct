@@ -155,7 +155,7 @@ describe.each(['original-en', 'modern-en'])('Macbeth runtime %s', key => {
   })
 })
 
-describe.each(['crito', 'apology', 'the-manual', 'the-art-of-war', 'measure-for-measure', 'henry-v', 'winters-tale', 'cymbeline', 'coriolanus', 'antony-and-cleopatra', 'richard-iii', 'henry-iv-part-2', 'merry-wives-of-windsor'])('complete reviewed package %s', bookId => {
+describe.each(['us-founding-documents', 'kant-groundwork', 'descartes-meditations', 'crito', 'apology', 'the-manual', 'the-art-of-war', 'measure-for-measure', 'henry-v', 'winters-tale', 'cymbeline', 'coriolanus', 'antony-and-cleopatra', 'richard-iii', 'henry-iv-part-2', 'merry-wives-of-windsor'])('complete reviewed package %s', bookId => {
   it.each(['original-en', 'modern-en'])('validates every paragraph and mention in %s, with release boundaries', async editionKey => {
     const asset: CharacterAsset = JSON.parse(readFileSync(`public/data/characters/${bookId}.v1.json`, 'utf8'))
     const raw = Uint8Array.from(readFileSync(`public/data/editions/${bookId}-${editionKey}.json`)).buffer
