@@ -1,12 +1,12 @@
 {
   "contentStatus": "validated-package",
-  "appStatus": "live",
+  "appStatus": "not-integrated",
   "reviewedEditions": [
     "original-en",
     "modern-en"
   ],
-  "nextAction": "Maintain source fingerprint checks on future edition changes",
-  "productionVerification": {
+  "nextAction": "Awaiting the release owner pushing and redeploying the September 10 integration; content unchanged",
+  "priorProductionVerification": {
     "reportedBy": "release owner",
     "date": "2026-09-10",
     "bundle": "index-D_c4t1iT.js",
@@ -15,5 +15,13 @@
     "evidenceCommit": "10de86bb",
     "artifacts": "/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-characters-four/",
     "checks": "Both edition pairs; exact bundle and asset bytes; 60 live card scenarios plus four documented modern omissions; 15 smoke checks."
+  },
+  "servingCheck": {
+    "date": "2026-09-11",
+    "host": "https://tinct.app",
+    "result": "404 \u2014 sidecar not served",
+    "finding": "Verified 2026-09-10 from a local checkout; that integration commit (10de86bb) and its evidence doc are not on origin, and origin/main does not register this book in supportedEditions. Not being served today.",
+    "nextAction": "Release owner pushes the integration commit, redeploys, then re-runs books/characters/serving_check.py and restores appStatus: live.",
+    "detail": "books/characters/INTEGRATION-STATUS.md"
   }
 }

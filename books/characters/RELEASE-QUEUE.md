@@ -4,13 +4,18 @@ Updated September 10, 2026. This is a content-lane handoff to the existing relea
 
 ## Verified live
 
-- Awakening: earlier source-reviewed pilot; recognition-shortening follow-up remains.
-- Bible: Baruch only. Preserve all three enabled English variants.
-- Hamlet: release-owner verified, index-CfVbJ712.js. Evidence docs/character-cards-hamlet-2026-09-10.md in shipping/main.
-- Macbeth: release-owner verified, index-BjPCOKB7.js. Evidence docs/character-cards-macbeth-2026-09-10.md in shipping/main.
-- Crito, Apology, The Manual and The Art of War: both English editions production verified, index-D_c4t1iT.js; Worker 07acbcbd-0c28-4cfc-b6e7-358ae2d3542b. Evidence commit 10de86bb, docs/character-cards-four-2026-09-10.md.
+Reconciled against production on 2026-09-11 with `python3 books/characters/serving_check.py`. tinct.app serves exactly four sidecars; see `INTEGRATION-STATUS.md` for the full finding.
 
-These bundle names identify the verification releases, not necessarily the currently served bundle after later deployments.
+- Awakening: served. Earlier source-reviewed pilot; recognition-shortening follow-up remains.
+- Bible: served. Baruch only. Preserve all three enabled English variants.
+- Hamlet: served. Release-owner verified, index-CfVbJ712.js. Evidence docs/character-cards-hamlet-2026-09-10.md, on origin/main.
+- Macbeth: served. Release-owner verified, index-BjPCOKB7.js. Evidence docs/character-cards-macbeth-2026-09-10.md, on origin/main.
+
+### Verified but not being served
+
+Crito, Apology, The Manual and The Art of War were production verified on 2026-09-10 (index-D_c4t1iT.js; Worker 07acbcbd-0c28-4cfc-b6e7-358ae2d3542b; evidence commit 10de86bb, docs/character-cards-four-2026-09-10.md). All four sidecars return 404 today, commit 10de86bb is not an object on this remote, its evidence doc is not on origin/main, and origin/main does not register the four ids in `supportedEditions`. The integration exists only in a local checkout and has been superseded by a later deploy. Their `appStatus` now reads `not-integrated` with the original verification preserved as `priorProductionVerification`; push the integration commit, redeploy, re-run the serving check, and restore `live`. The content is unchanged and needs no re-authoring.
+
+These bundle names identify the verification releases, not necessarily the currently served bundle after later deployments. Integration status is asserted from the serving check, not from memory.
 
 ## First four: production verified September 10
 
