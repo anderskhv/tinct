@@ -944,9 +944,12 @@
     {
       "bookId": "iliad",
       "title": "The Iliad",
-      "contentStatus": "not-started",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -964,7 +967,7 @@
         }
       ],
       "existingThreadCandidates": 32,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Release owner: compare fingerprints, register both English editions and verify the two Ajaxes and the four things named Xanthus in production"
     },
     {
       "bookId": "nicomachean-ethics",

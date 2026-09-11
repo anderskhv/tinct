@@ -395,3 +395,39 @@ Also review: the two Ajaxes (4:41 is the one wrecked at Gyrae, the rest are Tela
 | Gaia (7:25) and the Sicels (20:33) are replaced by common nouns in `modern-en` | Recorded as `omittedEntities` for that edition — entity absent, not an unresolved binding |
 
 No edition file was changed. Any repair to these source bytes invalidates the recorded hashes and requires a restored-text review and a rebuild.
+
+## Opus batch 4: The Iliad
+
+Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| The Iliad | (this commit) | 750 / 750 | build_iliad.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Iliad | 3ba331f36cb935cb861bedb51994a4d410cda83013ba8c63bb04a126bb45e86c | d424a2e68fd2e302781a4f2ecd4ce3f85ff84c7b80f35b066a32f342cd59fa75 |
+
+**The largest package in the library.** 7,924 exact mentions in the original and 7,946 in the modern, across all 24 books and 1,137 paragraphs per edition. Zero omitted entities on either side. Commands: `python3 books/characters/build_iliad.py --check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Full content suite passes **460 tests**. Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+**Ajax is the thing to check.** The name occurs 175 times; only 48 carry a patronymic. Every bare occurrence was read in context, and the package binds **157 to Telamon's son, 18 to Oileus's, and 32 to the pair** — identical in both editions, which a test asserts slot by slot. Spot-check 7:18 (the duel with Hector, Telamon), 23:51 (wrestling, Telamon) and 23:55 (the foot race, Oileus).
+
+Then: the four things called **Xanthus** (a son of Phaenops, one of Hector's horses, one of Achilles' immortal pair, and the river god — with the Lycian river of the same name left uncast); the **five** men called Chromius; the four called Alastor and the four called Thoon; and that no card appears on Troy, Ida, Olympus or Argos.
+
+The Roman/Greek pairs are carried as aliases on one entity, so verify that a reader switching edition mid-book keeps the same card for Zeus/Jove, Athena/Minerva and Odysseus/Ulysses.
+
+### Deliberately unbound, documented
+
+In Phoenix's parable at 9:23 the Prayers and Sin are personified but printed in lower case; they are not bound, because binding them would mean binding the common nouns wherever they appear. Recorded in the package README rather than hidden.
+
+### Source defects, none blocking enablement
+
+| Defect | Effect |
+|---|---|
+| `original-en` writes **Zeus** once at 16:51 in a text that otherwise says Jove throughout; also **Jupiter** once and **Alexandria** once for Alexandrus | All bound to the right figure as aliases |
+| `original-en` writes **Fandarus** for Pandarus once | Left unbound rather than repaired; binding a misprint would imply the text is corrected |
+| Alcimedon's father is **Laerceus** at 16:10 and **Laerces** at 17:29 in both editions; Pylaemenes is **Pylaemanes** at first appearance in the original | One entity each, both spellings as aliases |
+
+No edition file was changed. Any repair to these bytes invalidates the recorded hashes and requires a restored-text review and a rebuild.

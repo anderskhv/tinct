@@ -41,7 +41,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Jerusalem (`jerusalem`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Awakening (`the-awakening`) | source-reviewed-pilot | Shorten remaining running reminders under the approved recognition-first policy; preserve existing source gates |
 | The Brothers Karamazov (`brothers-karamazov`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Iliad (`iliad`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Iliad (`iliad`) | validated-package | Release owner: compare fingerprints, register both English editions and verify the two Ajaxes and the four things named Xanthus in production |
 | Nicomachean Ethics (`nicomachean-ethics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Prince (`the-prince`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Beyond Good and Evil (`beyond-good-and-evil`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
