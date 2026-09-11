@@ -36,7 +36,9 @@
       var any = Object.keys(covering).some(function (k) { return covering[k]; });
       if (any) root.setAttribute('data-tinct-footer', 'visible'); else root.removeAttribute('data-tinct-footer');
     });
-    ['footer.about-footer', '.final-read-link'].forEach(function (sel) {
+    // Phones (round 2): the pill stays through the closing section; only the footer hides it.
+    var phone = window.matchMedia && window.matchMedia('(max-width:760px)').matches;
+    (phone ? ['footer.about-footer'] : ['footer.about-footer', '.final-read-link']).forEach(function (sel) {
       var el = document.querySelector(sel); if (el) io.observe(el);
     });
   }

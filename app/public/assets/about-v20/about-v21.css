@@ -163,6 +163,17 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
   .book-overview-questions p:nth-child(2){top:46%}
   .book-overview-questions p:nth-child(3){top:24%}
 }
+/* Round 2 (2026-09-11, Anders): a question must never sit on the text it asks about. On phones and
+   portrait tablets the page gives up a little height and the question cards move into a band of their
+   own between the narration and the page's top edge; the narration steps up to make room. */
+@media (max-width:1024px){
+  .reading-journey[data-beat=overview] .reading-narration{bottom:calc(var(--page-foot) + var(--page-h) + 84px)}
+  .reading-journey[data-beat=overview] .reading-passage{font-size:clamp(10px,3cqh,16px)}
+  .book-overview-questions p{top:auto!important;bottom:calc(100% + 6px);left:auto;right:0;max-width:82%;font-size:clamp(15px,2.2vw,20px)}
+}
+/* Round 2: on phones the bottom pill is the button, on every scene. The closing section's inline button
+   sat mid-screen above the covers, so it steps aside there; the footer's link stays. */
+@media (max-width:760px){.final-read-link{display:none}}
 
 /* The AI chapter runs longer so the Hamlet post can be read before the avalanche. */
 .story-root[data-bookshelf=true] .journey-steps #chapter-ai{height:210svh;min-height:210svh}
