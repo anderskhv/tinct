@@ -5,6 +5,8 @@ import { isAudioHeld, isBookDiscoverable, isEditionDiscoverable } from './audioA
 import { PRE_READER_CATALOGUE, createReaderHandoffIntent } from '../preReader/catalogue'
 import { listableBooks } from '../../public/lab/library-model.js'
 import { fullShelf } from '../../public/lab/entry-model.js'
+import { LAB_AUDIO } from '../lab/labListen'
+import census from '../../../artifacts/audio-highlight-census-2026-09-11/edition-summary.json'
 describe('reversible edition discovery availability', () => {
   it('partitions every current English edition exactly once', () => {
     const actual = BOOKS.flatMap(book => book.editions.filter(e => e.language === 'en').map(e => `${book.id}/${e.key}`)).sort()
@@ -43,5 +45,21 @@ describe('reversible edition discovery availability', () => {
     expect(bible.editions.map(e=>e.key)).toEqual(['kjv-en', 'web-en'])
     expect(bible.editions.filter(e=>isEditionDiscoverable(bible.id,e)).map(e=>e.key)).toEqual(['kjv-en', 'web-en'])
     expect(isBookDiscoverable('bible')).toBe(true)
+  })
+  it('never holds the lab default audio source', () => {
+    // The lab's own hardcoded audio default (bible/kjv-en) was on the hold
+    // list from 2026-09-10 to 2026-09-11 and every Bible play showed "Audio
+    // is temporarily unavailable" while 1178 of 1189 chapters were timed.
+    expect(isAudioHeld(LAB_AUDIO.bookId, LAB_AUDIO.editionKey)).toBe(false)
+  })
+  it('never holds an edition the production census measures as nearly complete', () => {
+    // The hold list is hand-maintained; the census is measured. A hold on an
+    // edition whose recordings cover ≥90% of its chapters is the KJV false
+    // positive again (a partial edition is a legitimate hold, so the bar is
+    // coverage, not any timing at all).
+    const coverage = new Map(census.map(e => [`${e.bookId}/${e.edition}`, e.chapters > 0 ? e.timed / e.chapters : 0]))
+    const nearlyComplete = manifest.held_editions.map(e => e.key).filter(key => (coverage.get(key) ?? 0) >= 0.9)
+    expect(nearlyComplete).toEqual([])
+    expect(coverage.get('bible/kjv-en')).toBeGreaterThan(0.99)
   })
 })
