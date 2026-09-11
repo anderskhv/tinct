@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PHONE_QUERY, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -519,5 +519,24 @@ describe('chat composer autofocus', () => {
     // No matchMedia (older engines, jsdom): touch points decide, not the viewport width.
     expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: null, maxTouchPoints: 0 })).toBe(true)
     expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: undefined, maxTouchPoints: 2 })).toBe(false)
+  })
+})
+
+describe('the phone surface media query', () => {
+  it('keeps phones and upright tablets on the phone surface, and gives landscape tablets the desktop spread', () => {
+    // Under 900px: phone in either orientation. 900–1024px: phone only when
+    // upright. From 900px in landscape (an iPad is 1024+ wide there): desktop.
+    expect(LAB_PHONE_QUERY).toBe('(max-width: 899px), ((max-width: 1024px) and (orientation: portrait))')
+    const matches = (width: number, height: number) => {
+      const portrait = height >= width
+      return width <= 899 || (width <= 1024 && portrait)
+    }
+    expect(matches(390, 844)).toBe(true)
+    expect(matches(768, 1024)).toBe(true)
+    expect(matches(820, 1180)).toBe(true)
+    expect(matches(1024, 768)).toBe(false)
+    expect(matches(1180, 820)).toBe(false)
+    expect(matches(1440, 900)).toBe(false)
+    expect(matches(1024, 1366)).toBe(true)
   })
 })

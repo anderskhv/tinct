@@ -72,6 +72,12 @@ export interface ReadingListRow {
   progress: ChapterProgress
   /** The "so far" summary should cover the previous chapter too (finished, same sitting or barely into this one). */
   includePreviousChapter: boolean
+  /**
+   * Sequential chapters the reader has finished in this book: the position
+   * record's finished list united with completed reading-memory sessions
+   * visible to the viewer. Sorted. The Bible's "N% read" is built from it.
+   */
+  finishedChapters: number[]
 }
 
 export interface FinishedRow {
@@ -262,6 +268,26 @@ function lastChapterNumber(book: LibraryBookInfo | undefined): number | null {
   return book.chapters.reduce((max, chapter) => Math.max(max, chapter.number), 0) || null
 }
 
+/**
+ * Every chapter the records say the reader finished in a book: the position
+ * record's list plus any completed session visible to the viewer. The same
+ * evidence the reader's chapter picker marks Finished with.
+ */
+export function finishedChaptersForBook(input: {
+  memory: ReadingMemoryState
+  viewer: string | null
+  positions: LabPositionState | null | undefined
+  bookId: string
+}): number[] {
+  const out = new Set<number>(input.positions?.finished?.[input.bookId] ?? [])
+  const visible = visibleToViewer(input.viewer)
+  for (const session of Object.values(input.memory.sessions)) {
+    if (!visible(session) || session.anchor.bookId !== input.bookId) continue
+    if (session.state === 'completed' && session.completedAt !== null) out.add(session.anchor.chapterNumber)
+  }
+  return [...out].sort((a, b) => a - b)
+}
+
 /** The stored summary, only when it describes the chapter Continue resumes in. */
 export function recapForTarget(session: ReadingSession | null, target: ContinueTarget): string | null {
   if (!session) return null
@@ -348,6 +374,7 @@ export function readingList(input: ReadingListInput): ReadingList {
         previousChapterFinished: previousFinished,
         sameSitting: previousChapterSameSitting({ memory: input.memory, viewer: input.viewer, target, session }),
       }),
+      finishedChapters: finishedChaptersForBook({ memory: input.memory, viewer: input.viewer, positions: input.positions, bookId }),
     })
   }
   readingNow.sort((a, b) => b.lastActiveAt - a.lastActiveAt)

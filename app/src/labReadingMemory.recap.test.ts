@@ -24,6 +24,7 @@ import { bibleChapterFixture, platoDialogueFixture, sessionFor } from './reading
 import { RECAP_SUMMARY_STORAGE_KEY } from './preReader/recapSummaryClient'
 import { recapCacheKey } from './recapSummary'
 import type { ReadingMemoryState, ReadingSession } from './readingMemory/types'
+import { wholeBookProgress } from '../public/lab/library-2-model.js'
 
 const USER = 'user-anders'
 vi.mock('./services/supabase', () => ({
@@ -60,6 +61,7 @@ function catalogueJson() {
         id: 'bible',
         title: 'The Bible',
         author: 'Various',
+        art: { src: '/covers/v2/bible.webp', srcSet: '/covers/v2/bible.webp 1x' },
         editions: [
           { key: 'kjv-en', label: 'King James Version (1611)', style: 'kjv', language: 'en', availability: { chapterText: true } },
           { key: 'modern-en', label: 'Modern English', style: 'modern', language: 'en', availability: { chapterText: true } },
@@ -71,6 +73,7 @@ function catalogueJson() {
         id: 'plato-republic',
         title: 'The Republic',
         author: 'Plato',
+        art: { src: '/covers/v2/plato-republic.webp', srcSet: '/covers/v2/plato-republic.webp 1x' },
         editions: [{ key: 'original-en', label: 'Original', style: 'original', language: 'en', availability: { chapterText: true } }],
         readingStructure: { editionKey: 'original-en', chapters: [{ number: 1, title: 'Book I', paragraphCount: 4 }] },
       },
@@ -215,6 +218,10 @@ describe('recap hero: a short absence is not summarised', () => {
     )
     expect(section.dataset.book).toBe('bible')
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
+    // The book's title leads the caption; it is not a stray line under the summary.
+    expect([...section.querySelectorAll('[data-now-caption] > *')].map(node => node.getAttribute('data-testid') ?? node.className.split(' ')[0]))
+      .toEqual(['lab-recap-book', 'lab-recap-eyebrow', 'lab-recap-headline', 'lab-recap-summary', 'lib-now-cta'])
+    expect(section.querySelector('[data-testid=lab-recap-book]')!.textContent).toBe('The Bible')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
     // An optional recap with no text must not reserve blank space.
@@ -352,18 +359,20 @@ describe('back out of the book\u2019s own reader', () => {
   })
 })
 
+/** Bible read this morning; the Republic read 90 minutes ago — the newest book wins the hero. */
+const morningBibleEveningRepublicSeed = () => ({
+  sessions: [
+    bibleSession(ago(9 * HOUR)),
+    sessionFor(platoDialogueFixture(), { id: 'republic', state: 'progressed', startedAt: ago(2 * HOUR), lastActiveAt: ago(90 * MINUTE), page: 2, owner: USER }),
+  ],
+  positions: positionState([
+    biblePlace(ago(9 * HOUR) + MINUTE),
+    place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 1, primaryEditionKey: 'original-en', updatedAt: ago(89 * MINUTE) }),
+  ], 'plato-republic'),
+})
+
 describe('a daily Bible reader who opens another book afterwards', () => {
-  /** Bible read this morning; the Republic read 90 minutes ago — the newest book wins the hero. */
-  const morningBibleEveningRepublic = () => ({
-    sessions: [
-      bibleSession(ago(9 * HOUR)),
-      sessionFor(platoDialogueFixture(), { id: 'republic', state: 'progressed', startedAt: ago(2 * HOUR), lastActiveAt: ago(90 * MINUTE), page: 2, owner: USER }),
-    ],
-    positions: positionState([
-      biblePlace(ago(9 * HOUR) + MINUTE),
-      place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 1, primaryEditionKey: 'original-en', updatedAt: ago(89 * MINUTE) }),
-    ], 'plato-republic'),
-  })
+  const morningBibleEveningRepublic = morningBibleEveningRepublicSeed
 
   it('gives the focus — and the only generated summary — to the newest book, not to the Bible', async () => {
     const { sessions, positions } = morningBibleEveningRepublic()
@@ -649,5 +658,154 @@ describe('cross-device library refresh', () => {
     expect(section.dataset.book).toBe('plato-republic')
     release()
     await refreshing
+  })
+})
+
+describe('recap hero: "N% read" under Continue', () => {
+  /**
+   * The number comes from the catalogue runtime (`window.__tinctLabPreReader
+   * .bookProgress`), which is not loaded here; stand it in with the real
+   * model over the test's own Bible structure, and record what the recap
+   * hands it.
+   */
+  const bibleStructure = {
+    id: 'bible',
+    readingStructure: {
+      totalParagraphs: BIBLE_CHAPTERS.reduce((sum, chapter) => sum + chapter.paragraphCount, 0),
+      chapters: BIBLE_CHAPTERS,
+    },
+  }
+  let progressCalls: Array<{ bookId: string; place: Record<string, unknown>; finishedChapters: number[] | undefined }> = []
+
+  function stubPreReaderProgress() {
+    progressCalls = []
+    ;(window as Window & { __tinctLabPreReader?: unknown }).__tinctLabPreReader = {
+      bookProgress: (bookId: string, place: Record<string, unknown>, finishedChapters?: number[]) => {
+        progressCalls.push({ bookId, place, finishedChapters })
+        return bookId === 'bible' ? wholeBookProgress(bibleStructure, place, { finishedChapters }) : null
+      },
+    }
+  }
+
+  afterEach(() => {
+    delete (window as Window & { __tinctLabPreReader?: unknown }).__tinctLabPreReader
+  })
+
+  it('counts the Bible by finished chapters from both stores, plus the current chapter', async () => {
+    stubPreReaderProgress()
+    // Finished per the position record: Genesis 1 (7) and Psalms 150 (3).
+    // Finished per reading memory: Proverbs 16 (7), a completed session.
+    // Resume: paragraph 2 of 6 in Proverbs 17 → 2 more.  (7+3+7+2)/23 = 83%.
+    const proverbs16 = sessionFor({ ...bibleChapterFixture(), chapterNumber: 644, chapterLabel: 'Proverbs 16' }, {
+      id: 'bible-yesterday', state: 'completed', startedAt: ago(DAY + HOUR), lastActiveAt: ago(DAY), owner: USER,
+    })
+    const section = await renderLibrary(
+      [proverbs16, bibleSession(ago(5 * MINUTE))],
+      positionState([biblePlace(ago(4 * MINUTE))], 'proverbs', { bible: [1, 631] }),
+    )
+    expect(section.querySelector('[data-testid=lab-recap-progress]')!.textContent).toBe('83% read')
+    const call = progressCalls.find(item => item.bookId === 'bible')!
+    expect(call.finishedChapters).toEqual([1, 631, 644])
+    expect(call.place).toMatchObject({ chapterNumber: 645, paragraphIndex: 2 })
+  })
+
+  it('reads low, never high, for a Bible reader with nothing finished', async () => {
+    stubPreReaderProgress()
+    const section = await renderLibrary(
+      [bibleSession(ago(5 * MINUTE))],
+      positionState([biblePlace(ago(4 * MINUTE))], 'proverbs'),
+    )
+    // 2 of Proverbs 17's 6 paragraphs, over 23: 8.7% — not "the chapters
+    // before Proverbs" and never the legacy record's high-water mark.
+    expect(section.querySelector('[data-testid=lab-recap-progress]')!.textContent).toBe('9% read')
+    expect(progressCalls.find(item => item.bookId === 'bible')!.finishedChapters).toEqual([])
+  })
+})
+
+/**
+ * Covers must not flicker for a returning reader (2026-09-11). The section
+ * is painted several times per load — the boot snapshot before any module,
+ * then the local list, the cloud positions, the completions and the recap —
+ * and each paint used to rebuild it with `innerHTML`, recreating every cover
+ * `<img>`. The section is now reconciled: cards are keyed by book and kept.
+ */
+describe('recap covers do not flicker', () => {
+  /** The DOM lab/library-boot.js paints from its snapshot: one hero card, its cover already showing. */
+  function mountBootShell(bookId: string, title: string, coverSrc: string) {
+    document.body.innerHTML = `<div id="tinct-onboarding-worlds-v5"><section class="lib-recap" data-reading-memory-recap data-boot-recap="snapshot" aria-busy="true"><section class="lib-reading-now" data-reading-now-section aria-label="Reading now"><header class="lib-index-head lib-sec-head" data-reading-now-head><span class="lib-eyebrow is-dim">Reading now</span><span class="lib-cnt">2</span></header><div class="lib-now-shelf is-single" data-now-shelf><div class="lib-now-item is-focused" data-now-index="0" data-now-book="${bookId}"><button type="button" class="lib-now-open" data-recap-open="${bookId}"><span class="lib-cover"><img src="${coverSrc}" srcset="${coverSrc} 1x" alt="" decoding="async"></span></button><button type="button" class="lib-now-remove" data-now-remove="${bookId}" aria-label="Remove ${title} from currently reading">×</button></div></div><div class="lib-now-caption" data-now-caption><p class="lib-lede">${title}</p><p class="lib-eyebrow">Last time you read · Book I</p><h1 class="lib-h1">You stopped in Book I</h1></div></section></section></div>`
+  }
+
+  /** Every card added or removed under the section, and every time it was hidden. */
+  function watch(section: HTMLElement) {
+    const log = { added: [] as string[], removed: [] as string[], hidden: 0 }
+    const cards = (nodes: NodeList) => [...nodes].flatMap(node => {
+      if (!(node instanceof HTMLElement)) return []
+      const own = node.classList.contains('lib-now-item') ? [node] : []
+      return [...own, ...node.querySelectorAll<HTMLElement>('.lib-now-item')]
+    })
+    const observer = new MutationObserver(records => {
+      for (const record of records) {
+        if (record.type === 'attributes' && section.hidden) log.hidden += 1
+        log.added.push(...cards(record.addedNodes).map(card => card.dataset.nowBook ?? '?'))
+        log.removed.push(...cards(record.removedNodes).map(card => card.dataset.nowBook ?? '?'))
+      }
+    })
+    observer.observe(section, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden'] })
+    return log
+  }
+
+  it('keeps the boot-painted hero card and its <img>, and only adds the cards the boot did not paint', async () => {
+    const { sessions, positions } = morningBibleEveningRepublicSeed()
+    seed(sessions, positions)
+    installCssEscape()
+    mountBootShell('plato-republic', 'The Republic', '/covers/v2/plato-republic.webp')
+    stubFetch()
+    const section = document.querySelector<HTMLElement>('[data-reading-memory-recap]')!
+    const bootImg = section.querySelector('img')!
+    const log = watch(section)
+    await import('./labReadingMemory')
+    await flush()
+    expect(section.hidden).toBe(false)
+    expect(section.dataset.bootRecap).toBeUndefined()
+    expect(section.dataset.readingNow).toBe('2')
+    expect([...section.querySelectorAll<HTMLElement>('[data-now-book]')].map(card => card.dataset.nowBook)).toEqual(['plato-republic', 'bible'])
+    // The boot's card is the confirmed card: same node, same <img>, src untouched.
+    expect(section.querySelector('[data-now-book="plato-republic"] img')).toBe(bootImg)
+    expect(bootImg.getAttribute('src')).toBe('/covers/v2/plato-republic.webp')
+    expect(log.hidden).toBe(0)
+    expect(log.added).toEqual(['bible'])
+    expect(log.removed).toEqual([])
+    // And the caption is the confirmed one, in the confirmed order.
+    expect(section.querySelector('[data-testid=lab-recap-book]')!.textContent).toBe('The Republic')
+  })
+
+  it('touches no card on a repaint that changes nothing, and moves — never recreates — a card the cloud reorders', async () => {
+    const local = { ...positionState([biblePlace(ago(DAY))], 'proverbs'), owner: USER, lastSettledAt: ago(DAY) }
+    cloudPosition = local
+    const section = await renderLibrary([], local)
+    const bibleCard = section.querySelector<HTMLElement>('[data-now-book="bible"]')!
+    const bibleImg = bibleCard.querySelector('img')!
+    const log = watch(section)
+    // Same data again: a focus refresh.
+    window.dispatchEvent(new Event('focus'))
+    await flush(40)
+    expect(log.added).toEqual([])
+    expect(log.removed).toEqual([])
+    expect(section.querySelector('[data-now-book="bible"]')).toBe(bibleCard)
+    expect(section.querySelector('[data-now-book="bible"] img')).toBe(bibleImg)
+    // Another device read the Republic a minute ago: it takes the front of
+    // the row and the Bible's card slides over, still the same node.
+    const republic = place({ bookId: 'plato-republic', headerBook: 'The Republic', sequentialChapter: 1, primaryEditionKey: 'original-en', updatedAt: ago(MINUTE) })
+    cloudPosition = { ...positionState([biblePlace(ago(DAY)), republic], 'plato-republic'), owner: USER }
+    window.dispatchEvent(new Event('focus'))
+    await flush(40)
+    expect([...section.querySelectorAll<HTMLElement>('[data-now-book]')].map(card => card.dataset.nowBook)).toEqual(['plato-republic', 'bible'])
+    expect(section.querySelector('[data-now-book="bible"]')).toBe(bibleCard)
+    expect(section.querySelector('[data-now-book="bible"] img')).toBe(bibleImg)
+    expect(bibleCard.dataset.nowIndex).toBe('1')
+    expect(bibleCard.classList.contains('is-focused')).toBe(false)
+    expect(log.added).toEqual(['plato-republic'])
+    expect(log.removed).toEqual([])
+    expect(section.dataset.book).toBe('plato-republic')
   })
 })

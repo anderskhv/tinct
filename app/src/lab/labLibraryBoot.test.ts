@@ -24,6 +24,7 @@ function snapshot(over: Partial<LabLibraryBootSnapshot> = {}): LabLibraryBootSna
     readingNow: 2,
     finished: 1,
     hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: '“Better is a dry morsel…”', coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: '12% read' },
+    row: [{ bookId: 'odyssey', title: 'The Odyssey', coverSrc: '/covers/odyssey.jpg', coverSrcSet: null }],
     ...over,
   }
 }
@@ -77,9 +78,34 @@ describe('boot snapshot', () => {
     expect(moved.hero).toEqual({ bookId: 'bible', title: 'The Bible', chapterLabel: 'Hebrews 3', headline: 'You stopped in Hebrews 3', coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x', note: null })
     expect(moved.readingNow).toBe(2)
 
+    // A book that was on the row steps up: its cover comes with it, the old
+    // hero steps down to the front of the row, and the count is unchanged.
     const other = snapshotWithReaderPlace(snapshot(), { userId: 'user-a', bookId: 'odyssey', title: 'The Odyssey', chapterLabel: 'Book 3', now: NOW })
-    expect(other.hero).toMatchObject({ bookId: 'odyssey', title: 'The Odyssey', headline: 'You stopped in Book 3', coverSrc: null })
-    expect(other.readingNow).toBe(3)
+    expect(other.hero).toMatchObject({ bookId: 'odyssey', title: 'The Odyssey', headline: 'You stopped in Book 3', coverSrc: '/covers/odyssey.jpg' })
+    expect(other.row).toEqual([{ bookId: 'bible', title: 'The Bible', coverSrc: '/covers/bible.jpg', coverSrcSet: '/covers/bible.jpg 1x' }])
+    expect(other.readingNow).toBe(2)
+    // A book new to the library: no cover yet, one more on the row.
+    const fresh = snapshotWithReaderPlace(snapshot(), { userId: 'user-a', bookId: 'hamlet', title: 'Hamlet', chapterLabel: 'Act 1', now: NOW })
+    expect(fresh.hero).toMatchObject({ bookId: 'hamlet', coverSrc: null })
+    expect(fresh.row.map(card => card.bookId)).toEqual(['bible', 'odyssey'])
+    expect(fresh.readingNow).toBe(3)
+  })
+
+  it('carries the row after the hero, without the hero, duplicates, unsafe covers or more than a dozen', () => {
+    const row = Array.from({ length: 15 }, (_, index) => ({ bookId: `book-${index}`, title: `Book ${index}`, coverSrc: `/covers/${index}.jpg`, coverSrcSet: null }))
+    const parsed = parseLabLibraryBootSnapshot(snapshot({ row: [
+      { bookId: 'bible', title: 'The Bible', coverSrc: '/covers/bible.jpg', coverSrcSet: null },
+      { bookId: 'odyssey', title: 'The Odyssey', coverSrc: 'javascript:x', coverSrcSet: 'x' },
+      { bookId: 'odyssey', title: 'The Odyssey', coverSrc: '/covers/odyssey.jpg', coverSrcSet: null },
+      { bookId: '', title: 'Nameless' },
+      ...row,
+    ] }), NOW)!
+    expect(parsed.row).toHaveLength(12)
+    expect(parsed.row[0]).toEqual({ bookId: 'odyssey', title: 'The Odyssey', coverSrc: null, coverSrcSet: null })
+    expect(parsed.row.map(card => card.bookId)).not.toContain('bible')
+    // Older snapshots have no row; a snapshot without a hero has none either.
+    expect(parseLabLibraryBootSnapshot({ ...snapshot(), row: undefined }, NOW)?.row).toEqual([])
+    expect(parseLabLibraryBootSnapshot(snapshot({ hero: null }), NOW)?.row).toEqual([])
   })
 
   it('never carries another account\'s snapshot into the reader place', () => {

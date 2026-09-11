@@ -405,7 +405,7 @@ describe('the transport', () => {
 })
 
 describe('the first view', () => {
-  it('spins once, 400 ms after the page lays out, and never again', async () => {
+  it('spins once per reader load, 400 ms after the page lays out, and again on the next load', async () => {
     reducedMotion(false)
     const { unmount } = renderPhone()
     await waitFor(() => expect(root().getAttribute('data-reader-ready')).toBe('true'))
@@ -419,16 +419,41 @@ describe('the first view', () => {
       () => expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false),
       { timeout: 2000 },
     )
+    // Nothing on this mount arms it a second time.
+    await new Promise(done => setTimeout(done, 700))
+    expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false)
     unmount()
 
-    // Second visit: the flag is set, so nothing moves.
+    // Next load: it is a per-load introduction, not a once-ever flag, so it
+    // spins again.
     renderPhone()
     await waitFor(() => expect(root().getAttribute('data-reader-ready')).toBe('true'))
+    await waitFor(
+      () => expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(true),
+      { timeout: 2000 },
+    )
+  })
+
+  it('does not re-arm when the account resolves after the spin on the same load', async () => {
+    reducedMotion(false)
+    const view = renderPhone()
+    await waitFor(() => expect(root().getAttribute('data-reader-ready')).toBe('true'))
+    await waitFor(
+      () => expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(true),
+      { timeout: 2000 },
+    )
+    await waitFor(
+      () => expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false),
+      { timeout: 2000 },
+    )
+    // Auth resolving late used to flip the one-shot identity from device to
+    // account and replay the spin. The latch is per mount now.
+    view.rerender(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken="late-token" />)
     await new Promise(done => setTimeout(done, 700))
     expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false)
   })
 
-  it('fades instead of spinning under reduced motion, still only once', async () => {
+  it('fades instead of spinning under reduced motion', async () => {
     reducedMotion(true)
     renderPhone()
     await waitFor(
@@ -443,13 +468,14 @@ describe('the first view', () => {
     expect(frames[frames.length - 1].style.opacity).toBe('0')
   })
 
-  it('clears the teal full stop the first time the menu is opened', () => {
+  it('never renders the teal full stop: the mark promises nothing it does not have', () => {
     renderPhone()
-    expect(screen.getByTestId('lab-super').getAttribute('data-hint')).toBe('true')
-    fireEvent.click(screen.getByTestId('lab-super'))
-    expect(screen.getByTestId('lab-super').getAttribute('data-hint')).toBe('false')
-    fireEvent.click(screen.getByTestId('lab-super-scrim'))
-    expect(screen.getByTestId('lab-super').getAttribute('data-hint')).toBe('false')
+    const button = screen.getByTestId('lab-super')
+    expect(button.querySelector('.lab-super-stop')).toBeNull()
+    expect(button.hasAttribute('data-hint')).toBe(false)
+    expect(button.classList.contains('has-hint')).toBe(false)
+    fireEvent.click(button)
+    expect(screen.getByTestId('lab-super').querySelector('.lab-super-stop')).toBeNull()
   })
 })
 
