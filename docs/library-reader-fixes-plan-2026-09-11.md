@@ -184,24 +184,33 @@ but only runs in the old `App.tsx` one-shot behind `tinct:progress-cleanup-v1-do
 the lab library never runs it, and `supabaseStorage.ts:207` /
 `labReadingMemory.ts:768` re-hydrate the poisoned record from the cloud.
 
-### Fix
-1. `public/lab/library-2-model.js:56-60` — ignore the high-water override when it
-   is not corroborated by the position: skip it when
-   `highestCompletedChapter > resume.chapterNumber + 3` and no completion record
-   exists. Proverbs 18 then reads 54%; a linear reader (high-water within a
-   chapter or two of position) is unchanged.
-2. Same guard in `public/lab/library-2-runtime.js:221` (shelf rows).
-3. Better follow-up: for books read non-linearly, compute completed units from
-   the set of finished chapters (`labFinishedChapterSet`,
-   `src/lab/labChapterStatus.ts:56-100`) instead of a prefix slice.
-4. Separate follow-up: make the progress cleanup apply to the cloud copy, or
-   poisoned records keep returning.
+### Fix (decided with Anders 2026-09-11)
+Rule: **position for every book except the Bible; the Bible uses finished chapters.**
+The high-water override is retired for the lab library in both cases.
+
+1. `public/lab/library-2-model.js:56-60` — delete the `highestCompletedChapter`
+   branch. Position-derived paragraphs over total paragraphs is the whole answer
+   for linear books. Poisoned old records then stop mattering without a cleanup
+   migration; `percent` / `positionPercent` on the record stay ignored.
+2. Bible branch (`bookId === 'bible'`): completed units = paragraph counts of
+   every chapter in `labFinishedChapterSet` (`src/lab/labChapterStatus.ts:98-102`,
+   built from reading-memory sessions, the finished list, and pins) plus the
+   in-progress fraction of the current chapter. Paragraph-weighted, not chapter
+   count, so Psalm 117 and Psalm 119 are not worth the same. The runtime module
+   will need the finished set passed in the same way `completionRecord` is today
+   (`public/lab/catalogue-runtime.js:1254-1257`).
+3. Same two branches in `public/lab/library-2-runtime.js:221` (shelf rows).
+4. Known bias: if chapter completion is ever not recorded, the Bible number reads
+   low, never high. Low is the safer error. Check how consistently completion
+   fires in reading memory before relying on it.
 
 ### Regression tests
 Extend `src/preReader/library2Model.test.ts`:
-- Bible-shaped structure (or scaled 100-chapter analogue), resume at chapter
-  646, record `{ highestCompletedChapter: 1146, percent: 96, positionPercent: 72 }`
-  → expect ≈54, assert `< 60`.
+- Linear book with a poisoned record `{ highestCompletedChapter: 1146 }` and
+  resume at chapter 646 → position-derived ≈54, assert `< 60`.
+- Bible: finished set of, say, Genesis 1–10 plus Proverbs 1–17, resume at start
+  of Proverbs 18 → percent equals those chapters' paragraphs over 6704, and a
+  reader who only jumped to Hebrews 13 once reads under 1%.
 - Existing linear case at line 34 (`highestCompletedChapter: 3`, resume in
   chapter 2 → 60) must still pass.
 - Existing completed case at line 35 (`completed === true` → 100) must still pass.
