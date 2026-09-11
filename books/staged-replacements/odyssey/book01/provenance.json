@@ -1,0 +1,27 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/odyssey-modern-en-20260911",
+ "staged_original_path": "app/public/data/editions/odyssey-original-en.json",
+ "staged_original_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "chapter_extracted": {
+  "number": 1,
+  "title": "Book 1 — The gods in council—Minerva’s visit to Ithaca—the challenge from Telemachus to the suitors",
+  "paragraphs": 32,
+  "extraction": "found by chapter.number == 1 in odyssey-original-en.json; paragraphs byte-identical"
+ },
+ "source_book1_json_sha256": "fd364c78c4e87d0c93e529aeaa42e13bc3677f21cc3b7143d1d43df76e64f1c4",
+ "candidate_v1_json_sha256": "8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9",
+ "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt, sha256 ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9), identified and verified directly against the served original-en (see PROVENANCE.md §1). The only translation used for the candidate; no other translation consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read).",
+ "word_counts": {
+  "source": 4110,
+  "candidate": 3874,
+  "ratio": 0.943,
+  "min_paragraph_ratio": 0.858,
+  "min_paragraph_id": "B01-P017",
+  "note": "screening signal only; not evidence of semantic completeness. The lowest-ratio paragraph (B01-P017) is a single long Victorian sentence condensed into clearer modern syntax; see continuity.md and 00-progress-ledger.md."
+ },
+ "generation_setting": "Drafted in-conversation by the content agent (Sonnet 5 session), whole Book read before drafting, GLOSSARY.md and PROVENANCE.md written first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 1 (candidate text frozen in scripts/candidates/book1.py; regenerates source-book1.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "review_round_1": "not yet run. review-packets/ and review-instructions.md are pushed; findings expected under book01/review/."
+}

@@ -50,9 +50,9 @@ Kept current at every push.
   extracted verbatim into `book01/source-book1.json`. Speeches kept as
   direct speech throughout; Butler's own paragraph-boundary quotation
   convention preserved exactly at the one place it matters in this Book
-  (source paragraphs 17→18, Minerva's speech: no closing quotation mark at
-  the end of 17, opening quotation mark at the start of 18 — the candidate
-  reproduces this rather than "fixing" it). Readable copy, `continuity.md`,
+  (B01-P018 into B01-P019, Minerva's speech: no closing quotation mark at
+  the end of B01-P018, opening quotation mark at the start of B01-P019 —
+  the candidate reproduces this rather than "fixing" it). Readable copy, `continuity.md`,
   `provenance.json`, `manifest.json`, `README.md`, `review-instructions.md`,
   and 11 review packets (10×3 + 1×2) built by
   `scripts/build_book_package.py 1` from `scripts/candidates/book1.py`.
@@ -66,7 +66,7 @@ Kept current at every push.
 | D1 | Keep Butler's own Roman name forms (Ulysses, Minerva, Jove, Neptune, Mercury, Saturn), not the Greek forms the served modern-en uses. | The task instruction is explicit: "preserve names in the served original's forms... use whatever the served original uses." Butler's text is written in Roman-form convention throughout; switching to Greek forms is a translation choice that was made silently in the file being replaced, and is not repeated here without being asked for. Recorded in `GLOSSARY.md` and `PROVENANCE.md` §2. |
 | D2 | Odyssey Book 10 pilot is recorded as a frozen, unreviewed draft, not as "accepted" text ready to adopt. | Its own `README.md` and the branch's commit history say plainly that no independent review was run and no acceptance was recorded; nothing on `main` shows it as accepted either. Repeating the task brief's framing without checking would misrecord the state of the repository for the next agent or the coordinator. See `PROVENANCE.md` §3. |
 | D3 | Long's-style hecatomb ("a hecatomb of sheep and oxen") is folded into a plain description ("an offering of a hundred sheep and oxen") rather than kept as a glossed loanword. | Book 1 only uses the term once and nothing later in the Book depends on the reader recognizing "hecatomb" as a fixed term again; a plain description meets the accessibility standard without adding a term that would need its own gloss. Revisit if a later Book needs "hecatomb" to recur as a fixed word. |
-| D4 | Butler's paragraph-internal quotation convention (a speech's closing quotation mark omitted where the speech runs on into the next paragraph) is preserved exactly, not "corrected." | This is Butler's own printing convention for a continuous speech split by a paragraph break (source paragraphs 17→18 in Book 1), the same phenomenon the Meditations package noted for Casaubon's continuous first-person narration. Silently closing the quote would misrepresent the source's own punctuation. |
+| D4 | Butler's paragraph-internal quotation convention (a speech's closing quotation mark omitted where the speech runs on into the next paragraph) is preserved exactly, not "corrected." | This is Butler's own printing convention for a continuous speech split by a paragraph break (B01-P018 into B01-P019 in Book 1), the same phenomenon the Meditations package noted for Casaubon's continuous first-person narration. Silently closing the quote would misrepresent the source's own punctuation. |
 
 ## Next
 
