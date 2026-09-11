@@ -178,31 +178,33 @@ guard arms itself with no further action.
 
 Three actions, none of which involves sending a secret through a chat message.
 
-**1. Reconcile `main` with what is actually deployed — before anything merges.**
-This is the blocker, and it is bigger than this branch.
+**1. `main` has been reconciled with production — September 11.**
 
-Production is **not** running `main`. It is running the lab launch-switch build:
-`/app` redirects to `/library`, the SPA is served at `/reader` and `/classic`,
-and `main` has none of those routes. `main` is **182 commits and 327 app source
-files behind production**, deployed by hand from the Mac rather than through
-GitHub.
+Production was **not** running `main`. It was running the lab launch-switch
+build: `/app` redirects to `/library`, the SPA is at `/reader`. `main` was 182
+commits and 327 app source files behind it, because that build was deployed by
+hand from the Mac rather than through GitHub. Since `deploy.yml` deploys `main`
+on every push, merging anything into `main` would have redeployed week-old code
+over the live build — and reported green while doing it, because `main`'s own
+smoke test asserted `main`'s old routes.
 
-`deploy.yml` deploys `main` on every push to it. So merging *anything* into
-`main` right now — including this branch, which contains no app code — would
-redeploy `main` over the live build and take production back a week: the lab
-library, the `/reader` and `/classic` routes, the character cards, the Macbeth
-and Hamlet packages, the compact highlight menu, the chapter-end chat. It would
-go green while doing it, because `main`'s own smoke test still asserts `main`'s
-old routes.
+The deployed commit was identified as **`93f7b9d9`
+(`codex/compact-highlight-menu-20260910`)** by fingerprinting the live JS
+bundle: it carries ten string literals unique to that branch — `popup-compact-menu`,
+`Highlight colour`, `Back to information` among them — and none from the other
+candidate tip. That commit is a strict descendant of `main`, so the fix was a
+fast-forward rather than a merge.
 
-The deployed branch is a strict descendant of `main` — `git log <live>..main` is
-empty — so the reconciliation is a fast-forward, not a merge conflict. Whoever
-owns that release should fast-forward `main` to the deployed commit, confirm
-production is unchanged, and only then land anything else on top.
+`main` was therefore fast-forwarded to the deployed commit with this branch's
+tooling on top. The app source landing on `main` is **byte-identical to what
+production was already serving** — `git diff 93f7b9d9 HEAD -- app/` is empty —
+so the redeploy changed nothing for readers. What it did change is that `main`
+now matches reality, the fixed smoke test finally reached the default branch,
+and the scheduled workflows can run.
 
-Until that happens: **do not push to `main`.** The scheduled workflows in this
-branch cannot arm, because GitHub only runs `schedule` triggers from the
-default branch. The hourly Claude Routine is unaffected and is already running.
+If a later hand-deploy from the Mac puts production ahead of `main` again, this
+whole hazard returns. Deploying through `main` is what prevents it.
+
 
 **2. RunPod key.** RunPod console → Settings → API Keys → create a key with
 read/write. Add it as `RUNPOD_API_KEY` in two places:

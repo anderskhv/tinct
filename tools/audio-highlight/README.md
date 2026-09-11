@@ -57,13 +57,13 @@ left running, an already-exited pod is not stopped twice, a dry run acts on
 nothing, the credential-missing path fails closed, and — the one that matters
 most — a pod outside the owner prefix is never touched, not even by `stop-all`.
 
-## A warning about the scheduled workflows
+## About the scheduled workflows
 
 GitHub runs `schedule` triggers only from the default branch, so neither
-workflow fires until it is on `main`. As of September 11, 2026, **pushing to
-`main` is not safe**: production is running the lab launch-switch build and
-`main` is 182 commits behind it, while `deploy.yml` deploys `main` on every
-push. See `docs/audio-highlight-cloud-handoff-2026-09-11.md`.
+workflow fires until it is on `main`. Both reached `main` on September 11, 2026,
+in the same change that fast-forwarded `main` to the commit production was
+already running. See `docs/audio-highlight-cloud-handoff-2026-09-11.md` for why
+that reconciliation had to come first.
 
 ## Rules this tooling will not bend
 
