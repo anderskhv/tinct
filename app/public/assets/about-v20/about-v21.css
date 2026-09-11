@@ -175,7 +175,27 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
    sat mid-screen above the covers, so it steps aside there; the footer's link stays. */
 @media (max-width:760px){.final-read-link{display:none}}
 
-/* The AI chapter runs longer so the Hamlet post can be read before the avalanche. */
-.story-root[data-bookshelf=true] .journey-steps #chapter-ai{height:210svh;min-height:210svh}
+/* The AI chapter runs longer so the Hamlet post can be read before the avalanche.
+   Round 3 (2026-09-11, Anders: "stay a bit more on the LinkedIn-Hamlet joke"): the chapter now runs 380svh
+   (was 210), and the fifteen overload cards that used to start piling in 5% into the chapter (arrival 1.051 on
+   the --opening-flow scale, one every .067) now hold off until 20% (1.2) and arrive one every .056, ending where
+   they did (1.99). The post has the stage to itself for ~76svh of scroll before the pile-on, and the pile-on
+   itself is a little slower. The feed chapter before and the "Infinite." chapter after keep their own timings. */
+.story-root[data-bookshelf=true] .journey-steps #chapter-ai{height:380svh;min-height:380svh}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(14){--slop-arrival:1.200}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(15){--slop-arrival:1.256}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(16){--slop-arrival:1.313}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(17){--slop-arrival:1.369}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(18){--slop-arrival:1.426}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(19){--slop-arrival:1.482}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(20){--slop-arrival:1.539}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(21){--slop-arrival:1.595}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(22){--slop-arrival:1.651}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(23){--slop-arrival:1.708}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(24){--slop-arrival:1.764}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(25){--slop-arrival:1.821}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(26){--slop-arrival:1.877}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(27){--slop-arrival:1.934}
+.story-root[data-bookshelf=true] .living-feed>:nth-child(28){--slop-arrival:1.990}
 /* The shelf behind the closing covers keeps a little warmth and colour instead of fading to grey. */
 .story-root[data-bookshelf=true] .scene-frame[data-scene=invitation] .closing-shelf-backdrop{filter:saturate(.8) brightness(1.15);opacity:calc(.4 * (1 - .5 * clamp(0,(var(--scene-progress) - .12) / .65,1)))}
