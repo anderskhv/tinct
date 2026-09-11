@@ -1,0 +1,3276 @@
+{
+  "contentVersion": "2026-09-11.1",
+  "coverage": "Both full English editions. INFERNO (chapters 1-34) is authored; Purgatorio (35-67) and Paradiso (68-100) are in progress. Named people, gods, angels, devils, personified powers, named monsters and named peoples. Places, rivers, mountains and book titles are not cast, except where a river of the underworld is treated as a power.",
+  "entities": [
+    {
+      "id": "dante",
+      "name": "Dante",
+      "body": "The poet who is also the pilgrim of his own poem. He names himself exactly once in the whole Comedy, when Beatrice calls him by name in the earthly paradise.",
+      "aliases": [
+        "Dante"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "virgil",
+      "name": "Virgil",
+      "body": "The Roman poet of the Aeneid, sent to guide Dante through Hell and Purgatory; a soul of Limbo, saved from damnation but not from exclusion. Longfellow spells him Virgilius.",
+      "aliases": [
+        "Virgilius",
+        "Virgil"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beatrice",
+      "name": "Beatrice",
+      "body": "The Florentine woman Dante loved, now among the blessed; she sends Virgil to his aid and takes over as his guide in the earthly paradise and through Heaven.",
+      "aliases": [
+        "Beatrice"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "statius",
+      "name": "Statius",
+      "body": "The Roman poet of the Thebaid, who joins the travellers in Purgatory and reveals that Virgil’s own verses converted him.",
+      "aliases": [
+        "Statius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucifer",
+      "name": "Lucifer",
+      "body": "The emperor of the kingdom of grief, fixed in ice at the centre of the earth; also called Dis, Satan and Beelzebub.",
+      "aliases": [
+        "Lucifer",
+        "Satan",
+        "Beelzebub"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charon",
+      "name": "Charon",
+      "body": "The ancient ferryman with wheels of flame about his eyes, who carries the damned across Acheron.",
+      "aliases": [
+        "Charon"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minos",
+      "name": "Minos",
+      "body": "The judge of the damned, who winds his tail about himself to sentence each soul to its circle.",
+      "aliases": [
+        "Minos"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cerberus",
+      "name": "Cerberus",
+      "body": "The three-throated dog who howls over the gluttons in the rain.",
+      "aliases": [
+        "Cerberus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "plutus",
+      "name": "Plutus",
+      "body": "The hoarse-voiced guardian of the fourth circle, where the misers and spendthrifts roll their weights.",
+      "aliases": [
+        "Plutus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phlegyas",
+      "name": "Phlegyas",
+      "body": "The boatman who ferries Dante and Virgil across the marsh of Styx.",
+      "aliases": [
+        "Phlegyas"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "megaera",
+      "name": "Megaera",
+      "body": "One of the three Furies on the tower of Dis.",
+      "aliases": [
+        "Megaera"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alecto",
+      "name": "Alecto",
+      "body": "One of the three Furies on the tower of Dis.",
+      "aliases": [
+        "Alecto"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tisiphone",
+      "name": "Tisiphone",
+      "body": "One of the three Furies on the tower of Dis.",
+      "aliases": [
+        "Tisiphone"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "medusa",
+      "name": "Medusa",
+      "body": "The Gorgon the Furies call for, whose face would turn Dante to stone.",
+      "aliases": [
+        "Medusa",
+        "Gorgon"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minotaur",
+      "name": "The Minotaur",
+      "body": "The bull-man of Crete, who guards the descent into the circle of violence.",
+      "aliases": [
+        "Minotaur"
+      ],
+      "category": "supporting",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chiron",
+      "name": "Chiron",
+      "body": "The centaur who raised Achilles, chief of the troop that patrols the river of blood.",
+      "aliases": [
+        "Chiron"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nessus",
+      "name": "Nessus",
+      "body": "The centaur who died for Deianira and now guides the travellers along the boiling river.",
+      "aliases": [
+        "Nessus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pholus",
+      "name": "Pholus",
+      "body": "A centaur of the river bank, full of wrath.",
+      "aliases": [
+        "Pholus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "harpies",
+      "name": "The Harpies",
+      "body": "The bird-women who nest in the wood of the suicides.",
+      "aliases": [
+        "Harpies"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "geryon",
+      "name": "Geryon",
+      "body": "The monster with an honest face and a scorpion’s tail, who carries the travellers down to the eighth circle.",
+      "aliases": [
+        "Geryon"
+      ],
+      "category": "supporting",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "malebranche",
+      "name": "The Malebranche",
+      "body": "The demon squad of the fifth ditch, who hook the barrators out of the boiling pitch.",
+      "aliases": [
+        "Malebranche"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "malacoda",
+      "name": "Malacoda",
+      "body": "The captain of the Malebranche, who lies to Virgil about the broken bridge.",
+      "aliases": [
+        "Malacoda"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "barbariccia",
+      "name": "Barbariccia",
+      "body": "A demon of the Malebranche, put in charge of the squad of ten.",
+      "aliases": [
+        "Barbariccia"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alichino",
+      "name": "Alichino",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Alichino"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calcabrina",
+      "name": "Calcabrina",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Calcabrina"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cagnazzo",
+      "name": "Cagnazzo",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Cagnazzo"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "libicocco",
+      "name": "Libicocco",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Libicocco"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "draghignazzo",
+      "name": "Draghignazzo",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Draghignazzo"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ciriatto",
+      "name": "Ciriatto",
+      "body": "A demon of the Malebranche, tusked like a boar.",
+      "aliases": [
+        "Ciriatto"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "graffiacane",
+      "name": "Graffiacane",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Graffiacane"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "farfarello",
+      "name": "Farfarello",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Farfarello"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rubicante",
+      "name": "Rubicante",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Rubicante"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scarmiglione",
+      "name": "Scarmiglione",
+      "body": "A demon of the Malebranche.",
+      "aliases": [
+        "Scarmiglione"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nimrod",
+      "name": "Nimrod",
+      "body": "The giant of Babel, whose gibberish no one can understand; his tower is why the world has many tongues.",
+      "aliases": [
+        "Nimrod"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ephialtes",
+      "name": "Ephialtes",
+      "body": "A giant who warred against the gods, bound in chains at the pit’s edge.",
+      "aliases": [
+        "Ephialtes"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "briareus",
+      "name": "Briareus",
+      "body": "A giant of the war against the gods, named but not seen.",
+      "aliases": [
+        "Briareus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antaeus",
+      "name": "Antaeus",
+      "body": "The unbound giant who lifts the travellers down to the frozen lake.",
+      "aliases": [
+        "Antaeus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tityus",
+      "name": "Tityus",
+      "body": "A giant named among those the travellers do not want to be handed to.",
+      "aliases": [
+        "Tityus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "typhoeus",
+      "name": "Typhoeus",
+      "body": "A giant named among those the travellers do not want to be handed to.",
+      "aliases": [
+        "Typhon",
+        "Typhoeus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "old-man-of-crete",
+      "name": "The Old Man of Crete",
+      "body": "The great statue inside Mount Ida, cracked and weeping, whose tears make the rivers of Hell.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "personification",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "body": "The ministering power Virgil defends, who turns the goods of the world from one people to another.",
+      "aliases": [
+        "Fortune"
+      ],
+      "category": "supporting",
+      "kind": "personification",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "body": "The sovereign poet, first of the four who meet Virgil in Limbo.",
+      "aliases": [
+        "Homer"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "horace",
+      "name": "Horace",
+      "body": "The Roman satirist, one of the four poets of Limbo.",
+      "aliases": [
+        "Horace"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ovid",
+      "name": "Ovid",
+      "body": "The Roman poet of the Metamorphoses, one of the four poets of Limbo.",
+      "aliases": [
+        "Ovid"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucan",
+      "name": "Lucan",
+      "body": "The Roman poet of the Pharsalia, one of the four poets of Limbo.",
+      "aliases": [
+        "Lucan"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "electra",
+      "name": "Electra",
+      "body": "Dardanus’s mother, seen among the great souls of Limbo.",
+      "aliases": [
+        "Electra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hector",
+      "name": "Hector",
+      "body": "Troy’s defender, seen among the great souls of Limbo.",
+      "aliases": [
+        "Hector"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeneas",
+      "name": "Aeneas",
+      "body": "The founder of the Roman line, seen among the great souls of Limbo; his journey to the dead is Dante’s precedent.",
+      "aliases": [
+        "Aeneas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "camilla",
+      "name": "Camilla",
+      "body": "The warrior maiden of the Aeneid, who died for Italy.",
+      "aliases": [
+        "Camilla"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "penthesilea",
+      "name": "Penthesilea",
+      "body": "The Amazon queen, seen among the great souls of Limbo.",
+      "aliases": [
+        "Penthesilea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "latinus",
+      "name": "Latinus",
+      "body": "The Latin king, seated with his daughter in Limbo.",
+      "aliases": [
+        "Latinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lavinia",
+      "name": "Lavinia",
+      "body": "Latinus’s daughter, seated beside him in Limbo.",
+      "aliases": [
+        "Lavinia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brutus-elder",
+      "name": "Brutus",
+      "body": "The Brutus who drove out Tarquin and founded the Roman republic, seen in Limbo.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brutus-caesar",
+      "name": "Brutus",
+      "body": "Caesar’s assassin, chewed in Lucifer’s mouth at the centre of Hell.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tarquin",
+      "name": "Tarquin",
+      "body": "The last king of Rome, driven out by Brutus.",
+      "aliases": [
+        "Tarquin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucretia",
+      "name": "Lucretia",
+      "body": "A Roman matron seen among the great souls of Limbo.",
+      "aliases": [
+        "Lucretia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "julia",
+      "name": "Julia",
+      "body": "Caesar’s daughter and Pompey’s wife, seen in Limbo.",
+      "aliases": [
+        "Julia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marcia",
+      "name": "Marcia",
+      "body": "Cato’s wife, seen in Limbo; Virgil invokes her when asking Cato’s leave in Purgatory.",
+      "aliases": [
+        "Marcia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cornelia",
+      "name": "Cornelia",
+      "body": "The mother of the Gracchi, seen in Limbo.",
+      "aliases": [
+        "Cornelia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saladin",
+      "name": "Saladin",
+      "body": "The Sultan of Egypt, seated alone and apart in Limbo.",
+      "aliases": [
+        "Saladin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristotle",
+      "name": "The master of those who know",
+      "body": "Aristotle, seated in the philosophical family of Limbo; the poem names him only by that title.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "body": "The Athenian philosopher, closest to Aristotle in Limbo.",
+      "aliases": [
+        "Socrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "body": "The Athenian philosopher, closest to Aristotle in Limbo.",
+      "aliases": [
+        "Plato"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "democritus",
+      "name": "Democritus",
+      "body": "The philosopher who attributes the world to chance.",
+      "aliases": [
+        "Democritus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diogenes",
+      "name": "Diogenes",
+      "body": "A philosopher of Limbo.",
+      "aliases": [
+        "Diogenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anaxagoras",
+      "name": "Anaxagoras",
+      "body": "A philosopher of Limbo.",
+      "aliases": [
+        "Anaxagoras"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thales",
+      "name": "Thales",
+      "body": "A philosopher of Limbo.",
+      "aliases": [
+        "Thales"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "zeno",
+      "name": "Zeno",
+      "body": "A philosopher of Limbo.",
+      "aliases": [
+        "Zeno"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "empedocles",
+      "name": "Empedocles",
+      "body": "A philosopher of Limbo.",
+      "aliases": [
+        "Empedocles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heraclitus",
+      "name": "Heraclitus",
+      "body": "A philosopher of Limbo.",
+      "aliases": [
+        "Heraclitus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dioscorides",
+      "name": "Dioscorides",
+      "body": "The great collector of the properties of plants.",
+      "aliases": [
+        "Dioscorides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "body": "The singer of myth, seen in Limbo.",
+      "aliases": [
+        "Orpheus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cicero",
+      "name": "Cicero",
+      "body": "The Roman orator, seen in Limbo. Longfellow spells him Tully.",
+      "aliases": [
+        "Cicero",
+        "Tully"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "livy",
+      "name": "Livy",
+      "body": "The Roman historian, seen in Limbo.",
+      "aliases": [
+        "Livy"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "seneca",
+      "name": "Seneca",
+      "body": "The Roman moralist, seen in Limbo.",
+      "aliases": [
+        "Seneca"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euclid",
+      "name": "Euclid",
+      "body": "The geometer, seen in Limbo.",
+      "aliases": [
+        "Euclid"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ptolemy",
+      "name": "Ptolemy",
+      "body": "The astronomer, seen in Limbo.",
+      "aliases": [
+        "Ptolemy"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "galen",
+      "name": "Galen",
+      "body": "The physician, seen in Limbo.",
+      "aliases": [
+        "Galen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippocrates",
+      "name": "Hippocrates",
+      "body": "The physician, seen in Limbo.",
+      "aliases": [
+        "Hippocrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "avicenna",
+      "name": "Avicenna",
+      "body": "The Persian physician and philosopher, seen in Limbo.",
+      "aliases": [
+        "Avicenna"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "averroes",
+      "name": "Averroes",
+      "body": "The Arab philosopher who wrote the great Commentary on Aristotle.",
+      "aliases": [
+        "Averroes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "semiramis",
+      "name": "Semiramis",
+      "body": "The Assyrian queen who made lust lawful, first of the carnal sinners named.",
+      "aliases": [
+        "Semiramis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ninus",
+      "name": "Ninus",
+      "body": "Semiramis’s husband, whom she succeeded.",
+      "aliases": [
+        "Ninus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "body": "The queen of Carthage who killed herself for love and broke faith with Sychaeus’s ashes.",
+      "aliases": [
+        "Dido"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sychaeus",
+      "name": "Sychaeus",
+      "body": "Dido’s dead husband, whose ashes she broke faith with.",
+      "aliases": [
+        "Sychaeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleopatra",
+      "name": "Cleopatra",
+      "body": "The Egyptian queen, among the carnal sinners.",
+      "aliases": [
+        "Cleopatra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "body": "The woman for whose sake the Trojan war was fought.",
+      "aliases": [
+        "Helen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "body": "The Greek hero who at the last fought against Love.",
+      "aliases": [
+        "Achilles"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "body": "The Trojan who carried Helen away.",
+      "aliases": [
+        "Paris"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tristan",
+      "name": "Tristan",
+      "body": "The lover of romance, among the carnal sinners.",
+      "aliases": [
+        "Tristan"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francesca",
+      "name": "Francesca",
+      "body": "Francesca da Rimini, who tells Dante how she and her husband’s brother were carried away by a book, and were killed for it.",
+      "aliases": [
+        "Francesca"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lancelot",
+      "name": "Lancelot",
+      "body": "The knight whose story Francesca and her companion were reading.",
+      "aliases": [
+        "Lancelot",
+        "Launcelot"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ciacco",
+      "name": "Ciacco",
+      "body": "A Florentine glutton who prophesies the city’s coming strife.",
+      "aliases": [
+        "Ciacco"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "farinata",
+      "name": "Farinata",
+      "body": "Farinata degli Uberti, the Ghibelline leader who rises out of his burning tomb and speaks of Florence.",
+      "aliases": [
+        "Farinata"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guido-cavalcanti",
+      "name": "Guido",
+      "body": "Guido Cavalcanti, the poet and Dante’s friend, asked after by his father in the tombs of the heretics.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "frederick-ii",
+      "name": "Frederick",
+      "body": "The emperor Frederick the Second, named as lying among the Epicureans, and whose leaden capes are a byword.",
+      "aliases": [
+        "Frederick"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cardinal",
+      "name": "The Cardinal",
+      "body": "Ottaviano degli Ubaldini, named only by his office among the heretics.",
+      "aliases": [
+        "Cardinal"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anastasius",
+      "name": "Anastasius",
+      "body": "The pope whose tomb Dante passes, said to have been led from the true path.",
+      "aliases": [
+        "Anastasius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "photinus",
+      "name": "Photinus",
+      "body": "The deacon said to have led Pope Anastasius astray.",
+      "aliases": [
+        "Photinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-tyrant",
+      "name": "Alexander",
+      "body": "A tyrant boiling in the river of blood, named beside Dionysius.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-great",
+      "name": "Alexander",
+      "body": "Alexander the Great, whose army in India saw flames fall unbroken from the sky.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dionysius",
+      "name": "Dionysius",
+      "body": "The tyrant of Syracuse, boiling in the river of blood.",
+      "aliases": [
+        "Dionysius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "azzolino",
+      "name": "Azzolino",
+      "body": "Ezzelino da Romano, the black-haired tyrant in the river of blood.",
+      "aliases": [
+        "Azzolino"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "obizzo",
+      "name": "Obizzo",
+      "body": "Obizzo d’Este, the fair-haired tyrant in the river of blood, killed by his own stepson.",
+      "aliases": [
+        "Obizzo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "attila",
+      "name": "Attila",
+      "body": "The scourge of the earth, deep in the boiling blood.",
+      "aliases": [
+        "Attila"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pyrrhus",
+      "name": "Pyrrhus",
+      "body": "A tyrant in the boiling blood.",
+      "aliases": [
+        "Pyrrhus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sextus",
+      "name": "Sextus",
+      "body": "A tyrant in the boiling blood.",
+      "aliases": [
+        "Sextus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rinier-corneto",
+      "name": "Rinier da Corneto",
+      "body": "A highway robber, boiling in the river of blood.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rinier-pazzo",
+      "name": "Rinier Pazzo",
+      "body": "A highway robber, boiling in the river of blood.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pier-della-vigna",
+      "name": "The one who held both keys",
+      "body": "Frederick the Second’s chancellor, who turned his master’s heart softly in locking and unlocking, and killed himself when envy turned the court against him. He is the speaking tree of the wood of the suicides, and the canto never gives his name.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lano",
+      "name": "Lano",
+      "body": "A Sienese squanderer, hunted through the wood by black hounds.",
+      "aliases": [
+        "Lano"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jacopo-sant-andrea",
+      "name": "Jacopo da Sant’Andrea",
+      "body": "A Paduan squanderer, torn apart by the hounds in the wood of the suicides.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "florentine-suicide",
+      "name": "The Florentine who hanged himself",
+      "body": "The bush who speaks last in the wood, from the city that changed its patron saint to the Baptist.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "capaneus",
+      "name": "Capaneus",
+      "body": "One of the seven kings who besieged Thebes, who held God in contempt and holds him in contempt still on the burning sand.",
+      "aliases": [
+        "Capaneus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brunetto-latini",
+      "name": "Brunetto",
+      "body": "Ser Brunetto Latini, the Florentine scholar who taught Dante how man makes himself eternal, and whom Dante finds among the sodomites.",
+      "aliases": [
+        "Brunetto"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "priscian",
+      "name": "Priscian",
+      "body": "A grammarian named among the clerks on the burning sand.",
+      "aliases": [
+        "Priscian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francesco-accorso",
+      "name": "Francesco d’Accorso",
+      "body": "A Bolognese jurist named among the clerks on the burning sand. Longfellow calls him Francis of Accorso.",
+      "aliases": [
+        "Accorso"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guido-guerra",
+      "name": "Guido Guerra",
+      "body": "A Florentine of great worth, grandson of the good Gualdrada, one of the three who circle on the burning sand. Longfellow writes the name as one word, Guidoguerra.",
+      "aliases": [
+        "Guidoguerra"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gualdrada",
+      "name": "Gualdrada",
+      "body": "The Florentine woman named as Guido Guerra’s grandmother.",
+      "aliases": [
+        "Gualdrada"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tegghiaio",
+      "name": "Tegghiaio",
+      "body": "Tegghiaio Aldobrandi, whose counsel Florence should have heeded.",
+      "aliases": [
+        "Tegghiaio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jacopo-rusticucci",
+      "name": "Jacopo Rusticucci",
+      "body": "A Florentine who blames his savage wife for his ruin, one of the three on the burning sand.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guglielmo-borsiere",
+      "name": "Guglielmo Borsiere",
+      "body": "A Florentine newly arrived in Hell, who has been telling the others how the city has changed.",
+      "aliases": [
+        "Guglielmo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vitaliano",
+      "name": "Vitaliano",
+      "body": "A Paduan usurer, expected in Hell by the one already there.",
+      "aliases": [
+        "Vitaliano"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venedico",
+      "name": "Venedico",
+      "body": "Venedico Caccianemico, a Bolognese who sold his own sister to the Marquis.",
+      "aliases": [
+        "Venedico"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ghisola",
+      "name": "Ghisola",
+      "body": "Venedico’s sister, whom he persuaded to satisfy the Marquis.",
+      "aliases": [
+        "Ghisola"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jason",
+      "name": "Jason",
+      "body": "The leader of the Argonauts, punished as a seducer for Hypsipyle and Medea.",
+      "aliases": [
+        "Jason"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hypsipyle",
+      "name": "Hypsipyle",
+      "body": "The woman Jason deceived and abandoned on Lemnos.",
+      "aliases": [
+        "Hypsipyle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "medea",
+      "name": "Medea",
+      "body": "The woman Jason abandoned after Hypsipyle.",
+      "aliases": [
+        "Medea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alessio-interminei",
+      "name": "Alessio Interminei",
+      "body": "A flatterer of Lucca, sunk in filth.",
+      "aliases": [
+        "Alessio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thais",
+      "name": "Thais",
+      "body": "The harlot of Terence’s comedy, named as the last of the flatterers.",
+      "aliases": [
+        "Thais"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "simon-magus",
+      "name": "Simon Magus",
+      "body": "The man who tried to buy the power of the Holy Spirit, and gave his name to the sin punished in the third ditch.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicholas-iii",
+      "name": "Nicholas",
+      "body": "Pope Nicholas the Third, planted head downward in the rock, who mistakes Dante for the pope who will succeed him.",
+      "aliases": [
+        "Nicholas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boniface",
+      "name": "Boniface",
+      "body": "Pope Boniface the Eighth, whom Nicholas mistakes Dante for and expects to take his place head-down in the rock.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clement",
+      "name": "Clement",
+      "body": "The pope from the west who will come after Boniface, a lawless shepherd.",
+      "aliases": [
+        "Clement"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "constantine",
+      "name": "Constantine",
+      "body": "The emperor whose gift to the first wealthy Father is named as the root of the Church’s corruption.",
+      "aliases": [
+        "Constantine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sylvester",
+      "name": "Sylvester",
+      "body": "The pope Constantine sought out at Soracte to cure his leprosy.",
+      "aliases": [
+        "Sylvester"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphiaraus",
+      "name": "Amphiaraus",
+      "body": "One of the seven against Thebes, swallowed by the earth; now a diviner walking backwards.",
+      "aliases": [
+        "Amphiaraus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tiresias",
+      "name": "Tiresias",
+      "body": "The Theban seer who changed from man to woman and back, among the diviners.",
+      "aliases": [
+        "Tiresias"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aruns",
+      "name": "Aruns",
+      "body": "An Etruscan diviner of the hills of Luni.",
+      "aliases": [
+        "Aruns"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "manto",
+      "name": "Manto",
+      "body": "Tiresias’s daughter, the virgin seer who settled where Mantua now stands; Virgil tells her story to correct the legend of his own city.",
+      "aliases": [
+        "Manto"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurypylus",
+      "name": "Eurypylus",
+      "body": "The augur who with Calchas cut the first cable at Aulis.",
+      "aliases": [
+        "Eurypylus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calchas",
+      "name": "Calchas",
+      "body": "The Greek augur of the Trojan war.",
+      "aliases": [
+        "Calchas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "michael-scot",
+      "name": "Michael Scot",
+      "body": "The Scottish astrologer, thin in the flanks, who knew every trick of magical illusion.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guido-bonatti",
+      "name": "Guido Bonatti",
+      "body": "An astrologer of Forlì, among the diviners.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asdente",
+      "name": "Asdente",
+      "body": "A cobbler of Parma turned soothsayer, who now wishes he had stuck to his leather.",
+      "aliases": [
+        "Asdente"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "santa-zita-elder",
+      "name": "The elder of Santa Zita",
+      "body": "The barrator of Lucca whom a demon carries in and throws into the pitch.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ciampolo",
+      "name": "The Navarrese",
+      "body": "The barrator born in the kingdom of Navarre, who tricks the demons into letting him dive.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fra-gomita",
+      "name": "Fra Gomita",
+      "body": "A friar of Gallura, a vessel of every fraud, who sold his master’s enemies their freedom.",
+      "aliases": [
+        "Gomita"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "michel-zanche",
+      "name": "Don Michel Zanche",
+      "body": "A barrator of Logodoro in Sardinia.",
+      "aliases": [
+        "Zanche"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "catalano",
+      "name": "Catalano",
+      "body": "A Jovial Friar of Bologna, one of the two hypocrites in leaden capes who governed Florence together.",
+      "aliases": [
+        "Catalano"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "loderingo",
+      "name": "Loderingo",
+      "body": "A Jovial Friar of Bologna, Catalano’s partner in governing Florence.",
+      "aliases": [
+        "Loderingo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caiaphas",
+      "name": "The one pinned to the ground",
+      "body": "The high priest who counselled that one man should suffer for the people, crucified across the path of the hypocrites.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vanni-fucci",
+      "name": "Vanni Fucci",
+      "body": "A thief of Pistoia, a mule of a man, who robbed the sacristy and let another man be blamed.",
+      "aliases": [
+        "Vanni Fucci"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cacus",
+      "name": "Cacus",
+      "body": "The centaur who guards the thieves, whose thefts by fraud set him apart from his brothers.",
+      "aliases": [
+        "Cacus"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cianfa",
+      "name": "Cianfa",
+      "body": "A Florentine thief, transformed into a six-footed serpent.",
+      "aliases": [
+        "Cianfa"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agnello",
+      "name": "Agnello",
+      "body": "A Florentine thief, fused with the serpent that attacks him.",
+      "aliases": [
+        "Agnello"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "buoso-abati",
+      "name": "Buoso",
+      "body": "A Florentine thief, changed into a serpent as the poet watches.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "buoso-donati",
+      "name": "Buoso Donati",
+      "body": "The dead man whom Gianni Schicchi impersonated in order to forge a will.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "puccio",
+      "name": "Puccio",
+      "body": "A Florentine thief, the only one of the five who was not transformed.",
+      "aliases": [
+        "Puccio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ulysses",
+      "name": "Ulysses",
+      "body": "The Greek whose cunning took Troy, and who tells of his last voyage beyond the pillars of Hercules; he burns in a double flame with Diomedes.",
+      "aliases": [
+        "Ulysses"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diomedes",
+      "name": "Diomedes",
+      "body": "Ulysses’s companion, burning in the same flame. Longfellow spells him Diomed.",
+      "aliases": [
+        "Diomedes",
+        "Diomed"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deidamia",
+      "name": "Deidamia",
+      "body": "Achilles’s bride, who still mourns him; the cunning that took him from her is part of what Ulysses burns for.",
+      "aliases": [
+        "Deidamia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guido-montefeltro",
+      "name": "Guido",
+      "body": "Guido da Montefeltro, the soldier turned friar, damned for advising Boniface to promise much and keep little.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guido-cassero",
+      "name": "Messer Guido",
+      "body": "Guido del Cassero, one of the two best men of Fano, warned of drowning off La Cattolica.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "angiolello",
+      "name": "Angiolello",
+      "body": "One of the two best men of Fano, warned with Guido del Cassero.",
+      "aliases": [
+        "Angiolello"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mahomet",
+      "name": "Mahomet",
+      "body": "The founder of Islam, cleft from chin to belly among the sowers of discord.",
+      "aliases": [
+        "Mahomet",
+        "Mohammed"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ali",
+      "name": "Ali",
+      "body": "Cleft in the face, walking weeping before Mahomet.",
+      "aliases": [
+        "Ali"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fra-dolcino",
+      "name": "Fra Dolcino",
+      "body": "The heretic leader whom Mahomet sends a warning to arm himself with food.",
+      "aliases": [
+        "Dolcino"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pier-da-medicina",
+      "name": "Pier da Medicina",
+      "body": "A sower of discord with his throat pierced and his nose cut away, who sends the warning to Fano.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "curio",
+      "name": "Curio",
+      "body": "The shade with his tongue cut out, who urged Caesar across the Rubicon.",
+      "aliases": [
+        "Curio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mosca",
+      "name": "Mosca",
+      "body": "Mosca dei Lamberti, whose counsel — \"a thing done has an end\" — began the Guelf and Ghibelline split in Florence.",
+      "aliases": [
+        "Mosca"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bertran-de-born",
+      "name": "Bertran de Born",
+      "body": "The troubadour who carries his own severed head like a lantern, punished for setting a son against his father.",
+      "aliases": [
+        "Bertran",
+        "Bertram"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "geri-del-bello",
+      "name": "Geri del Bello",
+      "body": "Dante’s kinsman, seen pointing at him in anger because his death is unavenged.",
+      "aliases": [
+        "Geri"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alberto-siena",
+      "name": "Alberto",
+      "body": "Alberto of Siena, who had the Aretine alchemist burned for a joke about flying.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "capocchio",
+      "name": "Capocchio",
+      "body": "An alchemist who falsified metals, and a good ape of nature.",
+      "aliases": [
+        "Capocchio"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gianni-schicchi",
+      "name": "Gianni Schicchi",
+      "body": "The Florentine who impersonated the dead Buoso Donati to forge a will and take the best mare in the stud.",
+      "aliases": [
+        "Schicchi"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "myrrha",
+      "name": "Myrrha",
+      "body": "The shade who disguised herself to lie with her own father, running mad beside Gianni Schicchi.",
+      "aliases": [
+        "Myrrha"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "master-adam",
+      "name": "Master Adam",
+      "body": "The counterfeiter of Florentine coin, swollen with dropsy, who dreams of the streams of the Casentino.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guido-romena",
+      "name": "Guido",
+      "body": "One of the Counts of Romena, for whom Master Adam counterfeited, and whose soul he longs to see in the ditch.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alessandro-romena",
+      "name": "Alessandro",
+      "body": "One of the Counts of Romena, named with his brother Guido.",
+      "aliases": [
+        "Alessandro"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "potiphars-wife",
+      "name": "The false woman who accused Joseph",
+      "body": "Potiphar’s wife, burning with fever beside Sinon.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sinon",
+      "name": "Sinon",
+      "body": "The Greek who talked Troy into taking in the horse, burning with fever.",
+      "aliases": [
+        "Sinon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bocca",
+      "name": "Bocca",
+      "body": "Bocca degli Abati, the traitor of Montaperti, who refuses to give his name until Dante tears at his hair.",
+      "aliases": [
+        "Bocca"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "camicion",
+      "name": "Camicion",
+      "body": "Camicion de’ Pazzi, frozen in Caina, who names the traitors around him and awaits his kinsman Carlino.",
+      "aliases": [
+        "Camicion"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "carlino",
+      "name": "Carlino",
+      "body": "The kinsman whose worse treachery Camicion says will excuse his own.",
+      "aliases": [
+        "Carlino"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "albert-alberti",
+      "name": "Albert",
+      "body": "The father of the two brothers of the Bisenzio valley, frozen face to face in Caina.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mordred",
+      "name": "The one Arthur pierced",
+      "body": "The traitor whose breast and shadow were broken by one blow of his own father’s hand.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "focaccia",
+      "name": "Focaccia",
+      "body": "A traitor of Pistoia named among the frozen.",
+      "aliases": [
+        "Focaccia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sassol",
+      "name": "Sassol Mascheroni",
+      "body": "A Florentine traitor named among the frozen.",
+      "aliases": [
+        "Sassol"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gianni-soldanier",
+      "name": "Gianni del Soldanieri",
+      "body": "A Florentine traitor in the ice; Longfellow drops the final vowel.",
+      "aliases": [
+        "Soldanieri",
+        "Soldanier"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ganelon",
+      "name": "Ganelon",
+      "body": "The betrayer of Roland at Roncesvalles. Longfellow spells him Ganellon.",
+      "aliases": [
+        "Ganelon",
+        "Ganellon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tebaldello",
+      "name": "Tebaldello",
+      "body": "The man who opened Faenza’s gates while the city slept.",
+      "aliases": [
+        "Tebaldello"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ugolino",
+      "name": "Ugolino",
+      "body": "Count Ugolino della Gherardesca, who gnaws the head of the archbishop who starved him and his children in the tower.",
+      "aliases": [
+        "Ugolino"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ruggieri",
+      "name": "Ruggieri",
+      "body": "Archbishop Ruggieri of Pisa, who locked Ugolino and his sons in the tower and threw away the key.",
+      "aliases": [
+        "Ruggieri"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anselmuccio",
+      "name": "Anselm",
+      "body": "One of Ugolino’s children in the tower, who asks his father why he stares.",
+      "aliases": [
+        "Anselm",
+        "Anselmuccio"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gaddo",
+      "name": "Gaddo",
+      "body": "One of Ugolino’s children, who falls at his father’s feet in the tower.",
+      "aliases": [
+        "Gaddo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "uguccione",
+      "name": "Uguccione",
+      "body": "One of Ugolino’s children in the tower.",
+      "aliases": [
+        "Uguccione"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brigata",
+      "name": "Brigata",
+      "body": "One of Ugolino’s children in the tower.",
+      "aliases": [
+        "Brigata"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alberigo",
+      "name": "Alberigo",
+      "body": "Friar Alberigo, who served the fruit at his own treacherous banquet, and whose soul is in Hell while his body still walks the world.",
+      "aliases": [
+        "Alberigo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "branca-doria",
+      "name": "Branca d’Oria",
+      "body": "A Genoese whose soul has been in the ice for years while a devil wears his body.",
+      "aliases": [
+        "Branca"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "judas",
+      "name": "Judas",
+      "body": "The betrayer of Christ, head-first in Lucifer’s central mouth.",
+      "aliases": [
+        "Judas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cassius",
+      "name": "Cassius",
+      "body": "Caesar’s assassin, hanging from one of Lucifer’s black jaws.",
+      "aliases": [
+        "Cassius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "christ",
+      "name": "Christ",
+      "body": "The Redeemer, named in Paradise and referred to in Hell only by circumlocution.",
+      "aliases": [
+        "Christ"
+      ],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mary",
+      "name": "Mary",
+      "body": "The mother of Christ, the gracious Lady who first moved to help Dante and who receives the last prayer of the poem.",
+      "aliases": [
+        "Mary"
+      ],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter",
+      "name": "Peter",
+      "body": "Saint Peter, keeper of the keys of Heaven; his gate and his seat recur throughout.",
+      "aliases": [
+        "Peter"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paul",
+      "name": "Paul",
+      "body": "The apostle whose journey to the third heaven Dante names beside Aeneas’s as precedent.",
+      "aliases": [
+        "Paul"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "john-baptist",
+      "name": "The Baptist",
+      "body": "John the Baptist, the patron Florence adopted in place of Mars.",
+      "aliases": [
+        "Baptist"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucia",
+      "name": "Lucia",
+      "body": "Saint Lucy, the enemy of all cruelty, who sends Beatrice to Dante’s aid and carries him while he sleeps.",
+      "aliases": [
+        "Lucia"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rachel",
+      "name": "Rachel",
+      "body": "Jacob’s wife, seated beside Beatrice among the blessed and a figure of the contemplative life.",
+      "aliases": [
+        "Rachel"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "body": "The first father, drawn out of Limbo by the Harrowing.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eve",
+      "name": "Eve",
+      "body": "The first mother, who took the bitter fruit from the serpent.",
+      "aliases": [
+        "Eve"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abel",
+      "name": "Abel",
+      "body": "Adam’s son, drawn out of Limbo by the Harrowing.",
+      "aliases": [
+        "Abel"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "noah",
+      "name": "Noah",
+      "body": "Drawn out of Limbo by the Harrowing.",
+      "aliases": [
+        "Noah"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "moses",
+      "name": "Moses",
+      "body": "The lawgiver, drawn out of Limbo by the Harrowing.",
+      "aliases": [
+        "Moses"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abraham",
+      "name": "Abraham",
+      "body": "The patriarch, drawn out of Limbo by the Harrowing.",
+      "aliases": [
+        "Abraham"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "david",
+      "name": "David",
+      "body": "The psalmist king, drawn out of Limbo by the Harrowing.",
+      "aliases": [
+        "David"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "israel",
+      "name": "Israel",
+      "body": "Jacob, drawn out of Limbo with his father and his children.",
+      "aliases": [
+        "Israel"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cain",
+      "name": "Cain",
+      "body": "The first murderer; the man in the moon carrying thorns is called by his name.",
+      "aliases": [
+        "Cain"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "michael",
+      "name": "Michael",
+      "body": "The archangel who took vengeance on the proud rebellion.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elijah",
+      "name": "Elijah",
+      "body": "The prophet taken up in the chariot of fire.",
+      "aliases": [
+        "Elijah"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elisha",
+      "name": "Elisha",
+      "body": "The prophet who watched Elijah’s chariot depart.",
+      "aliases": [
+        "Elisha"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "joseph",
+      "name": "Joseph",
+      "body": "The patriarch falsely accused by Potiphar’s wife.",
+      "aliases": [
+        "Joseph"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Caesar",
+      "body": "Julius Caesar, seen armed in Limbo and named through the poem as the founder of the empire.",
+      "aliases": [
+        "Caesar"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "augustus",
+      "name": "Augustus",
+      "body": "The emperor under whom Virgil lived.",
+      "aliases": [
+        "Augustus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scipio",
+      "name": "Scipio",
+      "body": "The Roman who became the heir of glory by routing Hannibal.",
+      "aliases": [
+        "Scipio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hannibal",
+      "name": "Hannibal",
+      "body": "The Carthaginian routed by Scipio.",
+      "aliases": [
+        "Hannibal"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charlemagne",
+      "name": "Charlemagne",
+      "body": "The emperor whose rout at Roncesvalles cost him his holy campaign.",
+      "aliases": [
+        "Charlemagne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "roland",
+      "name": "Roland",
+      "body": "The paladin whose horn sounded at Roncesvalles.",
+      "aliases": [
+        "Roland"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "robert-guiscard",
+      "name": "Robert Guiscard",
+      "body": "The Norman conqueror in Apulia, whose wars left bones still gathered on the field.",
+      "aliases": [
+        "Robert",
+        "Guiscard"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "body": "The chief of the pagan gods, whose thunderbolt and whose blacksmith are invoked.",
+      "aliases": [
+        "Jove",
+        "Jupiter"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "body": "The goddess whose rage against the Theban house drove Athamas mad.",
+      "aliases": [
+        "Juno"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "body": "The god of war, Florence’s first patron before the Baptist.",
+      "aliases": [
+        "Mars"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "body": "The god of the sea.",
+      "aliases": [
+        "Neptune"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "body": "The god of poetry, invoked at the opening of the Paradiso.",
+      "aliases": [
+        "Apollo"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "body": "The goddess of the moon and the hunt.",
+      "aliases": [
+        "Diana"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minerva",
+      "name": "Minerva",
+      "body": "The goddess of wisdom.",
+      "aliases": [
+        "Minerva"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bacchus",
+      "name": "Bacchus",
+      "body": "The god of wine; Thebes is called his city.",
+      "aliases": [
+        "Bacchus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "latona",
+      "name": "Latona",
+      "body": "The mother of Apollo and Diana, who gave birth on Delos.",
+      "aliases": [
+        "Latona"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "muses",
+      "name": "The Muses",
+      "body": "The goddesses of poetry, invoked at the outset of each canticle.",
+      "aliases": [
+        "Muses"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "circe",
+      "name": "Circe",
+      "body": "The enchantress who kept Ulysses near Gaeta for more than a year.",
+      "aliases": [
+        "Circe"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaethon",
+      "name": "Phaethon",
+      "body": "The boy who dropped the reins of the sun’s chariot and scorched the sky.",
+      "aliases": [
+        "Phaethon"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arachne",
+      "name": "Arachne",
+      "body": "The weaver turned spider, named for the pattern of Geryon’s hide.",
+      "aliases": [
+        "Arachne"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "narcissus",
+      "name": "Narcissus",
+      "body": "The boy who pined at his own reflection; his mirror is the water Master Adam thirsts for.",
+      "aliases": [
+        "Narcissus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "body": "The Duke of Athens who killed the Minotaur, and whom the Furies wish they had punished.",
+      "aliases": [
+        "Theseus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "body": "The hero whose club ended Cacus, and whose pillars mark the limit Ulysses passed.",
+      "aliases": [
+        "Hercules"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deianira",
+      "name": "Deianira",
+      "body": "The woman Nessus died for.",
+      "aliases": [
+        "Deianira"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "semele",
+      "name": "Semele",
+      "body": "The Theban woman whose love of Jove brought Juno’s rage on her house.",
+      "aliases": [
+        "Semele"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "athamas",
+      "name": "Athamas",
+      "body": "The king driven mad by Juno, who killed his own son.",
+      "aliases": [
+        "Athamas"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hecuba",
+      "name": "Hecuba",
+      "body": "Troy’s queen, who went mad with grief and howled like a dog.",
+      "aliases": [
+        "Hecuba"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polydorus",
+      "name": "Polydorus",
+      "body": "Hecuba’s son, found dead on the seashore.",
+      "aliases": [
+        "Polydorus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polyxena",
+      "name": "Polyxena",
+      "body": "Hecuba’s daughter, whose death she saw.",
+      "aliases": [
+        "Polyxena"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charybdis",
+      "name": "Charybdis",
+      "body": "The whirlpool whose waves crash and break, likened to the clash of the hoarders and spenders.",
+      "aliases": [
+        "Charybdis"
+      ],
+      "category": "reference",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "icarus",
+      "name": "Icarus",
+      "body": "The boy whose wings failed him, named when Dante rides down on Geryon.",
+      "aliases": [
+        "Icarus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daedalus",
+      "name": "Daedalus",
+      "body": "Icarus’s father, who called to him as the wax melted.",
+      "aliases": [
+        "Daedalus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atropos",
+      "name": "Atropos",
+      "body": "The Fate who cuts the thread.",
+      "aliases": [
+        "Atropos"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epicurus",
+      "name": "Epicurus",
+      "body": "The philosopher whose followers held that the soul dies with the body, and whose cemetery is the sixth circle.",
+      "aliases": [
+        "Epicurus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "florentines",
+      "name": "The Florentines",
+      "body": "Dante’s own city and its people, the subject of more of the poem’s anger than any other.",
+      "aliases": [
+        "Florentines",
+        "Florentine"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trojans",
+      "name": "The Trojans",
+      "body": "The people of Troy, from whose survivors Rome descends.",
+      "aliases": [
+        "Trojans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "greeks",
+      "name": "The Greeks",
+      "body": "The people who took Troy.",
+      "aliases": [
+        "Greeks",
+        "Greek"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "romans",
+      "name": "The Romans",
+      "body": "The people of the empire Virgil sang and Dante defends.",
+      "aliases": [
+        "Romans",
+        "Roman"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jews",
+      "name": "The Jews",
+      "body": "Named in the ditch of the hypocrites and in the sowing of evil seed.",
+      "aliases": [
+        "Jews"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "christians",
+      "name": "The Christians",
+      "body": "Named in the poem’s reproaches to the living.",
+      "aliases": [
+        "Christians",
+        "Christian"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pharisees",
+      "name": "The Pharisees",
+      "body": "The council that took counsel against Christ.",
+      "aliases": [
+        "Pharisees"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saracens",
+      "name": "The Saracens",
+      "body": "Named among the enemies the papacy did not make war on.",
+      "aliases": [
+        "Saracens"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cherubim",
+      "name": "The Cherubim",
+      "body": "An order of angels; one of the black Cherubim claims Guido da Montefeltro.",
+      "aliases": [
+        "Cherubim"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "seraphim",
+      "name": "The Seraphim",
+      "body": "The highest order of angels.",
+      "aliases": [
+        "Seraphim"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thebans",
+      "name": "The Thebans",
+      "body": "The people who saw the earth open for Amphiaraus.",
+      "aliases": [
+        "Thebans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sienese",
+      "name": "The Sienese",
+      "body": "A people the poem calls the vainest in the world.",
+      "aliases": [
+        "Sienese"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bolognese",
+      "name": "The Bolognese",
+      "body": "Named in the ditch of the panders.",
+      "aliases": [
+        "Bolognese"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "genoese",
+      "name": "The Genoese",
+      "body": "A people at odds with every virtue, in the poem’s judgment.",
+      "aliases": [
+        "Genoese"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lombards",
+      "name": "The Lombards",
+      "body": "The people of Virgil’s parents.",
+      "aliases": [
+        "Lombard",
+        "Lombards"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mantuans",
+      "name": "The Mantuans",
+      "body": "The people of Virgil’s city.",
+      "aliases": [
+        "Mantuan",
+        "Mantuans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tuscans",
+      "name": "The Tuscans",
+      "body": "The people of Dante’s region.",
+      "aliases": [
+        "Tuscan",
+        "Tuscans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aretines",
+      "name": "The Aretines",
+      "body": "The people of Arezzo.",
+      "aliases": [
+        "Aretine",
+        "Aretines"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paduans",
+      "name": "The Paduans",
+      "body": "The people of Padua.",
+      "aliases": [
+        "Paduan",
+        "Paduans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "french",
+      "name": "The French",
+      "body": "Named beside the Sienese for vanity.",
+      "aliases": [
+        "French"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}
