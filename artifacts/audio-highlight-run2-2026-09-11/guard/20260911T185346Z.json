@@ -1,0 +1,91 @@
+{
+ "checkedAt": "2026-09-11T18:53:49Z",
+ "ownerPrefix": "tinct-",
+ "ownedPods": [
+  {
+   "id": "hzbsxhjbp6pc22",
+   "name": "tinct-audio-bounded-trial-20260911-05",
+   "status": "EXITED",
+   "costPerHr": 0.49,
+   "uptimeSeconds": 45162.438337,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "zzfifw9otrm1ju",
+   "name": "tinct-audio-bounded-trial-20260910-03",
+   "status": "EXITED",
+   "costPerHr": 0.49,
+   "uptimeSeconds": 109037.667385,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "412necg7ee15ly",
+   "name": "tinct-audio-bounded-trial-20260910-01",
+   "status": "EXITED",
+   "costPerHr": 0.74,
+   "uptimeSeconds": 110613.936405,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "3md393vtker2kv",
+   "name": "tinct-words-shard-4",
+   "status": "EXITED",
+   "costPerHr": 0.74,
+   "uptimeSeconds": 210533.009419,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "jt1yuwyv0nraiu",
+   "name": "tinct-words-shard-3",
+   "status": "EXITED",
+   "costPerHr": 0.37,
+   "uptimeSeconds": 184325.358433,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "x7z089mhfss16c",
+   "name": "tinct-words-shard-2",
+   "status": "EXITED",
+   "costPerHr": 0.37,
+   "uptimeSeconds": 192937.542447,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "l5xyeag6i3mtrt",
+   "name": "tinct-words-shard-1",
+   "status": "EXITED",
+   "costPerHr": 0.37,
+   "uptimeSeconds": 195181.597458,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  },
+  {
+   "id": "7fq3rxwizujyz7",
+   "name": "tinct-words-shard-1",
+   "status": "EXITED",
+   "costPerHr": 0.74,
+   "uptimeSeconds": 553854.661477,
+   "uptimeSource": "timestamp",
+   "gpu": null
+  }
+ ],
+ "foreignPodsLeftAlone": [
+  {
+   "id": "zurxlhqh2uc6tb",
+   "name": "grieving_coffee_cod",
+   "status": "EXITED"
+  }
+ ],
+ "estimatedRunningCost": 259.6844,
+ "estimatedTotalSpend": 259.6844,
+ "budget": 25.0,
+ "actions": [],
+ "applied": true,
+ "unownedRunningPods": []
+}
