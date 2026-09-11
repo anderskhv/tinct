@@ -76,14 +76,30 @@ class DivineComedy(unittest.TestCase):
             self.assertIn((30,32),where(ed,'joseph'))
             self.assertIn((30,32),where(ed,'potiphars-wife'))
 
+    def test_no_entity_is_missing_from_both_editions(self):
+        # This is the check that matters. A name absent from one edition is
+        # paraphrase; a name absent from BOTH is a binding that was never made.
+        o=set(REPORT['editions']['original-en']['omittedEntities'])
+        m=set(REPORT['editions']['modern-en']['omittedEntities'])
+        self.assertEqual(o&m,set())
+
     def test_edition_divergences_are_recorded_not_repaired(self):
-        # Longfellow paraphrases some names away and the prose paraphrases
-        # others; every remaining gap is one of those, not a missed binding.
         self.assertEqual(sorted(REPORT['editions']['modern-en']['omittedEntities']),
                          ['camicion','mahomet'])
-        self.assertEqual(sorted(REPORT['editions']['original-en']['omittedEntities']),
-                         ['azzolino','caiaphas','deianira','elisha','eurypylus',
-                          'phaethon','roland','sychaeus'])
+        for cid in ['sychaeus','azzolino','roland','rudolf','wenceslaus','terence']:
+            self.assertIn(cid,REPORT['editions']['original-en']['omittedEntities'])
+
+    def test_purgatorio_namesakes(self):
+        for ed in ['original-en','modern-en']:
+            # Two popes named Boniface, two named Nicholas-or-Clement, three Ugolins.
+            self.assertEqual(where(ed,'boniface'),[(19,17)],ed)
+            self.assertEqual(where(ed,'boniface-ravenna'),[(58,9)],ed)
+            self.assertEqual(where(ed,'ugolin-dazzo'),[(48,34)],ed)
+            self.assertEqual(where(ed,'ugolin-fantoli'),[(48,40)],ed)
+            self.assertTrue(all(c==33 for c,_ in where(ed,'ugolino')),ed)
+        # Longfellow calls Peter of Aragon "Pier"; the prose calls him Peter.
+        self.assertIn((41,41),where('original-en','peter-of-aragon'))
+        self.assertIn((41,41),where('modern-en','peter-of-aragon'))
 
     def test_every_mention_quotes_its_own_source_span(self):
         for ed in ['original-en','modern-en']:

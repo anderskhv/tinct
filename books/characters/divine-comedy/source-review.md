@@ -776,23 +776,11 @@ O Simon Magus, O forlorn disciples, Ye who the things of God, which ought to be 
 
 The man who tried to buy the power of the Holy Spirit, and gave his name to the sin punished in the third ditch.
 
-## original-en · nicholas-iii · 54:10
-
-He furthermore was speaking of the largess Which Nicholas unto the maidens gave, In order to conduct their youth to honour.
-
-Pope Nicholas the Third, planted head downward in the rock, who mistakes Dante for the pope who will succeed him.
-
 ## original-en · boniface · 19:17
 
 And he cried out: “Dost thou stand there already, Dost thou stand there already, Boniface? By many years the record lied to me.
 
 Pope Boniface the Eighth, whom Nicholas mistakes Dante for and expects to take his place head-down in the rock.
-
-## original-en · clement · 37:41
-
-Had but Cosenza’s pastor, who in chase Of me was sent by Clement at that time, In God read understandingly this page,
-
-The pope from the west who will come after Boniface, a lawless shepherd.
 
 ## original-en · constantine · 19:38
 
@@ -1610,6 +1598,894 @@ The city which once made the long resistance, And of the French a sanguinary hea
 
 Named beside the Sienese for vanity.
 
+## original-en · cato · 14:4
+
+The soil was of an arid and thick sand, Not of another fashion made than that Which by the feet of Cato once was pressed.
+
+Cato of Utica, the stern old guardian of the shore of Purgatory, who killed himself for liberty and is saved for it.
+
+## original-en · casella · 36:30
+
+“My own Casella! to return once more There where I am, I make this journey,” said I; “But how from thee has so much time be taken?”
+
+The musician and friend who sets one of Dante’s own songs to music on the shore, and holds the souls spellbound until Cato scatters them.
+
+## original-en · manfred · 37:37
+
+Then said he with a smile: “I am Manfredi, The grandson of the Empress Costanza; Therefore, when thou returnest, I beseech thee
+
+King Manfred of Sicily, the Empress Constance’s grandson, killed at Benevento and excommunicated, who sends word to his daughter that no curse can shut out eternal love.
+
+## original-en · constance-empress · 37:37
+
+Then said he with a smile: “I am Manfredi, The grandson of the Empress Costanza; Therefore, when thou returnest, I beseech thee
+
+The Empress Constance, Manfred’s grandmother.
+
+## original-en · buonconte · 39:29
+
+I was of Montefeltro, and am Buonconte; Giovanna, nor none other cares for me; Hence among these I go with downcast front.”
+
+Buonconte da Montefeltro, killed at Campaldino, whose body the river carried away and whose soul one angel won and one devil lost.
+
+## original-en · giovanna · 39:29
+
+I was of Montefeltro, and am Buonconte; Giovanna, nor none other cares for me; Hence among these I go with downcast front.”
+
+Buonconte’s widow, who no longer prays for him.
+
+## original-en · pia · 39:44
+
+“Do thou remember me who am the Pia; Siena made me, unmade me Maremma; He knoweth it, who had encircled first,
+
+The Sienese woman, made by Siena and unmade by the Maremma, who asks only to be remembered.
+
+## original-en · ghin-di-tacco · 40:4
+
+There was the Aretine, who from the arms Untamed of Ghin di Tacco had his death, And he who fleeing from pursuit was drowned.
+
+The brigand at whose hands an Aretine met his death.
+
+## original-en · federigo-novello · 40:5
+
+There was imploring with his hands outstretched Frederick Novello, and that one of Pisa Who made the good Marzucco seem so strong.
+
+A soul praying with outstretched hands among the late-repentant.
+
+## original-en · marzucco · 40:5
+
+There was imploring with his hands outstretched Frederick Novello, and that one of Pisa Who made the good Marzucco seem so strong.
+
+The good man whose fortitude a Pisan’s death showed.
+
+## original-en · orso · 40:6
+
+I saw Count Orso; and the soul divided By hatred and by envy from its body, As it declared, and not for crime committed,
+
+Count Orso, among the souls who died by violence.
+
+## original-en · pierre-de-la-brosse · 40:7
+
+Pierre de la Brosse I say; and here provide While still on earth the Lady of Brabant, So that for this she be of no worse flock!
+
+The soul torn from its body by spite and envy, who warns the Lady of Brabant.
+
+## original-en · lady-of-brabant · 40:7
+
+Pierre de la Brosse I say; and here provide While still on earth the Lady of Brabant, So that for this she be of no worse flock!
+
+The woman Pierre de la Brosse warns to take heed while she is still in the world.
+
+## original-en · sordello · 40:24
+
+Rose tow’rds him from the place where first it was, Saying: “O Mantuan, I am Sordello Of thine own land!” and one embraced the other.
+
+The poet of Mantua who springs up at the sound of Virgil’s birthplace and embraces him, then shows the travellers the valley of the princes.
+
+## original-en · albert-of-germany · 40:32
+
+O German Albert! who abandonest Her that has grown recalcitrant and savage, And oughtest to bestride her saddle-bow,
+
+The emperor reproached for abandoning Italy.
+
+## original-en · ottocar · 41:33
+
+His name was Ottocar; and in swaddling-clothes Far better he than bearded Winceslaus His son, who feeds in luxury and ease.
+
+The king who governed the land of the Moldau, better in swaddling clothes than his son was bearded.
+
+## original-en · henry-of-navarre · 41:41
+
+Eke to the large-nosed reach my words, no less Than to the other, Pier, who with him sings; Whence Provence and Apulia grieve already
+
+The king of Navarre seated in the valley, father-in-law of the Plague of France.
+
+## original-en · peter-of-aragon · 41:41
+
+Eke to the large-nosed reach my words, no less Than to the other, Pier, who with him sings; Whence Provence and Apulia grieve already
+
+Peter of Aragon, singing in the valley of the princes beside the large-nosed king.
+
+## original-en · margaret · 41:42
+
+The plant is as inferior to its seed, As more than Beatrice and Margaret Costanza boasteth of her husband still.
+
+A queen named in the comparison of wives who boast of their husbands.
+
+## original-en · marquis-william · 41:44
+
+He who the lowest on the ground among them Sits looking upward, is the Marquis William, For whose sake Alessandria and her war
+
+The Marquis William of Monferrato, seated lowest and looking upward, whose war made Alessandria weep.
+
+## original-en · frederick-sicily · 41:39
+
+Which cannot of the other heirs be said. Frederick and Jacomo possess the realms, But none the better heritage possesses.
+
+Frederick of Sicily, who holds a kingdom but not the better heritage.
+
+## original-en · nino · 42:17
+
+Tow’rds me he moved, and I tow’rds him did move; Noble Judge Nino! how it me delighted, When I beheld thee not among the damned!
+
+Judge Nino Visconti of Gallura, delighted to be found among the saved, who speaks bitterly of his widow’s remarriage.
+
+## original-en · currado-malaspina · 42:21
+
+One to Virgilius, and the other turned To one who sat there, crying, “Up, Currado! Come and behold what God in grace has willed!”
+
+Currado Malaspina the younger, who foretells that Dante will learn the worth of his house within seven years.
+
+## original-en · omberto · 45:22
+
+I am Omberto; and not to me alone Has pride done harm, but all my kith and kin Has with it dragged into adversity.
+
+Omberto Aldobrandeschi, crushed under his stone on the terrace of pride, whose family arrogance killed him.
+
+## original-en · guglielmo-aldobrandeschi · 45:19
+
+A Latian was I, and born of a great Tuscan; Guglielmo Aldobrandeschi was my father; I know not if his name were ever with you.
+
+Omberto’s father, head of a great Tuscan family.
+
+## original-en · oderisi · 45:26
+
+“O,” asked I him, “art thou not Oderisi, Agobbio’s honour, and honour of that art Which is in Paris called illuminating?”
+
+Oderisi of Gubbio, the illuminator, who tells Dante that fame is only a breath of wind.
+
+## original-en · franco-bolognese · 45:27
+
+“Brother,” said he, “more laughing are the leaves Touched by the brush of Franco Bolognese; All his the honour now, and mine in part.
+
+The illuminator whose brush now outshines Oderisi’s.
+
+## original-en · cimabue · 45:31
+
+In painting Cimabue thought that he Should hold the field, now Giotto has the cry, So that the other’s fame is growing dim.
+
+The painter who thought he held the field until Giotto took the acclaim.
+
+## original-en · giotto · 45:31
+
+In painting Cimabue thought that he Should hold the field, now Giotto has the cry, So that the other’s fame is growing dim.
+
+The painter whose acclaim has dimmed Cimabue’s.
+
+## original-en · provenzan-salvani · 45:40
+
+“That,” he replied, “is Provenzan Salvani, And he is here because he had presumed To bring Siena all into his hands.
+
+The Sienese who presumed to seize all Siena, and who begged in the Campo to ransom a friend.
+
+## original-en · sapia · 47:36
+
+Sapient I was not, although I Sapia Was called, and I was at another’s harm More happy far than at my own good fortune.
+
+The Sienese woman who rejoiced at her own city’s defeat, now sewn-eyed on the terrace of envy.
+
+## original-en · pier-pettignano · 47:42
+
+Had it not been that in remembrance held me Pier Pettignano in his holy prayers, Who out of charity was grieved for me.
+
+The holy man whose prayers shortened Sapia’s waiting.
+
+## original-en · guido-del-duca · 48:26
+
+But since God willeth that in thee shine forth Such grace of his, I’ll not be chary with thee; Know, then, that I Guido del Duca am.
+
+The Romagnole who names the lost worthies of his country and weeps that no one now inherits their worth.
+
+## original-en · rinier-calboli · 48:29
+
+This is Renier; this is the boast and honour Of the house of Calboli, where no one since Has made himself the heir of his desert.
+
+Rinier da Calboli, the pride and honour of his house, seated beside Guido del Duca.
+
+## original-en · lizio · 48:32
+
+Where is good Lizio, and Arrigo Manardi, Pier Traversaro, and Guido di Carpigna, O Romagnuoli into bastards turned?
+
+A lost worthy of Romagna.
+
+## original-en · arrigo-manardi · 48:32
+
+Where is good Lizio, and Arrigo Manardi, Pier Traversaro, and Guido di Carpigna, O Romagnuoli into bastards turned?
+
+A lost worthy of Romagna.
+
+## original-en · pier-traversaro · 48:32
+
+Where is good Lizio, and Arrigo Manardi, Pier Traversaro, and Guido di Carpigna, O Romagnuoli into bastards turned?
+
+A lost worthy of Romagna.
+
+## original-en · guido-carpigna · 48:32
+
+Where is good Lizio, and Arrigo Manardi, Pier Traversaro, and Guido di Carpigna, O Romagnuoli into bastards turned?
+
+A lost worthy of Romagna.
+
+## original-en · fabbro · 48:33
+
+When in Bologna will a Fabbro rise? When in Faenza a Bernardin di Fosco, The noble scion of ignoble seed?
+
+A man of Bologna named among the lost worthies.
+
+## original-en · bernardin-di-fosco · 48:33
+
+When in Bologna will a Fabbro rise? When in Faenza a Bernardin di Fosco, The noble scion of ignoble seed?
+
+A noble shoot from a humble root, of Faenza.
+
+## original-en · guido-da-prata · 48:34
+
+Be not astonished, Tuscan, if I weep, When I remember, with Guido da Prata, Ugolin d’ Azzo, who was living with us,
+
+A man of Romagna whose memory makes Guido del Duca weep.
+
+## original-en · ugolin-dazzo · 48:34
+
+Be not astonished, Tuscan, if I weep, When I remember, with Guido da Prata, Ugolin d’ Azzo, who was living with us,
+
+A man who lived among the Romagnoles, remembered with Guido da Prata.
+
+## original-en · federigo-tignoso · 48:35
+
+Frederick Tignoso and his company, The house of Traversara, and th’ Anastagi, And one race and the other is extinct;
+
+A man of Romagna named among the lost, with his circle.
+
+## original-en · ugolin-fantoli · 48:40
+
+O Ugolin de’ Fantoli, secure Thy name is, since no longer is awaited One who, degenerating, can obscure it!
+
+A Romagnole whose name is safe, since no one is expected who could darken it.
+
+## original-en · aglaurus · 48:46
+
+“I am Aglaurus, who became a stone!” And then, to press myself close to the Poet, I backward, and not forward, took a step.
+
+The envious sister turned to stone, whose voice cracks the air on the terrace of envy.
+
+## original-en · marco-lombardo · 50:15
+
+“Lombard was I, and I was Marco called; The world I knew, and loved that excellence, At which has each one now unbent his bow.
+
+Marco the Lombard, who explains in the smoke of anger that the fault is not in the stars but in free will and bad government.
+
+## original-en · currado-da-palazzo · 50:41
+
+Currado da Palazzo, and good Gherardo, And Guido da Castel, who better named is, In fashion of the French, the simple Lombard:
+
+One of the three old men in whom the good of the former age survives.
+
+## original-en · gherardo · 50:41
+
+Currado da Palazzo, and good Gherardo, And Guido da Castel, who better named is, In fashion of the French, the simple Lombard:
+
+Gherardo da Camino, the good Lombard, one of the three old men of the former age.
+
+## original-en · guido-da-castel · 50:41
+
+Currado da Palazzo, and good Gherardo, And Guido da Castel, who better named is, In fashion of the French, the simple Lombard:
+
+One of the three old men in whom the good of the former age survives, called the honest Lombard in the French way.
+
+## original-en · gaia · 50:46
+
+By other surname do I know him not, Unless I take it from his daughter Gaia. May God be with you, for I come no farther.
+
+Gherardo’s daughter, by whom Marco says he can be identified.
+
+## original-en · siren · 53:6
+
+“I am,” she sang, “I am the Siren sweet Who mariners amid the main unman, So full am I of pleasantness to hear.
+
+The stammering, squint-eyed woman of Dante’s dream who becomes lovely as he looks, and is stripped by a holy lady.
+
+## original-en · adrian · 53:32
+
+And he to me: “Wherefore our backs the heaven Turns to itself, know shalt thou; but beforehand ‘Scias quod ego fui successor Petri.’
+
+Pope Adrian the Fifth, face down on the terrace of avarice, who will not let Dante kneel to him.
+
+## original-en · alagia · 53:47
+
+On earth I have a grandchild named Alagia, Good in herself, unless indeed our house Malevolent may make her by example,
+
+Adrian’s granddaughter, good in herself unless her house corrupts her.
+
+## original-en · hugh-capet · 54:16
+
+Hugh Capet was I called upon the earth; From me were born the Louises and Philips, By whom in later days has France been governed.
+
+The son of a Parisian butcher and root of the French royal line, who denounces his own descendants.
+
+## original-en · charles-of-anjou · 54:22
+
+Charles came to Italy, and for amends A victim made of Conradin, and then Thrust Thomas back to heaven, for amends.
+
+Charles of Anjou, who came to Italy, made a victim of Conradin and, for amends, thrust Thomas back to heaven.
+
+## original-en · conradin · 54:22
+
+Charles came to Italy, and for amends A victim made of Conradin, and then Thrust Thomas back to heaven, for amends.
+
+The young Hohenstaufen whom Charles of Anjou executed.
+
+## original-en · thomas-aquinas-purg · 54:22
+
+Charles came to Italy, and for amends A victim made of Conradin, and then Thrust Thomas back to heaven, for amends.
+
+Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.
+
+## original-en · fabricius · 54:8
+
+Thereafterward I heard: “O good Fabricius, Virtue with poverty didst thou prefer To the possession of great wealth with vice.”
+
+The Roman who chose virtue with poverty over wealth with vice.
+
+## original-en · nicholas-saint · 54:10
+
+He furthermore was speaking of the largess Which Nicholas unto the maidens gave, In order to conduct their youth to honour.
+
+Saint Nicholas, whose generosity to the three maidens guided their youth toward honour.
+
+## original-en · pygmalion-tyre · 54:34
+
+At that time we repeat Pygmalion, Of whom a traitor, thief, and parricide Made his insatiable desire of gold;
+
+Dido’s brother, whose hunger for gold made him traitor, thief and parricide.
+
+## original-en · midas · 54:35
+
+And the misery of avaricious Midas, That followed his inordinate demand, At which forevermore one needs but laugh.
+
+The king whose outrageous demand can only be laughed at.
+
+## original-en · achan · 54:36
+
+The foolish Achan each one then records, And how he stole the spoils; so that the wrath Of Joshua still appears to sting him here.
+
+The man who stole from the spoils and brought Joshua’s wrath on himself.
+
+## original-en · sapphira · 54:37
+
+Then we accuse Sapphira with her husband, We laud the hoof-beats Heliodorus had, And the whole mount in infamy encircles
+
+Named with her husband among the examples of avarice punished.
+
+## original-en · heliodorus · 54:37
+
+Then we accuse Sapphira with her husband, We laud the hoof-beats Heliodorus had, And the whole mount in infamy encircles
+
+The man whose kicking by heavenly hooves is praised.
+
+## original-en · polymnestor · 54:38
+
+Polymnestor who murdered Polydorus. Here finally is cried: ‘O Crassus, tell us, For thou dost know, what is the taste of gold?’
+
+The king who murdered Polydorus for his gold.
+
+## original-en · crassus · 54:38
+
+Polymnestor who murdered Polydorus. Here finally is cried: ‘O Crassus, tell us, For thou dost know, what is the taste of gold?’
+
+The Roman asked what gold tastes like.
+
+## original-en · forese · 57:15
+
+This spark within me wholly re-enkindled My recognition of his altered face, And I recalled the features of Forese.
+
+Forese Donati, Dante’s old friend, wasted with hunger on the terrace of gluttony, who praises his widow and foretells his brother’s end.
+
+## original-en · nella · 57:28
+
+And he to me: “Thus speedily has led me To drink of the sweet wormwood of these torments, My Nella with her overflowing tears;
+
+Forese’s widow, whose prayers brought him so quickly up the mountain.
+
+## original-en · bonagiunta · 58:6
+
+This,” pointing with his finger, “is Buonagiunta, Buonagiunta, of Lucca; and that face Beyond him there, more peaked than the others,
+
+Buonagiunta of Lucca, who names the knot that held the old poets back from the sweet new style.
+
+## original-en · martin-iv · 58:7
+
+Has held the holy Church within his arms; From Tours was he, and purges by his fasting Bolsena’s eels and the Vernaccia wine.”
+
+Pope Martin the Fourth, purging with fasting the eels of Bolsena and the Vernaccia.
+
+## original-en · ubaldin · 58:9
+
+I saw for hunger bite the empty air Ubaldin dalla Pila, and Boniface, Who with his crook had pastured many people.
+
+A glutton biting the empty air.
+
+## original-en · boniface-ravenna · 58:9
+
+I saw for hunger bite the empty air Ubaldin dalla Pila, and Boniface, Who with his crook had pastured many people.
+
+Boniface, Archbishop of Ravenna, who pastured many people with his staff.
+
+## original-en · marchese · 58:10
+
+I saw Messer Marchese, who had leisure Once at Forli for drinking with less dryness, And he was one who ne’er felt satisfied.
+
+A man of Forlì who was never satisfied with drinking.
+
+## original-en · notary · 58:18
+
+“O brother, now I see,” he said, “the knot Which me, the Notary, and Guittone held Short of the sweet new style that now I hear.
+
+Giacomo da Lentini, named with Guittone as falling short of the sweet new style.
+
+## original-en · guittone · 58:18
+
+“O brother, now I see,” he said, “the knot Which me, the Notary, and Guittone held Short of the sweet new style that now I hear.
+
+The poet named with the Notary as short of the sweet new style.
+
+## original-en · piccarda · 58:3
+
+But tell me, if thou knowest, where is Piccarda; Tell me if any one of note I see Among this folk that gazes at me so.”
+
+Forese’s sister, already triumphing in her crown in Heaven; Dante meets her again in the moon.
+
+## original-en · guinizelli · 60:30
+
+Thy wish to know me shall in sooth be granted; I’m Guido Guinicelli, and now purge me, Having repented ere the hour extreme.”
+
+The father of the sweet new style, who points out a better craftsman than himself and vanishes into the fire. Longfellow spells him Guinicelli.
+
+## original-en · arnaut · 60:47
+
+Jeu sui Arnaut, que plor e vai chantan; Consiros vei la passada folor, E vei jauzen lo jorn qu’ esper denan.
+
+Arnaut Daniel, the better craftsman of the mother tongue, who speaks his eight lines in Provençal and dives back into the refining fire.
+
+## original-en · giraut · 60:39
+
+Verses of love and proses of romance, He mastered all; and let the idiots talk, Who think the Lemosin surpasses him.
+
+Giraut de Bornelh, whom fools rate above Arnaut Daniel.
+
+## original-en · matilda · 67:39
+
+For such a prayer, ’twas said unto me, “Pray Matilda that she tell thee;” and here answered, As one does who doth free himself from blame,
+
+The lady gathering flowers alone in the earthly paradise, who explains the wood and the two rivers and carries Dante through Lethe.
+
+## original-en · leah · 61:33
+
+“Know whosoever may my name demand That I am Leah, and go moving round My beauteous hands to make myself a garland.
+
+The woman of Dante’s dream in the earthly paradise, gathering flowers to make a garland; a figure of the active life.
+
+## original-en · griffin · 63:35
+
+The interval between these four contained A chariot triumphal on two wheels, Which by a Griffin’s neck came drawn along;
+
+The double-natured creature, eagle and lion, that draws the chariot of the Church in the procession.
+
+## original-en · calliope · 35:2
+
+But let dead Poesy here rise again, O holy Muses, since that I am yours, And here Calliope somewhat ascend,
+
+The Muse invoked to rise higher at the opening of the Purgatorio.
+
+## original-en · michal · 44:22
+
+Opposite, represented at the window Of a great palace, Michal looked upon him, Even as a woman scornful and afflicted.
+
+David’s wife, who looked down in scorn as he danced before the Ark.
+
+## original-en · trajan · 44:25
+
+’Tis of the Emperor Trajan I am speaking; And a poor widow at his bridle stood, In attitude of weeping and of grief.
+
+The Roman emperor whose generosity to a widow moved Gregory to his great victory.
+
+## original-en · gregory · 44:24
+
+There the high glory of the Roman Prince Was chronicled, whose great beneficence Moved Gregory to his great victory;
+
+The pope whose prayers are said to have won Trajan’s soul.
+
+## original-en · saul · 46:13
+
+O Saul! how fallen upon thy proper sword Didst thou appear there lifeless in Gilboa, That felt thereafter neither rain nor dew!
+
+The king shown fallen on his own sword on Gilboa.
+
+## original-en · sennacherib · 46:17
+
+Displayed how his own sons did throw themselves Upon Sennacherib within the temple, And how, he being dead, they left him there;
+
+The king killed in the temple by his own sons.
+
+## original-en · tomyris · 46:18
+
+Displayed the ruin and the cruel carnage That Tomyris wrought, when she to Cyrus said, “Blood didst thou thirst for, and with blood I glut thee!”
+
+The queen who gave Cyrus his fill of blood.
+
+## original-en · cyrus · 46:18
+
+Displayed the ruin and the cruel carnage That Tomyris wrought, when she to Cyrus said, “Blood didst thou thirst for, and with blood I glut thee!”
+
+The king whose thirst for blood Tomyris satisfied.
+
+## original-en · holofernes · 46:19
+
+Displayed how routed fled the Assyrians After that Holofernes had been slain, And likewise the remainder of that slaughter.
+
+The general whose death routed the Assyrians.
+
+## original-en · alcmaeon · 46:16
+
+Displayed moreo’er the adamantine pavement How unto his own mother made Alcmaeon Costly appear the luckless ornament;
+
+The son who made his mother pay dearly for the cursed ornament.
+
+## original-en · niobe · 46:12
+
+O Niobe! with what afflicted eyes Thee I beheld upon the pathway traced, Between thy seven and seven children slain!
+
+An example of pride punished, carved in the pavement.
+
+## original-en · thymbraeus · 46:10
+
+I saw Thymbraeus, Pallas saw, and Mars, Still clad in armour round about their father, Gaze at the scattered members of the giants.
+
+Apollo under that name, armed beside Pallas and Mars around their father in the carved rout of the giants.
+
+## original-en · pallas-goddess · 46:10
+
+I saw Thymbraeus, Pallas saw, and Mars, Still clad in armour round about their father, Gaze at the scattered members of the giants.
+
+Minerva, armed beside Thymbraeus and Mars in the carved rout of the giants.
+
+## original-en · metellus · 43:45
+
+Roared not so loud, nor so discordant seemed Tarpeia, when was ta’en from it the good Metellus, wherefore meagre it remained.
+
+The Roman torn from the Tarpeian Rock when Caesar took the treasury.
+
+## original-en · polycletus · 44:10
+
+To be of marble white, and so adorned With sculptures, that not only Polycletus, But Nature’s self, had there been put to shame.
+
+The sculptor whose art the carvings on the terrace of pride would shame.
+
+## original-en · ahasuerus · 51:9
+
+Around him were the great Ahasuerus, Esther his wife, and the just Mordecai, Who was in word and action so entire.
+
+The king in the carved example of anger, with Esther and Mordecai.
+
+## original-en · esther · 51:9
+
+Around him were the great Ahasuerus, Esther his wife, and the just Mordecai, Who was in word and action so entire.
+
+Ahasuerus’s wife in the carved example.
+
+## original-en · mordecai · 51:9
+
+Around him were the great Ahasuerus, Esther his wife, and the just Mordecai, Who was in word and action so entire.
+
+The upright man of the carved example.
+
+## original-en · orestes-purg · 47:10
+
+And ere it wholly grew inaudible Because of distance, passed another, crying, “I am Orestes!” and it also stayed not.
+
+The friend who cried his own name to take his friend’s death, heard as a voice on the terrace of envy.
+
+## original-en · pyramus · 61:12
+
+As at the name of Thisbe oped his lids The dying Pyramus, and gazed upon her, What time the mulberry became vermilion,
+
+The lover who opened his eyes at Thisbe’s name as the mulberry turned crimson.
+
+## original-en · thisbe · 61:12
+
+As at the name of Thisbe oped his lids The dying Pyramus, and gazed upon her, What time the mulberry became vermilion,
+
+Pyramus’s beloved.
+
+## original-en · xerxes · 62:23
+
+Apart three paces did the river make us; But Hellespont, where Xerxes passed across, (A curb still to all human arrogance,)
+
+The king whose crossing of the Hellespont is still a rebuke to human arrogance.
+
+## original-en · leander · 62:24
+
+More hatred from Leander did not suffer For rolling between Sestos and Abydos, Than that from me, because it oped not then.
+
+The swimmer who hated the water between Sestos and Abydos.
+
+## original-en · proserpina · 62:16
+
+Thou makest me remember where and what Proserpina that moment was when lost Her mother her, and she herself the Spring.”
+
+The girl who lost the spring when her mother lost her; Matilda in the flowers recalls her.
+
+## original-en · urania · 63:13
+
+Now Helicon must needs pour forth for me, And with her choir Urania must assist me, To put in verse things difficult to think.
+
+The Muse called on to help put the procession into verse.
+
+## original-en · argus-purg · 63:31
+
+Plumed with six wings was every one of them, The plumage full of eyes; the eyes of Argus If they were living would be such as these.
+
+The hundred-eyed watchman, whose eyes the wings of the living creatures recall, and who was lulled by the tale of Syrinx.
+
+## original-en · syrinx · 66:21
+
+Had I the power to paint how fell asleep Those eyes compassionless, of Syrinx hearing, Those eyes to which more watching cost so dear,
+
+The nymph whose tale put Argus to sleep.
+
+## original-en · ezekiel · 63:33
+
+But read Ezekiel, who depicteth them As he beheld them from the region cold Coming with cloud, with whirlwind, and with fire;
+
+The prophet who described the living creatures as he saw them.
+
+## original-en · africanus · 63:38
+
+Not only Rome with no such splendid car E’er gladdened Africanus, or Augustus, But poor to it that of the Sun would be,—
+
+Scipio Africanus, named in the comparison of triumphal chariots.
+
+## original-en · meleager · 59:7
+
+“If thou wouldst call to mind how Meleager Was wasted by the wasting of a brand, This would not,” said he, “be to thee so sour;
+
+The man whose life wasted with a burning firebrand, used to explain how souls can waste.
+
+## original-en · lachesis · 59:26
+
+Whenever Lachesis has no more thread, It separates from the flesh, and virtually Bears with itself the human and divine;
+
+The Fate who measures the thread of life.
+
+## original-en · clotho · 55:8
+
+But because she who spinneth day and night For him had not yet drawn the distaff off, Which Clotho lays for each one and compacts,
+
+The Fate who loads the flax upon the distaff.
+
+## original-en · pasiphae · 60:13
+
+The new-come people: “Sodom and Gomorrah!” The rest: “Into the cow Pasiphae enters, So that the bull unto her lust may run!”
+
+The example of unnatural lust called out on the terrace of the fire.
+
+## original-en · lycurgus-purg · 60:31
+
+The same that in the sadness of Lycurgus Two sons became, their mother re-beholding, Such I became, but rise not to such height,
+
+The king whose sons saw their mother again, a comparison for Statius meeting Virgil.
+
+## original-en · helice · 59:43
+
+This also ended, cried they: “To the wood Diana ran, and drove forth Helice Therefrom, who had of Venus felt the poison.”
+
+The nymph Diana drove out of the forest for tasting the poison of Venus.
+
+## original-en · venus · 59:43
+
+This also ended, cried they: “To the wood Diana ran, and drove forth Helice Therefrom, who had of Venus felt the poison.”
+
+The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.
+
+## original-en · titus · 55:27
+
+“In days when the good Titus, with the aid Of the supremest King, avenged the wounds Whence issued forth the blood by Judas sold,
+
+The emperor who avenged the wounds from which the blood Judas sold poured out.
+
+## original-en · domitian · 56:27
+
+Then they became so holy in my sight, That, when Domitian persecuted them, Not without tears of mine were their laments;
+
+The emperor whose persecution of the Christians drew Statius’s tears.
+
+## original-en · juvenal · 56:4
+
+Hence from the hour that Juvenal descended Among us into the infernal Limbo, Who made apparent to me thy affection,
+
+The satirist who came down to Limbo and told Virgil of Statius’s affection.
+
+## original-en · caecilius · 56:32
+
+Tell me, in what place is our friend Terentius, Caecilius, Plautus, Varro, if thou knowest; Tell me if they are damned, and in what alley.”
+
+A Latin poet Statius asks after.
+
+## original-en · plautus · 56:32
+
+Tell me, in what place is our friend Terentius, Caecilius, Plautus, Varro, if thou knowest; Tell me if they are damned, and in what alley.”
+
+A Latin poet Statius asks after.
+
+## original-en · varro · 56:32
+
+Tell me, in what place is our friend Terentius, Caecilius, Plautus, Varro, if thou knowest; Tell me if they are damned, and in what alley.”
+
+A Latin poet Statius asks after.
+
+## original-en · persius · 56:33
+
+“These, Persius and myself, and others many,” Replied my Leader, “with that Grecian are Whom more than all the rest the Muses suckled,
+
+A Latin poet named among those in Limbo.
+
+## original-en · euripides · 56:35
+
+Euripides is with us, Antiphon, Simonides, Agatho, and many other Greeks who of old their brows with laurel decked.
+
+A Greek poet in Limbo.
+
+## original-en · antiphon · 56:35
+
+Euripides is with us, Antiphon, Simonides, Agatho, and many other Greeks who of old their brows with laurel decked.
+
+A Greek poet in Limbo.
+
+## original-en · simonides · 56:35
+
+Euripides is with us, Antiphon, Simonides, Agatho, and many other Greeks who of old their brows with laurel decked.
+
+A Greek poet in Limbo.
+
+## original-en · antigone · 56:36
+
+There some of thine own people may be seen, Antigone, Deiphile and Argia, And there Ismene mournful as of old.
+
+One of Statius’s own characters, seen in Limbo.
+
+## original-en · argia · 56:36
+
+There some of thine own people may be seen, Antigone, Deiphile and Argia, And there Ismene mournful as of old.
+
+One of Statius’s own characters, seen in Limbo.
+
+## original-en · ismene · 56:36
+
+There some of thine own people may be seen, Antigone, Deiphile and Argia, And there Ismene mournful as of old.
+
+One of Statius’s own characters, still sorrowful in Limbo.
+
+## original-en · jocasta · 56:18
+
+“Now when thou sangest the relentless weapons Of the twofold affliction of Jocasta,” The singer of the Songs Bucolic said,
+
+The mother whose twofold grief Statius sang.
+
+## original-en · clio · 56:19
+
+“From that which Clio there with thee preludes, It does not seem that yet had made thee faithful That faith without which no good works suffice.
+
+The Muse who accompanied Statius in the Thebaid.
+
+## original-en · gideon · 58:41
+
+And of the Jews who showed them soft in drinking, Whence Gideon would not have them for companions When he tow’rds Midian the hills descended.”
+
+The judge who refused the soft drinkers as companions.
+
+## original-en · daniel · 56:48
+
+And for their drink the ancient Roman women With water were content; and Daniel Disparaged food, and understanding won.
+
+The prophet who rejected food and won understanding.
+
+## original-en · joshua · 54:36
+
+The foolish Achan each one then records, And how he stole the spoils; so that the wrath Of Joshua still appears to sting him here.
+
+The leader whose wrath still stings Achan.
+
+## original-en · barbarossa · 52:39
+
+I was San Zeno’s Abbot at Verona, Under the empire of good Barbarossa, Of whom still sorrowing Milan holds discourse;
+
+The emperor under whose reign the Abbot of San Zeno lived.
+
+## original-en · abbot-san-zeno · 52:39
+
+I was San Zeno’s Abbot at Verona, Under the empire of good Barbarossa, Of whom still sorrowing Milan holds discourse;
+
+The soul on the terrace of sloth who names himself by his office in Verona.
+
+## original-en · themis · 67:15
+
+And peradventure my dark utterance, Like Themis and the Sphinx, may less persuade thee, Since, in their mode, it clouds the intellect;
+
+The oracular goddess whose dark sayings clouded men’s minds.
+
+## original-en · sphinx · 67:15
+
+And peradventure my dark utterance, Like Themis and the Sphinx, may less persuade thee, Since, in their mode, it clouds the intellect;
+
+The riddler named with Themis for dark prophecy.
+
+## original-en · ganymede-purg · 43:7
+
+And this, it seemed to me, was where had been By Ganymede his kith and kin abandoned, When to the high consistory he was rapt.
+
+The boy snatched up to the high assembly of the gods, recalled in Dante’s dream of the eagle.
+
+## original-en · tithonus · 43:0
+
+The concubine of old Tithonus now Gleamed white upon the eastern balcony, Forth from the arms of her sweet paramour;
+
+The old consort of the dawn.
+
+## original-en · luke · 55:2
+
+And lo! in the same manner as Luke writeth That Christ appeared to two upon the way From the sepulchral cave already risen,
+
+The evangelist who writes how Christ appeared to two travellers on the road.
+
+## original-en · psalmist · 44:21
+
+Preceded there the vessel benedight, Dancing with girded loins, the humble Psalmist, And more and less than King was he in this.
+
+David, dancing before the Ark with his robes girded up.
+
+## original-en · justinian-purg · 40:29
+
+What boots it, that for thee Justinian The bridle mend, if empty be the saddle? Withouten this the shame would be the less.
+
+The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.
+
+## original-en · clement-iv · 37:41
+
+Had but Cosenza’s pastor, who in chase Of me was sent by Clement at that time, In God read understandingly this page,
+
+Pope Clement the Fourth, who sent the pastor of Cosenza to hunt down Manfred’s bones.
+
+## original-en · marcellus-purg · 40:41
+
+For all the towns of Italy are full Of tyrants, and becometh a Marcellus Each peasant churl who plays the partisan!
+
+The Roman whose name stands for the partisan who makes himself a tyrant.
+
+## original-en · octavian · 41:1
+
+“Or ever to this mountain were directed The souls deserving to ascend to God, My bones were buried by Octavian.
+
+The emperor who had Virgil’s bones buried at Naples.
+
 ## modern-en · dante · 64:18
 
 "Dante, do not weep yet because Virgil has departed. Do not weep yet — for you must weep by another sword."
@@ -2396,23 +3272,11 @@ O Simon Magus! O you miserable disciples who take the things of God — things t
 
 The man who tried to buy the power of the Holy Spirit, and gave his name to the sin punished in the third ditch.
 
-## modern-en · nicholas-iii · 54:10
-
-It was going on to speak of the generosity that Nicholas showed to the maidens, guiding their youth toward honor.
-
-Pope Nicholas the Third, planted head downward in the rock, who mistakes Dante for the pope who will succeed him.
-
 ## modern-en · boniface · 19:17
 
 He cried out: "Is that you already? Are you standing there already, Boniface? The record lied to me by many years.
 
 Pope Boniface the Eighth, whom Nicholas mistakes Dante for and expects to take his place head-down in the rock.
-
-## modern-en · clement · 37:41
-
-If only the pastor of Cosenza, who was sent to hunt me down by Clement, had read this page of God's book with understanding,
-
-The pope from the west who will come after Boniface, a lawless shepherd.
 
 ## modern-en · constantine · 19:38
 
@@ -3253,3 +4117,957 @@ The people of Padua.
 I said to the Poet: "Was there ever a people as vain as the Sienese? Certainly not even the French come close."
 
 Named beside the Sienese for vanity.
+
+## modern-en · cato · 14:4
+
+The ground was thick, dry sand — no different from the sand once pressed beneath the feet of Cato.
+
+Cato of Utica, the stern old guardian of the shore of Purgatory, who killed himself for liberty and is saved for it.
+
+## modern-en · casella · 36:30
+
+"My own Casella! I make this journey so that I may return to this place again," I said. "But why has so much time been taken from you?"
+
+The musician and friend who sets one of Dante’s own songs to music on the shore, and holds the souls spellbound until Cato scatters them.
+
+## modern-en · manfred · 37:37
+
+Then he said with a smile: "I am Manfredi, grandson of the Empress Constance. Therefore I beg you, when you return,
+
+King Manfred of Sicily, the Empress Constance’s grandson, killed at Benevento and excommunicated, who sends word to his daughter that no curse can shut out eternal love.
+
+## modern-en · constance-empress · 37:37
+
+Then he said with a smile: "I am Manfredi, grandson of the Empress Constance. Therefore I beg you, when you return,
+
+The Empress Constance, Manfred’s grandmother.
+
+## modern-en · buonconte · 39:29
+
+I was of Montefeltro, I am Buonconte. Neither Giovanna nor any other cares for me, which is why I walk among these with bowed head."
+
+Buonconte da Montefeltro, killed at Campaldino, whose body the river carried away and whose soul one angel won and one devil lost.
+
+## modern-en · giovanna · 39:29
+
+I was of Montefeltro, I am Buonconte. Neither Giovanna nor any other cares for me, which is why I walk among these with bowed head."
+
+Buonconte’s widow, who no longer prays for him.
+
+## modern-en · pia · 39:44
+
+Remember me — I am La Pia. Siena made me; the Maremma unmade me. He knows it well, the one who,
+
+The Sienese woman, made by Siena and unmade by the Maremma, who asks only to be remembered.
+
+## modern-en · ghin-di-tacco · 40:4
+
+There was the Aretine who met his death at the brutal hands of Ghin di Tacco, and the other who drowned while chasing his enemy.
+
+The brigand at whose hands an Aretine met his death.
+
+## modern-en · federigo-novello · 40:5
+
+There, with outstretched hands, prayed Federigo Novello, and the Pisan who made the good Marzucco show such fortitude.
+
+A soul praying with outstretched hands among the late-repentant.
+
+## modern-en · marzucco · 40:5
+
+There, with outstretched hands, prayed Federigo Novello, and the Pisan who made the good Marzucco show such fortitude.
+
+The good man whose fortitude a Pisan’s death showed.
+
+## modern-en · orso · 40:6
+
+I saw Count Orso, and the soul torn from its body by spite and envy, as it said — not for any fault committed:
+
+Count Orso, among the souls who died by violence.
+
+## modern-en · pierre-de-la-brosse · 40:7
+
+Pierre de la Brosse, I mean. And let the Lady of Brabant take heed while she is still in this world, lest she end up in a worse flock.
+
+The soul torn from its body by spite and envy, who warns the Lady of Brabant.
+
+## modern-en · lady-of-brabant · 40:7
+
+Pierre de la Brosse, I mean. And let the Lady of Brabant take heed while she is still in this world, lest she end up in a worse flock.
+
+The woman Pierre de la Brosse warns to take heed while she is still in the world.
+
+## modern-en · sordello · 40:24
+
+Leapt toward him from where it stood, crying: "O Mantuan, I am Sordello, from your own land!" And they embraced each other.
+
+The poet of Mantua who springs up at the sound of Virgil’s birthplace and embraces him, then shows the travellers the valley of the princes.
+
+## modern-en · albert-of-germany · 40:32
+
+O German Albert, who abandon her — this beast that has grown wild and unmanageable — when you should bestride her saddle-bow,
+
+The emperor reproached for abandoning Italy.
+
+## modern-en · rudolf · 41:31
+
+that was the Emperor Rudolf, who had the power to heal the wounds that have killed Italy, so that she now revives only slowly through others.
+
+The Emperor Rudolf, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not.
+
+## modern-en · ottocar · 41:33
+
+His name was Ottocar. Even in swaddling clothes he was far better than his bearded son Wenceslaus, who feeds on luxury and ease.
+
+The king who governed the land of the Moldau, better in swaddling clothes than his son was bearded.
+
+## modern-en · wenceslaus · 41:33
+
+His name was Ottocar. Even in swaddling clothes he was far better than his bearded son Wenceslaus, who feeds on luxury and ease.
+
+Ottocar’s son, who feeds on luxury and ease.
+
+## modern-en · henry-of-navarre · 41:37
+
+The one who appears so robust, singing in harmony with the large-nosed one, wore the belt of every virtue.
+
+The king of Navarre seated in the valley, father-in-law of the Plague of France.
+
+## modern-en · peter-of-aragon · 41:41
+
+My words reach the large-nosed one no less than the other, Peter, who sings beside him — and Provence and Apulia already grieve for it.
+
+Peter of Aragon, singing in the valley of the princes beside the large-nosed king.
+
+## modern-en · margaret · 41:42
+
+The plant is as inferior to its seed as, more than Beatrice and Margaret, Constance still boasts of her husband.
+
+A queen named in the comparison of wives who boast of their husbands.
+
+## modern-en · constance-aragon · 41:42
+
+The plant is as inferior to its seed as, more than Beatrice and Margaret, Constance still boasts of her husband.
+
+Peter of Aragon’s widow, who still boasts of her husband.
+
+## modern-en · henry-of-england · 41:43
+
+See the monarch of the simple life, Henry of England, sitting there alone. He has a better harvest in his descendants.
+
+Henry of England, the monarch of the simple life, seated alone with a better harvest in his descendants.
+
+## modern-en · marquis-william · 41:44
+
+The one who sits lowest among them, looking upward, is the Marquis William, on whose account Alessandria and its war
+
+The Marquis William of Monferrato, seated lowest and looking upward, whose war made Alessandria weep.
+
+## modern-en · frederick-sicily · 41:39
+
+which cannot be said of the other heirs. Frederick and James possess the kingdoms, but neither possesses the better heritage.
+
+Frederick of Sicily, who holds a kingdom but not the better heritage.
+
+## modern-en · james-aragon · 41:39
+
+which cannot be said of the other heirs. Frederick and James possess the kingdoms, but neither possesses the better heritage.
+
+James of Aragon, who holds a kingdom but not the better heritage.
+
+## modern-en · nino · 42:17
+
+He moved toward me, and I toward him. Noble Judge Nino! How it delighted me to see you not among the damned!
+
+Judge Nino Visconti of Gallura, delighted to be found among the saved, who speaks bitterly of his widow’s remarriage.
+
+## modern-en · currado-malaspina · 42:21
+
+One turned to Virgil, the other to someone seated there, crying, "Rise, Currado! Come see what God in His grace has willed!"
+
+Currado Malaspina the younger, who foretells that Dante will learn the worth of his house within seven years.
+
+## modern-en · omberto · 45:22
+
+I am Omberto. And pride has done harm not only to me — it has dragged all my kindred into ruin.
+
+Omberto Aldobrandeschi, crushed under his stone on the terrace of pride, whose family arrogance killed him.
+
+## modern-en · guglielmo-aldobrandeschi · 45:19
+
+I was an Italian, born of a great Tuscan family. Guglielmo Aldobrandeschi was my father — I don't know if his name ever reached you.
+
+Omberto’s father, head of a great Tuscan family.
+
+## modern-en · oderisi · 45:26
+
+"Oh!" I asked him, "Are you not Oderisi, the honor of Gubbio and the honor of that art which in Paris they call illuminating?"
+
+Oderisi of Gubbio, the illuminator, who tells Dante that fame is only a breath of wind.
+
+## modern-en · franco-bolognese · 45:27
+
+"Brother," he said, "the pages touched by the brush of Franco Bolognese smile more brightly now. The honor is all his, and only partly mine.
+
+The illuminator whose brush now outshines Oderisi’s.
+
+## modern-en · cimabue · 45:31
+
+In painting, Cimabue thought he held the field. Now Giotto has the acclaim, so that the other's fame grows dim.
+
+The painter who thought he held the field until Giotto took the acclaim.
+
+## modern-en · giotto · 45:31
+
+In painting, Cimabue thought he held the field. Now Giotto has the acclaim, so that the other's fame grows dim.
+
+The painter whose acclaim has dimmed Cimabue’s.
+
+## modern-en · provenzan-salvani · 45:40
+
+"That," he replied, "is Provenzan Salvani. He is here because he presumed to seize all of Siena in his hands.
+
+The Sienese who presumed to seize all Siena, and who begged in the Campo to ransom a friend.
+
+## modern-en · sapia · 47:36
+
+Wise I was not, though I was called Sapia. And I took far more joy in the harm of others than in my own good fortune.
+
+The Sienese woman who rejoiced at her own city’s defeat, now sewn-eyed on the terrace of envy.
+
+## modern-en · pier-pettignano · 47:42
+
+had it not been that Pier Pettignano remembered me in his holy prayers, and out of charity grieved for me.
+
+The holy man whose prayers shortened Sapia’s waiting.
+
+## modern-en · guido-del-duca · 48:26
+
+But since God wills that such grace shines forth in you, I won't hold back. Know then that I am Guido del Duca.
+
+The Romagnole who names the lost worthies of his country and weeps that no one now inherits their worth.
+
+## modern-en · rinier-calboli · 48:29
+
+This is Renier. This is the pride and honor of the house of Calboli, from which no one since has inherited his worth.
+
+Rinier da Calboli, the pride and honour of his house, seated beside Guido del Duca.
+
+## modern-en · lizio · 48:32
+
+Where is good Lizio? Where is Arrigo Manardi, Pier Traversaro, Guido di Carpigna? O Romagnoles, turned into bastards!
+
+A lost worthy of Romagna.
+
+## modern-en · arrigo-manardi · 48:32
+
+Where is good Lizio? Where is Arrigo Manardi, Pier Traversaro, Guido di Carpigna? O Romagnoles, turned into bastards!
+
+A lost worthy of Romagna.
+
+## modern-en · pier-traversaro · 48:32
+
+Where is good Lizio? Where is Arrigo Manardi, Pier Traversaro, Guido di Carpigna? O Romagnoles, turned into bastards!
+
+A lost worthy of Romagna.
+
+## modern-en · guido-carpigna · 48:32
+
+Where is good Lizio? Where is Arrigo Manardi, Pier Traversaro, Guido di Carpigna? O Romagnoles, turned into bastards!
+
+A lost worthy of Romagna.
+
+## modern-en · fabbro · 48:33
+
+When will a Fabbro arise in Bologna? When in Faenza a Bernardin di Fosco — that noble shoot from a humble root?
+
+A man of Bologna named among the lost worthies.
+
+## modern-en · bernardin-di-fosco · 48:33
+
+When will a Fabbro arise in Bologna? When in Faenza a Bernardin di Fosco — that noble shoot from a humble root?
+
+A noble shoot from a humble root, of Faenza.
+
+## modern-en · guido-da-prata · 48:34
+
+Don't wonder, Tuscan, if I weep, remembering Guido da Prata and Ugolin d'Azzo, who lived among us,
+
+A man of Romagna whose memory makes Guido del Duca weep.
+
+## modern-en · ugolin-dazzo · 48:34
+
+Don't wonder, Tuscan, if I weep, remembering Guido da Prata and Ugolin d'Azzo, who lived among us,
+
+A man who lived among the Romagnoles, remembered with Guido da Prata.
+
+## modern-en · federigo-tignoso · 48:35
+
+and Federigo Tignoso and his circle, the house of Traversara and the Anastagi — both families now extinct.
+
+A man of Romagna named among the lost, with his circle.
+
+## modern-en · ugolin-fantoli · 48:40
+
+O Ugolin de' Fantoli, your name is safe, since no one is expected who could darken it by falling short!
+
+A Romagnole whose name is safe, since no one is expected who could darken it.
+
+## modern-en · aglaurus · 48:46
+
+"I am Aglaurus, who was turned to stone!" And then, to press close to the Poet, I took a step backward, not forward.
+
+The envious sister turned to stone, whose voice cracks the air on the terrace of envy.
+
+## modern-en · marco-lombardo · 50:15
+
+"I was a Lombard, and my name was Marco. I knew the world and loved that excellence at which everyone today has stopped aiming their bow.
+
+Marco the Lombard, who explains in the smoke of anger that the fault is not in the stars but in free will and bad government.
+
+## modern-en · currado-da-palazzo · 50:41
+
+Currado da Palazzo, good Gherardo, and Guido da Castel — who is better named, in the French way, 'the honest Lombard.'
+
+One of the three old men in whom the good of the former age survives.
+
+## modern-en · gherardo · 50:41
+
+Currado da Palazzo, good Gherardo, and Guido da Castel — who is better named, in the French way, 'the honest Lombard.'
+
+Gherardo da Camino, the good Lombard, one of the three old men of the former age.
+
+## modern-en · guido-da-castel · 50:41
+
+Currado da Palazzo, good Gherardo, and Guido da Castel — who is better named, in the French way, 'the honest Lombard.'
+
+One of the three old men in whom the good of the former age survives, called the honest Lombard in the French way.
+
+## modern-en · gaia · 50:46
+
+I know him by no other name, unless I take it from his daughter Gaia. God be with you — I come no farther.
+
+Gherardo’s daughter, by whom Marco says he can be identified.
+
+## modern-en · siren · 53:6
+
+"I am the sweet Siren," she sang, "who leads sailors astray in mid-ocean. So full of pleasure am I to hear.
+
+The stammering, squint-eyed woman of Dante’s dream who becomes lovely as he looks, and is stripped by a holy lady.
+
+## modern-en · adrian · 53:32
+
+And he to me: "Why heaven turns our backs to itself, you shall know. But first: scias quod ego fui successor Petri — know that I was a successor of Peter.
+
+Pope Adrian the Fifth, face down on the terrace of avarice, who will not let Dante kneel to him.
+
+## modern-en · alagia · 53:47
+
+I have a granddaughter on earth named Alagia, good in herself — unless our house corrupts her by its example.
+
+Adrian’s granddaughter, good in herself unless her house corrupts her.
+
+## modern-en · hugh-capet · 54:16
+
+Hugh Capet was I called on earth. From me were born the Louises and the Philips by whom France has been governed in later days.
+
+The son of a Parisian butcher and root of the French royal line, who denounces his own descendants.
+
+## modern-en · charles-of-anjou · 54:22
+
+Charles came to Italy, and for amends made a victim of Conradin. Then he thrust Thomas back to heaven — for amends.
+
+Charles of Anjou, who came to Italy, made a victim of Conradin and, for amends, thrust Thomas back to heaven.
+
+## modern-en · conradin · 54:22
+
+Charles came to Italy, and for amends made a victim of Conradin. Then he thrust Thomas back to heaven — for amends.
+
+The young Hohenstaufen whom Charles of Anjou executed.
+
+## modern-en · thomas-aquinas-purg · 54:22
+
+Charles came to Italy, and for amends made a victim of Conradin. Then he thrust Thomas back to heaven — for amends.
+
+Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.
+
+## modern-en · fabricius · 54:8
+
+Then I heard: "O good Fabricius, you chose virtue with poverty over possessing great wealth with vice."
+
+The Roman who chose virtue with poverty over wealth with vice.
+
+## modern-en · nicholas-saint · 54:10
+
+It was going on to speak of the generosity that Nicholas showed to the maidens, guiding their youth toward honor.
+
+Saint Nicholas, whose generosity to the three maidens guided their youth toward honour.
+
+## modern-en · pygmalion-tyre · 54:34
+
+At that time we recite the tale of Pygmalion, whose insatiable hunger for gold made him a traitor, thief, and parricide.
+
+Dido’s brother, whose hunger for gold made him traitor, thief and parricide.
+
+## modern-en · midas · 54:35
+
+And the misery of avaricious Midas, whose outrageous demand was answered so that one can only laugh forever afterward.
+
+The king whose outrageous demand can only be laughed at.
+
+## modern-en · achan · 54:36
+
+Then everyone recalls the foolish Achan, who stole from the spoils so that the wrath of Joshua still seems to sting him here.
+
+The man who stole from the spoils and brought Joshua’s wrath on himself.
+
+## modern-en · sapphira · 54:37
+
+Then we accuse Sapphira and her husband. We praise the hooves that kicked Heliodorus. And infamy circles the whole mountain
+
+Named with her husband among the examples of avarice punished.
+
+## modern-en · heliodorus · 54:37
+
+Then we accuse Sapphira and her husband. We praise the hooves that kicked Heliodorus. And infamy circles the whole mountain
+
+The man whose kicking by heavenly hooves is praised.
+
+## modern-en · polymnestor · 54:38
+
+for Polymnestor, who murdered Polydorus. At last comes the cry: 'O Crassus, tell us — you who know — what is the taste of gold?'
+
+The king who murdered Polydorus for his gold.
+
+## modern-en · crassus · 54:38
+
+for Polymnestor, who murdered Polydorus. At last comes the cry: 'O Crassus, tell us — you who know — what is the taste of gold?'
+
+The Roman asked what gold tastes like.
+
+## modern-en · forese · 57:15
+
+This spark reignited in me the full recognition of his altered features, and I recalled the face of Forese.
+
+Forese Donati, Dante’s old friend, wasted with hunger on the terrace of gluttony, who praises his widow and foretells his brother’s end.
+
+## modern-en · nella · 57:28
+
+And he to me: "My Nella, with her flooding tears, has brought me so quickly to drink the sweet wormwood of these torments.
+
+Forese’s widow, whose prayers brought him so quickly up the mountain.
+
+## modern-en · bonagiunta · 58:6
+
+This one" — and he pointed — "is Buonagiunta of Lucca. And that face beyond him, more pinched than the others,
+
+Buonagiunta of Lucca, who names the knot that held the old poets back from the sweet new style.
+
+## modern-en · martin-iv · 58:7
+
+held the holy Church in its embrace. He was from Tours, and here he purges with fasting the eels of Bolsena and the Vernaccia wine."
+
+Pope Martin the Fourth, purging with fasting the eels of Bolsena and the Vernaccia.
+
+## modern-en · ubaldin · 58:9
+
+I saw Ubaldin dalla Pila biting the empty air for hunger, and Boniface, who pastured many people with his bishop's staff.
+
+A glutton biting the empty air.
+
+## modern-en · boniface-ravenna · 58:9
+
+I saw Ubaldin dalla Pila biting the empty air for hunger, and Boniface, who pastured many people with his bishop's staff.
+
+Boniface, Archbishop of Ravenna, who pastured many people with his staff.
+
+## modern-en · marchese · 58:10
+
+I saw Messer Marchese, who once had leisure to drink with less dryness at Forli, yet was a man who never felt satisfied.
+
+A man of Forlì who was never satisfied with drinking.
+
+## modern-en · notary · 58:18
+
+"O brother, now I see," he said, "the knot that held me back, and the Notary, and Guittone, short of the sweet new style I hear.
+
+Giacomo da Lentini, named with Guittone as falling short of the sweet new style.
+
+## modern-en · guittone · 58:18
+
+"O brother, now I see," he said, "the knot that held me back, and the Notary, and Guittone, short of the sweet new style I hear.
+
+The poet named with the Notary as short of the sweet new style.
+
+## modern-en · piccarda · 58:3
+
+But tell me, if you know — where is Piccarda? And tell me if I can see anyone of note among this crowd that stares at me so."
+
+Forese’s sister, already triumphing in her crown in Heaven; Dante meets her again in the moon.
+
+## modern-en · guinizelli · 60:30
+
+But your wish to know me shall indeed be granted. I am Guido Guinizelli, and I purge myself here, having repented before the final hour."
+
+The father of the sweet new style, who points out a better craftsman than himself and vanishes into the fire. Longfellow spells him Guinicelli.
+
+## modern-en · arnaut · 60:47
+
+Jeu sui Arnaut, que plor e vai chantan; consiros vei la passada folor, e vei jauzen lo jorn qu'esper denan.
+
+Arnaut Daniel, the better craftsman of the mother tongue, who speaks his eight lines in Provençal and dives back into the refining fire.
+
+## modern-en · giraut · 60:39
+
+In verses of love and romances in prose, he surpassed them all. Let the fools talk who think the one from Limoges is better.
+
+Giraut de Bornelh, whom fools rate above Arnaut Daniel.
+
+## modern-en · matilda · 67:39
+
+In answer to my question I was told: "Ask Matilda to tell you." And the beautiful lady replied, as one clearing herself of blame:
+
+The lady gathering flowers alone in the earthly paradise, who explains the wood and the two rivers and carries Dante through Lethe.
+
+## modern-en · leah · 61:33
+
+"Let whoever asks know that I am Leah. I go moving my beautiful hands to make myself a garland.
+
+The woman of Dante’s dream in the earthly paradise, gathering flowers to make a garland; a figure of the active life.
+
+## modern-en · griffin · 63:35
+
+The space between these four contained a triumphal chariot on two wheels, drawn forward by the neck of a Griffin.
+
+The double-natured creature, eagle and lion, that draws the chariot of the Church in the procession.
+
+## modern-en · calliope · 35:2
+
+But here let dead poetry rise again. O sacred Muses, since I am yours, and here let Calliope rise somewhat higher,
+
+The Muse invoked to rise higher at the opening of the Purgatorio.
+
+## modern-en · michal · 44:22
+
+Opposite him, looking out from the window of a great palace, Michal gazed down at him like a woman full of scorn and sorrow.
+
+David’s wife, who looked down in scorn as he danced before the Ark.
+
+## modern-en · trajan · 44:24
+
+There the great glory of the Roman Prince was chronicled — the Emperor Trajan, whose magnificent generosity moved Pope Gregory to his great victory.
+
+The Roman emperor whose generosity to a widow moved Gregory to his great victory.
+
+## modern-en · gregory · 44:24
+
+There the great glory of the Roman Prince was chronicled — the Emperor Trajan, whose magnificent generosity moved Pope Gregory to his great victory.
+
+The pope whose prayers are said to have won Trajan’s soul.
+
+## modern-en · saul · 46:13
+
+O Saul! How you appeared there, fallen upon your own sword, lifeless on Gilboa — which afterward felt neither rain nor dew!
+
+The king shown fallen on his own sword on Gilboa.
+
+## modern-en · sennacherib · 46:17
+
+It showed how Sennacherib's own sons threw themselves upon him in the temple, and left him there dead.
+
+The king killed in the temple by his own sons.
+
+## modern-en · tomyris · 46:18
+
+It showed the ruin and the cruel slaughter that Tomyris wrought, when she said to Cyrus: "You thirsted for blood — with blood I glut you!"
+
+The queen who gave Cyrus his fill of blood.
+
+## modern-en · cyrus · 46:18
+
+It showed the ruin and the cruel slaughter that Tomyris wrought, when she said to Cyrus: "You thirsted for blood — with blood I glut you!"
+
+The king whose thirst for blood Tomyris satisfied.
+
+## modern-en · holofernes · 46:19
+
+It showed how the Assyrians fled in rout after Holofernes was slain, and the remnants of that massacre.
+
+The general whose death routed the Assyrians.
+
+## modern-en · alcmaeon · 46:16
+
+The adamantine pavement also showed how Alcmaeon made his mother pay dearly for the cursed ornament.
+
+The son who made his mother pay dearly for the cursed ornament.
+
+## modern-en · niobe · 46:12
+
+O Niobe! With what anguished eyes I saw you traced upon the pavement, between your seven slain sons and seven slain daughters!
+
+An example of pride punished, carved in the pavement.
+
+## modern-en · thymbraeus · 46:10
+
+I saw Thymbraeus, Pallas, and Mars, still clad in armor around their father, gazing at the scattered limbs of the giants.
+
+Apollo under that name, armed beside Pallas and Mars around their father in the carved rout of the giants.
+
+## modern-en · pallas-goddess · 46:10
+
+I saw Thymbraeus, Pallas, and Mars, still clad in armor around their father, gazing at the scattered limbs of the giants.
+
+Minerva, armed beside Thymbraeus and Mars in the carved rout of the giants.
+
+## modern-en · metellus · 43:45
+
+the Tarpeian Rock did not roar so loudly or sound so harsh when good Metellus was torn from it, leaving it stripped bare.
+
+The Roman torn from the Tarpeian Rock when Caesar took the treasury.
+
+## modern-en · polycletus · 44:10
+
+was white marble, adorned with sculptures so perfect that not only Polycletus but Nature herself would have been put to shame.
+
+The sculptor whose art the carvings on the terrace of pride would shame.
+
+## modern-en · ahasuerus · 51:9
+
+Around him were the great Ahasuerus, his wife Esther, and the righteous Mordecai, who was upright in both word and deed.
+
+The king in the carved example of anger, with Esther and Mordecai.
+
+## modern-en · esther · 51:9
+
+Around him were the great Ahasuerus, his wife Esther, and the righteous Mordecai, who was upright in both word and deed.
+
+Ahasuerus’s wife in the carved example.
+
+## modern-en · mordecai · 51:9
+
+Around him were the great Ahasuerus, his wife Esther, and the righteous Mordecai, who was upright in both word and deed.
+
+The upright man of the carved example.
+
+## modern-en · orestes-purg · 47:10
+
+And before it had entirely faded with distance, another passed, crying, "I am Orestes!" — and it too did not linger.
+
+The friend who cried his own name to take his friend’s death, heard as a voice on the terrace of envy.
+
+## modern-en · pyramus · 61:12
+
+As at the name of Thisbe the dying Pyramus opened his eyes and gazed on her, the moment the mulberry turned crimson —
+
+The lover who opened his eyes at Thisbe’s name as the mulberry turned crimson.
+
+## modern-en · thisbe · 61:12
+
+As at the name of Thisbe the dying Pyramus opened his eyes and gazed on her, the moment the mulberry turned crimson —
+
+Pyramus’s beloved.
+
+## modern-en · xerxes · 62:23
+
+Three paces of river separated us. But the Hellespont, where Xerxes crossed — still a rebuke to all human arrogance —
+
+The king whose crossing of the Hellespont is still a rebuke to human arrogance.
+
+## modern-en · leander · 62:24
+
+did not earn more hatred from Leander, surging between Sestos and Abydos, than this stream earned from me for not opening.
+
+The swimmer who hated the water between Sestos and Abydos.
+
+## modern-en · proserpina · 62:16
+
+You make me remember where and what Proserpina was in the moment when her mother lost her, and she herself lost the spring."
+
+The girl who lost the spring when her mother lost her; Matilda in the flowers recalls her.
+
+## modern-en · urania · 63:13
+
+Now Helicon must pour forth for me, and Urania must help me with her choir, to put into verse things difficult to conceive.
+
+The Muse called on to help put the procession into verse.
+
+## modern-en · argus-purg · 63:31
+
+Each was plumed with six wings, the feathers full of eyes — the eyes of Argus, if they were living, would be such as these.
+
+The hundred-eyed watchman, whose eyes the wings of the living creatures recall, and who was lulled by the tale of Syrinx.
+
+## modern-en · syrinx · 66:21
+
+If I could paint how those pitiless eyes fell asleep at the tale of Syrinx — those eyes whose long wakefulness cost them so dear —
+
+The nymph whose tale put Argus to sleep.
+
+## modern-en · ezekiel · 63:33
+
+But read Ezekiel, who depicts them as he saw them coming from the cold region with cloud, whirlwind, and fire.
+
+The prophet who described the living creatures as he saw them.
+
+## modern-en · africanus · 63:38
+
+Not only did Rome never gladden Africanus or Augustus with so splendid a chariot, but even the Sun's own car would be poor beside it —
+
+Scipio Africanus, named in the comparison of triumphal chariots.
+
+## modern-en · meleager · 59:7
+
+"If you would call to mind how Meleager wasted away with the wasting of a firebrand, this would not seem so hard to you," he said.
+
+The man whose life wasted with a burning firebrand, used to explain how souls can waste.
+
+## modern-en · lachesis · 59:26
+
+When Lachesis has no more thread to spin, the soul separates from the flesh and carries with it, in potential, both the human and the divine.
+
+The Fate who measures the thread of life.
+
+## modern-en · clotho · 55:8
+
+But because she who spins both day and night had not yet drawn off for him the flax that Clotho loads and packs upon the distaff,
+
+The Fate who loads the flax upon the distaff.
+
+## modern-en · pasiphae · 60:13
+
+The newcomers shout: "Sodom and Gomorrah!" The others: "Pasiphae enters the cow, so that the bull may run to satisfy her lust!"
+
+The example of unnatural lust called out on the terrace of the fire.
+
+## modern-en · lycurgus-purg · 60:31
+
+What the two sons of Lycurgus became at the sight of their mother — that is what I became, though I did not rise so high,
+
+The king whose sons saw their mother again, a comparison for Statius meeting Virgil.
+
+## modern-en · erysichthon · 57:8
+
+I do not think even Erysichthon could have been so withered down to the rind by famine, even when his fear of it was greatest.
+
+The man withered by famine, a comparison for the gluttons.
+
+## modern-en · helice · 59:43
+
+When that too was done, they cried: "Diana ran to the forest and drove out Helice, who had tasted the poison of Venus!"
+
+The nymph Diana drove out of the forest for tasting the poison of Venus.
+
+## modern-en · venus · 59:43
+
+When that too was done, they cried: "Diana ran to the forest and drove out Helice, who had tasted the poison of Venus!"
+
+The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.
+
+## modern-en · titus · 55:27
+
+"In the days when the good Titus, with the help of the supreme King, avenged the wounds from which the blood that Judas sold poured forth —
+
+The emperor who avenged the wounds from which the blood Judas sold poured out.
+
+## modern-en · domitian · 56:27
+
+They came to seem so holy to me that when Domitian persecuted them, their laments were not without my tears.
+
+The emperor whose persecution of the Christians drew Statius’s tears.
+
+## modern-en · juvenal · 56:4
+
+So from the hour that Juvenal came down among us in the Limbo of Hell and told me of your affection,
+
+The satirist who came down to Limbo and told Virgil of Statius’s affection.
+
+## modern-en · terence · 56:32
+
+tell me, where is our friend Terence? And Caecilius, Plautus, Varro — if you know? Tell me, are they damned, and in which district?"
+
+A Latin poet Statius asks after.
+
+## modern-en · caecilius · 56:32
+
+tell me, where is our friend Terence? And Caecilius, Plautus, Varro — if you know? Tell me, are they damned, and in which district?"
+
+A Latin poet Statius asks after.
+
+## modern-en · plautus · 56:32
+
+tell me, where is our friend Terence? And Caecilius, Plautus, Varro — if you know? Tell me, are they damned, and in which district?"
+
+A Latin poet Statius asks after.
+
+## modern-en · varro · 56:32
+
+tell me, where is our friend Terence? And Caecilius, Plautus, Varro — if you know? Tell me, are they damned, and in which district?"
+
+A Latin poet Statius asks after.
+
+## modern-en · persius · 56:33
+
+"These, and Persius, and I, and many others," my Guide replied, "are with that Greek whom the Muses suckled more than any other,
+
+A Latin poet named among those in Limbo.
+
+## modern-en · euripides · 56:35
+
+Euripides is with us, and Antiphon, Simonides, Agathon, and many other Greeks who once crowned their brows with laurel.
+
+A Greek poet in Limbo.
+
+## modern-en · antiphon · 56:35
+
+Euripides is with us, and Antiphon, Simonides, Agathon, and many other Greeks who once crowned their brows with laurel.
+
+A Greek poet in Limbo.
+
+## modern-en · simonides · 56:35
+
+Euripides is with us, and Antiphon, Simonides, Agathon, and many other Greeks who once crowned their brows with laurel.
+
+A Greek poet in Limbo.
+
+## modern-en · agathon · 56:35
+
+Euripides is with us, and Antiphon, Simonides, Agathon, and many other Greeks who once crowned their brows with laurel.
+
+A Greek poet in Limbo.
+
+## modern-en · antigone · 56:36
+
+There, of your own characters, one may see Antigone, Deiphyle and Argia, and Ismene, still sorrowful as of old.
+
+One of Statius’s own characters, seen in Limbo.
+
+## modern-en · deiphyle · 56:36
+
+There, of your own characters, one may see Antigone, Deiphyle and Argia, and Ismene, still sorrowful as of old.
+
+One of Statius’s own characters, seen in Limbo.
+
+## modern-en · argia · 56:36
+
+There, of your own characters, one may see Antigone, Deiphyle and Argia, and Ismene, still sorrowful as of old.
+
+One of Statius’s own characters, seen in Limbo.
+
+## modern-en · ismene · 56:36
+
+There, of your own characters, one may see Antigone, Deiphyle and Argia, and Ismene, still sorrowful as of old.
+
+One of Statius’s own characters, still sorrowful in Limbo.
+
+## modern-en · jocasta · 56:18
+
+"Now, when you sang of the cruel warfare of Jocasta's twofold grief," said the singer of the Bucolics,
+
+The mother whose twofold grief Statius sang.
+
+## modern-en · clio · 56:19
+
+"from what Clio accompanies you with in that poem, it does not appear that the faith without which no good works suffice had yet made you a believer.
+
+The Muse who accompanied Statius in the Thebaid.
+
+## modern-en · gideon · 58:41
+
+And remember the Jews who showed themselves soft in drinking, so that Gideon refused them as companions when he went down the hills toward Midian."
+
+The judge who refused the soft drinkers as companions.
+
+## modern-en · daniel · 56:48
+
+And the ancient Roman women were content with water as their drink. And Daniel rejected food and won understanding.
+
+The prophet who rejected food and won understanding.
+
+## modern-en · joshua · 54:36
+
+Then everyone recalls the foolish Achan, who stole from the spoils so that the wrath of Joshua still seems to sting him here.
+
+The leader whose wrath still stings Achan.
+
+## modern-en · barbarossa · 52:39
+
+I was the Abbot of San Zeno in Verona, under the reign of good Barbarossa, about whom Milan still speaks with sorrow.
+
+The emperor under whose reign the Abbot of San Zeno lived.
+
+## modern-en · abbot-san-zeno · 52:39
+
+I was the Abbot of San Zeno in Verona, under the reign of good Barbarossa, about whom Milan still speaks with sorrow.
+
+The soul on the terrace of sloth who names himself by his office in Verona.
+
+## modern-en · themis · 67:15
+
+And perhaps my dark prophecy, like Themis and the Sphinx, persuades you less because, in their manner, it clouds the mind.
+
+The oracular goddess whose dark sayings clouded men’s minds.
+
+## modern-en · sphinx · 67:15
+
+And perhaps my dark prophecy, like Themis and the Sphinx, persuades you less because, in their manner, it clouds the mind.
+
+The riddler named with Themis for dark prophecy.
+
+## modern-en · aeolus-purg · 62:6
+
+such as gathers from branch to branch through the pine forest on the shore of Chiassi when Aeolus unleashes the south wind.
+
+The keeper of the winds, who unleashes the south wind on the pine forest of Chiassi.
+
+## modern-en · ganymede-purg · 43:7
+
+And this seemed to be the very place where Ganymede was snatched from his kin, when he was carried up to the high assembly of the gods.
+
+The boy snatched up to the high assembly of the gods, recalled in Dante’s dream of the eagle.
+
+## modern-en · tithonus · 43:0
+
+The old concubine of Tithonus was already gleaming white on the eastern balcony, risen from the arms of her sweet lover.
+
+The old consort of the dawn.
+
+## modern-en · samaritan-woman · 55:0
+
+The natural thirst that is never quenched except by the water for whose grace the Samaritan woman begged
+
+The woman who begged for the water of grace, recalled for the thirst that is never quenched.
+
+## modern-en · luke · 55:2
+
+And then — just as Luke writes that Christ appeared to two travelers on the road, already risen from the tomb —
+
+The evangelist who writes how Christ appeared to two travellers on the road.
+
+## modern-en · psalmist · 44:21
+
+There before the blessed vessel danced the humble Psalmist, his robes girded up — and in that moment he was both more and less than a king.
+
+David, dancing before the Ark with his robes girded up.
+
+## modern-en · justinian-purg · 40:29
+
+What good does it do that Justinian repaired the bridle, if the saddle is empty? Without it, the shame would be less.
+
+The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.
+
+## modern-en · clement-iv · 37:41
+
+If only the pastor of Cosenza, who was sent to hunt me down by Clement, had read this page of God's book with understanding,
+
+Pope Clement the Fourth, who sent the pastor of Cosenza to hunt down Manfred’s bones.
+
+## modern-en · marcellus-purg · 40:41
+
+For the cities of Italy are full of tyrants, and every peasant who plays the partisan becomes a Marcellus.
+
+The Roman whose name stands for the partisan who makes himself a tyrant.
+
+## modern-en · octavian · 41:1
+
+"Before the souls worthy of ascending to God were ever directed to this mountain, my bones were buried by Octavian.
+
+The emperor who had Virgil’s bones buried at Naples.

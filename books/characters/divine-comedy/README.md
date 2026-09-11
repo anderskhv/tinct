@@ -1,11 +1,12 @@
 # The Divine Comedy character package — IN PROGRESS
 
-**Inferno (chapters 1–34) is authored. Purgatorio (35–67) and Paradiso (68–100)
-are not yet done.** Status stays `in-progress` until all three canticles are
+**Inferno (1–34) and Purgatorio (35–67) are authored. Paradiso (68–100) is not
+yet done.** Status stays `in-progress` until all three canticles are
 covered. Do not integrate this package yet.
 
-Current state: 276 entities authored, 268 bound in the original and 274 in the
-modern, 733 and 782 exact mentions. Content revision 2026-09-11.1.
+Current state: 433 entities authored, 414 bound in the original and 431 in the
+modern, 926 and 990 exact mentions. **No entity is missing from both editions**;
+every remaining gap is one edition paraphrasing a name the other prints. Content revision 2026-09-11.1.
 
 ## Why this book matters most for cards
 
@@ -31,7 +32,7 @@ are aliases of one entity. He also writes **Guidoguerra** as one word,
 by name in the earthly paradise (64:18). A test pins that to one location in
 both editions; it is the kind of fact a reader should be able to check.
 
-## Editorial checks — Inferno
+## Editorial checks — Inferno and Purgatorio
 
 **1. Namesakes.** **Five different men are called Guido in the Inferno alone**:
 Cavalcanti's son (10:20), Guido Guerra (16:12), Guido Bonatti (20:39), Guido del
@@ -74,16 +75,23 @@ that check caught the same failure, and it is why the check exists.
 **5. Spot-read.** Pending — will be run across all three canticles before the
 package is set to `validated-package`.
 
-**6. Both editions independently.** Ten entities diverge, all of them real
-paraphrase rather than missed bindings. Longfellow drops the names Sychaeus,
-Azzolino, Eurypylus, Elisha, Roland, Phaethon and Deianira, and words the
-Caiaphas passage without the Pharisees; the prose drops Mahomet and Camicion.
-Recorded as `omittedEntities` and asserted by a test.
+**6. Both editions independently.** Twenty-one entities diverge and **none is
+missing from both**, which is the check that matters: a name absent from one
+edition is paraphrase, a name absent from both is a binding I failed to make.
+Longfellow drops nineteen names the prose prints — among them Sychaeus,
+Azzolino, Eurypylus, Elisha, Roland, Phaethon, Deianira, Rudolf, Wenceslaus,
+Terence and Agathon — and the prose drops Mahomet and Camicion. Recorded as
+`omittedEntities` and asserted by a test.
+
+Purgatorio adds its own namesake work: **Pope Boniface the Eighth in Inferno 19
+against Boniface of Ravenna in Purgatorio 58**; Saint Nicholas against Pope
+Nicholas; Clement the Fourth against Clement the Fifth; three men called Ugolin
+— the count in the tower, Ugolin d'Azzo and Ugolin de' Fantoli; Pallas the
+goddess in the carved rout of the giants; and Peter of Aragon, whom Longfellow
+calls **Pier** where the prose says Peter.
 
 ## Remaining work
 
-- Purgatorio (chapters 35–67): Cato, Casella, Manfred, Sordello, Forese, Statius,
-  Marco Lombardo, Guinizelli, Arnaut Daniel, Matelda, and the terraces.
 - Paradiso (chapters 68–100): Piccarda, Justinian, Cunizza, Folco, Thomas
   Aquinas, Bonaventure, Cacciaguida, Peter Damian, Benedict, Saint Peter,
   Saint James, Saint John, Adam, and Bernard.

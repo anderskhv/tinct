@@ -526,17 +526,9 @@ The harlot of Terence’s comedy, named as the last of the flatterers.
 
 The man who tried to buy the power of the Holy Spirit, and gave his name to the sin punished in the third ditch.
 
-## Nicholas · supporting
-
-Pope Nicholas the Third, planted head downward in the rock, who mistakes Dante for the pope who will succeed him.
-
 ## Boniface · supporting
 
 Pope Boniface the Eighth, whom Nicholas mistakes Dante for and expects to take his place head-down in the rock.
-
-## Clement · reference
-
-The pope from the west who will come after Boniface, a lawless shepherd.
 
 ## Constantine · reference
 
@@ -1105,3 +1097,639 @@ The people of Padua.
 ## The French · reference
 
 Named beside the Sienese for vanity.
+
+## Cato · major
+
+Cato of Utica, the stern old guardian of the shore of Purgatory, who killed himself for liberty and is saved for it.
+
+## Casella · supporting
+
+The musician and friend who sets one of Dante’s own songs to music on the shore, and holds the souls spellbound until Cato scatters them.
+
+## Manfredi · major
+
+King Manfred of Sicily, the Empress Constance’s grandson, killed at Benevento and excommunicated, who sends word to his daughter that no curse can shut out eternal love.
+
+## Constance · reference
+
+The Empress Constance, Manfred’s grandmother.
+
+## Buonconte · major
+
+Buonconte da Montefeltro, killed at Campaldino, whose body the river carried away and whose soul one angel won and one devil lost.
+
+## Giovanna · reference
+
+Buonconte’s widow, who no longer prays for him.
+
+## La Pia · supporting
+
+The Sienese woman, made by Siena and unmade by the Maremma, who asks only to be remembered.
+
+## Ghin di Tacco · reference
+
+The brigand at whose hands an Aretine met his death.
+
+## Federigo Novello · reference
+
+A soul praying with outstretched hands among the late-repentant.
+
+## Marzucco · reference
+
+The good man whose fortitude a Pisan’s death showed.
+
+## Orso · reference
+
+Count Orso, among the souls who died by violence.
+
+## Pierre de la Brosse · supporting
+
+The soul torn from its body by spite and envy, who warns the Lady of Brabant.
+
+## The Lady of Brabant · reference
+
+The woman Pierre de la Brosse warns to take heed while she is still in the world.
+
+## Sordello · major
+
+The poet of Mantua who springs up at the sound of Virgil’s birthplace and embraces him, then shows the travellers the valley of the princes.
+
+## German Albert · 
+
+The emperor reproached for abandoning Italy.
+
+## Rudolf · supporting
+
+The Emperor Rudolf, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not.
+
+## Ottocar · supporting
+
+The king who governed the land of the Moldau, better in swaddling clothes than his son was bearded.
+
+## Wenceslaus · reference
+
+Ottocar’s son, who feeds on luxury and ease.
+
+## The large-nosed one · supporting
+
+The king of Navarre seated in the valley, father-in-law of the Plague of France.
+
+## Peter · 
+
+Peter of Aragon, singing in the valley of the princes beside the large-nosed king.
+
+## Margaret · reference
+
+A queen named in the comparison of wives who boast of their husbands.
+
+## Constance · 
+
+Peter of Aragon’s widow, who still boasts of her husband.
+
+## Henry · 
+
+Henry of England, the monarch of the simple life, seated alone with a better harvest in his descendants.
+
+## William · supporting
+
+The Marquis William of Monferrato, seated lowest and looking upward, whose war made Alessandria weep.
+
+## Frederick · 
+
+Frederick of Sicily, who holds a kingdom but not the better heritage.
+
+## James · 
+
+James of Aragon, who holds a kingdom but not the better heritage.
+
+## Nino · supporting
+
+Judge Nino Visconti of Gallura, delighted to be found among the saved, who speaks bitterly of his widow’s remarriage.
+
+## Currado · supporting
+
+Currado Malaspina the younger, who foretells that Dante will learn the worth of his house within seven years.
+
+## Omberto · supporting
+
+Omberto Aldobrandeschi, crushed under his stone on the terrace of pride, whose family arrogance killed him.
+
+## Guglielmo Aldobrandeschi · reference
+
+Omberto’s father, head of a great Tuscan family.
+
+## Oderisi · major
+
+Oderisi of Gubbio, the illuminator, who tells Dante that fame is only a breath of wind.
+
+## Franco Bolognese · reference
+
+The illuminator whose brush now outshines Oderisi’s.
+
+## Cimabue · reference
+
+The painter who thought he held the field until Giotto took the acclaim.
+
+## Giotto · reference
+
+The painter whose acclaim has dimmed Cimabue’s.
+
+## Provenzan Salvani · supporting
+
+The Sienese who presumed to seize all Siena, and who begged in the Campo to ransom a friend.
+
+## Sapia · supporting
+
+The Sienese woman who rejoiced at her own city’s defeat, now sewn-eyed on the terrace of envy.
+
+## Pier Pettignano · reference
+
+The holy man whose prayers shortened Sapia’s waiting.
+
+## Guido del Duca · major
+
+The Romagnole who names the lost worthies of his country and weeps that no one now inherits their worth.
+
+## Renier · supporting
+
+Rinier da Calboli, the pride and honour of his house, seated beside Guido del Duca.
+
+## Lizio · reference
+
+A lost worthy of Romagna.
+
+## Arrigo Manardi · reference
+
+A lost worthy of Romagna.
+
+## Pier Traversaro · reference
+
+A lost worthy of Romagna.
+
+## Guido di Carpigna · reference
+
+A lost worthy of Romagna.
+
+## Fabbro · reference
+
+A man of Bologna named among the lost worthies.
+
+## Bernardin di Fosco · reference
+
+A noble shoot from a humble root, of Faenza.
+
+## Guido da Prata · reference
+
+A man of Romagna whose memory makes Guido del Duca weep.
+
+## Ugolin d’Azzo · 
+
+A man who lived among the Romagnoles, remembered with Guido da Prata.
+
+## Federigo Tignoso · reference
+
+A man of Romagna named among the lost, with his circle.
+
+## Ugolin de’ Fantoli · 
+
+A Romagnole whose name is safe, since no one is expected who could darken it.
+
+## Aglaurus · reference
+
+The envious sister turned to stone, whose voice cracks the air on the terrace of envy.
+
+## Marco · 
+
+Marco the Lombard, who explains in the smoke of anger that the fault is not in the stars but in free will and bad government.
+
+## Currado da Palazzo · reference
+
+One of the three old men in whom the good of the former age survives.
+
+## Gherardo · reference
+
+Gherardo da Camino, the good Lombard, one of the three old men of the former age.
+
+## Guido da Castel · 
+
+One of the three old men in whom the good of the former age survives, called the honest Lombard in the French way.
+
+## Gaia · reference
+
+Gherardo’s daughter, by whom Marco says he can be identified.
+
+## The Siren · supporting
+
+The stammering, squint-eyed woman of Dante’s dream who becomes lovely as he looks, and is stripped by a holy lady.
+
+## The successor of Peter · supporting
+
+Pope Adrian the Fifth, face down on the terrace of avarice, who will not let Dante kneel to him.
+
+## Alagia · reference
+
+Adrian’s granddaughter, good in herself unless her house corrupts her.
+
+## Hugh Capet · major
+
+The son of a Parisian butcher and root of the French royal line, who denounces his own descendants.
+
+## Charles · 
+
+Charles of Anjou, who came to Italy, made a victim of Conradin and, for amends, thrust Thomas back to heaven.
+
+## Conradin · reference
+
+The young Hohenstaufen whom Charles of Anjou executed.
+
+## Thomas · 
+
+Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.
+
+## Fabricius · reference
+
+The Roman who chose virtue with poverty over wealth with vice.
+
+## Nicholas · 
+
+Saint Nicholas, whose generosity to the three maidens guided their youth toward honour.
+
+## Pygmalion · 
+
+Dido’s brother, whose hunger for gold made him traitor, thief and parricide.
+
+## Midas · reference
+
+The king whose outrageous demand can only be laughed at.
+
+## Achan · reference
+
+The man who stole from the spoils and brought Joshua’s wrath on himself.
+
+## Sapphira · reference
+
+Named with her husband among the examples of avarice punished.
+
+## Heliodorus · reference
+
+The man whose kicking by heavenly hooves is praised.
+
+## Polymnestor · reference
+
+The king who murdered Polydorus for his gold.
+
+## Crassus · reference
+
+The Roman asked what gold tastes like.
+
+## Forese · major
+
+Forese Donati, Dante’s old friend, wasted with hunger on the terrace of gluttony, who praises his widow and foretells his brother’s end.
+
+## Nella · supporting
+
+Forese’s widow, whose prayers brought him so quickly up the mountain.
+
+## Buonagiunta · supporting
+
+Buonagiunta of Lucca, who names the knot that held the old poets back from the sweet new style.
+
+## The one from Tours · supporting
+
+Pope Martin the Fourth, purging with fasting the eels of Bolsena and the Vernaccia.
+
+## Ubaldin dalla Pila · reference
+
+A glutton biting the empty air.
+
+## Boniface · 
+
+Boniface, Archbishop of Ravenna, who pastured many people with his staff.
+
+## Messer Marchese · reference
+
+A man of Forlì who was never satisfied with drinking.
+
+## The Notary · reference
+
+Giacomo da Lentini, named with Guittone as falling short of the sweet new style.
+
+## Guittone · reference
+
+The poet named with the Notary as short of the sweet new style.
+
+## Piccarda · major
+
+Forese’s sister, already triumphing in her crown in Heaven; Dante meets her again in the moon.
+
+## Guido Guinizelli · major
+
+The father of the sweet new style, who points out a better craftsman than himself and vanishes into the fire. Longfellow spells him Guinicelli.
+
+## Arnaut · major
+
+Arnaut Daniel, the better craftsman of the mother tongue, who speaks his eight lines in Provençal and dives back into the refining fire.
+
+## The one from Limoges · reference
+
+Giraut de Bornelh, whom fools rate above Arnaut Daniel.
+
+## Matilda · major
+
+The lady gathering flowers alone in the earthly paradise, who explains the wood and the two rivers and carries Dante through Lethe.
+
+## Leah · supporting
+
+The woman of Dante’s dream in the earthly paradise, gathering flowers to make a garland; a figure of the active life.
+
+## The Griffin · major
+
+The double-natured creature, eagle and lion, that draws the chariot of the Church in the procession.
+
+## Calliope · reference
+
+The Muse invoked to rise higher at the opening of the Purgatorio.
+
+## Michal · reference
+
+David’s wife, who looked down in scorn as he danced before the Ark.
+
+## Trajan · supporting
+
+The Roman emperor whose generosity to a widow moved Gregory to his great victory.
+
+## Gregory · reference
+
+The pope whose prayers are said to have won Trajan’s soul.
+
+## Saul · reference
+
+The king shown fallen on his own sword on Gilboa.
+
+## Sennacherib · reference
+
+The king killed in the temple by his own sons.
+
+## Tomyris · reference
+
+The queen who gave Cyrus his fill of blood.
+
+## Cyrus · reference
+
+The king whose thirst for blood Tomyris satisfied.
+
+## Holofernes · reference
+
+The general whose death routed the Assyrians.
+
+## Alcmaeon · reference
+
+The son who made his mother pay dearly for the cursed ornament.
+
+## Niobe · reference
+
+An example of pride punished, carved in the pavement.
+
+## Thymbraeus · reference
+
+Apollo under that name, armed beside Pallas and Mars around their father in the carved rout of the giants.
+
+## Pallas · 
+
+Minerva, armed beside Thymbraeus and Mars in the carved rout of the giants.
+
+## Metellus · reference
+
+The Roman torn from the Tarpeian Rock when Caesar took the treasury.
+
+## Polycletus · reference
+
+The sculptor whose art the carvings on the terrace of pride would shame.
+
+## Ahasuerus · reference
+
+The king in the carved example of anger, with Esther and Mordecai.
+
+## Esther · reference
+
+Ahasuerus’s wife in the carved example.
+
+## Mordecai · reference
+
+The upright man of the carved example.
+
+## Orestes · 
+
+The friend who cried his own name to take his friend’s death, heard as a voice on the terrace of envy.
+
+## Pyramus · reference
+
+The lover who opened his eyes at Thisbe’s name as the mulberry turned crimson.
+
+## Thisbe · reference
+
+Pyramus’s beloved.
+
+## Xerxes · reference
+
+The king whose crossing of the Hellespont is still a rebuke to human arrogance.
+
+## Leander · reference
+
+The swimmer who hated the water between Sestos and Abydos.
+
+## Proserpina · reference
+
+The girl who lost the spring when her mother lost her; Matilda in the flowers recalls her.
+
+## Urania · reference
+
+The Muse called on to help put the procession into verse.
+
+## Argus · reference
+
+The hundred-eyed watchman, whose eyes the wings of the living creatures recall, and who was lulled by the tale of Syrinx.
+
+## Syrinx · reference
+
+The nymph whose tale put Argus to sleep.
+
+## Ezekiel · reference
+
+The prophet who described the living creatures as he saw them.
+
+## Africanus · reference
+
+Scipio Africanus, named in the comparison of triumphal chariots.
+
+## Meleager · reference
+
+The man whose life wasted with a burning firebrand, used to explain how souls can waste.
+
+## Lachesis · reference
+
+The Fate who measures the thread of life.
+
+## Clotho · reference
+
+The Fate who loads the flax upon the distaff.
+
+## Pasiphae · reference
+
+The example of unnatural lust called out on the terrace of the fire.
+
+## Lycurgus · reference
+
+The king whose sons saw their mother again, a comparison for Statius meeting Virgil.
+
+## Erysichthon · reference
+
+The man withered by famine, a comparison for the gluttons.
+
+## Helice · reference
+
+The nymph Diana drove out of the forest for tasting the poison of Venus.
+
+## Venus · reference
+
+The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.
+
+## Titus · reference
+
+The emperor who avenged the wounds from which the blood Judas sold poured out.
+
+## Domitian · reference
+
+The emperor whose persecution of the Christians drew Statius’s tears.
+
+## Juvenal · reference
+
+The satirist who came down to Limbo and told Virgil of Statius’s affection.
+
+## Terence · reference
+
+A Latin poet Statius asks after.
+
+## Caecilius · reference
+
+A Latin poet Statius asks after.
+
+## Plautus · reference
+
+A Latin poet Statius asks after.
+
+## Varro · reference
+
+A Latin poet Statius asks after.
+
+## Persius · reference
+
+A Latin poet named among those in Limbo.
+
+## Euripides · reference
+
+A Greek poet in Limbo.
+
+## Antiphon · reference
+
+A Greek poet in Limbo.
+
+## Simonides · reference
+
+A Greek poet in Limbo.
+
+## Agathon · reference
+
+A Greek poet in Limbo.
+
+## Antigone · reference
+
+One of Statius’s own characters, seen in Limbo.
+
+## Deiphyle · reference
+
+One of Statius’s own characters, seen in Limbo.
+
+## Argia · reference
+
+One of Statius’s own characters, seen in Limbo.
+
+## Ismene · reference
+
+One of Statius’s own characters, still sorrowful in Limbo.
+
+## Jocasta · reference
+
+The mother whose twofold grief Statius sang.
+
+## Clio · reference
+
+The Muse who accompanied Statius in the Thebaid.
+
+## Gideon · reference
+
+The judge who refused the soft drinkers as companions.
+
+## Daniel · reference
+
+The prophet who rejected food and won understanding.
+
+## Joshua · reference
+
+The leader whose wrath still stings Achan.
+
+## Barbarossa · reference
+
+The emperor under whose reign the Abbot of San Zeno lived.
+
+## The Abbot of San Zeno · supporting
+
+The soul on the terrace of sloth who names himself by his office in Verona.
+
+## Themis · reference
+
+The oracular goddess whose dark sayings clouded men’s minds.
+
+## The Sphinx · reference
+
+The riddler named with Themis for dark prophecy.
+
+## Aeolus · reference
+
+The keeper of the winds, who unleashes the south wind on the pine forest of Chiassi.
+
+## Ganymede · reference
+
+The boy snatched up to the high assembly of the gods, recalled in Dante’s dream of the eagle.
+
+## Tithonus · reference
+
+The old consort of the dawn.
+
+## The Samaritan woman · reference
+
+The woman who begged for the water of grace, recalled for the thirst that is never quenched.
+
+## Luke · reference
+
+The evangelist who writes how Christ appeared to two travellers on the road.
+
+## The humble Psalmist · supporting
+
+David, dancing before the Ark with his robes girded up.
+
+## Justinian · supporting
+
+The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.
+
+## Clement · 
+
+Pope Clement the Fourth, who sent the pastor of Cosenza to hunt down Manfred’s bones.
+
+## Marcellus · reference
+
+The Roman whose name stands for the partisan who makes himself a tyrant.
+
+## Octavian · reference
+
+The emperor who had Virgil’s bones buried at Naples.

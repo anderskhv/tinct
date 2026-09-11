@@ -19,7 +19,9 @@ BASE=Path(__file__).resolve().parent/'divine-comedy'
 # name -> ({(chapter, paragraph): id or [ids by occurrence index]}, default or None)
 SPLIT={
  'Guido':   ({(10,20):'guido-cavalcanti',(16,12):'guido-guerra',(20,39):'guido-bonatti',
-              (28,25):'guido-cassero',(30,25):'guido-romena'},None),
+              (28,25):'guido-cassero',(30,25):'guido-romena',
+              (50,41):'guido-da-castel',(48,32):'guido-carpigna',
+              (48,34):'guido-da-prata',(48,26):'guido-del-duca'},None),
  'Brutus':  ({(4,42):'brutus-elder',(34,21):'brutus-caesar'},None),
  'Alexander':({(12,35):'alexander-tyrant',(14,10):'alexander-great'},None),
  'Rinier':  ({(12,45):['rinier-corneto','rinier-pazzo']},None),
@@ -28,11 +30,32 @@ SPLIT={
  'Jacopo':  ({(6,26):'jacopo-rusticucci',(13,44):'jacopo-sant-andrea',
               (16,14):'jacopo-rusticucci'},None),
  'Alberto': ({(29,36):'alberto-siena'},None),
- 'Alessandro':({(30,25):'alessandro-romena'},None),
+ 'Alessandro':({},'alessandro-romena'),
  'Albert':  ({(32,18):'albert-alberti',(29,36):'alberto-siena'},None),
- 'Pier':    ({(28,24):'pier-da-medicina'},None),
+ 'Pier':    ({(28,24):'pier-da-medicina',(41,41):'peter-of-aragon'},None),
  'Simon':   ({(19,0):'simon-magus'},None),
- 'Boniface':({(19,17):'boniface'},None),
+ 'Boniface':({(19,17):'boniface',(58,9):'boniface-ravenna'},None),
+ # Purgatorio namesakes.
+ 'Thomas':  ({(54,22):'thomas-aquinas-purg'},None),
+ 'Nicholas':({},'nicholas-saint'),
+ 'Pygmalion':({(54,34):'pygmalion-tyre'},'pygmalion'),
+ 'Orestes': ({(47,10):'orestes-purg'},None),
+ 'Marco':   ({(50,15):'marco-lombardo',(50,43):'marco-lombardo'},None),
+ 'Charles': ({(54,22):'charles-of-anjou'},None),
+ 'Clement': ({},'clement-iv'),
+ 'Henry':   ({(41,43):'henry-of-england'},None),
+ 'Peter':   ({(41,41):'peter-of-aragon'},'peter'),
+ 'Frederick':({(41,39):'frederick-sicily'},'frederick-ii'),
+ 'James':   ({(41,39):'james-aragon'},None),
+ 'Constance':({(41,42):'constance-aragon'},'constance-empress'),
+ 'Costanza': ({},'constance-empress'),
+ 'Albert':  ({(32,18):'albert-alberti',(29,36):'alberto-siena',(40,32):'albert-of-germany'},None),
+ 'Ugolin':  ({(48,34):'ugolin-dazzo',(48,40):'ugolin-fantoli'},None),
+ 'Pallas':  ({(46,10):'pallas-goddess'},None),
+ 'Lycurgus':({},'lycurgus-purg'),
+ 'Argus':   ({},'argus-purg'),
+ 'Justinian':({},'justinian-purg'),
+ 'Marcellus':({},'marcellus-purg'),
 
  # Adam is the first father everywhere except the canto of the counterfeiters.
  'Adam':    ({(30,20):'master-adam',(30,33):'master-adam',(30,34):'master-adam'},'adam'),
@@ -63,6 +86,11 @@ def bind(edition,ch,pi,text,entities):
   (r'who both keys had in keeping|held both keys to Frederick','pier-della-vigna'),
   (r'Master (?:I beheld )?of those who know','aristotle'),
   (r'that city was which to the Baptist|the city that changed its patron saint','florentine-suicide'),
+  (r'successor Petri','adrian'),
+  (r'large-nosed','henry-of-navarre'),
+  (r'[Ff]rom Tours','martin-iv'),
+  (r'Lemosin|one from Limoges','giraut'),
+  (r'San Zeno.s Abbot|Abbot of San Zeno','abbot-san-zeno'),
  ]:
   for m in re.finditer(pat,text):out.append((m.start(),m.end(),who,'reviewed-context'))
  # Figures the poem identifies only by circumstance.
