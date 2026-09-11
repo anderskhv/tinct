@@ -50,6 +50,17 @@ session. Kept current at every push.
   packets pushed, built by the new generic `scripts/build_book_package.py`
   from `scripts/candidates/book1.py`. **Stopped for independent review**
   (step 4). Findings expected under `book1/review/`.
+- 2026-09-11 — **Book I accepted** (steps 4–8). Round-1 independent review
+  (`book1/review/findings-v1.md`): Accept after corrections, 0 substantive +
+  19 minor (11 worth improving, 8 optional preference). All applied in
+  `book1/candidate-v2.json` (sha256 `07c7f4b6…`) via
+  `scripts/build_book1_v2.py`; every change listed in
+  `book1/changes-v1-to-v2.md`; three "also noted" points declined with reasons;
+  changed passages verified by word diff; dagger clauses I.9 and I.14 restored
+  verbatim; flow read done with one further within-Long fix (I.12); acceptance
+  recorded in `book1/ACCEPTANCE.md`. `continuity.md`, `provenance.json`,
+  `manifest.json` and `README.md` updated. The three pending glossary rows
+  (discontented, in a way, spirits) added to `GLOSSARY.md`.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -75,17 +86,15 @@ session. Kept current at every push.
 | D6 | PG #15877 preferred over the Standard Ebooks text as the base file. | PG keeps Long's square brackets (SE removes them); the two otherwise differ only in spelling convention and punctuation. SE used as a cross-check. |
 | D8 | Apply every review finding in Book II, including the discretionary ones, and record the two glossary/continuity reversals (II.1 "share of the divine", II.16 "ourselves"). | Each proposed wording stayed inside Long and the glossary; declining any would have needed a reason better than the reviewer's, and none existed. Sets the pattern for later books: minor findings are applied unless `continuity.md` already records a considered reason not to. |
 | D7 | Chapter titles `Book 1`…`Book 12`, matching the served file's title style. | Keeps the app's existing chapter labelling; a change of style is not this task's call. |
+| D10 | In Book I, Long's "undeviating" is kept in all three places (I.8, I.14, I.16), not only in the dagger-marked I.14. | Dagger clauses stand verbatim (Book II rule); rendering the same Long word two ways in one book would be a worse inconsistency than keeping a slightly formal but current word. Pattern for later books: where a dagger clause fixes a word, the unmarked uses of the same word in that book follow it. |
 | D9 | On a session collision, the first pushed version stands; the later session discards its duplicate, records any residual point here, and stops. | One accepted text per book and one frozen candidate per review round; two hashes for the same step would be unreadable to the coordinator and the reviewer. |
 
 ## Next
 
-1. **Waiting on the coordinator:** independent review of Book I
-   (`book1/review-instructions.md`, `book1/review-packets/`). On findings:
-   `book1/candidate-v2.json` via a change script, verification, flow read,
-   `book1/ACCEPTANCE.md`.
-2. Then Books III … XII in numerical order, each with its own review round.
-   Book III is not started until Book I is accepted, per the brief's
-   one-book-at-a-time process.
+1. **Book III** (steps 1–3): draft from the staged Long chapter 3 (16
+   paragraphs), freeze as `book3/candidate-v1.json`, packets, push, stop for
+   independent review.
+2. Then Books IV … XII in numerical order, each with its own review round.
 
 ## Needs Anders (listed, not waited on)
 
@@ -114,8 +123,6 @@ session. Kept current at every push.
   touchpoint (for example "You see how few the things are; and if a man lays
   hold of them, he can live a life…"). Noted by the second content session,
   not changed, per D9.
-- Glossary rows still worth adding by whichever session next touches
-  `GLOSSARY.md`: "in a manner → in a way" and "dissatisfied → discontented"
-  (both decided in Book II v2 but recorded only in `book2/continuity.md`), and
-  plural "daemons → spirits" (Book I, recorded in `book1/continuity.md`).
-  Later books need these in one place.
+- The three glossary rows formerly listed here ("in a manner → in a way",
+  "dissatisfied → discontented", plural "daemons → spirits") were added to
+  `GLOSSARY.md` at Book I acceptance. Done.

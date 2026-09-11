@@ -45,6 +45,9 @@ which of Long's variants belong together; the candidate never uses the Greek.
 | vexed; discontent(ed) | **resentful / resent**; **discontented** | "To be vexed at anything which happens" → "to resent anything that happens". |
 | tranquil; tranquillity | **calm** | |
 | kinsman; akin to me; kinship | **kinsman**; **akin to me**; **kinship** | Kept: the family metaphor is the point. |
+| dissatisfied; dissatisfaction | **discontented**; **discontent** | Long's word is neither "vexed" nor "discontent"; rendered with the "discontent" family for consistency (decided in Book II v2, II.2 and II.13). |
+| in a manner | **in a way** | Long's hedge (II.10, III.2); "in a manner" now reads as "in a fashion". Decided in Book II v2. |
+| daemons (plural, of spirits expelled by charlatans) | **spirits** | I.6. These are not Marcus's *daimōn*; the glossary's "the god within" does not apply. Decided in Book I. |
 | a man; men (generic) | **a man**; **men** | Long's generic "man" is kept. Rewriting it would be a modern imposition, and Marcus's "as a Roman and a man" is his own. "Human being" is used only where Long uses it (V.1). |
 
 ## Voice and form

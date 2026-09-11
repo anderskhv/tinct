@@ -1,7 +1,9 @@
-# Meditations, Book I — package (draft frozen, awaiting independent review)
+# Meditations, Book I — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book I (Book I is accepted, see `../book1/ACCEPTANCE.md`); step 4 (independent
-review) is the coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book I. The accepted text is
+`candidate-v2.json` (sha256 `07c7f4b6…`), see `ACCEPTANCE.md`. Step 4
+(independent review) was the coordinator's reviewer session, not this agent;
+its findings are under `review/`.
 
 ## Files
 
@@ -20,7 +22,14 @@ review) is the coordinator's reviewer session, not this agent.
    paragraphs and one of two (17 = 5×3 + 2), each with one paragraph of
    context before and after marked `CONTEXT ONLY`. No self-review verdicts.
 7. `review-instructions.md` — the independent-review instructions, verbatim.
-8. `manifest.json` — packet → paragraph-ID map with a coverage check.
+8. `manifest.json` — packet → paragraph-ID map with a coverage check, plus the
+   v1 and v2 hashes.
+9. `review/findings-v1.md` — the independent review of v1 (0 substantive, 19
+   minor; Accept after corrections).
+10. `candidate-v2.json`, `candidate-v2-readable.md`, `changes-v1-to-v2.md` —
+    the corrected candidate, built by `../scripts/build_book1_v2.py` from the
+    frozen v1; every change listed with the finding it answers.
+11. `ACCEPTANCE.md` — accepted hash, findings applied / declined, flow read.
 
 ## Mechanical checks
 
@@ -40,14 +49,18 @@ for e in man['packets']:
     t=open('book1/'+e['packet']).read()
     for pid in e['assigned_paragraph_ids']:
         k=int(pid[-3:])-1; assert src['paragraphs'][k] in t and cand['paragraphs'][k] in t
+v2=json.load(open('book1/candidate-v2.json')); assert len(v2['paragraphs'])==17
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(v2['paragraphs']))
+md2=open('book1/candidate-v2-readable.md').read(); assert all(p in md2 for p in v2['paragraphs'])
+for k,s in [(8,'form opinions without consideration'),(13,'consistency and undeviating steadiness'),(14,'humorous in an agreeable way.')]:
+    assert s in src['paragraphs'][k] and s in v2['paragraphs'][k]
 print('OK'); print(hashlib.sha256(open('book1/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book1/candidate-v2.json','rb').read()).hexdigest())
 PY
 ```
 
+Expected: `e1d816d3…` (v1, frozen) and `07c7f4b6…` (v2, accepted).
+
 ## Next action
 
-Coordinator: hand `review-instructions.md` and `review-packets/` to a fresh
-independent-review session. Findings come back under `book1/review/`. This
-agent then applies supported corrections to `candidate-v2.json`, verifies the
-changed passages, reads the whole book for flow, and records acceptance in
-`ACCEPTANCE.md` before starting Book I.
+None for Book I. The thread continues with Book III (`../book3/`).
