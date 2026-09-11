@@ -402,7 +402,7 @@ Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not producti
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
-| The Iliad | (this commit) | 750 / 750 | build_iliad.py |
+| The Iliad | 1b2f3048 | 750 / 750 | build_iliad.py |
 
 | Book | original-en | modern-en |
 |---|---|---|
