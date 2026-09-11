@@ -224,6 +224,36 @@ Key ID and a Secret Access Key. Add them to the same two places as:
 
 All three go in a secrets field, never in a file and never in a chat message.
 
+### Why the deploy runs went red, and what fixed it
+
+Found while confirming the deploy after the reconciliation. Not an audio
+problem, but it made two releases report red against a healthy site.
+
+`wrangler` returns before the new assets are being served, and the smoke test
+reads the bundle hash out of `/reader` and immediately fetches it — getting the
+SPA fallback instead of JavaScript, and failing on "JS bundle returns HTML" and
+"Worker audio route MISSING".
+
+It looked worse than a propagation lag. Run 31 built `index-CWhzS3Kj.js` and
+run 32 built `index-BgUf4leU.js`; **both returned HTTP 404 afterwards**, while
+production served `index-Bg8Wr0Lm.js`, a hash no CI run produced. That pointed
+at a second deployer — Cloudflare Workers Builds also builds this project on
+push, which is why AGENTS.md already tells you to ignore its dashboard
+failures.
+
+A first attempt to wait for *any* served bundle was wrong: it passed instantly
+against the previous deploy's bundle and changed nothing. The working fix came
+from the concurrent `codex/production-reconcile-20260911` session, which waits
+for production to serve the **exact** bundle just built — matching the hash
+from `dist/app.html` and byte-comparing the served file — and switched the step
+to the approved `npm run deploy` instead of raw `npx wrangler deploy`. Deploy
+run 33 passed.
+
+Left open: whether Workers Builds still races on some pushes. Run 33 verified
+that production served CI's exact build, which it could not have done if
+Workers Builds had overwritten it that time. If red runs return with assets
+going 404, deciding which deployer owns production is the real fix.
+
 ### On the smoke test
 
 An earlier draft of this document said `scripts/smoke-test.sh` was stale and
