@@ -502,3 +502,42 @@ the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Opus batch 5: The Aeneid
+
+Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| The Aeneid | (this commit) | 340 / 342 | build_the_aeneid.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Aeneid | 4a763d99af704695d1fbe4fc6c9740c2335dedc7bbf7e2b22aff8af23903aaf0 | 1e9b6dd64911f96374ae6e9322379d4eb30a9d9dfc8e0a994e717c71f3a05c07 |
+
+2,107 exact mentions in the original and 2,134 in the modern, across all 12 books and 544 paragraphs per edition. Commands: `python3 books/characters/build_the_aeneid.py --check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Full content suite passes **482 tests**. Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+The original is Dryden's rhymed couplets and the modern edition is prose. They align paragraph for paragraph, but Dryden paraphrases freely, which is why the mention counts differ by 27 and two entities are absent from the verse. Dryden uses the Roman names throughout, so there is no Greek/Roman split here.
+
+**Pallas is three people and two of them are Major**: the goddess through books 1–7 plus 8:15, 8:24 and 11:27; Evander's son from 8:6 onward and through books 10–12; and Evander's great-grandsire once, at 8:3, where Pallanteum is named. Spot-check book 2 (goddess) against book 10 (the boy).
+
+**The boat race names four galleys after monsters** — Chimaera, Scylla, Centaur and Dolphin. Ships are not cast, so no card appears on them in book 5, while the monsters themselves are still carded in books 3 and 6. Two more of the same kind: "Nisus' top" at 6:29 is Bacchus's mountain, not the Trojan; the Ufens at 7:44 is the river, not the captain.
+
+Also review: three men named Abas, four named Butes, three named Amycus; and Serestus/Seresthus as one man against Sergesthus as another.
+
+### Deliberately unbound, documented
+
+At 9:36 Dryden compresses Virgil's "Liger killed Emathion, Asilas killed Corynaeus" into one line that loses which side either man is on, and the Etruscan Asylas has not yet landed at that point. Neither name is bound there, and a test asserts it.
+
+### Source defects, none blocking enablement
+
+| Defect | Effect |
+|---|---|
+| Dryden spells one captain **Serestus** at 1:31 and **Seresthus** in four later places | One entity, both spellings as aliases |
+| Dryden's **Polydore / Polypheme / Hyarba / Cajeta / Penthisilea** against the modern's Polydorus / Polyphemus / Iarbas / Caieta / Penthesilea | One entity each, both forms as aliases |
+| The modern edition breaks **Creüsa**, **Laocoön** and **Pasiphaë** on their diaereses | Both spellings carried |
+| **Doto** and **Pirithous** are named only in the prose | Recorded as `omittedEntities` for the original — entities absent, not unresolved bindings |
+
+No edition file was changed. Any repair to these bytes invalidates the recorded hashes and requires a restored-text review and a rebuild.

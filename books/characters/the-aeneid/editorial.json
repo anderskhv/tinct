@@ -1,0 +1,4038 @@
+{
+  "contentVersion": "2026-09-11.1",
+  "coverage": "Both full English editions, all twelve books: named people, gods, personified powers, named monsters and named peoples. Places, rivers as geography, mountains, islands and ships are excluded — the boat race in book five names four galleys after monsters, and those occurrences are not cast.",
+  "entities": [
+    {
+      "id": "aeneas",
+      "name": "Aeneas",
+      "body": "Son of Venus and Anchises, leader of the Trojan survivors and the man the poem follows from burning Troy to Italy.",
+      "aliases": [
+        "Aeneas"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "turnus",
+      "name": "Turnus",
+      "body": "King of the Rutulians, betrothed to Lavinia before the Trojans came, and Aeneas’s enemy through the second half of the poem.",
+      "aliases": [
+        "Turnus"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "body": "Queen and founder of Carthage, a widow who fled Tyre after her brother murdered her husband. The poem also calls her Eliza.",
+      "aliases": [
+        "Dido",
+        "Eliza"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ascanius",
+      "name": "Ascanius",
+      "body": "Aeneas’s young son, also called Iulus, from whom Rome’s Julian line is traced.",
+      "aliases": [
+        "Ascanius",
+        "Iulus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anchises",
+      "name": "Anchises",
+      "body": "Aeneas’s father, carried out of Troy on his son’s shoulders.",
+      "aliases": [
+        "Anchises"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "body": "Goddess of love and Aeneas’s mother, who works constantly on his behalf.",
+      "aliases": [
+        "Venus",
+        "Cytherea",
+        "Cyprian"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "body": "Queen of the gods, who hates the Trojans and drives the whole action against them. The poem also calls her Saturnia.",
+      "aliases": [
+        "Juno",
+        "Saturnia"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "body": "King of the gods, who holds to the fate promised the Trojans. The poem also calls him Jupiter and the Thunderer.",
+      "aliases": [
+        "Jove",
+        "Jupiter",
+        "Thunderer"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "latinus",
+      "name": "Latinus",
+      "body": "King of Latium, Lavinia’s father, who would give his daughter to Aeneas.",
+      "aliases": [
+        "Latinus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lavinia",
+      "name": "Lavinia",
+      "body": "Latinus’s only daughter and heiress, promised first to Turnus and then to Aeneas.",
+      "aliases": [
+        "Lavinia"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amata",
+      "name": "Amata",
+      "body": "Latinus’s queen, who wants Turnus for a son-in-law and is driven mad by the Fury.",
+      "aliases": [
+        "Amata"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "evander",
+      "name": "Evander",
+      "body": "The old Arcadian king at Pallanteum on the future site of Rome, who allies with Aeneas.",
+      "aliases": [
+        "Evander"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pallas",
+      "name": "Pallas",
+      "body": "Evander’s young son, sent to war under Aeneas’s protection.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pallas-athena",
+      "name": "Pallas",
+      "body": "Minerva under her Greek by-name; the goddess who helped ruin Troy and whose temple and image recur through the poem.",
+      "aliases": [],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pallas-ancestor",
+      "name": "Pallas",
+      "body": "Evander’s great-grandsire, after whom the town of Pallanteum is named.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mezentius",
+      "name": "Mezentius",
+      "body": "The exiled Etruscan tyrant, a contemner of the gods, who fights for Turnus.",
+      "aliases": [
+        "Mezentius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lausus",
+      "name": "Lausus",
+      "body": "Mezentius’s son, the handsomest of the Italian youth, who dies defending his father.",
+      "aliases": [
+        "Lausus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "camilla",
+      "name": "Camilla",
+      "body": "The Volscian warrior queen, raised to the hunt and the spear, who leads her troops for Turnus.",
+      "aliases": [
+        "Camilla"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achates",
+      "name": "Achates",
+      "body": "Aeneas’s closest companion, called faithful throughout.",
+      "aliases": [
+        "Achates"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sibyl",
+      "name": "The Sibyl",
+      "body": "The prophetess of Cumae, Apollo’s and Diana’s priestess, who guides Aeneas through the underworld. Her name is Deiphobe.",
+      "aliases": [
+        "Sibyl",
+        "Sibylla",
+        "Deiphobe"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "priam",
+      "name": "Priam",
+      "body": "The old king of Troy, killed at his own altar on the night the city fell.",
+      "aliases": [
+        "Priam"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hector",
+      "name": "Hector",
+      "body": "Priam’s son and Troy’s great defender, already dead when the poem opens; his ghost warns Aeneas to flee.",
+      "aliases": [
+        "Hector"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "creusa",
+      "name": "Creusa",
+      "body": "Aeneas’s first wife, lost in the sack of Troy; her ghost sends him on to Italy.",
+      "aliases": [
+        "Creusa",
+        "Creüsa"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anna",
+      "name": "Anna",
+      "body": "Dido’s sister and confidante.",
+      "aliases": [
+        "Anna"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nisus",
+      "name": "Nisus",
+      "body": "A Trojan, son of Hyrtacus, famous for his devotion to Euryalus; the two go out together on the night raid.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euryalus",
+      "name": "Euryalus",
+      "body": "A Trojan boy of great beauty, Nisus’s inseparable friend.",
+      "aliases": [
+        "Euryalus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acestes",
+      "name": "Acestes",
+      "body": "King of the Sicilian Trojans, born of Trojan parentage, who twice receives Aeneas’s fleet.",
+      "aliases": [
+        "Acestes"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mnestheus",
+      "name": "Mnestheus",
+      "body": "A Trojan captain, founder of the Memmian line, who commands in Aeneas’s absence.",
+      "aliases": [
+        "Mnestheus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "serestus",
+      "name": "Serestus",
+      "body": "A Trojan captain who walks the camp with Mnestheus. Dryden spells him Serestus once and Seresthus elsewhere.",
+      "aliases": [
+        "Serestus",
+        "Seresthus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cloanthus",
+      "name": "Cloanthus",
+      "body": "A Trojan captain, founder of the Cluentian line, who wins the boat race.",
+      "aliases": [
+        "Cloanthus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ilioneus",
+      "name": "Ilioneus",
+      "body": "The eldest and gravest of the Trojan captains, who speaks for them to Dido and to Latinus.",
+      "aliases": [
+        "Ilioneus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sergesthus",
+      "name": "Sergesthus",
+      "body": "A Trojan captain, founder of the Sergian line, whose galley is wrecked on the rocks in the boat race.",
+      "aliases": [
+        "Sergesthus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messapus",
+      "name": "Messapus",
+      "body": "A Latin captain, Neptune’s son, whom no steel can wound.",
+      "aliases": [
+        "Messapus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "drances",
+      "name": "Drances",
+      "body": "A Latin elder, a powerful speaker and Turnus’s bitter opponent in council.",
+      "aliases": [
+        "Drances"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "juturna",
+      "name": "Juturna",
+      "body": "Turnus’s sister, a nymph made immortal by Jove, who keeps her brother from his death as long as she can.",
+      "aliases": [
+        "Juturna"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tarchon",
+      "name": "Tarchon",
+      "body": "The Etruscan chief who brings his people to Aeneas.",
+      "aliases": [
+        "Tarchon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helenus",
+      "name": "Helenus",
+      "body": "Priam’s son, a seer, now reigning in Epirus with Andromache; he tells Aeneas his route.",
+      "aliases": [
+        "Helenus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "andromache",
+      "name": "Andromache",
+      "body": "Hector’s widow, taken by Pyrrhus and afterwards married to Helenus.",
+      "aliases": [
+        "Andromache"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "palinurus",
+      "name": "Palinurus",
+      "body": "Aeneas’s helmsman, lost overboard off the Italian coast.",
+      "aliases": [
+        "Palinurus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "misenus",
+      "name": "Misenus",
+      "body": "Aeneas’s trumpeter, once Hector’s, who challenges the sea gods and drowns for it.",
+      "aliases": [
+        "Misenus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sinon",
+      "name": "Sinon",
+      "body": "The Greek who lets himself be captured and talks Troy into taking in the horse.",
+      "aliases": [
+        "Sinon"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laocoon",
+      "name": "Laocoon",
+      "body": "Neptune’s priest at Troy, who warns against the horse and is killed with his sons by serpents. The modern edition spells him Laocoön.",
+      "aliases": [
+        "Laocoon",
+        "Laocoön"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pyrrhus",
+      "name": "Pyrrhus",
+      "body": "Achilles’ son, who kills Priam at the altar; also called Neoptolemus.",
+      "aliases": [
+        "Pyrrhus",
+        "Neoptolemus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ulysses",
+      "name": "Ulysses",
+      "body": "The Greek whose cunning the Trojans blame for their ruin; the poem also calls him Ithacus.",
+      "aliases": [
+        "Ulysses",
+        "Ithacus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "body": "The greatest of the Greeks at Troy, dead before the poem begins; also called Pelides.",
+      "aliases": [
+        "Achilles",
+        "Pelides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diomede",
+      "name": "Diomede",
+      "body": "A Greek captain at Troy, now settled in Italy, who refuses to join the war against Aeneas. The poem spells him Diomede and Diomedes.",
+      "aliases": [
+        "Diomede",
+        "Diomedes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeolus",
+      "name": "Aeolus",
+      "body": "King of the winds, who looses the storm at Juno’s request.",
+      "aliases": [
+        "Aeolus"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "body": "God of the sea, who calms the storm and later demands one life for the fleet’s safe passage.",
+      "aliases": [
+        "Neptune"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "body": "The messenger god, sent to move Aeneas out of Carthage. The poem also calls him Cyllenius and, in the modern edition, Hermes.",
+      "aliases": [
+        "Mercury",
+        "Cyllenius",
+        "Hermes"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iris",
+      "name": "Iris",
+      "body": "Juno’s messenger, who comes down on the rainbow.",
+      "aliases": [
+        "Iris"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alecto",
+      "name": "Alecto",
+      "body": "The Fury Juno raises out of hell to break the peace.",
+      "aliases": [
+        "Alecto"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vulcan",
+      "name": "Vulcan",
+      "body": "The smith of the gods, who forges Aeneas’s shield at Venus’s asking. Called the Lemnian god and Mulciber.",
+      "aliases": [
+        "Vulcan",
+        "Mulciber"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "body": "God of prophecy and archery, whose oracles direct the Trojans; called Phoebus and the Delian god.",
+      "aliases": [
+        "Apollo",
+        "Phoebus"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "body": "Goddess of the hunt and the moon; called Phoebe, Trivia and Cynthia.",
+      "aliases": [
+        "Diana",
+        "Phoebe",
+        "Trivia",
+        "Cynthia"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "body": "God of war.",
+      "aliases": [
+        "Mars"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minerva",
+      "name": "Minerva",
+      "body": "Goddess of war and craft; the poem more often calls her Pallas.",
+      "aliases": [
+        "Minerva"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saturn",
+      "name": "Saturn",
+      "body": "The old god who ruled Latium in the golden age, Jove’s father.",
+      "aliases": [
+        "Saturn"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pluto",
+      "name": "Pluto",
+      "body": "King of the dead, whose palace Aeneas must visit.",
+      "aliases": [
+        "Pluto"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "proserpine",
+      "name": "Proserpine",
+      "body": "Queen of the dead, whose golden bough Aeneas must carry.",
+      "aliases": [
+        "Proserpine"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hecate",
+      "name": "Hecate",
+      "body": "The threefold goddess of the crossroads, invoked in Dido’s rites.",
+      "aliases": [
+        "Hecate"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ceres",
+      "name": "Ceres",
+      "body": "Goddess of the harvest, whose ruined temple is the Trojans’ meeting point.",
+      "aliases": [
+        "Ceres"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bacchus",
+      "name": "Bacchus",
+      "body": "God of wine, invoked at the Carthaginian feast.",
+      "aliases": [
+        "Bacchus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cybele",
+      "name": "Cybele",
+      "body": "The mother of the gods, whose pines become Aeneas’s ships.",
+      "aliases": [
+        "Cybele"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vesta",
+      "name": "Vesta",
+      "body": "Goddess of the hearth, whose relics Aeneas carries out of Troy.",
+      "aliases": [
+        "Vesta"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "latona",
+      "name": "Latona",
+      "body": "Mother of Apollo and Diana.",
+      "aliases": [
+        "Latona"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "body": "The dawn goddess, who leaves her saffron bed each morning.",
+      "aliases": [
+        "Aurora"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boreas",
+      "name": "Boreas",
+      "body": "The north wind.",
+      "aliases": [
+        "Boreas"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurus",
+      "name": "Eurus",
+      "body": "The east wind, who drives three ships onto the shoals.",
+      "aliases": [
+        "Eurus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "triton",
+      "name": "Triton",
+      "body": "A sea god who heaves the stranded ships off the rocks.",
+      "aliases": [
+        "Triton"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nereids",
+      "name": "The Nereids",
+      "body": "The sea nymphs; Aeneas’s ships are turned into them.",
+      "aliases": [
+        "Nereids"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cymothoe",
+      "name": "Cymothoe",
+      "body": "A sea nymph who helps free the grounded ships.",
+      "aliases": [
+        "Cymothoe"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "doto",
+      "name": "Doto",
+      "body": "A sea nymph, named when the ships are promised her shape.",
+      "aliases": [
+        "Doto"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "harpies",
+      "name": "The Harpies",
+      "body": "The foul bird-women of the Strophades, who befoul the Trojans’ meal.",
+      "aliases": [
+        "Harpies"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "celaeno",
+      "name": "Celaeno",
+      "body": "The Harpies’ leader, who prophesies that hunger will make the Trojans eat their tables.",
+      "aliases": [
+        "Celaeno"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charon",
+      "name": "Charon",
+      "body": "The ferryman of the dead.",
+      "aliases": [
+        "Charon"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cerberus",
+      "name": "Cerberus",
+      "body": "The three-headed dog at the gate of the underworld.",
+      "aliases": [
+        "Cerberus"
+      ],
+      "category": "supporting",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "furies",
+      "name": "The Furies",
+      "body": "The avenging sisters of hell; the poem also names them the Dirae.",
+      "aliases": [
+        "Furies",
+        "Dirae"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fame",
+      "name": "Fame",
+      "body": "Rumour personified, the swiftest of evils, who grows as she goes and spreads the news of Dido and Aeneas.",
+      "aliases": [
+        "Fame"
+      ],
+      "category": "supporting",
+      "kind": "personification",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hymen",
+      "name": "Hymen",
+      "body": "The god of marriage, invoked for the union in the cave.",
+      "aliases": [
+        "Hymen"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "faunus",
+      "name": "Faunus",
+      "body": "A god of the Latin woods, Latinus’s father.",
+      "aliases": [
+        "Faunus"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "picus",
+      "name": "Picus",
+      "body": "Faunus’s father, a king turned into a bird, whose image stands in Latinus’s hall.",
+      "aliases": [
+        "Picus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marica",
+      "name": "Marica",
+      "body": "A Laurentian nymph, Latinus’s mother.",
+      "aliases": [
+        "Marica"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "janus",
+      "name": "Janus",
+      "body": "The two-faced god whose gates stand open in war.",
+      "aliases": [
+        "Janus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "quirinus",
+      "name": "Quirinus",
+      "body": "Romulus under his divine name.",
+      "aliases": [
+        "Quirinus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bellona",
+      "name": "Bellona",
+      "body": "The war goddess, who leads the bride to her wedding.",
+      "aliases": [
+        "Bellona"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "feronia",
+      "name": "Feronia",
+      "body": "A goddess whose grove and temple stand by Lake Ciminius.",
+      "aliases": [
+        "Feronia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "carmenta",
+      "name": "Carmenta",
+      "body": "Evander’s mother, a prophetess who foretold the Roman race.",
+      "aliases": [
+        "Carmenta"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tiberinus",
+      "name": "The river god Tiber",
+      "body": "The river of Latium, who rises in a dream to tell Aeneas he has reached his promised land.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "body": "The Titan whose head sustains the sky; Mercury’s grandfather and Dardanus’s ancestor.",
+      "aliases": [
+        "Atlas"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maia",
+      "name": "Maia",
+      "body": "Mercury’s mother, Atlas’s daughter.",
+      "aliases": [
+        "Maia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chaos",
+      "name": "Chaos",
+      "body": "A power of the world below, invoked in Dido’s rites.",
+      "aliases": [
+        "Chaos"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erebus",
+      "name": "Erebus",
+      "body": "The darkness of the world below, invoked as a power.",
+      "aliases": [
+        "Erebus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "somnus",
+      "name": "Sleep",
+      "body": "The god who slides down to Palinurus at the helm.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "personification",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "muses",
+      "name": "The Muses",
+      "body": "The goddesses of song, called on to open the catalogue of Italian chiefs.",
+      "aliases": [
+        "Muses",
+        "Muse"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erato",
+      "name": "Erato",
+      "body": "The Muse invoked at the poem’s second opening.",
+      "aliases": [
+        "Erato"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "parcae",
+      "name": "The Fates",
+      "body": "The sisters who spin and cut the thread of every life.",
+      "aliases": [
+        "Fates"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abas-trojan",
+      "name": "Abas",
+      "body": "A Trojan captain whose ship is disabled in the opening storm.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abas-greek",
+      "name": "Abas",
+      "body": "A Greek whose brazen shield Aeneas hung on the temple door at Actium.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abas-etruscan",
+      "name": "Abas",
+      "body": "An Etruscan captain in Aeneas’s alliance, killed by Mezentius.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orontes",
+      "name": "Orontes",
+      "body": "Captain of the Lycian ship, lost with all hands in the storm.",
+      "aliases": [
+        "Orontes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gyas",
+      "name": "Gyas",
+      "body": "A Trojan captain, who commands the Chimaera in the boat race and loses it by temper.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gyas-italian",
+      "name": "Gyas",
+      "body": "An Italian of monstrous bulk, killed by Aeneas.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lycus-trojan",
+      "name": "Lycus",
+      "body": "A Trojan captain given up for lost after the storm.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lycus-tower",
+      "name": "Lycus",
+      "body": "A young Trojan who escapes the burning tower and is run down by Turnus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amycus-trojan",
+      "name": "Amycus",
+      "body": "A Trojan captain given up for lost after the storm.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amycus-huntsman",
+      "name": "Amycus",
+      "body": "A Trojan huntsman, skilled in poisoned darts, killed by Turnus in the camp.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amycus-horseman",
+      "name": "Amycus",
+      "body": "An Italian whom Turnus throws from his horse, one of two brothers killed together.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alethes",
+      "name": "Alethes",
+      "body": "The oldest of the Trojan counsellors, who blesses Nisus and Euryalus.",
+      "aliases": [
+        "Alethes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "capys",
+      "name": "Capys",
+      "body": "A Trojan captain.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "capys-alban",
+      "name": "Capys",
+      "body": "An Alban king in the parade of Aeneas’s descendants.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antheus",
+      "name": "Antheus",
+      "body": "A Trojan captain.",
+      "aliases": [
+        "Antheus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caicus",
+      "name": "Caicus",
+      "body": "A Trojan captain.",
+      "aliases": [
+        "Caicus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bitias-carthage",
+      "name": "Bitias",
+      "body": "A Tyrian lord at Dido’s feast, the first to take up the challenge of the cup.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bitias-trojan",
+      "name": "Bitias",
+      "body": "A giant Trojan, son of Alcanor and the nymph Hiera, who opens the camp gate and dies for it.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pandarus-trojan",
+      "name": "Pandarus",
+      "body": "A giant Trojan, Bitias’s brother, who shuts Turnus inside the camp and is killed by him.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pandarus-lycian",
+      "name": "Pandarus",
+      "body": "The Lycian archer who broke the truce at Troy, named as Eurytion’s brother.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcanor-father",
+      "name": "Alcanor",
+      "body": "Father of the giant brothers Pandarus and Bitias.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcanor-italian",
+      "name": "Alcanor",
+      "body": "An Italian who reaches out to save his wounded brother and is maimed by Aeneas.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hiera",
+      "name": "Hiera",
+      "body": "The nymph who bore Pandarus and Bitias on Ida.",
+      "aliases": [
+        "Hiera"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helymus",
+      "name": "Helymus",
+      "body": "A Sicilian of Acestes’ following who runs in the foot race.",
+      "aliases": [
+        "Helymus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "panopes",
+      "name": "Panopes",
+      "body": "A Sicilian huntsman of Acestes’ following.",
+      "aliases": [
+        "Panopes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salius",
+      "name": "Salius",
+      "body": "An Acarnanian in Acestes’ following who is tripped in the foot race and claims the prize.",
+      "aliases": [
+        "Salius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "patron",
+      "name": "Patron",
+      "body": "An Arcadian in Acestes’ following who runs in the foot race.",
+      "aliases": [
+        "Patron"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diores",
+      "name": "Diores",
+      "body": "A Trojan of Priam’s royal line, third in the foot race.",
+      "aliases": [
+        "Diores"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "entellus",
+      "name": "Entellus",
+      "body": "The old Sicilian boxer, Eryx’s pupil, who takes up Dares’ challenge.",
+      "aliases": [
+        "Entellus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dares",
+      "name": "Dares",
+      "body": "The Trojan boxer who challenges all comers and is beaten by Entellus.",
+      "aliases": [
+        "Dares"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eryx",
+      "name": "Eryx",
+      "body": "The old boxer and king of Sicily, Entellus’s master, whose gauntlets are produced.",
+      "aliases": [
+        "Eryx"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippocoon",
+      "name": "Hippocoon",
+      "body": "A Trojan whose lot is drawn first in the archery contest.",
+      "aliases": [
+        "Hippocoon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurytion",
+      "name": "Eurytion",
+      "body": "A Trojan archer, brother of the Lycian Pandarus, who brings down the dove.",
+      "aliases": [
+        "Eurytion"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atys",
+      "name": "Atys",
+      "body": "A Trojan boy brought up with Iulus, who leads the second squadron in the riding display.",
+      "aliases": [
+        "Atys"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nautes",
+      "name": "Nautes",
+      "body": "The old Trojan seer who advises leaving the weary behind in Sicily.",
+      "aliases": [
+        "Nautes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beroe",
+      "name": "Beroe",
+      "body": "Doryclus’s aged wife, whose shape Iris takes to fire the Trojan ships.",
+      "aliases": [
+        "Beroe"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "doryclus",
+      "name": "Doryclus",
+      "body": "Beroe’s husband, of Tmarus.",
+      "aliases": [
+        "Doryclus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pyrgo",
+      "name": "Pyrgo",
+      "body": "The old nurse of Priam’s children, who sees through Iris’s disguise.",
+      "aliases": [
+        "Pyrgo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acmon",
+      "name": "Acmon",
+      "body": "A Trojan of Sarpedon’s blood who holds the wall with his brother.",
+      "aliases": [
+        "Acmon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asius",
+      "name": "Asius",
+      "body": "A Trojan of Sarpedon’s blood who holds the wall with his brother.",
+      "aliases": [
+        "Asius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "haemon",
+      "name": "Haemon",
+      "body": "A young Trojan at the defence of the wall.",
+      "aliases": [
+        "Haemon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caeneus-trojan",
+      "name": "Caeneus",
+      "body": "A Trojan who kills Ortygius at the wall and is killed by Turnus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caeneus-underworld",
+      "name": "Caeneus",
+      "body": "A shade in the fields of mourning, once a woman and once a man.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helenor",
+      "name": "Helenor",
+      "body": "A Lydian king’s bastard son by the slave Licymnia, who leaps from the burning tower and dies fighting.",
+      "aliases": [
+        "Helenor"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "licymnia",
+      "name": "Licymnia",
+      "body": "The slave who bore Helenor and sent him secretly to Troy.",
+      "aliases": [
+        "Licymnia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "idaeus-trojan",
+      "name": "Idaeus",
+      "body": "A Trojan sent with Actor to carry Euryalus’s mother away.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "idaeus-charioteer",
+      "name": "Idaeus",
+      "body": "Priam’s charioteer, seen among the shades.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "actor-trojan",
+      "name": "Actor",
+      "body": "A Trojan sent with Idaeus to carry Euryalus’s mother away.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "actor-auruncan",
+      "name": "Actor",
+      "body": "An Auruncan whose great lance Turnus took and wields.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "corynaeus",
+      "name": "Corynaeus",
+      "body": "A Trojan priest, who performs the rites at Misenus’s funeral and later fights with a brand from his own altar.",
+      "aliases": [
+        "Corynaeus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achaemenides",
+      "name": "Achaemenides",
+      "body": "A Greek of Ithaca left behind in the Cyclops’ country, taken aboard by the Trojans.",
+      "aliases": [
+        "Achaemenides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acoetes",
+      "name": "Acoetes",
+      "body": "Evander’s old squire, sent with Pallas and left to watch his body.",
+      "aliases": [
+        "Acoetes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iapyx",
+      "name": "Iapyx",
+      "body": "The physician who tends Aeneas’s wound; Apollo’s favourite, who chose healing over prophecy.",
+      "aliases": [
+        "Iapis",
+        "Iapyx"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ufens",
+      "name": "Ufens",
+      "body": "A Latin captain who leads the mountain troops of Nursia.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "halesus",
+      "name": "Halesus",
+      "body": "A captain born of Agamemnon’s line, a lifelong enemy of Troy, who brings his people to Turnus.",
+      "aliases": [
+        "Halesus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aventinus",
+      "name": "Aventinus",
+      "body": "Hercules’ son by the priestess Rhea, who comes to the war with his father’s lion skin.",
+      "aliases": [
+        "Aventinus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhea",
+      "name": "Rhea",
+      "body": "The priestess whom Hercules found on the Aventine; Aventinus’s mother.",
+      "aliases": [
+        "Rhea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "catillus",
+      "name": "Catillus",
+      "body": "One of the three brothers of Tibur, who lead Argive horse for Turnus.",
+      "aliases": [
+        "Catillus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "coras",
+      "name": "Coras",
+      "body": "One of the three brothers of Tibur, who lead Argive horse for Turnus.",
+      "aliases": [
+        "Coras"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tiburs",
+      "name": "Tiburs",
+      "body": "The brother who gave Tibur its name.",
+      "aliases": [
+        "Tiburs"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caeculus",
+      "name": "Caeculus",
+      "body": "The founder of Praeneste, said to be Vulcan’s son, found in the fire.",
+      "aliases": [
+        "Caeculus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clausus",
+      "name": "Clausus",
+      "body": "A Sabine captain who is an army in himself, and the founder of the Claudian house.",
+      "aliases": [
+        "Clausus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "virbius",
+      "name": "Virbius",
+      "body": "Hippolytus’s son, named for his father’s second life, who comes to the war from Aricia’s groves.",
+      "aliases": [
+        "Virbius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippolytus",
+      "name": "Hippolytus",
+      "body": "Theseus’s son, torn apart by his horses and restored to life by the healing god.",
+      "aliases": [
+        "Hippolytus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aricia",
+      "name": "Aricia",
+      "body": "Hippolytus’s wife, who bore Virbius in the Egerian groves.",
+      "aliases": [
+        "Aricia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tyrrheus",
+      "name": "Tyrrheus",
+      "body": "Latinus’s chief ranger, whose tame stag the Trojans shoot.",
+      "aliases": [
+        "Tyrrheus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "silvia",
+      "name": "Silvia",
+      "body": "Tyrrheus’s daughter, who reared the stag.",
+      "aliases": [
+        "Silvia"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "almon",
+      "name": "Almon",
+      "body": "Tyrrheus’s eldest son, the first man killed in the new war.",
+      "aliases": [
+        "Almon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venulus",
+      "name": "Venulus",
+      "body": "The Latin envoy sent to ask Diomede for help.",
+      "aliases": [
+        "Venulus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tolumnius",
+      "name": "Tolumnius",
+      "body": "The Latins’ augur, who reads the omen and throws the spear that breaks the truce.",
+      "aliases": [
+        "Tolumnius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "camers",
+      "name": "Camers",
+      "body": "A rich young Latin, Volscens’s son, killed by Aeneas.",
+      "aliases": [
+        "Camers"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "numa",
+      "name": "Numa",
+      "body": "A strong young Latin killed by Aeneas.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "volscens",
+      "name": "Volscens",
+      "body": "The Latin cavalry commander who kills Euryalus and is killed by Nisus.",
+      "aliases": [
+        "Volscens"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhamnes",
+      "name": "Rhamnes",
+      "body": "An augur and Turnus’s favourite, killed asleep by Nisus.",
+      "aliases": [
+        "Rhamnes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "remus-rutulian",
+      "name": "Remus",
+      "body": "A Rutulian killed in his sleep with his armour-bearer and his slaves.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "remus-brother",
+      "name": "Remus",
+      "body": "Romulus’s brother, named in the promise of a Rome at peace.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "romulus",
+      "name": "Romulus",
+      "body": "The wolf-suckled founder of Rome, Mars’s son by Ilia.",
+      "aliases": [
+        "Romulus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ilia",
+      "name": "Ilia",
+      "body": "The priestess who bears Romulus and Remus to Mars.",
+      "aliases": [
+        "Ilia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "serranus",
+      "name": "Serranus",
+      "body": "A fair young Rutulian killed in his sleep.",
+      "aliases": [
+        "Serranus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lamus",
+      "name": "Lamus",
+      "body": "A Rutulian killed in his sleep by Nisus.",
+      "aliases": [
+        "Lamus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lamyrus",
+      "name": "Lamyrus",
+      "body": "A Rutulian killed in his sleep by Nisus.",
+      "aliases": [
+        "Lamyrus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhoetus",
+      "name": "Rhoetus",
+      "body": "A Rutulian who wakes and hides behind a jar, and is killed by Euryalus.",
+      "aliases": [
+        "Rhoetus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fadus",
+      "name": "Fadus",
+      "body": "A Rutulian killed by Euryalus.",
+      "aliases": [
+        "Fadus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hebesus",
+      "name": "Hebesus",
+      "body": "A Rutulian killed by Euryalus.",
+      "aliases": [
+        "Hebesus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caedicus",
+      "name": "Caedicus",
+      "body": "A rich man who gave Remulus the golden belt that Euryalus takes.",
+      "aliases": [
+        "Caedicus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "remulus",
+      "name": "Remulus",
+      "body": "A Tiburtine to whom Caedicus gave the belt; his heir wore it until the Ardeans took it.",
+      "aliases": [
+        "Remulus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sulmo",
+      "name": "Sulmo",
+      "body": "A Rutulian speared in the back during the night pursuit.",
+      "aliases": [
+        "Sulmo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tagus",
+      "name": "Tagus",
+      "body": "A Rutulian killed beside Sulmo.",
+      "aliases": [
+        "Tagus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "numanus",
+      "name": "Numanus",
+      "body": "Turnus’s brother-in-law, who taunts the Trojans and is shot by Ascanius.",
+      "aliases": [
+        "Numanus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucetius",
+      "name": "Lucetius",
+      "body": "A Rutulian crushed by a rock as he brings fire to the gate.",
+      "aliases": [
+        "Lucetius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ortygius",
+      "name": "Ortygius",
+      "body": "A Rutulian killed by Caeneus.",
+      "aliases": [
+        "Ortygius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "itys",
+      "name": "Itys",
+      "body": "A Trojan killed by Turnus at the wall.",
+      "aliases": [
+        "Itys"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clonius",
+      "name": "Clonius",
+      "body": "A Trojan killed by Turnus at the wall.",
+      "aliases": [
+        "Clonius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sagar",
+      "name": "Sagar",
+      "body": "A Trojan killed by Turnus at the wall.",
+      "aliases": [
+        "Sagar"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "body": "A Trojan killed by Turnus while standing on the wall.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "privernus",
+      "name": "Privernus",
+      "body": "A Trojan killed at the wall after clapping his hand to a slight wound.",
+      "aliases": [
+        "Privernus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "themilla",
+      "name": "Themilla",
+      "body": "A Rutulian who gives Privernus his first, slight wound.",
+      "aliases": [
+        "Themilla"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiphates",
+      "name": "Antiphates",
+      "body": "Sarpedon’s bastard son by a Theban slave, the first man Turnus meets inside the camp.",
+      "aliases": [
+        "Antiphates"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "meropes",
+      "name": "Meropes",
+      "body": "A Trojan killed by Turnus inside the camp.",
+      "aliases": [
+        "Meropes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erymanthus",
+      "name": "Erymanthus",
+      "body": "A Trojan killed by Turnus inside the camp.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aphidnus",
+      "name": "Aphidnus",
+      "body": "A Trojan killed by Turnus inside the camp.",
+      "aliases": [
+        "Aphidnus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "quercens",
+      "name": "Quercens",
+      "body": "A Rutulian who rushes the open gate.",
+      "aliases": [
+        "Quercens"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tmarus",
+      "name": "Tmarus",
+      "body": "A Rutulian who rushes the open gate.",
+      "aliases": [
+        "Tmarus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "equicolus",
+      "name": "Equicolus",
+      "body": "A Rutulian in bright armour who rushes the open gate.",
+      "aliases": [
+        "Equicolus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clytius",
+      "name": "Clytius",
+      "body": "A Trojan killed by Turnus inside the camp.",
+      "aliases": [
+        "Clytius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucagus",
+      "name": "Lucagus",
+      "body": "A Latin who fights from the chariot his brother Liger drives; killed by Aeneas.",
+      "aliases": [
+        "Lucagus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "liger",
+      "name": "Liger",
+      "body": "Lucagus’s brother, who drives their chariot and taunts Aeneas.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asylas-etruscan",
+      "name": "Asylas",
+      "body": "An Etruscan captain and diviner, who reads the stars and the flight of birds, and leads the chase.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mimas",
+      "name": "Mimas",
+      "body": "A Trojan born the same night as Paris, killed by Mezentius.",
+      "aliases": [
+        "Mimas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "evas",
+      "name": "Evas",
+      "body": "A Trojan killed by Mezentius.",
+      "aliases": [
+        "Evas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orsilochus",
+      "name": "Orsilochus",
+      "body": "A Trojan who does not dare face Camilla and is killed by her.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "butes-boxer",
+      "name": "Butes",
+      "body": "The giant of Amycus’s Bebrycian stock whom Eryx beat at Hector’s funeral games.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "butes-squire",
+      "name": "Butes",
+      "body": "Anchises’ old squire, left to attend Ascanius; Apollo takes his shape.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "butes-trojan",
+      "name": "Butes",
+      "body": "A bulky Trojan killed breast to breast by Camilla.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "butes-turnus",
+      "name": "Butes",
+      "body": "A Trojan thrown by his floundering horse and killed by Turnus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thoas-greek",
+      "name": "Thoas",
+      "body": "One of the Greeks who came down out of the wooden horse.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thoas-italian",
+      "name": "Thoas",
+      "body": "A warrior struck in the forehead with a stone by Pallas.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menoetes-pilot",
+      "name": "Menoetes",
+      "body": "Gyas’s pilot in the boat race, thrown overboard for steering too cautiously.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menoetes-arcadian",
+      "name": "Menoetes",
+      "body": "A peaceful Arcadian who had long shunned war, killed by Turnus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhoeteus",
+      "name": "Rhoeteus",
+      "body": "A man who crosses the plain by chance and takes the spear Pallas meant for Ilus.",
+      "aliases": [
+        "Rhoeteus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ilus-trojan",
+      "name": "Ilus",
+      "body": "Tros’s son, an ancestor of the Trojan house, enjoying fame in Elysium.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ilus-italian",
+      "name": "Ilus",
+      "body": "The man Pallas aimed at when Rhoeteus crossed the flight of the spear.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "herminius",
+      "name": "Herminius",
+      "body": "The mighty champion of the Tuscan crew, killed by Catillus.",
+      "aliases": [
+        "Herminius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iolas",
+      "name": "Iolas",
+      "body": "A man killed by Catillus.",
+      "aliases": [
+        "Iolas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aruns",
+      "name": "Aruns",
+      "body": "The Etruscan who stalks Camilla, kills her from cover and is killed by Diana’s nymph.",
+      "aliases": [
+        "Aruns"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "opis",
+      "name": "Opis",
+      "body": "Diana’s nymph, sent to avenge Camilla.",
+      "aliases": [
+        "Opis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "metiscus",
+      "name": "Metiscus",
+      "body": "Turnus’s charioteer, whose shape Juturna takes.",
+      "aliases": [
+        "Metiscus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acca",
+      "name": "Acca",
+      "body": "Camilla’s companion, sent to carry her last message to Turnus.",
+      "aliases": [
+        "Acca"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cydon",
+      "name": "Cydon",
+      "body": "A Latin whom Aeneas spares the doom of, and whose seven brothers attack.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dryops",
+      "name": "Dryops",
+      "body": "A Trojan speared through the throat by Clausus.",
+      "aliases": [
+        "Dryops"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hyarbas",
+      "name": "Hyarbas",
+      "body": "The African king who courted Dido and prays to Jove against her Trojan guest. The modern edition spells him Iarbas.",
+      "aliases": [
+        "Hyarbas",
+        "Iarbas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sychaeus",
+      "name": "Sychaeus",
+      "body": "Dido’s murdered husband, whose ghost tells her to flee Tyre.",
+      "aliases": [
+        "Sychaeus",
+        "Sichaeus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pygmalion",
+      "name": "Pygmalion",
+      "body": "Dido’s brother, king of Tyre, who murdered Sychaeus for his wealth.",
+      "aliases": [
+        "Pygmalion"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "belus",
+      "name": "Belus",
+      "body": "Dido’s father, who once conquered Cyprus.",
+      "aliases": [
+        "Belus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "barce",
+      "name": "Barce",
+      "body": "Sychaeus’s old nurse, whom Dido sends away at the end.",
+      "aliases": [
+        "Barce"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daunus",
+      "name": "Daunus",
+      "body": "Turnus’s father.",
+      "aliases": [
+        "Daunus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pilumnus",
+      "name": "Pilumnus",
+      "body": "Turnus’s ancestor, a god four generations back.",
+      "aliases": [
+        "Pilumnus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dardanus",
+      "name": "Dardanus",
+      "body": "Founder of the Trojan line, born in Italy, which makes Italy the Trojans’ ancient mother.",
+      "aliases": [
+        "Dardanus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iasius",
+      "name": "Iasius",
+      "body": "Dardanus’s brother, born in the same country.",
+      "aliases": [
+        "Iasius",
+        "Jasius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "teucer-trojan",
+      "name": "Teucer",
+      "body": "The ancestor from Crete whose name the Trojans bear.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "teucer-salamis",
+      "name": "Teucer",
+      "body": "The exile from Salamis who once came to Sidon and was helped by Belus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "assaracus",
+      "name": "Assaracus",
+      "body": "An ancestor of the Trojan house, enjoying fame in Elysium.",
+      "aliases": [
+        "Assaracus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laomedon",
+      "name": "Laomedon",
+      "body": "Priam’s father, whose broken faith is held against Troy.",
+      "aliases": [
+        "Laomedon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ganymede",
+      "name": "Ganymede",
+      "body": "The Trojan boy carried up to serve Jove, one of Juno’s standing grievances.",
+      "aliases": [
+        "Ganymede"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "electra",
+      "name": "Electra",
+      "body": "Atlas’s daughter and Dardanus’s mother, another of Juno’s grievances.",
+      "aliases": [
+        "Electra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "body": "The Trojan whose judgment against Juno began her hatred, and who carried Helen away.",
+      "aliases": [
+        "Paris"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "body": "Menelaus’s wife, carried off by Paris; Aeneas finds her hiding at Vesta’s shrine.",
+      "aliases": [
+        "Helen"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orestes",
+      "name": "Orestes",
+      "body": "Agamemnon’s son, who kills Pyrrhus at his father’s altar.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agamemnon",
+      "name": "Agamemnon",
+      "body": "The Greek commander at Troy.",
+      "aliases": [
+        "Agamemnon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menelaus",
+      "name": "Menelaus",
+      "body": "Helen’s husband and Agamemnon’s brother.",
+      "aliases": [
+        "Menelaus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atreus",
+      "name": "Atreus",
+      "body": "Father of the two brother kings.",
+      "aliases": [
+        "Atreus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calchas",
+      "name": "Calchas",
+      "body": "The Greek augur whose word Sinon uses to frame his story.",
+      "aliases": [
+        "Calchas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "palamedes",
+      "name": "Palamedes",
+      "body": "The Greek Sinon claims as his kinsman, put to death on a false charge.",
+      "aliases": [
+        "Palamedes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thymoetes",
+      "name": "Thymoetes",
+      "body": "The Trojan who urges bringing the horse inside.",
+      "aliases": [
+        "Thymoetes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cassandra",
+      "name": "Cassandra",
+      "body": "Priam’s daughter, whose true prophecies Apollo doomed to be disbelieved.",
+      "aliases": [
+        "Cassandra"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "coroebus",
+      "name": "Coroebus",
+      "body": "Cassandra’s suitor, killed at Pallas’s altar on the night Troy fell.",
+      "aliases": [
+        "Coroebus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ripheus",
+      "name": "Ripheus",
+      "body": "The justest of the Trojans, killed on the night Troy fell.",
+      "aliases": [
+        "Ripheus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iphitus",
+      "name": "Iphitus",
+      "body": "An aged Trojan who fights at Aeneas’s side on the last night.",
+      "aliases": [
+        "Iphitus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dymas",
+      "name": "Dymas",
+      "body": "A Trojan who joins Aeneas’s band on the last night.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hypanis",
+      "name": "Hypanis",
+      "body": "A Trojan who joins Aeneas’s band on the last night.",
+      "aliases": [
+        "Hypanis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pantheus",
+      "name": "Pantheus",
+      "body": "Apollo’s priest on the citadel, who brings Aeneas the household gods.",
+      "aliases": [
+        "Pantheus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "androgeos",
+      "name": "Androgeos",
+      "body": "The Greek captain who mistakes Aeneas’s band for his own men.",
+      "aliases": [
+        "Androgeos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peneleus",
+      "name": "Peneleus",
+      "body": "The Greek who kills Coroebus at Pallas’s altar.",
+      "aliases": [
+        "Peneleus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polites",
+      "name": "Polites",
+      "body": "Priam’s son, run down and killed in front of his parents.",
+      "aliases": [
+        "Polites"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hecuba",
+      "name": "Hecuba",
+      "body": "Priam’s queen, sheltering at the altar with her daughters.",
+      "aliases": [
+        "Hecuba"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polydorus",
+      "name": "Polydorus",
+      "body": "Priam’s youngest son, murdered for his gold in Thrace; his voice comes out of the ground. Dryden calls him Polydore.",
+      "aliases": [
+        "Polydore",
+        "Polydorus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lycurgus",
+      "name": "Lycurgus",
+      "body": "The fierce king who once ruled Thrace.",
+      "aliases": [
+        "Lycurgus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "idomeneus",
+      "name": "Idomeneus",
+      "body": "The Cretan king driven out of his own country, which leaves Crete open.",
+      "aliases": [
+        "Idomeneus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anius",
+      "name": "Anius",
+      "body": "The priest-king of Delos, Anchises’ old guest-friend.",
+      "aliases": [
+        "Anius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deiphobus",
+      "name": "Deiphobus",
+      "body": "Priam’s son, whose house burns first, and whose mutilated shade Aeneas meets below.",
+      "aliases": [
+        "Deiphobus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sthenelus",
+      "name": "Sthenelus",
+      "body": "One of the Greeks who comes out of the horse.",
+      "aliases": [
+        "Sthenelus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tysander",
+      "name": "Tysander",
+      "body": "One of the Greeks who comes out of the horse.",
+      "aliases": [
+        "Tysander"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "athamas",
+      "name": "Athamas",
+      "body": "One of the Greeks who comes out of the horse.",
+      "aliases": [
+        "Athamas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epeus",
+      "name": "Epeus",
+      "body": "The Greek who built the horse.",
+      "aliases": [
+        "Epeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demoleus",
+      "name": "Demoleus",
+      "body": "A Greek from whom Aeneas took a coat of mail.",
+      "aliases": [
+        "Demoleus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cisseus",
+      "name": "Cisseus",
+      "body": "The Thracian who gave Anchises a figured goblet.",
+      "aliases": [
+        "Cisseus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marcellus",
+      "name": "Marcellus",
+      "body": "The young Roman in the parade of souls whose early death the poem mourns.",
+      "aliases": [
+        "Marcellus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Caesar",
+      "body": "The ruler promised to rise from the Julian line.",
+      "aliases": [
+        "Caesar"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "numitor",
+      "name": "Numitor",
+      "body": "An Alban king in the parade of Aeneas’s descendants.",
+      "aliases": [
+        "Numitor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "procas",
+      "name": "Procas",
+      "body": "An Alban king in the parade of Aeneas’s descendants.",
+      "aliases": [
+        "Procas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "silvius",
+      "name": "Silvius",
+      "body": "Aeneas’s last-begotten son, born in the woods to Lavinia.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "silvius-aeneas",
+      "name": "Silvius Aeneas",
+      "body": "A later Alban king who bears Aeneas’s name.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tullus",
+      "name": "Tullus",
+      "body": "An early Roman king in the parade of souls.",
+      "aliases": [
+        "Tullus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ancus",
+      "name": "Ancus",
+      "body": "An early Roman king in the parade of souls.",
+      "aliases": [
+        "Ancus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tarquin",
+      "name": "Tarquin",
+      "body": "The Roman kings whose line the avenging sword ends.",
+      "aliases": [
+        "Tarquin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brutus",
+      "name": "Brutus",
+      "body": "The Roman who put his own sons to death for the republic.",
+      "aliases": [
+        "Brutus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cato",
+      "name": "Cato",
+      "body": "The Roman renowned for gravity, seen in the parade of souls.",
+      "aliases": [
+        "Cato"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cossus",
+      "name": "Cossus",
+      "body": "A conquering Roman seen in the parade of souls.",
+      "aliases": [
+        "Cossus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "body": "The hero who killed Cacus on the future site of Rome, worshipped there ever since. The poem also calls him Alcides.",
+      "aliases": [
+        "Hercules",
+        "Alcides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cacus",
+      "name": "Cacus",
+      "body": "The fire-breathing monster of the Aventine cave, killed by Hercules.",
+      "aliases": [
+        "Cacus"
+      ],
+      "category": "supporting",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "geryon",
+      "name": "Geryon",
+      "body": "The triple-bodied giant Hercules killed in Spain.",
+      "aliases": [
+        "Geryon"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "potitius",
+      "name": "Potitius",
+      "body": "The founder of Hercules’ annual rites at Rome.",
+      "aliases": [
+        "Potitius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "evadne",
+      "name": "Evadne",
+      "body": "A shade in the fields of mourning.",
+      "aliases": [
+        "Evadne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laodamia",
+      "name": "Laodamia",
+      "body": "A shade in the fields of mourning.",
+      "aliases": [
+        "Laodamia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pasiphae",
+      "name": "Pasiphae",
+      "body": "A shade in the fields of mourning; the modern edition spells her Pasiphaë.",
+      "aliases": [
+        "Pasiphae",
+        "Pasiphaë"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaedra",
+      "name": "Phaedra",
+      "body": "A shade in the fields of mourning.",
+      "aliases": [
+        "Phaedra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "procris",
+      "name": "Procris",
+      "body": "A shade in the fields of mourning.",
+      "aliases": [
+        "Procris"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eriphyle",
+      "name": "Eriphyle",
+      "body": "A shade in the fields of mourning.",
+      "aliases": [
+        "Eriphyle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "body": "The hero seated for ever in the underworld.",
+      "aliases": [
+        "Theseus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pirithous",
+      "name": "Pirithous",
+      "body": "Theseus’s companion, punished below; the modern edition spells him Peirithous.",
+      "aliases": [
+        "Pirithous",
+        "Peirithous"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minos",
+      "name": "Minos",
+      "body": "The judge who shakes the urn over the silent shades.",
+      "aliases": [
+        "Minos"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhadamanthus",
+      "name": "Rhadamanthus",
+      "body": "The judge of the guilty in Tartarus.",
+      "aliases": [
+        "Rhadamanthus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tisiphone",
+      "name": "Tisiphone",
+      "body": "The Fury who keeps the gate of Tartarus.",
+      "aliases": [
+        "Tisiphone"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salmoneus",
+      "name": "Salmoneus",
+      "body": "The shade punished for counterfeiting Jove’s thunder.",
+      "aliases": [
+        "Salmoneus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tityus",
+      "name": "Tityus",
+      "body": "The giant whose liver the vulture feeds on for ever.",
+      "aliases": [
+        "Tityus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ixion",
+      "name": "Ixion",
+      "body": "A shade punished in Tartarus.",
+      "aliases": [
+        "Ixion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phlegyas",
+      "name": "Phlegyas",
+      "body": "The shade who cries out a warning to learn justice.",
+      "aliases": [
+        "Phlegyas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "musaeus",
+      "name": "Musaeus",
+      "body": "The divine singer among the blessed, who shows the way to Anchises.",
+      "aliases": [
+        "Musaeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "body": "The Thracian singer, seen among the blessed in his long robe.",
+      "aliases": [
+        "Orpheus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "memnon",
+      "name": "Memnon",
+      "body": "The swarthy warrior in the Carthaginian frescoes.",
+      "aliases": [
+        "Memnon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "penthesilea",
+      "name": "Penthesilea",
+      "body": "The Amazon queen in the Carthaginian frescoes. Dryden spells her Penthisilea.",
+      "aliases": [
+        "Penthesilea",
+        "Penthisilea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "troilus",
+      "name": "Troilus",
+      "body": "Priam’s young son, dragged behind his chariot in the frescoes.",
+      "aliases": [
+        "Troilus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sarpedon",
+      "name": "Sarpedon",
+      "body": "The Lycian who fell at Troy, named as father of the brothers who hold the wall.",
+      "aliases": [
+        "Sarpedon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "glaucus",
+      "name": "Glaucus",
+      "body": "One of Antenor’s sons, seen among the shades of the Trojan dead.",
+      "aliases": [
+        "Glaucus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "medon",
+      "name": "Medon",
+      "body": "One of Antenor’s sons, seen among the shades of the Trojan dead.",
+      "aliases": [
+        "Medon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antenor",
+      "name": "Antenor",
+      "body": "The Trojan who escaped and founded Padua, cited as a precedent by Venus.",
+      "aliases": [
+        "Antenor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "harpalyce",
+      "name": "Harpalyce",
+      "body": "The Thracian huntress Venus is compared to.",
+      "aliases": [
+        "Harpalyce"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iopas",
+      "name": "Iopas",
+      "body": "The long-haired bard who sings at Dido’s feast.",
+      "aliases": [
+        "Iopas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "body": "Venus’s son, sent to Carthage in Ascanius’s shape to fire Dido with love.",
+      "aliases": [
+        "Cupid"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amazons",
+      "name": "The Amazons",
+      "body": "The warrior women of the frescoes and of Camilla’s comparison.",
+      "aliases": [
+        "Amazons"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cyclops",
+      "name": "The Cyclops",
+      "body": "The one-eyed giants of Sicily; Polyphemus is their most famous. Dryden spells the singular Polypheme.",
+      "aliases": [
+        "Cyclops",
+        "Cyclopes"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polyphemus",
+      "name": "Polyphemus",
+      "body": "The blinded Cyclops whom the Trojans see groping down to the sea. Dryden calls him Polypheme.",
+      "aliases": [
+        "Polypheme",
+        "Polyphemus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scylla",
+      "name": "Scylla",
+      "body": "The monster whose waist ends in dogs, waiting on the right of the strait.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charybdis",
+      "name": "Charybdis",
+      "body": "The whirlpool on the left of the strait, which swallows and spews the sea three times a day.",
+      "aliases": [
+        "Charybdis"
+      ],
+      "category": "supporting",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chimaera",
+      "name": "The Chimaera",
+      "body": "The fire-breathing monster, seen at the gate of hell and blazoned on Turnus’s crest.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "centaurs",
+      "name": "The Centaurs",
+      "body": "The double-shaped creatures who besiege the gate of hell.",
+      "aliases": [
+        "Centaurs"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "briareus",
+      "name": "Briareus",
+      "body": "The hundred-handed monster at the gate of hell.",
+      "aliases": [
+        "Briareus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gorgons",
+      "name": "The Gorgons",
+      "body": "Monsters at the gate of hell.",
+      "aliases": [
+        "Gorgons",
+        "Gorgon"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hydra",
+      "name": "The Hydra",
+      "body": "The many-headed monster at the gate of hell, and in Lerna’s lake.",
+      "aliases": [
+        "Hydra"
+      ],
+      "category": "reference",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "typhoeus",
+      "name": "Typhoeus",
+      "body": "A monster named among the terrors Hercules did not fear.",
+      "aliases": [
+        "Typhoeus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trojans",
+      "name": "The Trojans",
+      "body": "Aeneas’s people, the survivors of Troy; also called Dardans, Phrygians and Teucrians.",
+      "aliases": [
+        "Trojans"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "latins",
+      "name": "The Latins",
+      "body": "Latinus’s people, whose land the Trojans are fated to hold.",
+      "aliases": [
+        "Latins",
+        "Latians"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rutulians",
+      "name": "The Rutulians",
+      "body": "Turnus’s people, of Ardea.",
+      "aliases": [
+        "Rutulians"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tyrians",
+      "name": "The Tyrians",
+      "body": "Dido’s people, the settlers of Carthage.",
+      "aliases": [
+        "Tyrians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "greeks",
+      "name": "The Greeks",
+      "body": "The army that took Troy; the poem also calls them Grecians, Argives and Danaans.",
+      "aliases": [
+        "Greeks",
+        "Grecians",
+        "Argives",
+        "Danaans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arcadians",
+      "name": "The Arcadians",
+      "body": "Evander’s people at Pallanteum.",
+      "aliases": [
+        "Arcadians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tuscans",
+      "name": "The Tuscans",
+      "body": "The Etruscan people who rise against Mezentius and join Aeneas.",
+      "aliases": [
+        "Tuscans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "volscians",
+      "name": "The Volscians",
+      "body": "Camilla’s people.",
+      "aliases": [
+        "Volscians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "italians",
+      "name": "The Italians",
+      "body": "The peoples of Italy taken together; also called Ausonians and Oenotrians.",
+      "aliases": [
+        "Italians",
+        "Oenotrians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "auruncans",
+      "name": "The Auruncans",
+      "body": "An Italian people from the hills who join Turnus.",
+      "aliases": [
+        "Auruncans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "equicoli",
+      "name": "The Equicolae",
+      "body": "A rough Italian people under Ufens; the modern edition spells them Equicoli.",
+      "aliases": [
+        "Equicolae",
+        "Equicoli"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "faliscans",
+      "name": "The Faliscans",
+      "body": "An Italian people called to the war.",
+      "aliases": [
+        "Faliscans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sicanians",
+      "name": "The Sicanians",
+      "body": "An old people of Sicily and Italy.",
+      "aliases": [
+        "Sicanians",
+        "Sicanian"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nomads",
+      "name": "The Numidians",
+      "body": "An African people on Carthage’s frontier.",
+      "aliases": [
+        "Numidians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gauls",
+      "name": "The Gauls",
+      "body": "The people whose night attack on the Capitol the geese betrayed, shown on Aeneas’s shield.",
+      "aliases": [
+        "Gauls"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scythians",
+      "name": "The Scythians",
+      "body": "A far northern people, named among those Rome will face.",
+      "aliases": [
+        "Scythians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

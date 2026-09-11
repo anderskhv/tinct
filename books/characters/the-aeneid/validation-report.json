@@ -1,0 +1,31 @@
+{
+  "bookId": "the-aeneid",
+  "scope": "Both full English editions, all twelve books: named people, gods, personified powers, named monsters and named peoples. Places, rivers as geography, mountains, islands and ships are excluded — the boat race in book five names four galleys after monsters, and those occurrences are not cast.",
+  "authoredEntries": 342,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "4a763d99af704695d1fbe4fc6c9740c2335dedc7bbf7e2b22aff8af23903aaf0",
+      "chapters": 12,
+      "paragraphs": 544,
+      "entries": 340,
+      "mentions": 2107,
+      "omittedEntities": [
+        "doto",
+        "pirithous"
+      ]
+    },
+    "modern-en": {
+      "sourceSha256": "1e9b6dd64911f96374ae6e9322379d4eb30a9d9dfc8e0a994e717c71f3a05c07",
+      "chapters": 12,
+      "paragraphs": 544,
+      "entries": 342,
+      "mentions": 2134,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

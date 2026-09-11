@@ -470,9 +470,12 @@
     {
       "bookId": "the-aeneid",
       "title": "The Aeneid",
-      "contentStatus": "in-progress",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -490,7 +493,7 @@
         }
       ],
       "existingThreadCandidates": 15,
-      "nextAction": "Lane B authoring in progress: 12 books, 544 paragraphs per edition; Dryden's Roman names throughout, so no Roman/Greek split, but the Italian and Trojan catalogues carry their own namesakes"
+      "nextAction": "Release owner: compare fingerprints, register both English editions and verify the three Pallases and the monster-named galleys in production"
     },
     {
       "bookId": "paradise-lost",
