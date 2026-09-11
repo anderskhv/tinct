@@ -24,7 +24,7 @@ EDWARD={(5,1):[E4],(5,4):[E4],(5,7):[E4],(5,9):[E4],(5,13):[E4],(5,16):[E4],(5,2
  (6,31):[E4,PRINCE],(7,8):[E4],(9,0):[PRINCE],(9,77):[PRINCE],(12,30):[E4],
  (13,25):[E4,E4,E4],(15,3):[E4],(15,20):[E4],(15,39):[PRINCE,E4,PRINCE],
  (17,7):[PRINCE],(17,11):[PRINCE],(17,13):[PRINCE],(18,13):[E4],(19,8):[PRINCE],
- (19,11):[PRINCE,LANC],(19,23):[LANC,PRINCE],(19,27):[E4,LANC,PRINCE,LANC,LANC],
+ (19,11):[None,None],(19,23):[LANC,PRINCE],(19,27):[E4,LANC,PRINCE,LANC,LANC],
  (19,66):[E4],(19,72):[E4,E4],(19,104):[PRINCE],(19,201):['edward-courtney'],
  (21,3):[E4,LANC],(21,5):[E4],(23,51):[LANC,LANC],(23,97):[E4]}
 # Every bare "Richard". R3 is Richard of Gloucester; the exceptions are the boy
@@ -48,7 +48,7 @@ GEORGE={(1,6):[CL],(1,8):[CL],(1,38):[CL],(19,133):[SG],(19,136):[SG],(19,197):[
  (23,164):[GS],(23,165):[SG],(25,3):[GS]}
 # "Plantagenet" singular. The plural at 2:43 is the family and is bound as a group.
 PLANT={(2,57):[R3],(4,80):[LANC],(15,31):[R3],(16,1):['girl'],(19,8):[PRINCE],
- (19,10):[PRINCE,LANC],(19,44):['edward-clarence']}
+ (19,10):[None,None],(19,44):['edward-clarence']}
 
 def bind(edition,ch,pi,text,entities):
  out=exact(edition,ch,pi,text,entities)

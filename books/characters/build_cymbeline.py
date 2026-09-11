@@ -32,6 +32,7 @@ def bind(edition,ch,pi,text,entities):
  add(r'Julius '+name,'julius-caesar');add(r'Augustus '+name,'augustus')
  julius=JULIUS_BARE.get((ch,pi),[])
  for i,mo in enumerate(re.finditer(r'(?<![A-Za-z0-9])'+name+r'(?![A-Za-z0-9])',text)):
+  if (ch,pi)==(13,8):continue  # Release review: emperor identity not certain.
   out.append((mo.start(),mo.end(),'julius-caesar' if i in julius else 'augustus','reviewed-context'))
  # "There be many Caesars ere such another Julius" is Cloten on emperors at large;
  # the plural is not bound, and the bare Julius there is the conqueror.

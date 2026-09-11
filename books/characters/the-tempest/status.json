@@ -1,6 +1,9 @@
 {
   "contentStatus": "validated-package",
-  "appStatus": "awaiting-integration",
-  "reviewedEditions": ["original-en", "modern-en"],
-  "nextAction": "Release owner: review documented inherited song-speaker defects; integrate versioned asset and verify production"
+  "appStatus": "held-source-review",
+  "reviewedEditions": [
+    "original-en",
+    "modern-en"
+  ],
+  "nextAction": "Repair-review inherited song speaker labels before runtime enablement; rebuild if source bytes change."
 }

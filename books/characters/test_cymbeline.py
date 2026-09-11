@@ -5,6 +5,9 @@ from lookup_reference import resolve
 class CymbelineTests(unittest.TestCase):
  @classmethod
  def setUpClass(cls):cls.asset,cls.report,_=compile_package()
+ def test_uncertain_caesar_is_unbound(self):
+  for d in self.asset['editions'].values():
+   self.assertFalse(any(m['chapterNumber']==13 and m['paragraphIndex']==8 and m['characterId'] in ('augustus','julius-caesar') for m in d['mentions']))
  def test_saved_package_current(self):self.assertEqual(self.asset,json.loads((BASE/'characters.v1.json').read_text()))
  def test_exact_spans_and_sources(self):
   for d in self.asset['editions'].values():

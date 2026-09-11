@@ -13,12 +13,16 @@ pushes here. Content commits only — no app code, no deploys, no edition text.
 The books are split by how much the binding work depends on judgment rather
 than on following the established pattern.
 
-**Lane A — safe to author on a smaller model.** Single-voice treatises, essays
-and philosophy. There is no fictional cast, no disguise, no concealed identity
-and no spoiler gate to get wrong. The job is: identify the real people the
-author cites, give each a short useful card, bind the exact spans, and record
-what is deliberately not bound. Failure here is visible — a missing entry, or
-an entry with no mentions — and the coverage tests catch it.
+**Lane A — assigned to the smaller-model author, still requiring independent release review.**
+These are treatises, essays and philosophy, but genre does not establish simple
+identity. This list includes biblical narratives, fictional/mythic figures,
+namesakes, autobiographical relationships and staged arguments. For example,
+Fear and Trembling includes Abraham and the Merman; Confessions includes narrative
+relationships. Author-written coverage tests cannot certify identity correctness
+or spoiler safety. Record uncertainties explicitly and leave uncertain bindings
+unbound; use the existing Blocked procedure when the assignment exceeds the lane.
+This September 11 clarification changes neither lane assignments nor the external
+routine. Release review remains separate from authoring and mechanical validation.
 
 **Lane B — keep on the larger model.** Narrative, scripture, epic and history.
 These turn on exactly the work a weaker model gets quietly wrong: telling four
@@ -74,7 +78,9 @@ preserved rather than replaced: `war-and-peace` (45-entry draft),
 3. **Claim it first.** Write `books/characters/<id>/status.json` with
    `contentStatus: "in-progress"`, commit it alone, and push immediately. This
    is what stops two sessions taking the same book. If the push is rejected,
-   pull and pick the next unclaimed book.
+   fetch and reread the remote queue and per-book ownership before doing work.
+   Reconcile the rejected claim; do not blindly rebase or retry it. Pick a different
+   unclaimed book only after verifying the current assignment.
 4. Read `books/characters/EDITORIAL-POLICY.md`, `README.md`, and one finished
    package as the structural model — `books/characters/coriolanus/` and its
    `build_coriolanus.py` and `test_coriolanus.py` are the closest fit for a

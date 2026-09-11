@@ -41,3 +41,7 @@ None of the three blocks safe enablement.
 The local complete text supplies the card evidence. [Folger's complete play](https://www.folger.edu/explore/shakespeares-works/cymbeline/read/) and its [editorial cast list](https://www.folger.edu/explore/shakespeares-works/cymbeline/read/characterList/) were consulted for the speaking-role distinctions, for Helen as Imogen's attendant and for the standing of Dorothy as a separate name. Folger is a comparison edition, not the offset source.
 
 Run `python3 books/characters/build_cymbeline.py --check` and `python3 -m unittest discover -s books/characters -p test_cymbeline.py`. Eight tests cover source hashes, exact UTF-16 spans, the four assumed names and the invented one, the two Caesars occurrence by occurrence, the scene-local lady, lord and messenger roles, all three concealments and their gates, the edition omission and spellings, and every paragraph-end snapshot. Release owner must register both English editions, version the asset, run app gates and production verification. Validated content is not live coverage.
+
+## Release review correction — 2026-09-10
+
+The uncertain Caesar13:8 (Cymbeline) and Edward19:11 / Plantagenet19:10 (Richard III) spans are deliberately unbound in the release build. This supersedes the tentative assignments above. Source bytes are unchanged.

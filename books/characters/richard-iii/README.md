@@ -39,3 +39,7 @@ Both source files have 25 aligned scenes and 1,420 paragraphs. No source edits. 
 The local complete text supplies the card evidence. [Folger's complete play](https://www.folger.edu/explore/shakespeares-works/richard-iii/read/) and its [editorial cast list](https://www.folger.edu/explore/shakespeares-works/richard-iii/read/characterList/) were consulted for the speaking-role distinctions, for Rivers as Antony Woodville, for Stanley as Earl of Derby, and for the identity of each Edward in the disputed speeches. Folger is a comparison edition, not the offset source.
 
 Run `python3 books/characters/build_richard_iii.py --check` and `python3 -m unittest discover -s books/characters -p test_richard_iii.py`. Nine tests cover source hashes, exact UTF-16 spans, the completeness of all five name tables across both files, the five Edwards, the four Richards and four Yorks, the three Georges and the Plantagenets, Lady Grey as the Queen, the six gates and the three invented names, and every paragraph-end snapshot. Release owner must register both English editions, version the asset, run app gates and production verification. Validated content is not live coverage.
+
+## Release review correction — 2026-09-10
+
+The uncertain Caesar13:8 (Cymbeline) and Edward19:11 / Plantagenet19:10 (Richard III) spans are deliberately unbound in the release build. This supersedes the tentative assignments above. Source bytes are unchanged.

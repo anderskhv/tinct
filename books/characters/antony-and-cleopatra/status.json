@@ -1,6 +1,15 @@
 {
   "contentStatus": "validated-package",
-  "appStatus": "awaiting-integration",
-  "reviewedEditions": ["original-en", "modern-en"],
-  "nextAction": "Consolidated release queue: integrate versioned asset and verify production"
+  "appStatus": "live",
+  "reviewedEditions": [
+    "original-en",
+    "modern-en"
+  ],
+  "nextAction": "Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions.",
+  "releaseEvidence": {
+    "contentCommit": "20b4d7bc",
+    "appCommit": "f8ee1ec8",
+    "report": "docs/character-cards-nine-2026-09-10.md",
+    "recoveryCommit": "95029ffe2"
+  }
 }

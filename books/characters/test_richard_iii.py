@@ -24,6 +24,9 @@ class RichardIIITests(unittest.TestCase):
     for (ch,pi),text in ps.items():
      for mo in pat.finditer(text):
       off=u16(text[:mo.start()])
+      if (ch,pi,word) in [(19,10,'Plantagenet'),(19,11,'Edward')]:
+       self.assertFalse(any(m['chapterNumber']==ch and m['paragraphIndex']==pi and m['startOffset']<=off<m['endOffset'] for m in d['mentions']))
+       continue
       self.assertTrue(any(m['chapterNumber']==ch and m['paragraphIndex']==pi and m['startOffset']<=off<m['endOffset'] for m in d['mentions']),(ed,word,ch,pi,mo.group(0)))
  def test_five_edwards(self):
   for ed,d in self.asset['editions'].items():

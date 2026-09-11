@@ -2,6 +2,34 @@
 
 Updated September 10, 2026. This is a content-lane handoff to the existing release owner, not a separate deployment. Read each package README and validation report before integration. Sources were byte-compared with Tinct-reader-stabilization at authoring; recheck before enabling.
 
+## September 11 reconciliation
+
+Authoring branch aec6edff contained 60 validated packages, 37 not-started books
+and three partial/pilot scopes. Nine of its awaiting-integration statuses were
+stale: the nine-play release was production verified September 10. After fixing
+those statuses there are **45 unreleased validated packages: 44 awaiting independent
+release review/integration and The Tempest held for source review**. Six earlier
+validated packages were already marked live; The Awakening pilot and partial Bible
+are tracked separately. Thus 16 whole-book scopes plus partial Bible were previously
+production verified, not zero. This is not 100-book coverage.
+
+A September 11 main deployment from stale 93f7b9d9 temporarily regressed newer app
+registration. Recovery 95029ffe2 merges the verified 68e7d1d0 release with current
+main tooling/CI. Never derive runtime coverage from asset presence or stale status
+alone. Release reports and current served registration are required.
+
+Measure for Measure, Henry V, Winter’s Tale, Cymbeline, Coriolanus, Antony and
+Cleopatra, Richard III, Henry IV Part 2 and Merry Wives are the nine released books.
+Their content revision is 2026-09-10.1; details in
+[the release record](../../docs/character-cards-nine-2026-09-10.md).
+Cymbeline13:8 Caesar and RichardIII19:10/11 Plantagenet/Edward ambiguous pairs remain
+unbound; these release corrections supersede tentative author assignments below.
+Do not redeploy those books just because an older section calls them queued.
+
+Next reference batch under independent release review: US Founding Documents,
+Kant Groundwork and Descartes Meditations. They are not yet enabled by this update.
+Lane A/B authorship remains with the external owners; no book is claimed here.
+
 ## Verified live
 
 - Awakening: earlier source-reviewed pilot; recognition-shortening follow-up remains.

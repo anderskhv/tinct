@@ -15,7 +15,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Macbeth (`macbeth`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | A Midsummer Night's Dream (`midsummer`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Romeo and Juliet (`romeo-and-juliet`) | validated-package | Release queue: review inherited doubled watchman label, integrate versioned asset and verify production |
-| The Tempest (`the-tempest`) | validated-package | Release owner: review documented inherited song-speaker defects; integrate versioned asset and verify production |
+| The Tempest (`the-tempest`) | validated-package | Repair-review inherited song speaker labels before runtime enablement; rebuild if source bytes change. |
 | The Art of War (`the-art-of-war`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Pride and Prejudice (`pride-and-prejudice`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Crime and Punishment (`crime-and-punishment`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
@@ -86,22 +86,22 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Comedy of Errors (`comedy-of-errors`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Merchant of Venice (`merchant-of-venice`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Henry V (`henry-v`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
+| Henry V (`henry-v`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
 | As You Like It (`as-you-like-it`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| winters-tale (`winters-tale`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
+| winters-tale (`winters-tale`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
 | Julius Caesar (`julius-caesar`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Twelfth Night (`twelfth-night`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Measure for Measure (`measure-for-measure`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Henry IV, Part 2 (`henry-iv-part-2`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| The Merry Wives of Windsor (`merry-wives-of-windsor`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
+| Measure for Measure (`measure-for-measure`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
+| Henry IV, Part 2 (`henry-iv-part-2`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
+| The Merry Wives of Windsor (`merry-wives-of-windsor`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
 | Othello (`othello`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | King Lear (`king-lear`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Much Ado About Nothing (`much-ado-about-nothing`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Taming of the Shrew (`taming-of-the-shrew`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Antony and Cleopatra (`antony-and-cleopatra`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Richard III (`richard-iii`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Coriolanus (`coriolanus`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Cymbeline (`cymbeline`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
+| Antony and Cleopatra (`antony-and-cleopatra`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
+| Richard III (`richard-iii`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
+| Coriolanus (`coriolanus`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
+| Cymbeline (`cymbeline`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
 | Anna Karenina (`anna-karenina`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Don Quixote (`don-quixote`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Essays (`essays-montaigne`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
