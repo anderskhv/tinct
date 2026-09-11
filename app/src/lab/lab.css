@@ -5924,12 +5924,19 @@
 /* ── Phone: the full-screen call ──────────────────────────────────────── */
 
 /* z-index sits above the V2 header (330): a call owns the whole screen. */
+/* One column that can never grow past the viewport. The default `auto`
+   track took its minimum from the nowrap book line, so a long chapter title
+   ("The Odyssey, Book 7 — Reception of Ulysses at the palace of king
+   Alcinous") widened the track to ~560px on a 393px phone and every row —
+   orb, status, controls — was centred in that wider column, pushing a third
+   of the surface off the right edge. */
 .lab[data-chrome-version="v2"] .lab-call {
   position: fixed;
   inset: 0;
   z-index: 340;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
   box-sizing: border-box;
   padding:
     calc(2.2rem + env(safe-area-inset-top, 0px))
@@ -5943,6 +5950,7 @@
 
 .lab[data-chrome-version="v2"] .lab-call-top {
   display: flex;
+  min-width: 0;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
