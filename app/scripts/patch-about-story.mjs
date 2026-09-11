@@ -54,14 +54,11 @@ const esc = s => s.replaceAll('"', '\\"');
 
 // [file, label, anchor (string or RegExp), replacement, expectedCount (null = one or more), alreadyAppliedMarker]
 const edits = [
-  // Conversion: the header CTA goes (the floating pill is the exit); every story CTA goes into the product.
-  ['html', 'remove header CTA', /<a class="read-link" href="[^"]*">.*?<\/a>/s, '', 1, 'no-read-link'],
+  // The page opens on the slop screen: no header at all. The floating pill is the exit; every story CTA goes into the product.
+  ['html', 'remove header', /<header class="site-header">.*?<\/header>/s, '', 1, 'no-header'],
+  ['payload', 'remove header', /\[\\"\$\\",\\"header\\",null,\{\\"className\\":\\"site-header\\".*?\}\]\]\}\],/s, '', 1, 'no-header'],
   ['html', 'story CTAs -> /read', '<a class="primary-link final-read-link" href="https://tinct.app"', '<a class="primary-link final-read-link" href="/read"', null],
   ['html', 'pick up the thread -> /read', '<a href="https://tinct.app">Pick up the thread', '<a href="/read">Pick up the thread', null],
-  // (the payload tagline is inserted first: the header-CTA removal below also eats the comma that follows the wordmark row)
-  ['payload', 'tagline', esc('"aria-label":"Tinct home","children":"Tinct."}],'),
-    esc('"aria-label":"Tinct home","children":"Tinct."}],["$","span",null,{"className":"site-tagline","children":"A reading platform for the greatest books."}],'), 1, 'site-tagline'],
-  ['payload', 'remove header CTA', /,\[\\"\$\\",\\"a\\",null,\{\\"className\\":\\"read-link\\".*?\\"size\\":18\}\]\]\}\]/s, '', 1, 'no-read-link'],
   ['story', 'CTAs -> /read', 'href:`https://tinct.app`', 'href:`/read`', null],
   // Trust: no named competitor, share image, no cover preload storm.
   ['html', 'competitor name', 'BOOK SUMMARY · BLINKIST', 'BOOK SUMMARY', null],
@@ -78,22 +75,34 @@ const edits = [
   ['html', 'product fonts for the Talk panel', '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>',
     '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/><link rel="stylesheet" href="/fonts/tinct-fonts.css"/>', 1, 'tinct-fonts.css'],
   ['html', 'behaviour script', 'id="_R_" async=""></script>', 'id="_R_" async=""></script><script src="/assets/about-v20/about-v21.js" defer=""></script>', 1, 'about-v21.js'],
-  // Context early: a quiet tagline beside the wordmark.
-  ['html', 'tagline', 'aria-label="Tinct home">Tinct.</a>',
-    'aria-label="Tinct home">Tinct.</a><span class="site-tagline">A reading platform for the greatest books.</span>', 1, 'site-tagline'],
   // Persistent exit ("Escape" until the reveal, then "Start reading") and a footer, mirrored in HTML and payload.
   ['html', 'floating pill + footer', '</main>', PILL_HTML + FOOTER_HTML + '</main>', 1, 'about-footer'],
   ['payload', 'floating pill + footer', esc('{"cinematic":true,"bookshelf":true}]]}]'),
     esc('{"cinematic":true,"bookshelf":true}]') + esc(PILL_ROW) + esc(FOOTER_ROW) + esc(']}]'), 1, 'about-footer'],
   // Recap -> audio transition: the calendar must not come back while the recap fades; the book fades with the beat.
   ['story', 'calendar stays gone', 'className:`recap-calendar`,style:{opacity:1-p}', 'className:`recap-calendar`,style:{opacity:(1-Q(u,.52,.64))*(1-f)}', 1],
-  ['story', 'exit fade variable', 'style:{"--answer":p,"--reveal":d}', 'style:{"--answer":p,"--reveal":d,"--exit":f}', 1],
-  // The reveal moves to the turn: bridge, brand, voice, language, character, return, audio.
-  ['story', 'beat order', 'n=[0,.06,.2,.34,.48,.64,.92,1],r=[-1,2,1,3,0,4,5]', 'n=[0,.05,.13,.27,.41,.55,.71,1],r=[-1,5,2,1,3,0,4]', 1],
+  ['story', 'exit and recap fade variables', 'style:{"--answer":p,"--reveal":d}', 'style:{"--answer":p,"--reveal":d,"--exit":f,"--gone":n.index===0?Q(u,.36,.56):0}', 1],
+  // The reveal moves to the turn: bridge, brand, voice, language, character, return, audio. Phones skip audio.
+  ['story', 'beat order', 'n=[0,.06,.2,.34,.48,.64,.92,1],r=[-1,2,1,3,0,4,5]', 'n=window.innerWidth<=760?[0,.07,.18,.37,.56,.76,1,1.001]:[0,.05,.13,.27,.41,.55,.71,1],r=[-1,5,2,1,3,0,4]', 1],
+  ['story', 'no audio iframe on phones', '!t&&n.index===4?(0,_.jsx)(eo,{progress:Math.min(1,u/.88)})', '!t&&n.index===4?window.innerWidth<=760?null:(0,_.jsx)(eo,{progress:Math.min(1,u/.88)})', 1],
+  // The card avalanche can pour no faster than about three quarters of a second from empty to full, however hard the scroll.
+  ['story', 'speed cap state', 'function Oo({cinematic:e=!1,bookshelf:t=!1})', 'var Ro={v:null,o:null};function Oo({cinematic:e=!1,bookshelf:t=!1})', 1, 'var Ro={v:null,o:null}'],
+  ['story', 'avalanche speed cap', 'i({...s,overload:u,travel:d})',
+    '{let m=.022,p=s.progress,q=Ro.o===null?u:Math.max(Ro.o-m,Math.min(Ro.o+m,u)),z=$[s.index]?.id===`infinite`,g=z&&Ro.v!==null?Math.max(Ro.v-m,Math.min(Ro.v+m,p)):p;Ro.o=q,Ro.v=z?g:null,(q!==u||g!==p)&&Ro.k&&Ro.k(),i({...s,progress:g,overload:q,travel:d})}', 1],
+  ['story', 'speed cap scheduler hook', 'o=()=>{r||=requestAnimationFrame(a)};return a(),', 'o=()=>{r||=requestAnimationFrame(a)};Ro.k=o;return a(),', 1, 'Ro.k=o'],
   ['story', 'reveal with the product',
     '(0,_.jsxs)(`div`,{className:`reading-brand`,children:[(0,_.jsx)(`p`,{className:`tinct-introduction`,children:`Introducing Tinct.`}),(0,_.jsx)(`h2`,{children:`All this and more.`}),(0,_.jsxs)(`p`,{className:`tinct-promise`,children:[`Built to remove the barriers`,(0,_.jsx)(`br`,{}),`between you and the greatest books.`]})]})',
     '(0,_.jsxs)(`div`,{className:`reading-brand`,style:{opacity:Q(u,0,.12)*(1-Q(u,.88,1))},children:[(0,_.jsxs)(`div`,{className:`brand-copy`,children:[(0,_.jsx)(`p`,{className:`tinct-introduction`,children:`Introducing Tinct.`}),(0,_.jsxs)(`h2`,{className:`tinct-promise`,children:[`Built to remove the barriers`,(0,_.jsx)(`br`,{}),`between you and the greatest books.`]})]}),(0,_.jsx)(`div`,{className:`brand-devices`,style:{opacity:Q(u,.06,.3),transform:`translateY(${(1-Q(u,.06,.35))*40}px)`},children:(0,_.jsx)(To,{children:(0,_.jsx)(`figure`,{className:`device-ensemble brand-ensemble`,"aria-label":`Tinct on a laptop, an e-reader and a phone`,children:(0,_.jsxs)(`div`,{className:`device-canvas`,children:[(0,_.jsx)(W,{unoptimized:!0,src:`/assets/about-v20/assets/devices-transparent-v10.webp`,alt:``,width:1536,height:1024}),So.map(e=>(0,_.jsx)(`div`,{className:`projected-screen projected-`+e.kind,style:{width:e.width,height:e.height,transform:`matrix3d(${Ha(e.width,e.height,e.corners).join(`,`)})`},children:(0,_.jsx)(`img`,{className:`brand-screen`,src:e.kind===`desktop`?`/assets/about-v20/assets/library-desktop-v1.webp`:e.kind===`phone`?`/assets/about-v20/assets/voice-phone-v1.webp`:`/assets/about-v20/assets/reader-classic.jpg`,alt:``,width:e.width,height:e.height})},e.kind))]})})})})]})', 1],
-  // Overview scene: sequenced highlights paired with the questions, one at a time.
+  // Overview scene: Scene II (so "Who is this?" lands on a real supporting name), one highlight and one question at a time.
+  ['story', 'Scene II overview passage', 'return t===`character`?',
+    'return k?(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:(0,_.jsx)(`mark`,{className:`ask-mark`,style:{"--k":k[0]},children:`Scene II.`})}),' +
+    '(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`King.`})}),' +
+    '(0,_.jsxs)(`p`,{children:[`And we here dispatch You, good Cornelius, and you, `,(0,_.jsx)(`mark`,{className:`ask-mark`,style:{"--k":k[2]},children:`Voltemand`}),`, For bearers of this greeting to old Norway;`]}),' +
+    '(0,_.jsxs)(`p`,{children:[`Giving to you no further personal power`,(0,_.jsx)(`br`,{}),`To business with the king, more than the scope`,(0,_.jsx)(`br`,{}),(0,_.jsx)(`mark`,{className:`ask-mark`,style:{"--k":k[1]},children:`Of these dilated articles allow.`}),(0,_.jsx)(`br`,{}),`Farewell, and let your haste commend your duty.`]}),' +
+    '(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`Cornelius, Voltemand.`})}),(0,_.jsx)(`p`,{children:`In that and all things will we show our duty.`}),' +
+    '(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`King.`})}),(0,_.jsx)(`p`,{children:`We doubt it nothing: heartily farewell.`})]}):t===`character`?', 1, 'children:`Scene II.`})})'],
+  ['story', 'overview left page is Scene II', 'children:n.index===3?(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:`Scene II.`})',
+    'children:n.index===3||t?(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:`Scene II.`})', 1],
   ['story', 'passage steps param', 'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r})',
     'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r,steps:k=null})', 1],
   ['story', 'pass steps in overview', 'highlight:t?``:d<1||n.index===2||n.index===3?g:``,audio:n.index===4&&d>0})',
@@ -109,7 +118,7 @@ const edits = [
     '[`What happened before this?`,`I have no idea what this means.`,`Who is this?`].map((e,t)=>{let n=Q(u,.12+t*.2,.24+t*.2)*(t<2?1-Q(u,.32+t*.2,.4+t*.2):1);return', 1],
   // Language scene: the edition is named in the page header.
   ['story', 'edition name in header', 'children:[`Act I, Scene `,n.index===3?`II`:`IV`]})]})',
-    'children:[`Act I, Scene `,n.index===3?`II`:`IV`]}),(0,_.jsx)(`em`,{className:`edition-name`,style:{opacity:n.index===1&&h?1:0},children:`Modern translation`})]})', 1],
+    'children:[`Act I, Scene `,n.index===3||t?`II`:`IV`]}),(0,_.jsx)(`em`,{className:`edition-name`,style:{opacity:n.index===1&&h?1:0},children:`Modern translation`})]})', 1],
   // Type and copy.
   ['story', 'recap line', '(0,_.jsxs)(`span`,{className:`recap-time`,children:[(0,_.jsx)(`span`,{children:`LAST TIME YOU READ`}),(0,_.jsx)(`span`,{children:`THREE WEEKS AGO`})]})',
     '(0,_.jsx)(`span`,{className:`recap-time`,children:`Last time you read: three weeks ago`})', 1],
@@ -119,7 +128,7 @@ const edits = [
   ['story', 'talk panel button labels', 'a?`Show voice view`:`Read the conversation`]}', 'a?`Voice`:`Transcript`]}', 1],
   ['story', 'bookshelf lighting', 'filter:`saturate(${e===5?u:e===4?.12:0})`', 'filter:`saturate(${e===5?u:e===4?.12:0}) brightness(${e===5?1+.3*u:1})`', 1],
   ['iframe', 'intro line', 'Read and listen<br><em>at will.</em>', 'Read and listen<br><em>wherever you are.</em>', 1],
-  ['iframe', 'intro width', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:37%;', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:46%;', 1],
+  ['iframe', 'intro width', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:37%;', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:40%;', 1],
   ['iframe', 'keep talking', '<div class="ta-keep-talking">and keep<br><em>talking.</em></div>', '<div class="ta-keep-talking">Keep<br><em>talking.</em></div>', 1],
   ['iframe', 'Android e-readers', '<em>On your favourite<br>e-reader.</em>', '<em>On Android<br>e-readers.</em>', 1],
 ];
@@ -129,7 +138,7 @@ let applied = 0, skipped = 0;
 for (const [file, label, anchor, replacement, expected, marker] of edits) {
   const isRe = anchor instanceof RegExp;
   const has = s => isRe ? anchor.test(s) : s.includes(anchor);
-  const done = marker === 'no-read-link' ? !has(text[file])
+  const done = (marker === 'no-read-link' || marker === 'no-header') ? !has(text[file])
     : marker ? text[file].includes(marker)
     : text[file].includes(replacement) && !has(text[file]);
   if (done) { skipped++; continue; }
