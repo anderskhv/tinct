@@ -1,6 +1,6 @@
 # Character content: library coverage
 
-Snapshot: 2026-09-10. Regenerate with `python3 books/characters/inventory.py`.
+Snapshot: 2026-09-11. Regenerate with `python3 books/characters/inventory.py`.
 
 Only published BOOKS entries are included. Existing Threads content is not evidence of spoiler-safe character readiness.
 
