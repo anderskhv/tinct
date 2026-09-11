@@ -370,7 +370,7 @@ Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not producti
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
-| The Odyssey | 91340bb9 | 356 / 354 | build_odyssey.py |
+| The Odyssey | 16b9c83e | 356 / 354 | build_odyssey.py |
 
 | Book | original-en | modern-en |
 |---|---|---|
