@@ -689,7 +689,7 @@ Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not producti
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
-| The Divine Comedy | COMMIT | 574 / 587 | build_divine_comedy.py |
+| The Divine Comedy | f15dac3d | 574 / 587 | build_divine_comedy.py |
 
 | Book | original-en | modern-en |
 |---|---|---|
