@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import { LabApp } from './lab/LabApp'
 import { isLabPath } from './lab/labRoute'
+import { isNativeCapacitor } from './utils/nativePlatform'
 import './index.css'
 
-// Detect Capacitor (Android/iOS native app) and E-ink devices
-const isCapacitor = !!(window as Record<string, unknown>).Capacitor
+// Detect Capacitor (Android/iOS native app) and E-ink devices.
+// `window.Capacitor` exists in the web bundle too; only the native shell counts.
+const isCapacitor = isNativeCapacitor()
 const isAndroid = /android/i.test(navigator.userAgent)
 // E-ink: default ON for Capacitor Android (our target is Boox e-readers)
 // Also check UA for known e-ink brands as fallback for web
