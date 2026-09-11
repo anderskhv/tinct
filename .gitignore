@@ -55,3 +55,7 @@ design_handoff_tinct_library/
 
 # Archived heavy binaries — kept locally for reference but never tracked
 archive/build-artifacts/
+
+# Python bytecode from the audio-highlight cloud tools
+__pycache__/
+*.pyc

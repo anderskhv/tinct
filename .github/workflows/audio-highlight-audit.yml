@@ -1,0 +1,112 @@
+name: audio-highlight-audit
+
+# Laptop-independent supervision for audio word highlighting.
+#
+# Census: which published English chapters have a word-timing sidecar.
+# Verify: whether the sidecars that exist are actually correct — identity,
+#         paragraph mapping, timestamp bounds and edition-text agreement at
+#         the existing 0.85 threshold.
+#
+# Everything here is read-only against public production endpoints. It needs
+# no Cloudflare credentials and no access to anyone's machine. The ledger is
+# committed to the `audio-highlight-ledger` branch so progress survives this
+# runner, this session and any single computer.
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      verify_all:
+        description: 'Verify every published sidecar instead of a rotating sample'
+        type: boolean
+        default: false
+
+concurrency:
+  group: audio-highlight-audit
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Census published coverage
+        run: |
+          mkdir -p ledger
+          python3 tools/audio-highlight/audit_production.py \
+            --out ledger/coverage.json \
+            --targets-out ledger/missing-timings.json \
+            --covered-out ledger/published-timings.json \
+            | tee ledger/coverage-summary.txt
+
+      - name: Choose the verification set
+        run: |
+          python3 - <<'PY'
+          import json, os, random
+          from pathlib import Path
+          covered = json.loads(Path('ledger/published-timings.json').read_text())
+          if os.environ.get('VERIFY_ALL') == 'true':
+              chosen = covered
+          else:
+              # A rotating sample keeps the scheduled run bounded while still
+              # touching every published chapter over time. The seed advances
+              # with the run number, so successive runs pick different chapters.
+              random.seed(int(os.environ.get('GITHUB_RUN_NUMBER', '0')))
+              chosen = random.sample(covered, min(400, len(covered)))
+          Path('ledger/verify-targets.json').write_text(json.dumps(chosen, indent=1))
+          print(f'verifying {len(chosen)} of {len(covered)} published chapters')
+          PY
+        env:
+          VERIFY_ALL: ${{ inputs.verify_all }}
+
+      - name: Verify published sidecars
+        id: verify
+        continue-on-error: true
+        run: |
+          python3 tools/audio-highlight/verify_timings.py \
+            --targets ledger/verify-targets.json \
+            --out ledger/verification.json \
+            | tee ledger/verification-summary.txt
+
+      - name: Publish the ledger
+        run: |
+          git config user.name 'tinct-audit'
+          git config user.email 'tinct-audit@users.noreply.github.com'
+          git fetch origin audio-highlight-ledger || true
+          git checkout -B audio-highlight-ledger
+          # Keep only the ledger on this branch; it is a record, not a checkout.
+          find . -mindepth 1 -maxdepth 1 -not -name .git -not -name ledger -exec rm -rf {} +
+          printf '%s\n' "# Audio highlighting ledger" '' \
+            "Written by \`.github/workflows/audio-highlight-audit.yml\`." \
+            "Run: \`$GITHUB_RUN_ID\` — commit \`$GITHUB_SHA\` — $(date -u +%Y-%m-%dT%H:%M:%SZ)" '' \
+            '```' > README.md
+          cat ledger/coverage-summary.txt >> README.md
+          printf '```\n\n```\n' >> README.md
+          cat ledger/verification-summary.txt >> README.md 2>/dev/null || true
+          printf '```\n' >> README.md
+          sha256sum ledger/*.json > ledger/SHA256SUMS.txt
+          git add -A
+          git commit -m "ledger: audio highlighting census and verification $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
+          git push -f origin audio-highlight-ledger
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audio-highlight-ledger
+          path: ledger/
+          retention-days: 30
+
+      - name: Fail if a published sidecar is invalid
+        if: steps.verify.outcome == 'failure'
+        run: |
+          echo 'Published word timings failed validation. See ledger/verification.json.'
+          exit 1

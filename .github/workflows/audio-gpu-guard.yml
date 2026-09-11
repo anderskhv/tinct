@@ -1,0 +1,66 @@
+name: audio-gpu-guard
+
+# Stops runaway GPU spend without depending on anyone's laptop being awake.
+#
+# `app/tts/pod-watchdog.py` does this job today, but only while Anders's Mac is
+# running. This workflow enforces the same limits from GitHub's infrastructure:
+# a per-pod rate ceiling, a per-pod wall-clock deadline, and a total envelope.
+# It only ever acts on pods named with the word-timing owner prefix; anything
+# else in the RunPod account is reported and left untouched.
+#
+# Inactive until RUNPOD_API_KEY is present as a repository secret: without it
+# the guard exits 2 and this job reports that it is not yet armed.
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      stop_all:
+        description: 'Stop every owned pod now, regardless of limits'
+        type: boolean
+        default: false
+
+concurrency:
+  group: audio-gpu-guard
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Enforce GPU limits
+        env:
+          RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
+          # Kept in step with the approved envelope: $25 total, $1/hr per pod,
+          # 50-minute stop deadline.
+          TINCT_GPU_BUDGET: '25'
+          TINCT_GPU_MAX_RATE: '1.00'
+          TINCT_GPU_MAX_MINUTES: '50'
+        run: |
+          if [ -z "${RUNPOD_API_KEY}" ]; then
+            echo '::warning::RUNPOD_API_KEY is not configured — the cloud GPU guard is NOT armed.'
+            echo 'Until it is, remote termination still depends on pod-watchdog.py on the Mac.'
+            exit 0
+          fi
+          python3 tools/audio-highlight/runpod_guard.py \
+            "${{ inputs.stop_all == true && 'stop-all' || 'enforce' }}" \
+            --budget "$TINCT_GPU_BUDGET" \
+            --max-rate "$TINCT_GPU_MAX_RATE" \
+            --max-minutes "$TINCT_GPU_MAX_MINUTES" \
+            --json-out guard-report.json \
+            --apply
+
+      - uses: actions/upload-artifact@v4
+        if: always() && hashFiles('guard-report.json') != ''
+        with:
+          name: gpu-guard-report
+          path: guard-report.json
+          retention-days: 7
