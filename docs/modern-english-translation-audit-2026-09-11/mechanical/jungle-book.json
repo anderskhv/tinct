@@ -1,0 +1,63 @@
+{
+ "id": "jungle-book",
+ "title": "The Jungle Book",
+ "author": "Rudyard Kipling",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "574838d49e38cec0",
+   "chapters": 7,
+   "paragraphs": 944,
+   "word_count": 48749,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "821357c6bb7dc016",
+   "chapters": 7,
+   "paragraphs": 944,
+   "word_count": 50675,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "f1a9afbb1c7ee5ab",
+   "chapters": 7,
+   "paragraphs": 944,
+   "word_count": 50774,
+   "sections": 0,
+   "label": "Kipling (1894)",
+   "translator": null,
+   "year": 1894,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 7,
+  "chapter_count_target": 7,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.9719,
+  "pct_identical_long_paragraphs": 46.0,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 6191
+ },
+ "en_editions_aligned": true
+}

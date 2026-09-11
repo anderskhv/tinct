@@ -1,0 +1,75 @@
+{
+ "id": "werther",
+ "title": "The Sorrows of Young Werther",
+ "author": "Johann Wolfgang von Goethe",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "e97c294c690fe118",
+   "chapters": 84,
+   "paragraphs": 354,
+   "word_count": 40617,
+   "sections": 3,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "f45d353204e356b3",
+   "chapters": 84,
+   "paragraphs": 354,
+   "word_count": 40815,
+   "sections": 3,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-de": {
+   "present": true,
+   "sha256_16": "d4e3fb74223af57a",
+   "chapters": 83,
+   "paragraphs": 351,
+   "word_count": 38524,
+   "sections": 3,
+   "label": null,
+   "translator": null,
+   "year": null,
+   "language": null
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "db7393bfc33628a2",
+   "chapters": 84,
+   "paragraphs": 354,
+   "word_count": 42304,
+   "sections": 3,
+   "label": "Boylan (1779)",
+   "translator": "R. D. Boylan",
+   "year": 1779,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 84,
+  "chapter_count_target": 84,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.3714,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 11071
+ },
+ "en_editions_aligned": true
+}

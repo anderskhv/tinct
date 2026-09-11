@@ -1,0 +1,63 @@
+{
+ "id": "nicomachean-ethics",
+ "title": "Nicomachean Ethics",
+ "author": "Aristotle",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "b48d05b6bc5da844",
+   "chapters": 10,
+   "paragraphs": 1195,
+   "word_count": 78090,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "c6128f1563bbe0eb",
+   "chapters": 10,
+   "paragraphs": 1195,
+   "word_count": 79500,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "214c4025cd1ef25c",
+   "chapters": 10,
+   "paragraphs": 1195,
+   "word_count": 92325,
+   "sections": 0,
+   "label": "Chase (1847) / Ross tradition",
+   "translator": "D.P. Chase",
+   "year": 1847,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 10,
+  "chapter_count_target": 10,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6355,
+  "pct_identical_long_paragraphs": 0.1,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 8577
+ },
+ "en_editions_aligned": true
+}

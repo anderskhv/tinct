@@ -1,0 +1,63 @@
+{
+ "id": "oresteia",
+ "title": "The Oresteia",
+ "author": "Aeschylus",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "c131aa0ae927e741",
+   "chapters": 26,
+   "paragraphs": 771,
+   "word_count": 35572,
+   "sections": 3,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "861b154ade471832",
+   "chapters": 26,
+   "paragraphs": 771,
+   "word_count": 36797,
+   "sections": 3,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "c6189c462535c358",
+   "chapters": 26,
+   "paragraphs": 771,
+   "word_count": 34061,
+   "sections": 3,
+   "label": "Morshead (1881)",
+   "translator": "E. D. A. Morshead",
+   "year": 1881,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 26,
+  "chapter_count_target": 26,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6064,
+  "pct_identical_long_paragraphs": 2.2,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1973
+ },
+ "en_editions_aligned": true
+}

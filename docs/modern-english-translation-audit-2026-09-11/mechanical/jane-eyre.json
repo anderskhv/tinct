@@ -1,0 +1,183 @@
+{
+ "id": "jane-eyre",
+ "title": "Jane Eyre",
+ "author": "Charlotte Bront\u00eb",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "2c2fad5c5aff97de",
+   "chapters": 38,
+   "paragraphs": 4047,
+   "word_count": 176107,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "bbfe4c30163ecf07",
+   "chapters": 38,
+   "paragraphs": 4047,
+   "word_count": 175639,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "055aad5e04c0c9db",
+   "chapters": 38,
+   "paragraphs": 4047,
+   "word_count": 184364,
+   "sections": 0,
+   "label": "Original (1847)",
+   "translator": null,
+   "year": 1847,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 38,
+  "chapter_count_target": 38,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6753,
+  "pct_identical_long_paragraphs": 0.9,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 27,
+    "paragraph": 150,
+    "src_words": 197,
+    "tgt_words": 105,
+    "ratio": 0.53
+   },
+   {
+    "chapter": 27,
+    "paragraph": 160,
+    "src_words": 402,
+    "tgt_words": 110,
+    "ratio": 0.27
+   },
+   {
+    "chapter": 35,
+    "paragraph": 6,
+    "src_words": 26,
+    "tgt_words": 15,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 35,
+    "paragraph": 83,
+    "src_words": 211,
+    "tgt_words": 115,
+    "ratio": 0.55
+   },
+   {
+    "chapter": 36,
+    "paragraph": 48,
+    "src_words": 351,
+    "tgt_words": 184,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 37,
+    "paragraph": 10,
+    "src_words": 142,
+    "tgt_words": 82,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 37,
+    "paragraph": 48,
+    "src_words": 66,
+    "tgt_words": 35,
+    "ratio": 0.53
+   },
+   {
+    "chapter": 37,
+    "paragraph": 57,
+    "src_words": 48,
+    "tgt_words": 28,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 37,
+    "paragraph": 63,
+    "src_words": 130,
+    "tgt_words": 44,
+    "ratio": 0.34
+   },
+   {
+    "chapter": 37,
+    "paragraph": 85,
+    "src_words": 119,
+    "tgt_words": 50,
+    "ratio": 0.42
+   },
+   {
+    "chapter": 37,
+    "paragraph": 86,
+    "src_words": 96,
+    "tgt_words": 46,
+    "ratio": 0.48
+   },
+   {
+    "chapter": 37,
+    "paragraph": 91,
+    "src_words": 123,
+    "tgt_words": 48,
+    "ratio": 0.39
+   },
+   {
+    "chapter": 37,
+    "paragraph": 92,
+    "src_words": 59,
+    "tgt_words": 22,
+    "ratio": 0.37
+   },
+   {
+    "chapter": 37,
+    "paragraph": 104,
+    "src_words": 73,
+    "tgt_words": 32,
+    "ratio": 0.44
+   },
+   {
+    "chapter": 37,
+    "paragraph": 115,
+    "src_words": 108,
+    "tgt_words": 59,
+    "ratio": 0.55
+   },
+   {
+    "chapter": 37,
+    "paragraph": 116,
+    "src_words": 93,
+    "tgt_words": 39,
+    "ratio": 0.42
+   },
+   {
+    "chapter": 38,
+    "paragraph": 13,
+    "src_words": 196,
+    "tgt_words": 102,
+    "ratio": 0.52
+   }
+  ],
+  "truncated_paragraphs_total": 17,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1507
+ },
+ "en_editions_aligned": true
+}

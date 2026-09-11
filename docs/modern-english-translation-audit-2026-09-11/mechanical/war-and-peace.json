@@ -1,0 +1,211 @@
+{
+ "id": "war-and-peace",
+ "title": "War and Peace",
+ "author": "Leo Tolstoy",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "773c92e160681723",
+   "chapters": 365,
+   "paragraphs": 11340,
+   "word_count": 537122,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "d3ecdb9d013f45e5",
+   "chapters": 365,
+   "paragraphs": 11340,
+   "word_count": 534552,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "6112db117bbc3664",
+   "chapters": 365,
+   "paragraphs": 11340,
+   "word_count": 561695,
+   "sections": 0,
+   "label": "Maude Translation (1922)",
+   "translator": "Aylmer & Louise Maude",
+   "year": 1922,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 365,
+  "chapter_count_target": 365,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6958,
+  "pct_identical_long_paragraphs": 0.6,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 38,
+    "paragraph": 12,
+    "src_words": 24,
+    "tgt_words": 6,
+    "ratio": 0.25
+   },
+   {
+    "chapter": 150,
+    "paragraph": 12,
+    "src_words": 46,
+    "tgt_words": 3,
+    "ratio": 0.07
+   },
+   {
+    "chapter": 334,
+    "paragraph": 21,
+    "src_words": 179,
+    "tgt_words": 55,
+    "ratio": 0.31
+   },
+   {
+    "chapter": 338,
+    "paragraph": 12,
+    "src_words": 142,
+    "tgt_words": 81,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 344,
+    "paragraph": 10,
+    "src_words": 229,
+    "tgt_words": 118,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 345,
+    "paragraph": 8,
+    "src_words": 96,
+    "tgt_words": 42,
+    "ratio": 0.44
+   },
+   {
+    "chapter": 350,
+    "paragraph": 2,
+    "src_words": 87,
+    "tgt_words": 11,
+    "ratio": 0.13
+   },
+   {
+    "chapter": 350,
+    "paragraph": 5,
+    "src_words": 339,
+    "tgt_words": 72,
+    "ratio": 0.21
+   },
+   {
+    "chapter": 355,
+    "paragraph": 1,
+    "src_words": 228,
+    "tgt_words": 107,
+    "ratio": 0.47
+   },
+   {
+    "chapter": 355,
+    "paragraph": 3,
+    "src_words": 185,
+    "tgt_words": 56,
+    "ratio": 0.3
+   },
+   {
+    "chapter": 355,
+    "paragraph": 11,
+    "src_words": 194,
+    "tgt_words": 53,
+    "ratio": 0.27
+   },
+   {
+    "chapter": 357,
+    "paragraph": 19,
+    "src_words": 356,
+    "tgt_words": 154,
+    "ratio": 0.43
+   },
+   {
+    "chapter": 358,
+    "paragraph": 14,
+    "src_words": 113,
+    "tgt_words": 55,
+    "ratio": 0.49
+   },
+   {
+    "chapter": 358,
+    "paragraph": 18,
+    "src_words": 112,
+    "tgt_words": 26,
+    "ratio": 0.23
+   },
+   {
+    "chapter": 359,
+    "paragraph": 5,
+    "src_words": 109,
+    "tgt_words": 56,
+    "ratio": 0.51
+   },
+   {
+    "chapter": 359,
+    "paragraph": 6,
+    "src_words": 137,
+    "tgt_words": 61,
+    "ratio": 0.45
+   },
+   {
+    "chapter": 360,
+    "paragraph": 13,
+    "src_words": 124,
+    "tgt_words": 56,
+    "ratio": 0.45
+   },
+   {
+    "chapter": 361,
+    "paragraph": 27,
+    "src_words": 233,
+    "tgt_words": 104,
+    "ratio": 0.45
+   },
+   {
+    "chapter": 362,
+    "paragraph": 10,
+    "src_words": 251,
+    "tgt_words": 98,
+    "ratio": 0.39
+   },
+   {
+    "chapter": 362,
+    "paragraph": 25,
+    "src_words": 383,
+    "tgt_words": 112,
+    "ratio": 0.29
+   },
+   {
+    "chapter": 365,
+    "paragraph": 11,
+    "src_words": 152,
+    "tgt_words": 61,
+    "ratio": 0.4
+   }
+  ],
+  "truncated_paragraphs_total": 21,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 718
+ },
+ "en_editions_aligned": true
+}

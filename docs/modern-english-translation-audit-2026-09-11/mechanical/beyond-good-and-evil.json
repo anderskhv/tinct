@@ -1,0 +1,63 @@
+{
+ "id": "beyond-good-and-evil",
+ "title": "Beyond Good and Evil",
+ "author": "Friedrich Nietzsche",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "ee3d488e2e798a6a",
+   "chapters": 11,
+   "paragraphs": 325,
+   "word_count": 60068,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "5b14eaa83a4b695a",
+   "chapters": 11,
+   "paragraphs": 325,
+   "word_count": 63623,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "a906a663863727ff",
+   "chapters": 11,
+   "paragraphs": 325,
+   "word_count": 62412,
+   "sections": 0,
+   "label": "Zimmern (1907)",
+   "translator": "Helen Zimmern",
+   "year": 1907,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 11,
+  "chapter_count_target": 11,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.8759,
+  "pct_identical_long_paragraphs": 11.1,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": true,
+  "last_chapter_word_count": 613
+ },
+ "en_editions_aligned": true
+}

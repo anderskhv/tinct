@@ -1,0 +1,141 @@
+{
+ "id": "apology",
+ "title": "Apology",
+ "author": "Plato",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "7478955a3818154f",
+   "chapters": 3,
+   "paragraphs": 92,
+   "word_count": 7840,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "f09399f0fe5348b3",
+   "chapters": 3,
+   "paragraphs": 92,
+   "word_count": 7856,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "a951009eaf834d24",
+   "chapters": 3,
+   "paragraphs": 92,
+   "word_count": 11383,
+   "sections": 0,
+   "label": "Jowett (1871)",
+   "translator": "Benjamin Jowett",
+   "year": 1871,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 3,
+  "chapter_count_target": 3,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.3598,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 1,
+    "paragraph": 5,
+    "src_words": 270,
+    "tgt_words": 161,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 1,
+    "paragraph": 16,
+    "src_words": 204,
+    "tgt_words": 122,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 1,
+    "paragraph": 47,
+    "src_words": 98,
+    "tgt_words": 55,
+    "ratio": 0.56
+   },
+   {
+    "chapter": 1,
+    "paragraph": 51,
+    "src_words": 136,
+    "tgt_words": 81,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 1,
+    "paragraph": 59,
+    "src_words": 176,
+    "tgt_words": 95,
+    "ratio": 0.54
+   },
+   {
+    "chapter": 1,
+    "paragraph": 69,
+    "src_words": 259,
+    "tgt_words": 147,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 1,
+    "paragraph": 74,
+    "src_words": 283,
+    "tgt_words": 169,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 1,
+    "paragraph": 75,
+    "src_words": 204,
+    "tgt_words": 120,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 2,
+    "paragraph": 1,
+    "src_words": 285,
+    "tgt_words": 170,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 2,
+    "paragraph": 5,
+    "src_words": 245,
+    "tgt_words": 139,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 3,
+    "paragraph": 4,
+    "src_words": 283,
+    "tgt_words": 164,
+    "ratio": 0.58
+   }
+  ],
+  "truncated_paragraphs_total": 11,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1121
+ },
+ "en_editions_aligned": true
+}

@@ -1,0 +1,113 @@
+{
+ "id": "poetics",
+ "title": "Poetics",
+ "author": "Aristotle",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "98b7db8373b61d59",
+   "chapters": 26,
+   "paragraphs": 130,
+   "word_count": 12548,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "20c7f0695e0360b9",
+   "chapters": 26,
+   "paragraphs": 130,
+   "word_count": 13507,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "00113ffc33cceda9",
+   "chapters": 26,
+   "paragraphs": 130,
+   "word_count": 14802,
+   "sections": 0,
+   "label": "Butcher (1895)",
+   "translator": "S. H. Butcher",
+   "year": 1895,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 26,
+  "chapter_count_target": 26,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.7845,
+  "pct_identical_long_paragraphs": 1.6,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 21,
+    "paragraph": 6,
+    "src_words": 101,
+    "tgt_words": 53,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 21,
+    "paragraph": 7,
+    "src_words": 57,
+    "tgt_words": 30,
+    "ratio": 0.53
+   },
+   {
+    "chapter": 22,
+    "paragraph": 1,
+    "src_words": 243,
+    "tgt_words": 63,
+    "ratio": 0.26
+   },
+   {
+    "chapter": 22,
+    "paragraph": 2,
+    "src_words": 31,
+    "tgt_words": 6,
+    "ratio": 0.19
+   },
+   {
+    "chapter": 22,
+    "paragraph": 3,
+    "src_words": 114,
+    "tgt_words": 59,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 25,
+    "paragraph": 8,
+    "src_words": 67,
+    "tgt_words": 30,
+    "ratio": 0.45
+   },
+   {
+    "chapter": 25,
+    "paragraph": 10,
+    "src_words": 36,
+    "tgt_words": 15,
+    "ratio": 0.42
+   }
+  ],
+  "truncated_paragraphs_total": 7,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 618
+ },
+ "en_editions_aligned": true
+}

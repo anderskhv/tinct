@@ -1,0 +1,106 @@
+{
+ "id": "aristotle-politics",
+ "title": "Politics",
+ "author": "Aristotle",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "57d699612aa360b0",
+   "chapters": 8,
+   "paragraphs": 478,
+   "word_count": 79838,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "8ce0b1f6570584b4",
+   "chapters": 8,
+   "paragraphs": 478,
+   "word_count": 86194,
+   "sections": 8,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "0bf42e46f4c5c373",
+   "chapters": 8,
+   "paragraphs": 478,
+   "word_count": 90701,
+   "sections": 8,
+   "label": "Jowett (1885)",
+   "translator": "Benjamin Jowett",
+   "year": 1885,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 8,
+  "chapter_count_target": 8,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.8763,
+  "pct_identical_long_paragraphs": 0.8,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 2,
+    "paragraph": 31,
+    "src_words": 38,
+    "tgt_words": 16,
+    "ratio": 0.42
+   },
+   {
+    "chapter": 3,
+    "paragraph": 6,
+    "src_words": 48,
+    "tgt_words": 20,
+    "ratio": 0.42
+   },
+   {
+    "chapter": 4,
+    "paragraph": 63,
+    "src_words": 34,
+    "tgt_words": 13,
+    "ratio": 0.38
+   },
+   {
+    "chapter": 5,
+    "paragraph": 79,
+    "src_words": 43,
+    "tgt_words": 24,
+    "ratio": 0.56
+   },
+   {
+    "chapter": 7,
+    "paragraph": 24,
+    "src_words": 107,
+    "tgt_words": 64,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 8,
+    "paragraph": 3,
+    "src_words": 59,
+    "tgt_words": 29,
+    "ratio": 0.49
+   }
+  ],
+  "truncated_paragraphs_total": 6,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 5202
+ },
+ "en_editions_aligned": true
+}

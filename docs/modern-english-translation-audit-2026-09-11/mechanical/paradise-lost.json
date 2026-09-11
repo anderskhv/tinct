@@ -1,0 +1,63 @@
+{
+ "id": "paradise-lost",
+ "title": "Paradise Lost",
+ "author": "John Milton",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "266ada0a3a74b083",
+   "chapters": 12,
+   "paragraphs": 1188,
+   "word_count": 70481,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "87727e7760ea487d",
+   "chapters": 12,
+   "paragraphs": 1188,
+   "word_count": 84141,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "56c47aa192f17e38",
+   "chapters": 12,
+   "paragraphs": 1188,
+   "word_count": 79739,
+   "sections": 0,
+   "label": "Original (1674)",
+   "translator": null,
+   "year": 1674,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 12,
+  "chapter_count_target": 12,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.5363,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 5234
+ },
+ "en_editions_aligned": true
+}

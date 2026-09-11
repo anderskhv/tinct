@@ -1,0 +1,63 @@
+{
+ "id": "wealth-of-nations",
+ "title": "The Wealth of Nations",
+ "author": "Adam Smith",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "0aaf422e8430f357",
+   "chapters": 32,
+   "paragraphs": 2173,
+   "word_count": 336669,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "d894aec39397bf2a",
+   "chapters": 32,
+   "paragraphs": 2173,
+   "word_count": 352310,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "986785410f5c74e8",
+   "chapters": 32,
+   "paragraphs": 2173,
+   "word_count": 379438,
+   "sections": 0,
+   "label": "Smith (1776)",
+   "translator": null,
+   "year": 1776,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 32,
+  "chapter_count_target": 32,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6676,
+  "pct_identical_long_paragraphs": 1.0,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 16667
+ },
+ "en_editions_aligned": true
+}

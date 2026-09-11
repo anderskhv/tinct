@@ -1,0 +1,63 @@
+{
+ "id": "romeo-and-juliet",
+ "title": "Romeo and Juliet",
+ "author": "William Shakespeare",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "bed47cb3281aa1e9",
+   "chapters": 25,
+   "paragraphs": 1062,
+   "word_count": 26036,
+   "sections": 6,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "47fdf4f9a1b309f6",
+   "chapters": 25,
+   "paragraphs": 1062,
+   "word_count": 25597,
+   "sections": 6,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "d7be46edc32ddbb1",
+   "chapters": 25,
+   "paragraphs": 1062,
+   "word_count": 25515,
+   "sections": 6,
+   "label": "Original Text",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 25,
+  "chapter_count_target": 25,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.4173,
+  "pct_identical_long_paragraphs": 0.2,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 2756
+ },
+ "en_editions_aligned": true
+}

@@ -1,0 +1,78 @@
+{
+ "id": "great-expectations",
+ "title": "Great Expectations",
+ "author": "Charles Dickens",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "a44e786c7e531372",
+   "chapters": 59,
+   "paragraphs": 3835,
+   "word_count": 182528,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "760e685ddbc2b7cf",
+   "chapters": 59,
+   "paragraphs": 3835,
+   "word_count": 181350,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "e4c4863487b9b9ce",
+   "chapters": 59,
+   "paragraphs": 3835,
+   "word_count": 184218,
+   "sections": 0,
+   "label": "Original (1861)",
+   "translator": null,
+   "year": 1861,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 59,
+  "chapter_count_target": 59,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.7827,
+  "pct_identical_long_paragraphs": 0.6,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 26,
+    "paragraph": 0,
+    "src_words": 297,
+    "tgt_words": 65,
+    "ratio": 0.22
+   },
+   {
+    "chapter": 39,
+    "paragraph": 102,
+    "src_words": 115,
+    "tgt_words": 67,
+    "ratio": 0.58
+   }
+  ],
+  "truncated_paragraphs_total": 2,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1439
+ },
+ "en_editions_aligned": true
+}

@@ -1,0 +1,63 @@
+{
+ "id": "imitation-of-christ",
+ "title": "The Imitation of Christ",
+ "author": "Thomas \u00e0 Kempis",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "02c25fe5430acc68",
+   "chapters": 114,
+   "paragraphs": 774,
+   "word_count": 55867,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "8805af64c4357b3f",
+   "chapters": 114,
+   "paragraphs": 774,
+   "word_count": 56603,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "43902ea5bf50af97",
+   "chapters": 114,
+   "paragraphs": 774,
+   "word_count": 61341,
+   "sections": 0,
+   "label": "Benham (1886)",
+   "translator": null,
+   "year": 1886,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 114,
+  "chapter_count_target": 114,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.5066,
+  "pct_identical_long_paragraphs": 2.1,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 490
+ },
+ "en_editions_aligned": true
+}

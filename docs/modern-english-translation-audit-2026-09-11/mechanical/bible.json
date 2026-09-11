@@ -1,0 +1,323 @@
+{
+ "id": "bible",
+ "title": "The Bible",
+ "author": "Various",
+ "scope": "public",
+ "editions": {
+  "kjv-en": {
+   "present": true,
+   "sha256_16": "53823ea3d19a3d7b",
+   "chapters": 1189,
+   "paragraphs": 6704,
+   "word_count": 820729,
+   "sections": 2,
+   "label": "King James Version (1611)",
+   "translator": null,
+   "year": 1611,
+   "language": "en"
+  },
+  "modern-da": {
+   "present": true,
+   "sha256_16": "141efc6a8d57f702",
+   "chapters": 1189,
+   "paragraphs": 6704,
+   "word_count": 666507,
+   "sections": 2,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "1e0c8eae139ce08e",
+   "chapters": 1189,
+   "paragraphs": 6704,
+   "word_count": 753765,
+   "sections": 2,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "modern-en-ch2": {
+   "present": true,
+   "sha256_16": "ff2cd681d767ef8d",
+   "chapters": 0,
+   "paragraphs": 0,
+   "word_count": 0,
+   "sections": 0,
+   "label": null,
+   "translator": null,
+   "year": null,
+   "language": null
+  },
+  "modern-en-ch3": {
+   "present": true,
+   "sha256_16": "a3cfadcc4ed39481",
+   "chapters": 0,
+   "paragraphs": 0,
+   "word_count": 0,
+   "sections": 0,
+   "label": null,
+   "translator": null,
+   "year": null,
+   "language": null
+  },
+  "modern-en-ch34": {
+   "present": true,
+   "sha256_16": "2e842feb9b64e71d",
+   "chapters": 0,
+   "paragraphs": 0,
+   "word_count": 0,
+   "sections": 0,
+   "label": null,
+   "translator": null,
+   "year": null,
+   "language": null
+  },
+  "modern-en-ch37": {
+   "present": true,
+   "sha256_16": "18f509b821abbc39",
+   "chapters": 0,
+   "paragraphs": 0,
+   "word_count": 0,
+   "sections": 0,
+   "label": null,
+   "translator": null,
+   "year": null,
+   "language": null
+  },
+  "modern-en-ch4": {
+   "present": true,
+   "sha256_16": "3a9f1342c8fb7fe0",
+   "chapters": 0,
+   "paragraphs": 0,
+   "word_count": 0,
+   "sections": 0,
+   "label": null,
+   "translator": null,
+   "year": null,
+   "language": null
+  },
+  "modern-en-ch5": {
+   "present": true,
+   "sha256_16": "466969212c8ba88f",
+   "chapters": 0,
+   "paragraphs": 0,
+   "word_count": 0,
+   "sections": 0,
+   "label": null,
+   "translator": null,
+   "year": null,
+   "language": null
+  },
+  "web-en": {
+   "present": true,
+   "sha256_16": "46d206635dc79214",
+   "chapters": 1189,
+   "paragraphs": 6704,
+   "word_count": 797787,
+   "sections": 2,
+   "label": "World English Bible",
+   "translator": null,
+   "year": 2000,
+   "language": "en"
+  }
+ },
+ "core_key": "kjv-en",
+ "core_key_en": "kjv-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 1189,
+  "chapter_count_target": 1189,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.424,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 113,
+    "paragraph": 7,
+    "src_words": 209,
+    "tgt_words": 107,
+    "ratio": 0.51
+   },
+   {
+    "chapter": 119,
+    "paragraph": 2,
+    "src_words": 107,
+    "tgt_words": 55,
+    "ratio": 0.51
+   },
+   {
+    "chapter": 119,
+    "paragraph": 5,
+    "src_words": 106,
+    "tgt_words": 55,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 121,
+    "paragraph": 7,
+    "src_words": 134,
+    "tgt_words": 79,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 143,
+    "paragraph": 9,
+    "src_words": 102,
+    "tgt_words": 59,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 148,
+    "paragraph": 6,
+    "src_words": 75,
+    "tgt_words": 44,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 246,
+    "paragraph": 2,
+    "src_words": 135,
+    "tgt_words": 36,
+    "ratio": 0.27
+   },
+   {
+    "chapter": 261,
+    "paragraph": 1,
+    "src_words": 166,
+    "tgt_words": 92,
+    "ratio": 0.55
+   },
+   {
+    "chapter": 262,
+    "paragraph": 0,
+    "src_words": 146,
+    "tgt_words": 44,
+    "ratio": 0.3
+   },
+   {
+    "chapter": 266,
+    "paragraph": 5,
+    "src_words": 132,
+    "tgt_words": 79,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 284,
+    "paragraph": 3,
+    "src_words": 177,
+    "tgt_words": 70,
+    "ratio": 0.4
+   },
+   {
+    "chapter": 285,
+    "paragraph": 1,
+    "src_words": 146,
+    "tgt_words": 60,
+    "ratio": 0.41
+   },
+   {
+    "chapter": 308,
+    "paragraph": 1,
+    "src_words": 132,
+    "tgt_words": 76,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 343,
+    "paragraph": 4,
+    "src_words": 147,
+    "tgt_words": 44,
+    "ratio": 0.3
+   },
+   {
+    "chapter": 344,
+    "paragraph": 12,
+    "src_words": 170,
+    "tgt_words": 84,
+    "ratio": 0.49
+   },
+   {
+    "chapter": 345,
+    "paragraph": 2,
+    "src_words": 112,
+    "tgt_words": 37,
+    "ratio": 0.33
+   },
+   {
+    "chapter": 346,
+    "paragraph": 5,
+    "src_words": 62,
+    "tgt_words": 36,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 347,
+    "paragraph": 0,
+    "src_words": 116,
+    "tgt_words": 56,
+    "ratio": 0.48
+   },
+   {
+    "chapter": 347,
+    "paragraph": 2,
+    "src_words": 142,
+    "tgt_words": 83,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 347,
+    "paragraph": 5,
+    "src_words": 121,
+    "tgt_words": 54,
+    "ratio": 0.45
+   },
+   {
+    "chapter": 350,
+    "paragraph": 2,
+    "src_words": 84,
+    "tgt_words": 47,
+    "ratio": 0.56
+   },
+   {
+    "chapter": 359,
+    "paragraph": 3,
+    "src_words": 187,
+    "tgt_words": 91,
+    "ratio": 0.49
+   },
+   {
+    "chapter": 378,
+    "paragraph": 2,
+    "src_words": 119,
+    "tgt_words": 54,
+    "ratio": 0.45
+   },
+   {
+    "chapter": 378,
+    "paragraph": 3,
+    "src_words": 122,
+    "tgt_words": 69,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 383,
+    "paragraph": 2,
+    "src_words": 130,
+    "tgt_words": 73,
+    "ratio": 0.56
+   }
+  ],
+  "truncated_paragraphs_total": 71,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 676
+ },
+ "en_editions_aligned": true
+}

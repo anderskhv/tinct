@@ -1,0 +1,120 @@
+{
+ "id": "divine-comedy",
+ "title": "The Divine Comedy",
+ "author": "Dante Alighieri",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "d46657c4f927cb42",
+   "chapters": 100,
+   "paragraphs": 4812,
+   "word_count": 106455,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "5938ed2727d6a26e",
+   "chapters": 100,
+   "paragraphs": 4812,
+   "word_count": 109841,
+   "sections": 3,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "494a37942b0005c1",
+   "chapters": 100,
+   "paragraphs": 4812,
+   "word_count": 111060,
+   "sections": 3,
+   "label": "Longfellow Translation (1867)",
+   "translator": "Henry Wadsworth Longfellow",
+   "year": 1867,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 100,
+  "chapter_count_target": 100,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.4045,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 1,
+    "paragraph": 14,
+    "src_words": 25,
+    "tgt_words": 11,
+    "ratio": 0.44
+   },
+   {
+    "chapter": 8,
+    "paragraph": 5,
+    "src_words": 24,
+    "tgt_words": 13,
+    "ratio": 0.54
+   },
+   {
+    "chapter": 9,
+    "paragraph": 4,
+    "src_words": 24,
+    "tgt_words": 14,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 18,
+    "paragraph": 3,
+    "src_words": 24,
+    "tgt_words": 14,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 23,
+    "paragraph": 13,
+    "src_words": 27,
+    "tgt_words": 16,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 33,
+    "paragraph": 10,
+    "src_words": 22,
+    "tgt_words": 13,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 49,
+    "paragraph": 1,
+    "src_words": 24,
+    "tgt_words": 7,
+    "ratio": 0.29
+   },
+   {
+    "chapter": 87,
+    "paragraph": 48,
+    "src_words": 24,
+    "tgt_words": 13,
+    "ratio": 0.54
+   }
+  ],
+  "truncated_paragraphs_total": 8,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1110
+ },
+ "en_editions_aligned": true
+}

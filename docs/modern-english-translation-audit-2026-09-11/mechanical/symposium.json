@@ -1,0 +1,63 @@
+{
+ "id": "symposium",
+ "title": "Symposium",
+ "author": "Plato",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "2a98c5281c40f5e3",
+   "chapters": 8,
+   "paragraphs": 217,
+   "word_count": 15681,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "7816d1eb6ac9cc6d",
+   "chapters": 8,
+   "paragraphs": 217,
+   "word_count": 21457,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "e2943777fd54eaaa",
+   "chapters": 8,
+   "paragraphs": 217,
+   "word_count": 21429,
+   "sections": 0,
+   "label": "Jowett (1871)",
+   "translator": "Benjamin Jowett",
+   "year": 1871,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 8,
+  "chapter_count_target": 8,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.8796,
+  "pct_identical_long_paragraphs": 1.8,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": true,
+  "last_chapter_word_count": 263
+ },
+ "en_editions_aligned": true
+}

@@ -1,0 +1,251 @@
+{
+ "id": "faust-part-1",
+ "title": "Faust, Part One",
+ "author": "Johann Wolfgang von Goethe",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "ce719108b40e89f1",
+   "chapters": 28,
+   "paragraphs": 895,
+   "word_count": 33391,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "9e66da5b45267bfb",
+   "chapters": 28,
+   "paragraphs": 895,
+   "word_count": 34570,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-de": {
+   "present": true,
+   "sha256_16": "edb0081f759c0eb2",
+   "chapters": 28,
+   "paragraphs": 1056,
+   "word_count": 30589,
+   "sections": 0,
+   "label": "Goethe (1808)",
+   "translator": null,
+   "year": 1808,
+   "language": "de"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "bff236838e6e5ee6",
+   "chapters": 28,
+   "paragraphs": 895,
+   "word_count": 35368,
+   "sections": 0,
+   "label": "Bayard Taylor (1870)",
+   "translator": "Bayard Taylor",
+   "year": 1870,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 28,
+  "chapter_count_target": 28,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6511,
+  "pct_identical_long_paragraphs": 1.3,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 2,
+    "paragraph": 1,
+    "src_words": 362,
+    "tgt_words": 206,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 2,
+    "paragraph": 4,
+    "src_words": 315,
+    "tgt_words": 123,
+    "ratio": 0.39
+   },
+   {
+    "chapter": 9,
+    "paragraph": 27,
+    "src_words": 161,
+    "tgt_words": 83,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 9,
+    "paragraph": 28,
+    "src_words": 108,
+    "tgt_words": 61,
+    "ratio": 0.56
+   },
+   {
+    "chapter": 9,
+    "paragraph": 48,
+    "src_words": 48,
+    "tgt_words": 28,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 11,
+    "paragraph": 18,
+    "src_words": 134,
+    "tgt_words": 53,
+    "ratio": 0.4
+   },
+   {
+    "chapter": 17,
+    "paragraph": 4,
+    "src_words": 76,
+    "tgt_words": 28,
+    "ratio": 0.37
+   },
+   {
+    "chapter": 17,
+    "paragraph": 7,
+    "src_words": 55,
+    "tgt_words": 17,
+    "ratio": 0.31
+   },
+   {
+    "chapter": 17,
+    "paragraph": 9,
+    "src_words": 78,
+    "tgt_words": 17,
+    "ratio": 0.22
+   },
+   {
+    "chapter": 17,
+    "paragraph": 12,
+    "src_words": 208,
+    "tgt_words": 4,
+    "ratio": 0.02
+   },
+   {
+    "chapter": 17,
+    "paragraph": 15,
+    "src_words": 25,
+    "tgt_words": 6,
+    "ratio": 0.24
+   },
+   {
+    "chapter": 17,
+    "paragraph": 17,
+    "src_words": 35,
+    "tgt_words": 18,
+    "ratio": 0.51
+   },
+   {
+    "chapter": 17,
+    "paragraph": 20,
+    "src_words": 31,
+    "tgt_words": 4,
+    "ratio": 0.13
+   },
+   {
+    "chapter": 17,
+    "paragraph": 21,
+    "src_words": 77,
+    "tgt_words": 36,
+    "ratio": 0.47
+   },
+   {
+    "chapter": 17,
+    "paragraph": 24,
+    "src_words": 49,
+    "tgt_words": 4,
+    "ratio": 0.08
+   },
+   {
+    "chapter": 17,
+    "paragraph": 25,
+    "src_words": 142,
+    "tgt_words": 51,
+    "ratio": 0.36
+   },
+   {
+    "chapter": 26,
+    "paragraph": 8,
+    "src_words": 78,
+    "tgt_words": 17,
+    "ratio": 0.22
+   },
+   {
+    "chapter": 26,
+    "paragraph": 9,
+    "src_words": 55,
+    "tgt_words": 23,
+    "ratio": 0.42
+   },
+   {
+    "chapter": 26,
+    "paragraph": 10,
+    "src_words": 47,
+    "tgt_words": 4,
+    "ratio": 0.09
+   },
+   {
+    "chapter": 26,
+    "paragraph": 17,
+    "src_words": 70,
+    "tgt_words": 11,
+    "ratio": 0.16
+   },
+   {
+    "chapter": 26,
+    "paragraph": 19,
+    "src_words": 39,
+    "tgt_words": 13,
+    "ratio": 0.33
+   },
+   {
+    "chapter": 26,
+    "paragraph": 20,
+    "src_words": 22,
+    "tgt_words": 10,
+    "ratio": 0.45
+   },
+   {
+    "chapter": 26,
+    "paragraph": 21,
+    "src_words": 60,
+    "tgt_words": 3,
+    "ratio": 0.05
+   },
+   {
+    "chapter": 27,
+    "paragraph": 6,
+    "src_words": 35,
+    "tgt_words": 3,
+    "ratio": 0.09
+   },
+   {
+    "chapter": 27,
+    "paragraph": 8,
+    "src_words": 30,
+    "tgt_words": 8,
+    "ratio": 0.27
+   }
+  ],
+  "truncated_paragraphs_total": 25,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1511
+ },
+ "en_editions_aligned": true
+}

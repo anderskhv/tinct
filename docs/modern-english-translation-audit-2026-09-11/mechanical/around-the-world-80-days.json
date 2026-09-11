@@ -1,0 +1,63 @@
+{
+ "id": "around-the-world-80-days",
+ "title": "Around the World in Eighty Days",
+ "author": "Jules Verne",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "2d9a0c994c7eac94",
+   "chapters": 37,
+   "paragraphs": 1613,
+   "word_count": 59272,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "13b90c0526762af9",
+   "chapters": 37,
+   "paragraphs": 1613,
+   "word_count": 61964,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "e23ae1708c6e0365",
+   "chapters": 37,
+   "paragraphs": 1613,
+   "word_count": 62197,
+   "sections": 0,
+   "label": "George Towle (1873)",
+   "translator": "George Towle",
+   "year": 1873,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 37,
+  "chapter_count_target": 37,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.8393,
+  "pct_identical_long_paragraphs": 6.9,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 945
+ },
+ "en_editions_aligned": true
+}

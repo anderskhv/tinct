@@ -1,0 +1,63 @@
+{
+ "id": "democracy-in-america",
+ "title": "Democracy in America",
+ "author": "Alexis de Tocqueville",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "667bddd4728ecb4c",
+   "chapters": 96,
+   "paragraphs": 2258,
+   "word_count": 277656,
+   "sections": 2,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "347cc8f0729f7fe0",
+   "chapters": 96,
+   "paragraphs": 2258,
+   "word_count": 303372,
+   "sections": 2,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "9fbec200460aebc0",
+   "chapters": 96,
+   "paragraphs": 2258,
+   "word_count": 308203,
+   "sections": 2,
+   "label": "Reeve / Bowen (1862)",
+   "translator": "Henry Reeve, revised by Francis Bowen",
+   "year": 1862,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 96,
+  "chapter_count_target": 96,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.8975,
+  "pct_identical_long_paragraphs": 9.2,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1447
+ },
+ "en_editions_aligned": true
+}

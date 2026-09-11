@@ -1,0 +1,71 @@
+{
+ "id": "gilgamesh",
+ "title": "The Epic of Gilgamesh",
+ "author": "Anonymous",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "70a40c3d7e96da38",
+   "chapters": 12,
+   "paragraphs": 253,
+   "word_count": 15167,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "419a43b05bfcbf84",
+   "chapters": 12,
+   "paragraphs": 253,
+   "word_count": 16439,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "1c9886e2b341187c",
+   "chapters": 12,
+   "paragraphs": 253,
+   "word_count": 18845,
+   "sections": 0,
+   "label": "Prose Compilation",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 12,
+  "chapter_count_target": 12,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.5456,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 10,
+    "paragraph": 1,
+    "src_words": 39,
+    "tgt_words": 23,
+    "ratio": 0.59
+   }
+  ],
+  "truncated_paragraphs_total": 1,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1153
+ },
+ "en_editions_aligned": true
+}

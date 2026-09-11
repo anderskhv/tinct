@@ -1,0 +1,71 @@
+{
+ "id": "the-histories",
+ "title": "The Histories",
+ "author": "Herodotus",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "6e7874e0da84539d",
+   "chapters": 1525,
+   "paragraphs": 1626,
+   "word_count": 247769,
+   "sections": 9,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "d79ea955070c9d8c",
+   "chapters": 1525,
+   "paragraphs": 1626,
+   "word_count": 259323,
+   "sections": 9,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "f442e468e59838d5",
+   "chapters": 1525,
+   "paragraphs": 1626,
+   "word_count": 284922,
+   "sections": 9,
+   "label": "Macaulay (1890)",
+   "translator": "George Campbell Macaulay",
+   "year": 1890,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 1525,
+  "chapter_count_target": 1525,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6802,
+  "pct_identical_long_paragraphs": 0.1,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 1206,
+    "paragraph": 0,
+    "src_words": 331,
+    "tgt_words": 197,
+    "ratio": 0.6
+   }
+  ],
+  "truncated_paragraphs_total": 1,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 255
+ },
+ "en_editions_aligned": true
+}

@@ -1,0 +1,71 @@
+{
+ "id": "the-manual",
+ "title": "The Manual",
+ "author": "Epictetus",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "08b3e433b8b9c74c",
+   "chapters": 52,
+   "paragraphs": 68,
+   "word_count": 6508,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "2ac0db1347defd5b",
+   "chapters": 52,
+   "paragraphs": 68,
+   "word_count": 6221,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "23835259e0a0d522",
+   "chapters": 52,
+   "paragraphs": 68,
+   "word_count": 8111,
+   "sections": 0,
+   "label": "Long (1877)",
+   "translator": "George Long",
+   "year": 1877,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 52,
+  "chapter_count_target": 52,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.3399,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 10,
+    "paragraph": 0,
+    "src_words": 93,
+    "tgt_words": 55,
+    "ratio": 0.59
+   }
+  ],
+  "truncated_paragraphs_total": 1,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 79
+ },
+ "en_editions_aligned": true
+}

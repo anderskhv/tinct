@@ -1,0 +1,190 @@
+{
+ "id": "jerusalem",
+ "title": "Jerusalem",
+ "author": "Selma Lagerl\u00f6f",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "c1552e9a9a3a311b",
+   "chapters": 18,
+   "paragraphs": 1787,
+   "word_count": 71516,
+   "sections": 3,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "6cdbf3a5904a26d5",
+   "chapters": 18,
+   "paragraphs": 1787,
+   "word_count": 73351,
+   "sections": 3,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "747b53bedd58d9ba",
+   "chapters": 18,
+   "paragraphs": 1787,
+   "word_count": 77761,
+   "sections": 3,
+   "label": "Howard (1915)",
+   "translator": "Velma Swanston Howard",
+   "year": 1915,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 18,
+  "chapter_count_target": 18,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.8805,
+  "pct_identical_long_paragraphs": 32.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 1,
+    "paragraph": 11,
+    "src_words": 145,
+    "tgt_words": 74,
+    "ratio": 0.51
+   },
+   {
+    "chapter": 1,
+    "paragraph": 17,
+    "src_words": 111,
+    "tgt_words": 65,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 1,
+    "paragraph": 24,
+    "src_words": 284,
+    "tgt_words": 87,
+    "ratio": 0.31
+   },
+   {
+    "chapter": 1,
+    "paragraph": 103,
+    "src_words": 204,
+    "tgt_words": 119,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 1,
+    "paragraph": 109,
+    "src_words": 241,
+    "tgt_words": 95,
+    "ratio": 0.39
+   },
+   {
+    "chapter": 1,
+    "paragraph": 115,
+    "src_words": 240,
+    "tgt_words": 77,
+    "ratio": 0.32
+   },
+   {
+    "chapter": 3,
+    "paragraph": 33,
+    "src_words": 205,
+    "tgt_words": 112,
+    "ratio": 0.55
+   },
+   {
+    "chapter": 5,
+    "paragraph": 0,
+    "src_words": 134,
+    "tgt_words": 73,
+    "ratio": 0.54
+   },
+   {
+    "chapter": 5,
+    "paragraph": 8,
+    "src_words": 118,
+    "tgt_words": 39,
+    "ratio": 0.33
+   },
+   {
+    "chapter": 5,
+    "paragraph": 21,
+    "src_words": 87,
+    "tgt_words": 41,
+    "ratio": 0.47
+   },
+   {
+    "chapter": 5,
+    "paragraph": 22,
+    "src_words": 109,
+    "tgt_words": 56,
+    "ratio": 0.51
+   },
+   {
+    "chapter": 5,
+    "paragraph": 36,
+    "src_words": 67,
+    "tgt_words": 40,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 5,
+    "paragraph": 50,
+    "src_words": 162,
+    "tgt_words": 53,
+    "ratio": 0.33
+   },
+   {
+    "chapter": 6,
+    "paragraph": 59,
+    "src_words": 342,
+    "tgt_words": 92,
+    "ratio": 0.27
+   },
+   {
+    "chapter": 7,
+    "paragraph": 7,
+    "src_words": 234,
+    "tgt_words": 96,
+    "ratio": 0.41
+   },
+   {
+    "chapter": 7,
+    "paragraph": 13,
+    "src_words": 157,
+    "tgt_words": 91,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 8,
+    "paragraph": 47,
+    "src_words": 208,
+    "tgt_words": 122,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 8,
+    "paragraph": 148,
+    "src_words": 231,
+    "tgt_words": 138,
+    "ratio": 0.6
+   }
+  ],
+  "truncated_paragraphs_total": 18,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 4015
+ },
+ "en_editions_aligned": true
+}

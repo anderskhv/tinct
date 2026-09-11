@@ -1,0 +1,71 @@
+{
+ "id": "crito",
+ "title": "Crito",
+ "author": "Plato",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "4f2aa8b2b6f2c8b3",
+   "chapters": 3,
+   "paragraphs": 95,
+   "word_count": 4542,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "5ff432e7e028e7ca",
+   "chapters": 3,
+   "paragraphs": 95,
+   "word_count": 4576,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "19dbc33de3076411",
+   "chapters": 3,
+   "paragraphs": 95,
+   "word_count": 5347,
+   "sections": 0,
+   "label": "Jowett (1871)",
+   "translator": "Benjamin Jowett",
+   "year": 1871,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 3,
+  "chapter_count_target": 3,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.5391,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 2,
+    "paragraph": 17,
+    "src_words": 37,
+    "tgt_words": 22,
+    "ratio": 0.59
+   }
+  ],
+  "truncated_paragraphs_total": 1,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 1946
+ },
+ "en_editions_aligned": true
+}

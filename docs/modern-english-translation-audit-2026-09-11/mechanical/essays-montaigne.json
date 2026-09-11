@@ -1,0 +1,85 @@
+{
+ "id": "essays-montaigne",
+ "title": "Essays",
+ "author": "Michel de Montaigne",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "2648f8229519686a",
+   "chapters": 107,
+   "paragraphs": 4897,
+   "word_count": 463080,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "b9a1d95cff1ad62b",
+   "chapters": 107,
+   "paragraphs": 4897,
+   "word_count": 467978,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "2d7353e85164e3a1",
+   "chapters": 107,
+   "paragraphs": 4897,
+   "word_count": 477531,
+   "sections": 0,
+   "label": "Cotton/Hazlitt (1877)",
+   "translator": "Charles Cotton, ed. William Hazlitt",
+   "year": 1877,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 107,
+  "chapter_count_target": 107,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.6961,
+  "pct_identical_long_paragraphs": 1.1,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 99,
+    "paragraph": 34,
+    "src_words": 26,
+    "tgt_words": 14,
+    "ratio": 0.54
+   },
+   {
+    "chapter": 99,
+    "paragraph": 180,
+    "src_words": 22,
+    "tgt_words": 13,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 102,
+    "paragraph": 10,
+    "src_words": 21,
+    "tgt_words": 12,
+    "ratio": 0.57
+   }
+  ],
+  "truncated_paragraphs_total": 3,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 24858
+ },
+ "en_editions_aligned": true
+}

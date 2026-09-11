@@ -1,0 +1,63 @@
+{
+ "id": "macbeth",
+ "title": "Macbeth",
+ "author": "William Shakespeare",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "c10696221af2265d",
+   "chapters": 28,
+   "paragraphs": 806,
+   "word_count": 17616,
+   "sections": 5,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "0c85273086804fdd",
+   "chapters": 28,
+   "paragraphs": 806,
+   "word_count": 17683,
+   "sections": 5,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "2650bcc666428a80",
+   "chapters": 28,
+   "paragraphs": 806,
+   "word_count": 16520,
+   "sections": 5,
+   "label": "Original Text",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 28,
+  "chapter_count_target": 28,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.4438,
+  "pct_identical_long_paragraphs": 2.5,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 717
+ },
+ "en_editions_aligned": true
+}

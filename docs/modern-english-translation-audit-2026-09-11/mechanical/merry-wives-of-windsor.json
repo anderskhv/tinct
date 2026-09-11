@@ -1,0 +1,63 @@
+{
+ "id": "merry-wives-of-windsor",
+ "title": "The Merry Wives of Windsor",
+ "author": "William Shakespeare",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "f41ce14ebf382e02",
+   "chapters": 23,
+   "paragraphs": 1155,
+   "word_count": 24011,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "9c5531e4d3ff43f4",
+   "chapters": 23,
+   "paragraphs": 1155,
+   "word_count": 23555,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "4ee59167c634e42e",
+   "chapters": 23,
+   "paragraphs": 1155,
+   "word_count": 23458,
+   "sections": 0,
+   "label": "Shakespeare (1623)",
+   "translator": null,
+   "year": 1623,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 23,
+  "chapter_count_target": 23,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.7495,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 2133
+ },
+ "en_editions_aligned": true
+}

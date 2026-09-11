@@ -1,0 +1,71 @@
+{
+ "id": "hamlet",
+ "title": "Hamlet",
+ "author": "William Shakespeare",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "fea31e2b8d327f0f",
+   "chapters": 20,
+   "paragraphs": 1391,
+   "word_count": 31375,
+   "sections": 5,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "b355830766b69681",
+   "chapters": 20,
+   "paragraphs": 1391,
+   "word_count": 30903,
+   "sections": 5,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "77f9bf6e33516a71",
+   "chapters": 20,
+   "paragraphs": 1391,
+   "word_count": 31621,
+   "sections": 5,
+   "label": "Original Text",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 20,
+  "chapter_count_target": 20,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.3864,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 7,
+    "paragraph": 4,
+    "src_words": 24,
+    "tgt_words": 13,
+    "ratio": 0.54
+   }
+  ],
+  "truncated_paragraphs_total": 1,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 3467
+ },
+ "en_editions_aligned": true
+}

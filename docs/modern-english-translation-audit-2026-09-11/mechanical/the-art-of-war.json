@@ -1,0 +1,239 @@
+{
+ "id": "the-art-of-war",
+ "title": "The Art of War",
+ "author": "Sun Tzu",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "07668460e5031235",
+   "chapters": 13,
+   "paragraphs": 445,
+   "word_count": 8070,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "bf41e7a3a4412025",
+   "chapters": 13,
+   "paragraphs": 445,
+   "word_count": 8329,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "60beeb94051b0731",
+   "chapters": 13,
+   "paragraphs": 445,
+   "word_count": 10847,
+   "sections": 0,
+   "label": "Giles Translation (1910)",
+   "translator": "Lionel Giles",
+   "year": 1910,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 13,
+  "chapter_count_target": 13,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.3829,
+  "pct_identical_long_paragraphs": 0.0,
+  "truncated_paragraphs_sample": [
+   {
+    "chapter": 1,
+    "paragraph": 8,
+    "src_words": 42,
+    "tgt_words": 20,
+    "ratio": 0.48
+   },
+   {
+    "chapter": 3,
+    "paragraph": 10,
+    "src_words": 29,
+    "tgt_words": 15,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 4,
+    "paragraph": 19,
+    "src_words": 22,
+    "tgt_words": 12,
+    "ratio": 0.55
+   },
+   {
+    "chapter": 6,
+    "paragraph": 12,
+    "src_words": 44,
+    "tgt_words": 26,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 6,
+    "paragraph": 14,
+    "src_words": 40,
+    "tgt_words": 23,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 6,
+    "paragraph": 16,
+    "src_words": 53,
+    "tgt_words": 30,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 6,
+    "paragraph": 35,
+    "src_words": 24,
+    "tgt_words": 12,
+    "ratio": 0.5
+   },
+   {
+    "chapter": 7,
+    "paragraph": 13,
+    "src_words": 33,
+    "tgt_words": 19,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 7,
+    "paragraph": 30,
+    "src_words": 30,
+    "tgt_words": 14,
+    "ratio": 0.47
+   },
+   {
+    "chapter": 7,
+    "paragraph": 35,
+    "src_words": 21,
+    "tgt_words": 12,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 8,
+    "paragraph": 9,
+    "src_words": 25,
+    "tgt_words": 14,
+    "ratio": 0.56
+   },
+   {
+    "chapter": 9,
+    "paragraph": 4,
+    "src_words": 36,
+    "tgt_words": 21,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 9,
+    "paragraph": 21,
+    "src_words": 53,
+    "tgt_words": 29,
+    "ratio": 0.55
+   },
+   {
+    "chapter": 9,
+    "paragraph": 26,
+    "src_words": 22,
+    "tgt_words": 13,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 9,
+    "paragraph": 29,
+    "src_words": 34,
+    "tgt_words": 20,
+    "ratio": 0.59
+   },
+   {
+    "chapter": 9,
+    "paragraph": 33,
+    "src_words": 27,
+    "tgt_words": 13,
+    "ratio": 0.48
+   },
+   {
+    "chapter": 9,
+    "paragraph": 44,
+    "src_words": 23,
+    "tgt_words": 10,
+    "ratio": 0.43
+   },
+   {
+    "chapter": 9,
+    "paragraph": 45,
+    "src_words": 24,
+    "tgt_words": 14,
+    "ratio": 0.58
+   },
+   {
+    "chapter": 9,
+    "paragraph": 47,
+    "src_words": 21,
+    "tgt_words": 12,
+    "ratio": 0.57
+   },
+   {
+    "chapter": 9,
+    "paragraph": 48,
+    "src_words": 35,
+    "tgt_words": 19,
+    "ratio": 0.54
+   },
+   {
+    "chapter": 9,
+    "paragraph": 50,
+    "src_words": 22,
+    "tgt_words": 12,
+    "ratio": 0.55
+   },
+   {
+    "chapter": 10,
+    "paragraph": 2,
+    "src_words": 26,
+    "tgt_words": 14,
+    "ratio": 0.54
+   },
+   {
+    "chapter": 10,
+    "paragraph": 6,
+    "src_words": 21,
+    "tgt_words": 11,
+    "ratio": 0.52
+   },
+   {
+    "chapter": 10,
+    "paragraph": 7,
+    "src_words": 52,
+    "tgt_words": 31,
+    "ratio": 0.6
+   },
+   {
+    "chapter": 10,
+    "paragraph": 10,
+    "src_words": 29,
+    "tgt_words": 17,
+    "ratio": 0.59
+   }
+  ],
+  "truncated_paragraphs_total": 31,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 642
+ },
+ "en_editions_aligned": true
+}

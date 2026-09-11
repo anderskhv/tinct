@@ -1,0 +1,63 @@
+{
+ "id": "ulysses",
+ "title": "Ulysses",
+ "author": "James Joyce",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "b0cff115dcc73fbb",
+   "chapters": 18,
+   "paragraphs": 7148,
+   "word_count": 258904,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "ac853e0de7c6f8da",
+   "chapters": 18,
+   "paragraphs": 7148,
+   "word_count": 268222,
+   "sections": 0,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "ddc3418890b6a623",
+   "chapters": 18,
+   "paragraphs": 7148,
+   "word_count": 264931,
+   "sections": 0,
+   "label": "Original (1922)",
+   "translator": null,
+   "year": 1922,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 18,
+  "chapter_count_target": 18,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.935,
+  "pct_identical_long_paragraphs": 0.7,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": false,
+  "last_chapter_word_count": 24191
+ },
+ "en_editions_aligned": true
+}

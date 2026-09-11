@@ -1,0 +1,63 @@
+{
+ "id": "social-contract",
+ "title": "The Social Contract",
+ "author": "Jean-Jacques Rousseau",
+ "scope": "public",
+ "editions": {
+  "modern-da": {
+   "present": true,
+   "sha256_16": "2b6fcfad924735d9",
+   "chapters": 48,
+   "paragraphs": 491,
+   "word_count": 40640,
+   "sections": 0,
+   "label": "Moderne Dansk",
+   "translator": null,
+   "year": null,
+   "language": "da"
+  },
+  "modern-en": {
+   "present": true,
+   "sha256_16": "cf7facb77bfc5baf",
+   "chapters": 48,
+   "paragraphs": 491,
+   "word_count": 43231,
+   "sections": 4,
+   "label": "Modern English",
+   "translator": null,
+   "year": null,
+   "language": "en"
+  },
+  "original-en": {
+   "present": true,
+   "sha256_16": "7bf5ababb7c4dfe1",
+   "chapters": 48,
+   "paragraphs": 491,
+   "word_count": 44073,
+   "sections": 4,
+   "label": "Cole (1913)",
+   "translator": "G. D. H. Cole",
+   "year": 1913,
+   "language": "en"
+  }
+ },
+ "core_key": "original-en",
+ "core_key_en": "original-en",
+ "has_modern_en": true,
+ "mechanical_comparison": {
+  "chapter_count_base": 48,
+  "chapter_count_target": 48,
+  "chapter_count_mismatch": false,
+  "para_count_mismatches": [],
+  "para_count_mismatch_total": 0,
+  "mean_weighted_similarity": 0.8425,
+  "pct_identical_long_paragraphs": 1.0,
+  "truncated_paragraphs_sample": [],
+  "truncated_paragraphs_total": 0,
+  "empty_paragraphs_sample": [],
+  "empty_paragraphs_total": 0,
+  "last_chapter_suspiciously_short": true,
+  "last_chapter_word_count": 84
+ },
+ "en_editions_aligned": true
+}
