@@ -122,6 +122,24 @@ session. Kept current at every push.
   row and Book II's precedent); acceptance recorded in `book4/ACCEPTANCE.md`.
   `continuity.md`, `provenance.json`, `manifest.json` and `README.md` updated.
   No new glossary row.
+- 2026-09-11 — **Book V drafted and frozen** (steps 1–3): `book5/candidate-v1.json`
+  (sha256 `9b061974…`), 36 paragraphs 1:1 with Long's V.1–V.36, word ratio
+  0.995 (min paragraph 0.95). Source verified from the rebuilt staged Long
+  chapter 5 into `book5/source-book5.json` (sha256 `284c37be…`); V.8 confirmed
+  clean of the PG caption. Two glossary rows added before drafting (affects →
+  feelings; the formal / the material → form / matter) and two extended
+  ("leading principle" into the ruling-part row; "common weal" into the
+  common-good row). Seven dagger marks (V.9, V.12 ×4, V.28 ×2; four clauses)
+  named in `review-instructions.md` and kept as Long has them; V.28's
+  bracketed fragment "Neither tragic actor nor whore." kept verbatim as a
+  final sentence. Six D11 drops listed (V.8 ×4, V.14, V.32) plus the Hesiod
+  citation in V.33; six supplements folded. Base-text defects recorded (V.15
+  "snowed", V.29 "them", V.32 "though"; V.1 and V.5 flagged for the reviewer).
+  Readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+  `README.md`, `review-instructions.md` and twelve review packets (12×3)
+  pushed, built by `scripts/build_book_package.py 5` from
+  `scripts/candidates/book5.py`. **Stopped for independent review** (step 4).
+  Findings expected under `book5/review/`.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -154,11 +172,12 @@ session. Kept current at every push.
 
 ## Next
 
-1. **Book V** (steps 1–3 in progress in this session): `book5/` drafted from
-   chapter 5 of the rebuilt staged Long, frozen as `candidate-v1.json`, review
-   packets and instructions pushed; then stop for the coordinator's
-   independent review.
+1. **Waiting on the coordinator: independent review of Book V**
+   (`book5/review-instructions.md`, `book5/review-packets/`, 12 packets). On
+   findings: `book5/candidate-v2.json` via a change script in the established
+   pattern, verification, flow read, `book5/ACCEPTANCE.md`.
 2. Then Books VI … XII in numerical order, each with its own review round.
+   Book VI is not started until Book V is accepted.
 
 ## Needs Anders (listed, not waited on)
 

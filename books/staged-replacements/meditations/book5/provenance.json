@@ -1,0 +1,27 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/meditations-modern-en-20260911-v2",
+ "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
+ "staged_original_sha256": "b0ecf3da6984c95a54ca36e1c60d20a01ad95fc6bb6e7544740e9c82717cf67f",
+ "staged_original_note": "The rebuilt file (Book IV step 1, D12): three PG illustration captions stripped (IV.20, V.8, IX.21); previous sha256 7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443. V.8 confirmed clean at Book V step 1: no '[Illustration' anywhere in the file.",
+ "chapter_extracted": {
+  "number": 5,
+  "title": "Book 5",
+  "paragraphs": 36,
+  "extraction": "found by chapter.number == 5 in the staged original-en; paragraphs byte-identical"
+ },
+ "source_book5_json_sha256": "284c37be5de8ab3f7b3832062e23b67bad3212d265dc0feec6830d80cd8debeb",
+ "candidate_v1_json_sha256": "9b0619745ac72991d4680e5e88c7eae9e590aa3ad116e3308884c7f37efc5caf",
+ "translation_source": "George Long, 1862. Project Gutenberg #15877 (source/pg15877-long-1862.txt, sha256 6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b), with the mechanical normalisations listed in PROVENANCE.md section 4. The only source used for the candidate; no other translation consulted for wording.",
+ "word_counts": {
+  "source": 4464,
+  "candidate": 4440,
+  "ratio": 0.995,
+  "min_paragraph_ratio": 0.95,
+  "note": "screening signal only; not evidence of semantic completeness. The lowest ratio (V.4 0.95) is Long's 'out of which' three times becoming 'from which'."
+ },
+ "dagger_marks": "Seven in Book V of the PG text: V.9 x1, V.12 x4, V.28 x2 (four clauses, named in review-instructions.md). Matches PROVENANCE.md section 4.",
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary (two rows added and two extended for Book V first) and the Book II, I, III and IV acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 5 (candidate text frozen in scripts/candidates/book5.py; regenerates source-book5.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+}
