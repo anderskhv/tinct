@@ -59,19 +59,42 @@ def _call(method: str, path: str, key: str, body: dict | None = None):
         return error.code, {"error": detail}
 
 
+def _parse_stamp(stamp: str) -> datetime.datetime | None:
+    """A RunPod timestamp as an aware datetime, or None.
+
+    RunPod's REST pod list returns `2026-09-11 12:35:42.57 +0000 UTC` — a space
+    before the offset and a trailing ` UTC` — which `fromisoformat` rejects.
+    The 2026-09-11 run lost two in-progress batches to exactly that: the guard
+    read every live pod as unmeasurable and stopped it. ISO-8601 stays accepted.
+    """
+    text = str(stamp).strip().replace(" UTC", "")
+    try:
+        started = datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        started = None
+        for fmt in ("%Y-%m-%d %H:%M:%S.%f %z", "%Y-%m-%d %H:%M:%S %z"):
+            try:
+                started = datetime.datetime.strptime(text, fmt)
+                break
+            except ValueError:
+                continue
+        if started is None:
+            return None
+    if started.tzinfo is None:
+        started = started.replace(tzinfo=datetime.timezone.utc)
+    return started
+
+
 def _age_seconds(pod: dict) -> float | None:
     """Seconds since the pod started, from whichever timestamp the API gives us."""
     for field in ("lastStartedAt", "startedAt", "createdAt", "creationTime"):
         stamp = pod.get(field)
         if not stamp:
             continue
-        try:
-            started = datetime.datetime.fromisoformat(str(stamp).replace("Z", "+00:00"))
-            if started.tzinfo is None:
-                started = started.replace(tzinfo=datetime.timezone.utc)
-            return (datetime.datetime.now(datetime.timezone.utc) - started).total_seconds()
-        except ValueError:
+        started = _parse_stamp(stamp)
+        if started is None:
             continue
+        return max(0.0, (datetime.datetime.now(datetime.timezone.utc) - started).total_seconds())
     return None
 
 

@@ -167,6 +167,19 @@ class GuardTest(unittest.TestCase):
         self.assertEqual(self.stopped, [("stop", "pod-tinct-wordtiming-01")],
                          "past the deadline must stop even without runtime uptime")
 
+    def test_uptime_parses_runpod_s_actual_timestamp_format(self):
+        # The REST pod list stamps look like '2026-09-11 12:35:42.57 +0000 UTC'.
+        # fromisoformat rejects that, and on 2026-09-11 the guard stopped two
+        # healthy pods mid-batch as "unmeasurable" because of it.
+        import datetime
+        started = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(minutes=20))
+        stamp = started.strftime("%Y-%m-%d %H:%M:%S.%f")[:-4] + " +0000 UTC"
+        self.pods = [pod("tinct-wordtiming-01", runtime_uptime=False, started_at=stamp)]
+        _, report, _ = self.run_guard("enforce", "--max-minutes", "50", "--apply")
+        self.assertEqual(report["ownedPods"][0]["uptimeSource"], "timestamp")
+        self.assertAlmostEqual(report["ownedPods"][0]["uptimeSeconds"], 20 * 60, delta=30)
+        self.assertEqual(self.stopped, [], "a healthy 20-minute pod must not be stopped")
+
     def test_a_running_pod_with_no_measurable_uptime_is_stopped(self):
         self.pods = [pod("tinct-wordtiming-01", runtime_uptime=False)]
         _, report, _ = self.run_guard("enforce", "--apply")
