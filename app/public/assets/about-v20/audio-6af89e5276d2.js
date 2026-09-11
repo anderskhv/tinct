@@ -9,9 +9,9 @@
  function draw(){
   const fold=ramp(.08,.27),move=ramp(.25,.47),car=ramp(.55,.69),voice=ramp(.82,.88),speaking=p>.94;
   $('.ta-audio-intro').style.opacity=1-ramp(.24,.40);
-  $('.ta-book-anchor').style.left=`${72-22*move}%`;
+  $('.ta-book-anchor').style.left=`${72-22*move-(scene.clientWidth<600&&scene.clientWidth<scene.clientHeight?1.5:0)*(1-move)}%`;
   $('.ta-left-leaf').style.transform=`rotateY(${fold*180}deg)`;
-  const small=1.35-.73*move;
+  const pf=scene.clientWidth<600&&scene.clientWidth<scene.clientHeight?.52:1,small=1.35*(1-(1-pf)*(1-move))-.73*move;
   $('.ta-book-anchor').style.transform=`translate(${(180-90*small)*move-121.5*fold*(1-move)}px,0px) scale(${small})`;
   $('.ta-book').style.transform=`rotateX(${7*(1-move)}deg) rotateY(${-9*(1-move)}deg) rotateZ(${-3*(1-move)}deg)`;
   $('.ta-book-anchor').style.opacity=1-ramp(.475,.50);
@@ -54,7 +54,7 @@
  function frame(t){if(!playing)return;if(last)p=Math.min(1.45,p+(t-last)/(settings.duration*1000));last=t;draw();if(p>=1.45){playing=false;button.textContent='Replay';last=0;return}raf=requestAnimationFrame(frame)}
  button.onclick=()=>{playing=!playing;if(playing){if(p>=1.45)p=0;last=0;button.textContent='Pause';raf=requestAnimationFrame(frame)}else{cancelAnimationFrame(raf);last=0;button.textContent='Continue'}};
  slider.oninput=()=>{playing=false;cancelAnimationFrame(raf);last=0;p=Number(slider.value)/1000;button.textContent=p>=1.45?'Replay':'Play transition';draw()};
- new ResizeObserver(()=>{const portrait=scene.clientWidth<scene.clientHeight;scene.classList.toggle('ta-portrait',portrait);[$('.ta-caption'),$('.ta-unwind')].forEach(el=>{const home=portrait?scene:world;if(el.parentNode!==home)home.appendChild(el)});world.style.transformOrigin=portrait?'68% 50%':'50% 50%';world.style.transform=`translate(${portrait?-68:-50}%,-50%) scale(${(scene.clientWidth>700||portrait?Math.max:Math.min)(scene.clientWidth/1000,scene.clientHeight/625)})`}).observe(scene);
+ new ResizeObserver(()=>{const portrait=scene.clientWidth<scene.clientHeight;scene.classList.toggle('ta-portrait',portrait);[$('.ta-caption'),$('.ta-unwind'),$('.ta-audio-intro')].forEach(el=>{const home=portrait?scene:world;if(el.parentNode!==home)home.appendChild(el)});world.style.transformOrigin=portrait?'68% 50%':'50% 50%';world.style.transform=`translate(${portrait?-68:-50}%,-50%) scale(${(scene.clientWidth>700||portrait?Math.max:Math.min)(scene.clientWidth/1000,scene.clientHeight/625)})`}).observe(scene);
  window.addEventListener('message',event=>{
    if(event.source!==parent || event.origin!==location.origin || event.data?.type!=='tinct-audio-progress')return;
    const value=event.data.progress;

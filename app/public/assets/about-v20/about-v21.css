@@ -81,14 +81,14 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 .reading-journey[data-beat=voice] .book-conversation h3{grid-area:s;margin:0;color:#0b0b0b;font:400 clamp(26px,2.2vw,34px)/1.15 'Playfair Display',TinctSerif,Georgia,serif;letter-spacing:-.01em}
 .reading-journey[data-beat=voice] .book-conversation .book-question{grid-area:q;margin:0;max-width:300px;color:#6a6256;font:italic clamp(15px,1.25vw,18px)/1.45 'EB Garamond',TinctSerif,Georgia,serif}
 .reading-journey[data-beat=voice] .book-conversation>p:not(.book-question){grid-area:a;margin:0;max-width:320px;color:#0b0b0b;font:clamp(15px,1.2vw,18px)/1.45 'EB Garamond',TinctSerif,Georgia,serif}
-.reading-journey[data-beat=voice] .book-conversation button{grid-area:t;margin:14px 0 0;flex-direction:column;gap:8px;color:#6a6256;font:15px/1 'EB Garamond',TinctSerif,Georgia,serif;text-decoration:none}
-.reading-journey[data-beat=voice] .book-conversation button svg{width:56px;height:56px;padding:16px;box-sizing:border-box;border:1px solid #c8c0ae;border-radius:50%;color:#0b0b0b}
-.talk-side{margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:8px;color:#6a6256;font:15px/1 'EB Garamond',TinctSerif,Georgia,serif;pointer-events:none}
+.reading-journey[data-beat=voice] .book-conversation button{grid-area:t;margin:8px 0 0;flex-direction:column;gap:7px;color:#6a6256;font:13px/1 'EB Garamond',TinctSerif,Georgia,serif;text-decoration:none}
+.reading-journey[data-beat=voice] .book-conversation button svg{width:40px;height:40px;padding:11px;box-sizing:border-box;border:1px solid #c8c0ae;border-radius:50%;color:#0b0b0b}
+.talk-side{margin-top:8px;display:flex;flex-direction:column;align-items:center;gap:7px;color:#6a6256;font:13px/1 'EB Garamond',TinctSerif,Georgia,serif;pointer-events:none}
 .talk-side.talk-mute{grid-area:m;justify-self:end}
 .talk-side.talk-end{grid-area:e;justify-self:start}
-.talk-side i{width:56px;height:56px;border-radius:50%;border:1px solid #c8c0ae;display:grid;place-items:center;font-style:normal}
+.talk-side i{width:40px;height:40px;border-radius:50%;border:1px solid #c8c0ae;display:grid;place-items:center;font-style:normal}
 .talk-side.talk-end i{background:#0b0b0b;border-color:#0b0b0b}
-.talk-side svg{width:22px;height:22px}
+.talk-side svg{width:16px;height:16px}
 .reading-journey[data-beat=voice] .book-conversation:not(:has(.conversation-orbit)) .talk-side{display:none}
 .reading-journey[data-beat=voice] .book-conversation:not(:has(.conversation-orbit)){grid-template-areas:"s s s" "q q q" "a a a" "t t t"}
 
@@ -135,16 +135,8 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 /* Reveal animation: words settle in, screens light one after another, a slow sweep of light crosses the set. */
 .promise-word{display:inline-block;margin-right:.27em;will-change:transform,opacity}
 .brand-sweep{position:absolute;inset:-12% -25%;pointer-events:none;background:linear-gradient(100deg,transparent 42%,rgba(246,241,231,.16) 50%,transparent 58%);mix-blend-mode:screen}
-.brand-phone-screen{width:100%;height:100%;box-sizing:border-box;padding:118px 30px 56px;background:#ece7db;color:#0b0b0b;display:flex;flex-direction:column;align-items:center;text-align:center;font-family:'EB Garamond',TinctSerif,Georgia,serif;position:relative}
-.brand-phone-screen::before{content:"Hamlet, Act I, Scene IV";position:absolute;top:40px;left:28px;font:italic 17px/1.2 'EB Garamond',TinctSerif,Georgia,serif;color:#6a6256}
-.brand-phone-screen::after{content:"● Connected";position:absolute;top:40px;right:28px;font:17px/1.2 'EB Garamond',TinctSerif,Georgia,serif;color:#6a6256}
-.brand-globe{width:250px;height:250px;display:block}
-.brand-phone-word{margin:30px 0 8px;font:400 40px/1.1 'Playfair Display',TinctSerif,Georgia,serif;letter-spacing:-.01em}
-.brand-phone-quote{margin:0;max-width:300px;color:#6a6256;font:italic 19px/1.4 'EB Garamond',TinctSerif,Georgia,serif}
-.brand-phone-controls{margin-top:auto;display:flex;gap:30px}
-.brand-phone-controls span{display:flex;flex-direction:column;align-items:center;gap:9px;color:#6a6256;font-size:16px}
-.brand-phone-controls span::before{content:"";width:60px;height:60px;border-radius:50%;border:1px solid #c8c0ae;box-sizing:border-box}
-.brand-phone-controls span.is-end::before{background:#0b0b0b;border-color:#0b0b0b}
+/* The lit screens are pre-rendered layers (scripts/render-about-reveal-screens.mjs) over the device photo. */
+.brand-ensemble .device-canvas>img.lit-screen{position:absolute;top:0;left:0}
 
 /* Phones and tablets: the questions sit on the page as small cards beside the line they ask about. */
 @media (max-width:1024px){
@@ -153,3 +145,8 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
   .book-overview-questions p:nth-child(2){top:46%}
   .book-overview-questions p:nth-child(3){top:24%}
 }
+
+/* The AI chapter runs longer so the Hamlet post can be read before the avalanche. */
+.story-root[data-bookshelf=true] .journey-steps #chapter-ai{height:210svh;min-height:210svh}
+/* The shelf behind the closing covers keeps a little warmth and colour instead of fading to grey. */
+.story-root[data-bookshelf=true] .scene-frame[data-scene=invitation] .closing-shelf-backdrop{filter:saturate(.8) brightness(1.15);opacity:calc(.4 * (1 - .5 * clamp(0,(var(--scene-progress) - .12) / .65,1)))}

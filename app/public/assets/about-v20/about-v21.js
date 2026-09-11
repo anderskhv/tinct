@@ -85,11 +85,6 @@
       var r = orbits[i].getBoundingClientRect();
       if (cv && r.width > 0 && r.bottom > 0 && r.top < window.innerHeight) drawGlobe(cv, /Speaking/.test(word) ? 'speaking' : /Listening/.test(word) ? 'listening' : 'connecting');
     }
-    var brand = document.querySelectorAll('canvas.brand-globe');
-    for (var j = 0; j < brand.length; j++) {
-      var b = brand[j].getBoundingClientRect();
-      if (b.width > 0 && b.bottom > 0 && b.top < window.innerHeight) drawGlobe(brand[j], 'speaking');
-    }
     requestAnimationFrame(globeLoop);
   }
   requestAnimationFrame(globeLoop);
