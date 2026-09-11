@@ -51,7 +51,7 @@ MODEL_SHA = os.environ.get("TINCT_MODEL_SHA256", "")
 MODEL_REV = os.environ.get("TINCT_MODEL_REVISION", "d1d751a5f8271d482d14ca55d9e2deeebbae577f")
 DEVICE = os.environ.get("TINCT_DEVICE", "cuda")
 RAW = f"https://raw.githubusercontent.com/anderskhv/tinct/{COMMIT}"
-ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "spoken_policy.py", "cloud_cohort.py"]
+ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "pinned_words_sidecar_lib_v2.py", "spoken_policy.py", "cloud_cohort.py"]
 
 STATE: dict = {"phase": "booting", "started": time.time(), "setup": {}, "job": {}, "log": []}
 LOCK = threading.Lock()
