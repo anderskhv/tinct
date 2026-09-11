@@ -1,47 +1,390 @@
 {
   "checkedAt": "2026-09-11",
   "host": "https://tinct.app",
-  "packages": 64,
-  "servedCount": 20,
+  "packages": 72,
+  "servedCount": 58,
   "served": [
+    "a-little-princess",
+    "antigone",
     "antony-and-cleopatra",
     "apology",
+    "around-the-world-80-days",
+    "bacchae",
+    "beowulf",
     "bible",
+    "candide",
+    "comedy-of-errors",
+    "communist-manifesto",
     "coriolanus",
     "crito",
     "cymbeline",
     "descartes-meditations",
+    "discourse-on-inequality",
+    "frederick-douglass",
+    "gilgamesh",
     "hamlet",
+    "heart-of-darkness",
     "henry-iv-part-2",
     "henry-v",
+    "hume-enquiry",
+    "ivan-ilyich",
+    "jekyll-and-hyde",
+    "julius-caesar",
+    "jungle-book",
     "kant-groundwork",
+    "king-lear",
     "macbeth",
     "measure-for-measure",
+    "medea",
+    "merchant-of-venice",
     "merry-wives-of-windsor",
+    "midsummer",
+    "much-ado-about-nothing",
+    "notes-from-underground",
+    "oedipus-at-colonus",
+    "oedipus-rex",
+    "on-liberty",
+    "oresteia",
+    "othello",
+    "phaedo",
+    "phaedrus",
+    "poetics",
     "richard-iii",
+    "romeo-and-juliet",
+    "social-contract",
+    "symposium",
     "the-art-of-war",
     "the-awakening",
     "the-manual",
+    "the-prince",
+    "twelfth-night",
     "us-founding-documents",
+    "utilitarianism",
+    "werther",
     "winters-tale"
   ],
-  "statusMismatches": [],
-  "results": [
+  "statusMismatches": [
     {
       "book": "a-little-princess",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/a-little-princess.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "antigone",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/antigone.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "around-the-world-80-days",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/around-the-world-80-days.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "bacchae",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/bacchae.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "beowulf",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/beowulf.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "candide",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/candide.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "comedy-of-errors",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/comedy-of-errors.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "communist-manifesto",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/communist-manifesto.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "discourse-on-inequality",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/discourse-on-inequality.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "frederick-douglass",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/frederick-douglass.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "gilgamesh",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/gilgamesh.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "heart-of-darkness",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/heart-of-darkness.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "hume-enquiry",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/hume-enquiry.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "ivan-ilyich",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/ivan-ilyich.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "jekyll-and-hyde",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/jekyll-and-hyde.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "julius-caesar",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/julius-caesar.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "jungle-book",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/jungle-book.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "king-lear",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/king-lear.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "medea",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/medea.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "merchant-of-venice",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/merchant-of-venice.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "midsummer",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/midsummer.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "much-ado-about-nothing",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/much-ado-about-nothing.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "notes-from-underground",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/notes-from-underground.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "oedipus-at-colonus",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/oedipus-at-colonus.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "oedipus-rex",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/oedipus-rex.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "on-liberty",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/on-liberty.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "oresteia",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/oresteia.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "othello",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/othello.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "phaedo",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/phaedo.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "phaedrus",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/phaedrus.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "poetics",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/poetics.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "romeo-and-juliet",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/romeo-and-juliet.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "social-contract",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/social-contract.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "symposium",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/symposium.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "the-prince",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/the-prince.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "twelfth-night",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/twelfth-night.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "utilitarianism",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/utilitarianism.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "werther",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/werther.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    }
+  ],
+  "results": [
+    {
+      "book": "a-little-princess",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/a-little-princess.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "antigone",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/antigone.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "antony-and-cleopatra",
@@ -63,9 +406,9 @@
       "book": "around-the-world-80-days",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/around-the-world-80-days.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "as-you-like-it",
@@ -79,17 +422,17 @@
       "book": "bacchae",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/bacchae.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "beowulf",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/beowulf.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "bible",
@@ -103,25 +446,25 @@
       "book": "candide",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/candide.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "comedy-of-errors",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/comedy-of-errors.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "communist-manifesto",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/communist-manifesto.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "coriolanus",
@@ -159,6 +502,30 @@
       "book": "discourse-on-inequality",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/discourse-on-inequality.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "divine-comedy",
+      "appStatus": "not-integrated",
+      "url": "https://tinct.app/data/characters/divine-comedy.v1.json?v=2026-09-10.1",
+      "httpStatus": "404",
+      "validAsset": false,
+      "served": false
+    },
+    {
+      "book": "faust-part-1",
+      "appStatus": "not-integrated",
+      "url": "https://tinct.app/data/characters/faust-part-1.v1.json?v=2026-09-10.1",
+      "httpStatus": "404",
+      "validAsset": false,
+      "served": false
+    },
+    {
+      "book": "fear-and-trembling",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/fear-and-trembling.v1.json?v=2026-09-10.1",
       "httpStatus": "404",
       "validAsset": false,
       "served": false
@@ -167,6 +534,14 @@
       "book": "frederick-douglass",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/frederick-douglass.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "genealogy-of-morals",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/genealogy-of-morals.v1.json?v=2026-09-10.1",
       "httpStatus": "404",
       "validAsset": false,
       "served": false
@@ -175,9 +550,9 @@
       "book": "gilgamesh",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/gilgamesh.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "hamlet",
@@ -191,9 +566,9 @@
       "book": "heart-of-darkness",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/heart-of-darkness.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "henry-iv-part-2",
@@ -215,6 +590,14 @@
       "book": "hume-enquiry",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/hume-enquiry.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "iliad",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/iliad.v1.json?v=2026-09-10.1",
       "httpStatus": "404",
       "validAsset": false,
       "served": false
@@ -223,33 +606,33 @@
       "book": "ivan-ilyich",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/ivan-ilyich.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "jekyll-and-hyde",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/jekyll-and-hyde.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "julius-caesar",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/julius-caesar.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "jungle-book",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/jungle-book.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "kant-groundwork",
@@ -263,9 +646,9 @@
       "book": "king-lear",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/king-lear.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "macbeth",
@@ -295,17 +678,17 @@
       "book": "medea",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/medea.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "merchant-of-venice",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/merchant-of-venice.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "merry-wives-of-windsor",
@@ -319,25 +702,25 @@
       "book": "midsummer",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/midsummer.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "much-ado-about-nothing",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/much-ado-about-nothing.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "notes-from-underground",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/notes-from-underground.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "odyssey",
@@ -351,38 +734,46 @@
       "book": "oedipus-at-colonus",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/oedipus-at-colonus.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "oedipus-rex",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/oedipus-rex.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "on-liberty",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/on-liberty.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "oresteia",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/oresteia.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "othello",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/othello.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "paradise-lost",
+      "appStatus": "not-integrated",
+      "url": "https://tinct.app/data/characters/paradise-lost.v1.json?v=2026-09-10.1",
       "httpStatus": "404",
       "validAsset": false,
       "served": false
@@ -391,25 +782,25 @@
       "book": "phaedo",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/phaedo.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "phaedrus",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/phaedrus.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "poetics",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/poetics.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "richard-iii",
@@ -423,6 +814,14 @@
       "book": "romeo-and-juliet",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/romeo-and-juliet.v1.json?v=2026-09-10.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
+    },
+    {
+      "book": "second-treatise",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/second-treatise.v1.json?v=2026-09-10.1",
       "httpStatus": "404",
       "validAsset": false,
       "served": false
@@ -431,22 +830,30 @@
       "book": "social-contract",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/social-contract.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "symposium",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/symposium.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "taming-of-the-shrew",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/taming-of-the-shrew.v1.json?v=2026-09-10.1",
+      "httpStatus": "404",
+      "validAsset": false,
+      "served": false
+    },
+    {
+      "book": "the-aeneid",
+      "appStatus": "awaiting-integration",
+      "url": "https://tinct.app/data/characters/the-aeneid.v1.json?v=2026-09-10.1",
       "httpStatus": "404",
       "validAsset": false,
       "served": false
@@ -479,9 +886,9 @@
       "book": "the-prince",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/the-prince.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "the-tempest",
@@ -495,9 +902,9 @@
       "book": "twelfth-night",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/twelfth-night.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "us-founding-documents",
@@ -511,9 +918,9 @@
       "book": "utilitarianism",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/utilitarianism.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "war-and-peace",
@@ -527,9 +934,9 @@
       "book": "werther",
       "appStatus": "awaiting-integration",
       "url": "https://tinct.app/data/characters/werther.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "winters-tale",

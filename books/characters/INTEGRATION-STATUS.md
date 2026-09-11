@@ -1,33 +1,49 @@
 # Character integration status
 
-Reviewed: 2026-09-11
+Reviewed: 2026-09-11 (re-measured after the Divine Comedy, Paradise Lost and
+Faust packages landed)
 
-The earlier four-package observation captured a deployment regression, not the
-complete release history. [Preserved observation](integration-status-before-recovery-2026-09-11.md).
-Main had deployed stale93f7b9d9 over later releases. Recovery95029ffe2 merges
-verified68e7d1d0 with current main tooling/CI. GitHub deploy34579232785 succeeded,
-including exact bundle-byte comparison and15smoke checks. Current recovery bundle
-index-DnUXeTyY.js, Worker2afbdd92-12a7-4ad3-bf8e-087ef9bd3731.
+**Integration truth is measured, not assumed.** `python3 books/characters/serving_check.py`
+probes production for each package's sidecar and reports the HTTP status beside
+the package's own `appStatus`. The numbers below come from that probe, not from
+any status file.
 
-After reference release b7abab07a, the reader registers 20 book scopes: 18 validated
-packages, the whole-book Awakening pilot, and partial Bible (Baruch only). All 20
-versioned live assets match release files. Reference release workflow34580387836
-passed; bundle index-ByP0wWUD.js; all 60 new browser scenarios passed. The content inventory remains60validated,
-37not-started, and3partial/pilot scopes; **45validated packages remain unreleased**:
-44awaiting independent release review/integration plus The Tempest source hold.
+## Measured now
 
-Authored, mechanically validated, served assets, registered editions and
-production-verified behavior are separate states. HTTP200 alone is not evidence:
-SPA fallback HTML and stale immutable URLs must not count as character packages.
-`serving_check.py` checks JSON identity and records the fetched URL; its result is
-asset availability only. Verify supportedEditions, release provenance, source hashes
-and actual reader gestures before changing appStatus to live.
+**58/72 packages are served by https://tinct.app.**
 
-Latest detailed release: [nine plays](../../docs/character-cards-nine-2026-09-10.md).
-Runtime and release history are now pushed to main. Preserve source ambiguity
-exclusions from20b4d7bc; do not overwrite them with older author-side assets.
+That is up from 4 when this file was first written, and from 20 at the first
+re-measure. The Codex release owner has been integrating steadily.
 
-US Founding Documents, Kant Groundwork and Descartes Meditations are now live;
-see the [reference release](../../docs/character-reference-release-2026-09-11.md).
-Next: independently review the remaining 41 queued packages; preserve the separate
-Tempest hold. No authoring lane or external routine was changed.
+Served:
+
+a-little-princess, antigone, antony-and-cleopatra, apology, around-the-world-80-days, bacchae, beowulf, bible, candide, comedy-of-errors, communist-manifesto, coriolanus, crito, cymbeline, descartes-meditations, discourse-on-inequality, frederick-douglass, gilgamesh, hamlet, heart-of-darkness, henry-iv-part-2, henry-v, hume-enquiry, ivan-ilyich, jekyll-and-hyde, julius-caesar, jungle-book, kant-groundwork, king-lear, macbeth, measure-for-measure, medea, merchant-of-venice, merry-wives-of-windsor, midsummer, much-ado-about-nothing, notes-from-underground, oedipus-at-colonus, oedipus-rex, on-liberty, oresteia, othello, phaedo, phaedrus, poetics, richard-iii, romeo-and-juliet, social-contract, symposium, the-art-of-war, the-awakening, the-manual, the-prince, twelfth-night, us-founding-documents, utilitarianism, werther, winters-tale
+
+## The status files lag production
+
+38 packages return HTTP 200 from production while their own `status.json` still
+says `appStatus: awaiting-integration`. **The packages are live; the status
+files are stale.** This authoring lane never sets `appStatus` — that is the
+release owner's field — so the correction has to come from Codex, not from here.
+Until it does, read this file and the serving check rather than the per-package
+`appStatus`.
+
+Nothing in that list needs re-authoring. Anyone picking up the queue should
+treat every name above as done and integrated, and take the next `not-started`
+book from AUTOMATION-QUEUE.md.
+
+## Still not served
+
+Everything authored after the last integration pass, including the three largest
+packages in the library: `divine-comedy` (589 entities, 100 cantos),
+`paradise-lost` (171) and `faust-part-1` (97). These are queued in
+RELEASE-QUEUE.md with their commit hashes, entry counts and source sha256 values,
+and each carries its own required-production-checks list.
+
+## How to re-measure
+
+    python3 books/characters/serving_check.py            # against tinct.app
+    python3 books/characters/serving_check.py <host>     # against any host
+
+Validated is not deployed. Only the release owner's own evidence may set a
+package's `appStatus` to live.
