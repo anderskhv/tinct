@@ -28,12 +28,17 @@
   }, { passive: true });
   update();
 
-  // The pill steps aside while the footer is on screen (it has its own Start reading link).
-  var footer = document.querySelector('footer.about-footer');
-  if (footer && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) root.setAttribute('data-tinct-footer', 'visible'); else root.removeAttribute('data-tinct-footer');
-    }).observe(footer);
+  // The pill steps aside while the footer or the closing section's own Start reading button is on screen.
+  if ('IntersectionObserver' in window) {
+    var covering = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { covering[e.target.className] = e.isIntersecting; });
+      var any = Object.keys(covering).some(function (k) { return covering[k]; });
+      if (any) root.setAttribute('data-tinct-footer', 'visible'); else root.removeAttribute('data-tinct-footer');
+    });
+    ['footer.about-footer', '.final-read-link'].forEach(function (sel) {
+      var el = document.querySelector(sel); if (el) io.observe(el);
+    });
   }
 
   // Talk panel: a slowly turning globe of ink dots (the Talk concept), drawn into the panel's orbit
