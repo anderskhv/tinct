@@ -1,0 +1,25 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/meditations-modern-en-20260911-v2",
+ "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
+ "staged_original_sha256": "7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443",
+ "chapter_extracted": {
+  "number": 1,
+  "title": "Book 1",
+  "paragraphs": 17,
+  "extraction": "found by chapter.number == 1 in the staged original-en; paragraphs byte-identical"
+ },
+ "source_book1_json_sha256": "bd382c8a29f4de821f4aee175194323682f374aed027d4497e022c4597725060",
+ "candidate_v1_json_sha256": "e1d816d39c5eba0d38f3f6adf7e7f511866290119fb812958eb5e4a6f57ff597",
+ "translation_source": "George Long, 1862. Project Gutenberg #15877 (source/pg15877-long-1862.txt, sha256 6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b), with the mechanical normalisations listed in PROVENANCE.md section 4. The only source used for the candidate; no other translation consulted for wording.",
+ "word_counts": {
+  "source": 2831,
+  "candidate": 2746,
+  "ratio": 0.97,
+  "min_paragraph_ratio": 0.92,
+  "note": "screening signal only; not evidence of semantic completeness"
+ },
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary and the Book II acceptance record read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 1 (candidate text frozen in scripts/candidates/book1.py; regenerates source-book1.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+}

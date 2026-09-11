@@ -43,6 +43,13 @@ session. Kept current at every push.
   `book2/changes-v1-to-v2.md`; changed passages verified by word diff; flow
   read done with two further within-Long fixes; acceptance recorded in
   `book2/ACCEPTANCE.md`. `continuity.md` and `provenance.json` updated.
+- 2026-09-11 — **Book I drafted and frozen** (steps 2–3): `book1/candidate-v1.json`
+  (sha256 `e1d816d3…`), 17 paragraphs 1:1 with Long's I.1–I.17, word ratio
+  0.970 (min paragraph 0.92). Readable copy, `continuity.md`,
+  `provenance.json`, `manifest.json`, `review-instructions.md` and six review
+  packets pushed, built by the new generic `scripts/build_book_package.py`
+  from `scripts/candidates/book1.py`. **Stopped for independent review**
+  (step 4). Findings expected under `book1/review/`.
 
 ## Decided, and why
 
@@ -59,10 +66,13 @@ session. Kept current at every push.
 
 ## Next
 
-1. Book I through the same eight steps: draft with full book context, freeze
-   `book1/candidate-v1.json`, packets, push, stop for the coordinator's
-   independent review under `book1/review/`.
+1. **Waiting on the coordinator:** independent review of Book I
+   (`book1/review-instructions.md`, `book1/review-packets/`). On findings:
+   `book1/candidate-v2.json` via a change script, verification, flow read,
+   `book1/ACCEPTANCE.md`.
 2. Then Books III … XII in numerical order, each with its own review round.
+   Book III is not started until Book I is accepted, per the brief's
+   one-book-at-a-time process.
 
 ## Needs Anders (listed, not waited on)
 
