@@ -1,0 +1,149 @@
+# Audio word highlighting — moving execution off the laptop
+
+September 11, 2026. Written from a Claude cloud session
+(`session_01TEYxdpbuL2oCZhBUWxf4Q5`), working on branch
+`claude/wonderful-cerf-0vhcs3`.
+
+This records what is actually true about the audio word-highlighting work right
+now, what has been moved into the cloud, and the two things that still need
+Anders before cloud execution can replace the Mac. It does not restate the
+plan; the plan is `audio-highlight-completion-plan-2026-09-10.md` and it stands.
+
+## What this session verified independently
+
+All of the following was measured from this cloud container against
+**https://tinct.app**, with no access to any local machine, using the public
+read routes the app itself uses.
+
+The status Anders reported checks out, item by item:
+
+| Reported | Verified on production |
+| --- | --- |
+| 17 chapter repairs published, served bytes verified | The named repair targets are present and serve: The Manual `original-en` ch52, Social Contract `original-en` ch23 and ch46, `modern-en` ch22 and ch46. |
+| Macbeth canary published | `macbeth/original-en/ch1/words.json` serves 11,603 bytes at SHA-256 `18cd10f6…51751`, the exact hash recorded in the plan. |
+| Magna Carta `original-en` ch1 awaiting review | Not published. `modern-en` ch1 is published; `original-en` ch1 returns 404. |
+| U.S. Founding Documents `modern-en` ch2 processing locally | Not published. ch1 is published, ch2 returns 404. |
+| A Little Princess `modern-en` prepared, not launched | Not published. ch1 and ch2 both return 404. |
+
+Re-validated three published repairs end to end — identity, paragraph mapping,
+coverage, timestamp bounds and agreement with the published edition text.
+Macbeth ch1, Social Contract ch23 and The Manual ch52 all pass every check with
+a perfect token match against the edition text. The manifest's `paragraph: -1`
+title track is correctly excluded from the timings rather than mistimed.
+
+## What the inventory actually is
+
+Parsed from `app/src/data/bookRegistry.ts` on `main` and confirmed against
+production: **100 public books, 201 English editions, 169 flagged `hasAudio`,
+32 unflagged.** Four books have no English edition flagged for audio at all —
+Walden, A Vindication of the Rights of Woman, The Comedy of Errors, The Death
+of Ivan Ilyich. These figures match the completion plan exactly.
+
+Two findings the flags hide:
+
+- **30 of the 32 "unflagged" English editions do have chapter-1 audio in
+  production.** The flag is stale, not the recording. Only Ivan Ilyich
+  (`original-en` and `modern-en`) genuinely has no audio manifest. Walden,
+  Vindication and The Comedy of Errors all have audio despite having no
+  flagged edition.
+- Chapter-1 word timings exist for **70 of 201** English editions. 129
+  editions have a chapter-1 recording and no chapter-1 timings.
+
+The "147 eligible / 54 held / 90 discoverable" split is **not in any branch on
+GitHub**. Neither is `docs/audio-edition-availability-2026-09-10.md`. There is
+no eligibility or hold gating anywhere in the pushed app code. That work exists
+only on the Mac.
+
+## The safety problem this turned up
+
+`app/tts/pod-watchdog.py` is the thing that actually stops RunPod pods — it
+polls every five minutes, kills stalls, and stops pods on completion because
+"this was the #1 source of waste". It runs on the Mac, from `/tmp` state files,
+under `nohup`.
+
+So today, **remote termination depends on Anders's laptop staying awake**. The
+45-minute in-process cap does not help: as `app/tts/diagnostic_pilot/README.md`
+says in as many words, the process cap does not terminate a provider pod or
+stop its billing. If the Mac sleeps mid-run, nothing stops the meter.
+
+That has to be fixed before any further GPU launch, not after.
+
+## What has been moved into the cloud
+
+`tools/audio-highlight/` — see its README. Everything there runs from any cloud
+worker; nothing reads a path under `/Users`.
+
+- **Census and verification need no credentials at all.** They work today.
+- **`verify_timings.py` is the part that was missing.** Presence of a
+  `words.json` proved nothing before; this checks identity, paragraph mapping,
+  coverage, timestamp bounds and edition-text agreement at the existing 0.85
+  threshold. It does not lower the threshold and does not invent values.
+- **`publish_timings.py`** validates first, refuses to overwrite, uploads
+  conditionally, re-reads the bytes production serves and compares hashes, and
+  journals every outcome. Two owners can run it at once without clobbering.
+- **`runpod_guard.py`** enforces the $1/hr ceiling, the 50-minute deadline and
+  the $25 envelope from outside any laptop, and only touches pods carrying the
+  owner prefix. Other RunPod resources are reported, never removed.
+
+Two scheduled workflows drive them:
+
+- `.github/workflows/audio-highlight-audit.yml` — census plus rotating
+  verification every six hours, committing the ledger to the
+  `audio-highlight-ledger` branch. Red build if a published sidecar is invalid.
+- `.github/workflows/audio-gpu-guard.yml` — spend enforcement every five
+  minutes. **Inert until `RUNPOD_API_KEY` is a repository secret.** It warns
+  rather than pretending to be armed.
+
+An hourly Claude cloud Routine supervises this session and reports.
+
+## Durable storage, and what does not need transferring
+
+Most of what looked like it needed moving off the Mac does not:
+
+- **Edition text** is published at `/data/editions/{bookId}-{edition}.json` and
+  is tracked in git (393 files). Reachable from anywhere.
+- **Recordings and manifests** are readable from anywhere through
+  `/api/audio-file` and `/api/audio-manifest`.
+- **Published sidecars** are readable the same way, and now verifiable.
+
+So the *inputs* to alignment can be rebuilt in the cloud by hash without the
+Mac. What genuinely cannot be rebuilt without re-spending compute is the
+accumulated evidence: `output/word-timing-diagnostic-pilot-2026-09-10/`
+(diagnosis ledger, raw recognition, local ASR probe) and
+`output/audio-highlight-execution-2026-09-10/`. Those are on the Mac and in no
+branch. The prepared-but-unrun A Little Princess batch is cheap to rebuild;
+the raw recognition results are not.
+
+Git is the durable store for tools, ledgers and results: content-addressed,
+provenanced by commit, already mirrored off the machine. Raw audio stays in R2,
+where it already is.
+
+## Two things that genuinely block cloud execution
+
+Neither is a decision — both are access, and both should be configured as
+secrets, never pasted into a chat.
+
+1. **`RUNPOD_API_KEY`.** Without it this session cannot see what is running,
+   cannot establish single ownership, cannot avoid launching a duplicate of
+   whatever `gpu-package/continue_bulk03.py` may already have started, and
+   cannot guarantee termination. Until it exists, this session launches
+   nothing.
+2. **`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT`** (the variables
+   already named in `app/.env.example`). Without them the cloud can validate
+   and verify but cannot publish a single sidecar.
+
+Set both in the Claude Code web environment's secrets and in the repository's
+GitHub Actions secrets. The moment `RUNPOD_API_KEY` lands, the five-minute
+guard arms itself with no further action.
+
+## Standing rules for whoever executes
+
+- One owner. This session does not start GPU work while the Mac controller's
+  state is invisible.
+- Publication creates, never replaces; a key that exists is skipped and
+  journalled.
+- A publication counts only when production has served the bytes back at the
+  expected hash.
+- The 0.85 paragraph threshold does not move, and no timestamp or confidence
+  value is ever synthesised.
+- Reading access and saved positions are never traded for audio progress.
