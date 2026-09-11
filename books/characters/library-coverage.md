@@ -52,7 +52,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Oedipus Rex (`oedipus-rex`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Oedipus at Colonus (`oedipus-at-colonus`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Antigone (`antigone`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| On the Genealogy of Morals (`genealogy-of-morals`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| On the Genealogy of Morals (`genealogy-of-morals`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Meditations on First Philosophy (`descartes-meditations`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
 | On Liberty (`on-liberty`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Utilitarianism (`utilitarianism`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

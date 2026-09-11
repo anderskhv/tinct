@@ -1,0 +1,876 @@
+{
+  "bookId": "genealogy-of-morals",
+  "contentVersion": "2026-09-11.1",
+  "coverage": "All four reading units (Preface, First Essay, Second Essay, Third Essay) in both English editions. Named philosophers, historians, poets, theologians, and mythological, scriptural and literary figures Nietzsche cites by name or unambiguous epithet. Collective peoples and confessions (the Jews, the Germans, the Greeks, the Romans, Buddhists as a group) and works/texts (the Talmud, the New Testament) are not bound as persons; see README. One reference (\"Sir Christopher\" in Shakespeare) is deliberately left unbound as unresolved.",
+  "entities": [
+    {
+      "id": "paul-ree",
+      "name": "Paul Rée",
+      "body": "German philosopher and physician whose 1877 book The Origin of the Moral Emotions provoked Nietzsche's own inquiry into the origin of morality.",
+      "aliases": [
+        "Dr. Paul Rée",
+        "Dr. Rée"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "schopenhauer",
+      "name": "Arthur Schopenhauer",
+      "body": "The philosopher of pessimism and the will, called Nietzsche's early teacher in the Preface and examined at length in the Third Essay as a philosopher who paid homage to the ascetic ideal.",
+      "aliases": [
+        "Schopenhauer"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "body": "The Greek philosopher, cited repeatedly as an early opponent of pity and, in the Third Essay, as art's greatest enemy and the antithesis of Homer.",
+      "aliases": [
+        "Plato"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "spinoza",
+      "name": "Baruch Spinoza",
+      "body": "The philosopher whose placement of good and evil in human imagination, and whose account of the sting of conscience, Nietzsche discusses at length.",
+      "aliases": [
+        "Spinoza"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "la-rochefoucauld",
+      "name": "La Rochefoucauld",
+      "body": "The French moralist named among the philosophers who held pity in contempt before it became fashionable to praise it.",
+      "aliases": [
+        "La Rochefoucauld"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kant",
+      "name": "Immanuel Kant",
+      "body": "The philosopher whose categorical imperative, definition of the beautiful, and critique of theological dogmatism Nietzsche repeatedly takes up and disputes.",
+      "aliases": [
+        "Kant"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "zarathustra",
+      "name": "Zarathustra",
+      "body": "The prophet-figure of Nietzsche's own Thus Spoke Zarathustra, invoked at the close of the Second Essay as a voice reserved for what this book leaves unsaid.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "herbert-spencer",
+      "name": "Herbert Spencer",
+      "body": "The English philosopher whose evolutionary account of 'good' as the useful, and of life as adaptation, Nietzsche disputes by name.",
+      "aliases": [
+        "Herbert Spencer"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "buckle",
+      "name": "Henry Thomas Buckle",
+      "body": "The English historian Nietzsche cites as the case in which modern 'plebeian' prejudice broke out most violently in historical writing.",
+      "aliases": [
+        "Buckle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theognis",
+      "name": "Theognis",
+      "body": "The Greek poet of Megara whom Nietzsche credits with first making 'the truthful' the nobility's own name for itself.",
+      "aliases": [
+        "Theognis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "virchow",
+      "name": "Rudolf Virchow",
+      "body": "The German pathologist and anthropologist Nietzsche disputes on the racial ancestry of Germany's dark-haired population.",
+      "aliases": [
+        "Virchow"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jesus",
+      "name": "Jesus of Nazareth",
+      "body": "Discussed as the culmination of the Jewish 'transvaluation of values' and, via a quoted early Christian text, as the crucified god whose blood believers claim.",
+      "aliases": [
+        "Jesus of Nazareth",
+        "Jesus",
+        "Christ"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter",
+      "name": "Peter",
+      "body": "The apostle, named among the figures before whom, Nietzsche says, 'almost half the world' now bows, and later mocked as an insufferably self-important New Testament voice.",
+      "aliases": [
+        "Peter the fisher",
+        "Peter"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paul-apostle",
+      "name": "Paul",
+      "body": "The apostle, named among the figures before whom, Nietzsche says, 'almost half the world' now bows.",
+      "aliases": [
+        "Paul the tent-maker"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mary",
+      "name": "Mary",
+      "body": "The mother of Jesus, named as the fourth of the figures before whom Nietzsche says 'almost half the world' now bows.",
+      "aliases": [
+        "Mary"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "napoleon",
+      "name": "Napoleon",
+      "body": "Napoleon Bonaparte, presented as the modern reappearance of the aristocratic ideal, 'that synthesis of Monster and Superman.'",
+      "aliases": [
+        "Napoleon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pericles",
+      "name": "Pericles",
+      "body": "The Athenian statesman, quoted from his funeral oration as an example of aristocratic audacity and contempt for safety.",
+      "aliases": [
+        "Pericles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hesiod",
+      "name": "Hesiod",
+      "body": "The Greek poet who divided the ages of man into gold, silver and bronze, which Nietzsche reads as a device for accommodating two incompatible views of the heroic age.",
+      "aliases": [
+        "Hesiod"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mirabeau",
+      "name": "Mirabeau",
+      "body": "The French Revolutionary orator, cited as a modern example of a strong nature who forgives only because he forgets.",
+      "aliases": [
+        "Mirabeau"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "body": "The Greek poet, cited for his gods' amused view of human folly, as the creator of Achilles, and as the artist Nietzsche opposes to Plato.",
+      "aliases": [
+        "Homer"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dante",
+      "name": "Dante",
+      "body": "The Italian poet, whose inscription over the gate of Hell in the Divine Comedy Nietzsche calls a crass mistake.",
+      "aliases": [
+        "Dante"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aquinas",
+      "name": "Thomas of Aquinas",
+      "body": "The medieval theologian and saint, quoted on the blessed in heaven taking pleasure in witnessing the torments of the damned.",
+      "aliases": [
+        "Thomas of Aquinas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tertullian",
+      "name": "Tertullian",
+      "body": "The early Christian writer, quoted at length in Latin from De Spectaculis, anticipating the torment of pagan emperors, philosophers, actors and poets after the Last Judgment.",
+      "aliases": [
+        "Tertullian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "don-quixote",
+      "name": "Don Quixote",
+      "body": "The hero of Cervantes' novel, invoked through the episode at the Duchess's court as a book its first readers could enjoy as pure comedy.",
+      "aliases": [
+        "Don Quixote"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "innocent-iii",
+      "name": "Pope Innocent III",
+      "body": "The medieval pope quoted for his catalogue of the human body's indignities, from conception to decay.",
+      "aliases": [
+        "Pope Innocent the Third"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "luther",
+      "name": "Martin Luther",
+      "body": "Discussed both as a plain-spoken, quarrelsome opponent of Church etiquette and, through the unrealized 'Luther's Wedding,' as a subject Wagner once considered setting to music.",
+      "aliases": [
+        "Luther"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calvin",
+      "name": "John Calvin",
+      "body": "Named alongside Luther as a source worth consulting on the idea of gods who delight in cruelty.",
+      "aliases": [
+        "Calvin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heracles",
+      "name": "Heracles",
+      "body": "The Greek hero, invoked as a figure of arduous labor performed under the gaze of witnesses: 'the Heracles of duty.'",
+      "aliases": [
+        "Heracles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kuno-fischer",
+      "name": "Kuno Fischer",
+      "body": "The German historian of philosophy whose commentary on Spinoza Nietzsche accuses of laboring to misunderstand him.",
+      "aliases": [
+        "Kuno Fischer"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "duhring",
+      "name": "Eugen Dühring",
+      "body": "The German philosopher, later a leading anti-Semitic agitator, whose theory that justice originates in resentment Nietzsche attacks by name in both the Second and Third Essays.",
+      "aliases": [
+        "E. Dühring",
+        "Eugen Dühring",
+        "Dühring"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "huxley",
+      "name": "Thomas Henry Huxley",
+      "body": "Cited for his reproach to Herbert Spencer over Spencer's 'administrative Nihilism.'",
+      "aliases": [
+        "Huxley"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "goethe",
+      "name": "Johann Wolfgang von Goethe",
+      "body": "Cited on the 'labyrinth of the breast,' as the creator of Faust, and for his claim that there are only thirty-six tragic situations.",
+      "aliases": [
+        "Goethe"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "faust",
+      "name": "Faust",
+      "body": "The protagonist of Goethe's drama, invoked to argue that an artist need not himself be what he creates.",
+      "aliases": [
+        "Faust"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "body": "The hero of Homer's Iliad, invoked as a figure of uncompromising boldness and, later, as an example of a character an author need not resemble.",
+      "aliases": [
+        "Achilles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aegistheus",
+      "name": "Aegisthus",
+      "body": "The figure Homer's Zeus cites as an example of mortals blaming the gods for disasters of their own making.",
+      "aliases": [
+        "Ægistheus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "body": "The king of the Greek gods, quoted via Homer refusing to take the blame for mortal folly, and invoked as an alternative name for blind chance.",
+      "aliases": [
+        "Zeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heracleitus",
+      "name": "Heraclitus",
+      "body": "The Greek philosopher of flux, cited for likening the world to a child’s game and for having withdrawn to the temple of Artemis at Ephesus.",
+      "aliases": [
+        "Heracleitus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "body": "The biblical first man, named as the ancestor on whom the curse of humanity's unpayable debt to God is fixed ('original sin').",
+      "aliases": [
+        "Adam"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wagner",
+      "name": "Richard Wagner",
+      "body": "The composer, examined at length as an artist whose late turn to chastity and to the opera Parsifal exemplifies homage to the ascetic ideal.",
+      "aliases": [
+        "Richard Wagner",
+        "Wagner"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "feuerbach",
+      "name": "Ludwig Feuerbach",
+      "body": "The philosopher whose motto of 'healthy sensuality' Wagner followed enthusiastically in his youth.",
+      "aliases": [
+        "Feuerbach"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "herwegh",
+      "name": "Georg Herwegh",
+      "body": "The poet credited with introducing Wagner to Schopenhauer's philosophy.",
+      "aliases": [
+        "Herwegh"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "stendhal",
+      "name": "Stendhal",
+      "body": "The French novelist, whose definition of the beautiful as 'a promise of happiness' Nietzsche sets against Kant's disinterested formula.",
+      "aliases": [
+        "Stendhal"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pygmalion",
+      "name": "Pygmalion",
+      "body": "The sculptor of Greek myth who fell in love with his own statue, cited as evidence against the claim that beauty is contemplated 'without interest.'",
+      "aliases": [
+        "Pygmalion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epicurus",
+      "name": "Epicurus",
+      "body": "The Greek philosopher, quoted by Schopenhauer on the painless state as the highest good, and later compared to Indian doctrines of redemption through sleep.",
+      "aliases": [
+        "Epicurus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ixion",
+      "name": "Ixion",
+      "body": "The mythical king condemned to an eternally turning wheel, invoked by Schopenhauer's own words as an image of the will's suffering.",
+      "aliases": [
+        "Ixion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hegel",
+      "name": "G. W. F. Hegel",
+      "body": "Named among the 'enemies' Nietzsche says Schopenhauer needed in order to keep going.",
+      "aliases": [
+        "Hegel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "descartes",
+      "name": "René Descartes",
+      "body": "Listed among the great philosophers who never married.",
+      "aliases": [
+        "Descartes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leibnitz",
+      "name": "Gottfried Wilhelm Leibniz",
+      "body": "Listed among the great philosophers who never married.",
+      "aliases": [
+        "Leibnitz"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "body": "The Athenian philosopher, cited as the one exception among philosophers who married, said to have done so, ironically, only to prove the rule.",
+      "aliases": [
+        "Socrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "buddha",
+      "name": "Buddha",
+      "body": "The founder of Buddhism, quoted on the birth of his son as a fetter, and on leaving the confinement of the household for freedom.",
+      "aliases": [
+        "Buddha"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vicvamitra",
+      "name": "King Vicvamitra",
+      "body": "The legendary Indian king who, through a thousand years of self-martyrdom, gained the power to build a new heaven.",
+      "aliases": [
+        "King Vicvamitra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cankara",
+      "name": "Shankara",
+      "body": "The Indian philosopher whose commentaries on redemption through unity with Brahman Nietzsche quotes, via Paul Deussen's translation.",
+      "aliases": [
+        "Cankara"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deussen",
+      "name": "Paul Deussen",
+      "body": "Nietzsche's friend, described here as the first real European expert on Indian philosophy, whose translation of Shankara's commentaries Nietzsche quotes.",
+      "aliases": [
+        "Paul Deussen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "weir-mitchell",
+      "name": "Silas Weir Mitchell",
+      "body": "The American physician after whom the isolating 'rest cure,' invoked as a comparison for priestly asceticism, is named.",
+      "aliases": [
+        "Weir-Mitchell"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pascal",
+      "name": "Blaise Pascal",
+      "body": "Quoted for the ascetic maxim 'il faut s'abêtir' ('one must play the fool').",
+      "aliases": [
+        "Pascal"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-theresa",
+      "name": "Teresa of Ávila",
+      "body": "The Spanish mystic whose ecstasies Nietzsche cites as a symptom of ascetic self-starvation.",
+      "aliases": [
+        "St. Theresa"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "geulincx",
+      "name": "Arnold Geulincx",
+      "body": "The Flemish philosopher whose phrase for self-contempt, 'despectus sui,' Nietzsche borrows.",
+      "aliases": [
+        "Geulincx"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "byron",
+      "name": "Lord Byron",
+      "body": "The English poet, said to have written a fully honest personal autobiography.",
+      "aliases": [
+        "Lord Byron"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thomas-moore",
+      "name": "Thomas Moore",
+      "body": "The Irish poet and Byron's literary executor, who burned his friend's papers rather than let the autobiography survive.",
+      "aliases": [
+        "Thomas Moore"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gwinner",
+      "name": "Wilhelm von Gwinner",
+      "body": "Schopenhauer's literary executor, said to have likewise destroyed self-revealing papers.",
+      "aliases": [
+        "Gwinner"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thayer",
+      "name": "Alexander Wheelock Thayer",
+      "body": "The American biographer of Beethoven, said to have abandoned his life of the composer partway through rather than continue.",
+      "aliases": [
+        "Thayer"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beethoven",
+      "name": "Ludwig van Beethoven",
+      "body": "The composer, named as the subject of Thayer's unfinished biography.",
+      "aliases": [
+        "Beethoven"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "janssen",
+      "name": "Johannes Janssen",
+      "body": "The Catholic historian whose history of the German Reformation Nietzsche calls harmless and square.",
+      "aliases": [
+        "Janssen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "taine",
+      "name": "Hippolyte Taine",
+      "body": "The French historian and critic cited as a model of fearless, unflinching biography.",
+      "aliases": [
+        "Taine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ranke",
+      "name": "Leopold von Ranke",
+      "body": "The German historian Nietzsche calls the classic advocate of 'every causa fortior' — every accomplished fact — and 'the cleverest of all the clever opportunists.'",
+      "aliases": [
+        "Leopold Ranke"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "copernicus",
+      "name": "Nicolaus Copernicus",
+      "body": "Named as the point from which Nietzsche traces an unbroken progress in man's self-diminishment, after displacing the earth from the center of the universe.",
+      "aliases": [
+        "Copernicus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "doudan",
+      "name": "Ximénès Doudan",
+      "body": "The French essayist quoted on the danger of admiring the unintelligible instead of resting content in the unknown.",
+      "aliases": [
+        "Xaver Doudan"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tolstoi",
+      "name": "Leo Tolstoy",
+      "body": "Named for his late religious 'pity,' one of the few things Nietzsche says still grows in the barren landscape of modern historical writing.",
+      "aliases": [
+        "Tolstoi"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "renan",
+      "name": "Ernest Renan",
+      "body": "The French historian of religion Nietzsche mocks, via the phrase 'Renan parfum,' as a scented, half-priest, half-satyr type among modern historians.",
+      "aliases": [
+        "Renan"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anacreon",
+      "name": "Anacreon",
+      "body": "The Greek lyric poet, invoked mock-devotionally ('by St. Anacreon') as patron of kicking rather than merely running away.",
+      "aliases": [
+        "Anacreon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-the-bold",
+      "name": "Charles the Bold",
+      "body": "Duke of Burgundy, whose defiant words against Louis XI ('I fight the universal spider') Nietzsche borrows for humanity's stance toward God.",
+      "aliases": [
+        "Charles the Bold"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "louis-xi",
+      "name": "Louis XI",
+      "body": "King of France, Charles the Bold's adversary in the quoted line about fighting 'the universal spider.'",
+      "aliases": [
+        "Louis the Eleventh"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}
