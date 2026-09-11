@@ -75,6 +75,8 @@ const edits = [
     '<meta name="twitter:image" content="https://tinct.app/og-image.png"/>', 1, 'property="og:image"'],
   ['html', 'override stylesheet', 'data-precedence="vite-rsc/importer-resources"/>',
     'data-precedence="vite-rsc/importer-resources"/><link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>', 1, 'about-v21.css'],
+  ['html', 'product fonts for the Talk panel', '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>',
+    '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/><link rel="stylesheet" href="/fonts/tinct-fonts.css"/>', 1, 'tinct-fonts.css'],
   ['html', 'behaviour script', 'id="_R_" async=""></script>', 'id="_R_" async=""></script><script src="/assets/about-v20/about-v21.js" defer=""></script>', 1, 'about-v21.js'],
   // Context early: a quiet tagline beside the wordmark.
   ['html', 'tagline', 'aria-label="Tinct home">Tinct.</a>',
@@ -114,6 +116,7 @@ const edits = [
   ['story', 'character card kicker', '(0,_.jsx)(`small`,{children:`CHARACTERS · HAMLET`})', '(0,_.jsx)(`small`,{children:`Characters · Hamlet`})', 1],
   ['story', 'fuller character page', 'old Norway;`]})]}):',
     'old Norway;`]}),(0,_.jsxs)(`p`,{children:[`Giving to you no further personal power`,(0,_.jsx)(`br`,{}),`To business with the king, more than the scope`,(0,_.jsx)(`br`,{}),`Of these dilated articles allow.`,(0,_.jsx)(`br`,{}),`Farewell, and let your haste commend your duty.`]}),(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`Cornelius, Voltemand.`})}),(0,_.jsx)(`p`,{children:`In that and all things will we show our duty.`}),(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`King.`})}),(0,_.jsx)(`p`,{children:`We doubt it nothing: heartily farewell.`})]}):', 1],
+  ['story', 'talk panel button labels', 'a?`Show voice view`:`Read the conversation`]}', 'a?`Voice`:`Transcript`]}', 1],
   ['story', 'bookshelf lighting', 'filter:`saturate(${e===5?u:e===4?.12:0})`', 'filter:`saturate(${e===5?u:e===4?.12:0}) brightness(${e===5?1+.3*u:1})`', 1],
   ['iframe', 'intro line', 'Read and listen<br><em>at will.</em>', 'Read and listen<br><em>wherever you are.</em>', 1],
   ['iframe', 'intro width', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:37%;', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:46%;', 1],
