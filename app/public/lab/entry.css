@@ -72,7 +72,7 @@
  #tinct-onboarding-worlds-v5 .lib-wm {font-size:31px}
  #tinct-onboarding-worlds-v5 .lib-main {padding:27px 38px 30px;max-width:none;gap:24px}
  #tinct-onboarding-worlds-v5 .lib-popular-lead .lib-h1 {font-size:30px}
- #tinct-onboarding-worlds-v5 .lib-popular-lead [data-popular-lead-row],#tinct-onboarding-worlds-v5 .lib-popular-more,#tinct-onboarding-worlds-v5 .lib-caption {display:none}
+ #tinct-onboarding-worlds-v5 .lib-popular-lead [data-popular-lead-row],#tinct-onboarding-worlds-v5 .lib-caption {display:none}
  #tinct-onboarding-worlds-v5 .lib-popular {display:flex;flex-direction:column;gap:22px}
  #tinct-onboarding-worlds-v5 .entry-featured {display:grid;grid-template-columns:173px minmax(0,1fr);gap:32px;align-items:center}
  #tinct-onboarding-worlds-v5 .entry-featured-cover {padding:0;border:0;border-radius:2px;background:none;cursor:pointer}
@@ -95,6 +95,8 @@
  #tinct-onboarding-worlds-v5 .lib:not([data-full-library=true]):not([data-searching=true])[data-library-mode=new] .lib-index {display:none}
  #tinct-onboarding-worlds-v5 .lib[data-full-library=true] .lib-popular,#tinct-onboarding-worlds-v5 .lib[data-full-library=true] .lib-recap {display:none}
  #tinct-onboarding-worlds-v5 .lib[data-searching=true] .lib-popular,#tinct-onboarding-worlds-v5 .lib[data-searching=true] .lib-recap {display:none}
+ /* The search drawer belongs to the hero's foot: it goes with the hero. The field it holds is in the header slot while the search is open. */
+ #tinct-onboarding-worlds-v5 .lib[data-full-library=true] .lib-search-drawer,#tinct-onboarding-worlds-v5 .lib[data-searching=true] .lib-search-drawer {display:none}
  #tinct-onboarding-worlds-v5 .lib[data-full-library=true] .entry-library-back {display:block;margin:0 0 26px;padding:0;background:none;border:0;color:inherit;cursor:pointer}
  #tinct-onboarding-worlds-v5 .entry-search-toggle {display:grid;place-items:center;width:34px;height:34px;padding:7px;border:0;background:none;color:inherit;cursor:pointer}
  #tinct-onboarding-worlds-v5 .entry-search-toggle svg {width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}

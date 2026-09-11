@@ -25,6 +25,13 @@ export const LIBRARY_SHELF_SESSION_KEY = 'tinct:lab-library-shelf'
  * lab/library-boot.js, which writes it for the signed-in resume redirect.
  */
 export const READER_ORIGIN_SESSION_KEY = 'tinct:lab-reader-origin'
+/**
+ * Whether the search drawer has been opened in this browser session. Once a
+ * reader has pulled it open it stays open for the session, so Back and a
+ * reload do not close it on them. Mirrored as a literal in
+ * lab/library-boot.js, which reads it before the first paint.
+ */
+export const SEARCH_REVEAL_SESSION_KEY = 'tinct:lab-search-revealed'
 export const POPULAR_SHELF_SIZE = 8
 
 /** Reveal timing from the locked artboards: 56px travel, staggered starts. */
@@ -139,15 +146,15 @@ export function moveSelection(index, delta, count) {
 /**
  * The lead over the popular row. Only a reader with nothing in Reading now
  * ever sees this row (see `showPopularShelf`), so the lead is written for
- * that reader: an action in the page's headline face, the row named quietly
- * under it, and a line saying that the rest of the library is further down.
- * One place to change or cut the copy.
+ * that reader: an action in the page's headline face and the row named
+ * quietly under it. Where the rest of the library is, the page no longer
+ * says — the search drawer at the hero's foot shows it (see
+ * `searchDrawerState`). One place to change or cut the copy.
  */
 export function popularLead() {
   return {
     title: 'Pick your first book',
     row: 'Popular choices',
-    more: 'The search and all 100 books are further down.',
   }
 }
 
@@ -325,7 +332,56 @@ export function filterIndexBooks(catalogue, rawQuery) {
 
 export function searchPlaceholder(catalogue) {
   const count = publishedCount(catalogue)
-  return `Search ${count} ${count === 1 ? 'book' : 'books'}`
+  return `Search ${count} ${count === 1 ? 'book' : 'books'}…`
+}
+
+// ------------------------------------------------------------ search drawer
+
+/**
+ * Where the one search field sits and how it shows. There is one field
+ * (`#library-search-input`); the drawer at the hero's foot is its home, and
+ * on a wide screen the header slot is where it opens.
+ *
+ *   'peek' — in the drawer, closed: the top of the field shows above a
+ *            hairline, lit from below, and touching it opens the drawer.
+ *   'open' — in the drawer at full height, the index under it (phone).
+ *   'slot' — in the header slot (wide screen, search open).
+ *
+ * On a phone the drawer opens once and stays open for the session
+ * (`revealed`); a live query keeps it open whatever the session says. On a
+ * wide screen the drawer only ever peeks: opening hands the field to the
+ * header and opens the full library under it.
+ */
+export function searchDrawerState({ phone, searchOpen = false, query = '', revealed = false }) {
+  if (!phone) return searchOpen ? 'slot' : 'peek'
+  return revealed || String(query || '').trim() !== '' ? 'open' : 'peek'
+}
+
+export function searchRevealed(storage) {
+  try {
+    return storage?.getItem(SEARCH_REVEAL_SESSION_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+export function markSearchRevealed(storage) {
+  try {
+    storage?.setItem(SEARCH_REVEAL_SESSION_KEY, '1')
+  } catch {
+    // Storage blocked (private mode): the drawer peeks again on the next load.
+  }
+}
+
+/**
+ * The scroll position that brings the opened drawer to the top of the page
+ * with `margin` above it — the field at the top, the index under it, which
+ * is the layout that survives a phone keyboard. `drawerTop` is the drawer's
+ * viewport offset before the scroll; the result never overshoots the page.
+ */
+export function searchRevealScrollTop({ drawerTop, scrollY, margin = 24, maxScroll = Infinity }) {
+  const top = Math.round(scrollY + drawerTop - margin)
+  return Math.max(0, Math.min(Number.isFinite(maxScroll) ? Math.max(0, maxScroll) : Infinity, top))
 }
 
 // ----------------------------------------------------------- leave / return

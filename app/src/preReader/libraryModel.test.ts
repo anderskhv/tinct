@@ -29,6 +29,11 @@ import {
   revealDelayMs,
   revealTotalMs,
   searchPlaceholder,
+  SEARCH_REVEAL_SESSION_KEY,
+  searchDrawerState,
+  searchRevealed,
+  markSearchRevealed,
+  searchRevealScrollTop,
   shelfScrollLeft,
 } from '../../public/lab/library-model.js'
 
@@ -88,10 +93,10 @@ describe('locked library model', () => {
     expect(moveSelection(7, 1, 8)).toBe(7)
     expect(moveSelection(99, 0, 8)).toBe(7)
     expect(moveSelection(3, 0, 0)).toBe(0)
+    // No "further down" line: the search drawer at the hero's foot shows where the library is.
     expect(popularLead()).toEqual({
       title: 'Pick your first book',
       row: 'Popular choices',
-      more: 'The search and all 100 books are further down.',
     })
   })
 
@@ -267,8 +272,8 @@ describe('locked library model', () => {
     expect(houses.map((house: { id: string; count: number }) => [house.id, house.count])).toEqual([['epic', 1], ['drama', 2], ['philosophy', 2]])
     expect(houses[2].books.map((item: TestBook) => item.id)).toEqual(['the-republic', 'no-art'])
     expect(publishedCount(catalogue)).toBe(5)
-    expect(searchPlaceholder(catalogue)).toBe('Search 5 books')
-    expect(searchPlaceholder({ books: [catalogue.books[0]] })).toBe('Search 1 book')
+    expect(searchPlaceholder(catalogue)).toBe('Search 5 books…')
+    expect(searchPlaceholder({ books: [catalogue.books[0]] })).toBe('Search 1 book…')
   })
 
   it('fills index columns top to bottom like the artboard', () => {
@@ -308,4 +313,41 @@ it('keeps Full voice and the new reader through library navigation', async () =>
   expect(readerPreviewSearch('?chrome=v2&voiceTrial=unknown')).toBe('')
   expect(readerPreviewSearch('')).toBe('')
   expect(readerPreviewSearch('?voiceTrial=full')).toBe('')
+})
+
+describe('search drawer', () => {
+  it('peeks on a phone until it has been opened once this session, and a live query keeps it open', () => {
+    expect(searchDrawerState({ phone: true })).toBe('peek')
+    expect(searchDrawerState({ phone: true, searchOpen: true })).toBe('peek')
+    expect(searchDrawerState({ phone: true, revealed: true })).toBe('open')
+    expect(searchDrawerState({ phone: true, query: 'odys' })).toBe('open')
+    expect(searchDrawerState({ phone: true, query: '   ' })).toBe('peek')
+  })
+
+  it('on a wide screen only ever peeks in the drawer; opening hands the field to the header slot', () => {
+    expect(searchDrawerState({ phone: false })).toBe('peek')
+    expect(searchDrawerState({ phone: false, revealed: true, query: 'odys' })).toBe('peek')
+    expect(searchDrawerState({ phone: false, searchOpen: true })).toBe('slot')
+  })
+
+  it('remembers the reveal for the browser session and survives blocked storage', () => {
+    const store = new Map<string, string>()
+    const storage = { getItem: (key: string) => store.get(key) ?? null, setItem: (key: string, value: string) => { store.set(key, value) } }
+    expect(searchRevealed(storage)).toBe(false)
+    markSearchRevealed(storage)
+    expect(store.get(SEARCH_REVEAL_SESSION_KEY)).toBe('1')
+    expect(searchRevealed(storage)).toBe(true)
+    const blocked = { getItem: () => { throw new Error('blocked') }, setItem: () => { throw new Error('blocked') } }
+    expect(searchRevealed(blocked)).toBe(false)
+    expect(() => markSearchRevealed(blocked)).not.toThrow()
+    expect(searchRevealed(null)).toBe(false)
+  })
+
+  it('scrolls the opened drawer to the top of the page, never past the end or above the start', () => {
+    expect(searchRevealScrollTop({ drawerTop: 620, scrollY: 0, margin: 24 })).toBe(596)
+    expect(searchRevealScrollTop({ drawerTop: 620.4, scrollY: 100, margin: 24 })).toBe(696)
+    expect(searchRevealScrollTop({ drawerTop: 620, scrollY: 0, margin: 24, maxScroll: 400 })).toBe(400)
+    expect(searchRevealScrollTop({ drawerTop: 10, scrollY: 0, margin: 24 })).toBe(0)
+    expect(searchRevealScrollTop({ drawerTop: 620, scrollY: 0, margin: 24, maxScroll: -50 })).toBe(0)
+  })
 })

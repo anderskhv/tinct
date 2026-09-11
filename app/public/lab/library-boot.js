@@ -46,6 +46,17 @@
    * LAB_RECAP_MIN_AWAY_MS in src/preReader/recapSummaryClient.ts.
    */
   var RECAP_MIN_AWAY_MS = 60 * 60 * 1000
+  /**
+   * Whether the search drawer at the hero's foot has been opened this
+   * browser session. Stamped on <html> so the drawer paints open from the
+   * first frame and does not jump when the runtime confirms it. Mirrors
+   * SEARCH_REVEAL_SESSION_KEY in lab/library-model.js.
+   */
+  var SEARCH_REVEAL_SESSION_KEY = 'tinct:lab-search-revealed'
+
+  function searchRevealed(session) {
+    try { return Boolean(session) && session.getItem(SEARCH_REVEAL_SESSION_KEY) === '1' } catch (e) { return false }
+  }
 
   function landingWorld(session) {
     try {
@@ -464,6 +475,7 @@
     try { session = window.sessionStorage } catch (e) { session = null }
     html.setAttribute('data-lib-world', landingWorld(session))
     if (state.library) html.setAttribute('data-lab-boot-view', 'library')
+    if (state.library && searchRevealed(session)) html.setAttribute('data-lab-search-revealed', 'true')
     if (state.signedIn) html.setAttribute('data-lab-auth-hint', 'signed-in')
     if (state.returning) html.setAttribute('data-lab-boot-mode', 'returning')
     if (state.library && (state.signedIn || state.returning)) observe(state)
