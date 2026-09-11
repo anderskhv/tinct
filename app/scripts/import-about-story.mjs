@@ -1,7 +1,7 @@
 // Import the approved, already-built Sites story without changing the reader's
 // React version, dependencies, security policy, or root asset namespace.
 // Usage: node scripts/import-about-story.mjs /absolute/path/to/dist/client
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync, unlinkSync } from 'node:fs';
 import { resolve, join, extname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -11,10 +11,14 @@ const publicDir = fileURLToPath(new URL('../public/', import.meta.url));
 const prefix = '/assets/about-v20';
 const target = join(publicDir, prefix);
 mkdirSync(target, { recursive: true });
+for (const name of readdirSync(target)) {
+  if (/^(bootstrap|audio)-[a-f0-9]{12}\.js$/.test(name)) unlinkSync(join(target, name));
+}
 
 function relocate(text) {
   return text.replaceAll('/assets/', `${prefix}/assets/`)
     .replaceAll('/_next/', `${prefix}/_next/`)
+    .replaceAll('"_next/', `"${prefix.slice(1)}/_next/`)
     .replaceAll('/fonts/', `${prefix}/fonts/`)
     .replaceAll('/audio-journey.html', `${prefix}/audio-journey.html`)
     .replace(/\/bookshelf(?=["\\]|$)/g, '/about')
