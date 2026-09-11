@@ -32,7 +32,7 @@ function mountRoot(): HTMLElement {
 }
 
 const SESSION = JSON.stringify({ access_token: 'x', user: { id: 'user-a', email: 'anders@example.com', user_metadata: { full_name: 'Anders Hvelplund' } } })
-const SNAPSHOT = { v: 1, at: Date.now() - 5_000, userId: 'user-a', readingNow: 2, finished: 0, hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: 'You stopped in Proverbs 17', coverSrc: '/covers/bible.jpg', coverSrcSet: null, note: '12% read' } }
+const SNAPSHOT = { v: 1, at: Date.now() - 5_000, userId: 'user-a', readingNow: 2, finished: 0, hero: { bookId: 'bible', title: 'The Bible', chapterLabel: 'Proverbs 17', headline: 'You stopped in Proverbs 17', coverSrc: '/covers/bible.jpg', coverSrcSet: null, note: '12% read' }, row: [{ bookId: 'odyssey', title: 'The Odyssey', coverSrc: '/covers/odyssey.jpg', coverSrcSet: null }] }
 
 beforeEach(() => { history.replaceState(null, '', '/'); document.cookie = 'tinct_auth=; Max-Age=0; path=/'; localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
 afterEach(() => { localStorage.clear(); sessionStorage.clear(); document.body.innerHTML = '' })
@@ -112,6 +112,12 @@ describe('lab/index.html boot script', () => {
     expect(recap.getAttribute('data-boot-recap')).toBe('snapshot')
     expect(recap.querySelector('[data-reading-now-section] .lib-cnt')?.textContent).toBe('2')
     expect(recap.querySelector('[data-now-shelf] .lib-now-item')?.getAttribute('data-now-book')).toBe('bible')
+    // Every card the confirmed render will show, so the row never goes 1 → N.
+    const cards = [...recap.querySelectorAll<HTMLElement>('[data-now-shelf] .lib-now-item')]
+    expect(cards.map(card => [card.dataset.nowBook, card.dataset.nowIndex, card.classList.contains('is-focused')])).toEqual([['bible', '0', true], ['odyssey', '1', false]])
+    expect(cards[1].querySelector('.lib-cover img')?.getAttribute('src')).toBe('/covers/odyssey.jpg')
+    expect(cards[1].querySelector('[data-now-remove]')?.getAttribute('aria-label')).toBe('Remove The Odyssey from currently reading')
+    expect(recap.querySelector('[data-now-shelf]')?.classList.contains('is-single')).toBe(false)
     expect(recap.querySelector('[data-now-caption] .lib-eyebrow')?.textContent).toBe('Last time you read · Proverbs 17')
     expect(recap.querySelector('[data-now-caption] .lib-h1')?.textContent).toBe('You stopped in Proverbs 17')
     expect(recap.querySelector('[data-now-caption] .lib-lede')?.textContent).toBe('The Bible')

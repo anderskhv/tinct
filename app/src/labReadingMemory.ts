@@ -47,7 +47,7 @@ import { fetchLabPositionCloud, putLabPositionCloud, readLabPositionLocal, write
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
-import { clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
+import { LAB_LIBRARY_BOOT_ROW_MAX, clearLabLibraryBootSnapshot, safeCoverSource, writeLabLibraryBootSnapshot, type LabLibraryBootCard, type LabLibraryBootSnapshot } from './lab/labLibraryBoot'
 // The Reading-now row and the popular row scroll by the same rule, so they
 // read the focused cover out of the same function rather than each keeping a
 // copy of it. library-model.js is a plain pure-function module; the bundler
@@ -488,11 +488,126 @@ async function fillHeroSummary(
  * no per-card "so far" summary: the summary belongs to the book you scrolled
  * to, and there is only ever one of it on screen.
  */
-function nowShelfMarkup(rows: ReadingListRow[], books: Map<string, CatalogueBook>, focused: number): string {
-  return rows.map((row, index) => {
-    const title = bookTitle(books.get(row.bookId), row.bookId)
-    return `<div class="lib-now-item${index === focused ? ' is-focused' : ''}" data-now-book="${escapeHtml(row.bookId)}" data-now-index="${index}"><button type="button" class="lib-now-open" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-current="${index === focused}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(books.get(row.bookId), row.bookId)}</button>${removeMarkup(row.bookId, title)}</div>`
-  }).join('')
+function nowItemMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>, index: number, focused: boolean): string {
+  const title = bookTitle(books.get(row.bookId), row.bookId)
+  return `<div class="lib-now-item${focused ? ' is-focused' : ''}" data-now-book="${escapeHtml(row.bookId)}" data-now-index="${index}"><button type="button" class="lib-now-open" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-current="${focused}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(books.get(row.bookId), row.bookId)}</button>${removeMarkup(row.bookId, title)}</div>`
+}
+
+function elementFromMarkup(markup: string): HTMLElement {
+  const template = document.createElement('template')
+  template.innerHTML = markup.trim()
+  return template.content.firstElementChild as HTMLElement
+}
+
+function setAttr(node: Element, name: string, value: string): void {
+  if (node.getAttribute(name) !== value) node.setAttribute(name, value)
+}
+
+/**
+ * Bring an existing card up to date without recreating it. The cover's
+ * `<img>` is the point: assigning the same `src` again is harmless, but a
+ * recreated node is a fresh request and a blank frame while it decodes, and
+ * the boot paint (lab/library-boot.js) has already put the hero's cover on
+ * screen before this module loaded.
+ */
+function updateNowItem(item: HTMLElement, row: ReadingListRow, books: Map<string, CatalogueBook>, index: number, focused: boolean): void {
+  const book = books.get(row.bookId)
+  const title = bookTitle(book, row.bookId)
+  setAttr(item, 'data-now-index', String(index))
+  item.classList.toggle('is-focused', focused)
+  let open = item.querySelector<HTMLElement>('.lib-now-open')
+  if (!open) {
+    open = elementFromMarkup(`<button type="button" class="lib-now-open"></button>`)
+    item.prepend(open)
+  }
+  setAttr(open, 'data-recap-open', row.bookId)
+  setAttr(open, 'data-continue-source', row.target.source)
+  setAttr(open, 'data-continue-chapter', String(row.target.chapterNumber))
+  setAttr(open, 'aria-current', String(focused))
+  setAttr(open, 'aria-label', `Continue ${title} from ${row.target.chapterLabel}`)
+  let cover = open.querySelector<HTMLElement>('.lib-cover')
+  if (!cover) {
+    cover = elementFromMarkup('<span class="lib-cover"></span>')
+    open.replaceChildren(cover)
+  }
+  const source = coverFor(book, row.bookId)
+  let img = cover.querySelector('img')
+  if (!source) {
+    img?.remove()
+    setAttr(cover, 'aria-hidden', 'true')
+  } else {
+    cover.removeAttribute('aria-hidden')
+    if (!img) {
+      img = document.createElement('img')
+      img.alt = ''
+      img.decoding = 'async'
+      cover.appendChild(img)
+    }
+    if (img.getAttribute('src') !== source.src) img.src = source.src
+    if (source.srcSet) { if (img.getAttribute('srcset') !== source.srcSet) img.srcset = source.srcSet }
+    else if (img.hasAttribute('srcset')) img.removeAttribute('srcset')
+  }
+  let remove = item.querySelector<HTMLElement>('.lib-now-remove')
+  if (!remove) {
+    remove = elementFromMarkup(removeMarkup(row.bookId, title))
+    item.appendChild(remove)
+  }
+  setAttr(remove, 'data-now-remove', row.bookId)
+  setAttr(remove, 'aria-label', `Remove ${title} from currently reading`)
+}
+
+/**
+ * The row's cards, keyed by book. Cards already on the row — the confirmed
+ * render's, or the one the boot paint put there — are kept and moved into
+ * place; only genuinely new books get a new card, and books that left the
+ * list have theirs removed. Nothing here recreates an `<img>` that is
+ * already showing the right cover.
+ */
+function reconcileNowShelf(shelf: HTMLElement, rows: ReadingListRow[], books: Map<string, CatalogueBook>, focused: number): void {
+  const existing = new Map<string, HTMLElement>()
+  for (const item of [...shelf.querySelectorAll<HTMLElement>('.lib-now-item')]) {
+    const id = item.dataset.nowBook
+    if (id && !existing.has(id) && item.parentElement === shelf) existing.set(id, item)
+    else item.remove()
+  }
+  rows.forEach((row, index) => {
+    let item = existing.get(row.bookId)
+    if (item) {
+      updateNowItem(item, row, books, index, index === focused)
+      existing.delete(row.bookId)
+    } else {
+      item = elementFromMarkup(nowItemMarkup(row, books, index, index === focused))
+    }
+    const slot = shelf.children[index] ?? null
+    if (slot !== item) shelf.insertBefore(item, slot)
+  })
+  for (const stale of existing.values()) stale.remove()
+  while (shelf.children.length > rows.length) shelf.lastElementChild!.remove()
+  shelf.classList.toggle('is-single', rows.length < 2)
+}
+
+/** The Finished rows, keyed by book: a row is static per book, so a kept one is left alone. */
+function reconcileFinishedRows(container: HTMLElement, rows: ReadingList['finished'], books: Map<string, CatalogueBook>): void {
+  const existing = new Map<string, HTMLElement>()
+  for (const item of [...container.querySelectorAll<HTMLElement>('.lib-recap-row')]) {
+    const id = item.dataset.finishedBook
+    if (id && !existing.has(id) && item.parentElement === container) existing.set(id, item)
+    else item.remove()
+  }
+  rows.forEach((row, index) => {
+    let item = existing.get(row.bookId)
+    if (item) existing.delete(row.bookId)
+    else item = elementFromMarkup(finishedMarkup(row, books))
+    const slot = container.children[index] ?? null
+    if (slot !== item) container.insertBefore(item, slot)
+  })
+  for (const stale of existing.values()) stale.remove()
+  while (container.children.length > rows.length) container.lastElementChild!.remove()
+}
+
+function setCount(head: Element | null, count: number): void {
+  const cnt = head?.querySelector('.lib-cnt')
+  if (cnt && cnt.textContent !== String(count)) cnt.textContent = String(count)
 }
 
 /**
@@ -558,6 +673,8 @@ function finishedMarkup(row: ReadingList['finished'][number], books: Map<string,
 
 /** The book the reading-now row is centred on. */
 let nowFocus = 0
+/** What the caption last rendered; the same text is not rendered twice. */
+let lastCaptionMarkup = ''
 let nowFocusChosen = false
 let nowObserver: IntersectionObserver | null = null
 let nowQuietUntil = 0
@@ -589,7 +706,15 @@ function renderNowCaption(immediate = false): void {
   const card = nowFocus === 0 && lastRendered && row.session && lastRendered.card.provenance.sessionId === row.session.id
     ? lastRendered.card
     : null
-  caption.innerHTML = nowCaptionMarkup(row, books)
+  // The caption is text; rebuilding it for the same text would only restart
+  // the summary's fade and the reader's selection. The boot paint's caption
+  // (lab/library-boot.js) never matches — it carries no test hooks — so the
+  // first confirmed render always replaces it, in the same shape.
+  const markup = nowCaptionMarkup(row, books)
+  if (lastCaptionMarkup !== markup || !caption.childElementCount) {
+    caption.innerHTML = markup
+    lastCaptionMarkup = markup
+  }
   section.dataset.book = row.bookId
   section.dataset.sessionState = row.session?.state ?? 'none'
   section.dataset.bodyKind = card ? card.bodyKind : row.recap ? 'summary' : 'location-only'
@@ -734,6 +859,15 @@ function observeNowShelf(): void {
   }, { passive: true })
 }
 
+/**
+ * Paint the list into the section by reconciling what is already there — the
+ * boot paint or the previous render — rather than rebuilding it. A returning
+ * reader's library is painted up to six times per load (local, cloud
+ * positions, completions, memory, recap); rebuilt with `innerHTML`, every one
+ * of those recreated every cover `<img>` and restarted every opacity
+ * transition, which is the flicker Anders saw. Now a repaint that changes
+ * nothing touches nothing, and one that reorders moves the existing cards.
+ */
 function renderSections(list: ReadingList, rendered: RecapLoadResult | null): void {
   if (!section) return
   const books = catalogue ?? new Map<string, CatalogueBook>()
@@ -758,13 +892,41 @@ function renderSections(list: ReadingList, rendered: RecapLoadResult | null): vo
   // Preserve a deliberate cover selection, never the stale boot/local hero.
   const focusedBook = nowFocusChosen ? section.querySelector<HTMLElement>('.lib-now-item.is-focused')?.dataset.nowBook : undefined
   nowFocus = Math.max(0, list.readingNow.findIndex(row => row.bookId === focusedBook))
-  const readingNow = hero
-    ? `<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}<div class="lib-now-shelf${list.readingNow.length < 2 ? ' is-single' : ''}" data-now-shelf role="group" aria-label="Books you are reading">${nowShelfMarkup(list.readingNow, books, nowFocus)}</div><div class="lib-now-caption" data-now-caption aria-live="polite"></div></section>`
-    : ''
-  const finished = list.finished.length
-    ? `<section class="lib-finished" data-finished-section aria-label="Finished">${sectionHead('Finished', list.finished.length, 'data-finished-head')}<div class="lib-recap-others" data-finished-rows>${list.finished.map(row => finishedMarkup(row, books)).join('')}</div></section>`
-    : ''
-  section.innerHTML = readingNow + finished
+
+  let readingNow = section.querySelector<HTMLElement>('[data-reading-now-section]')
+  if (!hero) {
+    readingNow?.remove()
+  } else {
+    if (!readingNow) {
+      readingNow = elementFromMarkup(`<section class="lib-reading-now" data-reading-now-section aria-label="Reading now">${sectionHead('Reading now', list.readingNow.length, 'data-reading-now-head')}<div class="lib-now-shelf" data-now-shelf role="group" aria-label="Books you are reading"></div><div class="lib-now-caption" data-now-caption aria-live="polite"></div></section>`)
+      section.prepend(readingNow)
+    } else if (readingNow !== section.firstElementChild) {
+      section.prepend(readingNow)
+    }
+    setCount(readingNow.querySelector('[data-reading-now-head]'), list.readingNow.length)
+    let shelf = readingNow.querySelector<HTMLElement>('[data-now-shelf]')
+    if (!shelf) {
+      shelf = elementFromMarkup('<div class="lib-now-shelf" data-now-shelf role="group" aria-label="Books you are reading"></div>')
+      readingNow.querySelector('[data-now-caption]')?.before(shelf) ?? readingNow.appendChild(shelf)
+    }
+    reconcileNowShelf(shelf, list.readingNow, books, nowFocus)
+    if (!readingNow.querySelector('[data-now-caption]')) {
+      readingNow.appendChild(elementFromMarkup('<div class="lib-now-caption" data-now-caption aria-live="polite"></div>'))
+    }
+  }
+
+  let finished = section.querySelector<HTMLElement>('[data-finished-section]')
+  if (!list.finished.length) {
+    finished?.remove()
+  } else {
+    if (!finished) {
+      finished = elementFromMarkup(`<section class="lib-finished" data-finished-section aria-label="Finished">${sectionHead('Finished', list.finished.length, 'data-finished-head')}<div class="lib-recap-others" data-finished-rows></div></section>`)
+      section.appendChild(finished)
+    }
+    setCount(finished.querySelector('[data-finished-head]'), list.finished.length)
+    reconcileFinishedRows(finished.querySelector<HTMLElement>('[data-finished-rows]')!, list.finished, books)
+  }
+
   if (!hero) return
   renderNowCaption(true)
   fitNowShelf()
@@ -789,8 +951,16 @@ async function performRender(): Promise<void> {
     // catalogue or focus event briefly replaces a newer confirmed cloud list.
     nowFocusChosen = false
     lastList = { readingNow: [], finished: [] }
-    section.innerHTML = ''
-    section.hidden = true
+    lastCaptionMarkup = ''
+    // A viewer CHANGE (sign-in, sign-out) clears the previous account's
+    // library before anything of the new one is painted. The first load is
+    // not a change: the boot paint (lab/library-boot.js) is this viewer's own
+    // snapshot, and it stays on screen until the local list reconciles into
+    // it — clearing it here was the snapshot-to-blank flash.
+    if (renderedViewer !== undefined) {
+      section.innerHTML = ''
+      section.hidden = true
+    }
     paintList(accountLabPositionRecord(readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID), null, auth.userId))
     renderedViewer = auth.userId
   }
@@ -875,7 +1045,14 @@ function bootSnapshot(list: ReadingList, userId: string | null, books: Map<strin
   const hero = list.readingNow[0] ?? null
   const book = hero ? books.get(hero.bookId) : undefined
   const cover = hero ? coverFor(book, hero.bookId) : null
+  const row: LabLibraryBootCard[] = list.readingNow.slice(1, 1 + LAB_LIBRARY_BOOT_ROW_MAX).map(item => {
+    const itemBook = books.get(item.bookId)
+    const itemCover = coverFor(itemBook, item.bookId)
+    const src = safeCoverSource(itemCover?.src)
+    return { bookId: item.bookId, title: bookTitle(itemBook, item.bookId), coverSrc: src, coverSrcSet: src && itemCover?.srcSet ? itemCover.srcSet : null }
+  })
   return {
+    row,
     v: 1,
     at: Date.now(),
     userId,
