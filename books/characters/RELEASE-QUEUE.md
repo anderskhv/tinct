@@ -779,7 +779,7 @@ Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not producti
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
-| Faust, Part One | COMMIT | 96 / 97 | build_faust_part_1.py |
+| Faust, Part One | ede80fed | 96 / 97 | build_faust_part_1.py |
 
 | Book | original-en | modern-en |
 |---|---|---|
