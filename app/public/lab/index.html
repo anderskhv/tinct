@@ -27,7 +27,7 @@
     button, input { -webkit-tap-highlight-color: transparent; }
 
 </style>
-  <script src="/lab/library-boot.js?v=20260908-9"></script>
+  <script src="/lab/library-boot.js?v=20260911-1"></script>
   <style>
     /* Boot paint (lab/library-boot.js, above): the panel the URL asks for,
        from the first frame. catalogue-runtime.js drops the attribute once it
@@ -1283,11 +1283,15 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib .lib-now-remove { position:absolute; top:6px; right:6px; z-index:2; display:grid; place-items:center; width:26px; height:26px; border:1px solid var(--lib-rule-strong); border-radius:999px; background:rgba(7,23,35,.72); color:var(--lib-cream); font:16px/1 var(--lib-sans); }
   #tinct-onboarding-worlds-v5 .lib .lib-now-remove:hover { background:rgba(7,23,35,.9); }
   #tinct-onboarding-worlds-v5 .lib-now-caption { display:flex; flex-direction:column; gap:8px; min-height:132px; }
+  /* The book's title leads the caption: one quiet serif line over the chapter
+     eyebrow, not the page's 22px lede. */
+  #tinct-onboarding-worlds-v5 .lib-now-caption .lib-lede { font-size:17px; line-height:1.3; color:var(--lib-cream); max-width:none; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:26px; line-height:1.14; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { margin:0; max-width:52ch; }
   #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary-text { font-size:15.5px; line-height:1.45; height:calc(var(--lib-recap-lines) * 1.45em); }
   #tinct-onboarding-worlds-v5 .lib-now-cta { display:flex; align-items:center; gap:16px; margin-top:2px; }
   @media (min-width:601px) {
+    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-lede { font-size:19px; }
     #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { max-width:66ch; }
   }
   @media (min-width:900px) {

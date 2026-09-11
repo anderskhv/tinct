@@ -115,6 +115,8 @@ describe('lab/index.html boot script', () => {
     expect(recap.querySelector('[data-now-caption] .lib-eyebrow')?.textContent).toBe('Last time you read · Proverbs 17')
     expect(recap.querySelector('[data-now-caption] .lib-h1')?.textContent).toBe('You stopped in Proverbs 17')
     expect(recap.querySelector('[data-now-caption] .lib-lede')?.textContent).toBe('The Bible')
+    // Title over the eyebrow over the headline, the order the confirmed render paints.
+    expect([...recap.querySelectorAll('[data-now-caption] > *')].map(node => node.className.split(' ')[0])).toEqual(['lib-lede', 'lib-eyebrow', 'lib-h1', 'lib-recap-summary', 'lib-now-cta'])
     expect(recap.querySelector('[data-recap-continue]')?.getAttribute('data-recap-continue')).toBe('bible')
     expect(recap.querySelector('.lib-now-item .lib-cover img')?.getAttribute('src')).toBe('/covers/bible.jpg')
     expect(recap.querySelector('.lib-cta-note')?.textContent).toBe('12% read')

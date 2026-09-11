@@ -216,6 +216,10 @@ describe('recap hero: a short absence is not summarised', () => {
     )
     expect(section.dataset.book).toBe('bible')
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
+    // The book's title leads the caption; it is not a stray line under the summary.
+    expect([...section.querySelectorAll('[data-now-caption] > *')].map(node => node.getAttribute('data-testid') ?? node.className.split(' ')[0]))
+      .toEqual(['lab-recap-book', 'lab-recap-eyebrow', 'lab-recap-headline', 'lab-recap-summary', 'lib-now-cta'])
+    expect(section.querySelector('[data-testid=lab-recap-book]')!.textContent).toBe('The Bible')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
     // An optional recap with no text must not reserve blank space.

@@ -530,16 +530,23 @@ function summaryMarkup(summaryKey: string): string {
   return `<button type="button" class="lib-recap-summary" hidden data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-expandable="false" disabled><span class="lib-recap-summary-text"></span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
 }
 
+/**
+ * The caption, top to bottom: the book's title (a small line, so the eyebrow
+ * and headline under it are read as being about that book), the chapter
+ * eyebrow, the headline, the optional "so far" block, Continue. The title
+ * used to sit under the summary, where it read as a stray caption to the
+ * description. lab/library-boot.js paints the same order.
+ */
 function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>): string {
   const book = books.get(row.bookId)
   const note = progressNote(row)
   const request = summaryRequestFor(row, books)
   const summaryKey = request ? summaryKeyFor(row, request) : ''
   const summary = request && summaryBlockReserved(row, books) ? summaryMarkup(summaryKey) : ''
-  return `<p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.target.chapterLabel))}</p>
+  return `<p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, row.bookId))}</p>
+      <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.target.chapterLabel))}</p>
       <h1 class="lib-h1" data-testid="lab-recap-headline">${escapeHtml(heroHeadline(row))}</h1>
       ${summary}
-      <p class="lib-lede" data-testid="lab-recap-book">${escapeHtml(bookTitle(book, row.bookId))}</p>
       <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>`
 }
 

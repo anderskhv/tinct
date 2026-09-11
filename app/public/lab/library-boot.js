@@ -297,6 +297,9 @@
     caption.setAttribute('data-now-caption', '')
     if (hero) {
       section.setAttribute('data-boot-recap', 'snapshot')
+      // Title first, then the chapter eyebrow and the headline — the order
+      // nowCaptionMarkup in src/labReadingMemory.ts renders.
+      caption.appendChild(el('p', 'lib-lede', hero.title))
       caption.appendChild(el('p', 'lib-eyebrow', 'Last time you read · ' + hero.chapterLabel))
       caption.appendChild(el('h1', 'lib-h1', hero.headline))
       // The reserved "so far" block — three lines, empty. src/labReadingMemory.ts
@@ -306,7 +309,6 @@
       // down. It is left out entirely in the one case both paints can already
       // answer: straight back out of this book's reader, no summary coming.
       if (!state.noRecapSummary) caption.appendChild(summaryBlock())
-      caption.appendChild(el('p', 'lib-lede', hero.title))
       var cta = el('div', 'lib-now-cta')
       var button = el('button', 'lib-cta', 'Continue reading')
       button.type = 'button'
@@ -318,10 +320,12 @@
       section.setAttribute('data-boot-recap', 'skeleton')
       section.setAttribute('aria-busy', 'true')
       caption.className = 'lib-now-caption lib-boot-skel'
+      // Same order as the snapshot paint, so the bars reserve the lines
+      // where the text will land.
+      caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
       caption.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
       caption.appendChild(el('h1', 'lib-h1 lib-boot-bar'))
       caption.appendChild(summaryBlock())
-      caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
       var skCta = el('div', 'lib-now-cta')
       var skButton = el('button', 'lib-cta', 'Continue reading')
       skButton.type = 'button'
