@@ -6693,6 +6693,12 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header-controls { opacity: .32; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header-chapter { background: transparent; box-shadow: none; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header:focus-within { opacity: 1; }
+/* A mouse arriving at the dimmed top bar brings it back before the click. */
+@media (hover: hover) {
+  .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-header-work,
+  .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-header-chapter,
+  .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-header-controls { opacity: 1; }
+}
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { box-shadow: inset 0 1px 0 #ffffff35, 0 5px 20px #00000012; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock .lab-desktop-audio-dismiss { margin-left: 2px; width: 32px; min-width: 32px; height: 32px; display: grid; place-items: center; padding: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-night .lab-passage.is-inline-hearing .lab-hearing-word.is-current { background: #6b5738; text-decoration-color: #d4ac70; }
@@ -6732,4 +6738,17 @@
     --desktop-pad-x: 24px;
     --desktop-gutter: 40px;
   }
+}
+
+/* Chat and Talk sit on the second leaf of the spread and cover it whole: at
+   560px the panel left a strip of the right page's text showing beside it
+   (160px at 1440, nearly 400px at 1920). The conversation itself stays at a
+   readable measure, centred in the leaf: percentage padding resolves against
+   the leaf's container, of which the panel is half, so (50% - 640px) / 2 of
+   the container is 25% - 320px. */
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion,
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel {
+  width: 50%;
+  padding-left: max(14px, calc(25% - 320px));
+  padding-right: max(14px, calc(25% - 320px));
 }

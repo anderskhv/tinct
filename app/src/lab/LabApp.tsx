@@ -2371,19 +2371,37 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!selectionPopup) return
     const el = popupRef.current
     if (!el) return
-    const rect = el.getBoundingClientRect()
-    if (rect.width <= 0 || rect.height <= 0) return
-    const vw = window.innerWidth
-    const vh = window.innerHeight
-    const margin = 8
-    let dx = 0
-    let dy = 0
-    if (rect.left < margin) dx = margin - rect.left
-    else if (rect.right > vw - margin) dx = (vw - margin) - rect.right
-    if (rect.top < margin) dy = margin - rect.top
-    else if (rect.bottom > vh - margin) dy = (vh - margin) - rect.bottom
-    if (dx === 0 && dy === 0) return
-    setSelectionPopup(sp => sp ? { ...sp, x: sp.x + dx, y: sp.y + dy } : null)
+    const clamp = () => {
+      const rect = el.getBoundingClientRect()
+      if (rect.width <= 0 || rect.height <= 0) return
+      // The entrance animation scales the popup about its centre, so the
+      // painted rect is narrower than the box it settles into. Clamp the
+      // resting box: a character card measured mid-fade was pushed only as
+      // far as its shrunken width needed and settled flush against the edge.
+      const width = el.offsetWidth || rect.width
+      const height = el.offsetHeight || rect.height
+      const cx = rect.left + rect.width / 2
+      const cy = rect.top + rect.height / 2
+      const box = { left: cx - width / 2, right: cx + width / 2, top: cy - height / 2, bottom: cy + height / 2 }
+      const vw = window.innerWidth
+      const vh = window.innerHeight
+      const margin = 8
+      let dx = 0
+      let dy = 0
+      if (box.left < margin) dx = margin - box.left
+      else if (box.right > vw - margin) dx = (vw - margin) - box.right
+      if (box.top < margin) dy = margin - box.top
+      else if (box.bottom > vh - margin) dy = (vh - margin) - box.bottom
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) return
+      setSelectionPopup(sp => sp ? { ...sp, x: sp.x + dx, y: sp.y + dy } : null)
+    }
+    clamp()
+    // Measured again once the card has its final size (a define result, a
+    // gallery), not only when its coordinates change.
+    if (typeof ResizeObserver === 'undefined') return
+    const observer = new ResizeObserver(clamp)
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, noteInput])
 
   const dismissSelectionPopup = useCallback(() => {
@@ -3355,6 +3373,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     else resumeListenAfterAsk()
   }, [callOpen, endCall, resumeListenAfterAsk])
 
+  // Escape closes the desktop Chat panel like every other sheet. A menu, a
+  // settings sheet, the contents, a card or a call already answer Escape for
+  // themselves and are left to it; the composer's own draft is not cleared.
+  const desktopChatEscapes = chromeV2 && !showPhoneChrome && desktopAskOpen && chrome !== 'talking'
+    && !superMenuOpen && superSheet === null && !tocOpen && !inTheBookOpen && !callOpen && selectionPopup == null
+  useEffect(() => {
+    if (!desktopChatEscapes) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape' || event.defaultPrevented) return
+      event.preventDefault()
+      dictation.stop()
+      closePhoneAsk()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [closePhoneAsk, desktopChatEscapes, dictation])
+
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) {
       leaveTalking()
@@ -3515,6 +3550,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             // swallowed.
             revealOnlyRef.current = false
             if (phoneReaderControlsVisible) return
+            // Desktop chrome only dims after a page turn — every control is
+            // still drawn, so a press on one is a press on it. Restore the
+            // chrome and let the click through: swallowing it made the first
+            // click on Menu, Play or the chapter pill after an arrow-key turn
+            // do nothing.
+            if (!showPhoneChrome) {
+              setReaderControlsVisible(true)
+              return
+            }
             event.preventDefault()
             event.stopPropagation()
             revealOnlyRef.current = true
