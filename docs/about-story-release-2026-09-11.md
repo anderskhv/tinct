@@ -26,3 +26,34 @@ Artifacts: `/Users/andershvelplund/Documents/Projects/Tinct/output/tinct-about-p
 Maintenance: `app/scripts/import-about-story.mjs` accepts an approved static
 Sites export directory. Run its static tests and browser verification after any
 new import. Never deploy an older reader checkout to update this page.
+
+## v21 overrides — September 11, 2026 (later the same day)
+
+The 07:57 and 07:58 deploys built from a `main` that did not yet carry the
+import, which removed `/about` from production for about an hour. The files
+were recovered from Worker version `b61f495d` and are now on `main`, so every
+deploy from `main` carries the page.
+
+On top of the import, a set of conversion, trust and scene changes is applied
+to the built files (the story's editable source is the private Sites project,
+which is not in this repository):
+
+- All "Start reading" and "Pick up the thread" links go to `/read`; the
+  wordmark still points home.
+- Persistent discreet "Start reading" pill after the hero; footer with Start
+  reading, Privacy and Contact; header tagline; `og:image` and Twitter card;
+  the 96 cover-collection `<head>` preloads removed; the named competitor
+  removed from the parody feed; couch copy reads "On compatible e-readers".
+- Overview scene: left page blurred, no boxed passage, three sequenced
+  highlights (headline, one sentence, speaker name) with new questions.
+  Language scene: single full page, no highlights, no edition pill, a
+  "Tinct · Modern translation" label on the modern page. Character scene:
+  text recedes around the highlighted name.
+
+The edits live in `app/scripts/patch-about-story.mjs` (anchored, idempotent)
+and the checked-in stylesheet `app/public/assets/about-v20/about-v21.css`.
+**After any new import, run `node scripts/patch-about-story.mjs` from `app/`,
+then the static tests and browser verification.** An anchor that no longer
+matches makes the script fail; that is the signal to port the change into the
+Sites source or update the script, not to skip it. When the Sites source is
+checked in, port these edits there and retire the script.
