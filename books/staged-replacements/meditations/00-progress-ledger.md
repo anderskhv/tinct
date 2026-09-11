@@ -26,6 +26,10 @@ session. Kept current at every push.
   numbered section), built by `scripts/build_original_en_from_pg15877.py`
   from the committed source text; Book II cross-checked against Standard
   Ebooks (`PROVENANCE.md` §3–4).
+- 2026-09-11 — `GLOSSARY.md` written and pushed: one rendering per recurring
+  concept (nature, reason, the ruling part, the god within, providence, the
+  common good, and the rest), plus voice and form rules, fixed before any
+  drafting.
 
 ## Decided, and why
 
@@ -41,14 +45,12 @@ session. Kept current at every push.
 
 ## Next
 
-1. `GLOSSARY.md` — stable renderings for recurring concepts, fixed before
-   drafting (push 2).
-2. Book II package: `book2/source-book2.json`, `candidate-v1.json`,
+1. Book II package: `book2/source-book2.json`, `candidate-v1.json`,
    `candidate-v1-readable.md`, `continuity.md`, `provenance.json`,
    `manifest.json`, `review-instructions.md`, `review-packets/packet-01…06.md`
    (17 paragraphs: five packets of three, one of two). Push 3, then stop and
    wait for the coordinator's independent review under `book2/review/`.
-3. On findings: `candidate-v2.json`, verification of changed passages, flow
+2. On findings: `candidate-v2.json`, verification of changed passages, flow
    read, `ACCEPTANCE.md`. Then Book I, III … XII in numerical order, each
    through the same eight steps and its own review round.
 
