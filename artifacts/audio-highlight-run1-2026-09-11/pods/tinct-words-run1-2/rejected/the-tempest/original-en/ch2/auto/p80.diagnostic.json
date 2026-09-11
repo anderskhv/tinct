@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "dcd614eea7dc4562244fb5248386a337d5f882bf1717d07fc046f7879d4ddc83",
+  "attempts": [
+    {
+      "asr_seconds": 0.13385505229234695,
+      "alignment_seconds": 0.00022324174642562866,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ariel. Yes, Caliban her son.",
+        "hotwords": "Ariel, Yes, Caliban"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ariel, Yes, Caliban her son.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Yes,",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.0234832763671875
+            },
+            {
+              "text": " Caliban",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.08077239990234375
+            },
+            {
+              "text": " her",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.459228515625
+            },
+            {
+              "text": " son.",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "Caliban",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "her",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "son.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "Yes,",
+        "Caliban",
+        "her",
+        "son."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Yes,",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "Caliban",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "her",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "son.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1341671496629715
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13a91fd59d9fb404db1bd988cd1a677a7136ef6c14d8caf3244f008f21337cf2",
+  "selected_reasons": []
+}

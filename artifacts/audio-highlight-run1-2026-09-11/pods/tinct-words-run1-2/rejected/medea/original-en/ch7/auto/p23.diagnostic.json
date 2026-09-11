@@ -1,0 +1,769 @@
+{
+  "complete": true,
+  "signature": "3b7b816d591386bf179b5832e27f6b4fe342c2a490511e1e7ac075ede2d8dd3c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15356618911027908,
+      "alignment_seconds": 0.0001220405101776123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jason. What is it?--Ha! The woman would kill me?",
+        "hotwords": "Jason, What, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jason, What is it?-Ha! The woman would kill me.",
+          "start": 0.02,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.712890625
+            },
+            {
+              "text": " What",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.0133056640625
+            },
+            {
+              "text": " is",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " it?",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.97607421875
+            },
+            {
+              "text": "-Ha!",
+              "start": 1.58,
+              "end": 1.8,
+              "probability": 0.1013125479221344
+            },
+            {
+              "text": " The",
+              "start": 2.08,
+              "end": 2.14,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " woman",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " would",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " kill",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.978515625
+            },
+            {
+              "text": " me.",
+              "start": 2.72,
+              "end": 3.0,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "What",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "it?",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "-Ha!",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "raw": "The",
+          "start": 2.08,
+          "end": 2.14
+        },
+        {
+          "raw": "woman",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "would",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "kill",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "me.",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "What",
+        "is",
+        "it?--Ha!",
+        "The",
+        "woman",
+        "would",
+        "kill",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          9,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "What",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "is",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "it?--Ha!",
+          "start": 1.4,
+          "end": 1.74
+        },
+        {
+          "text": "The",
+          "start": 2.08,
+          "end": 2.14
+        },
+        {
+          "text": "woman",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "would",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "kill",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "me?",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.15373490005731583
+    },
+    {
+      "asr_seconds": 0.09528636187314987,
+      "alignment_seconds": 9.810179471969604e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Jason, What, The"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Woman Would Kill Me.",
+          "start": 0.02,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Woman",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 1.0132789611816406e-06
+            },
+            {
+              "text": " Would",
+              "start": 0.92,
+              "end": 2.48,
+              "probability": 0.0137786865234375
+            },
+            {
+              "text": " Kill",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Me.",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Woman",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Would",
+          "start": 0.92,
+          "end": 2.48
+        },
+        {
+          "raw": "Kill",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "Me.",
+          "start": 2.72,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "What",
+        "is",
+        "it?--Ha!",
+        "The",
+        "woman",
+        "would",
+        "kill",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          9,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "What",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "is",
+          "start": 0.015,
+          "end": 0.018
+        },
+        {
+          "text": "it?--Ha!",
+          "start": 0.018,
+          "end": 0.019
+        },
+        {
+          "text": "The",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "woman",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "would",
+          "start": 0.92,
+          "end": 2.48
+        },
+        {
+          "text": "kill",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "me?",
+          "start": 2.72,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 0.4444444444444444,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09541365504264832
+    },
+    {
+      "asr_seconds": 0.15976672619581223,
+      "alignment_seconds": 9.975582361221313e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jason, what is it, ha? The woman would kill me.",
+          "start": 0.02,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.712890625
+            },
+            {
+              "text": " what",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " is",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it,",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ha?",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " The",
+              "start": 2.06,
+              "end": 2.14,
+              "probability": 0.947265625
+            },
+            {
+              "text": " woman",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " would",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " kill",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me.",
+              "start": 2.72,
+              "end": 3.0,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "what",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "it,",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "ha?",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "The",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "raw": "woman",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "would",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "kill",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "me.",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "What",
+        "is",
+        "it?--Ha!",
+        "The",
+        "woman",
+        "would",
+        "kill",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          9,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "What",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "is",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "it?--Ha!",
+          "start": 1.4,
+          "end": 1.73
+        },
+        {
+          "text": "The",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "text": "woman",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "would",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "kill",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "me?",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.15990997850894928
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "86f8d51dc144dcb10efb7818db41c8f296ac885dd00daed07942d08b77d57482",
+  "selected_reasons": []
+}

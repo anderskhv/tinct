@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "9b7513198ba87c81107829bcd198bd8d14834b3c0582e8d4ef3a6447fca800c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.09176130034029484,
+      "alignment_seconds": 4.968978464603424e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Most assuredly not.",
+        "hotwords": "Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Most assuredly not.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.47900390625
+            },
+            {
+              "text": " assuredly",
+              "start": 0.63,
+              "end": 1.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not.",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "assuredly",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "raw": "not.",
+          "start": 1.17,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "Most",
+        "assuredly",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Most",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "assuredly",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "text": "not.",
+          "start": 1.17,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09182797279208899
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16fbd8501a954bb12b7fe35974d8aba5e2ef581e06da474c98adf92289fe5a1c",
+  "selected_reasons": []
+}

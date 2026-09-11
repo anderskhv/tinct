@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "140f3f9d3b2695dbece33f8aa558d6f55617073a935d843314bda79db4000736",
+  "attempts": [
+    {
+      "asr_seconds": 0.18237900733947754,
+      "alignment_seconds": 9.562820196151733e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. And who could gain by such a one as I?",
+        "hotwords": "Oedipus, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, And who could gain by such a one as I?",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9556884765625
+            },
+            {
+              "text": " And",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.01523590087890625
+            },
+            {
+              "text": " who",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " could",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " gain",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.953125
+            },
+            {
+              "text": " by",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " such",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " one",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " as",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I?",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "And",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "who",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "could",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "gain",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "by",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "such",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "a",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "one",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "as",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "I?",
+          "start": 2.74,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "And",
+        "who",
+        "could",
+        "gain",
+        "by",
+        "such",
+        "a",
+        "one",
+        "as",
+        "I?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "And",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "who",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "could",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "gain",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "by",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "such",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "a",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "one",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "as",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "I?",
+          "start": 2.74,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1825181320309639
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "118f136240d8e51a7ad8c23b4df6dd4b568ac8014b3931d65dfb064ed91ef208",
+  "selected_reasons": []
+}

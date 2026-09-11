@@ -1,0 +1,423 @@
+{
+  "complete": true,
+  "signature": "4811f9d306291499ff6bdb698f2e7be3b23dc3fd5351321b1772e54a3db981f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1855330467224121,
+      "alignment_seconds": 0.00016198307275772095,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aegius, and long years back he was my battle friend, the truest airman had.",
+          "start": 0.11,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Aegius,",
+              "start": 0.11,
+              "end": 0.95,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " and",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.9765625
+            },
+            {
+              "text": " long",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.984375
+            },
+            {
+              "text": " years",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " was",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " battle",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " friend,",
+              "start": 2.95,
+              "end": 3.29,
+              "probability": 0.818359375
+            },
+            {
+              "text": " the",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " truest",
+              "start": 3.77,
+              "end": 4.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " airman",
+              "start": 4.23,
+              "end": 4.67,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " had.",
+              "start": 4.67,
+              "end": 5.03,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegius,",
+          "start": 0.11,
+          "end": 0.95
+        },
+        {
+          "raw": "and",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "long",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "years",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "back",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "raw": "he",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "was",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "my",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "battle",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "raw": "friend,",
+          "start": 2.95,
+          "end": 3.29
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "truest",
+          "start": 3.77,
+          "end": 4.23
+        },
+        {
+          "raw": "airman",
+          "start": 4.23,
+          "end": 4.67
+        },
+        {
+          "raw": "had.",
+          "start": 4.67,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "And,",
+        "long",
+        "years",
+        "back",
+        "he",
+        "was",
+        "my",
+        "battle-friend,",
+        "The",
+        "truest",
+        "e'er",
+        "man",
+        "had."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          11,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          11,
+          13,
+          12,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.655
+        },
+        {
+          "text": "And,",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "long",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "years",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "back",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "text": "he",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "was",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "my",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "battle-friend,",
+          "start": 2.71,
+          "end": 3.2
+        },
+        {
+          "text": "The",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "truest",
+          "start": 3.77,
+          "end": 4.23
+        },
+        {
+          "text": "e'er",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "text": "man",
+          "start": 4.45,
+          "end": 4.56
+        },
+        {
+          "text": "had.",
+          "start": 4.67,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18575949221849442
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "183173d2c3d3b00b004f4c925c2ca0add3dc1cae1c80536624ad807e65e0188e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

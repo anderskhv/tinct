@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "5f8d417effd3f408ae059c1832d838097f60e82ea0e95dc1dcd960b3d6e03420",
+  "attempts": [
+    {
+      "asr_seconds": 0.11785873770713806,
+      "alignment_seconds": 7.236190140247345e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cebes said: You may proceed at once with the proof, for I grant you this.",
+        "hotwords": "Cebes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cebes said you may proceed at once with the proof, for I grant you this.",
+          "start": 0.08,
+          "end": 4.04,
+          "words": [
+            {
+              "text": " Cebes",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.3152058919270833
+            },
+            {
+              "text": " said",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you",
+              "start": 1.0,
+              "end": 1.56,
+              "probability": 0.2237548828125
+            },
+            {
+              "text": " may",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " proceed",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " once",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " proof,",
+              "start": 2.62,
+              "end": 2.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " grant",
+              "start": 3.28,
+              "end": 3.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 3.56,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this.",
+              "start": 3.78,
+              "end": 4.04,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cebes",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "said",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "you",
+          "start": 1.0,
+          "end": 1.56
+        },
+        {
+          "raw": "may",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "proceed",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "at",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "once",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "with",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "proof,",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "raw": "for",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "I",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "grant",
+          "start": 3.28,
+          "end": 3.56
+        },
+        {
+          "raw": "you",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "raw": "this.",
+          "start": 3.78,
+          "end": 4.04
+        }
+      ],
+      "expected_tokens": [
+        "Cebes",
+        "said:",
+        "You",
+        "may",
+        "proceed",
+        "at",
+        "once",
+        "with",
+        "the",
+        "proof,",
+        "for",
+        "I",
+        "grant",
+        "you",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Cebes",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "said:",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "You",
+          "start": 1.0,
+          "end": 1.56
+        },
+        {
+          "text": "may",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "proceed",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "at",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "once",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "with",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "the",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "text": "proof,",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "text": "for",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "text": "I",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "grant",
+          "start": 3.28,
+          "end": 3.56
+        },
+        {
+          "text": "you",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "text": "this.",
+          "start": 3.78,
+          "end": 4.04
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11796594504266977
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1efc2bd971ae3cfdf9bf6094b7be558945d5c957c9435cc3e0df16eb54310bd9",
+  "selected_reasons": []
+}

@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "d07489f76eecd77b35611a34ae13df570a1a905a74a5c4a9b4abbcce5bdb96ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.43797826021909714,
+      "alignment_seconds": 6.918609142303467e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. Touch me, my child.",
+        "hotwords": "Oedipus, Touch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, Touch me, my child.",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.943603515625
+            },
+            {
+              "text": " Touch",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.022979736328125
+            },
+            {
+              "text": " me,",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " my",
+              "start": 1.64,
+              "end": 1.64,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " child.",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Touch",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "me,",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "my",
+          "start": 1.64,
+          "end": 1.64
+        },
+        {
+          "raw": "child.",
+          "start": 1.64,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "Touch",
+        "me,",
+        "my",
+        "child."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Touch",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "me,",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "my",
+          "start": 1.64,
+          "end": 1.64
+        },
+        {
+          "text": "child.",
+          "start": 1.64,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4380755349993706
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "615d8fd7efb65c1bb5cd171d2b50e9af519618919279b1d758c2b0ff9a06cf5b",
+  "selected_reasons": []
+}

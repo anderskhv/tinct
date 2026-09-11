@@ -1,0 +1,269 @@
+{
+  "complete": true,
+  "signature": "cdbb65238c0019d5245a74c6529ad0fbf67caa92c4749a8249841efa5b64515f",
+  "attempts": [
+    {
+      "asr_seconds": 0.09764827787876129,
+      "alignment_seconds": 5.315244197845459e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, good-night, Poole.\"",
+        "hotwords": "Well, Poole"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, good-night, Poole.",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " good",
+              "start": 0.76,
+              "end": 0.84,
+              "probability": 0.939453125
+            },
+            {
+              "text": "-night,",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.49948883056640625
+            },
+            {
+              "text": " Poole.",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.61236572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "good",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "raw": "-night,",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "Poole.",
+          "start": 1.2,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "good-night,",
+        "Poole.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "good-night,",
+          "start": 0.58,
+          "end": 0.89
+        },
+        {
+          "text": "Poole.\"",
+          "start": 1.2,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09771746397018433
+    },
+    {
+      "asr_seconds": 0.09683993458747864,
+      "alignment_seconds": 4.409998655319214e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Well, Poole"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Well, goodnight Poole",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " goodnight",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.831298828125
+            },
+            {
+              "text": " Poole",
+              "start": 1.04,
+              "end": 1.54,
+              "probability": 0.5301361083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "goodnight",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "Poole",
+          "start": 1.04,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "good-night,",
+        "Poole.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "good-night,",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "Poole.\"",
+          "start": 1.04,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09689963608980179
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "39632a8b9d360b1669c41c8d6449596f694fe27016f45f620fcd80d2b33f89da",
+  "selected_reasons": []
+}

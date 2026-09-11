@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "dc10dd7522c67c659dc43ea0c6dfe1c25cf837e5c8f3f8bc4ae170edcf9b49b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13589347898960114,
+      "alignment_seconds": 7.390230894088745e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miranda, wherefore did they not that hour destroy us?",
+          "start": 0.05,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.96484375
+            },
+            {
+              "text": " wherefore",
+              "start": 1.35,
+              "end": 1.73,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " did",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " they",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " that",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hour",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " destroy",
+              "start": 2.57,
+              "end": 2.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " us?",
+              "start": 2.99,
+              "end": 3.29,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "wherefore",
+          "start": 1.35,
+          "end": 1.73
+        },
+        {
+          "raw": "did",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "they",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "not",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "that",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "hour",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "destroy",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "raw": "us?",
+          "start": 2.99,
+          "end": 3.29
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "Wherefore",
+        "did",
+        "they",
+        "not",
+        "That",
+        "hour",
+        "destroy",
+        "us?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Wherefore",
+          "start": 1.35,
+          "end": 1.73
+        },
+        {
+          "text": "did",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "they",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "not",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "That",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "hour",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "text": "destroy",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "text": "us?",
+          "start": 2.99,
+          "end": 3.29
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13599979877471924
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4dfcc64e3086ab9464f83a986efe3edd28e872d2662df92260b5026217678b83",
+  "selected_reasons": []
+}

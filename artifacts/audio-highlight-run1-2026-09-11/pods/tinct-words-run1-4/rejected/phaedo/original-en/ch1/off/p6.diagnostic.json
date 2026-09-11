@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "8e63d0cfa94f0a558300c9ad60b23066d9cf63ba95ce601d36797912047a93e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1457414422184229,
+      "alignment_seconds": 6.397068500518799e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " E-C-H-U-C-R-A-T-S, what is this ship?",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " E",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8798828125
+            },
+            {
+              "text": "-C",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.52801513671875
+            },
+            {
+              "text": "-H",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.9189453125
+            },
+            {
+              "text": "-U",
+              "start": 0.85,
+              "end": 0.91,
+              "probability": 0.930419921875
+            },
+            {
+              "text": "-C",
+              "start": 0.91,
+              "end": 0.99,
+              "probability": 0.979248046875
+            },
+            {
+              "text": "-R",
+              "start": 0.99,
+              "end": 1.09,
+              "probability": 0.9873046875
+            },
+            {
+              "text": "-A",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.974609375
+            },
+            {
+              "text": "-T",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.996337890625
+            },
+            {
+              "text": "-S,",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " what",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " is",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ship?",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "-C",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "-H",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "-U",
+          "start": 0.85,
+          "end": 0.91
+        },
+        {
+          "raw": "-C",
+          "start": 0.91,
+          "end": 0.99
+        },
+        {
+          "raw": "-R",
+          "start": 0.99,
+          "end": 1.09
+        },
+        {
+          "raw": "-A",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "-T",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "-S,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "what",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "is",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "this",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "ship?",
+          "start": 2.29,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Echecrates:",
+        "What",
+        "is",
+        "this",
+        "ship?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          9
+        ],
+        [
+          "equal",
+          1,
+          5,
+          9,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          9
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Echecrates:",
+          "start": 0.0,
+          "end": 0.905
+        },
+        {
+          "text": "What",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "is",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "this",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "ship?",
+          "start": 2.29,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 13,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14584022015333176
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e34ae08f9e4aa2280b2a667980233fc99d023bf25dfa6dd22cec7e79737a7bd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

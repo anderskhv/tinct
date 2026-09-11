@@ -1,0 +1,2987 @@
+{
+  "complete": true,
+  "signature": "d9dde89f3144c18cbe35a7b1e28a4f9f39baa98f74515962b59605aa0502f540",
+  "attempts": [
+    {
+      "asr_seconds": 0.7398200258612633,
+      "alignment_seconds": 0.0003561079502105713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Here, thank you,\" said the lawyer, and he drew near and leaned on the tall fender. This hall, in which he was now left alone, was a pet fancy of his friend the doctor's; and Utterson himself was wont to speak of it as the pleasantest room in London. But tonight there was a shudder in his blood; the face of Hyde sat heavy on his memory; he felt (what was rare with him) a nausea and distaste of life; and in the gloom of his spirits, he seemed to read a menace in the flickering of the firelight on the polished cabinets and the uneasy starting of the shadow on the roof. He was ashamed of his relief, when Poole presently returned to announce that Dr. Jekyll was gone out.",
+        "hotwords": "Here, This, Utterson, London, But, Hyde, Poole, Dr, Jekyll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Here, thank you, said the lawyer, and he drew near and leaned on the tall fender. This hall,",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Here,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.08050537109375
+            },
+            {
+              "text": " thank",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you,",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lawyer,",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " and",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " he",
+              "start": 2.87,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " drew",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " near",
+              "start": 3.21,
+              "end": 3.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 3.51,
+              "end": 3.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " leaned",
+              "start": 3.79,
+              "end": 4.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 4.11,
+              "end": 4.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.29,
+              "end": 4.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tall",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fender.",
+              "start": 4.69,
+              "end": 5.03,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " This",
+              "start": 5.85,
+              "end": 6.07,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " hall,",
+              "start": 6.07,
+              "end": 6.39,
+              "probability": 0.9599609375
+            }
+          ]
+        },
+        {
+          "text": " in which he was now left alone, was a pet fancy of his friend the doctor's, and Utterson",
+          "start": 6.61,
+          "end": 11.67,
+          "words": [
+            {
+              "text": " in",
+              "start": 6.61,
+              "end": 6.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 6.73,
+              "end": 6.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 6.85,
+              "end": 6.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 6.99,
+              "end": 7.11,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " now",
+              "start": 7.11,
+              "end": 7.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " left",
+              "start": 7.35,
+              "end": 7.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " alone,",
+              "start": 7.61,
+              "end": 7.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 8.37,
+              "end": 8.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 8.55,
+              "end": 8.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pet",
+              "start": 8.69,
+              "end": 8.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " fancy",
+              "start": 8.89,
+              "end": 9.39,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of",
+              "start": 9.39,
+              "end": 9.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 9.59,
+              "end": 9.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " friend",
+              "start": 9.73,
+              "end": 9.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 9.99,
+              "end": 10.19,
+              "probability": 0.908203125
+            },
+            {
+              "text": " doctor's,",
+              "start": 10.19,
+              "end": 11.03,
+              "probability": 0.6607666015625
+            },
+            {
+              "text": " and",
+              "start": 11.05,
+              "end": 11.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Utterson",
+              "start": 11.33,
+              "end": 11.67,
+              "probability": 0.981689453125
+            }
+          ]
+        },
+        {
+          "text": " himself was wont to speak of it as the pleasantest room in London.",
+          "start": 11.67,
+          "end": 15.17,
+          "words": [
+            {
+              "text": " himself",
+              "start": 11.67,
+              "end": 12.23,
+              "probability": 0.98828125
+            },
+            {
+              "text": " was",
+              "start": 12.23,
+              "end": 12.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wont",
+              "start": 12.51,
+              "end": 12.71,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " to",
+              "start": 12.71,
+              "end": 12.85,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " speak",
+              "start": 12.85,
+              "end": 13.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 13.07,
+              "end": 13.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 13.23,
+              "end": 13.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 13.35,
+              "end": 13.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 13.51,
+              "end": 13.71,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " pleasantest",
+              "start": 13.71,
+              "end": 14.37,
+              "probability": 0.939453125
+            },
+            {
+              "text": " room",
+              "start": 14.37,
+              "end": 14.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 14.63,
+              "end": 14.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " London.",
+              "start": 14.89,
+              "end": 15.17,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " But tonight there was a shudder in his blood. The face of Hyde sat heavy on his memory.",
+          "start": 16.25,
+          "end": 20.51,
+          "words": [
+            {
+              "text": " But",
+              "start": 16.25,
+              "end": 16.37,
+              "probability": 0.96875
+            },
+            {
+              "text": " tonight",
+              "start": 16.37,
+              "end": 16.61,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " there",
+              "start": 16.61,
+              "end": 16.85,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " was",
+              "start": 16.85,
+              "end": 16.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 16.95,
+              "end": 17.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shudder",
+              "start": 17.13,
+              "end": 17.33,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " in",
+              "start": 17.33,
+              "end": 17.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 17.59,
+              "end": 17.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " blood.",
+              "start": 17.71,
+              "end": 18.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " The",
+              "start": 18.49,
+              "end": 18.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " face",
+              "start": 18.65,
+              "end": 18.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 18.85,
+              "end": 19.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Hyde",
+              "start": 19.05,
+              "end": 19.25,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " sat",
+              "start": 19.25,
+              "end": 19.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " heavy",
+              "start": 19.55,
+              "end": 19.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 19.85,
+              "end": 20.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 20.03,
+              "end": 20.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " memory.",
+              "start": 20.15,
+              "end": 20.51,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " He felt, what was rare with him, a nausea and distaste of life, and in the gloom of",
+          "start": 21.01,
+          "end": 26.11,
+          "words": [
+            {
+              "text": " He",
+              "start": 21.01,
+              "end": 21.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " felt,",
+              "start": 21.17,
+              "end": 21.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 21.85,
+              "end": 22.01,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " was",
+              "start": 22.01,
+              "end": 22.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rare",
+              "start": 22.17,
+              "end": 22.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 22.41,
+              "end": 22.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him,",
+              "start": 22.61,
+              "end": 22.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 23.13,
+              "end": 23.23,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " nausea",
+              "start": 23.23,
+              "end": 23.57,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 23.57,
+              "end": 23.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " distaste",
+              "start": 23.91,
+              "end": 24.31,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " of",
+              "start": 24.31,
+              "end": 24.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life,",
+              "start": 24.53,
+              "end": 24.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 25.25,
+              "end": 25.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 25.49,
+              "end": 25.57,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " the",
+              "start": 25.57,
+              "end": 25.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gloom",
+              "start": 25.69,
+              "end": 25.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 25.87,
+              "end": 26.11,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " his spirits, he seemed to read a menace in the flickering of the firelight on the polished",
+          "start": 26.11,
+          "end": 30.15,
+          "words": [
+            {
+              "text": " his",
+              "start": 26.11,
+              "end": 26.21,
+              "probability": 0.04400634765625
+            },
+            {
+              "text": " spirits,",
+              "start": 26.21,
+              "end": 26.57,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " he",
+              "start": 26.95,
+              "end": 27.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seemed",
+              "start": 27.07,
+              "end": 27.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 27.25,
+              "end": 27.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " read",
+              "start": 27.45,
+              "end": 27.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 27.59,
+              "end": 27.71,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " menace",
+              "start": 27.71,
+              "end": 27.95,
+              "probability": 0.98828125
+            },
+            {
+              "text": " in",
+              "start": 27.95,
+              "end": 28.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 28.21,
+              "end": 28.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " flickering",
+              "start": 28.33,
+              "end": 28.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 28.61,
+              "end": 28.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 28.83,
+              "end": 28.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " firelight",
+              "start": 28.95,
+              "end": 29.45,
+              "probability": 0.891845703125
+            },
+            {
+              "text": " on",
+              "start": 29.45,
+              "end": 29.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 29.63,
+              "end": 29.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " polished",
+              "start": 29.73,
+              "end": 30.15,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " cabinets and the uneasy starting of the shadow on the roof. He was ashamed of his relief,",
+          "start": 30.15,
+          "end": 35.55,
+          "words": [
+            {
+              "text": " cabinets",
+              "start": 30.15,
+              "end": 30.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 30.61,
+              "end": 31.19,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " the",
+              "start": 31.19,
+              "end": 31.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " uneasy",
+              "start": 31.31,
+              "end": 31.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " starting",
+              "start": 31.69,
+              "end": 32.19,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 32.19,
+              "end": 32.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 32.41,
+              "end": 32.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shadow",
+              "start": 32.53,
+              "end": 32.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 32.81,
+              "end": 33.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 33.11,
+              "end": 33.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " roof.",
+              "start": 33.21,
+              "end": 33.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He",
+              "start": 34.21,
+              "end": 34.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 34.35,
+              "end": 34.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ashamed",
+              "start": 34.45,
+              "end": 34.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 34.81,
+              "end": 35.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 35.07,
+              "end": 35.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " relief,",
+              "start": 35.17,
+              "end": 35.55,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " when Poole presently returned to announce that Dr. Jekyll was gone out.",
+          "start": 35.99,
+          "end": 39.81,
+          "words": [
+            {
+              "text": " when",
+              "start": 35.99,
+              "end": 36.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Poole",
+              "start": 36.25,
+              "end": 36.67,
+              "probability": 0.907470703125
+            },
+            {
+              "text": " presently",
+              "start": 36.67,
+              "end": 37.01,
+              "probability": 0.994140625
+            },
+            {
+              "text": " returned",
+              "start": 37.01,
+              "end": 37.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 37.47,
+              "end": 37.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " announce",
+              "start": 37.73,
+              "end": 38.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 38.11,
+              "end": 38.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Dr.",
+              "start": 38.41,
+              "end": 38.71,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Jekyll",
+              "start": 38.89,
+              "end": 39.07,
+              "probability": 0.9879557291666666
+            },
+            {
+              "text": " was",
+              "start": 39.07,
+              "end": 39.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gone",
+              "start": 39.27,
+              "end": 39.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " out.",
+              "start": 39.49,
+              "end": 39.81,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "thank",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "you,",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "raw": "said",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "lawyer,",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "raw": "and",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "he",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "raw": "drew",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "raw": "near",
+          "start": 3.21,
+          "end": 3.51
+        },
+        {
+          "raw": "and",
+          "start": 3.51,
+          "end": 3.79
+        },
+        {
+          "raw": "leaned",
+          "start": 3.79,
+          "end": 4.11
+        },
+        {
+          "raw": "on",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "raw": "the",
+          "start": 4.29,
+          "end": 4.41
+        },
+        {
+          "raw": "tall",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "fender.",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "raw": "This",
+          "start": 5.85,
+          "end": 6.07
+        },
+        {
+          "raw": "hall,",
+          "start": 6.07,
+          "end": 6.39
+        },
+        {
+          "raw": "in",
+          "start": 6.61,
+          "end": 6.73
+        },
+        {
+          "raw": "which",
+          "start": 6.73,
+          "end": 6.85
+        },
+        {
+          "raw": "he",
+          "start": 6.85,
+          "end": 6.99
+        },
+        {
+          "raw": "was",
+          "start": 6.99,
+          "end": 7.11
+        },
+        {
+          "raw": "now",
+          "start": 7.11,
+          "end": 7.35
+        },
+        {
+          "raw": "left",
+          "start": 7.35,
+          "end": 7.61
+        },
+        {
+          "raw": "alone,",
+          "start": 7.61,
+          "end": 7.99
+        },
+        {
+          "raw": "was",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "raw": "a",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "raw": "pet",
+          "start": 8.69,
+          "end": 8.89
+        },
+        {
+          "raw": "fancy",
+          "start": 8.89,
+          "end": 9.39
+        },
+        {
+          "raw": "of",
+          "start": 9.39,
+          "end": 9.59
+        },
+        {
+          "raw": "his",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "raw": "friend",
+          "start": 9.73,
+          "end": 9.99
+        },
+        {
+          "raw": "the",
+          "start": 9.99,
+          "end": 10.19
+        },
+        {
+          "raw": "doctor's,",
+          "start": 10.19,
+          "end": 11.03
+        },
+        {
+          "raw": "and",
+          "start": 11.05,
+          "end": 11.33
+        },
+        {
+          "raw": "Utterson",
+          "start": 11.33,
+          "end": 11.67
+        },
+        {
+          "raw": "himself",
+          "start": 11.67,
+          "end": 12.23
+        },
+        {
+          "raw": "was",
+          "start": 12.23,
+          "end": 12.51
+        },
+        {
+          "raw": "wont",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "raw": "to",
+          "start": 12.71,
+          "end": 12.85
+        },
+        {
+          "raw": "speak",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "raw": "of",
+          "start": 13.07,
+          "end": 13.23
+        },
+        {
+          "raw": "it",
+          "start": 13.23,
+          "end": 13.35
+        },
+        {
+          "raw": "as",
+          "start": 13.35,
+          "end": 13.51
+        },
+        {
+          "raw": "the",
+          "start": 13.51,
+          "end": 13.71
+        },
+        {
+          "raw": "pleasantest",
+          "start": 13.71,
+          "end": 14.37
+        },
+        {
+          "raw": "room",
+          "start": 14.37,
+          "end": 14.63
+        },
+        {
+          "raw": "in",
+          "start": 14.63,
+          "end": 14.89
+        },
+        {
+          "raw": "London.",
+          "start": 14.89,
+          "end": 15.17
+        },
+        {
+          "raw": "But",
+          "start": 16.25,
+          "end": 16.37
+        },
+        {
+          "raw": "tonight",
+          "start": 16.37,
+          "end": 16.61
+        },
+        {
+          "raw": "there",
+          "start": 16.61,
+          "end": 16.85
+        },
+        {
+          "raw": "was",
+          "start": 16.85,
+          "end": 16.95
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "raw": "shudder",
+          "start": 17.13,
+          "end": 17.33
+        },
+        {
+          "raw": "in",
+          "start": 17.33,
+          "end": 17.59
+        },
+        {
+          "raw": "his",
+          "start": 17.59,
+          "end": 17.71
+        },
+        {
+          "raw": "blood.",
+          "start": 17.71,
+          "end": 18.03
+        },
+        {
+          "raw": "The",
+          "start": 18.49,
+          "end": 18.65
+        },
+        {
+          "raw": "face",
+          "start": 18.65,
+          "end": 18.85
+        },
+        {
+          "raw": "of",
+          "start": 18.85,
+          "end": 19.05
+        },
+        {
+          "raw": "Hyde",
+          "start": 19.05,
+          "end": 19.25
+        },
+        {
+          "raw": "sat",
+          "start": 19.25,
+          "end": 19.55
+        },
+        {
+          "raw": "heavy",
+          "start": 19.55,
+          "end": 19.85
+        },
+        {
+          "raw": "on",
+          "start": 19.85,
+          "end": 20.03
+        },
+        {
+          "raw": "his",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "raw": "memory.",
+          "start": 20.15,
+          "end": 20.51
+        },
+        {
+          "raw": "He",
+          "start": 21.01,
+          "end": 21.17
+        },
+        {
+          "raw": "felt,",
+          "start": 21.17,
+          "end": 21.41
+        },
+        {
+          "raw": "what",
+          "start": 21.85,
+          "end": 22.01
+        },
+        {
+          "raw": "was",
+          "start": 22.01,
+          "end": 22.17
+        },
+        {
+          "raw": "rare",
+          "start": 22.17,
+          "end": 22.41
+        },
+        {
+          "raw": "with",
+          "start": 22.41,
+          "end": 22.61
+        },
+        {
+          "raw": "him,",
+          "start": 22.61,
+          "end": 22.85
+        },
+        {
+          "raw": "a",
+          "start": 23.13,
+          "end": 23.23
+        },
+        {
+          "raw": "nausea",
+          "start": 23.23,
+          "end": 23.57
+        },
+        {
+          "raw": "and",
+          "start": 23.57,
+          "end": 23.91
+        },
+        {
+          "raw": "distaste",
+          "start": 23.91,
+          "end": 24.31
+        },
+        {
+          "raw": "of",
+          "start": 24.31,
+          "end": 24.53
+        },
+        {
+          "raw": "life,",
+          "start": 24.53,
+          "end": 24.77
+        },
+        {
+          "raw": "and",
+          "start": 25.25,
+          "end": 25.49
+        },
+        {
+          "raw": "in",
+          "start": 25.49,
+          "end": 25.57
+        },
+        {
+          "raw": "the",
+          "start": 25.57,
+          "end": 25.69
+        },
+        {
+          "raw": "gloom",
+          "start": 25.69,
+          "end": 25.87
+        },
+        {
+          "raw": "of",
+          "start": 25.87,
+          "end": 26.11
+        },
+        {
+          "raw": "his",
+          "start": 26.11,
+          "end": 26.21
+        },
+        {
+          "raw": "spirits,",
+          "start": 26.21,
+          "end": 26.57
+        },
+        {
+          "raw": "he",
+          "start": 26.95,
+          "end": 27.07
+        },
+        {
+          "raw": "seemed",
+          "start": 27.07,
+          "end": 27.25
+        },
+        {
+          "raw": "to",
+          "start": 27.25,
+          "end": 27.45
+        },
+        {
+          "raw": "read",
+          "start": 27.45,
+          "end": 27.59
+        },
+        {
+          "raw": "a",
+          "start": 27.59,
+          "end": 27.71
+        },
+        {
+          "raw": "menace",
+          "start": 27.71,
+          "end": 27.95
+        },
+        {
+          "raw": "in",
+          "start": 27.95,
+          "end": 28.21
+        },
+        {
+          "raw": "the",
+          "start": 28.21,
+          "end": 28.33
+        },
+        {
+          "raw": "flickering",
+          "start": 28.33,
+          "end": 28.61
+        },
+        {
+          "raw": "of",
+          "start": 28.61,
+          "end": 28.83
+        },
+        {
+          "raw": "the",
+          "start": 28.83,
+          "end": 28.95
+        },
+        {
+          "raw": "firelight",
+          "start": 28.95,
+          "end": 29.45
+        },
+        {
+          "raw": "on",
+          "start": 29.45,
+          "end": 29.63
+        },
+        {
+          "raw": "the",
+          "start": 29.63,
+          "end": 29.73
+        },
+        {
+          "raw": "polished",
+          "start": 29.73,
+          "end": 30.15
+        },
+        {
+          "raw": "cabinets",
+          "start": 30.15,
+          "end": 30.61
+        },
+        {
+          "raw": "and",
+          "start": 30.61,
+          "end": 31.19
+        },
+        {
+          "raw": "the",
+          "start": 31.19,
+          "end": 31.31
+        },
+        {
+          "raw": "uneasy",
+          "start": 31.31,
+          "end": 31.69
+        },
+        {
+          "raw": "starting",
+          "start": 31.69,
+          "end": 32.19
+        },
+        {
+          "raw": "of",
+          "start": 32.19,
+          "end": 32.41
+        },
+        {
+          "raw": "the",
+          "start": 32.41,
+          "end": 32.53
+        },
+        {
+          "raw": "shadow",
+          "start": 32.53,
+          "end": 32.81
+        },
+        {
+          "raw": "on",
+          "start": 32.81,
+          "end": 33.11
+        },
+        {
+          "raw": "the",
+          "start": 33.11,
+          "end": 33.21
+        },
+        {
+          "raw": "roof.",
+          "start": 33.21,
+          "end": 33.41
+        },
+        {
+          "raw": "He",
+          "start": 34.21,
+          "end": 34.35
+        },
+        {
+          "raw": "was",
+          "start": 34.35,
+          "end": 34.45
+        },
+        {
+          "raw": "ashamed",
+          "start": 34.45,
+          "end": 34.81
+        },
+        {
+          "raw": "of",
+          "start": 34.81,
+          "end": 35.07
+        },
+        {
+          "raw": "his",
+          "start": 35.07,
+          "end": 35.17
+        },
+        {
+          "raw": "relief,",
+          "start": 35.17,
+          "end": 35.55
+        },
+        {
+          "raw": "when",
+          "start": 35.99,
+          "end": 36.25
+        },
+        {
+          "raw": "Poole",
+          "start": 36.25,
+          "end": 36.67
+        },
+        {
+          "raw": "presently",
+          "start": 36.67,
+          "end": 37.01
+        },
+        {
+          "raw": "returned",
+          "start": 37.01,
+          "end": 37.47
+        },
+        {
+          "raw": "to",
+          "start": 37.47,
+          "end": 37.73
+        },
+        {
+          "raw": "announce",
+          "start": 37.73,
+          "end": 38.11
+        },
+        {
+          "raw": "that",
+          "start": 38.11,
+          "end": 38.41
+        },
+        {
+          "raw": "Dr.",
+          "start": 38.41,
+          "end": 38.71
+        },
+        {
+          "raw": "Jekyll",
+          "start": 38.89,
+          "end": 39.07
+        },
+        {
+          "raw": "was",
+          "start": 39.07,
+          "end": 39.27
+        },
+        {
+          "raw": "gone",
+          "start": 39.27,
+          "end": 39.49
+        },
+        {
+          "raw": "out.",
+          "start": 39.49,
+          "end": 39.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Here,",
+        "thank",
+        "you,\"",
+        "said",
+        "the",
+        "lawyer,",
+        "and",
+        "he",
+        "drew",
+        "near",
+        "and",
+        "leaned",
+        "on",
+        "the",
+        "tall",
+        "fender.",
+        "This",
+        "hall,",
+        "in",
+        "which",
+        "he",
+        "was",
+        "now",
+        "left",
+        "alone,",
+        "was",
+        "a",
+        "pet",
+        "fancy",
+        "of",
+        "his",
+        "friend",
+        "the",
+        "doctor's;",
+        "and",
+        "Utterson",
+        "himself",
+        "was",
+        "wont",
+        "to",
+        "speak",
+        "of",
+        "it",
+        "as",
+        "the",
+        "pleasantest",
+        "room",
+        "in",
+        "London.",
+        "But",
+        "tonight",
+        "there",
+        "was",
+        "a",
+        "shudder",
+        "in",
+        "his",
+        "blood;",
+        "the",
+        "face",
+        "of",
+        "Hyde",
+        "sat",
+        "heavy",
+        "on",
+        "his",
+        "memory;",
+        "he",
+        "felt",
+        "(what",
+        "was",
+        "rare",
+        "with",
+        "him)",
+        "a",
+        "nausea",
+        "and",
+        "distaste",
+        "of",
+        "life;",
+        "and",
+        "in",
+        "the",
+        "gloom",
+        "of",
+        "his",
+        "spirits,",
+        "he",
+        "seemed",
+        "to",
+        "read",
+        "a",
+        "menace",
+        "in",
+        "the",
+        "flickering",
+        "of",
+        "the",
+        "firelight",
+        "on",
+        "the",
+        "polished",
+        "cabinets",
+        "and",
+        "the",
+        "uneasy",
+        "starting",
+        "of",
+        "the",
+        "shadow",
+        "on",
+        "the",
+        "roof.",
+        "He",
+        "was",
+        "ashamed",
+        "of",
+        "his",
+        "relief,",
+        "when",
+        "Poole",
+        "presently",
+        "returned",
+        "to",
+        "announce",
+        "that",
+        "Dr.",
+        "Jekyll",
+        "was",
+        "gone",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          131,
+          0,
+          131
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 122,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 123,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 124,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 125,
+          "source": "observed",
+          "heard_index": 125
+        },
+        {
+          "index": 126,
+          "source": "observed",
+          "heard_index": 126
+        },
+        {
+          "index": 127,
+          "source": "observed",
+          "heard_index": 127
+        },
+        {
+          "index": 128,
+          "source": "observed",
+          "heard_index": 128
+        },
+        {
+          "index": 129,
+          "source": "observed",
+          "heard_index": 129
+        },
+        {
+          "index": 130,
+          "source": "observed",
+          "heard_index": 130
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Here,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "thank",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "you,\"",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "text": "said",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "lawyer,",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "text": "and",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "he",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "text": "drew",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "text": "near",
+          "start": 3.21,
+          "end": 3.51
+        },
+        {
+          "text": "and",
+          "start": 3.51,
+          "end": 3.79
+        },
+        {
+          "text": "leaned",
+          "start": 3.79,
+          "end": 4.11
+        },
+        {
+          "text": "on",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "text": "the",
+          "start": 4.29,
+          "end": 4.41
+        },
+        {
+          "text": "tall",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "fender.",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "text": "This",
+          "start": 5.85,
+          "end": 6.07
+        },
+        {
+          "text": "hall,",
+          "start": 6.07,
+          "end": 6.39
+        },
+        {
+          "text": "in",
+          "start": 6.61,
+          "end": 6.73
+        },
+        {
+          "text": "which",
+          "start": 6.73,
+          "end": 6.85
+        },
+        {
+          "text": "he",
+          "start": 6.85,
+          "end": 6.99
+        },
+        {
+          "text": "was",
+          "start": 6.99,
+          "end": 7.11
+        },
+        {
+          "text": "now",
+          "start": 7.11,
+          "end": 7.35
+        },
+        {
+          "text": "left",
+          "start": 7.35,
+          "end": 7.61
+        },
+        {
+          "text": "alone,",
+          "start": 7.61,
+          "end": 7.99
+        },
+        {
+          "text": "was",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "text": "a",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "text": "pet",
+          "start": 8.69,
+          "end": 8.89
+        },
+        {
+          "text": "fancy",
+          "start": 8.89,
+          "end": 9.39
+        },
+        {
+          "text": "of",
+          "start": 9.39,
+          "end": 9.59
+        },
+        {
+          "text": "his",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "text": "friend",
+          "start": 9.73,
+          "end": 9.99
+        },
+        {
+          "text": "the",
+          "start": 9.99,
+          "end": 10.19
+        },
+        {
+          "text": "doctor's;",
+          "start": 10.19,
+          "end": 11.03
+        },
+        {
+          "text": "and",
+          "start": 11.05,
+          "end": 11.33
+        },
+        {
+          "text": "Utterson",
+          "start": 11.33,
+          "end": 11.67
+        },
+        {
+          "text": "himself",
+          "start": 11.67,
+          "end": 12.23
+        },
+        {
+          "text": "was",
+          "start": 12.23,
+          "end": 12.51
+        },
+        {
+          "text": "wont",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "text": "to",
+          "start": 12.71,
+          "end": 12.85
+        },
+        {
+          "text": "speak",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "text": "of",
+          "start": 13.07,
+          "end": 13.23
+        },
+        {
+          "text": "it",
+          "start": 13.23,
+          "end": 13.35
+        },
+        {
+          "text": "as",
+          "start": 13.35,
+          "end": 13.51
+        },
+        {
+          "text": "the",
+          "start": 13.51,
+          "end": 13.71
+        },
+        {
+          "text": "pleasantest",
+          "start": 13.71,
+          "end": 14.37
+        },
+        {
+          "text": "room",
+          "start": 14.37,
+          "end": 14.63
+        },
+        {
+          "text": "in",
+          "start": 14.63,
+          "end": 14.89
+        },
+        {
+          "text": "London.",
+          "start": 14.89,
+          "end": 15.17
+        },
+        {
+          "text": "But",
+          "start": 16.25,
+          "end": 16.37
+        },
+        {
+          "text": "tonight",
+          "start": 16.37,
+          "end": 16.61
+        },
+        {
+          "text": "there",
+          "start": 16.61,
+          "end": 16.85
+        },
+        {
+          "text": "was",
+          "start": 16.85,
+          "end": 16.95
+        },
+        {
+          "text": "a",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "text": "shudder",
+          "start": 17.13,
+          "end": 17.33
+        },
+        {
+          "text": "in",
+          "start": 17.33,
+          "end": 17.59
+        },
+        {
+          "text": "his",
+          "start": 17.59,
+          "end": 17.71
+        },
+        {
+          "text": "blood;",
+          "start": 17.71,
+          "end": 18.03
+        },
+        {
+          "text": "the",
+          "start": 18.49,
+          "end": 18.65
+        },
+        {
+          "text": "face",
+          "start": 18.65,
+          "end": 18.85
+        },
+        {
+          "text": "of",
+          "start": 18.85,
+          "end": 19.05
+        },
+        {
+          "text": "Hyde",
+          "start": 19.05,
+          "end": 19.25
+        },
+        {
+          "text": "sat",
+          "start": 19.25,
+          "end": 19.55
+        },
+        {
+          "text": "heavy",
+          "start": 19.55,
+          "end": 19.85
+        },
+        {
+          "text": "on",
+          "start": 19.85,
+          "end": 20.03
+        },
+        {
+          "text": "his",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "text": "memory;",
+          "start": 20.15,
+          "end": 20.51
+        },
+        {
+          "text": "he",
+          "start": 21.01,
+          "end": 21.17
+        },
+        {
+          "text": "felt",
+          "start": 21.17,
+          "end": 21.41
+        },
+        {
+          "text": "(what",
+          "start": 21.85,
+          "end": 22.01
+        },
+        {
+          "text": "was",
+          "start": 22.01,
+          "end": 22.17
+        },
+        {
+          "text": "rare",
+          "start": 22.17,
+          "end": 22.41
+        },
+        {
+          "text": "with",
+          "start": 22.41,
+          "end": 22.61
+        },
+        {
+          "text": "him)",
+          "start": 22.61,
+          "end": 22.85
+        },
+        {
+          "text": "a",
+          "start": 23.13,
+          "end": 23.23
+        },
+        {
+          "text": "nausea",
+          "start": 23.23,
+          "end": 23.57
+        },
+        {
+          "text": "and",
+          "start": 23.57,
+          "end": 23.91
+        },
+        {
+          "text": "distaste",
+          "start": 23.91,
+          "end": 24.31
+        },
+        {
+          "text": "of",
+          "start": 24.31,
+          "end": 24.53
+        },
+        {
+          "text": "life;",
+          "start": 24.53,
+          "end": 24.77
+        },
+        {
+          "text": "and",
+          "start": 25.25,
+          "end": 25.49
+        },
+        {
+          "text": "in",
+          "start": 25.49,
+          "end": 25.57
+        },
+        {
+          "text": "the",
+          "start": 25.57,
+          "end": 25.69
+        },
+        {
+          "text": "gloom",
+          "start": 25.69,
+          "end": 25.87
+        },
+        {
+          "text": "of",
+          "start": 25.87,
+          "end": 26.11
+        },
+        {
+          "text": "his",
+          "start": 26.11,
+          "end": 26.21
+        },
+        {
+          "text": "spirits,",
+          "start": 26.21,
+          "end": 26.57
+        },
+        {
+          "text": "he",
+          "start": 26.95,
+          "end": 27.07
+        },
+        {
+          "text": "seemed",
+          "start": 27.07,
+          "end": 27.25
+        },
+        {
+          "text": "to",
+          "start": 27.25,
+          "end": 27.45
+        },
+        {
+          "text": "read",
+          "start": 27.45,
+          "end": 27.59
+        },
+        {
+          "text": "a",
+          "start": 27.59,
+          "end": 27.71
+        },
+        {
+          "text": "menace",
+          "start": 27.71,
+          "end": 27.95
+        },
+        {
+          "text": "in",
+          "start": 27.95,
+          "end": 28.21
+        },
+        {
+          "text": "the",
+          "start": 28.21,
+          "end": 28.33
+        },
+        {
+          "text": "flickering",
+          "start": 28.33,
+          "end": 28.61
+        },
+        {
+          "text": "of",
+          "start": 28.61,
+          "end": 28.83
+        },
+        {
+          "text": "the",
+          "start": 28.83,
+          "end": 28.95
+        },
+        {
+          "text": "firelight",
+          "start": 28.95,
+          "end": 29.45
+        },
+        {
+          "text": "on",
+          "start": 29.45,
+          "end": 29.63
+        },
+        {
+          "text": "the",
+          "start": 29.63,
+          "end": 29.73
+        },
+        {
+          "text": "polished",
+          "start": 29.73,
+          "end": 30.15
+        },
+        {
+          "text": "cabinets",
+          "start": 30.15,
+          "end": 30.61
+        },
+        {
+          "text": "and",
+          "start": 30.61,
+          "end": 31.19
+        },
+        {
+          "text": "the",
+          "start": 31.19,
+          "end": 31.31
+        },
+        {
+          "text": "uneasy",
+          "start": 31.31,
+          "end": 31.69
+        },
+        {
+          "text": "starting",
+          "start": 31.69,
+          "end": 32.19
+        },
+        {
+          "text": "of",
+          "start": 32.19,
+          "end": 32.41
+        },
+        {
+          "text": "the",
+          "start": 32.41,
+          "end": 32.53
+        },
+        {
+          "text": "shadow",
+          "start": 32.53,
+          "end": 32.81
+        },
+        {
+          "text": "on",
+          "start": 32.81,
+          "end": 33.11
+        },
+        {
+          "text": "the",
+          "start": 33.11,
+          "end": 33.21
+        },
+        {
+          "text": "roof.",
+          "start": 33.21,
+          "end": 33.41
+        },
+        {
+          "text": "He",
+          "start": 34.21,
+          "end": 34.35
+        },
+        {
+          "text": "was",
+          "start": 34.35,
+          "end": 34.45
+        },
+        {
+          "text": "ashamed",
+          "start": 34.45,
+          "end": 34.81
+        },
+        {
+          "text": "of",
+          "start": 34.81,
+          "end": 35.07
+        },
+        {
+          "text": "his",
+          "start": 35.07,
+          "end": 35.17
+        },
+        {
+          "text": "relief,",
+          "start": 35.17,
+          "end": 35.55
+        },
+        {
+          "text": "when",
+          "start": 35.99,
+          "end": 36.25
+        },
+        {
+          "text": "Poole",
+          "start": 36.25,
+          "end": 36.67
+        },
+        {
+          "text": "presently",
+          "start": 36.67,
+          "end": 37.01
+        },
+        {
+          "text": "returned",
+          "start": 37.01,
+          "end": 37.47
+        },
+        {
+          "text": "to",
+          "start": 37.47,
+          "end": 37.73
+        },
+        {
+          "text": "announce",
+          "start": 37.73,
+          "end": 38.11
+        },
+        {
+          "text": "that",
+          "start": 38.11,
+          "end": 38.41
+        },
+        {
+          "text": "Dr.",
+          "start": 38.41,
+          "end": 38.71
+        },
+        {
+          "text": "Jekyll",
+          "start": 38.89,
+          "end": 39.07
+        },
+        {
+          "text": "was",
+          "start": 39.07,
+          "end": 39.27
+        },
+        {
+          "text": "gone",
+          "start": 39.27,
+          "end": 39.49
+        },
+        {
+          "text": "out.",
+          "start": 39.49,
+          "end": 39.81
+        }
+      ],
+      "stats": {
+        "expected_words": 131,
+        "heard_words": 131,
+        "matched_words": 131
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7403648644685745
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e06ba3b2277af2c032033777ad0911f4574063260506a0ea47e62bd0c9444faa",
+  "selected_reasons": []
+}

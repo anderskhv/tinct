@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "f1046234436220d4d5d81f0bb0b2396e288dbd877c0e8105e2119ee1ad511fd3",
+  "attempts": [
+    {
+      "asr_seconds": 0.12481805309653282,
+      "alignment_seconds": 5.783978849649429e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And does the soul admit of death?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And does the soul admit of death?",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " does",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " the",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " soul",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " admit",
+              "start": 1.02,
+              "end": 1.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " death?",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "does",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "soul",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "admit",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "death?",
+          "start": 1.46,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "does",
+        "the",
+        "soul",
+        "admit",
+        "of",
+        "death?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "does",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "soul",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "admit",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "text": "of",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "text": "death?",
+          "start": 1.46,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12489893287420273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "97a9266f11da05e27f6949bc571a3e79e8214be6f63079168f7fd63ecc7dfb16",
+  "selected_reasons": []
+}

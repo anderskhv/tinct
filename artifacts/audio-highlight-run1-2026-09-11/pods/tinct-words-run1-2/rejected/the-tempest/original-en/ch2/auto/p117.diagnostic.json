@@ -1,0 +1,155 @@
+{
+  "complete": true,
+  "signature": "f6b521bb16bce47a3144dd51f42aea6616199df9f56dbda4a43885bebbe6b59d",
+  "attempts": [
+    {
+      "asr_seconds": 0.17496348917484283,
+      "alignment_seconds": 0.0001357346773147583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Burthen [dispersedly, within]",
+        "hotwords": "Burthen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Burthen dispersedly, within",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Burthen",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.4278767903645833
+            },
+            {
+              "text": " dispersedly,",
+              "start": 0.76,
+              "end": 1.5,
+              "probability": 0.619873046875
+            },
+            {
+              "text": " within",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.96728515625
+            }
+          ]
+        },
+        {
+          "text": " Burthen.",
+          "start": 1.86,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Burthen.",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.0005147059758504232
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Burthen",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "dispersedly,",
+          "start": 0.76,
+          "end": 1.5
+        },
+        {
+          "raw": "within",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "Burthen.",
+          "start": 1.86,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "[Burthen",
+        "[dispersedly,",
+        "within]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Burthen",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "[dispersedly,",
+          "start": 0.76,
+          "end": 1.5
+        },
+        {
+          "text": "within]",
+          "start": 1.72,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17513937503099442
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f7242c9d0a0b9ca2ddf69d34b2b650ed41410e2c03e56bf7aadf9320eeabdc58",
+  "selected_reasons": []
+}

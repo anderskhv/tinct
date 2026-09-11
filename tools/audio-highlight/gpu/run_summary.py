@@ -44,16 +44,26 @@ def main() -> None:
     for r in published:
         book, edition, ch, _ = r["key"].split("/")
         print(f"| `{book}/{edition}` | {ch[2:]} | `{r['sha256']}` | {r['bytes']} | {r['at'][11:19]} |")
+    exists = [r for r in others if "already exists" in (r.get("reason") or "")]
+    others = [r for r in others if r not in exists]
+    if exists:
+        print(f"\n{len(exists)} journal entries are re-runs that found the object already published and were skipped "
+              "(the uploader never overwrites).")
     if others:
         print("\nJournal entries that did not publish:\n")
         for r in others:
             print(f"- `{r['key']}` — {r['outcome']}: {r.get('reason')}")
 
     print("\n## Chapters that failed the gate\n")
-    failed = []
+    failed, cut = [], []
     for report in sorted(root.glob("pods/*/collect-report.json")):
         for row in json.loads(report.read_text()):
             if row["outcome"] == "excluded":
+                statuses = {arm: data.get("status") for arm, data in row["arms"].items()}
+                if len(statuses) < 2 or any(s not in ("rejected", "candidate_requires_acoustic_review")
+                                            for s in statuses.values()):
+                    cut.append((row["key"], report.parent.name))
+                    continue
                 reasons = defaultdict(list)
                 for arm, data in row["arms"].items():
                     for item in data.get("reasons") or []:
@@ -63,6 +73,18 @@ def main() -> None:
         print("None.")
     for key, pod, reasons in failed:
         print(f"- `{key}` ({pod}) — paragraphs {list(reasons)}: below 0.85 on every arm; not published")
+    if cut:
+        print("\n## Chapters cut off by the worker time cap and re-queued\n")
+        for key, pod in cut:
+            print(f"- `{key}` ({pod}) — not a rejection; re-run in the leftovers batch")
+    dropped = []
+    for path in sorted(root.glob("pods/*/cohort__cohort-dropped.json")):
+        for row in json.loads(path.read_text()):
+            dropped.append((row["key"], row["dropped"], path.parent.name))
+    if dropped:
+        print("\n## Chapters dropped before alignment (repair class)\n")
+        for key, why, pod in dropped:
+            print(f"- `{key}` ({pod}) — {why}")
 
     queue = json.loads((root / "run-queue.json").read_text())
     editions = {}

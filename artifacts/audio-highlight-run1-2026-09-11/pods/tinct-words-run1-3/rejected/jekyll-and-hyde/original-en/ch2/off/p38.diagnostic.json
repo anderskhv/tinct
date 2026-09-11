@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "fd4558710729dd3956c20b215cdab7e5b0c05882c253e586cc1d41ec321b5c23",
+  "attempts": [
+    {
+      "asr_seconds": 0.15821611881256104,
+      "alignment_seconds": 7.46697187423706e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is Dr. Jekyll at home pool?\" asked the lawyer.",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " Dr.",
+              "start": 0.57,
+              "end": 0.85,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Jekyll",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.9842122395833334
+            },
+            {
+              "text": " at",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " home",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " pool?\"",
+              "start": 1.57,
+              "end": 2.45,
+              "probability": 0.466094970703125
+            },
+            {
+              "text": " asked",
+              "start": 2.45,
+              "end": 2.55,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " the",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " lawyer.",
+              "start": 2.75,
+              "end": 2.99,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Dr.",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "raw": "Jekyll",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "at",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "home",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "raw": "pool?\"",
+          "start": 1.57,
+          "end": 2.45
+        },
+        {
+          "raw": "asked",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "raw": "the",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "lawyer.",
+          "start": 2.75,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "Dr.",
+        "Jekyll",
+        "at",
+        "home,",
+        "Poole?\"",
+        "asked",
+        "the",
+        "lawyer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Dr.",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "text": "Jekyll",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "at",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "home,",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "text": "Poole?\"",
+          "start": 1.57,
+          "end": 2.01
+        },
+        {
+          "text": "asked",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "text": "the",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "lawyer.",
+          "start": 2.75,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.15831510722637177
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9db20a799ec2512befdab5c9b58f438eda1339ee56c8d0e2fd558b85463f1373",
+  "selected_reasons": []
+}

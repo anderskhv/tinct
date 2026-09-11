@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "568acd92a716c60abed1dcb2ae1e82b5c2588d8c7802109ce1e0a64bbfaf31a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19268149882555008,
+      "alignment_seconds": 0.00010607391595840454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. Do so, and after two days I will discharge thee.",
+        "hotwords": "Prospero, Do, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, Do so, and after two days I will discharge thee.",
+          "start": 0.57,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.57,
+              "end": 1.07,
+              "probability": 0.869140625
+            },
+            {
+              "text": " Do",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.006866455078125
+            },
+            {
+              "text": " so,",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.712890625
+            },
+            {
+              "text": " and",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " after",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " two",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.84765625
+            },
+            {
+              "text": " days",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " will",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " discharge",
+              "start": 3.25,
+              "end": 3.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thee.",
+              "start": 3.65,
+              "end": 4.05,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "raw": "Do",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "so,",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "raw": "and",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "after",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "two",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "days",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "will",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "discharge",
+          "start": 3.25,
+          "end": 3.65
+        },
+        {
+          "raw": "thee.",
+          "start": 3.65,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Do",
+        "so,",
+        "and",
+        "after",
+        "two",
+        "days",
+        "I",
+        "will",
+        "discharge",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "text": "Do",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "so,",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "text": "and",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "after",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "two",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "days",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "text": "I",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "will",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "discharge",
+          "start": 3.25,
+          "end": 3.65
+        },
+        {
+          "text": "thee.",
+          "start": 3.65,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19283830374479294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4fcecc3374143b495bd4ddb28849cc5bdf20f7d824501c9cf14ce1cee1adbc9a",
+  "selected_reasons": []
+}

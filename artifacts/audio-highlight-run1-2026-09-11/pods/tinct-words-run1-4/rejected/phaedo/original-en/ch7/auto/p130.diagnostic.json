@@ -1,0 +1,2262 @@
+{
+  "complete": true,
+  "signature": "410f2f442eaac67bcaca3727ff5997d9a0da0e2a4b230c14de0fc096c24cbd03",
+  "attempts": [
+    {
+      "asr_seconds": 0.20527157466858625,
+      "alignment_seconds": 0.00013234838843345642,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Echecrates: Yes, Phaedo; and I do not wonder at their assenting. Any one who has the least sense will acknowledge the wonderful clearness of Socrates' reasoning.",
+        "hotwords": "Echecrates, Yes, Phaedo, I, Any, Socrates"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " E-C-H-E-C-R-A-T-E-S, Yes, Phaedo, and I do not wonder at their assenting. Anyone who has the least sense will acknowledge the wonderful clearness of Socrates' reasoning.",
+          "start": 0.02,
+          "end": 10.78,
+          "words": [
+            {
+              "text": " E",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.568359375
+            },
+            {
+              "text": "-C",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.6319580078125
+            },
+            {
+              "text": "-H",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.9794921875
+            },
+            {
+              "text": "-E",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.98828125
+            },
+            {
+              "text": "-C",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-R",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-A",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.98779296875
+            },
+            {
+              "text": "-T",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.996337890625
+            },
+            {
+              "text": "-E",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.983642578125
+            },
+            {
+              "text": "-S,",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Yes,",
+              "start": 2.38,
+              "end": 2.84,
+              "probability": 0.222412109375
+            },
+            {
+              "text": " Phaedo,",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.4354705810546875
+            },
+            {
+              "text": " and",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " I",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " do",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wonder",
+              "start": 4.48,
+              "end": 4.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " at",
+              "start": 4.76,
+              "end": 4.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " assenting.",
+              "start": 5.1,
+              "end": 5.54,
+              "probability": 0.856689453125
+            },
+            {
+              "text": " Anyone",
+              "start": 6.26,
+              "end": 6.44,
+              "probability": 0.84375
+            },
+            {
+              "text": " who",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " has",
+              "start": 6.7,
+              "end": 6.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.86,
+              "end": 7.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " least",
+              "start": 7.06,
+              "end": 7.26,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sense",
+              "start": 7.26,
+              "end": 7.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will",
+              "start": 7.66,
+              "end": 7.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " acknowledge",
+              "start": 7.88,
+              "end": 8.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 8.26,
+              "end": 8.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wonderful",
+              "start": 8.56,
+              "end": 8.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clearness",
+              "start": 8.96,
+              "end": 9.56,
+              "probability": 0.93359375
+            },
+            {
+              "text": " of",
+              "start": 9.56,
+              "end": 9.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Socrates'",
+              "start": 9.74,
+              "end": 10.18,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " reasoning.",
+              "start": 10.46,
+              "end": 10.78,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "-C",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "-H",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "-E",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "-C",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "-R",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "-A",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "-T",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "-E",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "-S,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "Yes,",
+          "start": 2.38,
+          "end": 2.84
+        },
+        {
+          "raw": "Phaedo,",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "raw": "I",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "do",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "not",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "wonder",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "raw": "at",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "raw": "their",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "assenting.",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "raw": "Anyone",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "raw": "who",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "raw": "has",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "raw": "least",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "raw": "sense",
+          "start": 7.26,
+          "end": 7.66
+        },
+        {
+          "raw": "will",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "raw": "acknowledge",
+          "start": 7.88,
+          "end": 8.26
+        },
+        {
+          "raw": "the",
+          "start": 8.26,
+          "end": 8.56
+        },
+        {
+          "raw": "wonderful",
+          "start": 8.56,
+          "end": 8.96
+        },
+        {
+          "raw": "clearness",
+          "start": 8.96,
+          "end": 9.56
+        },
+        {
+          "raw": "of",
+          "start": 9.56,
+          "end": 9.74
+        },
+        {
+          "raw": "Socrates'",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "raw": "reasoning.",
+          "start": 10.46,
+          "end": 10.78
+        }
+      ],
+      "expected_tokens": [
+        "Echecrates:",
+        "Yes,",
+        "Phaedo;",
+        "and",
+        "I",
+        "do",
+        "not",
+        "wonder",
+        "at",
+        "their",
+        "assenting.",
+        "Any",
+        "one",
+        "who",
+        "has",
+        "the",
+        "least",
+        "sense",
+        "will",
+        "acknowledge",
+        "the",
+        "wonderful",
+        "clearness",
+        "of",
+        "Socrates'",
+        "reasoning."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          10
+        ],
+        [
+          "equal",
+          1,
+          11,
+          10,
+          20
+        ],
+        [
+          "replace",
+          11,
+          13,
+          20,
+          21
+        ],
+        [
+          "equal",
+          13,
+          26,
+          21,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          10
+        ],
+        [
+          "replace",
+          11,
+          13,
+          20,
+          21
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Echecrates:",
+          "start": 0.0,
+          "end": 1.19
+        },
+        {
+          "text": "Yes,",
+          "start": 2.38,
+          "end": 2.84
+        },
+        {
+          "text": "Phaedo;",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "text": "I",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "do",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "not",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "wonder",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "text": "at",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "text": "their",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "assenting.",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "text": "Any",
+          "start": 5.54,
+          "end": 5.99
+        },
+        {
+          "text": "one",
+          "start": 5.99,
+          "end": 6.215
+        },
+        {
+          "text": "who",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "text": "has",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "text": "the",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "text": "least",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "text": "sense",
+          "start": 7.26,
+          "end": 7.66
+        },
+        {
+          "text": "will",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "text": "acknowledge",
+          "start": 7.88,
+          "end": 8.26
+        },
+        {
+          "text": "the",
+          "start": 8.26,
+          "end": 8.56
+        },
+        {
+          "text": "wonderful",
+          "start": 8.56,
+          "end": 8.96
+        },
+        {
+          "text": "clearness",
+          "start": 8.96,
+          "end": 9.56
+        },
+        {
+          "text": "of",
+          "start": 9.56,
+          "end": 9.74
+        },
+        {
+          "text": "Socrates'",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "text": "reasoning.",
+          "start": 10.46,
+          "end": 10.78
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 34,
+        "matched_words": 23
+      },
+      "match_ratio": 0.8846153846153846,
+      "rejection_reasons": [],
+      "seconds": 0.20547703094780445
+    },
+    {
+      "asr_seconds": 0.22175644244998693,
+      "alignment_seconds": 0.00012609176337718964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Echecrates, Yes, Phaedo, I, Any, Socrates"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " E-C-H-E-C-R-A-T-E-S, Yes, Phaedo, And I do not wonder at their assenting.",
+          "start": 0.02,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " E",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.568359375
+            },
+            {
+              "text": "-C",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.6318359375
+            },
+            {
+              "text": "-H",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.9794921875
+            },
+            {
+              "text": "-E",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.98828125
+            },
+            {
+              "text": "-C",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-R",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-A",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.98779296875
+            },
+            {
+              "text": "-T",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.996337890625
+            },
+            {
+              "text": "-E",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.983642578125
+            },
+            {
+              "text": "-S,",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Yes,",
+              "start": 2.38,
+              "end": 2.84,
+              "probability": 0.222412109375
+            },
+            {
+              "text": " Phaedo,",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.4358978271484375
+            },
+            {
+              "text": " And",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.07733154296875
+            },
+            {
+              "text": " I",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " do",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " not",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wonder",
+              "start": 4.48,
+              "end": 4.74,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " at",
+              "start": 4.74,
+              "end": 4.92,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " their",
+              "start": 4.92,
+              "end": 5.1,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " assenting.",
+              "start": 5.1,
+              "end": 5.54,
+              "probability": 0.83935546875
+            }
+          ]
+        },
+        {
+          "text": " Any one who has the least sense will acknowledge the wonderful clearness of Socrates' reasoning.",
+          "start": 6.24,
+          "end": 10.78,
+          "words": [
+            {
+              "text": " Any",
+              "start": 6.24,
+              "end": 6.38,
+              "probability": 0.28466796875
+            },
+            {
+              "text": " one",
+              "start": 6.38,
+              "end": 6.58,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " who",
+              "start": 6.58,
+              "end": 6.72,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " has",
+              "start": 6.72,
+              "end": 6.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.86,
+              "end": 7.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " least",
+              "start": 7.06,
+              "end": 7.28,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sense",
+              "start": 7.28,
+              "end": 7.66,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " will",
+              "start": 7.66,
+              "end": 7.88,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " acknowledge",
+              "start": 7.88,
+              "end": 8.24,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 8.24,
+              "end": 8.56,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " wonderful",
+              "start": 8.56,
+              "end": 8.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " clearness",
+              "start": 8.96,
+              "end": 9.54,
+              "probability": 0.888427734375
+            },
+            {
+              "text": " of",
+              "start": 9.54,
+              "end": 9.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Socrates'",
+              "start": 9.74,
+              "end": 10.18,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " reasoning.",
+              "start": 10.46,
+              "end": 10.78,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "-C",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "-H",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "-E",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "-C",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "-R",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "-A",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "-T",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "-E",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "-S,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "Yes,",
+          "start": 2.38,
+          "end": 2.84
+        },
+        {
+          "raw": "Phaedo,",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "And",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "raw": "I",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "do",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "not",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "wonder",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "raw": "at",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "raw": "their",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "raw": "assenting.",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "raw": "Any",
+          "start": 6.24,
+          "end": 6.38
+        },
+        {
+          "raw": "one",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "raw": "who",
+          "start": 6.58,
+          "end": 6.72
+        },
+        {
+          "raw": "has",
+          "start": 6.72,
+          "end": 6.86
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "raw": "least",
+          "start": 7.06,
+          "end": 7.28
+        },
+        {
+          "raw": "sense",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "raw": "will",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "raw": "acknowledge",
+          "start": 7.88,
+          "end": 8.24
+        },
+        {
+          "raw": "the",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "raw": "wonderful",
+          "start": 8.56,
+          "end": 8.96
+        },
+        {
+          "raw": "clearness",
+          "start": 8.96,
+          "end": 9.54
+        },
+        {
+          "raw": "of",
+          "start": 9.54,
+          "end": 9.74
+        },
+        {
+          "raw": "Socrates'",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "raw": "reasoning.",
+          "start": 10.46,
+          "end": 10.78
+        }
+      ],
+      "expected_tokens": [
+        "Echecrates:",
+        "Yes,",
+        "Phaedo;",
+        "and",
+        "I",
+        "do",
+        "not",
+        "wonder",
+        "at",
+        "their",
+        "assenting.",
+        "Any",
+        "one",
+        "who",
+        "has",
+        "the",
+        "least",
+        "sense",
+        "will",
+        "acknowledge",
+        "the",
+        "wonderful",
+        "clearness",
+        "of",
+        "Socrates'",
+        "reasoning."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          10
+        ],
+        [
+          "equal",
+          1,
+          26,
+          10,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Echecrates:",
+          "start": 0.0,
+          "end": 1.19
+        },
+        {
+          "text": "Yes,",
+          "start": 2.38,
+          "end": 2.84
+        },
+        {
+          "text": "Phaedo;",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "text": "I",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "do",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "not",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "wonder",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "text": "at",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "text": "their",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "text": "assenting.",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "text": "Any",
+          "start": 6.24,
+          "end": 6.38
+        },
+        {
+          "text": "one",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "text": "who",
+          "start": 6.58,
+          "end": 6.72
+        },
+        {
+          "text": "has",
+          "start": 6.72,
+          "end": 6.86
+        },
+        {
+          "text": "the",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "text": "least",
+          "start": 7.06,
+          "end": 7.28
+        },
+        {
+          "text": "sense",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "text": "will",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "text": "acknowledge",
+          "start": 7.88,
+          "end": 8.24
+        },
+        {
+          "text": "the",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "text": "wonderful",
+          "start": 8.56,
+          "end": 8.96
+        },
+        {
+          "text": "clearness",
+          "start": 8.96,
+          "end": 9.54
+        },
+        {
+          "text": "of",
+          "start": 9.54,
+          "end": 9.74
+        },
+        {
+          "text": "Socrates'",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "text": "reasoning.",
+          "start": 10.46,
+          "end": 10.78
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 35,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.22195282112807035
+    },
+    {
+      "asr_seconds": 0.25368844624608755,
+      "alignment_seconds": 0.0001338757574558258,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " E-C-H-E-C-R-A-T-E-S. Yes, Fido, and I do not wonder at their assenting.",
+          "start": 0.02,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " E",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.568359375
+            },
+            {
+              "text": "-C",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.6309814453125
+            },
+            {
+              "text": "-H",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.979248046875
+            },
+            {
+              "text": "-E",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.98828125
+            },
+            {
+              "text": "-C",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-R",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-A",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.987548828125
+            },
+            {
+              "text": "-T",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.996337890625
+            },
+            {
+              "text": "-E",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.983642578125
+            },
+            {
+              "text": "-S.",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Yes,",
+              "start": 2.5,
+              "end": 2.82,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " Fido,",
+              "start": 3.22,
+              "end": 3.4,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " and",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " do",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wonder",
+              "start": 4.48,
+              "end": 4.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " at",
+              "start": 4.76,
+              "end": 4.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 4.92,
+              "end": 5.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " assenting.",
+              "start": 5.1,
+              "end": 5.54,
+              "probability": 0.88232421875
+            }
+          ]
+        },
+        {
+          "text": " Anyone who has the least sense will acknowledge the wonderful clearness of Socrates' reasoning.",
+          "start": 6.26,
+          "end": 10.78,
+          "words": [
+            {
+              "text": " Anyone",
+              "start": 6.26,
+              "end": 6.44,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " who",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " has",
+              "start": 6.7,
+              "end": 6.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 6.86,
+              "end": 7.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " least",
+              "start": 7.06,
+              "end": 7.28,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sense",
+              "start": 7.28,
+              "end": 7.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 7.66,
+              "end": 7.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " acknowledge",
+              "start": 7.88,
+              "end": 8.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.26,
+              "end": 8.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wonderful",
+              "start": 8.56,
+              "end": 8.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " clearness",
+              "start": 8.96,
+              "end": 9.56,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " of",
+              "start": 9.56,
+              "end": 9.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Socrates'",
+              "start": 9.76,
+              "end": 10.18,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " reasoning.",
+              "start": 10.46,
+              "end": 10.78,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "-C",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "-H",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "-E",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "-C",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "-R",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "-A",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "-T",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "-E",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "-S.",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "Yes,",
+          "start": 2.5,
+          "end": 2.82
+        },
+        {
+          "raw": "Fido,",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "I",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "do",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "not",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "wonder",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "raw": "at",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "raw": "their",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "raw": "assenting.",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "raw": "Anyone",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "raw": "who",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "raw": "has",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "raw": "least",
+          "start": 7.06,
+          "end": 7.28
+        },
+        {
+          "raw": "sense",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "raw": "will",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "raw": "acknowledge",
+          "start": 7.88,
+          "end": 8.26
+        },
+        {
+          "raw": "the",
+          "start": 8.26,
+          "end": 8.56
+        },
+        {
+          "raw": "wonderful",
+          "start": 8.56,
+          "end": 8.96
+        },
+        {
+          "raw": "clearness",
+          "start": 8.96,
+          "end": 9.56
+        },
+        {
+          "raw": "of",
+          "start": 9.56,
+          "end": 9.76
+        },
+        {
+          "raw": "Socrates'",
+          "start": 9.76,
+          "end": 10.18
+        },
+        {
+          "raw": "reasoning.",
+          "start": 10.46,
+          "end": 10.78
+        }
+      ],
+      "expected_tokens": [
+        "Echecrates:",
+        "Yes,",
+        "Phaedo;",
+        "and",
+        "I",
+        "do",
+        "not",
+        "wonder",
+        "at",
+        "their",
+        "assenting.",
+        "Any",
+        "one",
+        "who",
+        "has",
+        "the",
+        "least",
+        "sense",
+        "will",
+        "acknowledge",
+        "the",
+        "wonderful",
+        "clearness",
+        "of",
+        "Socrates'",
+        "reasoning."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          10
+        ],
+        [
+          "equal",
+          1,
+          2,
+          10,
+          11
+        ],
+        [
+          "replace",
+          2,
+          3,
+          11,
+          12
+        ],
+        [
+          "equal",
+          3,
+          11,
+          12,
+          20
+        ],
+        [
+          "replace",
+          11,
+          13,
+          20,
+          21
+        ],
+        [
+          "equal",
+          13,
+          26,
+          21,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          10
+        ],
+        [
+          "replace",
+          2,
+          3,
+          11,
+          12
+        ],
+        [
+          "replace",
+          11,
+          13,
+          20,
+          21
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Echecrates:",
+          "start": 0.0,
+          "end": 1.25
+        },
+        {
+          "text": "Yes,",
+          "start": 2.5,
+          "end": 2.82
+        },
+        {
+          "text": "Phaedo;",
+          "start": 2.82,
+          "end": 3.37
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "I",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "do",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "not",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "wonder",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "text": "at",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "text": "their",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "text": "assenting.",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "text": "Any",
+          "start": 5.54,
+          "end": 5.99
+        },
+        {
+          "text": "one",
+          "start": 5.99,
+          "end": 6.215
+        },
+        {
+          "text": "who",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "text": "has",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "text": "the",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "text": "least",
+          "start": 7.06,
+          "end": 7.28
+        },
+        {
+          "text": "sense",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "text": "will",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "text": "acknowledge",
+          "start": 7.88,
+          "end": 8.26
+        },
+        {
+          "text": "the",
+          "start": 8.26,
+          "end": 8.56
+        },
+        {
+          "text": "wonderful",
+          "start": 8.56,
+          "end": 8.96
+        },
+        {
+          "text": "clearness",
+          "start": 8.96,
+          "end": 9.56
+        },
+        {
+          "text": "of",
+          "start": 9.56,
+          "end": 9.76
+        },
+        {
+          "text": "Socrates'",
+          "start": 9.76,
+          "end": 10.18
+        },
+        {
+          "text": "reasoning.",
+          "start": 10.46,
+          "end": 10.78
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 34,
+        "matched_words": 22
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2538878135383129
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "7104a920c282b10463f16240a76bd37974f8b652ad9e396e8b13d1aee0538766",
+  "selected_reasons": []
+}

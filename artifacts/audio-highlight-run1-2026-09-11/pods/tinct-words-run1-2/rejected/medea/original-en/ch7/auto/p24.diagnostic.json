@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "a50a164f8689a4b4b1c7c2614b7a32bc742a82111d0c5e912cd2d9e204b136aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.13898097723722458,
+      "alignment_seconds": 7.4043869972229e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Thy sons are dead, slain by their mother's hand.",
+        "hotwords": "Leader, Thy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Thy sons are dead, slain by their mother's hand.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " Thy",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.031280517578125
+            },
+            {
+              "text": " sons",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.935546875
+            },
+            {
+              "text": " are",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " dead,",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " slain",
+              "start": 2.43,
+              "end": 2.47,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " by",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " their",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " mother's",
+              "start": 2.87,
+              "end": 3.19,
+              "probability": 0.855712890625
+            },
+            {
+              "text": " hand.",
+              "start": 3.19,
+              "end": 3.45,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Thy",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "sons",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "are",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "dead,",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "slain",
+          "start": 2.43,
+          "end": 2.47
+        },
+        {
+          "raw": "by",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "their",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "mother's",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "raw": "hand.",
+          "start": 3.19,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Thy",
+        "sons",
+        "are",
+        "dead,",
+        "slain",
+        "by",
+        "their",
+        "mother's",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Thy",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "sons",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "are",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "dead,",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "slain",
+          "start": 2.43,
+          "end": 2.47
+        },
+        {
+          "text": "by",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "their",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "mother's",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "text": "hand.",
+          "start": 3.19,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13908782601356506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77a68672470e5e60050a439a982dcee321b2d4c9a0fdbf190982a55ab8c8bf12",
+  "selected_reasons": []
+}

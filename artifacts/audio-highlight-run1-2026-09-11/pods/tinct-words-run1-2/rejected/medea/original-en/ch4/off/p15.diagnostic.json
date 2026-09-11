@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "869c786775030008aae5844ac5391816de8eb31f2e5b962a2b5ca9080cea50ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.17055411636829376,
+      "alignment_seconds": 0.0001105964183807373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jason tread thine own path thou hast made it all to be",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Jason",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.671875
+            },
+            {
+              "text": " tread",
+              "start": 0.82,
+              "end": 1.32,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " thine",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.96484375
+            },
+            {
+              "text": " own",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " path",
+              "start": 1.74,
+              "end": 2.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thou",
+              "start": 2.2,
+              "end": 2.62,
+              "probability": 0.56787109375
+            },
+            {
+              "text": " hast",
+              "start": 2.62,
+              "end": 2.94,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " made",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.94921875
+            },
+            {
+              "text": " all",
+              "start": 3.28,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.4,
+              "end": 3.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 3.56,
+              "end": 3.92,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "tread",
+          "start": 0.82,
+          "end": 1.32
+        },
+        {
+          "raw": "thine",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "own",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "path",
+          "start": 1.74,
+          "end": 2.2
+        },
+        {
+          "raw": "thou",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "raw": "hast",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "raw": "made",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "it",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "all",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "raw": "be",
+          "start": 3.56,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "Tread",
+        "Thine",
+        "own",
+        "path!",
+        "Thou",
+        "hast",
+        "made",
+        "it",
+        "all",
+        "to",
+        "be."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Tread",
+          "start": 0.82,
+          "end": 1.32
+        },
+        {
+          "text": "Thine",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "own",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "path!",
+          "start": 1.74,
+          "end": 2.2
+        },
+        {
+          "text": "Thou",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "text": "hast",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "text": "made",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "it",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "all",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "text": "to",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "text": "be.",
+          "start": 3.56,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17071673274040222
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "135534f116e5399b5cb1c711f5e5ec71e4c55a8ac2861ba8873deab2c9afa691",
+  "selected_reasons": []
+}

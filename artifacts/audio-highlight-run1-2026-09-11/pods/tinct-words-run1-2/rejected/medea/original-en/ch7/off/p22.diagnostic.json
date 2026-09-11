@@ -1,0 +1,655 @@
+{
+  "complete": true,
+  "signature": "56641f6cd3e2b7e69c7a0d76ad731ebf89a16b7d842cf94e7ac32010c5403415",
+  "attempts": [
+    {
+      "asr_seconds": 0.2324499487876892,
+      "alignment_seconds": 0.0001476183533668518,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leader, unhappy man, indeed thou knowest not what dark place thou art come to.",
+          "start": 0.02,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " unhappy",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " man,",
+              "start": 1.5,
+              "end": 1.96,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " indeed",
+              "start": 2.56,
+              "end": 2.58,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " thou",
+              "start": 2.58,
+              "end": 2.84,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " knowest",
+              "start": 2.84,
+              "end": 3.26,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " not",
+              "start": 3.26,
+              "end": 3.46,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " what",
+              "start": 3.46,
+              "end": 3.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " dark",
+              "start": 3.64,
+              "end": 3.84,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " place",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thou",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " art",
+              "start": 4.4,
+              "end": 4.64,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " come",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to.",
+              "start": 4.84,
+              "end": 5.18,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " Else, God what, Jason, no word like these could fall from thee.",
+          "start": 5.92,
+          "end": 9.74,
+          "words": [
+            {
+              "text": " Else,",
+              "start": 5.92,
+              "end": 6.14,
+              "probability": 0.927734375
+            },
+            {
+              "text": " God",
+              "start": 6.6,
+              "end": 6.7,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " what,",
+              "start": 6.7,
+              "end": 7.0,
+              "probability": 0.258056640625
+            },
+            {
+              "text": " Jason,",
+              "start": 7.26,
+              "end": 7.46,
+              "probability": 0.955078125
+            },
+            {
+              "text": " no",
+              "start": 7.96,
+              "end": 8.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " word",
+              "start": 8.14,
+              "end": 8.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " like",
+              "start": 8.34,
+              "end": 8.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " these",
+              "start": 8.56,
+              "end": 8.8,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " could",
+              "start": 8.8,
+              "end": 9.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fall",
+              "start": 9.0,
+              "end": 9.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 9.24,
+              "end": 9.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thee.",
+              "start": 9.46,
+              "end": 9.74,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "unhappy",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "raw": "man,",
+          "start": 1.5,
+          "end": 1.96
+        },
+        {
+          "raw": "indeed",
+          "start": 2.56,
+          "end": 2.58
+        },
+        {
+          "raw": "thou",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "raw": "knowest",
+          "start": 2.84,
+          "end": 3.26
+        },
+        {
+          "raw": "not",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "raw": "what",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "raw": "dark",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "raw": "place",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "thou",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "art",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "raw": "come",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "to.",
+          "start": 4.84,
+          "end": 5.18
+        },
+        {
+          "raw": "Else,",
+          "start": 5.92,
+          "end": 6.14
+        },
+        {
+          "raw": "God",
+          "start": 6.6,
+          "end": 6.7
+        },
+        {
+          "raw": "what,",
+          "start": 6.7,
+          "end": 7.0
+        },
+        {
+          "raw": "Jason,",
+          "start": 7.26,
+          "end": 7.46
+        },
+        {
+          "raw": "no",
+          "start": 7.96,
+          "end": 8.14
+        },
+        {
+          "raw": "word",
+          "start": 8.14,
+          "end": 8.34
+        },
+        {
+          "raw": "like",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "raw": "these",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "raw": "could",
+          "start": 8.8,
+          "end": 9.0
+        },
+        {
+          "raw": "fall",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "raw": "from",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "raw": "thee.",
+          "start": 9.46,
+          "end": 9.74
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Unhappy",
+        "man,",
+        "indeed",
+        "thou",
+        "knowest",
+        "not",
+        "What",
+        "dark",
+        "place",
+        "thou",
+        "art",
+        "come",
+        "to!",
+        "Else,",
+        "God",
+        "wot,",
+        "Jason,",
+        "no",
+        "word",
+        "like",
+        "these",
+        "could",
+        "fall",
+        "from",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          26,
+          17,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Unhappy",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "text": "man,",
+          "start": 1.5,
+          "end": 1.96
+        },
+        {
+          "text": "indeed",
+          "start": 2.56,
+          "end": 2.58
+        },
+        {
+          "text": "thou",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "text": "knowest",
+          "start": 2.84,
+          "end": 3.26
+        },
+        {
+          "text": "not",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "text": "What",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "text": "dark",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "text": "place",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "thou",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "art",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "text": "come",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "to!",
+          "start": 4.84,
+          "end": 5.18
+        },
+        {
+          "text": "Else,",
+          "start": 5.92,
+          "end": 6.14
+        },
+        {
+          "text": "God",
+          "start": 6.6,
+          "end": 6.7
+        },
+        {
+          "text": "wot,",
+          "start": 6.7,
+          "end": 6.98
+        },
+        {
+          "text": "Jason,",
+          "start": 7.26,
+          "end": 7.46
+        },
+        {
+          "text": "no",
+          "start": 7.96,
+          "end": 8.14
+        },
+        {
+          "text": "word",
+          "start": 8.14,
+          "end": 8.34
+        },
+        {
+          "text": "like",
+          "start": 8.34,
+          "end": 8.56
+        },
+        {
+          "text": "these",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "text": "could",
+          "start": 8.8,
+          "end": 9.0
+        },
+        {
+          "text": "fall",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "text": "from",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "text": "thee.",
+          "start": 9.46,
+          "end": 9.74
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.23267052322626114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "605bffa8ed0ca70339e4fcbbf6c822d118f7d9c9cb842c1bc8f1e9eee5637b93",
+  "selected_reasons": []
+}

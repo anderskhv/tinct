@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "08538dd62471d5db95f66c86bcada827d2dd750c7f17dfb587755ef750c7a56d",
+  "attempts": [
+    {
+      "asr_seconds": 0.15404785238206387,
+      "alignment_seconds": 7.977336645126343e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And therefore has neither more nor less of discord, nor yet of harmony?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And therefore has neither more nor less of discord, nor yet of harmony?",
+          "start": 0.08,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.31298828125
+            },
+            {
+              "text": " therefore",
+              "start": 0.52,
+              "end": 0.88,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " has",
+              "start": 0.88,
+              "end": 1.18,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " neither",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 1.42,
+              "end": 1.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " nor",
+              "start": 1.84,
+              "end": 2.2,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " less",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " discord,",
+              "start": 2.6,
+              "end": 3.04,
+              "probability": 0.966796875
+            },
+            {
+              "text": " nor",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " yet",
+              "start": 3.7,
+              "end": 3.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.9,
+              "end": 4.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " harmony?",
+              "start": 4.02,
+              "end": 4.32,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "therefore",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "raw": "has",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "raw": "neither",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "more",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "raw": "nor",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "raw": "less",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "of",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "discord,",
+          "start": 2.6,
+          "end": 3.04
+        },
+        {
+          "raw": "nor",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "yet",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "raw": "of",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "raw": "harmony?",
+          "start": 4.02,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "therefore",
+        "has",
+        "neither",
+        "more",
+        "nor",
+        "less",
+        "of",
+        "discord,",
+        "nor",
+        "yet",
+        "of",
+        "harmony?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "therefore",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "text": "has",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "text": "neither",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "more",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "text": "nor",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "text": "less",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "of",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "discord,",
+          "start": 2.6,
+          "end": 3.04
+        },
+        {
+          "text": "nor",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "yet",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "text": "of",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "text": "harmony?",
+          "start": 4.02,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15416303556412458
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5116726667cb37b4078a35fb560c37622932437764fc55ebc2965a6c1c24c84",
+  "selected_reasons": []
+}

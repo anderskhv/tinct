@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "1761c4358c0c651a2a01b05e463f44d1fdba09e31ca722e88467486a6b3b7ebc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1437753140926361,
+      "alignment_seconds": 0.00010650604963302612,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miranda, beseech you, Father.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " beseech",
+              "start": 1.23,
+              "end": 1.61,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " you,",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Father.",
+              "start": 1.89,
+              "end": 1.95,
+              "probability": 0.59423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "beseech",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "raw": "you,",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "Father.",
+          "start": 1.89,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "Beseech",
+        "you,",
+        "father."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Beseech",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "text": "you,",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "father.",
+          "start": 1.89,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14391596615314484
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "112996274b3503d96e1fe7b56e8d4acf785f749b91023f2d2b6ff97745eff947",
+  "selected_reasons": []
+}

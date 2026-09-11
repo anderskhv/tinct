@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "a9a9451fcc4634c14238b49cc184c2476402e542086e27aa4c2425c136c6c900",
+  "attempts": [
+    {
+      "asr_seconds": 0.1297321543097496,
+      "alignment_seconds": 0.00012690573930740356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " draws, and is charmed for moving.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " draws,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " and",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " charmed",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " for",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.59765625
+            },
+            {
+              "text": " moving.",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "draws,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "and",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "is",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "charmed",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "raw": "for",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "moving.",
+          "start": 1.81,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "[Draws,",
+        "and",
+        "is",
+        "charmed",
+        "from",
+        "moving]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Draws,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "and",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "is",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "charmed",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "text": "from",
+          "start": 1.67,
+          "end": 1.74
+        },
+        {
+          "text": "moving]",
+          "start": 1.81,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1298999935388565
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3eb4ffd75e378076a33917faf2c5d7dc68fa29e934f803def8ad033332dcfb56",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

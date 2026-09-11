@@ -1,0 +1,796 @@
+{
+  "complete": true,
+  "signature": "5f62765c0dea4a185598691b4488cee02ae594ce939629c94312bb1f99ef42c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.29616888612508774,
+      "alignment_seconds": 0.00014276057481765747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ariel. I prithee, Remember I have done thee worthy service; Told thee no lies, made thee no mistakings, served Without or grudge or grumblings: thou didst promise To bate me a full year.",
+        "hotwords": "Ariel, I, Remember, Told, Without, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ariel, I prithee, Remember I have done thee worthy service, Told thee no lies, made thee",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.40771484375
+            },
+            {
+              "text": " I",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.984375
+            },
+            {
+              "text": " prithee,",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.8566080729166666
+            },
+            {
+              "text": " Remember",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.033050537109375
+            },
+            {
+              "text": " I",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.818359375
+            },
+            {
+              "text": " have",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.984375
+            },
+            {
+              "text": " done",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thee",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " worthy",
+              "start": 2.79,
+              "end": 3.05,
+              "probability": 0.95703125
+            },
+            {
+              "text": " service,",
+              "start": 3.05,
+              "end": 3.65,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Told",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.873291015625
+            },
+            {
+              "text": " thee",
+              "start": 4.37,
+              "end": 4.49,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " no",
+              "start": 4.49,
+              "end": 4.73,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " lies,",
+              "start": 4.73,
+              "end": 5.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " made",
+              "start": 5.43,
+              "end": 5.53,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " thee",
+              "start": 5.53,
+              "end": 5.69,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " no mistakings, served Without or grudge or grumblings, thou didst promise",
+          "start": 5.69,
+          "end": 10.63,
+          "words": [
+            {
+              "text": " no",
+              "start": 5.69,
+              "end": 5.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " mistakings,",
+              "start": 5.85,
+              "end": 6.45,
+              "probability": 0.4622802734375
+            },
+            {
+              "text": " served",
+              "start": 7.21,
+              "end": 7.21,
+              "probability": 0.006839752197265625
+            },
+            {
+              "text": " Without",
+              "start": 7.21,
+              "end": 7.61,
+              "probability": 0.1356201171875
+            },
+            {
+              "text": " or",
+              "start": 7.61,
+              "end": 7.87,
+              "probability": 0.802734375
+            },
+            {
+              "text": " grudge",
+              "start": 7.87,
+              "end": 8.31,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " or",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " grumblings,",
+              "start": 8.53,
+              "end": 9.17,
+              "probability": 0.9723307291666666
+            },
+            {
+              "text": " thou",
+              "start": 9.85,
+              "end": 9.95,
+              "probability": 0.179443359375
+            },
+            {
+              "text": " didst",
+              "start": 9.95,
+              "end": 10.35,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " promise",
+              "start": 10.35,
+              "end": 10.63,
+              "probability": 0.83544921875
+            }
+          ]
+        },
+        {
+          "text": " To bate me a full year.",
+          "start": 10.63,
+          "end": 11.95,
+          "words": [
+            {
+              "text": " To",
+              "start": 10.63,
+              "end": 10.93,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " bate",
+              "start": 10.93,
+              "end": 11.11,
+              "probability": 0.4972381591796875
+            },
+            {
+              "text": " me",
+              "start": 11.11,
+              "end": 11.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 11.23,
+              "end": 11.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " full",
+              "start": 11.37,
+              "end": 11.55,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " year.",
+              "start": 11.55,
+              "end": 11.95,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "prithee,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "Remember",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "have",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "done",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "thee",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "worthy",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "raw": "service,",
+          "start": 3.05,
+          "end": 3.65
+        },
+        {
+          "raw": "Told",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "thee",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "raw": "no",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "raw": "lies,",
+          "start": 4.73,
+          "end": 5.05
+        },
+        {
+          "raw": "made",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "raw": "thee",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "raw": "no",
+          "start": 5.69,
+          "end": 5.85
+        },
+        {
+          "raw": "mistakings,",
+          "start": 5.85,
+          "end": 6.45
+        },
+        {
+          "raw": "served",
+          "start": 7.21,
+          "end": 7.21
+        },
+        {
+          "raw": "Without",
+          "start": 7.21,
+          "end": 7.61
+        },
+        {
+          "raw": "or",
+          "start": 7.61,
+          "end": 7.87
+        },
+        {
+          "raw": "grudge",
+          "start": 7.87,
+          "end": 8.31
+        },
+        {
+          "raw": "or",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "grumblings,",
+          "start": 8.53,
+          "end": 9.17
+        },
+        {
+          "raw": "thou",
+          "start": 9.85,
+          "end": 9.95
+        },
+        {
+          "raw": "didst",
+          "start": 9.95,
+          "end": 10.35
+        },
+        {
+          "raw": "promise",
+          "start": 10.35,
+          "end": 10.63
+        },
+        {
+          "raw": "To",
+          "start": 10.63,
+          "end": 10.93
+        },
+        {
+          "raw": "bate",
+          "start": 10.93,
+          "end": 11.11
+        },
+        {
+          "raw": "me",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "raw": "a",
+          "start": 11.23,
+          "end": 11.37
+        },
+        {
+          "raw": "full",
+          "start": 11.37,
+          "end": 11.55
+        },
+        {
+          "raw": "year.",
+          "start": 11.55,
+          "end": 11.95
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "I",
+        "prithee,",
+        "Remember",
+        "I",
+        "have",
+        "done",
+        "thee",
+        "worthy",
+        "service;",
+        "Told",
+        "thee",
+        "no",
+        "lies,",
+        "made",
+        "thee",
+        "no",
+        "mistakings,",
+        "served",
+        "Without",
+        "or",
+        "grudge",
+        "or",
+        "grumblings:",
+        "thou",
+        "didst",
+        "promise",
+        "To",
+        "bate",
+        "me",
+        "a",
+        "full",
+        "year."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "I",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "prithee,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "Remember",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "I",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "have",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "done",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "thee",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "worthy",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "text": "service;",
+          "start": 3.05,
+          "end": 3.65
+        },
+        {
+          "text": "Told",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "thee",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "no",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "text": "lies,",
+          "start": 4.73,
+          "end": 5.05
+        },
+        {
+          "text": "made",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "text": "thee",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "text": "no",
+          "start": 5.69,
+          "end": 5.85
+        },
+        {
+          "text": "mistakings,",
+          "start": 5.85,
+          "end": 6.45
+        },
+        {
+          "text": "served",
+          "start": 7.21,
+          "end": 7.21
+        },
+        {
+          "text": "Without",
+          "start": 7.21,
+          "end": 7.61
+        },
+        {
+          "text": "or",
+          "start": 7.61,
+          "end": 7.87
+        },
+        {
+          "text": "grudge",
+          "start": 7.87,
+          "end": 8.31
+        },
+        {
+          "text": "or",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "grumblings:",
+          "start": 8.53,
+          "end": 9.17
+        },
+        {
+          "text": "thou",
+          "start": 9.85,
+          "end": 9.95
+        },
+        {
+          "text": "didst",
+          "start": 9.95,
+          "end": 10.35
+        },
+        {
+          "text": "promise",
+          "start": 10.35,
+          "end": 10.63
+        },
+        {
+          "text": "To",
+          "start": 10.63,
+          "end": 10.93
+        },
+        {
+          "text": "bate",
+          "start": 10.93,
+          "end": 11.11
+        },
+        {
+          "text": "me",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "text": "a",
+          "start": 11.23,
+          "end": 11.37
+        },
+        {
+          "text": "full",
+          "start": 11.37,
+          "end": 11.55
+        },
+        {
+          "text": "year.",
+          "start": 11.55,
+          "end": 11.95
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2963882312178612
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "585bd0cebaa89258c13bf218e7d32fe4401ea398bf7776e11c12bfe6dd847f45",
+  "selected_reasons": []
+}

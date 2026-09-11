@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "fc68c525f5aa251316c8b3cd15c7d11aca8470dbb864091810d8f5c10d144254",
+  "attempts": [
+    {
+      "asr_seconds": 0.17912260442972183,
+      "alignment_seconds": 6.442517042160034e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[27] Luciani [Greek: symp. ae Lapithai].",
+        "hotwords": "Luciani, Greek, Lapithai"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 27 Luciani, Greek, symp. ae Lapithai",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " 27",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Luciani,",
+              "start": 0.95,
+              "end": 1.45,
+              "probability": 0.3018798828125
+            },
+            {
+              "text": " Greek,",
+              "start": 1.75,
+              "end": 1.75,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " symp.",
+              "start": 2.39,
+              "end": 2.39,
+              "probability": 0.0025691986083984375
+            },
+            {
+              "text": " ae",
+              "start": 2.93,
+              "end": 2.99,
+              "probability": 0.007053375244140625
+            },
+            {
+              "text": " Lapithai",
+              "start": 2.99,
+              "end": 3.59,
+              "probability": 0.16646973292032877
+            }
+          ]
+        },
+        {
+          "text": " 28 Luciani, Greek, symp. ae Lapithai",
+          "start": 3.59,
+          "end": 4.17,
+          "words": [
+            {
+              "text": " 28",
+              "start": 3.59,
+              "end": 4.17,
+              "probability": 6.377696990966797e-06
+            },
+            {
+              "text": " Luciani,",
+              "start": 4.17,
+              "end": 4.17,
+              "probability": 1.609325408935547e-05
+            },
+            {
+              "text": " Greek,",
+              "start": 4.17,
+              "end": 4.17,
+              "probability": 1.5437602996826172e-05
+            },
+            {
+              "text": " symp.",
+              "start": 4.17,
+              "end": 4.17,
+              "probability": 1.0132789611816406e-06
+            },
+            {
+              "text": " ae",
+              "start": 4.17,
+              "end": 4.17,
+              "probability": 0.0010891556739807129
+            },
+            {
+              "text": " Lapithai",
+              "start": 4.17,
+              "end": 4.17,
+              "probability": 0.0001490314801534017
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "27",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Luciani,",
+          "start": 0.95,
+          "end": 1.45
+        },
+        {
+          "raw": "Greek,",
+          "start": 1.75,
+          "end": 1.75
+        },
+        {
+          "raw": "symp.",
+          "start": 2.39,
+          "end": 2.39
+        },
+        {
+          "raw": "ae",
+          "start": 2.93,
+          "end": 2.99
+        },
+        {
+          "raw": "Lapithai",
+          "start": 2.99,
+          "end": 3.59
+        },
+        {
+          "raw": "28",
+          "start": 3.59,
+          "end": 4.17
+        },
+        {
+          "raw": "Luciani,",
+          "start": 4.17,
+          "end": 4.17
+        },
+        {
+          "raw": "Greek,",
+          "start": 4.17,
+          "end": 4.17
+        },
+        {
+          "raw": "symp.",
+          "start": 4.17,
+          "end": 4.17
+        },
+        {
+          "raw": "ae",
+          "start": 4.17,
+          "end": 4.17
+        },
+        {
+          "raw": "Lapithai",
+          "start": 4.17,
+          "end": 4.17
+        }
+      ],
+      "expected_tokens": [
+        "[27]",
+        "Luciani",
+        "[Greek:",
+        "symp.",
+        "ae",
+        "Lapithai]."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[27]",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Luciani",
+          "start": 0.95,
+          "end": 1.45
+        },
+        {
+          "text": "[Greek:",
+          "start": 1.75,
+          "end": 1.75
+        },
+        {
+          "text": "symp.",
+          "start": 2.39,
+          "end": 2.39
+        },
+        {
+          "text": "ae",
+          "start": 2.93,
+          "end": 2.99
+        },
+        {
+          "text": "Lapithai].",
+          "start": 2.99,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 12,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1792154610157013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a2f7e3c4c166e07a4c3c2fc3d8970453b01f7ab9df2e29f41f472b5fbc898275",
+  "selected_reasons": []
+}

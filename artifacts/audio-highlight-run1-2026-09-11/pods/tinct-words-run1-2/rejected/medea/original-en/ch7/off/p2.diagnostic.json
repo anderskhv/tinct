@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "70acb9b83baab0b2dd2d63a0257d22de47418c5ee4a5f7e32f9de7a9a9664b4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12770702689886093,
+      "alignment_seconds": 9.319931268692017e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, the maiden princess Lyeth and her sire, the king both murdered by thy poison fire.",
+          "start": 0.05,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " the",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " maiden",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " princess",
+              "start": 1.77,
+              "end": 2.29,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " Lyeth",
+              "start": 2.29,
+              "end": 2.79,
+              "probability": 0.3116455078125
+            },
+            {
+              "text": " and",
+              "start": 2.79,
+              "end": 2.95,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " her",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sire,",
+              "start": 3.13,
+              "end": 3.47,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 3.93,
+              "end": 3.99,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " king",
+              "start": 3.99,
+              "end": 4.15,
+              "probability": 0.8671875
+            },
+            {
+              "text": " both",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.982421875
+            },
+            {
+              "text": " murdered",
+              "start": 4.45,
+              "end": 4.83,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " by",
+              "start": 4.83,
+              "end": 5.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thy",
+              "start": 5.13,
+              "end": 5.33,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " poison",
+              "start": 5.33,
+              "end": 5.67,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " fire.",
+              "start": 5.67,
+              "end": 6.07,
+              "probability": 0.84912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "maiden",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "princess",
+          "start": 1.77,
+          "end": 2.29
+        },
+        {
+          "raw": "Lyeth",
+          "start": 2.29,
+          "end": 2.79
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "raw": "her",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "sire,",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "raw": "the",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "raw": "king",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "raw": "both",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "murdered",
+          "start": 4.45,
+          "end": 4.83
+        },
+        {
+          "raw": "by",
+          "start": 4.83,
+          "end": 5.13
+        },
+        {
+          "raw": "thy",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "raw": "poison",
+          "start": 5.33,
+          "end": 5.67
+        },
+        {
+          "raw": "fire.",
+          "start": 5.67,
+          "end": 6.07
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "The",
+        "maiden",
+        "princess",
+        "lieth--and",
+        "her",
+        "sire,",
+        "The",
+        "king--both",
+        "murdered",
+        "by",
+        "thy",
+        "poison-fire."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          12,
+          11,
+          14
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "The",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "maiden",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "princess",
+          "start": 1.77,
+          "end": 2.29
+        },
+        {
+          "text": "lieth--and",
+          "start": 2.29,
+          "end": 2.62
+        },
+        {
+          "text": "her",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "sire,",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "text": "The",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "text": "king--both",
+          "start": 3.99,
+          "end": 4.22
+        },
+        {
+          "text": "murdered",
+          "start": 4.45,
+          "end": 4.83
+        },
+        {
+          "text": "by",
+          "start": 4.83,
+          "end": 5.13
+        },
+        {
+          "text": "thy",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "text": "poison-fire.",
+          "start": 5.33,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 16,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12784145027399063
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba57e37746793d2be7b5a993266bb12a589ae651398278b39a4307e894a8667c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

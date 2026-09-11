@@ -1,0 +1,201 @@
+{
+  "complete": true,
+  "signature": "4ba24af201d749375cd69497b9b06339dad25501cdb7bc946a23101727c401ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.08581838011741638,
+      "alignment_seconds": 8.557736873626709e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jason, who slew them.",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " who",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " slew",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " them.",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "who",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "slew",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "them.",
+          "start": 1.66,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        ".",
+        ".",
+        ".",
+        "Who",
+        "slew",
+        "them!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          4,
+          1,
+          1
+        ],
+        [
+          "equal",
+          4,
+          7,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          4,
+          1,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": ".",
+          "start": 0.82,
+          "end": 1.01
+        },
+        {
+          "text": ".",
+          "start": 1.01,
+          "end": 1.105
+        },
+        {
+          "text": ".",
+          "start": 1.105,
+          "end": 1.152
+        },
+        {
+          "text": "Who",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "slew",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "them!",
+          "start": 1.66,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08592545241117477
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b85d0bce58e239ead49d479c8184c5e58cfe2424bd2bb1ed00ff7775b09d5747",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

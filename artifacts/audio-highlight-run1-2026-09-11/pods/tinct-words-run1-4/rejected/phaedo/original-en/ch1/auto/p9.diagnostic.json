@@ -1,0 +1,313 @@
+{
+  "complete": true,
+  "signature": "5118dd0a3398bc54a31702b5e9e0e0fa5f1721aebb4654c4c31d1090a34de907",
+  "attempts": [
+    {
+      "asr_seconds": 1.2717990763485432,
+      "alignment_seconds": 7.560569792985916e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Phaedo: No; there were several of them with him.",
+        "hotwords": "Phaedo, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Phaedo, No Phaedo, No Phaedo. No, there were several of them with him.",
+          "start": 0.89,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Phaedo,",
+              "start": 0.89,
+              "end": 1.33,
+              "probability": 0.31385529041290283
+            },
+            {
+              "text": " No",
+              "start": 1.59,
+              "end": 1.91,
+              "probability": 0.0270538330078125
+            },
+            {
+              "text": " Phaedo,",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.6402995189030966
+            },
+            {
+              "text": " No",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " Phaedo.",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.6612396240234375
+            },
+            {
+              "text": " No,",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.260009765625
+            },
+            {
+              "text": " there",
+              "start": 2.23,
+              "end": 2.29,
+              "probability": 0.81640625
+            },
+            {
+              "text": " were",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " several",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " them",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " him.",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Phaedo,",
+          "start": 0.89,
+          "end": 1.33
+        },
+        {
+          "raw": "No",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "raw": "Phaedo,",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "raw": "No",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "Phaedo.",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "No,",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "there",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "raw": "were",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "several",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "of",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "them",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "with",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "him.",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Phaedo:",
+        "No;",
+        "there",
+        "were",
+        "several",
+        "of",
+        "them",
+        "with",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          "equal",
+          0,
+          9,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Phaedo:",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "text": "No;",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "text": "there",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "text": "were",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "several",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "text": "of",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "text": "them",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "with",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "him.",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 13,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.271914510987699
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cbce19c3935ebf19f9ec988273bc9ca894bf8527e4dd3b8afd9b18ccfe12b177",
+  "selected_reasons": []
+}

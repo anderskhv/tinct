@@ -1,0 +1,2785 @@
+{
+  "complete": true,
+  "signature": "7d4fad5cf8268a7a773790a516c57f40a29023570cf35b1e5e69156d4d11dcfd",
+  "attempts": [
+    {
+      "asr_seconds": 0.26462598890066147,
+      "alignment_seconds": 0.0001750662922859192,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Open, and thou shalt see thy children's doom. [_While the Attendants are still battering at the door_ Medea _appears on the roof, standing on a chariot of winged Dragons, in which are the children's bodies_.",
+        "hotwords": "Leader, Open, Attendants, Medea, Dragons"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Open, and thou shalt see thy children's doom. While the Attendants are still battering at the door Medea appears on the roof, standing on a chariot of winged Dragons, in which are the children's bodies.",
+          "start": 0.02,
+          "end": 12.7,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.3779296875
+            },
+            {
+              "text": " Open,",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.2271728515625
+            },
+            {
+              "text": " and",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " thou",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.175048828125
+            },
+            {
+              "text": " shalt",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " see",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thy",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " children's",
+              "start": 3.08,
+              "end": 3.68,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " doom.",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.98828125
+            },
+            {
+              "text": " While",
+              "start": 4.66,
+              "end": 4.88,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 4.88,
+              "end": 5.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Attendants",
+              "start": 5.04,
+              "end": 5.4,
+              "probability": 0.4820289611816406
+            },
+            {
+              "text": " are",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " still",
+              "start": 5.64,
+              "end": 5.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " battering",
+              "start": 5.86,
+              "end": 6.4,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " at",
+              "start": 6.4,
+              "end": 6.52,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 6.52,
+              "end": 6.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " door",
+              "start": 6.62,
+              "end": 6.8,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Medea",
+              "start": 6.8,
+              "end": 7.24,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " appears",
+              "start": 7.24,
+              "end": 7.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " on",
+              "start": 7.6,
+              "end": 7.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 7.86,
+              "end": 7.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " roof,",
+              "start": 7.98,
+              "end": 8.24,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " standing",
+              "start": 8.84,
+              "end": 8.94,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " on",
+              "start": 8.94,
+              "end": 9.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 9.18,
+              "end": 9.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chariot",
+              "start": 9.32,
+              "end": 9.74,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " of",
+              "start": 9.74,
+              "end": 9.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " winged",
+              "start": 9.98,
+              "end": 10.48,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " Dragons,",
+              "start": 10.48,
+              "end": 10.74,
+              "probability": 0.07916259765625
+            },
+            {
+              "text": " in",
+              "start": 11.34,
+              "end": 11.42,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " which",
+              "start": 11.42,
+              "end": 11.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 11.62,
+              "end": 11.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 11.8,
+              "end": 11.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " children's",
+              "start": 11.92,
+              "end": 12.48,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " bodies.",
+              "start": 12.48,
+              "end": 12.7,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Open,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "and",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "thou",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "shalt",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "raw": "see",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "thy",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "children's",
+          "start": 3.08,
+          "end": 3.68
+        },
+        {
+          "raw": "doom.",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "While",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "raw": "the",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "raw": "Attendants",
+          "start": 5.04,
+          "end": 5.4
+        },
+        {
+          "raw": "are",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "still",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "raw": "battering",
+          "start": 5.86,
+          "end": 6.4
+        },
+        {
+          "raw": "at",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "raw": "the",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "raw": "door",
+          "start": 6.62,
+          "end": 6.8
+        },
+        {
+          "raw": "Medea",
+          "start": 6.8,
+          "end": 7.24
+        },
+        {
+          "raw": "appears",
+          "start": 7.24,
+          "end": 7.6
+        },
+        {
+          "raw": "on",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "raw": "the",
+          "start": 7.86,
+          "end": 7.98
+        },
+        {
+          "raw": "roof,",
+          "start": 7.98,
+          "end": 8.24
+        },
+        {
+          "raw": "standing",
+          "start": 8.84,
+          "end": 8.94
+        },
+        {
+          "raw": "on",
+          "start": 8.94,
+          "end": 9.18
+        },
+        {
+          "raw": "a",
+          "start": 9.18,
+          "end": 9.32
+        },
+        {
+          "raw": "chariot",
+          "start": 9.32,
+          "end": 9.74
+        },
+        {
+          "raw": "of",
+          "start": 9.74,
+          "end": 9.98
+        },
+        {
+          "raw": "winged",
+          "start": 9.98,
+          "end": 10.48
+        },
+        {
+          "raw": "Dragons,",
+          "start": 10.48,
+          "end": 10.74
+        },
+        {
+          "raw": "in",
+          "start": 11.34,
+          "end": 11.42
+        },
+        {
+          "raw": "which",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "raw": "are",
+          "start": 11.62,
+          "end": 11.8
+        },
+        {
+          "raw": "the",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "raw": "children's",
+          "start": 11.92,
+          "end": 12.48
+        },
+        {
+          "raw": "bodies.",
+          "start": 12.48,
+          "end": 12.7
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Open,",
+        "and",
+        "thou",
+        "shalt",
+        "see",
+        "thy",
+        "children's",
+        "doom.",
+        "[_While",
+        "the",
+        "Attendants",
+        "are",
+        "still",
+        "battering",
+        "at",
+        "the",
+        "door_",
+        "Medea",
+        "_appears",
+        "on",
+        "the",
+        "roof,",
+        "standing",
+        "on",
+        "a",
+        "chariot",
+        "of",
+        "winged",
+        "Dragons,",
+        "in",
+        "which",
+        "are",
+        "the",
+        "children's",
+        "bodies_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          17,
+          10,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          35,
+          20,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Open,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "and",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "thou",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "shalt",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "text": "see",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "thy",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "children's",
+          "start": 3.08,
+          "end": 3.68
+        },
+        {
+          "text": "doom.",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "[_While",
+          "start": 3.92,
+          "end": 4.4
+        },
+        {
+          "text": "the",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "Attendants",
+          "start": 5.04,
+          "end": 5.4
+        },
+        {
+          "text": "are",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "still",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "text": "battering",
+          "start": 5.86,
+          "end": 6.4
+        },
+        {
+          "text": "at",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "text": "the",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "text": "door_",
+          "start": 6.62,
+          "end": 6.71
+        },
+        {
+          "text": "Medea",
+          "start": 6.8,
+          "end": 7.24
+        },
+        {
+          "text": "_appears",
+          "start": 7.24,
+          "end": 7.42
+        },
+        {
+          "text": "on",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "text": "the",
+          "start": 7.86,
+          "end": 7.98
+        },
+        {
+          "text": "roof,",
+          "start": 7.98,
+          "end": 8.24
+        },
+        {
+          "text": "standing",
+          "start": 8.84,
+          "end": 8.94
+        },
+        {
+          "text": "on",
+          "start": 8.94,
+          "end": 9.18
+        },
+        {
+          "text": "a",
+          "start": 9.18,
+          "end": 9.32
+        },
+        {
+          "text": "chariot",
+          "start": 9.32,
+          "end": 9.74
+        },
+        {
+          "text": "of",
+          "start": 9.74,
+          "end": 9.98
+        },
+        {
+          "text": "winged",
+          "start": 9.98,
+          "end": 10.48
+        },
+        {
+          "text": "Dragons,",
+          "start": 10.48,
+          "end": 10.74
+        },
+        {
+          "text": "in",
+          "start": 11.34,
+          "end": 11.42
+        },
+        {
+          "text": "which",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "text": "are",
+          "start": 11.62,
+          "end": 11.8
+        },
+        {
+          "text": "the",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "text": "children's",
+          "start": 11.92,
+          "end": 12.48
+        },
+        {
+          "text": "bodies_.",
+          "start": 12.48,
+          "end": 12.59
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 32
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2648812308907509
+    },
+    {
+      "asr_seconds": 0.26691362261772156,
+      "alignment_seconds": 0.00017593801021575928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Leader, Open, Attendants, Medea, Dragons"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Leader, Open, and Thou shalt see Thy children's doom.",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.3779296875
+            },
+            {
+              "text": " Open,",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.2271728515625
+            },
+            {
+              "text": " and",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " Thou",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " shalt",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " see",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Thy",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " children's",
+              "start": 3.08,
+              "end": 3.7,
+              "probability": 0.943359375
+            },
+            {
+              "text": " doom.",
+              "start": 3.7,
+              "end": 3.92,
+              "probability": 0.9697265625
+            }
+          ]
+        },
+        {
+          "text": " While the attendants are still battering at the door Medea appears on the roof, standing",
+          "start": 4.64,
+          "end": 8.94,
+          "words": [
+            {
+              "text": " While",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " the",
+              "start": 4.88,
+              "end": 5.04,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " attendants",
+              "start": 5.04,
+              "end": 5.38,
+              "probability": 0.98046875
+            },
+            {
+              "text": " are",
+              "start": 5.38,
+              "end": 5.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " still",
+              "start": 5.64,
+              "end": 5.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " battering",
+              "start": 5.86,
+              "end": 6.4,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " at",
+              "start": 6.4,
+              "end": 6.52,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 6.52,
+              "end": 6.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " door",
+              "start": 6.62,
+              "end": 6.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Medea",
+              "start": 6.8,
+              "end": 7.22,
+              "probability": 0.797119140625
+            },
+            {
+              "text": " appears",
+              "start": 7.22,
+              "end": 7.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 7.6,
+              "end": 7.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.86,
+              "end": 7.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " roof,",
+              "start": 7.96,
+              "end": 8.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " standing",
+              "start": 8.84,
+              "end": 8.94,
+              "probability": 0.97412109375
+            }
+          ]
+        },
+        {
+          "text": " on a chariot of winged dragons, in which are the children's bodies.",
+          "start": 8.94,
+          "end": 12.72,
+          "words": [
+            {
+              "text": " on",
+              "start": 8.94,
+              "end": 9.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 9.2,
+              "end": 9.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " chariot",
+              "start": 9.32,
+              "end": 9.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 9.74,
+              "end": 9.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " winged",
+              "start": 9.98,
+              "end": 10.46,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " dragons,",
+              "start": 10.46,
+              "end": 10.76,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " in",
+              "start": 11.32,
+              "end": 11.42,
+              "probability": 0.994140625
+            },
+            {
+              "text": " which",
+              "start": 11.42,
+              "end": 11.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 11.62,
+              "end": 11.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 11.8,
+              "end": 11.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " children's",
+              "start": 11.9,
+              "end": 12.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " bodies.",
+              "start": 12.44,
+              "end": 12.72,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Open,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "and",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "Thou",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "shalt",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "raw": "see",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "Thy",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "children's",
+          "start": 3.08,
+          "end": 3.7
+        },
+        {
+          "raw": "doom.",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "raw": "While",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "the",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "raw": "attendants",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "raw": "are",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "raw": "still",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "raw": "battering",
+          "start": 5.86,
+          "end": 6.4
+        },
+        {
+          "raw": "at",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "raw": "the",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "raw": "door",
+          "start": 6.62,
+          "end": 6.8
+        },
+        {
+          "raw": "Medea",
+          "start": 6.8,
+          "end": 7.22
+        },
+        {
+          "raw": "appears",
+          "start": 7.22,
+          "end": 7.6
+        },
+        {
+          "raw": "on",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "raw": "the",
+          "start": 7.86,
+          "end": 7.96
+        },
+        {
+          "raw": "roof,",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "raw": "standing",
+          "start": 8.84,
+          "end": 8.94
+        },
+        {
+          "raw": "on",
+          "start": 8.94,
+          "end": 9.2
+        },
+        {
+          "raw": "a",
+          "start": 9.2,
+          "end": 9.32
+        },
+        {
+          "raw": "chariot",
+          "start": 9.32,
+          "end": 9.74
+        },
+        {
+          "raw": "of",
+          "start": 9.74,
+          "end": 9.98
+        },
+        {
+          "raw": "winged",
+          "start": 9.98,
+          "end": 10.46
+        },
+        {
+          "raw": "dragons,",
+          "start": 10.46,
+          "end": 10.76
+        },
+        {
+          "raw": "in",
+          "start": 11.32,
+          "end": 11.42
+        },
+        {
+          "raw": "which",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "raw": "are",
+          "start": 11.62,
+          "end": 11.8
+        },
+        {
+          "raw": "the",
+          "start": 11.8,
+          "end": 11.9
+        },
+        {
+          "raw": "children's",
+          "start": 11.9,
+          "end": 12.44
+        },
+        {
+          "raw": "bodies.",
+          "start": 12.44,
+          "end": 12.72
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Open,",
+        "and",
+        "thou",
+        "shalt",
+        "see",
+        "thy",
+        "children's",
+        "doom.",
+        "[_While",
+        "the",
+        "Attendants",
+        "are",
+        "still",
+        "battering",
+        "at",
+        "the",
+        "door_",
+        "Medea",
+        "_appears",
+        "on",
+        "the",
+        "roof,",
+        "standing",
+        "on",
+        "a",
+        "chariot",
+        "of",
+        "winged",
+        "Dragons,",
+        "in",
+        "which",
+        "are",
+        "the",
+        "children's",
+        "bodies_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          17,
+          10,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          35,
+          20,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Open,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "and",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "thou",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "shalt",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "text": "see",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "thy",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "children's",
+          "start": 3.08,
+          "end": 3.7
+        },
+        {
+          "text": "doom.",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "text": "[_While",
+          "start": 3.92,
+          "end": 4.4
+        },
+        {
+          "text": "the",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "Attendants",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "text": "are",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "text": "still",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "text": "battering",
+          "start": 5.86,
+          "end": 6.4
+        },
+        {
+          "text": "at",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "text": "the",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "text": "door_",
+          "start": 6.62,
+          "end": 6.71
+        },
+        {
+          "text": "Medea",
+          "start": 6.8,
+          "end": 7.22
+        },
+        {
+          "text": "_appears",
+          "start": 7.22,
+          "end": 7.41
+        },
+        {
+          "text": "on",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "text": "the",
+          "start": 7.86,
+          "end": 7.96
+        },
+        {
+          "text": "roof,",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "text": "standing",
+          "start": 8.84,
+          "end": 8.94
+        },
+        {
+          "text": "on",
+          "start": 8.94,
+          "end": 9.2
+        },
+        {
+          "text": "a",
+          "start": 9.2,
+          "end": 9.32
+        },
+        {
+          "text": "chariot",
+          "start": 9.32,
+          "end": 9.74
+        },
+        {
+          "text": "of",
+          "start": 9.74,
+          "end": 9.98
+        },
+        {
+          "text": "winged",
+          "start": 9.98,
+          "end": 10.46
+        },
+        {
+          "text": "Dragons,",
+          "start": 10.46,
+          "end": 10.76
+        },
+        {
+          "text": "in",
+          "start": 11.32,
+          "end": 11.42
+        },
+        {
+          "text": "which",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "text": "are",
+          "start": 11.62,
+          "end": 11.8
+        },
+        {
+          "text": "the",
+          "start": 11.8,
+          "end": 11.9
+        },
+        {
+          "text": "children's",
+          "start": 11.9,
+          "end": 12.44
+        },
+        {
+          "text": "bodies_.",
+          "start": 12.44,
+          "end": 12.58
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 32
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.26716849207878113
+    },
+    {
+      "asr_seconds": 0.25344691425561905,
+      "alignment_seconds": 0.0001722276210784912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leader, open, and thou shalt see thy children's doom.",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.3779296875
+            },
+            {
+              "text": " open,",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " and",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thou",
+              "start": 2.06,
+              "end": 2.3,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " shalt",
+              "start": 2.3,
+              "end": 2.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " see",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thy",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.9921875
+            },
+            {
+              "text": " children's",
+              "start": 3.08,
+              "end": 3.68,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " doom.",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " While the attendants are still battering at the door Medea appears on the roof, standing",
+          "start": 4.64,
+          "end": 8.96,
+          "words": [
+            {
+              "text": " While",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 4.88,
+              "end": 5.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " attendants",
+              "start": 5.04,
+              "end": 5.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 5.38,
+              "end": 5.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " still",
+              "start": 5.64,
+              "end": 5.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " battering",
+              "start": 5.86,
+              "end": 6.4,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " at",
+              "start": 6.4,
+              "end": 6.52,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 6.52,
+              "end": 6.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " door",
+              "start": 6.62,
+              "end": 6.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Medea",
+              "start": 6.82,
+              "end": 7.22,
+              "probability": 0.7734375
+            },
+            {
+              "text": " appears",
+              "start": 7.22,
+              "end": 7.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 7.62,
+              "end": 7.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.86,
+              "end": 7.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " roof,",
+              "start": 7.96,
+              "end": 8.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " standing",
+              "start": 8.8,
+              "end": 8.96,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " on a chariot of winged dragons, in which are the children's bodies.",
+          "start": 8.96,
+          "end": 12.72,
+          "words": [
+            {
+              "text": " on",
+              "start": 8.96,
+              "end": 9.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 9.2,
+              "end": 9.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chariot",
+              "start": 9.3,
+              "end": 9.74,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " of",
+              "start": 9.74,
+              "end": 9.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " winged",
+              "start": 9.96,
+              "end": 10.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dragons,",
+              "start": 10.46,
+              "end": 10.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 11.32,
+              "end": 11.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " which",
+              "start": 11.42,
+              "end": 11.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 11.64,
+              "end": 11.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 11.8,
+              "end": 11.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " children's",
+              "start": 11.92,
+              "end": 12.44,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " bodies.",
+              "start": 12.44,
+              "end": 12.72,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "open,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "thou",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "raw": "shalt",
+          "start": 2.3,
+          "end": 2.58
+        },
+        {
+          "raw": "see",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "thy",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "children's",
+          "start": 3.08,
+          "end": 3.68
+        },
+        {
+          "raw": "doom.",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "While",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "the",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "raw": "attendants",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "raw": "are",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "raw": "still",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "raw": "battering",
+          "start": 5.86,
+          "end": 6.4
+        },
+        {
+          "raw": "at",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "raw": "the",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "raw": "door",
+          "start": 6.62,
+          "end": 6.82
+        },
+        {
+          "raw": "Medea",
+          "start": 6.82,
+          "end": 7.22
+        },
+        {
+          "raw": "appears",
+          "start": 7.22,
+          "end": 7.62
+        },
+        {
+          "raw": "on",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "raw": "the",
+          "start": 7.86,
+          "end": 7.96
+        },
+        {
+          "raw": "roof,",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "raw": "standing",
+          "start": 8.8,
+          "end": 8.96
+        },
+        {
+          "raw": "on",
+          "start": 8.96,
+          "end": 9.2
+        },
+        {
+          "raw": "a",
+          "start": 9.2,
+          "end": 9.3
+        },
+        {
+          "raw": "chariot",
+          "start": 9.3,
+          "end": 9.74
+        },
+        {
+          "raw": "of",
+          "start": 9.74,
+          "end": 9.96
+        },
+        {
+          "raw": "winged",
+          "start": 9.96,
+          "end": 10.46
+        },
+        {
+          "raw": "dragons,",
+          "start": 10.46,
+          "end": 10.76
+        },
+        {
+          "raw": "in",
+          "start": 11.32,
+          "end": 11.42
+        },
+        {
+          "raw": "which",
+          "start": 11.42,
+          "end": 11.64
+        },
+        {
+          "raw": "are",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "raw": "the",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "raw": "children's",
+          "start": 11.92,
+          "end": 12.44
+        },
+        {
+          "raw": "bodies.",
+          "start": 12.44,
+          "end": 12.72
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Open,",
+        "and",
+        "thou",
+        "shalt",
+        "see",
+        "thy",
+        "children's",
+        "doom.",
+        "[_While",
+        "the",
+        "Attendants",
+        "are",
+        "still",
+        "battering",
+        "at",
+        "the",
+        "door_",
+        "Medea",
+        "_appears",
+        "on",
+        "the",
+        "roof,",
+        "standing",
+        "on",
+        "a",
+        "chariot",
+        "of",
+        "winged",
+        "Dragons,",
+        "in",
+        "which",
+        "are",
+        "the",
+        "children's",
+        "bodies_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          17,
+          10,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          35,
+          20,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Open,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "and",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "thou",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "text": "shalt",
+          "start": 2.3,
+          "end": 2.58
+        },
+        {
+          "text": "see",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "thy",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "children's",
+          "start": 3.08,
+          "end": 3.68
+        },
+        {
+          "text": "doom.",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "[_While",
+          "start": 3.92,
+          "end": 4.4
+        },
+        {
+          "text": "the",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "Attendants",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "text": "are",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "text": "still",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "text": "battering",
+          "start": 5.86,
+          "end": 6.4
+        },
+        {
+          "text": "at",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "text": "the",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "text": "door_",
+          "start": 6.62,
+          "end": 6.72
+        },
+        {
+          "text": "Medea",
+          "start": 6.82,
+          "end": 7.22
+        },
+        {
+          "text": "_appears",
+          "start": 7.22,
+          "end": 7.42
+        },
+        {
+          "text": "on",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "text": "the",
+          "start": 7.86,
+          "end": 7.96
+        },
+        {
+          "text": "roof,",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "text": "standing",
+          "start": 8.8,
+          "end": 8.96
+        },
+        {
+          "text": "on",
+          "start": 8.96,
+          "end": 9.2
+        },
+        {
+          "text": "a",
+          "start": 9.2,
+          "end": 9.3
+        },
+        {
+          "text": "chariot",
+          "start": 9.3,
+          "end": 9.74
+        },
+        {
+          "text": "of",
+          "start": 9.74,
+          "end": 9.96
+        },
+        {
+          "text": "winged",
+          "start": 9.96,
+          "end": 10.46
+        },
+        {
+          "text": "Dragons,",
+          "start": 10.46,
+          "end": 10.76
+        },
+        {
+          "text": "in",
+          "start": 11.32,
+          "end": 11.42
+        },
+        {
+          "text": "which",
+          "start": 11.42,
+          "end": 11.64
+        },
+        {
+          "text": "are",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "text": "the",
+          "start": 11.8,
+          "end": 11.92
+        },
+        {
+          "text": "children's",
+          "start": 11.92,
+          "end": 12.44
+        },
+        {
+          "text": "bodies_.",
+          "start": 12.44,
+          "end": 12.58
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 32
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.253698468208313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca684987b27b052323686a3c467cf84c0c84ddad15ac4beab0cfa0229aecbdef",
+  "selected_reasons": []
+}

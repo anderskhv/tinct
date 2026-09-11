@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "a5da04e24f54a0a035e8c5fa63ec90024794874f16c0df506468260d1287e76c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14474254101514816,
+      "alignment_seconds": 7.995963096618652e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Mariners]",
+        "hotwords": "Enter, Mariners"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Mariners",
+          "start": 0.11,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Mariners",
+              "start": 0.83,
+              "end": 1.05,
+              "probability": 0.68310546875
+            }
+          ]
+        },
+        {
+          "text": " Enter, Mariners",
+          "start": 1.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 1.05,
+              "end": 1.05,
+              "probability": 2.4139881134033203e-05
+            },
+            {
+              "text": " Mariners",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 2.5928020477294922e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Mariners",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Mariners",
+          "start": 1.21,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Mariners]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "Mariners]",
+          "start": 0.83,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14485204219818115
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "31b68f02cfa4b0a116b2c442c1dcdc03eef9755f281537d54ee7eeb55410e636",
+  "selected_reasons": []
+}

@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "951df0d365c6b1df18228cf6f0aecdac5435e7d52df122fcc73331ede1f620f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.15874189883470535,
+      "alignment_seconds": 8.908659219741821e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, awake, dear heart, awake, Thou hast slept well awake.",
+          "start": 0.02,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.02,
+              "end": 1.16,
+              "probability": 0.875732421875
+            },
+            {
+              "text": " awake,",
+              "start": 1.62,
+              "end": 1.62,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " dear",
+              "start": 1.78,
+              "end": 1.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " heart,",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " awake,",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Thou",
+              "start": 3.04,
+              "end": 3.06,
+              "probability": 0.408447265625
+            },
+            {
+              "text": " hast",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.94140625
+            },
+            {
+              "text": " slept",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " well",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " awake.",
+              "start": 3.96,
+              "end": 4.4,
+              "probability": 0.68212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "raw": "awake,",
+          "start": 1.62,
+          "end": 1.62
+        },
+        {
+          "raw": "dear",
+          "start": 1.78,
+          "end": 1.84
+        },
+        {
+          "raw": "heart,",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "awake,",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "Thou",
+          "start": 3.04,
+          "end": 3.06
+        },
+        {
+          "raw": "hast",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "raw": "slept",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "well",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "raw": "awake.",
+          "start": 3.96,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Awake,",
+        "dear",
+        "heart,",
+        "awake!",
+        "thou",
+        "hast",
+        "slept",
+        "well;",
+        "Awake!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "text": "Awake,",
+          "start": 1.62,
+          "end": 1.62
+        },
+        {
+          "text": "dear",
+          "start": 1.78,
+          "end": 1.84
+        },
+        {
+          "text": "heart,",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "awake!",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "thou",
+          "start": 3.04,
+          "end": 3.06
+        },
+        {
+          "text": "hast",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "text": "slept",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "well;",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "text": "Awake!",
+          "start": 3.96,
+          "end": 4.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15886548161506653
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20438e2617b7d0516f6c151672f7df2ad4fc9e4b1c94b94fc2b88010710151b8",
+  "selected_reasons": []
+}

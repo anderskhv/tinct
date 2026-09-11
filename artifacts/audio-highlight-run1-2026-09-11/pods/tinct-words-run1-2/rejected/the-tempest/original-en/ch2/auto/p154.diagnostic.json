@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "66d14e29ac32ca9be869a6b8f3dcf7e90f48df7f083e9e32be1235ed3caae7c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.19703832268714905,
+      "alignment_seconds": 0.00015947967767715454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miranda. O dear father, Make not too rash a trial of him, for He's gentle and not fearful.",
+        "hotwords": "Miranda, O, Make, He's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miranda, O dear father, Make not too rash a trial of him, for He's gentle and not fearful.",
+          "start": 0.02,
+          "end": 5.8,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " O",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.423583984375
+            },
+            {
+              "text": " dear",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.76171875
+            },
+            {
+              "text": " father,",
+              "start": 1.74,
+              "end": 2.08,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " Make",
+              "start": 2.26,
+              "end": 2.36,
+              "probability": 0.0845947265625
+            },
+            {
+              "text": " not",
+              "start": 2.36,
+              "end": 2.62,
+              "probability": 0.9765625
+            },
+            {
+              "text": " too",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " rash",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 3.08,
+              "end": 3.24,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " trial",
+              "start": 3.24,
+              "end": 3.54,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " of",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.97265625
+            },
+            {
+              "text": " him,",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " for",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.03887939453125
+            },
+            {
+              "text": " He's",
+              "start": 4.38,
+              "end": 4.66,
+              "probability": 0.3695068359375
+            },
+            {
+              "text": " gentle",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 4.92,
+              "end": 5.24,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " not",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fearful.",
+              "start": 5.44,
+              "end": 5.8,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "O",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "dear",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "father,",
+          "start": 1.74,
+          "end": 2.08
+        },
+        {
+          "raw": "Make",
+          "start": 2.26,
+          "end": 2.36
+        },
+        {
+          "raw": "not",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "raw": "too",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "rash",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "a",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "raw": "trial",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "him,",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "for",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "He's",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "raw": "gentle",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "raw": "and",
+          "start": 4.92,
+          "end": 5.24
+        },
+        {
+          "raw": "not",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "fearful.",
+          "start": 5.44,
+          "end": 5.8
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "O",
+        "dear",
+        "father,",
+        "Make",
+        "not",
+        "too",
+        "rash",
+        "a",
+        "trial",
+        "of",
+        "him,",
+        "for",
+        "He's",
+        "gentle",
+        "and",
+        "not",
+        "fearful."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "O",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "dear",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "father,",
+          "start": 1.74,
+          "end": 2.08
+        },
+        {
+          "text": "Make",
+          "start": 2.26,
+          "end": 2.36
+        },
+        {
+          "text": "not",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "text": "too",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "rash",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "a",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "text": "trial",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "text": "of",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "him,",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "for",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "He's",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "text": "gentle",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "and",
+          "start": 4.92,
+          "end": 5.24
+        },
+        {
+          "text": "not",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "fearful.",
+          "start": 5.44,
+          "end": 5.8
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1972670778632164
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce35d02d0bab6aa4e92cd2f85a72887137b13c7f92e3cff76d613de26963a322",
+  "selected_reasons": []
+}

@@ -1,0 +1,177 @@
+{
+  "complete": true,
+  "signature": "e83016a80f95da2792d010b531fb44cd8a6240050c9710bc50840ccf98d15dd1",
+  "attempts": [
+    {
+      "asr_seconds": 2.5930960699915886,
+      "alignment_seconds": 6.592273712158203e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Snout. Here, Peter Quince.",
+        "hotwords": "Snout, Here, Peter, Quince"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Snout, Here, Peter, Quince",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Snout,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " Here,",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.01690673828125
+            },
+            {
+              "text": " Peter,",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Quince",
+              "start": 1.46,
+              "end": 1.78,
+              "probability": 0.81640625
+            }
+          ]
+        },
+        {
+          "text": " Snout,",
+          "start": 1.78,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Snout,",
+              "start": 1.78,
+              "end": 2.38,
+              "probability": 0.0003024935722351074
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Snout,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Here,",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "Peter,",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "Quince",
+          "start": 1.46,
+          "end": 1.78
+        },
+        {
+          "raw": "Snout,",
+          "start": 1.78,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Snout.",
+        "Here,",
+        "Peter",
+        "Quince."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Snout.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Here,",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "Peter",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "Quince.",
+          "start": 1.46,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.5931894704699516
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "deb372da6faaf7daa664071d945a4e017e76bef5c8948d47a9402938beb1b0f6",
+  "selected_reasons": []
+}

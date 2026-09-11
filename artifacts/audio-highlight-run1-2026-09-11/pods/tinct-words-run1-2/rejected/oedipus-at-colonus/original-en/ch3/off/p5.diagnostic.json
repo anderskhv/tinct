@@ -1,0 +1,205 @@
+{
+  "complete": true,
+  "signature": "d12732ae5c41b6175429db8f75e01818c84b9a660a7b3bf0268c601e51625d60",
+  "attempts": [
+    {
+      "asr_seconds": 0.1519816815853119,
+      "alignment_seconds": 9.306520223617554e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ismeen, yes, twas a weary way.",
+          "start": 0.08,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Ismeen,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.536376953125
+            },
+            {
+              "text": " yes,",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " twas",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.541259765625
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 2.02,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " weary",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " way.",
+              "start": 2.18,
+              "end": 2.54,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismeen,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "yes,",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "twas",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "raw": "weary",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "way.",
+          "start": 2.18,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Yes,",
+        "'twas",
+        "a",
+        "weary",
+        "way."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.0,
+          "end": 0.63
+        },
+        {
+          "text": "Yes,",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "'twas",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "text": "weary",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "way.",
+          "start": 2.18,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1521097794175148
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3633c973edbfb44d653c0438dd60b3ee08600fd0e458703c37261ccca9009f98",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,3830 @@
+{
+  "complete": true,
+  "signature": "630a07d236fe394cd03100c4fc7d7fb06149914ba72d11fb3f22a31afe979a9d",
+  "attempts": [
+    {
+      "asr_seconds": 3.4662194326519966,
+      "alignment_seconds": 0.0005202740430831909,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. Silence! one word more Shall make me chide thee, if not hate thee. What! An advocate for an imposter! hush! Thou think'st there is no more such shapes as he, Having seen but him and Caliban: foolish wench! To the most of men this is a Caliban And they to him are angels.",
+        "hotwords": "Prospero, Silence, Shall, What, Thou, Having, Caliban"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What! an advocate for an imposter! hush! Thou think'st there is no more such shapes as he, Having seen but him and Caliban, foolish wench! To the most of men this is a Caliban And they to him are angels.",
+          "start": 1.76,
+          "end": 17.66,
+          "words": [
+            {
+              "text": " What!",
+              "start": 1.76,
+              "end": 2.24,
+              "probability": 0.0008182525634765625
+            },
+            {
+              "text": " an",
+              "start": 5.88,
+              "end": 5.98,
+              "probability": 0.329345703125
+            },
+            {
+              "text": " advocate",
+              "start": 5.98,
+              "end": 6.34,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " for",
+              "start": 6.34,
+              "end": 6.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " an",
+              "start": 6.62,
+              "end": 6.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " imposter!",
+              "start": 6.72,
+              "end": 7.38,
+              "probability": 0.775146484375
+            },
+            {
+              "text": " hush!",
+              "start": 7.9,
+              "end": 8.22,
+              "probability": 0.5206756591796875
+            },
+            {
+              "text": " Thou",
+              "start": 8.64,
+              "end": 8.72,
+              "probability": 0.31494140625
+            },
+            {
+              "text": " think'st",
+              "start": 8.72,
+              "end": 9.18,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " there",
+              "start": 9.18,
+              "end": 9.32,
+              "probability": 0.003467559814453125
+            },
+            {
+              "text": " is",
+              "start": 9.32,
+              "end": 9.5,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " no",
+              "start": 9.5,
+              "end": 9.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " more",
+              "start": 9.68,
+              "end": 9.9,
+              "probability": 0.982421875
+            },
+            {
+              "text": " such",
+              "start": 9.9,
+              "end": 10.08,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " shapes",
+              "start": 10.08,
+              "end": 10.42,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " as",
+              "start": 10.42,
+              "end": 10.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " he,",
+              "start": 10.66,
+              "end": 10.94,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Having",
+              "start": 11.18,
+              "end": 11.3,
+              "probability": 0.1865234375
+            },
+            {
+              "text": " seen",
+              "start": 11.3,
+              "end": 11.66,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " but",
+              "start": 11.66,
+              "end": 11.92,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " him",
+              "start": 11.92,
+              "end": 12.18,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " and",
+              "start": 12.18,
+              "end": 12.42,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " Caliban,",
+              "start": 12.42,
+              "end": 12.9,
+              "probability": 0.6434326171875
+            },
+            {
+              "text": " foolish",
+              "start": 13.28,
+              "end": 13.48,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " wench!",
+              "start": 13.48,
+              "end": 13.98,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " To",
+              "start": 14.6,
+              "end": 14.68,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " the",
+              "start": 14.68,
+              "end": 14.76,
+              "probability": 0.986328125
+            },
+            {
+              "text": " most",
+              "start": 14.76,
+              "end": 14.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 14.94,
+              "end": 15.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " men",
+              "start": 15.12,
+              "end": 15.3,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " this",
+              "start": 15.3,
+              "end": 15.48,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " is",
+              "start": 15.48,
+              "end": 15.62,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 15.62,
+              "end": 15.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Caliban",
+              "start": 15.76,
+              "end": 16.22,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " And",
+              "start": 16.22,
+              "end": 16.48,
+              "probability": 0.05450439453125
+            },
+            {
+              "text": " they",
+              "start": 16.48,
+              "end": 16.64,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 16.64,
+              "end": 16.78,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " him",
+              "start": 16.78,
+              "end": 17.04,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " are",
+              "start": 17.04,
+              "end": 17.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " angels.",
+              "start": 17.26,
+              "end": 17.66,
+              "probability": 0.875
+            }
+          ]
+        },
+        {
+          "text": " What! an advocate for an imposter! hush! hush! hush!",
+          "start": 18.16,
+          "end": 18.42,
+          "words": [
+            {
+              "text": " What!",
+              "start": 18.16,
+              "end": 18.32,
+              "probability": 0.0006089210510253906
+            },
+            {
+              "text": " an",
+              "start": 18.32,
+              "end": 18.4,
+              "probability": 0.00021958351135253906
+            },
+            {
+              "text": " advocate",
+              "start": 18.4,
+              "end": 18.4,
+              "probability": 6.687641143798828e-05
+            },
+            {
+              "text": " for",
+              "start": 18.4,
+              "end": 18.4,
+              "probability": 0.40869140625
+            },
+            {
+              "text": " an",
+              "start": 18.4,
+              "end": 18.4,
+              "probability": 0.0120697021484375
+            },
+            {
+              "text": " imposter!",
+              "start": 18.4,
+              "end": 18.4,
+              "probability": 0.06747615337371826
+            },
+            {
+              "text": " hush!",
+              "start": 18.4,
+              "end": 18.4,
+              "probability": 0.0008895397186279297
+            },
+            {
+              "text": " hush!",
+              "start": 18.4,
+              "end": 18.42,
+              "probability": 0.61590576171875
+            },
+            {
+              "text": " hush!",
+              "start": 18.42,
+              "end": 18.42,
+              "probability": 0.791259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What!",
+          "start": 1.76,
+          "end": 2.24
+        },
+        {
+          "raw": "an",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "raw": "advocate",
+          "start": 5.98,
+          "end": 6.34
+        },
+        {
+          "raw": "for",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "raw": "an",
+          "start": 6.62,
+          "end": 6.72
+        },
+        {
+          "raw": "imposter!",
+          "start": 6.72,
+          "end": 7.38
+        },
+        {
+          "raw": "hush!",
+          "start": 7.9,
+          "end": 8.22
+        },
+        {
+          "raw": "Thou",
+          "start": 8.64,
+          "end": 8.72
+        },
+        {
+          "raw": "think'st",
+          "start": 8.72,
+          "end": 9.18
+        },
+        {
+          "raw": "there",
+          "start": 9.18,
+          "end": 9.32
+        },
+        {
+          "raw": "is",
+          "start": 9.32,
+          "end": 9.5
+        },
+        {
+          "raw": "no",
+          "start": 9.5,
+          "end": 9.68
+        },
+        {
+          "raw": "more",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "raw": "such",
+          "start": 9.9,
+          "end": 10.08
+        },
+        {
+          "raw": "shapes",
+          "start": 10.08,
+          "end": 10.42
+        },
+        {
+          "raw": "as",
+          "start": 10.42,
+          "end": 10.66
+        },
+        {
+          "raw": "he,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "raw": "Having",
+          "start": 11.18,
+          "end": 11.3
+        },
+        {
+          "raw": "seen",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "raw": "but",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "raw": "him",
+          "start": 11.92,
+          "end": 12.18
+        },
+        {
+          "raw": "and",
+          "start": 12.18,
+          "end": 12.42
+        },
+        {
+          "raw": "Caliban,",
+          "start": 12.42,
+          "end": 12.9
+        },
+        {
+          "raw": "foolish",
+          "start": 13.28,
+          "end": 13.48
+        },
+        {
+          "raw": "wench!",
+          "start": 13.48,
+          "end": 13.98
+        },
+        {
+          "raw": "To",
+          "start": 14.6,
+          "end": 14.68
+        },
+        {
+          "raw": "the",
+          "start": 14.68,
+          "end": 14.76
+        },
+        {
+          "raw": "most",
+          "start": 14.76,
+          "end": 14.94
+        },
+        {
+          "raw": "of",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "raw": "men",
+          "start": 15.12,
+          "end": 15.3
+        },
+        {
+          "raw": "this",
+          "start": 15.3,
+          "end": 15.48
+        },
+        {
+          "raw": "is",
+          "start": 15.48,
+          "end": 15.62
+        },
+        {
+          "raw": "a",
+          "start": 15.62,
+          "end": 15.76
+        },
+        {
+          "raw": "Caliban",
+          "start": 15.76,
+          "end": 16.22
+        },
+        {
+          "raw": "And",
+          "start": 16.22,
+          "end": 16.48
+        },
+        {
+          "raw": "they",
+          "start": 16.48,
+          "end": 16.64
+        },
+        {
+          "raw": "to",
+          "start": 16.64,
+          "end": 16.78
+        },
+        {
+          "raw": "him",
+          "start": 16.78,
+          "end": 17.04
+        },
+        {
+          "raw": "are",
+          "start": 17.04,
+          "end": 17.26
+        },
+        {
+          "raw": "angels.",
+          "start": 17.26,
+          "end": 17.66
+        },
+        {
+          "raw": "What!",
+          "start": 18.16,
+          "end": 18.32
+        },
+        {
+          "raw": "an",
+          "start": 18.32,
+          "end": 18.4
+        },
+        {
+          "raw": "advocate",
+          "start": 18.4,
+          "end": 18.4
+        },
+        {
+          "raw": "for",
+          "start": 18.4,
+          "end": 18.4
+        },
+        {
+          "raw": "an",
+          "start": 18.4,
+          "end": 18.4
+        },
+        {
+          "raw": "imposter!",
+          "start": 18.4,
+          "end": 18.4
+        },
+        {
+          "raw": "hush!",
+          "start": 18.4,
+          "end": 18.4
+        },
+        {
+          "raw": "hush!",
+          "start": 18.4,
+          "end": 18.42
+        },
+        {
+          "raw": "hush!",
+          "start": 18.42,
+          "end": 18.42
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Silence!",
+        "one",
+        "word",
+        "more",
+        "Shall",
+        "make",
+        "me",
+        "chide",
+        "thee,",
+        "if",
+        "not",
+        "hate",
+        "thee.",
+        "What!",
+        "An",
+        "advocate",
+        "for",
+        "an",
+        "imposter!",
+        "hush!",
+        "Thou",
+        "think'st",
+        "there",
+        "is",
+        "no",
+        "more",
+        "such",
+        "shapes",
+        "as",
+        "he,",
+        "Having",
+        "seen",
+        "but",
+        "him",
+        "and",
+        "Caliban:",
+        "foolish",
+        "wench!",
+        "To",
+        "the",
+        "most",
+        "of",
+        "men",
+        "this",
+        "is",
+        "a",
+        "Caliban",
+        "And",
+        "they",
+        "to",
+        "him",
+        "are",
+        "angels."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          14,
+          0,
+          0
+        ],
+        [
+          "equal",
+          14,
+          54,
+          0,
+          40
+        ],
+        [
+          "insert",
+          54,
+          54,
+          40,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          14,
+          0,
+          0
+        ],
+        [
+          "insert",
+          54,
+          54,
+          40,
+          49
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.0,
+          "end": 0.88
+        },
+        {
+          "text": "Silence!",
+          "start": 0.88,
+          "end": 1.32
+        },
+        {
+          "text": "one",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "word",
+          "start": 1.54,
+          "end": 1.65
+        },
+        {
+          "text": "more",
+          "start": 1.65,
+          "end": 1.705
+        },
+        {
+          "text": "Shall",
+          "start": 1.705,
+          "end": 1.732
+        },
+        {
+          "text": "make",
+          "start": 1.732,
+          "end": 1.746
+        },
+        {
+          "text": "me",
+          "start": 1.746,
+          "end": 1.753
+        },
+        {
+          "text": "chide",
+          "start": 1.753,
+          "end": 1.756
+        },
+        {
+          "text": "thee,",
+          "start": 1.756,
+          "end": 1.758
+        },
+        {
+          "text": "if",
+          "start": 1.758,
+          "end": 1.759
+        },
+        {
+          "text": "not",
+          "start": 1.759,
+          "end": 1.76
+        },
+        {
+          "text": "hate",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "text": "thee.",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "text": "What!",
+          "start": 1.76,
+          "end": 2.24
+        },
+        {
+          "text": "An",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "text": "advocate",
+          "start": 5.98,
+          "end": 6.34
+        },
+        {
+          "text": "for",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "text": "an",
+          "start": 6.62,
+          "end": 6.72
+        },
+        {
+          "text": "imposter!",
+          "start": 6.72,
+          "end": 7.38
+        },
+        {
+          "text": "hush!",
+          "start": 7.9,
+          "end": 8.22
+        },
+        {
+          "text": "Thou",
+          "start": 8.64,
+          "end": 8.72
+        },
+        {
+          "text": "think'st",
+          "start": 8.72,
+          "end": 9.18
+        },
+        {
+          "text": "there",
+          "start": 9.18,
+          "end": 9.32
+        },
+        {
+          "text": "is",
+          "start": 9.32,
+          "end": 9.5
+        },
+        {
+          "text": "no",
+          "start": 9.5,
+          "end": 9.68
+        },
+        {
+          "text": "more",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "text": "such",
+          "start": 9.9,
+          "end": 10.08
+        },
+        {
+          "text": "shapes",
+          "start": 10.08,
+          "end": 10.42
+        },
+        {
+          "text": "as",
+          "start": 10.42,
+          "end": 10.66
+        },
+        {
+          "text": "he,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "text": "Having",
+          "start": 11.18,
+          "end": 11.3
+        },
+        {
+          "text": "seen",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "text": "but",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "text": "him",
+          "start": 11.92,
+          "end": 12.18
+        },
+        {
+          "text": "and",
+          "start": 12.18,
+          "end": 12.42
+        },
+        {
+          "text": "Caliban:",
+          "start": 12.42,
+          "end": 12.9
+        },
+        {
+          "text": "foolish",
+          "start": 13.28,
+          "end": 13.48
+        },
+        {
+          "text": "wench!",
+          "start": 13.48,
+          "end": 13.98
+        },
+        {
+          "text": "To",
+          "start": 14.6,
+          "end": 14.68
+        },
+        {
+          "text": "the",
+          "start": 14.68,
+          "end": 14.76
+        },
+        {
+          "text": "most",
+          "start": 14.76,
+          "end": 14.94
+        },
+        {
+          "text": "of",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "text": "men",
+          "start": 15.12,
+          "end": 15.3
+        },
+        {
+          "text": "this",
+          "start": 15.3,
+          "end": 15.48
+        },
+        {
+          "text": "is",
+          "start": 15.48,
+          "end": 15.62
+        },
+        {
+          "text": "a",
+          "start": 15.62,
+          "end": 15.76
+        },
+        {
+          "text": "Caliban",
+          "start": 15.76,
+          "end": 16.22
+        },
+        {
+          "text": "And",
+          "start": 16.22,
+          "end": 16.48
+        },
+        {
+          "text": "they",
+          "start": 16.48,
+          "end": 16.64
+        },
+        {
+          "text": "to",
+          "start": 16.64,
+          "end": 16.78
+        },
+        {
+          "text": "him",
+          "start": 16.78,
+          "end": 17.04
+        },
+        {
+          "text": "are",
+          "start": 17.04,
+          "end": 17.26
+        },
+        {
+          "text": "angels.",
+          "start": 17.26,
+          "end": 17.66
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 49,
+        "matched_words": 40
+      },
+      "match_ratio": 0.7407407407407407,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.466937631368637
+    },
+    {
+      "asr_seconds": 0.4288299009203911,
+      "alignment_seconds": 0.00021104514598846436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Prospero, Silence, Shall, What, Thou, Having, Caliban"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Prospero, Silence, One word more shall make me chide thee,",
+          "start": 0.58,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.58,
+              "end": 1.02,
+              "probability": 0.730224609375
+            },
+            {
+              "text": " Silence,",
+              "start": 1.12,
+              "end": 1.46,
+              "probability": 0.129150390625
+            },
+            {
+              "text": " One",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " word",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " more",
+              "start": 2.48,
+              "end": 2.74,
+              "probability": 0.9921875
+            },
+            {
+              "text": " shall",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " make",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " chide",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " thee,",
+              "start": 3.62,
+              "end": 3.8,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " If not hate thee, What, an advocate for an impostor,",
+          "start": 3.96,
+          "end": 7.42,
+          "words": [
+            {
+              "text": " If",
+              "start": 3.96,
+              "end": 4.02,
+              "probability": 0.434814453125
+            },
+            {
+              "text": " not",
+              "start": 4.02,
+              "end": 4.18,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " hate",
+              "start": 4.18,
+              "end": 4.42,
+              "probability": 0.923828125
+            },
+            {
+              "text": " thee,",
+              "start": 4.42,
+              "end": 4.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " What,",
+              "start": 5.3,
+              "end": 5.56,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " an",
+              "start": 5.82,
+              "end": 6.02,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " advocate",
+              "start": 6.02,
+              "end": 6.32,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " for",
+              "start": 6.32,
+              "end": 6.64,
+              "probability": 0.986328125
+            },
+            {
+              "text": " an",
+              "start": 6.64,
+              "end": 6.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " impostor,",
+              "start": 6.72,
+              "end": 7.42,
+              "probability": 0.7696940104166666
+            }
+          ]
+        },
+        {
+          "text": " Hush, thou think'st thee there is no more such shapes as he,",
+          "start": 7.88,
+          "end": 10.94,
+          "words": [
+            {
+              "text": " Hush,",
+              "start": 7.88,
+              "end": 8.16,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " thou",
+              "start": 8.62,
+              "end": 8.72,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " think'st",
+              "start": 8.72,
+              "end": 9.18,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " thee",
+              "start": 9.18,
+              "end": 9.3,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " there",
+              "start": 9.3,
+              "end": 9.42,
+              "probability": 0.4931640625
+            },
+            {
+              "text": " is",
+              "start": 9.42,
+              "end": 9.52,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " no",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " more",
+              "start": 9.68,
+              "end": 9.88,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " such",
+              "start": 9.88,
+              "end": 10.08,
+              "probability": 0.681640625
+            },
+            {
+              "text": " shapes",
+              "start": 10.08,
+              "end": 10.42,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " as",
+              "start": 10.42,
+              "end": 10.66,
+              "probability": 0.62890625
+            },
+            {
+              "text": " he,",
+              "start": 10.66,
+              "end": 10.94,
+              "probability": 0.9697265625
+            }
+          ]
+        },
+        {
+          "text": " Having seen but him and caliban, Foolish wench,",
+          "start": 11.12,
+          "end": 13.94,
+          "words": [
+            {
+              "text": " Having",
+              "start": 11.12,
+              "end": 11.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " seen",
+              "start": 11.3,
+              "end": 11.66,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " but",
+              "start": 11.66,
+              "end": 11.92,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " him",
+              "start": 11.92,
+              "end": 12.18,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " and",
+              "start": 12.18,
+              "end": 12.44,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " caliban,",
+              "start": 12.44,
+              "end": 12.9,
+              "probability": 0.6099853515625
+            },
+            {
+              "text": " Foolish",
+              "start": 13.28,
+              "end": 13.62,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " wench,",
+              "start": 13.62,
+              "end": 13.94,
+              "probability": 0.95166015625
+            }
+          ]
+        },
+        {
+          "text": " To the most of men this is a caliban, And they to him are angels.",
+          "start": 14.58,
+          "end": 17.66,
+          "words": [
+            {
+              "text": " To",
+              "start": 14.58,
+              "end": 14.68,
+              "probability": 0.47021484375
+            },
+            {
+              "text": " the",
+              "start": 14.68,
+              "end": 14.76,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " most",
+              "start": 14.76,
+              "end": 14.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 14.94,
+              "end": 15.12,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " men",
+              "start": 15.12,
+              "end": 15.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 15.28,
+              "end": 15.48,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " is",
+              "start": 15.48,
+              "end": 15.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 15.62,
+              "end": 15.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " caliban,",
+              "start": 15.76,
+              "end": 16.18,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " And",
+              "start": 16.38,
+              "end": 16.5,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " they",
+              "start": 16.5,
+              "end": 16.64,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 16.64,
+              "end": 16.78,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " him",
+              "start": 16.78,
+              "end": 17.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " are",
+              "start": 17.04,
+              "end": 17.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " angels.",
+              "start": 17.26,
+              "end": 17.66,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "raw": "Silence,",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "raw": "One",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "word",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "more",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "raw": "shall",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "make",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "chide",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "thee,",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "raw": "If",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "raw": "not",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "raw": "hate",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "raw": "thee,",
+          "start": 4.42,
+          "end": 4.76
+        },
+        {
+          "raw": "What,",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "raw": "an",
+          "start": 5.82,
+          "end": 6.02
+        },
+        {
+          "raw": "advocate",
+          "start": 6.02,
+          "end": 6.32
+        },
+        {
+          "raw": "for",
+          "start": 6.32,
+          "end": 6.64
+        },
+        {
+          "raw": "an",
+          "start": 6.64,
+          "end": 6.72
+        },
+        {
+          "raw": "impostor,",
+          "start": 6.72,
+          "end": 7.42
+        },
+        {
+          "raw": "Hush,",
+          "start": 7.88,
+          "end": 8.16
+        },
+        {
+          "raw": "thou",
+          "start": 8.62,
+          "end": 8.72
+        },
+        {
+          "raw": "think'st",
+          "start": 8.72,
+          "end": 9.18
+        },
+        {
+          "raw": "thee",
+          "start": 9.18,
+          "end": 9.3
+        },
+        {
+          "raw": "there",
+          "start": 9.3,
+          "end": 9.42
+        },
+        {
+          "raw": "is",
+          "start": 9.42,
+          "end": 9.52
+        },
+        {
+          "raw": "no",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "more",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "raw": "such",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "raw": "shapes",
+          "start": 10.08,
+          "end": 10.42
+        },
+        {
+          "raw": "as",
+          "start": 10.42,
+          "end": 10.66
+        },
+        {
+          "raw": "he,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "raw": "Having",
+          "start": 11.12,
+          "end": 11.3
+        },
+        {
+          "raw": "seen",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "raw": "but",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "raw": "him",
+          "start": 11.92,
+          "end": 12.18
+        },
+        {
+          "raw": "and",
+          "start": 12.18,
+          "end": 12.44
+        },
+        {
+          "raw": "caliban,",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "raw": "Foolish",
+          "start": 13.28,
+          "end": 13.62
+        },
+        {
+          "raw": "wench,",
+          "start": 13.62,
+          "end": 13.94
+        },
+        {
+          "raw": "To",
+          "start": 14.58,
+          "end": 14.68
+        },
+        {
+          "raw": "the",
+          "start": 14.68,
+          "end": 14.76
+        },
+        {
+          "raw": "most",
+          "start": 14.76,
+          "end": 14.94
+        },
+        {
+          "raw": "of",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "raw": "men",
+          "start": 15.12,
+          "end": 15.28
+        },
+        {
+          "raw": "this",
+          "start": 15.28,
+          "end": 15.48
+        },
+        {
+          "raw": "is",
+          "start": 15.48,
+          "end": 15.62
+        },
+        {
+          "raw": "a",
+          "start": 15.62,
+          "end": 15.76
+        },
+        {
+          "raw": "caliban,",
+          "start": 15.76,
+          "end": 16.18
+        },
+        {
+          "raw": "And",
+          "start": 16.38,
+          "end": 16.5
+        },
+        {
+          "raw": "they",
+          "start": 16.5,
+          "end": 16.64
+        },
+        {
+          "raw": "to",
+          "start": 16.64,
+          "end": 16.78
+        },
+        {
+          "raw": "him",
+          "start": 16.78,
+          "end": 17.04
+        },
+        {
+          "raw": "are",
+          "start": 17.04,
+          "end": 17.26
+        },
+        {
+          "raw": "angels.",
+          "start": 17.26,
+          "end": 17.66
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Silence!",
+        "one",
+        "word",
+        "more",
+        "Shall",
+        "make",
+        "me",
+        "chide",
+        "thee,",
+        "if",
+        "not",
+        "hate",
+        "thee.",
+        "What!",
+        "An",
+        "advocate",
+        "for",
+        "an",
+        "imposter!",
+        "hush!",
+        "Thou",
+        "think'st",
+        "there",
+        "is",
+        "no",
+        "more",
+        "such",
+        "shapes",
+        "as",
+        "he,",
+        "Having",
+        "seen",
+        "but",
+        "him",
+        "and",
+        "Caliban:",
+        "foolish",
+        "wench!",
+        "To",
+        "the",
+        "most",
+        "of",
+        "men",
+        "this",
+        "is",
+        "a",
+        "Caliban",
+        "And",
+        "they",
+        "to",
+        "him",
+        "are",
+        "angels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          23,
+          20,
+          23
+        ],
+        [
+          "insert",
+          23,
+          23,
+          23,
+          24
+        ],
+        [
+          "equal",
+          23,
+          54,
+          24,
+          55
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "insert",
+          23,
+          23,
+          23,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "text": "Silence!",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "text": "one",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "word",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "more",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "text": "Shall",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "make",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "chide",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "thee,",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "text": "if",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "text": "not",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "text": "hate",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "text": "thee.",
+          "start": 4.42,
+          "end": 4.76
+        },
+        {
+          "text": "What!",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "text": "An",
+          "start": 5.82,
+          "end": 6.02
+        },
+        {
+          "text": "advocate",
+          "start": 6.02,
+          "end": 6.32
+        },
+        {
+          "text": "for",
+          "start": 6.32,
+          "end": 6.64
+        },
+        {
+          "text": "an",
+          "start": 6.64,
+          "end": 6.72
+        },
+        {
+          "text": "imposter!",
+          "start": 6.72,
+          "end": 7.3
+        },
+        {
+          "text": "hush!",
+          "start": 7.88,
+          "end": 8.16
+        },
+        {
+          "text": "Thou",
+          "start": 8.62,
+          "end": 8.72
+        },
+        {
+          "text": "think'st",
+          "start": 8.72,
+          "end": 9.18
+        },
+        {
+          "text": "there",
+          "start": 9.3,
+          "end": 9.42
+        },
+        {
+          "text": "is",
+          "start": 9.42,
+          "end": 9.52
+        },
+        {
+          "text": "no",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "text": "more",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "text": "such",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "text": "shapes",
+          "start": 10.08,
+          "end": 10.42
+        },
+        {
+          "text": "as",
+          "start": 10.42,
+          "end": 10.66
+        },
+        {
+          "text": "he,",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "text": "Having",
+          "start": 11.12,
+          "end": 11.3
+        },
+        {
+          "text": "seen",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "text": "but",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "text": "him",
+          "start": 11.92,
+          "end": 12.18
+        },
+        {
+          "text": "and",
+          "start": 12.18,
+          "end": 12.44
+        },
+        {
+          "text": "Caliban:",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "text": "foolish",
+          "start": 13.28,
+          "end": 13.62
+        },
+        {
+          "text": "wench!",
+          "start": 13.62,
+          "end": 13.94
+        },
+        {
+          "text": "To",
+          "start": 14.58,
+          "end": 14.68
+        },
+        {
+          "text": "the",
+          "start": 14.68,
+          "end": 14.76
+        },
+        {
+          "text": "most",
+          "start": 14.76,
+          "end": 14.94
+        },
+        {
+          "text": "of",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "text": "men",
+          "start": 15.12,
+          "end": 15.28
+        },
+        {
+          "text": "this",
+          "start": 15.28,
+          "end": 15.48
+        },
+        {
+          "text": "is",
+          "start": 15.48,
+          "end": 15.62
+        },
+        {
+          "text": "a",
+          "start": 15.62,
+          "end": 15.76
+        },
+        {
+          "text": "Caliban",
+          "start": 15.76,
+          "end": 16.18
+        },
+        {
+          "text": "And",
+          "start": 16.38,
+          "end": 16.5
+        },
+        {
+          "text": "they",
+          "start": 16.5,
+          "end": 16.64
+        },
+        {
+          "text": "to",
+          "start": 16.64,
+          "end": 16.78
+        },
+        {
+          "text": "him",
+          "start": 16.78,
+          "end": 17.04
+        },
+        {
+          "text": "are",
+          "start": 17.04,
+          "end": 17.26
+        },
+        {
+          "text": "angels.",
+          "start": 17.26,
+          "end": 17.66
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 55,
+        "matched_words": 53
+      },
+      "match_ratio": 0.9814814814814815,
+      "rejection_reasons": [],
+      "seconds": 0.42915845662355423
+    },
+    {
+      "asr_seconds": 0.41892382502555847,
+      "alignment_seconds": 0.00035981088876724243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, silence. One word more shall make me chide thee, if not hate thee. What? An advocate",
+          "start": 0.62,
+          "end": 6.34,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.62,
+              "end": 1.02,
+              "probability": 0.730224609375
+            },
+            {
+              "text": " silence.",
+              "start": 1.12,
+              "end": 1.46,
+              "probability": 0.841796875
+            },
+            {
+              "text": " One",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " word",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " more",
+              "start": 2.46,
+              "end": 2.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " shall",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.96484375
+            },
+            {
+              "text": " make",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " chide",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.974609375
+            },
+            {
+              "text": " thee,",
+              "start": 3.62,
+              "end": 3.8,
+              "probability": 0.994140625
+            },
+            {
+              "text": " if",
+              "start": 3.96,
+              "end": 4.02,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " not",
+              "start": 4.02,
+              "end": 4.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hate",
+              "start": 4.2,
+              "end": 4.44,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " thee.",
+              "start": 4.44,
+              "end": 4.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " What?",
+              "start": 5.34,
+              "end": 5.56,
+              "probability": 0.94921875
+            },
+            {
+              "text": " An",
+              "start": 5.9,
+              "end": 6.0,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " advocate",
+              "start": 6.0,
+              "end": 6.34,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " for an imposter. Hush! Thou think'st thee there is no more such shapes as he, having",
+          "start": 6.34,
+          "end": 11.3,
+          "words": [
+            {
+              "text": " for",
+              "start": 6.34,
+              "end": 6.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " an",
+              "start": 6.64,
+              "end": 6.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " imposter.",
+              "start": 6.72,
+              "end": 7.3,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " Hush!",
+              "start": 7.88,
+              "end": 8.08,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " Thou",
+              "start": 8.64,
+              "end": 8.72,
+              "probability": 0.64306640625
+            },
+            {
+              "text": " think'st",
+              "start": 8.72,
+              "end": 9.18,
+              "probability": 0.8761393229166666
+            },
+            {
+              "text": " thee",
+              "start": 9.18,
+              "end": 9.3,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " there",
+              "start": 9.3,
+              "end": 9.42,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " is",
+              "start": 9.42,
+              "end": 9.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " no",
+              "start": 9.52,
+              "end": 9.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 9.68,
+              "end": 9.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " such",
+              "start": 9.88,
+              "end": 10.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " shapes",
+              "start": 10.08,
+              "end": 10.42,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " as",
+              "start": 10.42,
+              "end": 10.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he,",
+              "start": 10.68,
+              "end": 10.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " having",
+              "start": 11.14,
+              "end": 11.3,
+              "probability": 0.869140625
+            }
+          ]
+        },
+        {
+          "text": " seen but him and caliban, foolish wench. To the most of men this is a caliban, and",
+          "start": 11.3,
+          "end": 16.5,
+          "words": [
+            {
+              "text": " seen",
+              "start": 11.3,
+              "end": 11.66,
+              "probability": 0.978515625
+            },
+            {
+              "text": " but",
+              "start": 11.66,
+              "end": 11.92,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " him",
+              "start": 11.92,
+              "end": 12.18,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " and",
+              "start": 12.18,
+              "end": 12.42,
+              "probability": 0.888671875
+            },
+            {
+              "text": " caliban,",
+              "start": 12.42,
+              "end": 12.9,
+              "probability": 0.5784912109375
+            },
+            {
+              "text": " foolish",
+              "start": 13.28,
+              "end": 13.48,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " wench.",
+              "start": 13.48,
+              "end": 13.94,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " To",
+              "start": 14.58,
+              "end": 14.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 14.68,
+              "end": 14.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " most",
+              "start": 14.76,
+              "end": 14.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.94,
+              "end": 15.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " men",
+              "start": 15.12,
+              "end": 15.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 15.3,
+              "end": 15.48,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " is",
+              "start": 15.48,
+              "end": 15.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 15.64,
+              "end": 15.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " caliban,",
+              "start": 15.76,
+              "end": 16.2,
+              "probability": 0.947509765625
+            },
+            {
+              "text": " and",
+              "start": 16.4,
+              "end": 16.5,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " they to him are angels.",
+          "start": 16.5,
+          "end": 17.64,
+          "words": [
+            {
+              "text": " they",
+              "start": 16.5,
+              "end": 16.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 16.62,
+              "end": 16.78,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " him",
+              "start": 16.78,
+              "end": 17.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " are",
+              "start": 17.04,
+              "end": 17.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " angels.",
+              "start": 17.26,
+              "end": 17.64,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "raw": "silence.",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "raw": "One",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "word",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "more",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "raw": "shall",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "make",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "chide",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "thee,",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "raw": "if",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "raw": "not",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "raw": "hate",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "raw": "thee.",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "raw": "What?",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "raw": "An",
+          "start": 5.9,
+          "end": 6.0
+        },
+        {
+          "raw": "advocate",
+          "start": 6.0,
+          "end": 6.34
+        },
+        {
+          "raw": "for",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "raw": "an",
+          "start": 6.64,
+          "end": 6.72
+        },
+        {
+          "raw": "imposter.",
+          "start": 6.72,
+          "end": 7.3
+        },
+        {
+          "raw": "Hush!",
+          "start": 7.88,
+          "end": 8.08
+        },
+        {
+          "raw": "Thou",
+          "start": 8.64,
+          "end": 8.72
+        },
+        {
+          "raw": "think'st",
+          "start": 8.72,
+          "end": 9.18
+        },
+        {
+          "raw": "thee",
+          "start": 9.18,
+          "end": 9.3
+        },
+        {
+          "raw": "there",
+          "start": 9.3,
+          "end": 9.42
+        },
+        {
+          "raw": "is",
+          "start": 9.42,
+          "end": 9.52
+        },
+        {
+          "raw": "no",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "raw": "more",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "raw": "such",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "raw": "shapes",
+          "start": 10.08,
+          "end": 10.42
+        },
+        {
+          "raw": "as",
+          "start": 10.42,
+          "end": 10.68
+        },
+        {
+          "raw": "he,",
+          "start": 10.68,
+          "end": 10.94
+        },
+        {
+          "raw": "having",
+          "start": 11.14,
+          "end": 11.3
+        },
+        {
+          "raw": "seen",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "raw": "but",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "raw": "him",
+          "start": 11.92,
+          "end": 12.18
+        },
+        {
+          "raw": "and",
+          "start": 12.18,
+          "end": 12.42
+        },
+        {
+          "raw": "caliban,",
+          "start": 12.42,
+          "end": 12.9
+        },
+        {
+          "raw": "foolish",
+          "start": 13.28,
+          "end": 13.48
+        },
+        {
+          "raw": "wench.",
+          "start": 13.48,
+          "end": 13.94
+        },
+        {
+          "raw": "To",
+          "start": 14.58,
+          "end": 14.68
+        },
+        {
+          "raw": "the",
+          "start": 14.68,
+          "end": 14.76
+        },
+        {
+          "raw": "most",
+          "start": 14.76,
+          "end": 14.94
+        },
+        {
+          "raw": "of",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "raw": "men",
+          "start": 15.12,
+          "end": 15.3
+        },
+        {
+          "raw": "this",
+          "start": 15.3,
+          "end": 15.48
+        },
+        {
+          "raw": "is",
+          "start": 15.48,
+          "end": 15.64
+        },
+        {
+          "raw": "a",
+          "start": 15.64,
+          "end": 15.76
+        },
+        {
+          "raw": "caliban,",
+          "start": 15.76,
+          "end": 16.2
+        },
+        {
+          "raw": "and",
+          "start": 16.4,
+          "end": 16.5
+        },
+        {
+          "raw": "they",
+          "start": 16.5,
+          "end": 16.62
+        },
+        {
+          "raw": "to",
+          "start": 16.62,
+          "end": 16.78
+        },
+        {
+          "raw": "him",
+          "start": 16.78,
+          "end": 17.04
+        },
+        {
+          "raw": "are",
+          "start": 17.04,
+          "end": 17.26
+        },
+        {
+          "raw": "angels.",
+          "start": 17.26,
+          "end": 17.64
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Silence!",
+        "one",
+        "word",
+        "more",
+        "Shall",
+        "make",
+        "me",
+        "chide",
+        "thee,",
+        "if",
+        "not",
+        "hate",
+        "thee.",
+        "What!",
+        "An",
+        "advocate",
+        "for",
+        "an",
+        "imposter!",
+        "hush!",
+        "Thou",
+        "think'st",
+        "there",
+        "is",
+        "no",
+        "more",
+        "such",
+        "shapes",
+        "as",
+        "he,",
+        "Having",
+        "seen",
+        "but",
+        "him",
+        "and",
+        "Caliban:",
+        "foolish",
+        "wench!",
+        "To",
+        "the",
+        "most",
+        "of",
+        "men",
+        "this",
+        "is",
+        "a",
+        "Caliban",
+        "And",
+        "they",
+        "to",
+        "him",
+        "are",
+        "angels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "insert",
+          23,
+          23,
+          23,
+          24
+        ],
+        [
+          "equal",
+          23,
+          54,
+          24,
+          55
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          23,
+          23,
+          23,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "text": "Silence!",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "text": "one",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "word",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "text": "more",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "text": "Shall",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "make",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "chide",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "thee,",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "text": "if",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "text": "not",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "text": "hate",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "text": "thee.",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "text": "What!",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "text": "An",
+          "start": 5.9,
+          "end": 6.0
+        },
+        {
+          "text": "advocate",
+          "start": 6.0,
+          "end": 6.34
+        },
+        {
+          "text": "for",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "text": "an",
+          "start": 6.64,
+          "end": 6.72
+        },
+        {
+          "text": "imposter!",
+          "start": 6.72,
+          "end": 7.3
+        },
+        {
+          "text": "hush!",
+          "start": 7.88,
+          "end": 8.08
+        },
+        {
+          "text": "Thou",
+          "start": 8.64,
+          "end": 8.72
+        },
+        {
+          "text": "think'st",
+          "start": 8.72,
+          "end": 9.18
+        },
+        {
+          "text": "there",
+          "start": 9.3,
+          "end": 9.42
+        },
+        {
+          "text": "is",
+          "start": 9.42,
+          "end": 9.52
+        },
+        {
+          "text": "no",
+          "start": 9.52,
+          "end": 9.68
+        },
+        {
+          "text": "more",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "text": "such",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "text": "shapes",
+          "start": 10.08,
+          "end": 10.42
+        },
+        {
+          "text": "as",
+          "start": 10.42,
+          "end": 10.68
+        },
+        {
+          "text": "he,",
+          "start": 10.68,
+          "end": 10.94
+        },
+        {
+          "text": "Having",
+          "start": 11.14,
+          "end": 11.3
+        },
+        {
+          "text": "seen",
+          "start": 11.3,
+          "end": 11.66
+        },
+        {
+          "text": "but",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "text": "him",
+          "start": 11.92,
+          "end": 12.18
+        },
+        {
+          "text": "and",
+          "start": 12.18,
+          "end": 12.42
+        },
+        {
+          "text": "Caliban:",
+          "start": 12.42,
+          "end": 12.9
+        },
+        {
+          "text": "foolish",
+          "start": 13.28,
+          "end": 13.48
+        },
+        {
+          "text": "wench!",
+          "start": 13.48,
+          "end": 13.94
+        },
+        {
+          "text": "To",
+          "start": 14.58,
+          "end": 14.68
+        },
+        {
+          "text": "the",
+          "start": 14.68,
+          "end": 14.76
+        },
+        {
+          "text": "most",
+          "start": 14.76,
+          "end": 14.94
+        },
+        {
+          "text": "of",
+          "start": 14.94,
+          "end": 15.12
+        },
+        {
+          "text": "men",
+          "start": 15.12,
+          "end": 15.3
+        },
+        {
+          "text": "this",
+          "start": 15.3,
+          "end": 15.48
+        },
+        {
+          "text": "is",
+          "start": 15.48,
+          "end": 15.64
+        },
+        {
+          "text": "a",
+          "start": 15.64,
+          "end": 15.76
+        },
+        {
+          "text": "Caliban",
+          "start": 15.76,
+          "end": 16.2
+        },
+        {
+          "text": "And",
+          "start": 16.4,
+          "end": 16.5
+        },
+        {
+          "text": "they",
+          "start": 16.5,
+          "end": 16.62
+        },
+        {
+          "text": "to",
+          "start": 16.62,
+          "end": 16.78
+        },
+        {
+          "text": "him",
+          "start": 16.78,
+          "end": 17.04
+        },
+        {
+          "text": "are",
+          "start": 17.04,
+          "end": 17.26
+        },
+        {
+          "text": "angels.",
+          "start": 17.26,
+          "end": 17.64
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 55,
+        "matched_words": 54
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4194731041789055
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd7bad49c1da6d629d5110386af924cd9d326b3cb009b6f73c9060c22078db1f",
+  "selected_reasons": []
+}

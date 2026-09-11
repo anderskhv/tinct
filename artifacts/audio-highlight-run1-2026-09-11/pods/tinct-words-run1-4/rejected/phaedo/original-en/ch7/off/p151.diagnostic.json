@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "78fc91857d00c5f69507471b42bea78e8df3e7dc09cf082ec7ed2ccd081137f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.13397649303078651,
+      "alignment_seconds": 6.562098860740662e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But are they the same as fire and snow?",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.857421875
+            },
+            {
+              "text": " are",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " they",
+              "start": 0.59,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " same",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 1.0
+            },
+            {
+              "text": " as",
+              "start": 0.99,
+              "end": 1.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fire",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " snow?",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "are",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "they",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "same",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "raw": "as",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "raw": "fire",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "snow?",
+          "start": 1.69,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "are",
+        "they",
+        "the",
+        "same",
+        "as",
+        "fire",
+        "and",
+        "snow?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "are",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "they",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "same",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "as",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "text": "fire",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "and",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "snow?",
+          "start": 1.69,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1340717002749443
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2f4f9eabc9eacd4e170b6edded20b8f678cff6d366d5be435fbcc1e179d0a046",
+  "selected_reasons": []
+}

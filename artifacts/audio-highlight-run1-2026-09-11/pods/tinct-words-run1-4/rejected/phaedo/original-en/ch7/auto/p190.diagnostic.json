@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "eabfe73f1c60be6649dd540cf31125271cb4b2b737adb7e693f6014c246d7f59",
+  "attempts": [
+    {
+      "asr_seconds": 0.12554867938160896,
+      "alignment_seconds": 6.163772195577621e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, he said, I quite understand you.",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, he said, I quite understand you.",
+          "start": 0.02,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.088134765625
+            },
+            {
+              "text": " he",
+              "start": 0.8,
+              "end": 0.88,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " said,",
+              "start": 0.88,
+              "end": 1.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " quite",
+              "start": 1.64,
+              "end": 1.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " understand",
+              "start": 1.8,
+              "end": 2.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 2.24,
+              "end": 2.54,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "he",
+          "start": 0.8,
+          "end": 0.88
+        },
+        {
+          "raw": "said,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "raw": "I",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "quite",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "raw": "understand",
+          "start": 1.8,
+          "end": 2.24
+        },
+        {
+          "raw": "you.",
+          "start": 2.24,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said,",
+        "I",
+        "quite",
+        "understand",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "he",
+          "start": 0.8,
+          "end": 0.88
+        },
+        {
+          "text": "said,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "text": "I",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "quite",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "text": "understand",
+          "start": 1.8,
+          "end": 2.24
+        },
+        {
+          "text": "you.",
+          "start": 2.24,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1256355931982398
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a0b1f2f5e0ccf5d8a9b62f47d412e743158f1250ead3bb621375c0e14a67fe10",
+  "selected_reasons": []
+}

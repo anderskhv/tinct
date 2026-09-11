@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "93bd363eee3e53284030f2e32774a3c21d2d3c88b05e27d3efc04f23e50310e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.17386023700237274,
+      "alignment_seconds": 0.000128820538520813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " EGS who tease a new wrong this and terrible",
+          "start": 0.02,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " EGS",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.5594482421875
+            },
+            {
+              "text": " who",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " tease",
+              "start": 1.08,
+              "end": 1.68,
+              "probability": 0.1739501953125
+            },
+            {
+              "text": " a",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " new",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.986328125
+            },
+            {
+              "text": " wrong",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " this",
+              "start": 2.18,
+              "end": 2.4,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " and",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.974609375
+            },
+            {
+              "text": " terrible",
+              "start": 2.58,
+              "end": 2.98,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "EGS",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "who",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "tease",
+          "start": 1.08,
+          "end": 1.68
+        },
+        {
+          "raw": "a",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "new",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "wrong",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "this",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "terrible",
+          "start": 2.58,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Who?",
+        "'Tis",
+        "a",
+        "new",
+        "wrong",
+        "this,",
+        "and",
+        "terrible."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Who?",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "'Tis",
+          "start": 1.08,
+          "end": 1.38
+        },
+        {
+          "text": "a",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "new",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "wrong",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "this,",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "text": "and",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "terrible.",
+          "start": 2.58,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17403846234083176
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe1bd980539c004ec28deab59b3cd9a0cfd396d86abedfab922d030990323a02",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

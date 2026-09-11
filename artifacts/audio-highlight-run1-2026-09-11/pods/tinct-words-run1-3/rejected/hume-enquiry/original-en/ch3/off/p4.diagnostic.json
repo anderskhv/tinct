@@ -1,0 +1,117 @@
+{
+  "complete": true,
+  "signature": "f051e5898f4df49a0f57a3838210e8e2098b7f3edc6409c18602b72de1e86202",
+  "attempts": [
+    {
+      "asr_seconds": 0.10951347649097443,
+      "alignment_seconds": 4.706531763076782e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 3. Contaguity",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " 3.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.495361328125
+            },
+            {
+              "text": " Contaguity",
+              "start": 1.07,
+              "end": 1.55,
+              "probability": 0.8435872395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "3.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Contaguity",
+          "start": 1.07,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "[3]",
+        "Contiguity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[3]",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Contiguity.",
+          "start": 0.69,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10957355052232742
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6fe1f409c92db133ee5d91e6c4fba0faeb3f5e7e6338a943b1b2a430eb407cf8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

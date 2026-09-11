@@ -1,0 +1,2671 @@
+{
+  "complete": true,
+  "signature": "c8bb7a83d27a39ad07cb106bc54e4287f93e919bb7fd7ef5621efe2ec4e4a355",
+  "attempts": [
+    {
+      "asr_seconds": 2.916876621544361,
+      "alignment_seconds": 0.00019302964210510254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr. Utterson stepped out and touched him on the shoulder as he passed. \"Mr. Hyde, I think?\"",
+        "hotwords": "Mr, Utterson, Hyde, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think.",
+          "start": 0.02,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.859375
+            },
+            {
+              "text": " Hyde,",
+              "start": 0.9,
+              "end": 1.14,
+              "probability": 2.682209014892578e-06
+            },
+            {
+              "text": " I",
+              "start": 1.48,
+              "end": 1.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " think.",
+              "start": 1.5,
+              "end": 1.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.54,
+              "end": 1.98,
+              "probability": 0.22998046875
+            },
+            {
+              "text": " Hyde,",
+              "start": 2.26,
+              "end": 2.8,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " I",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " think.",
+              "start": 3.08,
+              "end": 3.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 4.06,
+              "end": 4.36,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " Hyde,",
+              "start": 4.8,
+              "end": 4.9,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " think.",
+              "start": 5.22,
+              "end": 5.48,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think. Mr. Hyde, I think",
+          "start": 5.48,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 5.48,
+              "end": 5.7,
+              "probability": 8.45789909362793e-05
+            },
+            {
+              "text": " Hyde,",
+              "start": 5.7,
+              "end": 5.7,
+              "probability": 0.00012791156768798828
+            },
+            {
+              "text": " I",
+              "start": 5.7,
+              "end": 5.7,
+              "probability": 0.05816650390625
+            },
+            {
+              "text": " think.",
+              "start": 5.7,
+              "end": 5.7,
+              "probability": 0.044891357421875
+            },
+            {
+              "text": " Mr.",
+              "start": 5.88,
+              "end": 6.1,
+              "probability": 0.0138702392578125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.251220703125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.958984375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.45751953125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.818359375
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.978515625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.775390625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.98828125
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.8359375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9921875
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.845703125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.751953125
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.73828125
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.748046875
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7421875
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.896484375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.744140625
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.720703125
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " think.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Hyde,",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " I",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " think",
+              "start": 6.1,
+              "end": 6.1,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Hyde,",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.5
+        },
+        {
+          "raw": "think.",
+          "start": 1.5,
+          "end": 1.52
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.54,
+          "end": 1.98
+        },
+        {
+          "raw": "Hyde,",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "raw": "I",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "think.",
+          "start": 3.08,
+          "end": 3.64
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "raw": "Hyde,",
+          "start": 4.8,
+          "end": 4.9
+        },
+        {
+          "raw": "I",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "think.",
+          "start": 5.22,
+          "end": 5.48
+        },
+        {
+          "raw": "Mr.",
+          "start": 5.48,
+          "end": 5.7
+        },
+        {
+          "raw": "Hyde,",
+          "start": 5.7,
+          "end": 5.7
+        },
+        {
+          "raw": "I",
+          "start": 5.7,
+          "end": 5.7
+        },
+        {
+          "raw": "think.",
+          "start": 5.7,
+          "end": 5.7
+        },
+        {
+          "raw": "Mr.",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "Hyde,",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "I",
+          "start": 6.1,
+          "end": 6.1
+        },
+        {
+          "raw": "think",
+          "start": 6.1,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Utterson",
+        "stepped",
+        "out",
+        "and",
+        "touched",
+        "him",
+        "on",
+        "the",
+        "shoulder",
+        "as",
+        "he",
+        "passed.",
+        "\"Mr.",
+        "Hyde,",
+        "I",
+        "think?\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          13,
+          0,
+          0
+        ],
+        [
+          "equal",
+          13,
+          17,
+          0,
+          4
+        ],
+        [
+          "insert",
+          17,
+          17,
+          4,
+          140
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          13,
+          0,
+          0
+        ],
+        [
+          "insert",
+          17,
+          17,
+          4,
+          140
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "Utterson",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "stepped",
+          "start": 0.015,
+          "end": 0.018
+        },
+        {
+          "text": "out",
+          "start": 0.018,
+          "end": 0.019
+        },
+        {
+          "text": "and",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "touched",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "him",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "on",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "the",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "shoulder",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "as",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "he",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "passed.",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "\"Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Hyde,",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "text": "I",
+          "start": 1.48,
+          "end": 1.5
+        },
+        {
+          "text": "think?\"",
+          "start": 1.5,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 140,
+        "matched_words": 4
+      },
+      "match_ratio": 0.23529411764705882,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.917261525988579
+    },
+    {
+      "asr_seconds": 0.15710458159446716,
+      "alignment_seconds": 7.665902376174927e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mr, Utterson, Hyde, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Mr. Utterson stepped out and touched him on the shoulder as he passed. Mr. Hyde, I",
+          "start": 0.02,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.859375
+            },
+            {
+              "text": " Utterson",
+              "start": 0.9,
+              "end": 1.14,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " stepped",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " touched",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shoulder",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 3.08,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " passed.",
+              "start": 3.2,
+              "end": 3.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " Hyde,",
+              "start": 4.82,
+              "end": 4.88,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 5.12,
+              "end": 5.22,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Utterson",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "raw": "stepped",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "out",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "and",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "touched",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "him",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "on",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "shoulder",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "he",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "raw": "passed.",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "Hyde,",
+          "start": 4.82,
+          "end": 4.88
+        },
+        {
+          "raw": "I",
+          "start": 5.12,
+          "end": 5.22
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Utterson",
+        "stepped",
+        "out",
+        "and",
+        "touched",
+        "him",
+        "on",
+        "the",
+        "shoulder",
+        "as",
+        "he",
+        "passed.",
+        "\"Mr.",
+        "Hyde,",
+        "I",
+        "think?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "delete",
+          16,
+          17,
+          16,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          16,
+          17,
+          16,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Utterson",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "text": "stepped",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "text": "out",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "and",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "touched",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "him",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "on",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "shoulder",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "he",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "text": "passed.",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "text": "\"Mr.",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "Hyde,",
+          "start": 4.82,
+          "end": 4.88
+        },
+        {
+          "text": "I",
+          "start": 5.12,
+          "end": 5.22
+        },
+        {
+          "text": "think?\"",
+          "start": 5.22,
+          "end": 5.22
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.15721622109413147
+    },
+    {
+      "asr_seconds": 0.14479662477970123,
+      "alignment_seconds": 7.777661085128784e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Utterson stepped out and touched him on the shoulder as he passed.",
+          "start": 0.02,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " Utterson",
+              "start": 0.9,
+              "end": 1.14,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " stepped",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.984375
+            },
+            {
+              "text": " touched",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shoulder",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 3.08,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " passed.",
+              "start": 3.2,
+              "end": 3.58,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Mr. Hyde, I think.",
+          "start": 4.28,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.830078125
+            },
+            {
+              "text": " Hyde,",
+              "start": 4.82,
+              "end": 4.88,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " think.",
+              "start": 5.22,
+              "end": 5.46,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Utterson",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "raw": "stepped",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "out",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "and",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "touched",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "him",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "on",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "shoulder",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "he",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "raw": "passed.",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "Hyde,",
+          "start": 4.82,
+          "end": 4.88
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "think.",
+          "start": 5.22,
+          "end": 5.46
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Utterson",
+        "stepped",
+        "out",
+        "and",
+        "touched",
+        "him",
+        "on",
+        "the",
+        "shoulder",
+        "as",
+        "he",
+        "passed.",
+        "\"Mr.",
+        "Hyde,",
+        "I",
+        "think?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Utterson",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "text": "stepped",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "text": "out",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "and",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "touched",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "him",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "on",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "shoulder",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "he",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "text": "passed.",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "text": "\"Mr.",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "Hyde,",
+          "start": 4.82,
+          "end": 4.88
+        },
+        {
+          "text": "I",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "think?\"",
+          "start": 5.22,
+          "end": 5.46
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1449107825756073
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f2a0128c7b88d1267a2ffb141ec90a150555eee6791cbd4fe74488bf5fcbb42",
+  "selected_reasons": []
+}

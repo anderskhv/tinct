@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "af7f79f742d06e7c3ba8dd96ddd95a951ecf83fec3aa63c8cdcfdc44d84206bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.16304250806570053,
+      "alignment_seconds": 0.00013618171215057373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ariel, pardon master. I will be correspondent to command and do my spiriting gently.",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " pardon",
+              "start": 1.49,
+              "end": 1.55,
+              "probability": 0.9453125
+            },
+            {
+              "text": " master.",
+              "start": 1.55,
+              "end": 2.05,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " I",
+              "start": 2.57,
+              "end": 2.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will",
+              "start": 2.65,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " correspondent",
+              "start": 2.89,
+              "end": 3.45,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 3.45,
+              "end": 3.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " command",
+              "start": 3.77,
+              "end": 4.13,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " and",
+              "start": 4.13,
+              "end": 4.55,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " do",
+              "start": 4.55,
+              "end": 4.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 4.69,
+              "end": 4.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spiriting",
+              "start": 4.91,
+              "end": 5.37,
+              "probability": 0.705078125
+            },
+            {
+              "text": " gently.",
+              "start": 5.37,
+              "end": 5.79,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "pardon",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "raw": "master.",
+          "start": 1.55,
+          "end": 2.05
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "raw": "will",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "raw": "be",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "correspondent",
+          "start": 2.89,
+          "end": 3.45
+        },
+        {
+          "raw": "to",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "raw": "command",
+          "start": 3.77,
+          "end": 4.13
+        },
+        {
+          "raw": "and",
+          "start": 4.13,
+          "end": 4.55
+        },
+        {
+          "raw": "do",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "raw": "my",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "raw": "spiriting",
+          "start": 4.91,
+          "end": 5.37
+        },
+        {
+          "raw": "gently.",
+          "start": 5.37,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "Pardon,",
+        "master;",
+        "I",
+        "will",
+        "be",
+        "correspondent",
+        "to",
+        "command",
+        "And",
+        "do",
+        "my",
+        "spiriting",
+        "gently."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Pardon,",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "text": "master;",
+          "start": 1.55,
+          "end": 2.05
+        },
+        {
+          "text": "I",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "text": "will",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "text": "be",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "correspondent",
+          "start": 2.89,
+          "end": 3.45
+        },
+        {
+          "text": "to",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "text": "command",
+          "start": 3.77,
+          "end": 4.13
+        },
+        {
+          "text": "And",
+          "start": 4.13,
+          "end": 4.55
+        },
+        {
+          "text": "do",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "text": "my",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "text": "spiriting",
+          "start": 4.91,
+          "end": 5.37
+        },
+        {
+          "text": "gently.",
+          "start": 5.37,
+          "end": 5.79
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1632428988814354
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d1c0ac80602f7c39ba73a907d6697b95ad4a9473fe7c58cd91aeefdfe3f50988",
+  "selected_reasons": []
+}

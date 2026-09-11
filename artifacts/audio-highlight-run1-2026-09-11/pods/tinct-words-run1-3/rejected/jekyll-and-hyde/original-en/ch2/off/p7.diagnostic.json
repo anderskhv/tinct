@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f6e4d26282492ccad43813061884ea7077ed1d01265c17bfed7e6d36fa665ce0",
+  "attempts": [
+    {
+      "asr_seconds": 0.13599121570587158,
+      "alignment_seconds": 6.911158561706543e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Indeed,\" said Utterson, \"'I thought you had a bond of common interest.'\"",
+          "start": 0.69,
+          "end": 4.91,
+          "words": [
+            {
+              "text": " Indeed,\"",
+              "start": 0.69,
+              "end": 1.21,
+              "probability": 0.372161865234375
+            },
+            {
+              "text": " said",
+              "start": 1.21,
+              "end": 1.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Utterson,",
+              "start": 1.51,
+              "end": 1.89,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " \"'I",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.4966592788696289
+            },
+            {
+              "text": " thought",
+              "start": 2.57,
+              "end": 2.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " had",
+              "start": 2.87,
+              "end": 3.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bond",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " common",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " interest.'\"",
+              "start": 3.79,
+              "end": 4.91,
+              "probability": 0.826904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Indeed,\"",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "raw": "said",
+          "start": 1.21,
+          "end": 1.51
+        },
+        {
+          "raw": "Utterson,",
+          "start": 1.51,
+          "end": 1.89
+        },
+        {
+          "raw": "\"'I",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "thought",
+          "start": 2.57,
+          "end": 2.73
+        },
+        {
+          "raw": "you",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "had",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "bond",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "of",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "common",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "raw": "interest.'\"",
+          "start": 3.79,
+          "end": 4.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Indeed?\"",
+        "said",
+        "Utterson.",
+        "\"I",
+        "thought",
+        "you",
+        "had",
+        "a",
+        "bond",
+        "of",
+        "common",
+        "interest.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Indeed?\"",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "text": "said",
+          "start": 1.21,
+          "end": 1.51
+        },
+        {
+          "text": "Utterson.",
+          "start": 1.51,
+          "end": 1.89
+        },
+        {
+          "text": "\"I",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "thought",
+          "start": 2.57,
+          "end": 2.73
+        },
+        {
+          "text": "you",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "had",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "text": "a",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "bond",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "of",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "common",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "text": "interest.\"",
+          "start": 3.79,
+          "end": 4.91
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13608861714601517
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ef39eedc95f9dc2e5749a9cfc5ff82e17cf85135405483e0977ffb35500fb5f",
+  "selected_reasons": []
+}

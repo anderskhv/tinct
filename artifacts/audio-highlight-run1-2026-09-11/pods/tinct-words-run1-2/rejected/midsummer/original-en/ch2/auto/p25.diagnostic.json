@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "a5ff893f431d933b38fba12dde9bfb30073aa3852a102188227cce10a1a1642c",
+  "attempts": [
+    {
+      "asr_seconds": 0.18423312902450562,
+      "alignment_seconds": 7.674098014831543e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Quince. Robin Starveling, you must play Thisbe's mother. Tom Snout, the tinker.",
+        "hotwords": "Quince, Robin, Starveling, Thisbe's, Tom, Snout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quince, Robin, Starveling, you must play Thisbe's mother. Tom Snout, the tinker.",
+          "start": 0.05,
+          "end": 4.91,
+          "words": [
+            {
+              "text": " Quince,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6727294921875
+            },
+            {
+              "text": " Robin,",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " Starveling,",
+              "start": 1.59,
+              "end": 1.97,
+              "probability": 0.65234375
+            },
+            {
+              "text": " you",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " must",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " play",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Thisbe's",
+              "start": 2.49,
+              "end": 2.97,
+              "probability": 0.4765625
+            },
+            {
+              "text": " mother.",
+              "start": 2.97,
+              "end": 3.19,
+              "probability": 0.9375
+            },
+            {
+              "text": " Tom",
+              "start": 3.85,
+              "end": 3.95,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Snout,",
+              "start": 3.95,
+              "end": 4.41,
+              "probability": 0.64453125
+            },
+            {
+              "text": " the",
+              "start": 4.57,
+              "end": 4.61,
+              "probability": 0.2171630859375
+            },
+            {
+              "text": " tinker.",
+              "start": 4.61,
+              "end": 4.91,
+              "probability": 0.60748291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quince,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Robin,",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "raw": "Starveling,",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "raw": "you",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "raw": "must",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "play",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "Thisbe's",
+          "start": 2.49,
+          "end": 2.97
+        },
+        {
+          "raw": "mother.",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "raw": "Tom",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "raw": "Snout,",
+          "start": 3.95,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.57,
+          "end": 4.61
+        },
+        {
+          "raw": "tinker.",
+          "start": 4.61,
+          "end": 4.91
+        }
+      ],
+      "expected_tokens": [
+        "Quince.",
+        "Robin",
+        "Starveling,",
+        "you",
+        "must",
+        "play",
+        "Thisbe's",
+        "mother.",
+        "Tom",
+        "Snout,",
+        "the",
+        "tinker."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Quince.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Robin",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "text": "Starveling,",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "text": "you",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "text": "must",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "play",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "Thisbe's",
+          "start": 2.49,
+          "end": 2.97
+        },
+        {
+          "text": "mother.",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "text": "Tom",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "Snout,",
+          "start": 3.95,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.57,
+          "end": 4.61
+        },
+        {
+          "text": "tinker.",
+          "start": 4.61,
+          "end": 4.91
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18434502929449081
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe1b1bbbd68b96183c20d464d06d6704c40e52055ca72331decd89bc8334c41d",
+  "selected_reasons": []
+}

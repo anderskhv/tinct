@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "368443da5a3000a4178f0ee4c4651e32007e992772ef9ec0210afdc7296647c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12164464872330427,
+      "alignment_seconds": 8.480064570903778e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Phaedo: He was quite beside himself; and I and all of us were greatly moved.",
+        "hotwords": "Phaedo, He, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Phaedo, He was quite beside himself, and I and all of us were greatly moved.",
+          "start": 0.99,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " Phaedo,",
+              "start": 0.99,
+              "end": 1.43,
+              "probability": 0.20447397232055664
+            },
+            {
+              "text": " He",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.01401519775390625
+            },
+            {
+              "text": " was",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " quite",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " beside",
+              "start": 2.29,
+              "end": 2.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " himself,",
+              "start": 2.63,
+              "end": 3.01,
+              "probability": 0.76953125
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " I",
+              "start": 3.61,
+              "end": 3.75,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " and",
+              "start": 3.75,
+              "end": 3.89,
+              "probability": 0.9765625
+            },
+            {
+              "text": " all",
+              "start": 3.89,
+              "end": 4.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 4.05,
+              "end": 4.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " us",
+              "start": 4.15,
+              "end": 4.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " greatly",
+              "start": 4.43,
+              "end": 4.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " moved.",
+              "start": 4.69,
+              "end": 5.17,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Phaedo,",
+          "start": 0.99,
+          "end": 1.43
+        },
+        {
+          "raw": "He",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "raw": "was",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "quite",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "beside",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "raw": "himself,",
+          "start": 2.63,
+          "end": 3.01
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "I",
+          "start": 3.61,
+          "end": 3.75
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "raw": "all",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "raw": "of",
+          "start": 4.05,
+          "end": 4.15
+        },
+        {
+          "raw": "us",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "raw": "were",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "greatly",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "raw": "moved.",
+          "start": 4.69,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "Phaedo:",
+        "He",
+        "was",
+        "quite",
+        "beside",
+        "himself;",
+        "and",
+        "I",
+        "and",
+        "all",
+        "of",
+        "us",
+        "were",
+        "greatly",
+        "moved."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Phaedo:",
+          "start": 0.99,
+          "end": 1.43
+        },
+        {
+          "text": "He",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "text": "was",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "quite",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "beside",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "text": "himself;",
+          "start": 2.63,
+          "end": 3.01
+        },
+        {
+          "text": "and",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "I",
+          "start": 3.61,
+          "end": 3.75
+        },
+        {
+          "text": "and",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "text": "all",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "text": "of",
+          "start": 4.05,
+          "end": 4.15
+        },
+        {
+          "text": "us",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "text": "were",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "text": "greatly",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "text": "moved.",
+          "start": 4.69,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12176649644970894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f7006fb103b481e5df49767a4f0248503ae56aa14002cf29227d05c0eb1916e7",
+  "selected_reasons": []
+}

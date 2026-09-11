@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "0a5468e0fa168fec2e052ff2b43f0f1153eb3c5fd1e11571dc1bf93acb91531e",
+  "attempts": [
+    {
+      "asr_seconds": 0.10261620581150055,
+      "alignment_seconds": 8.156150579452515e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Which in English runs thus:",
+        "hotwords": "Which, English"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Which in English runs thus.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Which",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.58154296875
+            },
+            {
+              "text": " in",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " English",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " runs",
+              "start": 0.88,
+              "end": 1.24,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " thus.",
+              "start": 1.24,
+              "end": 1.54,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Which",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "in",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "English",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "runs",
+          "start": 0.88,
+          "end": 1.24
+        },
+        {
+          "raw": "thus.",
+          "start": 1.24,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Which",
+        "in",
+        "English",
+        "runs",
+        "thus:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Which",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "in",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "English",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "runs",
+          "start": 0.88,
+          "end": 1.24
+        },
+        {
+          "text": "thus:",
+          "start": 1.24,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10273656994104385
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dc9fc9fc368fa5e118ad50d3f314ce00a94808aaa335dd93609c1bb9d2fd6b34",
+  "selected_reasons": []
+}

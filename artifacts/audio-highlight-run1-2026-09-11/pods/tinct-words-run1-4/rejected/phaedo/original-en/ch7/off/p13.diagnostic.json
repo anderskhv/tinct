@@ -1,0 +1,439 @@
+{
+  "complete": true,
+  "signature": "b314a4ce283e9f4c3e24dfaea95d5014198f70f4cec77f6770a25b9688c281ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.12309202924370766,
+      "alignment_seconds": 9.409338235855103e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Summon me then, he said, and I will be your eye-alouse until the sun goes down.",
+          "start": 0.08,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " Summon",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.1728515625
+            },
+            {
+              "text": " me",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " then,",
+              "start": 0.84,
+              "end": 1.2,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " he",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " said,",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " I",
+              "start": 2.4,
+              "end": 2.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " eye",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.33251953125
+            },
+            {
+              "text": "-alouse",
+              "start": 3.1,
+              "end": 3.44,
+              "probability": 0.6407470703125
+            },
+            {
+              "text": " until",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sun",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " goes",
+              "start": 3.98,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " down.",
+              "start": 4.26,
+              "end": 4.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Summon",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "me",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "then,",
+          "start": 0.84,
+          "end": 1.2
+        },
+        {
+          "raw": "he",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "said,",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "I",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "raw": "will",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "be",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "your",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "eye",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "-alouse",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "raw": "until",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "sun",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "goes",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "raw": "down.",
+          "start": 4.26,
+          "end": 4.68
+        }
+      ],
+      "expected_tokens": [
+        "Summon",
+        "me",
+        "then,",
+        "he",
+        "said,",
+        "and",
+        "I",
+        "will",
+        "be",
+        "your",
+        "Iolaus",
+        "until",
+        "the",
+        "sun",
+        "goes",
+        "down."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          16,
+          12,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Summon",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "me",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "then,",
+          "start": 0.84,
+          "end": 1.2
+        },
+        {
+          "text": "he",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "said,",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "I",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "text": "will",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "be",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "your",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "Iolaus",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "text": "until",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "sun",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "goes",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "text": "down.",
+          "start": 4.26,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.12323247827589512
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d1122d284189f6ca19e1d6303daf6895c1a8d31241027557540c0803511aa41",
+  "selected_reasons": []
+}

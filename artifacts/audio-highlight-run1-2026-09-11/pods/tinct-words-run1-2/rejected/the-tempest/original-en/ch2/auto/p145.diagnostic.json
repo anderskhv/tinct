@@ -1,0 +1,129 @@
+{
+  "complete": true,
+  "signature": "0d7f943e196f412f68558f8c110102d9d7322203cde306bc03fb06c3494d2f68",
+  "attempts": [
+    {
+      "asr_seconds": 0.3733304813504219,
+      "alignment_seconds": 9.465962648391724e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Aside]",
+        "hotwords": "Aside"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside",
+          "start": 0.05,
+          "end": 0.77,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.416259765625
+            }
+          ]
+        },
+        {
+          "text": " Aside",
+          "start": 0.77,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.77,
+              "end": 0.89,
+              "probability": 5.7816505432128906e-05
+            }
+          ]
+        },
+        {
+          "text": " Aside",
+          "start": 0.89,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.89,
+              "end": 1.45,
+              "probability": 1.9073486328125e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Aside",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "raw": "Aside",
+          "start": 0.89,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "[Aside]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Aside]",
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.373460054397583
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ac472908847d143f677c5086839e47acb896a9e49b58d3a50233fc8b49a0072",
+  "selected_reasons": []
+}

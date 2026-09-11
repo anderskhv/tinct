@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "bfafd829b37302db35df02d61f49c826280e025c17c270ae01317f0c33b76cf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.113538165576756,
+      "alignment_seconds": 7.580593228340149e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Very true, said Cebes, laughing gently and speaking in his native Boeotian.",
+        "hotwords": "Very, Cebes, Boeotian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Very true, said Cebes, laughing gently and speaking in his native Boeotian.",
+          "start": 0.02,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.1585693359375
+            },
+            {
+              "text": " true,",
+              "start": 0.7,
+              "end": 1.14,
+              "probability": 0.9765625
+            },
+            {
+              "text": " said",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Cebes,",
+              "start": 1.68,
+              "end": 2.26,
+              "probability": 0.4117635091145833
+            },
+            {
+              "text": " laughing",
+              "start": 2.62,
+              "end": 2.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " gently",
+              "start": 2.96,
+              "end": 3.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " speaking",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.92,
+              "end": 4.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " native",
+              "start": 4.28,
+              "end": 4.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Boeotian.",
+              "start": 4.6,
+              "end": 5.16,
+              "probability": 0.9357096354166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "true,",
+          "start": 0.7,
+          "end": 1.14
+        },
+        {
+          "raw": "said",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "Cebes,",
+          "start": 1.68,
+          "end": 2.26
+        },
+        {
+          "raw": "laughing",
+          "start": 2.62,
+          "end": 2.96
+        },
+        {
+          "raw": "gently",
+          "start": 2.96,
+          "end": 3.34
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "speaking",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "raw": "in",
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "raw": "his",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "native",
+          "start": 4.28,
+          "end": 4.6
+        },
+        {
+          "raw": "Boeotian.",
+          "start": 4.6,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "true,",
+        "said",
+        "Cebes,",
+        "laughing",
+        "gently",
+        "and",
+        "speaking",
+        "in",
+        "his",
+        "native",
+        "Boeotian."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "true,",
+          "start": 0.7,
+          "end": 1.14
+        },
+        {
+          "text": "said",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "text": "Cebes,",
+          "start": 1.68,
+          "end": 2.26
+        },
+        {
+          "text": "laughing",
+          "start": 2.62,
+          "end": 2.96
+        },
+        {
+          "text": "gently",
+          "start": 2.96,
+          "end": 3.34
+        },
+        {
+          "text": "and",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "speaking",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "text": "in",
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "text": "his",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "native",
+          "start": 4.28,
+          "end": 4.6
+        },
+        {
+          "text": "Boeotian.",
+          "start": 4.6,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11364877130836248
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "74a10d8bc2605a05d2592cc4e8987f3d48725d7c8a8eeacf885b6e7ebfc8c4a3",
+  "selected_reasons": []
+}

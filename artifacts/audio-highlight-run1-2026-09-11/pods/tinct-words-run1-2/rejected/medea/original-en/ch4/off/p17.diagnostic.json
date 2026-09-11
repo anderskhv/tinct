@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "4dd17d323943205ace595e32d5002a3aae5912c88869dffd2840eb4983d13cf5",
+  "attempts": [
+    {
+      "asr_seconds": 0.18637080490589142,
+      "alignment_seconds": 0.0008036568760871887,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jason, by those vile curses on the Royal Halls let loose.",
+          "start": 0.02,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " by",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " those",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " vile",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " curses",
+              "start": 1.84,
+              "end": 2.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Royal",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " Halls",
+              "start": 2.68,
+              "end": 3.08,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " let",
+              "start": 3.08,
+              "end": 3.3,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " loose.",
+              "start": 3.3,
+              "end": 3.58,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "by",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "those",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "vile",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "curses",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "raw": "on",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "the",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "Royal",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "Halls",
+          "start": 2.68,
+          "end": 3.08
+        },
+        {
+          "raw": "let",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "raw": "loose.",
+          "start": 3.3,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "By",
+        "those",
+        "vile",
+        "curses",
+        "on",
+        "the",
+        "royal",
+        "halls",
+        "Let",
+        "loose.",
+        ".",
+        ".",
+        "."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "delete",
+          11,
+          14,
+          11,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          11,
+          14,
+          11,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "By",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "those",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "vile",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "curses",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "text": "on",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "the",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "royal",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "halls",
+          "start": 2.68,
+          "end": 3.08
+        },
+        {
+          "text": "Let",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "text": "loose.",
+          "start": 3.3,
+          "end": 3.58
+        },
+        {
+          "text": ".",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "text": ".",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "text": ".",
+          "start": 3.58,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18739240616559982
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73af232b66e636bf9f2a2c2c047f57a0d20387e28ffcde2bc10c8a72d41f87d7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "ca03ee2a4ea13d5e12efa225091a9b99ca17389ba0050edacb2a386235377252",
+  "attempts": [
+    {
+      "asr_seconds": 0.150508351624012,
+      "alignment_seconds": 0.0001142546534538269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leader, think of those twain as things once fair, that ne'er shall bloom again.",
+          "start": 0.05,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.73046875
+            },
+            {
+              "text": " think",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " those",
+              "start": 1.51,
+              "end": 1.71,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " twain",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.9296875
+            },
+            {
+              "text": " as",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.953125
+            },
+            {
+              "text": " things",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " once",
+              "start": 2.53,
+              "end": 2.83,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " fair,",
+              "start": 2.83,
+              "end": 3.21,
+              "probability": 0.96875
+            },
+            {
+              "text": " that",
+              "start": 3.65,
+              "end": 3.75,
+              "probability": 0.802734375
+            },
+            {
+              "text": " ne",
+              "start": 3.75,
+              "end": 3.97,
+              "probability": 0.904296875
+            },
+            {
+              "text": "'er",
+              "start": 3.97,
+              "end": 4.07,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " shall",
+              "start": 4.07,
+              "end": 4.25,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " bloom",
+              "start": 4.25,
+              "end": 4.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again.",
+              "start": 4.51,
+              "end": 4.87,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "think",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "of",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "those",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "raw": "twain",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "as",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "things",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "once",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "raw": "fair,",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "raw": "that",
+          "start": 3.65,
+          "end": 3.75
+        },
+        {
+          "raw": "ne",
+          "start": 3.75,
+          "end": 3.97
+        },
+        {
+          "raw": "'er",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "raw": "shall",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "raw": "bloom",
+          "start": 4.25,
+          "end": 4.51
+        },
+        {
+          "raw": "again.",
+          "start": 4.51,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Think",
+        "of",
+        "those",
+        "twain",
+        "As",
+        "things",
+        "once",
+        "fair,",
+        "that",
+        "ne'er",
+        "shall",
+        "bloom",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          14,
+          12,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Think",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "of",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "those",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "text": "twain",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "text": "As",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "things",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "once",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "text": "fair,",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "text": "that",
+          "start": 3.65,
+          "end": 3.75
+        },
+        {
+          "text": "ne'er",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "text": "shall",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "text": "bloom",
+          "start": 4.25,
+          "end": 4.51
+        },
+        {
+          "text": "again.",
+          "start": 4.51,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.15067143738269806
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64e4d5faba054b34b154ecf0a76d79e58900af1b9abb189aa7dec64f460ffe4b",
+  "selected_reasons": []
+}

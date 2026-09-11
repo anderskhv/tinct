@@ -1,0 +1,336 @@
+{
+  "complete": true,
+  "signature": "54f574c47a5b1c4dc42f14d4a02bcd581971054fdba37fa6b57c096075ad8717",
+  "attempts": [
+    {
+      "asr_seconds": 0.13729344308376312,
+      "alignment_seconds": 8.011609315872192e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hide repeated lanyan. No never heard of him since my time",
+          "start": 0.08,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " Hide",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.1595458984375
+            },
+            {
+              "text": " repeated",
+              "start": 0.76,
+              "end": 1.38,
+              "probability": 0.328369140625
+            },
+            {
+              "text": " lanyan.",
+              "start": 1.38,
+              "end": 2.08,
+              "probability": 0.7547200520833334
+            },
+            {
+              "text": " No",
+              "start": 2.3,
+              "end": 2.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " never",
+              "start": 2.68,
+              "end": 2.92,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " heard",
+              "start": 2.92,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " since",
+              "start": 3.48,
+              "end": 3.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time",
+              "start": 3.96,
+              "end": 4.4,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hide",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "repeated",
+          "start": 0.76,
+          "end": 1.38
+        },
+        {
+          "raw": "lanyan.",
+          "start": 1.38,
+          "end": 2.08
+        },
+        {
+          "raw": "No",
+          "start": 2.3,
+          "end": 2.68
+        },
+        {
+          "raw": "never",
+          "start": 2.68,
+          "end": 2.92
+        },
+        {
+          "raw": "heard",
+          "start": 2.92,
+          "end": 3.2
+        },
+        {
+          "raw": "of",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "him",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "since",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "raw": "my",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "raw": "time",
+          "start": 3.96,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "\"Hyde?\"",
+        "repeated",
+        "Lanyon.",
+        "\"No.",
+        "Never",
+        "heard",
+        "of",
+        "him.",
+        "Since",
+        "my",
+        "time.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          11,
+          3,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Hyde?\"",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "repeated",
+          "start": 0.76,
+          "end": 1.38
+        },
+        {
+          "text": "Lanyon.",
+          "start": 1.38,
+          "end": 1.84
+        },
+        {
+          "text": "\"No.",
+          "start": 2.3,
+          "end": 2.68
+        },
+        {
+          "text": "Never",
+          "start": 2.68,
+          "end": 2.92
+        },
+        {
+          "text": "heard",
+          "start": 2.92,
+          "end": 3.2
+        },
+        {
+          "text": "of",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "him.",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "Since",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "text": "my",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "text": "time.\"",
+          "start": 3.96,
+          "end": 4.4
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.137400783598423
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "df49109ee0f0ff5d523a1855ef2518b0bf84fa85ba0ff78c657fe0368db53cb5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

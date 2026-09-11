@@ -1,0 +1,2799 @@
+{
+  "complete": true,
+  "signature": "b7f32df6d395fc3ea6f072fd04026b33028e39e4f24b1dcfa6f85cf824b5dee3",
+  "attempts": [
+    {
+      "asr_seconds": 0.27221672236919403,
+      "alignment_seconds": 0.00038658827543258667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. One word more; I charge thee That thou attend me: thou dost here usurp The name thou owest not; and hast put thyself Upon this island as a spy, to win it From me, the lord on't.",
+        "hotwords": "Prospero, One, I, That, Upon, From"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, One word more, I charge thee That thou attend me, thou dost hear usurp The name thou owest not, and hast put thyself Upon this island as a spy, to win it From me, the lord on't.",
+          "start": 0.54,
+          "end": 12.26,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.54,
+              "end": 1.06,
+              "probability": 0.7208251953125
+            },
+            {
+              "text": " One",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.07147216796875
+            },
+            {
+              "text": " word",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.84765625
+            },
+            {
+              "text": " more,",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 2.62,
+              "end": 2.82,
+              "probability": 0.978515625
+            },
+            {
+              "text": " charge",
+              "start": 2.82,
+              "end": 3.1,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " thee",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " That",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.0179290771484375
+            },
+            {
+              "text": " thou",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " attend",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " me,",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thou",
+              "start": 4.8,
+              "end": 4.9,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " dost",
+              "start": 4.9,
+              "end": 5.16,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " hear",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " usurp",
+              "start": 5.34,
+              "end": 5.9,
+              "probability": 0.49739253520965576
+            },
+            {
+              "text": " The",
+              "start": 5.9,
+              "end": 5.98,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " name",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " thou",
+              "start": 6.24,
+              "end": 6.46,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " owest",
+              "start": 6.46,
+              "end": 6.9,
+              "probability": 0.19787120819091797
+            },
+            {
+              "text": " not,",
+              "start": 6.9,
+              "end": 7.24,
+              "probability": 0.921875
+            },
+            {
+              "text": " and",
+              "start": 7.68,
+              "end": 7.82,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " hast",
+              "start": 7.82,
+              "end": 8.06,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " put",
+              "start": 8.06,
+              "end": 8.28,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " thyself",
+              "start": 8.28,
+              "end": 8.6,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " Upon",
+              "start": 8.6,
+              "end": 8.86,
+              "probability": 0.81640625
+            },
+            {
+              "text": " this",
+              "start": 8.86,
+              "end": 9.08,
+              "probability": 0.98828125
+            },
+            {
+              "text": " island",
+              "start": 9.08,
+              "end": 9.38,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " as",
+              "start": 9.38,
+              "end": 9.64,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " a",
+              "start": 9.64,
+              "end": 9.78,
+              "probability": 0.986328125
+            },
+            {
+              "text": " spy,",
+              "start": 9.78,
+              "end": 10.12,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 10.36,
+              "end": 10.46,
+              "probability": 0.11090087890625
+            },
+            {
+              "text": " win",
+              "start": 10.46,
+              "end": 10.6,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " it",
+              "start": 10.6,
+              "end": 10.74,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " From",
+              "start": 10.74,
+              "end": 10.92,
+              "probability": 0.1964111328125
+            },
+            {
+              "text": " me,",
+              "start": 10.92,
+              "end": 11.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 11.46,
+              "end": 11.58,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " lord",
+              "start": 11.58,
+              "end": 11.76,
+              "probability": 0.701171875
+            },
+            {
+              "text": " on't.",
+              "start": 11.76,
+              "end": 12.26,
+              "probability": 0.34311628341674805
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "raw": "One",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "word",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "more,",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "raw": "charge",
+          "start": 2.82,
+          "end": 3.1
+        },
+        {
+          "raw": "thee",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "That",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "thou",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "attend",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "me,",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "thou",
+          "start": 4.8,
+          "end": 4.9
+        },
+        {
+          "raw": "dost",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "raw": "hear",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "usurp",
+          "start": 5.34,
+          "end": 5.9
+        },
+        {
+          "raw": "The",
+          "start": 5.9,
+          "end": 5.98
+        },
+        {
+          "raw": "name",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "raw": "thou",
+          "start": 6.24,
+          "end": 6.46
+        },
+        {
+          "raw": "owest",
+          "start": 6.46,
+          "end": 6.9
+        },
+        {
+          "raw": "not,",
+          "start": 6.9,
+          "end": 7.24
+        },
+        {
+          "raw": "and",
+          "start": 7.68,
+          "end": 7.82
+        },
+        {
+          "raw": "hast",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "raw": "put",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "raw": "thyself",
+          "start": 8.28,
+          "end": 8.6
+        },
+        {
+          "raw": "Upon",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "raw": "this",
+          "start": 8.86,
+          "end": 9.08
+        },
+        {
+          "raw": "island",
+          "start": 9.08,
+          "end": 9.38
+        },
+        {
+          "raw": "as",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "raw": "a",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "raw": "spy,",
+          "start": 9.78,
+          "end": 10.12
+        },
+        {
+          "raw": "to",
+          "start": 10.36,
+          "end": 10.46
+        },
+        {
+          "raw": "win",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "raw": "it",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "raw": "From",
+          "start": 10.74,
+          "end": 10.92
+        },
+        {
+          "raw": "me,",
+          "start": 10.92,
+          "end": 11.22
+        },
+        {
+          "raw": "the",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "raw": "lord",
+          "start": 11.58,
+          "end": 11.76
+        },
+        {
+          "raw": "on't.",
+          "start": 11.76,
+          "end": 12.26
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "One",
+        "word",
+        "more;",
+        "I",
+        "charge",
+        "thee",
+        "That",
+        "thou",
+        "attend",
+        "me:",
+        "thou",
+        "dost",
+        "here",
+        "usurp",
+        "The",
+        "name",
+        "thou",
+        "owest",
+        "not;",
+        "and",
+        "hast",
+        "put",
+        "thyself",
+        "Upon",
+        "this",
+        "island",
+        "as",
+        "a",
+        "spy,",
+        "to",
+        "win",
+        "it",
+        "From",
+        "me,",
+        "the",
+        "lord",
+        "on't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          38,
+          14,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "text": "One",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "word",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "more;",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "I",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "text": "charge",
+          "start": 2.82,
+          "end": 3.1
+        },
+        {
+          "text": "thee",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "That",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "thou",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "attend",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "text": "me:",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "thou",
+          "start": 4.8,
+          "end": 4.9
+        },
+        {
+          "text": "dost",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "text": "here",
+          "start": 5.16,
+          "end": 5.25
+        },
+        {
+          "text": "usurp",
+          "start": 5.34,
+          "end": 5.9
+        },
+        {
+          "text": "The",
+          "start": 5.9,
+          "end": 5.98
+        },
+        {
+          "text": "name",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "text": "thou",
+          "start": 6.24,
+          "end": 6.46
+        },
+        {
+          "text": "owest",
+          "start": 6.46,
+          "end": 6.9
+        },
+        {
+          "text": "not;",
+          "start": 6.9,
+          "end": 7.24
+        },
+        {
+          "text": "and",
+          "start": 7.68,
+          "end": 7.82
+        },
+        {
+          "text": "hast",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "text": "put",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "text": "thyself",
+          "start": 8.28,
+          "end": 8.6
+        },
+        {
+          "text": "Upon",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "text": "this",
+          "start": 8.86,
+          "end": 9.08
+        },
+        {
+          "text": "island",
+          "start": 9.08,
+          "end": 9.38
+        },
+        {
+          "text": "as",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "text": "a",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "text": "spy,",
+          "start": 9.78,
+          "end": 10.12
+        },
+        {
+          "text": "to",
+          "start": 10.36,
+          "end": 10.46
+        },
+        {
+          "text": "win",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "text": "it",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "text": "From",
+          "start": 10.74,
+          "end": 10.92
+        },
+        {
+          "text": "me,",
+          "start": 10.92,
+          "end": 11.22
+        },
+        {
+          "text": "the",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "text": "lord",
+          "start": 11.58,
+          "end": 11.76
+        },
+        {
+          "text": "on't.",
+          "start": 11.76,
+          "end": 12.26
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 38,
+        "matched_words": 37
+      },
+      "match_ratio": 0.9736842105263158,
+      "rejection_reasons": [],
+      "seconds": 0.27278606593608856
+    },
+    {
+      "asr_seconds": 0.33673471957445145,
+      "alignment_seconds": 0.00017311424016952515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Prospero, One, I, That, Upon, From"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Prospero, One Word More, I Charge Thee That Thou Attend Me, Thou Dost Hear You Serp The",
+          "start": 0.54,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.54,
+              "end": 1.06,
+              "probability": 0.7208251953125
+            },
+            {
+              "text": " One",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.07147216796875
+            },
+            {
+              "text": " Word",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.1220703125
+            },
+            {
+              "text": " More,",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.453857421875
+            },
+            {
+              "text": " I",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Charge",
+              "start": 2.82,
+              "end": 3.08,
+              "probability": 0.1343994140625
+            },
+            {
+              "text": " Thee",
+              "start": 3.08,
+              "end": 3.4,
+              "probability": 0.687744140625
+            },
+            {
+              "text": " That",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " Thou",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Attend",
+              "start": 3.68,
+              "end": 4.02,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " Me,",
+              "start": 4.02,
+              "end": 4.3,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Thou",
+              "start": 4.86,
+              "end": 4.9,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Dost",
+              "start": 4.9,
+              "end": 5.14,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " Hear",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.619140625
+            },
+            {
+              "text": " You",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " Serp",
+              "start": 5.58,
+              "end": 5.88,
+              "probability": 0.763427734375
+            },
+            {
+              "text": " The",
+              "start": 5.88,
+              "end": 6.0,
+              "probability": 0.80517578125
+            }
+          ]
+        },
+        {
+          "text": " Name Thou Owest Not, And Hast Put Thyself Upon This Island As A Spy To Win It From Me, The",
+          "start": 6.0,
+          "end": 11.56,
+          "words": [
+            {
+              "text": " Name",
+              "start": 6.0,
+              "end": 6.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Thou",
+              "start": 6.22,
+              "end": 6.48,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Owest",
+              "start": 6.48,
+              "end": 6.92,
+              "probability": 0.54498291015625
+            },
+            {
+              "text": " Not,",
+              "start": 6.92,
+              "end": 7.24,
+              "probability": 0.833984375
+            },
+            {
+              "text": " And",
+              "start": 7.72,
+              "end": 7.82,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " Hast",
+              "start": 7.82,
+              "end": 8.06,
+              "probability": 0.70703125
+            },
+            {
+              "text": " Put",
+              "start": 8.06,
+              "end": 8.26,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Thyself",
+              "start": 8.26,
+              "end": 8.6,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Upon",
+              "start": 8.6,
+              "end": 8.86,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " This",
+              "start": 8.86,
+              "end": 9.06,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Island",
+              "start": 9.06,
+              "end": 9.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " As",
+              "start": 9.36,
+              "end": 9.64,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " A",
+              "start": 9.64,
+              "end": 9.8,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Spy",
+              "start": 9.8,
+              "end": 10.08,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " To",
+              "start": 10.08,
+              "end": 10.46,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " Win",
+              "start": 10.46,
+              "end": 10.6,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " It",
+              "start": 10.6,
+              "end": 10.72,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " From",
+              "start": 10.72,
+              "end": 10.92,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Me,",
+              "start": 10.92,
+              "end": 11.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " The",
+              "start": 11.52,
+              "end": 11.56,
+              "probability": 0.97119140625
+            }
+          ]
+        },
+        {
+          "text": " Lord Aunt.",
+          "start": 11.56,
+          "end": 12.08,
+          "words": [
+            {
+              "text": " Lord",
+              "start": 11.56,
+              "end": 11.76,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Aunt.",
+              "start": 11.76,
+              "end": 12.08,
+              "probability": 0.336181640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "raw": "One",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "Word",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "More,",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "I",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "Charge",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "raw": "Thee",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "raw": "That",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "Thou",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "Attend",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "raw": "Me,",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "raw": "Thou",
+          "start": 4.86,
+          "end": 4.9
+        },
+        {
+          "raw": "Dost",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "raw": "Hear",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "You",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "Serp",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "raw": "The",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "raw": "Name",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "raw": "Thou",
+          "start": 6.22,
+          "end": 6.48
+        },
+        {
+          "raw": "Owest",
+          "start": 6.48,
+          "end": 6.92
+        },
+        {
+          "raw": "Not,",
+          "start": 6.92,
+          "end": 7.24
+        },
+        {
+          "raw": "And",
+          "start": 7.72,
+          "end": 7.82
+        },
+        {
+          "raw": "Hast",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "raw": "Put",
+          "start": 8.06,
+          "end": 8.26
+        },
+        {
+          "raw": "Thyself",
+          "start": 8.26,
+          "end": 8.6
+        },
+        {
+          "raw": "Upon",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "raw": "This",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "raw": "Island",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "raw": "As",
+          "start": 9.36,
+          "end": 9.64
+        },
+        {
+          "raw": "A",
+          "start": 9.64,
+          "end": 9.8
+        },
+        {
+          "raw": "Spy",
+          "start": 9.8,
+          "end": 10.08
+        },
+        {
+          "raw": "To",
+          "start": 10.08,
+          "end": 10.46
+        },
+        {
+          "raw": "Win",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "raw": "It",
+          "start": 10.6,
+          "end": 10.72
+        },
+        {
+          "raw": "From",
+          "start": 10.72,
+          "end": 10.92
+        },
+        {
+          "raw": "Me,",
+          "start": 10.92,
+          "end": 11.22
+        },
+        {
+          "raw": "The",
+          "start": 11.52,
+          "end": 11.56
+        },
+        {
+          "raw": "Lord",
+          "start": 11.56,
+          "end": 11.76
+        },
+        {
+          "raw": "Aunt.",
+          "start": 11.76,
+          "end": 12.08
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "One",
+        "word",
+        "more;",
+        "I",
+        "charge",
+        "thee",
+        "That",
+        "thou",
+        "attend",
+        "me:",
+        "thou",
+        "dost",
+        "here",
+        "usurp",
+        "The",
+        "name",
+        "thou",
+        "owest",
+        "not;",
+        "and",
+        "hast",
+        "put",
+        "thyself",
+        "Upon",
+        "this",
+        "island",
+        "as",
+        "a",
+        "spy,",
+        "to",
+        "win",
+        "it",
+        "From",
+        "me,",
+        "the",
+        "lord",
+        "on't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          16
+        ],
+        [
+          "equal",
+          15,
+          37,
+          16,
+          38
+        ],
+        [
+          "replace",
+          37,
+          38,
+          38,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          15,
+          13,
+          16
+        ],
+        [
+          "replace",
+          37,
+          38,
+          38,
+          39
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "text": "One",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "word",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "more;",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "I",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "charge",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "text": "thee",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "text": "That",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "thou",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "attend",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "text": "me:",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "text": "thou",
+          "start": 4.86,
+          "end": 4.9
+        },
+        {
+          "text": "dost",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "text": "here",
+          "start": 5.14,
+          "end": 5.51
+        },
+        {
+          "text": "usurp",
+          "start": 5.51,
+          "end": 5.695
+        },
+        {
+          "text": "The",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "text": "name",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "text": "thou",
+          "start": 6.22,
+          "end": 6.48
+        },
+        {
+          "text": "owest",
+          "start": 6.48,
+          "end": 6.92
+        },
+        {
+          "text": "not;",
+          "start": 6.92,
+          "end": 7.24
+        },
+        {
+          "text": "and",
+          "start": 7.72,
+          "end": 7.82
+        },
+        {
+          "text": "hast",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "text": "put",
+          "start": 8.06,
+          "end": 8.26
+        },
+        {
+          "text": "thyself",
+          "start": 8.26,
+          "end": 8.6
+        },
+        {
+          "text": "Upon",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "text": "this",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "text": "island",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "text": "as",
+          "start": 9.36,
+          "end": 9.64
+        },
+        {
+          "text": "a",
+          "start": 9.64,
+          "end": 9.8
+        },
+        {
+          "text": "spy,",
+          "start": 9.8,
+          "end": 10.08
+        },
+        {
+          "text": "to",
+          "start": 10.08,
+          "end": 10.46
+        },
+        {
+          "text": "win",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "text": "it",
+          "start": 10.6,
+          "end": 10.72
+        },
+        {
+          "text": "From",
+          "start": 10.72,
+          "end": 10.92
+        },
+        {
+          "text": "me,",
+          "start": 10.92,
+          "end": 11.22
+        },
+        {
+          "text": "the",
+          "start": 11.52,
+          "end": 11.56
+        },
+        {
+          "text": "lord",
+          "start": 11.56,
+          "end": 11.76
+        },
+        {
+          "text": "on't.",
+          "start": 11.76,
+          "end": 11.92
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 39,
+        "matched_words": 35
+      },
+      "match_ratio": 0.9210526315789473,
+      "rejection_reasons": [],
+      "seconds": 0.3369971737265587
+    },
+    {
+      "asr_seconds": 0.3132542073726654,
+      "alignment_seconds": 0.00016890466213226318,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero! one word more. I charge thee that thou attend me. Thou dost hear you",
+          "start": 0.54,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " Prospero!",
+              "start": 0.54,
+              "end": 1.06,
+              "probability": 0.7208251953125
+            },
+            {
+              "text": " one",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.3349609375
+            },
+            {
+              "text": " word",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " more.",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " charge",
+              "start": 2.82,
+              "end": 3.1,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " thee",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.98046875
+            },
+            {
+              "text": " thou",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.982421875
+            },
+            {
+              "text": " attend",
+              "start": 3.68,
+              "end": 3.96,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " me.",
+              "start": 3.96,
+              "end": 4.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Thou",
+              "start": 4.84,
+              "end": 4.9,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " dost",
+              "start": 4.9,
+              "end": 5.16,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " hear",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " you",
+              "start": 5.34,
+              "end": 5.56,
+              "probability": 0.9306640625
+            }
+          ]
+        },
+        {
+          "text": " serp the name thou owest not, and hast put thyself upon this island as a spy to",
+          "start": 5.56,
+          "end": 10.46,
+          "words": [
+            {
+              "text": " serp",
+              "start": 5.56,
+              "end": 5.88,
+              "probability": 0.6993408203125
+            },
+            {
+              "text": " the",
+              "start": 5.88,
+              "end": 6.0,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " name",
+              "start": 6.0,
+              "end": 6.22,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " thou",
+              "start": 6.22,
+              "end": 6.46,
+              "probability": 0.900390625
+            },
+            {
+              "text": " owest",
+              "start": 6.46,
+              "end": 6.92,
+              "probability": 0.5848388671875
+            },
+            {
+              "text": " not,",
+              "start": 6.92,
+              "end": 7.26,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " and",
+              "start": 7.68,
+              "end": 7.82,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " hast",
+              "start": 7.82,
+              "end": 8.06,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " put",
+              "start": 8.06,
+              "end": 8.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thyself",
+              "start": 8.28,
+              "end": 8.6,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " upon",
+              "start": 8.6,
+              "end": 8.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " this",
+              "start": 8.86,
+              "end": 9.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " island",
+              "start": 9.08,
+              "end": 9.4,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " as",
+              "start": 9.4,
+              "end": 9.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 9.64,
+              "end": 9.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " spy",
+              "start": 9.78,
+              "end": 10.14,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 10.14,
+              "end": 10.46,
+              "probability": 0.8603515625
+            }
+          ]
+        },
+        {
+          "text": " win it from me, the Lord Aunt.",
+          "start": 10.46,
+          "end": 12.08,
+          "words": [
+            {
+              "text": " win",
+              "start": 10.46,
+              "end": 10.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 10.6,
+              "end": 10.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " from",
+              "start": 10.74,
+              "end": 10.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 10.92,
+              "end": 11.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 11.48,
+              "end": 11.56,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Lord",
+              "start": 11.56,
+              "end": 11.76,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " Aunt.",
+              "start": 11.76,
+              "end": 12.08,
+              "probability": 0.2568359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero!",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "raw": "one",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "word",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "more.",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "charge",
+          "start": 2.82,
+          "end": 3.1
+        },
+        {
+          "raw": "thee",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "that",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "thou",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "attend",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "raw": "me.",
+          "start": 3.96,
+          "end": 4.32
+        },
+        {
+          "raw": "Thou",
+          "start": 4.84,
+          "end": 4.9
+        },
+        {
+          "raw": "dost",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "raw": "hear",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "you",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "raw": "serp",
+          "start": 5.56,
+          "end": 5.88
+        },
+        {
+          "raw": "the",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "raw": "name",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "raw": "thou",
+          "start": 6.22,
+          "end": 6.46
+        },
+        {
+          "raw": "owest",
+          "start": 6.46,
+          "end": 6.92
+        },
+        {
+          "raw": "not,",
+          "start": 6.92,
+          "end": 7.26
+        },
+        {
+          "raw": "and",
+          "start": 7.68,
+          "end": 7.82
+        },
+        {
+          "raw": "hast",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "raw": "put",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "raw": "thyself",
+          "start": 8.28,
+          "end": 8.6
+        },
+        {
+          "raw": "upon",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "raw": "this",
+          "start": 8.86,
+          "end": 9.08
+        },
+        {
+          "raw": "island",
+          "start": 9.08,
+          "end": 9.4
+        },
+        {
+          "raw": "as",
+          "start": 9.4,
+          "end": 9.64
+        },
+        {
+          "raw": "a",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "raw": "spy",
+          "start": 9.78,
+          "end": 10.14
+        },
+        {
+          "raw": "to",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "raw": "win",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "raw": "it",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "raw": "from",
+          "start": 10.74,
+          "end": 10.92
+        },
+        {
+          "raw": "me,",
+          "start": 10.92,
+          "end": 11.2
+        },
+        {
+          "raw": "the",
+          "start": 11.48,
+          "end": 11.56
+        },
+        {
+          "raw": "Lord",
+          "start": 11.56,
+          "end": 11.76
+        },
+        {
+          "raw": "Aunt.",
+          "start": 11.76,
+          "end": 12.08
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "One",
+        "word",
+        "more;",
+        "I",
+        "charge",
+        "thee",
+        "That",
+        "thou",
+        "attend",
+        "me:",
+        "thou",
+        "dost",
+        "here",
+        "usurp",
+        "The",
+        "name",
+        "thou",
+        "owest",
+        "not;",
+        "and",
+        "hast",
+        "put",
+        "thyself",
+        "Upon",
+        "this",
+        "island",
+        "as",
+        "a",
+        "spy,",
+        "to",
+        "win",
+        "it",
+        "From",
+        "me,",
+        "the",
+        "lord",
+        "on't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          16
+        ],
+        [
+          "equal",
+          15,
+          37,
+          16,
+          38
+        ],
+        [
+          "replace",
+          37,
+          38,
+          38,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          15,
+          13,
+          16
+        ],
+        [
+          "replace",
+          37,
+          38,
+          38,
+          39
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "text": "One",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "word",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "more;",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "I",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "charge",
+          "start": 2.82,
+          "end": 3.1
+        },
+        {
+          "text": "thee",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "That",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "thou",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "attend",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "text": "me:",
+          "start": 3.96,
+          "end": 4.32
+        },
+        {
+          "text": "thou",
+          "start": 4.84,
+          "end": 4.9
+        },
+        {
+          "text": "dost",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "text": "here",
+          "start": 5.16,
+          "end": 5.52
+        },
+        {
+          "text": "usurp",
+          "start": 5.52,
+          "end": 5.7
+        },
+        {
+          "text": "The",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "text": "name",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "text": "thou",
+          "start": 6.22,
+          "end": 6.46
+        },
+        {
+          "text": "owest",
+          "start": 6.46,
+          "end": 6.92
+        },
+        {
+          "text": "not;",
+          "start": 6.92,
+          "end": 7.26
+        },
+        {
+          "text": "and",
+          "start": 7.68,
+          "end": 7.82
+        },
+        {
+          "text": "hast",
+          "start": 7.82,
+          "end": 8.06
+        },
+        {
+          "text": "put",
+          "start": 8.06,
+          "end": 8.28
+        },
+        {
+          "text": "thyself",
+          "start": 8.28,
+          "end": 8.6
+        },
+        {
+          "text": "Upon",
+          "start": 8.6,
+          "end": 8.86
+        },
+        {
+          "text": "this",
+          "start": 8.86,
+          "end": 9.08
+        },
+        {
+          "text": "island",
+          "start": 9.08,
+          "end": 9.4
+        },
+        {
+          "text": "as",
+          "start": 9.4,
+          "end": 9.64
+        },
+        {
+          "text": "a",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "text": "spy,",
+          "start": 9.78,
+          "end": 10.14
+        },
+        {
+          "text": "to",
+          "start": 10.14,
+          "end": 10.46
+        },
+        {
+          "text": "win",
+          "start": 10.46,
+          "end": 10.6
+        },
+        {
+          "text": "it",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "text": "From",
+          "start": 10.74,
+          "end": 10.92
+        },
+        {
+          "text": "me,",
+          "start": 10.92,
+          "end": 11.2
+        },
+        {
+          "text": "the",
+          "start": 11.48,
+          "end": 11.56
+        },
+        {
+          "text": "lord",
+          "start": 11.56,
+          "end": 11.76
+        },
+        {
+          "text": "on't.",
+          "start": 11.76,
+          "end": 11.92
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 39,
+        "matched_words": 35
+      },
+      "match_ratio": 0.9210526315789473,
+      "rejection_reasons": [],
+      "seconds": 0.313509039580822
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "134cb9ab95f6e008de9bd383ae1d36ca430db44da29f3fb97628d39d2f8e101d",
+  "selected_reasons": []
+}

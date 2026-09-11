@@ -1,0 +1,5485 @@
+{
+  "complete": true,
+  "signature": "e38e780645a084dcdc238ac1e657bbba0b4861fb7e050eefd76f77f01f8577bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.4409084338694811,
+      "alignment_seconds": 0.00024148263037204742,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then now mark the point at which I am aiming:--not only do essential opposites exclude one another, but also concrete things, which, although not in themselves opposed, contain opposites; these, I say, likewise reject the idea which is opposed to that which is contained in them, and when it approaches them they either perish or withdraw. For example; Will not the number three endure annihilation or anything sooner than be converted into an even number, while remaining three?",
+        "hotwords": "Then, I, For, Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then now mark the point at which I am aiming, not only do essential opposites exclude one another, but also concrete things, which, although not in themselves opposed, contain opposites.",
+          "start": 0.05,
+          "end": 10.87,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.50244140625
+            },
+            {
+              "text": " now",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.8984375
+            },
+            {
+              "text": " mark",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " point",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 1.73,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " aiming,",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.935546875
+            },
+            {
+              "text": " only",
+              "start": 2.87,
+              "end": 3.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " essential",
+              "start": 3.41,
+              "end": 3.81,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " opposites",
+              "start": 3.81,
+              "end": 4.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " exclude",
+              "start": 4.37,
+              "end": 4.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " one",
+              "start": 4.75,
+              "end": 5.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " another,",
+              "start": 5.01,
+              "end": 5.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 5.71,
+              "end": 5.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " also",
+              "start": 5.93,
+              "end": 6.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " concrete",
+              "start": 6.23,
+              "end": 6.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " things,",
+              "start": 6.71,
+              "end": 7.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which,",
+              "start": 7.57,
+              "end": 7.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " although",
+              "start": 8.15,
+              "end": 8.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 8.37,
+              "end": 8.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 8.57,
+              "end": 8.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " themselves",
+              "start": 8.69,
+              "end": 9.01,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " opposed,",
+              "start": 9.01,
+              "end": 9.53,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " contain",
+              "start": 9.91,
+              "end": 10.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " opposites.",
+              "start": 10.19,
+              "end": 10.87,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " These, I say, likewise reject the idea which is opposed to that which is contained in them, and when it approaches them they either perish or withdraw.",
+          "start": 10.87,
+          "end": 19.41,
+          "words": [
+            {
+              "text": " These,",
+              "start": 10.87,
+              "end": 11.83,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " I",
+              "start": 11.97,
+              "end": 12.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " say,",
+              "start": 12.13,
+              "end": 12.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " likewise",
+              "start": 12.87,
+              "end": 13.19,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " reject",
+              "start": 13.19,
+              "end": 13.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 13.61,
+              "end": 13.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " idea",
+              "start": 13.83,
+              "end": 14.13,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " which",
+              "start": 14.13,
+              "end": 14.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 14.39,
+              "end": 14.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " opposed",
+              "start": 14.53,
+              "end": 14.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 14.89,
+              "end": 15.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 15.15,
+              "end": 15.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " which",
+              "start": 15.31,
+              "end": 15.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 15.47,
+              "end": 15.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " contained",
+              "start": 15.65,
+              "end": 16.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 16.05,
+              "end": 16.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them,",
+              "start": 16.27,
+              "end": 16.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 16.83,
+              "end": 17.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " when",
+              "start": 17.05,
+              "end": 17.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " it",
+              "start": 17.15,
+              "end": 17.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " approaches",
+              "start": 17.25,
+              "end": 17.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 17.57,
+              "end": 17.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " they",
+              "start": 17.91,
+              "end": 18.09,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " either",
+              "start": 18.09,
+              "end": 18.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " perish",
+              "start": 18.33,
+              "end": 18.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " or",
+              "start": 18.71,
+              "end": 18.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " withdraw.",
+              "start": 18.99,
+              "end": 19.41,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " For example, Will not the number three endure annihilation or anything sooner than be converted into an even number, while remaining three?",
+          "start": 20.19,
+          "end": 27.51,
+          "words": [
+            {
+              "text": " For",
+              "start": 20.19,
+              "end": 20.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " example,",
+              "start": 20.39,
+              "end": 20.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Will",
+              "start": 21.33,
+              "end": 21.41,
+              "probability": 0.005275726318359375
+            },
+            {
+              "text": " not",
+              "start": 21.41,
+              "end": 21.57,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 21.57,
+              "end": 21.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " number",
+              "start": 21.73,
+              "end": 21.89,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " three",
+              "start": 21.89,
+              "end": 22.19,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " endure",
+              "start": 22.19,
+              "end": 22.51,
+              "probability": 0.990234375
+            },
+            {
+              "text": " annihilation",
+              "start": 22.51,
+              "end": 23.09,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " or",
+              "start": 23.09,
+              "end": 23.53,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " anything",
+              "start": 23.53,
+              "end": 23.83,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sooner",
+              "start": 23.83,
+              "end": 24.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " than",
+              "start": 24.21,
+              "end": 24.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 24.49,
+              "end": 24.63,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " converted",
+              "start": 24.63,
+              "end": 25.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 25.03,
+              "end": 25.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " an",
+              "start": 25.35,
+              "end": 25.53,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " even",
+              "start": 25.53,
+              "end": 25.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " number,",
+              "start": 25.75,
+              "end": 26.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " while",
+              "start": 26.53,
+              "end": 26.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " remaining",
+              "start": 26.67,
+              "end": 27.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " three?",
+              "start": 27.05,
+              "end": 27.51,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "now",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "mark",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "the",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "point",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "at",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "which",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "am",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "raw": "aiming,",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "not",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "only",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "raw": "do",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "raw": "essential",
+          "start": 3.41,
+          "end": 3.81
+        },
+        {
+          "raw": "opposites",
+          "start": 3.81,
+          "end": 4.37
+        },
+        {
+          "raw": "exclude",
+          "start": 4.37,
+          "end": 4.75
+        },
+        {
+          "raw": "one",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "raw": "another,",
+          "start": 5.01,
+          "end": 5.35
+        },
+        {
+          "raw": "but",
+          "start": 5.71,
+          "end": 5.93
+        },
+        {
+          "raw": "also",
+          "start": 5.93,
+          "end": 6.23
+        },
+        {
+          "raw": "concrete",
+          "start": 6.23,
+          "end": 6.71
+        },
+        {
+          "raw": "things,",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "raw": "which,",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "raw": "although",
+          "start": 8.15,
+          "end": 8.37
+        },
+        {
+          "raw": "not",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "raw": "in",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "raw": "themselves",
+          "start": 8.69,
+          "end": 9.01
+        },
+        {
+          "raw": "opposed,",
+          "start": 9.01,
+          "end": 9.53
+        },
+        {
+          "raw": "contain",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "raw": "opposites.",
+          "start": 10.19,
+          "end": 10.87
+        },
+        {
+          "raw": "These,",
+          "start": 10.87,
+          "end": 11.83
+        },
+        {
+          "raw": "I",
+          "start": 11.97,
+          "end": 12.13
+        },
+        {
+          "raw": "say,",
+          "start": 12.13,
+          "end": 12.43
+        },
+        {
+          "raw": "likewise",
+          "start": 12.87,
+          "end": 13.19
+        },
+        {
+          "raw": "reject",
+          "start": 13.19,
+          "end": 13.61
+        },
+        {
+          "raw": "the",
+          "start": 13.61,
+          "end": 13.83
+        },
+        {
+          "raw": "idea",
+          "start": 13.83,
+          "end": 14.13
+        },
+        {
+          "raw": "which",
+          "start": 14.13,
+          "end": 14.39
+        },
+        {
+          "raw": "is",
+          "start": 14.39,
+          "end": 14.53
+        },
+        {
+          "raw": "opposed",
+          "start": 14.53,
+          "end": 14.89
+        },
+        {
+          "raw": "to",
+          "start": 14.89,
+          "end": 15.15
+        },
+        {
+          "raw": "that",
+          "start": 15.15,
+          "end": 15.31
+        },
+        {
+          "raw": "which",
+          "start": 15.31,
+          "end": 15.47
+        },
+        {
+          "raw": "is",
+          "start": 15.47,
+          "end": 15.65
+        },
+        {
+          "raw": "contained",
+          "start": 15.65,
+          "end": 16.05
+        },
+        {
+          "raw": "in",
+          "start": 16.05,
+          "end": 16.27
+        },
+        {
+          "raw": "them,",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "raw": "and",
+          "start": 16.83,
+          "end": 17.05
+        },
+        {
+          "raw": "when",
+          "start": 17.05,
+          "end": 17.15
+        },
+        {
+          "raw": "it",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "raw": "approaches",
+          "start": 17.25,
+          "end": 17.57
+        },
+        {
+          "raw": "them",
+          "start": 17.57,
+          "end": 17.91
+        },
+        {
+          "raw": "they",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "raw": "either",
+          "start": 18.09,
+          "end": 18.33
+        },
+        {
+          "raw": "perish",
+          "start": 18.33,
+          "end": 18.71
+        },
+        {
+          "raw": "or",
+          "start": 18.71,
+          "end": 18.99
+        },
+        {
+          "raw": "withdraw.",
+          "start": 18.99,
+          "end": 19.41
+        },
+        {
+          "raw": "For",
+          "start": 20.19,
+          "end": 20.39
+        },
+        {
+          "raw": "example,",
+          "start": 20.39,
+          "end": 20.71
+        },
+        {
+          "raw": "Will",
+          "start": 21.33,
+          "end": 21.41
+        },
+        {
+          "raw": "not",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "raw": "the",
+          "start": 21.57,
+          "end": 21.73
+        },
+        {
+          "raw": "number",
+          "start": 21.73,
+          "end": 21.89
+        },
+        {
+          "raw": "three",
+          "start": 21.89,
+          "end": 22.19
+        },
+        {
+          "raw": "endure",
+          "start": 22.19,
+          "end": 22.51
+        },
+        {
+          "raw": "annihilation",
+          "start": 22.51,
+          "end": 23.09
+        },
+        {
+          "raw": "or",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "raw": "anything",
+          "start": 23.53,
+          "end": 23.83
+        },
+        {
+          "raw": "sooner",
+          "start": 23.83,
+          "end": 24.21
+        },
+        {
+          "raw": "than",
+          "start": 24.21,
+          "end": 24.49
+        },
+        {
+          "raw": "be",
+          "start": 24.49,
+          "end": 24.63
+        },
+        {
+          "raw": "converted",
+          "start": 24.63,
+          "end": 25.03
+        },
+        {
+          "raw": "into",
+          "start": 25.03,
+          "end": 25.35
+        },
+        {
+          "raw": "an",
+          "start": 25.35,
+          "end": 25.53
+        },
+        {
+          "raw": "even",
+          "start": 25.53,
+          "end": 25.75
+        },
+        {
+          "raw": "number,",
+          "start": 25.75,
+          "end": 26.17
+        },
+        {
+          "raw": "while",
+          "start": 26.53,
+          "end": 26.67
+        },
+        {
+          "raw": "remaining",
+          "start": 26.67,
+          "end": 27.05
+        },
+        {
+          "raw": "three?",
+          "start": 27.05,
+          "end": 27.51
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "now",
+        "mark",
+        "the",
+        "point",
+        "at",
+        "which",
+        "I",
+        "am",
+        "aiming:--not",
+        "only",
+        "do",
+        "essential",
+        "opposites",
+        "exclude",
+        "one",
+        "another,",
+        "but",
+        "also",
+        "concrete",
+        "things,",
+        "which,",
+        "although",
+        "not",
+        "in",
+        "themselves",
+        "opposed,",
+        "contain",
+        "opposites;",
+        "these,",
+        "I",
+        "say,",
+        "likewise",
+        "reject",
+        "the",
+        "idea",
+        "which",
+        "is",
+        "opposed",
+        "to",
+        "that",
+        "which",
+        "is",
+        "contained",
+        "in",
+        "them,",
+        "and",
+        "when",
+        "it",
+        "approaches",
+        "them",
+        "they",
+        "either",
+        "perish",
+        "or",
+        "withdraw.",
+        "For",
+        "example;",
+        "Will",
+        "not",
+        "the",
+        "number",
+        "three",
+        "endure",
+        "annihilation",
+        "or",
+        "anything",
+        "sooner",
+        "than",
+        "be",
+        "converted",
+        "into",
+        "an",
+        "even",
+        "number,",
+        "while",
+        "remaining",
+        "three?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          78,
+          11,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "now",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "mark",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "the",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "point",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "at",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "which",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "am",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "text": "aiming:--not",
+          "start": 1.81,
+          "end": 2.34
+        },
+        {
+          "text": "only",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "text": "do",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "text": "essential",
+          "start": 3.41,
+          "end": 3.81
+        },
+        {
+          "text": "opposites",
+          "start": 3.81,
+          "end": 4.37
+        },
+        {
+          "text": "exclude",
+          "start": 4.37,
+          "end": 4.75
+        },
+        {
+          "text": "one",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "text": "another,",
+          "start": 5.01,
+          "end": 5.35
+        },
+        {
+          "text": "but",
+          "start": 5.71,
+          "end": 5.93
+        },
+        {
+          "text": "also",
+          "start": 5.93,
+          "end": 6.23
+        },
+        {
+          "text": "concrete",
+          "start": 6.23,
+          "end": 6.71
+        },
+        {
+          "text": "things,",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "text": "which,",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "text": "although",
+          "start": 8.15,
+          "end": 8.37
+        },
+        {
+          "text": "not",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "text": "in",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "text": "themselves",
+          "start": 8.69,
+          "end": 9.01
+        },
+        {
+          "text": "opposed,",
+          "start": 9.01,
+          "end": 9.53
+        },
+        {
+          "text": "contain",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "text": "opposites;",
+          "start": 10.19,
+          "end": 10.87
+        },
+        {
+          "text": "these,",
+          "start": 10.87,
+          "end": 11.83
+        },
+        {
+          "text": "I",
+          "start": 11.97,
+          "end": 12.13
+        },
+        {
+          "text": "say,",
+          "start": 12.13,
+          "end": 12.43
+        },
+        {
+          "text": "likewise",
+          "start": 12.87,
+          "end": 13.19
+        },
+        {
+          "text": "reject",
+          "start": 13.19,
+          "end": 13.61
+        },
+        {
+          "text": "the",
+          "start": 13.61,
+          "end": 13.83
+        },
+        {
+          "text": "idea",
+          "start": 13.83,
+          "end": 14.13
+        },
+        {
+          "text": "which",
+          "start": 14.13,
+          "end": 14.39
+        },
+        {
+          "text": "is",
+          "start": 14.39,
+          "end": 14.53
+        },
+        {
+          "text": "opposed",
+          "start": 14.53,
+          "end": 14.89
+        },
+        {
+          "text": "to",
+          "start": 14.89,
+          "end": 15.15
+        },
+        {
+          "text": "that",
+          "start": 15.15,
+          "end": 15.31
+        },
+        {
+          "text": "which",
+          "start": 15.31,
+          "end": 15.47
+        },
+        {
+          "text": "is",
+          "start": 15.47,
+          "end": 15.65
+        },
+        {
+          "text": "contained",
+          "start": 15.65,
+          "end": 16.05
+        },
+        {
+          "text": "in",
+          "start": 16.05,
+          "end": 16.27
+        },
+        {
+          "text": "them,",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "text": "and",
+          "start": 16.83,
+          "end": 17.05
+        },
+        {
+          "text": "when",
+          "start": 17.05,
+          "end": 17.15
+        },
+        {
+          "text": "it",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "text": "approaches",
+          "start": 17.25,
+          "end": 17.57
+        },
+        {
+          "text": "them",
+          "start": 17.57,
+          "end": 17.91
+        },
+        {
+          "text": "they",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "text": "either",
+          "start": 18.09,
+          "end": 18.33
+        },
+        {
+          "text": "perish",
+          "start": 18.33,
+          "end": 18.71
+        },
+        {
+          "text": "or",
+          "start": 18.71,
+          "end": 18.99
+        },
+        {
+          "text": "withdraw.",
+          "start": 18.99,
+          "end": 19.41
+        },
+        {
+          "text": "For",
+          "start": 20.19,
+          "end": 20.39
+        },
+        {
+          "text": "example;",
+          "start": 20.39,
+          "end": 20.71
+        },
+        {
+          "text": "Will",
+          "start": 21.33,
+          "end": 21.41
+        },
+        {
+          "text": "not",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "text": "the",
+          "start": 21.57,
+          "end": 21.73
+        },
+        {
+          "text": "number",
+          "start": 21.73,
+          "end": 21.89
+        },
+        {
+          "text": "three",
+          "start": 21.89,
+          "end": 22.19
+        },
+        {
+          "text": "endure",
+          "start": 22.19,
+          "end": 22.51
+        },
+        {
+          "text": "annihilation",
+          "start": 22.51,
+          "end": 23.09
+        },
+        {
+          "text": "or",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "text": "anything",
+          "start": 23.53,
+          "end": 23.83
+        },
+        {
+          "text": "sooner",
+          "start": 23.83,
+          "end": 24.21
+        },
+        {
+          "text": "than",
+          "start": 24.21,
+          "end": 24.49
+        },
+        {
+          "text": "be",
+          "start": 24.49,
+          "end": 24.63
+        },
+        {
+          "text": "converted",
+          "start": 24.63,
+          "end": 25.03
+        },
+        {
+          "text": "into",
+          "start": 25.03,
+          "end": 25.35
+        },
+        {
+          "text": "an",
+          "start": 25.35,
+          "end": 25.53
+        },
+        {
+          "text": "even",
+          "start": 25.53,
+          "end": 25.75
+        },
+        {
+          "text": "number,",
+          "start": 25.75,
+          "end": 26.17
+        },
+        {
+          "text": "while",
+          "start": 26.53,
+          "end": 26.67
+        },
+        {
+          "text": "remaining",
+          "start": 26.67,
+          "end": 27.05
+        },
+        {
+          "text": "three?",
+          "start": 27.05,
+          "end": 27.51
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 79,
+        "matched_words": 77
+      },
+      "match_ratio": 0.9871794871794872,
+      "rejection_reasons": [],
+      "seconds": 0.44129085540771484
+    },
+    {
+      "asr_seconds": 0.4394966661930084,
+      "alignment_seconds": 0.00025599636137485504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Then, I, For, Will"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Then now mark the point at which I am aiming. Not only do essential opposites exclude one",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.5
+            },
+            {
+              "text": " now",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.8984375
+            },
+            {
+              "text": " mark",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " point",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 1.73,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " aiming.",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Not",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " only",
+              "start": 2.89,
+              "end": 3.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 3.19,
+              "end": 3.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " essential",
+              "start": 3.43,
+              "end": 3.81,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " opposites",
+              "start": 3.81,
+              "end": 4.37,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " exclude",
+              "start": 4.37,
+              "end": 4.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 4.75,
+              "end": 5.01,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " another, but also concrete things, which, although not in themselves opposed, contain",
+          "start": 5.01,
+          "end": 10.19,
+          "words": [
+            {
+              "text": " another,",
+              "start": 5.01,
+              "end": 5.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 5.73,
+              "end": 5.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " also",
+              "start": 5.93,
+              "end": 6.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " concrete",
+              "start": 6.23,
+              "end": 6.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " things,",
+              "start": 6.71,
+              "end": 7.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which,",
+              "start": 7.59,
+              "end": 7.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " although",
+              "start": 8.13,
+              "end": 8.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 8.37,
+              "end": 8.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 8.57,
+              "end": 8.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " themselves",
+              "start": 8.69,
+              "end": 9.03,
+              "probability": 0.978515625
+            },
+            {
+              "text": " opposed,",
+              "start": 9.03,
+              "end": 9.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " contain",
+              "start": 9.91,
+              "end": 10.19,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " opposites. These, I say, likewise reject the idea which is opposed to that which is contained",
+          "start": 10.59,
+          "end": 16.05,
+          "words": [
+            {
+              "text": " opposites.",
+              "start": 10.59,
+              "end": 10.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " These,",
+              "start": 11.47,
+              "end": 11.87,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " I",
+              "start": 11.95,
+              "end": 12.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " say,",
+              "start": 12.13,
+              "end": 12.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " likewise",
+              "start": 12.87,
+              "end": 13.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " reject",
+              "start": 13.19,
+              "end": 13.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 13.63,
+              "end": 13.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " idea",
+              "start": 13.83,
+              "end": 14.15,
+              "probability": 0.984375
+            },
+            {
+              "text": " which",
+              "start": 14.15,
+              "end": 14.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 14.39,
+              "end": 14.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " opposed",
+              "start": 14.55,
+              "end": 14.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 14.89,
+              "end": 15.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 15.15,
+              "end": 15.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " which",
+              "start": 15.31,
+              "end": 15.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 15.47,
+              "end": 15.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " contained",
+              "start": 15.67,
+              "end": 16.05,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " in them, and when it approaches them they either perish or withdraw. For example, will",
+          "start": 16.05,
+          "end": 21.41,
+          "words": [
+            {
+              "text": " in",
+              "start": 16.05,
+              "end": 16.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them,",
+              "start": 16.27,
+              "end": 16.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 16.75,
+              "end": 17.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 17.05,
+              "end": 17.15,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " it",
+              "start": 17.15,
+              "end": 17.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " approaches",
+              "start": 17.25,
+              "end": 17.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 17.61,
+              "end": 17.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " they",
+              "start": 17.91,
+              "end": 18.09,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " either",
+              "start": 18.09,
+              "end": 18.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " perish",
+              "start": 18.33,
+              "end": 18.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " or",
+              "start": 18.73,
+              "end": 18.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " withdraw.",
+              "start": 18.99,
+              "end": 19.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " For",
+              "start": 20.17,
+              "end": 20.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " example,",
+              "start": 20.39,
+              "end": 20.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 21.33,
+              "end": 21.41,
+              "probability": 0.958984375
+            }
+          ]
+        },
+        {
+          "text": " not the number three endure annihilation or anything sooner than be converted into an",
+          "start": 21.41,
+          "end": 25.53,
+          "words": [
+            {
+              "text": " not",
+              "start": 21.41,
+              "end": 21.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 21.57,
+              "end": 21.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " number",
+              "start": 21.73,
+              "end": 21.91,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " three",
+              "start": 21.91,
+              "end": 22.17,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " endure",
+              "start": 22.17,
+              "end": 22.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " annihilation",
+              "start": 22.53,
+              "end": 23.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " or",
+              "start": 23.09,
+              "end": 23.53,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " anything",
+              "start": 23.53,
+              "end": 23.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sooner",
+              "start": 23.85,
+              "end": 24.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " than",
+              "start": 24.21,
+              "end": 24.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 24.49,
+              "end": 24.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " converted",
+              "start": 24.65,
+              "end": 25.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " into",
+              "start": 25.05,
+              "end": 25.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " an",
+              "start": 25.35,
+              "end": 25.53,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " even number while remaining three?",
+          "start": 25.53,
+          "end": 27.47,
+          "words": [
+            {
+              "text": " even",
+              "start": 25.53,
+              "end": 25.77,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " number",
+              "start": 25.77,
+              "end": 26.15,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " while",
+              "start": 26.15,
+              "end": 26.67,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " remaining",
+              "start": 26.67,
+              "end": 27.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " three?",
+              "start": 27.05,
+              "end": 27.47,
+              "probability": 0.6298828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "now",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "mark",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "the",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "point",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "at",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "which",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "am",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "raw": "aiming.",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "Not",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "only",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "raw": "do",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "raw": "essential",
+          "start": 3.43,
+          "end": 3.81
+        },
+        {
+          "raw": "opposites",
+          "start": 3.81,
+          "end": 4.37
+        },
+        {
+          "raw": "exclude",
+          "start": 4.37,
+          "end": 4.75
+        },
+        {
+          "raw": "one",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "raw": "another,",
+          "start": 5.01,
+          "end": 5.35
+        },
+        {
+          "raw": "but",
+          "start": 5.73,
+          "end": 5.93
+        },
+        {
+          "raw": "also",
+          "start": 5.93,
+          "end": 6.23
+        },
+        {
+          "raw": "concrete",
+          "start": 6.23,
+          "end": 6.71
+        },
+        {
+          "raw": "things,",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "raw": "which,",
+          "start": 7.59,
+          "end": 7.85
+        },
+        {
+          "raw": "although",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "raw": "not",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "raw": "in",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "raw": "themselves",
+          "start": 8.69,
+          "end": 9.03
+        },
+        {
+          "raw": "opposed,",
+          "start": 9.03,
+          "end": 9.53
+        },
+        {
+          "raw": "contain",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "raw": "opposites.",
+          "start": 10.59,
+          "end": 10.87
+        },
+        {
+          "raw": "These,",
+          "start": 11.47,
+          "end": 11.87
+        },
+        {
+          "raw": "I",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "raw": "say,",
+          "start": 12.13,
+          "end": 12.41
+        },
+        {
+          "raw": "likewise",
+          "start": 12.87,
+          "end": 13.19
+        },
+        {
+          "raw": "reject",
+          "start": 13.19,
+          "end": 13.63
+        },
+        {
+          "raw": "the",
+          "start": 13.63,
+          "end": 13.83
+        },
+        {
+          "raw": "idea",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "raw": "which",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "raw": "is",
+          "start": 14.39,
+          "end": 14.55
+        },
+        {
+          "raw": "opposed",
+          "start": 14.55,
+          "end": 14.89
+        },
+        {
+          "raw": "to",
+          "start": 14.89,
+          "end": 15.15
+        },
+        {
+          "raw": "that",
+          "start": 15.15,
+          "end": 15.31
+        },
+        {
+          "raw": "which",
+          "start": 15.31,
+          "end": 15.47
+        },
+        {
+          "raw": "is",
+          "start": 15.47,
+          "end": 15.67
+        },
+        {
+          "raw": "contained",
+          "start": 15.67,
+          "end": 16.05
+        },
+        {
+          "raw": "in",
+          "start": 16.05,
+          "end": 16.27
+        },
+        {
+          "raw": "them,",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "raw": "and",
+          "start": 16.75,
+          "end": 17.05
+        },
+        {
+          "raw": "when",
+          "start": 17.05,
+          "end": 17.15
+        },
+        {
+          "raw": "it",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "raw": "approaches",
+          "start": 17.25,
+          "end": 17.61
+        },
+        {
+          "raw": "them",
+          "start": 17.61,
+          "end": 17.91
+        },
+        {
+          "raw": "they",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "raw": "either",
+          "start": 18.09,
+          "end": 18.33
+        },
+        {
+          "raw": "perish",
+          "start": 18.33,
+          "end": 18.73
+        },
+        {
+          "raw": "or",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "raw": "withdraw.",
+          "start": 18.99,
+          "end": 19.41
+        },
+        {
+          "raw": "For",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "raw": "example,",
+          "start": 20.39,
+          "end": 20.73
+        },
+        {
+          "raw": "will",
+          "start": 21.33,
+          "end": 21.41
+        },
+        {
+          "raw": "not",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "raw": "the",
+          "start": 21.57,
+          "end": 21.73
+        },
+        {
+          "raw": "number",
+          "start": 21.73,
+          "end": 21.91
+        },
+        {
+          "raw": "three",
+          "start": 21.91,
+          "end": 22.17
+        },
+        {
+          "raw": "endure",
+          "start": 22.17,
+          "end": 22.53
+        },
+        {
+          "raw": "annihilation",
+          "start": 22.53,
+          "end": 23.09
+        },
+        {
+          "raw": "or",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "raw": "anything",
+          "start": 23.53,
+          "end": 23.85
+        },
+        {
+          "raw": "sooner",
+          "start": 23.85,
+          "end": 24.21
+        },
+        {
+          "raw": "than",
+          "start": 24.21,
+          "end": 24.49
+        },
+        {
+          "raw": "be",
+          "start": 24.49,
+          "end": 24.65
+        },
+        {
+          "raw": "converted",
+          "start": 24.65,
+          "end": 25.05
+        },
+        {
+          "raw": "into",
+          "start": 25.05,
+          "end": 25.35
+        },
+        {
+          "raw": "an",
+          "start": 25.35,
+          "end": 25.53
+        },
+        {
+          "raw": "even",
+          "start": 25.53,
+          "end": 25.77
+        },
+        {
+          "raw": "number",
+          "start": 25.77,
+          "end": 26.15
+        },
+        {
+          "raw": "while",
+          "start": 26.15,
+          "end": 26.67
+        },
+        {
+          "raw": "remaining",
+          "start": 26.67,
+          "end": 27.05
+        },
+        {
+          "raw": "three?",
+          "start": 27.05,
+          "end": 27.47
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "now",
+        "mark",
+        "the",
+        "point",
+        "at",
+        "which",
+        "I",
+        "am",
+        "aiming:--not",
+        "only",
+        "do",
+        "essential",
+        "opposites",
+        "exclude",
+        "one",
+        "another,",
+        "but",
+        "also",
+        "concrete",
+        "things,",
+        "which,",
+        "although",
+        "not",
+        "in",
+        "themselves",
+        "opposed,",
+        "contain",
+        "opposites;",
+        "these,",
+        "I",
+        "say,",
+        "likewise",
+        "reject",
+        "the",
+        "idea",
+        "which",
+        "is",
+        "opposed",
+        "to",
+        "that",
+        "which",
+        "is",
+        "contained",
+        "in",
+        "them,",
+        "and",
+        "when",
+        "it",
+        "approaches",
+        "them",
+        "they",
+        "either",
+        "perish",
+        "or",
+        "withdraw.",
+        "For",
+        "example;",
+        "Will",
+        "not",
+        "the",
+        "number",
+        "three",
+        "endure",
+        "annihilation",
+        "or",
+        "anything",
+        "sooner",
+        "than",
+        "be",
+        "converted",
+        "into",
+        "an",
+        "even",
+        "number,",
+        "while",
+        "remaining",
+        "three?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          78,
+          11,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "now",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "mark",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "the",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "point",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "at",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "which",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "am",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "text": "aiming:--not",
+          "start": 1.81,
+          "end": 2.35
+        },
+        {
+          "text": "only",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "text": "do",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "text": "essential",
+          "start": 3.43,
+          "end": 3.81
+        },
+        {
+          "text": "opposites",
+          "start": 3.81,
+          "end": 4.37
+        },
+        {
+          "text": "exclude",
+          "start": 4.37,
+          "end": 4.75
+        },
+        {
+          "text": "one",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "text": "another,",
+          "start": 5.01,
+          "end": 5.35
+        },
+        {
+          "text": "but",
+          "start": 5.73,
+          "end": 5.93
+        },
+        {
+          "text": "also",
+          "start": 5.93,
+          "end": 6.23
+        },
+        {
+          "text": "concrete",
+          "start": 6.23,
+          "end": 6.71
+        },
+        {
+          "text": "things,",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "text": "which,",
+          "start": 7.59,
+          "end": 7.85
+        },
+        {
+          "text": "although",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "text": "not",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "text": "in",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "text": "themselves",
+          "start": 8.69,
+          "end": 9.03
+        },
+        {
+          "text": "opposed,",
+          "start": 9.03,
+          "end": 9.53
+        },
+        {
+          "text": "contain",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "text": "opposites;",
+          "start": 10.59,
+          "end": 10.87
+        },
+        {
+          "text": "these,",
+          "start": 11.47,
+          "end": 11.87
+        },
+        {
+          "text": "I",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "text": "say,",
+          "start": 12.13,
+          "end": 12.41
+        },
+        {
+          "text": "likewise",
+          "start": 12.87,
+          "end": 13.19
+        },
+        {
+          "text": "reject",
+          "start": 13.19,
+          "end": 13.63
+        },
+        {
+          "text": "the",
+          "start": 13.63,
+          "end": 13.83
+        },
+        {
+          "text": "idea",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "text": "which",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "text": "is",
+          "start": 14.39,
+          "end": 14.55
+        },
+        {
+          "text": "opposed",
+          "start": 14.55,
+          "end": 14.89
+        },
+        {
+          "text": "to",
+          "start": 14.89,
+          "end": 15.15
+        },
+        {
+          "text": "that",
+          "start": 15.15,
+          "end": 15.31
+        },
+        {
+          "text": "which",
+          "start": 15.31,
+          "end": 15.47
+        },
+        {
+          "text": "is",
+          "start": 15.47,
+          "end": 15.67
+        },
+        {
+          "text": "contained",
+          "start": 15.67,
+          "end": 16.05
+        },
+        {
+          "text": "in",
+          "start": 16.05,
+          "end": 16.27
+        },
+        {
+          "text": "them,",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "text": "and",
+          "start": 16.75,
+          "end": 17.05
+        },
+        {
+          "text": "when",
+          "start": 17.05,
+          "end": 17.15
+        },
+        {
+          "text": "it",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "text": "approaches",
+          "start": 17.25,
+          "end": 17.61
+        },
+        {
+          "text": "them",
+          "start": 17.61,
+          "end": 17.91
+        },
+        {
+          "text": "they",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "text": "either",
+          "start": 18.09,
+          "end": 18.33
+        },
+        {
+          "text": "perish",
+          "start": 18.33,
+          "end": 18.73
+        },
+        {
+          "text": "or",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "text": "withdraw.",
+          "start": 18.99,
+          "end": 19.41
+        },
+        {
+          "text": "For",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "text": "example;",
+          "start": 20.39,
+          "end": 20.73
+        },
+        {
+          "text": "Will",
+          "start": 21.33,
+          "end": 21.41
+        },
+        {
+          "text": "not",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "text": "the",
+          "start": 21.57,
+          "end": 21.73
+        },
+        {
+          "text": "number",
+          "start": 21.73,
+          "end": 21.91
+        },
+        {
+          "text": "three",
+          "start": 21.91,
+          "end": 22.17
+        },
+        {
+          "text": "endure",
+          "start": 22.17,
+          "end": 22.53
+        },
+        {
+          "text": "annihilation",
+          "start": 22.53,
+          "end": 23.09
+        },
+        {
+          "text": "or",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "text": "anything",
+          "start": 23.53,
+          "end": 23.85
+        },
+        {
+          "text": "sooner",
+          "start": 23.85,
+          "end": 24.21
+        },
+        {
+          "text": "than",
+          "start": 24.21,
+          "end": 24.49
+        },
+        {
+          "text": "be",
+          "start": 24.49,
+          "end": 24.65
+        },
+        {
+          "text": "converted",
+          "start": 24.65,
+          "end": 25.05
+        },
+        {
+          "text": "into",
+          "start": 25.05,
+          "end": 25.35
+        },
+        {
+          "text": "an",
+          "start": 25.35,
+          "end": 25.53
+        },
+        {
+          "text": "even",
+          "start": 25.53,
+          "end": 25.77
+        },
+        {
+          "text": "number,",
+          "start": 25.77,
+          "end": 26.15
+        },
+        {
+          "text": "while",
+          "start": 26.15,
+          "end": 26.67
+        },
+        {
+          "text": "remaining",
+          "start": 26.67,
+          "end": 27.05
+        },
+        {
+          "text": "three?",
+          "start": 27.05,
+          "end": 27.47
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 79,
+        "matched_words": 77
+      },
+      "match_ratio": 0.9871794871794872,
+      "rejection_reasons": [],
+      "seconds": 0.43990731704980135
+    },
+    {
+      "asr_seconds": 0.5264315605163574,
+      "alignment_seconds": 0.0002661142498254776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then now mark the point at which I am aiming.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.5
+            },
+            {
+              "text": " now",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.8984375
+            },
+            {
+              "text": " mark",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " point",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 1.73,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " aiming.",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Not only do essential opposites exclude one another, but also concrete things, which,",
+          "start": 2.67,
+          "end": 7.85,
+          "words": [
+            {
+              "text": " Not",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " only",
+              "start": 2.89,
+              "end": 3.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 3.19,
+              "end": 3.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " essential",
+              "start": 3.43,
+              "end": 3.81,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " opposites",
+              "start": 3.81,
+              "end": 4.37,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " exclude",
+              "start": 4.37,
+              "end": 4.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 4.75,
+              "end": 5.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " another,",
+              "start": 5.01,
+              "end": 5.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 5.73,
+              "end": 5.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " also",
+              "start": 5.93,
+              "end": 6.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " concrete",
+              "start": 6.23,
+              "end": 6.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " things,",
+              "start": 6.71,
+              "end": 7.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which,",
+              "start": 7.59,
+              "end": 7.85,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " although not in themselves opposed, contain opposites.",
+          "start": 8.13,
+          "end": 10.87,
+          "words": [
+            {
+              "text": " although",
+              "start": 8.13,
+              "end": 8.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 8.37,
+              "end": 8.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 8.57,
+              "end": 8.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " themselves",
+              "start": 8.69,
+              "end": 9.03,
+              "probability": 0.978515625
+            },
+            {
+              "text": " opposed,",
+              "start": 9.03,
+              "end": 9.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " contain",
+              "start": 9.91,
+              "end": 10.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " opposites.",
+              "start": 10.19,
+              "end": 10.87,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " These, I say, likewise reject the idea which is opposed to that which is contained in them,",
+          "start": 11.47,
+          "end": 16.47,
+          "words": [
+            {
+              "text": " These,",
+              "start": 11.47,
+              "end": 11.87,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " I",
+              "start": 11.95,
+              "end": 12.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " say,",
+              "start": 12.13,
+              "end": 12.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " likewise",
+              "start": 12.87,
+              "end": 13.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " reject",
+              "start": 13.19,
+              "end": 13.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 13.63,
+              "end": 13.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " idea",
+              "start": 13.83,
+              "end": 14.15,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " which",
+              "start": 14.15,
+              "end": 14.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 14.39,
+              "end": 14.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " opposed",
+              "start": 14.55,
+              "end": 14.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 14.89,
+              "end": 15.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 15.15,
+              "end": 15.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " which",
+              "start": 15.31,
+              "end": 15.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 15.47,
+              "end": 15.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " contained",
+              "start": 15.67,
+              "end": 16.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 16.05,
+              "end": 16.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them,",
+              "start": 16.27,
+              "end": 16.47,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " and when it approaches them they either perish or withdraw.",
+          "start": 16.75,
+          "end": 19.41,
+          "words": [
+            {
+              "text": " and",
+              "start": 16.75,
+              "end": 17.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 17.05,
+              "end": 17.15,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " it",
+              "start": 17.15,
+              "end": 17.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " approaches",
+              "start": 17.25,
+              "end": 17.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 17.61,
+              "end": 17.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " they",
+              "start": 17.91,
+              "end": 18.09,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " either",
+              "start": 18.09,
+              "end": 18.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " perish",
+              "start": 18.33,
+              "end": 18.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " or",
+              "start": 18.73,
+              "end": 18.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " withdraw.",
+              "start": 18.99,
+              "end": 19.41,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " For example, will not the number three endure annihilation or anything sooner than be converted",
+          "start": 20.17,
+          "end": 25.05,
+          "words": [
+            {
+              "text": " For",
+              "start": 20.17,
+              "end": 20.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " example,",
+              "start": 20.39,
+              "end": 20.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 21.33,
+              "end": 21.41,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " not",
+              "start": 21.41,
+              "end": 21.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 21.57,
+              "end": 21.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " number",
+              "start": 21.73,
+              "end": 21.91,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " three",
+              "start": 21.91,
+              "end": 22.17,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " endure",
+              "start": 22.17,
+              "end": 22.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " annihilation",
+              "start": 22.53,
+              "end": 23.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " or",
+              "start": 23.09,
+              "end": 23.53,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " anything",
+              "start": 23.53,
+              "end": 23.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sooner",
+              "start": 23.85,
+              "end": 24.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " than",
+              "start": 24.21,
+              "end": 24.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 24.49,
+              "end": 24.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " converted",
+              "start": 24.65,
+              "end": 25.05,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " into an even number while remaining three?",
+          "start": 25.05,
+          "end": 27.49,
+          "words": [
+            {
+              "text": " into",
+              "start": 25.05,
+              "end": 25.29,
+              "probability": 0.697265625
+            },
+            {
+              "text": " an",
+              "start": 25.29,
+              "end": 25.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " even",
+              "start": 25.49,
+              "end": 25.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " number",
+              "start": 25.75,
+              "end": 26.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " while",
+              "start": 26.15,
+              "end": 26.67,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " remaining",
+              "start": 26.67,
+              "end": 27.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " three?",
+              "start": 27.07,
+              "end": 27.49,
+              "probability": 0.72314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "now",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "mark",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "the",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "point",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "at",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "which",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "am",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "raw": "aiming.",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "Not",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "only",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "raw": "do",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "raw": "essential",
+          "start": 3.43,
+          "end": 3.81
+        },
+        {
+          "raw": "opposites",
+          "start": 3.81,
+          "end": 4.37
+        },
+        {
+          "raw": "exclude",
+          "start": 4.37,
+          "end": 4.75
+        },
+        {
+          "raw": "one",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "raw": "another,",
+          "start": 5.01,
+          "end": 5.35
+        },
+        {
+          "raw": "but",
+          "start": 5.73,
+          "end": 5.93
+        },
+        {
+          "raw": "also",
+          "start": 5.93,
+          "end": 6.23
+        },
+        {
+          "raw": "concrete",
+          "start": 6.23,
+          "end": 6.71
+        },
+        {
+          "raw": "things,",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "raw": "which,",
+          "start": 7.59,
+          "end": 7.85
+        },
+        {
+          "raw": "although",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "raw": "not",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "raw": "in",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "raw": "themselves",
+          "start": 8.69,
+          "end": 9.03
+        },
+        {
+          "raw": "opposed,",
+          "start": 9.03,
+          "end": 9.53
+        },
+        {
+          "raw": "contain",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "raw": "opposites.",
+          "start": 10.19,
+          "end": 10.87
+        },
+        {
+          "raw": "These,",
+          "start": 11.47,
+          "end": 11.87
+        },
+        {
+          "raw": "I",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "raw": "say,",
+          "start": 12.13,
+          "end": 12.41
+        },
+        {
+          "raw": "likewise",
+          "start": 12.87,
+          "end": 13.19
+        },
+        {
+          "raw": "reject",
+          "start": 13.19,
+          "end": 13.63
+        },
+        {
+          "raw": "the",
+          "start": 13.63,
+          "end": 13.83
+        },
+        {
+          "raw": "idea",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "raw": "which",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "raw": "is",
+          "start": 14.39,
+          "end": 14.55
+        },
+        {
+          "raw": "opposed",
+          "start": 14.55,
+          "end": 14.89
+        },
+        {
+          "raw": "to",
+          "start": 14.89,
+          "end": 15.15
+        },
+        {
+          "raw": "that",
+          "start": 15.15,
+          "end": 15.31
+        },
+        {
+          "raw": "which",
+          "start": 15.31,
+          "end": 15.47
+        },
+        {
+          "raw": "is",
+          "start": 15.47,
+          "end": 15.67
+        },
+        {
+          "raw": "contained",
+          "start": 15.67,
+          "end": 16.05
+        },
+        {
+          "raw": "in",
+          "start": 16.05,
+          "end": 16.27
+        },
+        {
+          "raw": "them,",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "raw": "and",
+          "start": 16.75,
+          "end": 17.05
+        },
+        {
+          "raw": "when",
+          "start": 17.05,
+          "end": 17.15
+        },
+        {
+          "raw": "it",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "raw": "approaches",
+          "start": 17.25,
+          "end": 17.61
+        },
+        {
+          "raw": "them",
+          "start": 17.61,
+          "end": 17.91
+        },
+        {
+          "raw": "they",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "raw": "either",
+          "start": 18.09,
+          "end": 18.33
+        },
+        {
+          "raw": "perish",
+          "start": 18.33,
+          "end": 18.73
+        },
+        {
+          "raw": "or",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "raw": "withdraw.",
+          "start": 18.99,
+          "end": 19.41
+        },
+        {
+          "raw": "For",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "raw": "example,",
+          "start": 20.39,
+          "end": 20.73
+        },
+        {
+          "raw": "will",
+          "start": 21.33,
+          "end": 21.41
+        },
+        {
+          "raw": "not",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "raw": "the",
+          "start": 21.57,
+          "end": 21.73
+        },
+        {
+          "raw": "number",
+          "start": 21.73,
+          "end": 21.91
+        },
+        {
+          "raw": "three",
+          "start": 21.91,
+          "end": 22.17
+        },
+        {
+          "raw": "endure",
+          "start": 22.17,
+          "end": 22.53
+        },
+        {
+          "raw": "annihilation",
+          "start": 22.53,
+          "end": 23.09
+        },
+        {
+          "raw": "or",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "raw": "anything",
+          "start": 23.53,
+          "end": 23.85
+        },
+        {
+          "raw": "sooner",
+          "start": 23.85,
+          "end": 24.21
+        },
+        {
+          "raw": "than",
+          "start": 24.21,
+          "end": 24.49
+        },
+        {
+          "raw": "be",
+          "start": 24.49,
+          "end": 24.65
+        },
+        {
+          "raw": "converted",
+          "start": 24.65,
+          "end": 25.05
+        },
+        {
+          "raw": "into",
+          "start": 25.05,
+          "end": 25.29
+        },
+        {
+          "raw": "an",
+          "start": 25.29,
+          "end": 25.49
+        },
+        {
+          "raw": "even",
+          "start": 25.49,
+          "end": 25.75
+        },
+        {
+          "raw": "number",
+          "start": 25.75,
+          "end": 26.15
+        },
+        {
+          "raw": "while",
+          "start": 26.15,
+          "end": 26.67
+        },
+        {
+          "raw": "remaining",
+          "start": 26.67,
+          "end": 27.07
+        },
+        {
+          "raw": "three?",
+          "start": 27.07,
+          "end": 27.49
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "now",
+        "mark",
+        "the",
+        "point",
+        "at",
+        "which",
+        "I",
+        "am",
+        "aiming:--not",
+        "only",
+        "do",
+        "essential",
+        "opposites",
+        "exclude",
+        "one",
+        "another,",
+        "but",
+        "also",
+        "concrete",
+        "things,",
+        "which,",
+        "although",
+        "not",
+        "in",
+        "themselves",
+        "opposed,",
+        "contain",
+        "opposites;",
+        "these,",
+        "I",
+        "say,",
+        "likewise",
+        "reject",
+        "the",
+        "idea",
+        "which",
+        "is",
+        "opposed",
+        "to",
+        "that",
+        "which",
+        "is",
+        "contained",
+        "in",
+        "them,",
+        "and",
+        "when",
+        "it",
+        "approaches",
+        "them",
+        "they",
+        "either",
+        "perish",
+        "or",
+        "withdraw.",
+        "For",
+        "example;",
+        "Will",
+        "not",
+        "the",
+        "number",
+        "three",
+        "endure",
+        "annihilation",
+        "or",
+        "anything",
+        "sooner",
+        "than",
+        "be",
+        "converted",
+        "into",
+        "an",
+        "even",
+        "number,",
+        "while",
+        "remaining",
+        "three?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          78,
+          11,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "now",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "mark",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "the",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "point",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "at",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "which",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "I",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "am",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "text": "aiming:--not",
+          "start": 1.81,
+          "end": 2.35
+        },
+        {
+          "text": "only",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "text": "do",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "text": "essential",
+          "start": 3.43,
+          "end": 3.81
+        },
+        {
+          "text": "opposites",
+          "start": 3.81,
+          "end": 4.37
+        },
+        {
+          "text": "exclude",
+          "start": 4.37,
+          "end": 4.75
+        },
+        {
+          "text": "one",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "text": "another,",
+          "start": 5.01,
+          "end": 5.35
+        },
+        {
+          "text": "but",
+          "start": 5.73,
+          "end": 5.93
+        },
+        {
+          "text": "also",
+          "start": 5.93,
+          "end": 6.23
+        },
+        {
+          "text": "concrete",
+          "start": 6.23,
+          "end": 6.71
+        },
+        {
+          "text": "things,",
+          "start": 6.71,
+          "end": 7.17
+        },
+        {
+          "text": "which,",
+          "start": 7.59,
+          "end": 7.85
+        },
+        {
+          "text": "although",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "text": "not",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "text": "in",
+          "start": 8.57,
+          "end": 8.69
+        },
+        {
+          "text": "themselves",
+          "start": 8.69,
+          "end": 9.03
+        },
+        {
+          "text": "opposed,",
+          "start": 9.03,
+          "end": 9.53
+        },
+        {
+          "text": "contain",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "text": "opposites;",
+          "start": 10.19,
+          "end": 10.87
+        },
+        {
+          "text": "these,",
+          "start": 11.47,
+          "end": 11.87
+        },
+        {
+          "text": "I",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "text": "say,",
+          "start": 12.13,
+          "end": 12.41
+        },
+        {
+          "text": "likewise",
+          "start": 12.87,
+          "end": 13.19
+        },
+        {
+          "text": "reject",
+          "start": 13.19,
+          "end": 13.63
+        },
+        {
+          "text": "the",
+          "start": 13.63,
+          "end": 13.83
+        },
+        {
+          "text": "idea",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "text": "which",
+          "start": 14.15,
+          "end": 14.39
+        },
+        {
+          "text": "is",
+          "start": 14.39,
+          "end": 14.55
+        },
+        {
+          "text": "opposed",
+          "start": 14.55,
+          "end": 14.89
+        },
+        {
+          "text": "to",
+          "start": 14.89,
+          "end": 15.15
+        },
+        {
+          "text": "that",
+          "start": 15.15,
+          "end": 15.31
+        },
+        {
+          "text": "which",
+          "start": 15.31,
+          "end": 15.47
+        },
+        {
+          "text": "is",
+          "start": 15.47,
+          "end": 15.67
+        },
+        {
+          "text": "contained",
+          "start": 15.67,
+          "end": 16.05
+        },
+        {
+          "text": "in",
+          "start": 16.05,
+          "end": 16.27
+        },
+        {
+          "text": "them,",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "text": "and",
+          "start": 16.75,
+          "end": 17.05
+        },
+        {
+          "text": "when",
+          "start": 17.05,
+          "end": 17.15
+        },
+        {
+          "text": "it",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "text": "approaches",
+          "start": 17.25,
+          "end": 17.61
+        },
+        {
+          "text": "them",
+          "start": 17.61,
+          "end": 17.91
+        },
+        {
+          "text": "they",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "text": "either",
+          "start": 18.09,
+          "end": 18.33
+        },
+        {
+          "text": "perish",
+          "start": 18.33,
+          "end": 18.73
+        },
+        {
+          "text": "or",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "text": "withdraw.",
+          "start": 18.99,
+          "end": 19.41
+        },
+        {
+          "text": "For",
+          "start": 20.17,
+          "end": 20.39
+        },
+        {
+          "text": "example;",
+          "start": 20.39,
+          "end": 20.73
+        },
+        {
+          "text": "Will",
+          "start": 21.33,
+          "end": 21.41
+        },
+        {
+          "text": "not",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "text": "the",
+          "start": 21.57,
+          "end": 21.73
+        },
+        {
+          "text": "number",
+          "start": 21.73,
+          "end": 21.91
+        },
+        {
+          "text": "three",
+          "start": 21.91,
+          "end": 22.17
+        },
+        {
+          "text": "endure",
+          "start": 22.17,
+          "end": 22.53
+        },
+        {
+          "text": "annihilation",
+          "start": 22.53,
+          "end": 23.09
+        },
+        {
+          "text": "or",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "text": "anything",
+          "start": 23.53,
+          "end": 23.85
+        },
+        {
+          "text": "sooner",
+          "start": 23.85,
+          "end": 24.21
+        },
+        {
+          "text": "than",
+          "start": 24.21,
+          "end": 24.49
+        },
+        {
+          "text": "be",
+          "start": 24.49,
+          "end": 24.65
+        },
+        {
+          "text": "converted",
+          "start": 24.65,
+          "end": 25.05
+        },
+        {
+          "text": "into",
+          "start": 25.05,
+          "end": 25.29
+        },
+        {
+          "text": "an",
+          "start": 25.29,
+          "end": 25.49
+        },
+        {
+          "text": "even",
+          "start": 25.49,
+          "end": 25.75
+        },
+        {
+          "text": "number,",
+          "start": 25.75,
+          "end": 26.15
+        },
+        {
+          "text": "while",
+          "start": 26.15,
+          "end": 26.67
+        },
+        {
+          "text": "remaining",
+          "start": 26.67,
+          "end": 27.07
+        },
+        {
+          "text": "three?",
+          "start": 27.07,
+          "end": 27.49
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 79,
+        "matched_words": 77
+      },
+      "match_ratio": 0.9871794871794872,
+      "rejection_reasons": [],
+      "seconds": 0.526851057074964
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7f08ff042147f9ad06fcd665c6c3888812305d5f0fcfd844a7e926ba4b91877f",
+  "selected_reasons": []
+}

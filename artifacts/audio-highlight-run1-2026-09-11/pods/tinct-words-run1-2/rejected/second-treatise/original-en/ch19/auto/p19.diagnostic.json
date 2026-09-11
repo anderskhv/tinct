@@ -1,0 +1,3507 @@
+{
+  "complete": true,
+  "signature": "c1788973c5df21e8a4a02041b5d3d93348c4b99b1a0e39d8491e639e8c33fd3c",
+  "attempts": [
+    {
+      "asr_seconds": 0.8406591489911079,
+      "alignment_seconds": 0.0004912242293357849,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First, No more than any other hypothesis: for when the people are made miserable, and find themselves exposed to the ill usage of arbitrary power, cry up their governors, as much as you will, for sons of Jupiter; let them be sacred and divine, descended, or authorized from heaven; give them out for whom or what you please, the same will happen. The people generally ill treated, and contrary to right, will be ready upon any occasion to ease themselves of a burden that sits heavy upon them. They will wish, and seek for the opportunity, which in the change, weakness and accidents of human affairs, seldom delays long to offer itself. He must have lived but a little while in the world, who has not seen examples of this in his time; and he must have read very little, who cannot produce examples of it in all sorts of governments in the world.",
+        "hotwords": "First, No, Jupiter, They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, No more than any other hypothesis, for when the people are made miserable, and find",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.1531982421875
+            },
+            {
+              "text": " No",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.004344940185546875
+            },
+            {
+              "text": " more",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " than",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " any",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " other",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hypothesis,",
+              "start": 1.79,
+              "end": 2.43,
+              "probability": 0.96484375
+            },
+            {
+              "text": " for",
+              "start": 3.17,
+              "end": 3.23,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " when",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.9765625
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " people",
+              "start": 3.45,
+              "end": 3.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " are",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " made",
+              "start": 3.83,
+              "end": 3.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " miserable,",
+              "start": 3.99,
+              "end": 4.39,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 4.93,
+              "end": 5.03,
+              "probability": 0.96484375
+            },
+            {
+              "text": " find",
+              "start": 5.03,
+              "end": 5.25,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " themselves exposed to the ill usage of arbitrary power, cry up their governors, as much as",
+          "start": 5.25,
+          "end": 10.29,
+          "words": [
+            {
+              "text": " themselves",
+              "start": 5.25,
+              "end": 5.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " exposed",
+              "start": 5.59,
+              "end": 6.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 6.13,
+              "end": 6.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 6.45,
+              "end": 6.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ill",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " usage",
+              "start": 6.77,
+              "end": 7.11,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " of",
+              "start": 7.11,
+              "end": 7.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " arbitrary",
+              "start": 7.35,
+              "end": 7.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " power,",
+              "start": 7.77,
+              "end": 8.23,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cry",
+              "start": 8.75,
+              "end": 8.91,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " up",
+              "start": 8.91,
+              "end": 9.09,
+              "probability": 0.990234375
+            },
+            {
+              "text": " their",
+              "start": 9.09,
+              "end": 9.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " governors,",
+              "start": 9.25,
+              "end": 9.55,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " as",
+              "start": 9.83,
+              "end": 9.95,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " much",
+              "start": 9.95,
+              "end": 10.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 10.13,
+              "end": 10.29,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " you will, for sons of Jupiter, let them be sacred and divine, descended, or authorized",
+          "start": 10.29,
+          "end": 15.81,
+          "words": [
+            {
+              "text": " you",
+              "start": 10.29,
+              "end": 10.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " will,",
+              "start": 10.45,
+              "end": 10.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for",
+              "start": 11.03,
+              "end": 11.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sons",
+              "start": 11.25,
+              "end": 11.41,
+              "probability": 0.595703125
+            },
+            {
+              "text": " of",
+              "start": 11.41,
+              "end": 11.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Jupiter,",
+              "start": 11.63,
+              "end": 11.93,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " let",
+              "start": 12.65,
+              "end": 12.77,
+              "probability": 0.94140625
+            },
+            {
+              "text": " them",
+              "start": 12.77,
+              "end": 12.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 12.89,
+              "end": 13.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sacred",
+              "start": 13.07,
+              "end": 13.41,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 13.41,
+              "end": 13.69,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " divine,",
+              "start": 13.69,
+              "end": 14.07,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " descended,",
+              "start": 14.43,
+              "end": 14.73,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " or",
+              "start": 15.21,
+              "end": 15.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " authorized",
+              "start": 15.35,
+              "end": 15.81,
+              "probability": 0.93798828125
+            }
+          ]
+        },
+        {
+          "text": " from heaven. Give them out for whom or what you please, the same will happen. The people",
+          "start": 15.81,
+          "end": 21.11,
+          "words": [
+            {
+              "text": " from",
+              "start": 15.81,
+              "end": 16.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " heaven.",
+              "start": 16.05,
+              "end": 16.31,
+              "probability": 0.70703125
+            },
+            {
+              "text": " Give",
+              "start": 17.05,
+              "end": 17.17,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " them",
+              "start": 17.17,
+              "end": 17.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 17.31,
+              "end": 17.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 17.47,
+              "end": 17.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " whom",
+              "start": 17.65,
+              "end": 17.87,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " or",
+              "start": 17.87,
+              "end": 18.07,
+              "probability": 0.869140625
+            },
+            {
+              "text": " what",
+              "start": 18.07,
+              "end": 18.21,
+              "probability": 0.974609375
+            },
+            {
+              "text": " you",
+              "start": 18.21,
+              "end": 18.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " please,",
+              "start": 18.35,
+              "end": 18.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 19.13,
+              "end": 19.27,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " same",
+              "start": 19.27,
+              "end": 19.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 19.49,
+              "end": 19.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " happen.",
+              "start": 19.69,
+              "end": 20.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 20.61,
+              "end": 20.85,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " people",
+              "start": 20.85,
+              "end": 21.11,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " generally ill treated, and contrary to right, will be ready upon any occasion to ease themselves",
+          "start": 21.11,
+          "end": 26.35,
+          "words": [
+            {
+              "text": " generally",
+              "start": 21.11,
+              "end": 21.53,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " ill",
+              "start": 21.53,
+              "end": 21.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " treated,",
+              "start": 21.93,
+              "end": 22.25,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " and",
+              "start": 22.59,
+              "end": 22.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " contrary",
+              "start": 22.71,
+              "end": 23.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 23.15,
+              "end": 23.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " right,",
+              "start": 23.41,
+              "end": 23.63,
+              "probability": 0.92578125
+            },
+            {
+              "text": " will",
+              "start": 24.03,
+              "end": 24.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 24.13,
+              "end": 24.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ready",
+              "start": 24.25,
+              "end": 24.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " upon",
+              "start": 24.43,
+              "end": 24.77,
+              "probability": 0.98828125
+            },
+            {
+              "text": " any",
+              "start": 24.77,
+              "end": 25.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " occasion",
+              "start": 25.05,
+              "end": 25.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 25.41,
+              "end": 25.73,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " ease",
+              "start": 25.73,
+              "end": 25.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " themselves",
+              "start": 25.97,
+              "end": 26.35,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " of a burden that sits heavy upon them. They will wish, and seek for the opportunity, which",
+          "start": 26.35,
+          "end": 32.45,
+          "words": [
+            {
+              "text": " of",
+              "start": 26.35,
+              "end": 26.65,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " a",
+              "start": 26.65,
+              "end": 26.75,
+              "probability": 0.919921875
+            },
+            {
+              "text": " burden",
+              "start": 26.75,
+              "end": 27.01,
+              "probability": 0.984375
+            },
+            {
+              "text": " that",
+              "start": 27.01,
+              "end": 27.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sits",
+              "start": 27.27,
+              "end": 27.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " heavy",
+              "start": 27.51,
+              "end": 27.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " upon",
+              "start": 27.83,
+              "end": 28.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them.",
+              "start": 28.13,
+              "end": 28.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " They",
+              "start": 29.35,
+              "end": 29.53,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " will",
+              "start": 29.53,
+              "end": 29.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wish,",
+              "start": 29.73,
+              "end": 30.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 30.39,
+              "end": 30.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " seek",
+              "start": 30.61,
+              "end": 30.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 30.87,
+              "end": 31.07,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " the",
+              "start": 31.07,
+              "end": 31.19,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " opportunity,",
+              "start": 31.19,
+              "end": 31.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " which",
+              "start": 32.29,
+              "end": 32.45,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " in the change, weakness and accidents of human affairs, seldom delays long to offer itself.",
+          "start": 32.45,
+          "end": 38.31,
+          "words": [
+            {
+              "text": " in",
+              "start": 32.45,
+              "end": 32.59,
+              "probability": 0.97265625
+            },
+            {
+              "text": " the",
+              "start": 32.59,
+              "end": 32.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " change,",
+              "start": 32.75,
+              "end": 33.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " weakness",
+              "start": 33.59,
+              "end": 33.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 33.85,
+              "end": 34.23,
+              "probability": 0.406982421875
+            },
+            {
+              "text": " accidents",
+              "start": 34.23,
+              "end": 34.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 34.69,
+              "end": 34.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " human",
+              "start": 34.95,
+              "end": 35.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " affairs,",
+              "start": 35.19,
+              "end": 35.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seldom",
+              "start": 36.43,
+              "end": 36.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " delays",
+              "start": 36.51,
+              "end": 37.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " long",
+              "start": 37.01,
+              "end": 37.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 37.41,
+              "end": 37.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " offer",
+              "start": 37.65,
+              "end": 37.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " itself.",
+              "start": 37.95,
+              "end": 38.31,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " He must have lived but a little while in the world, who has not seen examples of this in",
+          "start": 39.11,
+          "end": 43.43,
+          "words": [
+            {
+              "text": " He",
+              "start": 39.11,
+              "end": 39.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " must",
+              "start": 39.25,
+              "end": 39.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 39.37,
+              "end": 39.57,
+              "probability": 0.98046875
+            },
+            {
+              "text": " lived",
+              "start": 39.57,
+              "end": 39.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 39.87,
+              "end": 40.03,
+              "probability": 0.970703125
+            },
+            {
+              "text": " a",
+              "start": 40.03,
+              "end": 40.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " little",
+              "start": 40.15,
+              "end": 40.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " while",
+              "start": 40.27,
+              "end": 40.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 40.57,
+              "end": 40.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 40.75,
+              "end": 40.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " world,",
+              "start": 40.87,
+              "end": 41.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " who",
+              "start": 41.55,
+              "end": 41.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " has",
+              "start": 41.75,
+              "end": 41.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 41.87,
+              "end": 42.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seen",
+              "start": 42.09,
+              "end": 42.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " examples",
+              "start": 42.37,
+              "end": 42.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 42.79,
+              "end": 43.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 43.11,
+              "end": 43.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 43.27,
+              "end": 43.43,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " his time, and he must have read very little, who cannot produce examples of it in all sorts",
+          "start": 43.43,
+          "end": 48.53,
+          "words": [
+            {
+              "text": " his",
+              "start": 43.43,
+              "end": 43.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " time,",
+              "start": 43.57,
+              "end": 43.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 44.37,
+              "end": 44.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 44.57,
+              "end": 44.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " must",
+              "start": 44.69,
+              "end": 44.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 44.85,
+              "end": 45.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " read",
+              "start": 45.03,
+              "end": 45.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " very",
+              "start": 45.23,
+              "end": 45.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " little,",
+              "start": 45.55,
+              "end": 45.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " who",
+              "start": 46.15,
+              "end": 46.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cannot",
+              "start": 46.33,
+              "end": 46.61,
+              "probability": 0.986328125
+            },
+            {
+              "text": " produce",
+              "start": 46.61,
+              "end": 46.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " examples",
+              "start": 46.99,
+              "end": 47.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 47.45,
+              "end": 47.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 47.75,
+              "end": 47.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 47.87,
+              "end": 48.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " all",
+              "start": 48.03,
+              "end": 48.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sorts",
+              "start": 48.31,
+              "end": 48.53,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " of governments in the world.",
+          "start": 48.53,
+          "end": 49.83,
+          "words": [
+            {
+              "text": " of",
+              "start": 48.53,
+              "end": 48.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " governments",
+              "start": 48.79,
+              "end": 49.11,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " in",
+              "start": 49.11,
+              "end": 49.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 49.43,
+              "end": 49.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " world.",
+              "start": 49.53,
+              "end": 49.83,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "No",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "more",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "than",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "any",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "other",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "hypothesis,",
+          "start": 1.79,
+          "end": 2.43
+        },
+        {
+          "raw": "for",
+          "start": 3.17,
+          "end": 3.23
+        },
+        {
+          "raw": "when",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "raw": "people",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "raw": "are",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "made",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "raw": "miserable,",
+          "start": 3.99,
+          "end": 4.39
+        },
+        {
+          "raw": "and",
+          "start": 4.93,
+          "end": 5.03
+        },
+        {
+          "raw": "find",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "raw": "themselves",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "raw": "exposed",
+          "start": 5.59,
+          "end": 6.13
+        },
+        {
+          "raw": "to",
+          "start": 6.13,
+          "end": 6.45
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.55
+        },
+        {
+          "raw": "ill",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "usage",
+          "start": 6.77,
+          "end": 7.11
+        },
+        {
+          "raw": "of",
+          "start": 7.11,
+          "end": 7.35
+        },
+        {
+          "raw": "arbitrary",
+          "start": 7.35,
+          "end": 7.77
+        },
+        {
+          "raw": "power,",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "raw": "cry",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "raw": "up",
+          "start": 8.91,
+          "end": 9.09
+        },
+        {
+          "raw": "their",
+          "start": 9.09,
+          "end": 9.25
+        },
+        {
+          "raw": "governors,",
+          "start": 9.25,
+          "end": 9.55
+        },
+        {
+          "raw": "as",
+          "start": 9.83,
+          "end": 9.95
+        },
+        {
+          "raw": "much",
+          "start": 9.95,
+          "end": 10.13
+        },
+        {
+          "raw": "as",
+          "start": 10.13,
+          "end": 10.29
+        },
+        {
+          "raw": "you",
+          "start": 10.29,
+          "end": 10.45
+        },
+        {
+          "raw": "will,",
+          "start": 10.45,
+          "end": 10.71
+        },
+        {
+          "raw": "for",
+          "start": 11.03,
+          "end": 11.25
+        },
+        {
+          "raw": "sons",
+          "start": 11.25,
+          "end": 11.41
+        },
+        {
+          "raw": "of",
+          "start": 11.41,
+          "end": 11.63
+        },
+        {
+          "raw": "Jupiter,",
+          "start": 11.63,
+          "end": 11.93
+        },
+        {
+          "raw": "let",
+          "start": 12.65,
+          "end": 12.77
+        },
+        {
+          "raw": "them",
+          "start": 12.77,
+          "end": 12.89
+        },
+        {
+          "raw": "be",
+          "start": 12.89,
+          "end": 13.07
+        },
+        {
+          "raw": "sacred",
+          "start": 13.07,
+          "end": 13.41
+        },
+        {
+          "raw": "and",
+          "start": 13.41,
+          "end": 13.69
+        },
+        {
+          "raw": "divine,",
+          "start": 13.69,
+          "end": 14.07
+        },
+        {
+          "raw": "descended,",
+          "start": 14.43,
+          "end": 14.73
+        },
+        {
+          "raw": "or",
+          "start": 15.21,
+          "end": 15.35
+        },
+        {
+          "raw": "authorized",
+          "start": 15.35,
+          "end": 15.81
+        },
+        {
+          "raw": "from",
+          "start": 15.81,
+          "end": 16.05
+        },
+        {
+          "raw": "heaven.",
+          "start": 16.05,
+          "end": 16.31
+        },
+        {
+          "raw": "Give",
+          "start": 17.05,
+          "end": 17.17
+        },
+        {
+          "raw": "them",
+          "start": 17.17,
+          "end": 17.31
+        },
+        {
+          "raw": "out",
+          "start": 17.31,
+          "end": 17.47
+        },
+        {
+          "raw": "for",
+          "start": 17.47,
+          "end": 17.65
+        },
+        {
+          "raw": "whom",
+          "start": 17.65,
+          "end": 17.87
+        },
+        {
+          "raw": "or",
+          "start": 17.87,
+          "end": 18.07
+        },
+        {
+          "raw": "what",
+          "start": 18.07,
+          "end": 18.21
+        },
+        {
+          "raw": "you",
+          "start": 18.21,
+          "end": 18.35
+        },
+        {
+          "raw": "please,",
+          "start": 18.35,
+          "end": 18.65
+        },
+        {
+          "raw": "the",
+          "start": 19.13,
+          "end": 19.27
+        },
+        {
+          "raw": "same",
+          "start": 19.27,
+          "end": 19.49
+        },
+        {
+          "raw": "will",
+          "start": 19.49,
+          "end": 19.69
+        },
+        {
+          "raw": "happen.",
+          "start": 19.69,
+          "end": 20.03
+        },
+        {
+          "raw": "The",
+          "start": 20.61,
+          "end": 20.85
+        },
+        {
+          "raw": "people",
+          "start": 20.85,
+          "end": 21.11
+        },
+        {
+          "raw": "generally",
+          "start": 21.11,
+          "end": 21.53
+        },
+        {
+          "raw": "ill",
+          "start": 21.53,
+          "end": 21.93
+        },
+        {
+          "raw": "treated,",
+          "start": 21.93,
+          "end": 22.25
+        },
+        {
+          "raw": "and",
+          "start": 22.59,
+          "end": 22.71
+        },
+        {
+          "raw": "contrary",
+          "start": 22.71,
+          "end": 23.15
+        },
+        {
+          "raw": "to",
+          "start": 23.15,
+          "end": 23.41
+        },
+        {
+          "raw": "right,",
+          "start": 23.41,
+          "end": 23.63
+        },
+        {
+          "raw": "will",
+          "start": 24.03,
+          "end": 24.13
+        },
+        {
+          "raw": "be",
+          "start": 24.13,
+          "end": 24.25
+        },
+        {
+          "raw": "ready",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "raw": "upon",
+          "start": 24.43,
+          "end": 24.77
+        },
+        {
+          "raw": "any",
+          "start": 24.77,
+          "end": 25.05
+        },
+        {
+          "raw": "occasion",
+          "start": 25.05,
+          "end": 25.41
+        },
+        {
+          "raw": "to",
+          "start": 25.41,
+          "end": 25.73
+        },
+        {
+          "raw": "ease",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "raw": "themselves",
+          "start": 25.97,
+          "end": 26.35
+        },
+        {
+          "raw": "of",
+          "start": 26.35,
+          "end": 26.65
+        },
+        {
+          "raw": "a",
+          "start": 26.65,
+          "end": 26.75
+        },
+        {
+          "raw": "burden",
+          "start": 26.75,
+          "end": 27.01
+        },
+        {
+          "raw": "that",
+          "start": 27.01,
+          "end": 27.27
+        },
+        {
+          "raw": "sits",
+          "start": 27.27,
+          "end": 27.51
+        },
+        {
+          "raw": "heavy",
+          "start": 27.51,
+          "end": 27.83
+        },
+        {
+          "raw": "upon",
+          "start": 27.83,
+          "end": 28.13
+        },
+        {
+          "raw": "them.",
+          "start": 28.13,
+          "end": 28.47
+        },
+        {
+          "raw": "They",
+          "start": 29.35,
+          "end": 29.53
+        },
+        {
+          "raw": "will",
+          "start": 29.53,
+          "end": 29.73
+        },
+        {
+          "raw": "wish,",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "raw": "and",
+          "start": 30.39,
+          "end": 30.61
+        },
+        {
+          "raw": "seek",
+          "start": 30.61,
+          "end": 30.87
+        },
+        {
+          "raw": "for",
+          "start": 30.87,
+          "end": 31.07
+        },
+        {
+          "raw": "the",
+          "start": 31.07,
+          "end": 31.19
+        },
+        {
+          "raw": "opportunity,",
+          "start": 31.19,
+          "end": 31.65
+        },
+        {
+          "raw": "which",
+          "start": 32.29,
+          "end": 32.45
+        },
+        {
+          "raw": "in",
+          "start": 32.45,
+          "end": 32.59
+        },
+        {
+          "raw": "the",
+          "start": 32.59,
+          "end": 32.75
+        },
+        {
+          "raw": "change,",
+          "start": 32.75,
+          "end": 33.23
+        },
+        {
+          "raw": "weakness",
+          "start": 33.59,
+          "end": 33.85
+        },
+        {
+          "raw": "and",
+          "start": 33.85,
+          "end": 34.23
+        },
+        {
+          "raw": "accidents",
+          "start": 34.23,
+          "end": 34.69
+        },
+        {
+          "raw": "of",
+          "start": 34.69,
+          "end": 34.95
+        },
+        {
+          "raw": "human",
+          "start": 34.95,
+          "end": 35.19
+        },
+        {
+          "raw": "affairs,",
+          "start": 35.19,
+          "end": 35.75
+        },
+        {
+          "raw": "seldom",
+          "start": 36.43,
+          "end": 36.51
+        },
+        {
+          "raw": "delays",
+          "start": 36.51,
+          "end": 37.01
+        },
+        {
+          "raw": "long",
+          "start": 37.01,
+          "end": 37.41
+        },
+        {
+          "raw": "to",
+          "start": 37.41,
+          "end": 37.65
+        },
+        {
+          "raw": "offer",
+          "start": 37.65,
+          "end": 37.95
+        },
+        {
+          "raw": "itself.",
+          "start": 37.95,
+          "end": 38.31
+        },
+        {
+          "raw": "He",
+          "start": 39.11,
+          "end": 39.25
+        },
+        {
+          "raw": "must",
+          "start": 39.25,
+          "end": 39.37
+        },
+        {
+          "raw": "have",
+          "start": 39.37,
+          "end": 39.57
+        },
+        {
+          "raw": "lived",
+          "start": 39.57,
+          "end": 39.87
+        },
+        {
+          "raw": "but",
+          "start": 39.87,
+          "end": 40.03
+        },
+        {
+          "raw": "a",
+          "start": 40.03,
+          "end": 40.15
+        },
+        {
+          "raw": "little",
+          "start": 40.15,
+          "end": 40.27
+        },
+        {
+          "raw": "while",
+          "start": 40.27,
+          "end": 40.57
+        },
+        {
+          "raw": "in",
+          "start": 40.57,
+          "end": 40.75
+        },
+        {
+          "raw": "the",
+          "start": 40.75,
+          "end": 40.87
+        },
+        {
+          "raw": "world,",
+          "start": 40.87,
+          "end": 41.15
+        },
+        {
+          "raw": "who",
+          "start": 41.55,
+          "end": 41.75
+        },
+        {
+          "raw": "has",
+          "start": 41.75,
+          "end": 41.87
+        },
+        {
+          "raw": "not",
+          "start": 41.87,
+          "end": 42.09
+        },
+        {
+          "raw": "seen",
+          "start": 42.09,
+          "end": 42.37
+        },
+        {
+          "raw": "examples",
+          "start": 42.37,
+          "end": 42.79
+        },
+        {
+          "raw": "of",
+          "start": 42.79,
+          "end": 43.11
+        },
+        {
+          "raw": "this",
+          "start": 43.11,
+          "end": 43.27
+        },
+        {
+          "raw": "in",
+          "start": 43.27,
+          "end": 43.43
+        },
+        {
+          "raw": "his",
+          "start": 43.43,
+          "end": 43.57
+        },
+        {
+          "raw": "time,",
+          "start": 43.57,
+          "end": 43.93
+        },
+        {
+          "raw": "and",
+          "start": 44.37,
+          "end": 44.57
+        },
+        {
+          "raw": "he",
+          "start": 44.57,
+          "end": 44.69
+        },
+        {
+          "raw": "must",
+          "start": 44.69,
+          "end": 44.85
+        },
+        {
+          "raw": "have",
+          "start": 44.85,
+          "end": 45.03
+        },
+        {
+          "raw": "read",
+          "start": 45.03,
+          "end": 45.23
+        },
+        {
+          "raw": "very",
+          "start": 45.23,
+          "end": 45.55
+        },
+        {
+          "raw": "little,",
+          "start": 45.55,
+          "end": 45.87
+        },
+        {
+          "raw": "who",
+          "start": 46.15,
+          "end": 46.33
+        },
+        {
+          "raw": "cannot",
+          "start": 46.33,
+          "end": 46.61
+        },
+        {
+          "raw": "produce",
+          "start": 46.61,
+          "end": 46.99
+        },
+        {
+          "raw": "examples",
+          "start": 46.99,
+          "end": 47.45
+        },
+        {
+          "raw": "of",
+          "start": 47.45,
+          "end": 47.75
+        },
+        {
+          "raw": "it",
+          "start": 47.75,
+          "end": 47.87
+        },
+        {
+          "raw": "in",
+          "start": 47.87,
+          "end": 48.03
+        },
+        {
+          "raw": "all",
+          "start": 48.03,
+          "end": 48.31
+        },
+        {
+          "raw": "sorts",
+          "start": 48.31,
+          "end": 48.53
+        },
+        {
+          "raw": "of",
+          "start": 48.53,
+          "end": 48.79
+        },
+        {
+          "raw": "governments",
+          "start": 48.79,
+          "end": 49.11
+        },
+        {
+          "raw": "in",
+          "start": 49.11,
+          "end": 49.43
+        },
+        {
+          "raw": "the",
+          "start": 49.43,
+          "end": 49.53
+        },
+        {
+          "raw": "world.",
+          "start": 49.53,
+          "end": 49.83
+        }
+      ],
+      "expected_tokens": [
+        "First,",
+        "No",
+        "more",
+        "than",
+        "any",
+        "other",
+        "hypothesis:",
+        "for",
+        "when",
+        "the",
+        "people",
+        "are",
+        "made",
+        "miserable,",
+        "and",
+        "find",
+        "themselves",
+        "exposed",
+        "to",
+        "the",
+        "ill",
+        "usage",
+        "of",
+        "arbitrary",
+        "power,",
+        "cry",
+        "up",
+        "their",
+        "governors,",
+        "as",
+        "much",
+        "as",
+        "you",
+        "will,",
+        "for",
+        "sons",
+        "of",
+        "Jupiter;",
+        "let",
+        "them",
+        "be",
+        "sacred",
+        "and",
+        "divine,",
+        "descended,",
+        "or",
+        "authorized",
+        "from",
+        "heaven;",
+        "give",
+        "them",
+        "out",
+        "for",
+        "whom",
+        "or",
+        "what",
+        "you",
+        "please,",
+        "the",
+        "same",
+        "will",
+        "happen.",
+        "The",
+        "people",
+        "generally",
+        "ill",
+        "treated,",
+        "and",
+        "contrary",
+        "to",
+        "right,",
+        "will",
+        "be",
+        "ready",
+        "upon",
+        "any",
+        "occasion",
+        "to",
+        "ease",
+        "themselves",
+        "of",
+        "a",
+        "burden",
+        "that",
+        "sits",
+        "heavy",
+        "upon",
+        "them.",
+        "They",
+        "will",
+        "wish,",
+        "and",
+        "seek",
+        "for",
+        "the",
+        "opportunity,",
+        "which",
+        "in",
+        "the",
+        "change,",
+        "weakness",
+        "and",
+        "accidents",
+        "of",
+        "human",
+        "affairs,",
+        "seldom",
+        "delays",
+        "long",
+        "to",
+        "offer",
+        "itself.",
+        "He",
+        "must",
+        "have",
+        "lived",
+        "but",
+        "a",
+        "little",
+        "while",
+        "in",
+        "the",
+        "world,",
+        "who",
+        "has",
+        "not",
+        "seen",
+        "examples",
+        "of",
+        "this",
+        "in",
+        "his",
+        "time;",
+        "and",
+        "he",
+        "must",
+        "have",
+        "read",
+        "very",
+        "little,",
+        "who",
+        "cannot",
+        "produce",
+        "examples",
+        "of",
+        "it",
+        "in",
+        "all",
+        "sorts",
+        "of",
+        "governments",
+        "in",
+        "the",
+        "world."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          154,
+          0,
+          154
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 122,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 123,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 124,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 125,
+          "source": "observed",
+          "heard_index": 125
+        },
+        {
+          "index": 126,
+          "source": "observed",
+          "heard_index": 126
+        },
+        {
+          "index": 127,
+          "source": "observed",
+          "heard_index": 127
+        },
+        {
+          "index": 128,
+          "source": "observed",
+          "heard_index": 128
+        },
+        {
+          "index": 129,
+          "source": "observed",
+          "heard_index": 129
+        },
+        {
+          "index": 130,
+          "source": "observed",
+          "heard_index": 130
+        },
+        {
+          "index": 131,
+          "source": "observed",
+          "heard_index": 131
+        },
+        {
+          "index": 132,
+          "source": "observed",
+          "heard_index": 132
+        },
+        {
+          "index": 133,
+          "source": "observed",
+          "heard_index": 133
+        },
+        {
+          "index": 134,
+          "source": "observed",
+          "heard_index": 134
+        },
+        {
+          "index": 135,
+          "source": "observed",
+          "heard_index": 135
+        },
+        {
+          "index": 136,
+          "source": "observed",
+          "heard_index": 136
+        },
+        {
+          "index": 137,
+          "source": "observed",
+          "heard_index": 137
+        },
+        {
+          "index": 138,
+          "source": "observed",
+          "heard_index": 138
+        },
+        {
+          "index": 139,
+          "source": "observed",
+          "heard_index": 139
+        },
+        {
+          "index": 140,
+          "source": "observed",
+          "heard_index": 140
+        },
+        {
+          "index": 141,
+          "source": "observed",
+          "heard_index": 141
+        },
+        {
+          "index": 142,
+          "source": "observed",
+          "heard_index": 142
+        },
+        {
+          "index": 143,
+          "source": "observed",
+          "heard_index": 143
+        },
+        {
+          "index": 144,
+          "source": "observed",
+          "heard_index": 144
+        },
+        {
+          "index": 145,
+          "source": "observed",
+          "heard_index": 145
+        },
+        {
+          "index": 146,
+          "source": "observed",
+          "heard_index": 146
+        },
+        {
+          "index": 147,
+          "source": "observed",
+          "heard_index": 147
+        },
+        {
+          "index": 148,
+          "source": "observed",
+          "heard_index": 148
+        },
+        {
+          "index": 149,
+          "source": "observed",
+          "heard_index": 149
+        },
+        {
+          "index": 150,
+          "source": "observed",
+          "heard_index": 150
+        },
+        {
+          "index": 151,
+          "source": "observed",
+          "heard_index": 151
+        },
+        {
+          "index": 152,
+          "source": "observed",
+          "heard_index": 152
+        },
+        {
+          "index": 153,
+          "source": "observed",
+          "heard_index": 153
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "No",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "more",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "than",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "any",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "other",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "hypothesis:",
+          "start": 1.79,
+          "end": 2.43
+        },
+        {
+          "text": "for",
+          "start": 3.17,
+          "end": 3.23
+        },
+        {
+          "text": "when",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "text": "people",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "text": "are",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "made",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "text": "miserable,",
+          "start": 3.99,
+          "end": 4.39
+        },
+        {
+          "text": "and",
+          "start": 4.93,
+          "end": 5.03
+        },
+        {
+          "text": "find",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "text": "themselves",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "text": "exposed",
+          "start": 5.59,
+          "end": 6.13
+        },
+        {
+          "text": "to",
+          "start": 6.13,
+          "end": 6.45
+        },
+        {
+          "text": "the",
+          "start": 6.45,
+          "end": 6.55
+        },
+        {
+          "text": "ill",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "usage",
+          "start": 6.77,
+          "end": 7.11
+        },
+        {
+          "text": "of",
+          "start": 7.11,
+          "end": 7.35
+        },
+        {
+          "text": "arbitrary",
+          "start": 7.35,
+          "end": 7.77
+        },
+        {
+          "text": "power,",
+          "start": 7.77,
+          "end": 8.23
+        },
+        {
+          "text": "cry",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "text": "up",
+          "start": 8.91,
+          "end": 9.09
+        },
+        {
+          "text": "their",
+          "start": 9.09,
+          "end": 9.25
+        },
+        {
+          "text": "governors,",
+          "start": 9.25,
+          "end": 9.55
+        },
+        {
+          "text": "as",
+          "start": 9.83,
+          "end": 9.95
+        },
+        {
+          "text": "much",
+          "start": 9.95,
+          "end": 10.13
+        },
+        {
+          "text": "as",
+          "start": 10.13,
+          "end": 10.29
+        },
+        {
+          "text": "you",
+          "start": 10.29,
+          "end": 10.45
+        },
+        {
+          "text": "will,",
+          "start": 10.45,
+          "end": 10.71
+        },
+        {
+          "text": "for",
+          "start": 11.03,
+          "end": 11.25
+        },
+        {
+          "text": "sons",
+          "start": 11.25,
+          "end": 11.41
+        },
+        {
+          "text": "of",
+          "start": 11.41,
+          "end": 11.63
+        },
+        {
+          "text": "Jupiter;",
+          "start": 11.63,
+          "end": 11.93
+        },
+        {
+          "text": "let",
+          "start": 12.65,
+          "end": 12.77
+        },
+        {
+          "text": "them",
+          "start": 12.77,
+          "end": 12.89
+        },
+        {
+          "text": "be",
+          "start": 12.89,
+          "end": 13.07
+        },
+        {
+          "text": "sacred",
+          "start": 13.07,
+          "end": 13.41
+        },
+        {
+          "text": "and",
+          "start": 13.41,
+          "end": 13.69
+        },
+        {
+          "text": "divine,",
+          "start": 13.69,
+          "end": 14.07
+        },
+        {
+          "text": "descended,",
+          "start": 14.43,
+          "end": 14.73
+        },
+        {
+          "text": "or",
+          "start": 15.21,
+          "end": 15.35
+        },
+        {
+          "text": "authorized",
+          "start": 15.35,
+          "end": 15.81
+        },
+        {
+          "text": "from",
+          "start": 15.81,
+          "end": 16.05
+        },
+        {
+          "text": "heaven;",
+          "start": 16.05,
+          "end": 16.31
+        },
+        {
+          "text": "give",
+          "start": 17.05,
+          "end": 17.17
+        },
+        {
+          "text": "them",
+          "start": 17.17,
+          "end": 17.31
+        },
+        {
+          "text": "out",
+          "start": 17.31,
+          "end": 17.47
+        },
+        {
+          "text": "for",
+          "start": 17.47,
+          "end": 17.65
+        },
+        {
+          "text": "whom",
+          "start": 17.65,
+          "end": 17.87
+        },
+        {
+          "text": "or",
+          "start": 17.87,
+          "end": 18.07
+        },
+        {
+          "text": "what",
+          "start": 18.07,
+          "end": 18.21
+        },
+        {
+          "text": "you",
+          "start": 18.21,
+          "end": 18.35
+        },
+        {
+          "text": "please,",
+          "start": 18.35,
+          "end": 18.65
+        },
+        {
+          "text": "the",
+          "start": 19.13,
+          "end": 19.27
+        },
+        {
+          "text": "same",
+          "start": 19.27,
+          "end": 19.49
+        },
+        {
+          "text": "will",
+          "start": 19.49,
+          "end": 19.69
+        },
+        {
+          "text": "happen.",
+          "start": 19.69,
+          "end": 20.03
+        },
+        {
+          "text": "The",
+          "start": 20.61,
+          "end": 20.85
+        },
+        {
+          "text": "people",
+          "start": 20.85,
+          "end": 21.11
+        },
+        {
+          "text": "generally",
+          "start": 21.11,
+          "end": 21.53
+        },
+        {
+          "text": "ill",
+          "start": 21.53,
+          "end": 21.93
+        },
+        {
+          "text": "treated,",
+          "start": 21.93,
+          "end": 22.25
+        },
+        {
+          "text": "and",
+          "start": 22.59,
+          "end": 22.71
+        },
+        {
+          "text": "contrary",
+          "start": 22.71,
+          "end": 23.15
+        },
+        {
+          "text": "to",
+          "start": 23.15,
+          "end": 23.41
+        },
+        {
+          "text": "right,",
+          "start": 23.41,
+          "end": 23.63
+        },
+        {
+          "text": "will",
+          "start": 24.03,
+          "end": 24.13
+        },
+        {
+          "text": "be",
+          "start": 24.13,
+          "end": 24.25
+        },
+        {
+          "text": "ready",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "text": "upon",
+          "start": 24.43,
+          "end": 24.77
+        },
+        {
+          "text": "any",
+          "start": 24.77,
+          "end": 25.05
+        },
+        {
+          "text": "occasion",
+          "start": 25.05,
+          "end": 25.41
+        },
+        {
+          "text": "to",
+          "start": 25.41,
+          "end": 25.73
+        },
+        {
+          "text": "ease",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "text": "themselves",
+          "start": 25.97,
+          "end": 26.35
+        },
+        {
+          "text": "of",
+          "start": 26.35,
+          "end": 26.65
+        },
+        {
+          "text": "a",
+          "start": 26.65,
+          "end": 26.75
+        },
+        {
+          "text": "burden",
+          "start": 26.75,
+          "end": 27.01
+        },
+        {
+          "text": "that",
+          "start": 27.01,
+          "end": 27.27
+        },
+        {
+          "text": "sits",
+          "start": 27.27,
+          "end": 27.51
+        },
+        {
+          "text": "heavy",
+          "start": 27.51,
+          "end": 27.83
+        },
+        {
+          "text": "upon",
+          "start": 27.83,
+          "end": 28.13
+        },
+        {
+          "text": "them.",
+          "start": 28.13,
+          "end": 28.47
+        },
+        {
+          "text": "They",
+          "start": 29.35,
+          "end": 29.53
+        },
+        {
+          "text": "will",
+          "start": 29.53,
+          "end": 29.73
+        },
+        {
+          "text": "wish,",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "text": "and",
+          "start": 30.39,
+          "end": 30.61
+        },
+        {
+          "text": "seek",
+          "start": 30.61,
+          "end": 30.87
+        },
+        {
+          "text": "for",
+          "start": 30.87,
+          "end": 31.07
+        },
+        {
+          "text": "the",
+          "start": 31.07,
+          "end": 31.19
+        },
+        {
+          "text": "opportunity,",
+          "start": 31.19,
+          "end": 31.65
+        },
+        {
+          "text": "which",
+          "start": 32.29,
+          "end": 32.45
+        },
+        {
+          "text": "in",
+          "start": 32.45,
+          "end": 32.59
+        },
+        {
+          "text": "the",
+          "start": 32.59,
+          "end": 32.75
+        },
+        {
+          "text": "change,",
+          "start": 32.75,
+          "end": 33.23
+        },
+        {
+          "text": "weakness",
+          "start": 33.59,
+          "end": 33.85
+        },
+        {
+          "text": "and",
+          "start": 33.85,
+          "end": 34.23
+        },
+        {
+          "text": "accidents",
+          "start": 34.23,
+          "end": 34.69
+        },
+        {
+          "text": "of",
+          "start": 34.69,
+          "end": 34.95
+        },
+        {
+          "text": "human",
+          "start": 34.95,
+          "end": 35.19
+        },
+        {
+          "text": "affairs,",
+          "start": 35.19,
+          "end": 35.75
+        },
+        {
+          "text": "seldom",
+          "start": 36.43,
+          "end": 36.51
+        },
+        {
+          "text": "delays",
+          "start": 36.51,
+          "end": 37.01
+        },
+        {
+          "text": "long",
+          "start": 37.01,
+          "end": 37.41
+        },
+        {
+          "text": "to",
+          "start": 37.41,
+          "end": 37.65
+        },
+        {
+          "text": "offer",
+          "start": 37.65,
+          "end": 37.95
+        },
+        {
+          "text": "itself.",
+          "start": 37.95,
+          "end": 38.31
+        },
+        {
+          "text": "He",
+          "start": 39.11,
+          "end": 39.25
+        },
+        {
+          "text": "must",
+          "start": 39.25,
+          "end": 39.37
+        },
+        {
+          "text": "have",
+          "start": 39.37,
+          "end": 39.57
+        },
+        {
+          "text": "lived",
+          "start": 39.57,
+          "end": 39.87
+        },
+        {
+          "text": "but",
+          "start": 39.87,
+          "end": 40.03
+        },
+        {
+          "text": "a",
+          "start": 40.03,
+          "end": 40.15
+        },
+        {
+          "text": "little",
+          "start": 40.15,
+          "end": 40.27
+        },
+        {
+          "text": "while",
+          "start": 40.27,
+          "end": 40.57
+        },
+        {
+          "text": "in",
+          "start": 40.57,
+          "end": 40.75
+        },
+        {
+          "text": "the",
+          "start": 40.75,
+          "end": 40.87
+        },
+        {
+          "text": "world,",
+          "start": 40.87,
+          "end": 41.15
+        },
+        {
+          "text": "who",
+          "start": 41.55,
+          "end": 41.75
+        },
+        {
+          "text": "has",
+          "start": 41.75,
+          "end": 41.87
+        },
+        {
+          "text": "not",
+          "start": 41.87,
+          "end": 42.09
+        },
+        {
+          "text": "seen",
+          "start": 42.09,
+          "end": 42.37
+        },
+        {
+          "text": "examples",
+          "start": 42.37,
+          "end": 42.79
+        },
+        {
+          "text": "of",
+          "start": 42.79,
+          "end": 43.11
+        },
+        {
+          "text": "this",
+          "start": 43.11,
+          "end": 43.27
+        },
+        {
+          "text": "in",
+          "start": 43.27,
+          "end": 43.43
+        },
+        {
+          "text": "his",
+          "start": 43.43,
+          "end": 43.57
+        },
+        {
+          "text": "time;",
+          "start": 43.57,
+          "end": 43.93
+        },
+        {
+          "text": "and",
+          "start": 44.37,
+          "end": 44.57
+        },
+        {
+          "text": "he",
+          "start": 44.57,
+          "end": 44.69
+        },
+        {
+          "text": "must",
+          "start": 44.69,
+          "end": 44.85
+        },
+        {
+          "text": "have",
+          "start": 44.85,
+          "end": 45.03
+        },
+        {
+          "text": "read",
+          "start": 45.03,
+          "end": 45.23
+        },
+        {
+          "text": "very",
+          "start": 45.23,
+          "end": 45.55
+        },
+        {
+          "text": "little,",
+          "start": 45.55,
+          "end": 45.87
+        },
+        {
+          "text": "who",
+          "start": 46.15,
+          "end": 46.33
+        },
+        {
+          "text": "cannot",
+          "start": 46.33,
+          "end": 46.61
+        },
+        {
+          "text": "produce",
+          "start": 46.61,
+          "end": 46.99
+        },
+        {
+          "text": "examples",
+          "start": 46.99,
+          "end": 47.45
+        },
+        {
+          "text": "of",
+          "start": 47.45,
+          "end": 47.75
+        },
+        {
+          "text": "it",
+          "start": 47.75,
+          "end": 47.87
+        },
+        {
+          "text": "in",
+          "start": 47.87,
+          "end": 48.03
+        },
+        {
+          "text": "all",
+          "start": 48.03,
+          "end": 48.31
+        },
+        {
+          "text": "sorts",
+          "start": 48.31,
+          "end": 48.53
+        },
+        {
+          "text": "of",
+          "start": 48.53,
+          "end": 48.79
+        },
+        {
+          "text": "governments",
+          "start": 48.79,
+          "end": 49.11
+        },
+        {
+          "text": "in",
+          "start": 49.11,
+          "end": 49.43
+        },
+        {
+          "text": "the",
+          "start": 49.43,
+          "end": 49.53
+        },
+        {
+          "text": "world.",
+          "start": 49.53,
+          "end": 49.83
+        }
+      ],
+      "stats": {
+        "expected_words": 154,
+        "heard_words": 154,
+        "matched_words": 154
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8414334431290627
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "757a8dbecb95f6b1a20b68d014f2d3ec3cb7d841577c0331f98033c21e92ee37",
+  "selected_reasons": []
+}

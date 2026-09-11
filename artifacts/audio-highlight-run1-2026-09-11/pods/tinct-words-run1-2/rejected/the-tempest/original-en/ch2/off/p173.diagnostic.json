@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "signature": "6ff53c541d7a18f81c9ab63c077c3d8c3f7381f6842b319172aaed7f3ab518a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.18272791057825089,
+      "alignment_seconds": 6.886571645736694e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero, come follow, speak not for him.",
+          "start": 0.59,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.59,
+              "end": 1.01,
+              "probability": 0.905029296875
+            },
+            {
+              "text": " come",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " follow,",
+              "start": 1.27,
+              "end": 1.61,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " speak",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.984375
+            },
+            {
+              "text": " not",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " for",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him.",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.59,
+          "end": 1.01
+        },
+        {
+          "raw": "come",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "follow,",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "raw": "speak",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "not",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "for",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "him.",
+          "start": 2.51,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Come,",
+        "follow.",
+        "Speak",
+        "not",
+        "for",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.59,
+          "end": 1.01
+        },
+        {
+          "text": "Come,",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "follow.",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "text": "Speak",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "not",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "for",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "him.",
+          "start": 2.51,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18282536417245865
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c547899213275c98099e2620db3d5771da7f2e3a1cee17b46ed48011959fc87a",
+  "selected_reasons": []
+}

@@ -1,0 +1,146 @@
+{
+  "complete": true,
+  "signature": "8718547259c4c683a54f0ec42238c74971f9468ac12837d870f5d034f1cedff3",
+  "attempts": [
+    {
+      "asr_seconds": 0.09573370218276978,
+      "alignment_seconds": 6.529688835144043e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ariel, aye, sir.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.724609375
+            },
+            {
+              "text": " aye,",
+              "start": 1.17,
+              "end": 1.23,
+              "probability": 0.4517822265625
+            },
+            {
+              "text": " sir.",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "aye,",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "raw": "sir.",
+          "start": 1.29,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "Ay,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Ay,",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "sir.",
+          "start": 1.29,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0958198681473732
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1caa41f3f6a64c00fb7df7af262b3bd54f76193953d39e6ece03f2dc5cc38c4f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

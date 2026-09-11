@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "91248818f38c539416add016f543f1a52186adcf6c5211de6c0cf6a3e275ad91",
+  "attempts": [
+    {
+      "asr_seconds": 0.09636422246694565,
+      "alignment_seconds": 8.670240640640259e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Flute, what is this be a wandering night?",
+          "start": 0.08,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Flute,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " what",
+              "start": 0.96,
+              "end": 1.06,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " is",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " this",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.442626953125
+            },
+            {
+              "text": " be",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " a",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.23388671875
+            },
+            {
+              "text": " wandering",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " night?",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flute,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "what",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "raw": "is",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "this",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "be",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "a",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "wandering",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "raw": "night?",
+          "start": 2.18,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "Flute.",
+        "What",
+        "is",
+        "Thisbe?",
+        "A",
+        "wandering",
+        "knight?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Flute.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "What",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "text": "is",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "Thisbe?",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "A",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "wandering",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "text": "knight?",
+          "start": 2.18,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09648486226797104
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72ed612094a24162bbefbe4cf17d24cf9757dc7c26e526718860a6e7d1ee1557",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

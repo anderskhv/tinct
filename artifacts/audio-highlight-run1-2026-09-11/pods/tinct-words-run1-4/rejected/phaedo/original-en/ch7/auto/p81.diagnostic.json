@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "2bd5705ec262ab47149ec1f938d378425af001954d22c1bd5285d78bd9d2e076",
+  "attempts": [
+    {
+      "asr_seconds": 0.16846165712922812,
+      "alignment_seconds": 0.00010626483708620071,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And can all this be true, think you? he said; for these are the consequences which seem to follow from the assumption that the soul is a harmony?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And can all this be true, think you? he said, for these are the consequences which seem to follow from the assumption that the soul is a harmony?",
+          "start": 0.05,
+          "end": 8.37,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " can",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " all",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " this",
+              "start": 0.79,
+              "end": 0.93,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " be",
+              "start": 0.93,
+              "end": 1.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " true,",
+              "start": 1.13,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " think",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.007747650146484375
+            },
+            {
+              "text": " you?",
+              "start": 2.03,
+              "end": 2.37,
+              "probability": 0.9765625
+            },
+            {
+              "text": " he",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.1539306640625
+            },
+            {
+              "text": " said,",
+              "start": 2.99,
+              "end": 3.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 3.87,
+              "end": 3.95,
+              "probability": 0.438720703125
+            },
+            {
+              "text": " these",
+              "start": 3.95,
+              "end": 4.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " are",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.37,
+              "end": 4.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " consequences",
+              "start": 4.51,
+              "end": 5.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " which",
+              "start": 5.01,
+              "end": 5.47,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " seem",
+              "start": 5.47,
+              "end": 5.77,
+              "probability": 0.947265625
+            },
+            {
+              "text": " to",
+              "start": 5.77,
+              "end": 5.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " follow",
+              "start": 5.97,
+              "end": 6.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 6.21,
+              "end": 6.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 6.49,
+              "end": 6.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " assumption",
+              "start": 6.61,
+              "end": 6.93,
+              "probability": 0.9765625
+            },
+            {
+              "text": " that",
+              "start": 6.93,
+              "end": 7.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 7.29,
+              "end": 7.47,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " soul",
+              "start": 7.47,
+              "end": 7.75,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " is",
+              "start": 7.75,
+              "end": 8.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 8.01,
+              "end": 8.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " harmony?",
+              "start": 8.11,
+              "end": 8.37,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "can",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "all",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "this",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "raw": "be",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "raw": "true,",
+          "start": 1.13,
+          "end": 1.45
+        },
+        {
+          "raw": "think",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "you?",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "raw": "he",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "said,",
+          "start": 2.99,
+          "end": 3.29
+        },
+        {
+          "raw": "for",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "raw": "these",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "raw": "are",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "the",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "raw": "consequences",
+          "start": 4.51,
+          "end": 5.01
+        },
+        {
+          "raw": "which",
+          "start": 5.01,
+          "end": 5.47
+        },
+        {
+          "raw": "seem",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "raw": "to",
+          "start": 5.77,
+          "end": 5.97
+        },
+        {
+          "raw": "follow",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "raw": "from",
+          "start": 6.21,
+          "end": 6.49
+        },
+        {
+          "raw": "the",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "raw": "assumption",
+          "start": 6.61,
+          "end": 6.93
+        },
+        {
+          "raw": "that",
+          "start": 6.93,
+          "end": 7.29
+        },
+        {
+          "raw": "the",
+          "start": 7.29,
+          "end": 7.47
+        },
+        {
+          "raw": "soul",
+          "start": 7.47,
+          "end": 7.75
+        },
+        {
+          "raw": "is",
+          "start": 7.75,
+          "end": 8.01
+        },
+        {
+          "raw": "a",
+          "start": 8.01,
+          "end": 8.11
+        },
+        {
+          "raw": "harmony?",
+          "start": 8.11,
+          "end": 8.37
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "can",
+        "all",
+        "this",
+        "be",
+        "true,",
+        "think",
+        "you?",
+        "he",
+        "said;",
+        "for",
+        "these",
+        "are",
+        "the",
+        "consequences",
+        "which",
+        "seem",
+        "to",
+        "follow",
+        "from",
+        "the",
+        "assumption",
+        "that",
+        "the",
+        "soul",
+        "is",
+        "a",
+        "harmony?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "can",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "all",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "this",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "text": "be",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "text": "true,",
+          "start": 1.13,
+          "end": 1.45
+        },
+        {
+          "text": "think",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "you?",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "text": "he",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "said;",
+          "start": 2.99,
+          "end": 3.29
+        },
+        {
+          "text": "for",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "text": "these",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "text": "are",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "text": "consequences",
+          "start": 4.51,
+          "end": 5.01
+        },
+        {
+          "text": "which",
+          "start": 5.01,
+          "end": 5.47
+        },
+        {
+          "text": "seem",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "text": "to",
+          "start": 5.77,
+          "end": 5.97
+        },
+        {
+          "text": "follow",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "text": "from",
+          "start": 6.21,
+          "end": 6.49
+        },
+        {
+          "text": "the",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "text": "assumption",
+          "start": 6.61,
+          "end": 6.93
+        },
+        {
+          "text": "that",
+          "start": 6.93,
+          "end": 7.29
+        },
+        {
+          "text": "the",
+          "start": 7.29,
+          "end": 7.47
+        },
+        {
+          "text": "soul",
+          "start": 7.47,
+          "end": 7.75
+        },
+        {
+          "text": "is",
+          "start": 7.75,
+          "end": 8.01
+        },
+        {
+          "text": "a",
+          "start": 8.01,
+          "end": 8.11
+        },
+        {
+          "text": "harmony?",
+          "start": 8.11,
+          "end": 8.37
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1686276514083147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5abd22b1b6847e8949dab3208b36b8e563eb0746d59e928e661b8e053c83b646",
+  "selected_reasons": []
+}

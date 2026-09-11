@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "dbaa6cfc588e7b5e402a88bb54b66eabc27751ac7388a125f0d73857c144aaee",
+  "attempts": [
+    {
+      "asr_seconds": 0.14275727421045303,
+      "alignment_seconds": 0.00010754168033599854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prospero fine apparition my quaint Ariel hark in thine ear",
+          "start": 0.02,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " Prospero",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " fine",
+              "start": 1.0,
+              "end": 1.32,
+              "probability": 0.147705078125
+            },
+            {
+              "text": " apparition",
+              "start": 1.32,
+              "end": 1.96,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " my",
+              "start": 1.96,
+              "end": 2.48,
+              "probability": 0.273193359375
+            },
+            {
+              "text": " quaint",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Ariel",
+              "start": 2.72,
+              "end": 3.08,
+              "probability": 0.4794921875
+            },
+            {
+              "text": " hark",
+              "start": 3.08,
+              "end": 3.46,
+              "probability": 0.845947265625
+            },
+            {
+              "text": " in",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.892578125
+            },
+            {
+              "text": " thine",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.943603515625
+            },
+            {
+              "text": " ear",
+              "start": 3.76,
+              "end": 4.02,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "fine",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "raw": "apparition",
+          "start": 1.32,
+          "end": 1.96
+        },
+        {
+          "raw": "my",
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "raw": "quaint",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "Ariel",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "raw": "hark",
+          "start": 3.08,
+          "end": 3.46
+        },
+        {
+          "raw": "in",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "thine",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "ear",
+          "start": 3.76,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Fine",
+        "apparition!",
+        "My",
+        "quaint",
+        "Ariel,",
+        "Hark",
+        "in",
+        "thine",
+        "ear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "Fine",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "text": "apparition!",
+          "start": 1.32,
+          "end": 1.96
+        },
+        {
+          "text": "My",
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "text": "quaint",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "Ariel,",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "text": "Hark",
+          "start": 3.08,
+          "end": 3.46
+        },
+        {
+          "text": "in",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "thine",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "ear.",
+          "start": 3.76,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14291319251060486
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0246da62b584660bf83e0cfbd967832568611908190965cb57aa749401bb660b",
+  "selected_reasons": []
+}

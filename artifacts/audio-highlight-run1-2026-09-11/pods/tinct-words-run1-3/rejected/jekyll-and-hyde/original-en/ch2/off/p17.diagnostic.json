@@ -1,0 +1,435 @@
+{
+  "complete": true,
+  "signature": "c1db58b22065f735a9c5787208e3061abbb970fd13ba635d1ad7e03767e09f6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1412661299109459,
+      "alignment_seconds": 7.95125961303711e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Utterson stepped out and touched him on the shoulder as he passed.",
+          "start": 0.02,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " Utterson",
+              "start": 0.9,
+              "end": 1.14,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " stepped",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.984375
+            },
+            {
+              "text": " touched",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shoulder",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 3.08,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " passed.",
+              "start": 3.2,
+              "end": 3.58,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Mr. Hyde, I think.",
+          "start": 4.28,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.830078125
+            },
+            {
+              "text": " Hyde,",
+              "start": 4.82,
+              "end": 4.88,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " think.",
+              "start": 5.22,
+              "end": 5.46,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Utterson",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "raw": "stepped",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "out",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "and",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "touched",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "him",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "on",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "shoulder",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "he",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "raw": "passed.",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "Hyde,",
+          "start": 4.82,
+          "end": 4.88
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "think.",
+          "start": 5.22,
+          "end": 5.46
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Utterson",
+        "stepped",
+        "out",
+        "and",
+        "touched",
+        "him",
+        "on",
+        "the",
+        "shoulder",
+        "as",
+        "he",
+        "passed.",
+        "\"Mr.",
+        "Hyde,",
+        "I",
+        "think?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Utterson",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "text": "stepped",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "text": "out",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "and",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "touched",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "him",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "on",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "shoulder",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "he",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "text": "passed.",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "text": "\"Mr.",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "Hyde,",
+          "start": 4.82,
+          "end": 4.88
+        },
+        {
+          "text": "I",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "think?\"",
+          "start": 5.22,
+          "end": 5.46
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14138294756412506
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f2a0128c7b88d1267a2ffb141ec90a150555eee6791cbd4fe74488bf5fcbb42",
+  "selected_reasons": []
+}

@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "aff74e529f6defbde729a0ebf2870888fd5956b648263247ecaf0744322b6051",
+  "attempts": [
+    {
+      "asr_seconds": 0.10368834435939789,
+      "alignment_seconds": 6.0968101024627686e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. Passion to be near a throne, A king's heir!",
+        "hotwords": "Medea, Passion"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, Passion to be near a throne, A king's heir!",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.823974609375
+            },
+            {
+              "text": " Passion",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.10772705078125
+            },
+            {
+              "text": " to",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.919921875
+            },
+            {
+              "text": " be",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " near",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " a",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " throne,",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.810546875
+            },
+            {
+              "text": " A",
+              "start": 2.47,
+              "end": 2.51,
+              "probability": 0.05828857421875
+            },
+            {
+              "text": " king's",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " heir!",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Passion",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "be",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "near",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "a",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "throne,",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "A",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "raw": "king's",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "heir!",
+          "start": 2.83,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Passion",
+        "to",
+        "be",
+        "near",
+        "a",
+        "throne,",
+        "A",
+        "king's",
+        "heir!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Passion",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "to",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "be",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "near",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "a",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "throne,",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "A",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "text": "king's",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "heir!",
+          "start": 2.83,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10377952456474304
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ff780971427d47f973bc8fc27cbf6d691a10e236425be86fdb307d18f128d44",
+  "selected_reasons": []
+}

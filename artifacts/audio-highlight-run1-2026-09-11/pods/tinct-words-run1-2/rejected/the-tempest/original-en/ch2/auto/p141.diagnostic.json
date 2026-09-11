@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "920f1f027227d185a291f977eeb3823e96efb9fc38d428db1cb39c69df38fe33",
+  "attempts": [
+    {
+      "asr_seconds": 0.18328850716352463,
+      "alignment_seconds": 0.00010132789611816406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. A word, good sir; I fear you have done yourself some wrong: a word.",
+        "hotwords": "Prospero, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, a word, good sir. I fear you have done yourself some wrong, a word.",
+          "start": 0.61,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.61,
+              "end": 1.03,
+              "probability": 0.874755859375
+            },
+            {
+              "text": " a",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.96484375
+            },
+            {
+              "text": " word,",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sir.",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " I",
+              "start": 2.63,
+              "end": 2.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fear",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 2.89,
+              "end": 3.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 3.05,
+              "end": 3.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " done",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yourself",
+              "start": 3.29,
+              "end": 3.57,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " some",
+              "start": 3.57,
+              "end": 3.85,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " wrong,",
+              "start": 3.85,
+              "end": 4.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 4.33,
+              "end": 4.43,
+              "probability": 0.990234375
+            },
+            {
+              "text": " word.",
+              "start": 4.43,
+              "end": 4.73,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "raw": "a",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "word,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "good",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "sir.",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "I",
+          "start": 2.63,
+          "end": 2.73
+        },
+        {
+          "raw": "fear",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "you",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "raw": "have",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "raw": "done",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "yourself",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "raw": "some",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "raw": "wrong,",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "raw": "a",
+          "start": 4.33,
+          "end": 4.43
+        },
+        {
+          "raw": "word.",
+          "start": 4.43,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "A",
+        "word,",
+        "good",
+        "sir;",
+        "I",
+        "fear",
+        "you",
+        "have",
+        "done",
+        "yourself",
+        "some",
+        "wrong:",
+        "a",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "text": "A",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "word,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "good",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "sir;",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "I",
+          "start": 2.63,
+          "end": 2.73
+        },
+        {
+          "text": "fear",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "you",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "text": "have",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "text": "done",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "text": "yourself",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "text": "some",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "text": "wrong:",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "text": "a",
+          "start": 4.33,
+          "end": 4.43
+        },
+        {
+          "text": "word.",
+          "start": 4.43,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18343354761600494
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e392189ebb54038f716b25561afcc27dee9aa56c263fa2f78ed5067feb6dbfb3",
+  "selected_reasons": []
+}

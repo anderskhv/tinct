@@ -1,0 +1,994 @@
+{
+  "complete": true,
+  "signature": "ba9ab93dda12edeae0d854296699bc1e88c899243e47987a9829b1c2bd54e1b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3310203552246094,
+      "alignment_seconds": 0.00016380846500396729,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. Thou hadst, and more, Miranda. But how is it That this lives in thy mind? What seest thou else In the dark backward and abysm of time? If thou remember'st aught ere thou camest here, How thou camest here thou mayst.",
+        "hotwords": "Prospero, Miranda, But, That, What, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, thou hadst, and more, Miranda. But how is it That this lives in thy mind? What",
+          "start": 0.56,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.768798828125
+            },
+            {
+              "text": " thou",
+              "start": 1.38,
+              "end": 1.4,
+              "probability": 0.9296875
+            },
+            {
+              "text": " hadst,",
+              "start": 1.4,
+              "end": 1.98,
+              "probability": 0.865478515625
+            },
+            {
+              "text": " and",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " more,",
+              "start": 2.2,
+              "end": 2.46,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Miranda.",
+              "start": 2.6,
+              "end": 2.88,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " But",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " how",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.98828125
+            },
+            {
+              "text": " That",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.0008459091186523438
+            },
+            {
+              "text": " this",
+              "start": 4.38,
+              "end": 4.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " lives",
+              "start": 4.56,
+              "end": 4.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 5.02,
+              "end": 5.16,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " mind?",
+              "start": 5.16,
+              "end": 5.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " What",
+              "start": 6.16,
+              "end": 6.3,
+              "probability": 0.962890625
+            }
+          ]
+        },
+        {
+          "text": " seest thou else In the dark backward and abysm of time? If thou remember'st aught ere thou",
+          "start": 6.3,
+          "end": 11.44,
+          "words": [
+            {
+              "text": " seest",
+              "start": 6.3,
+              "end": 6.68,
+              "probability": 0.7137451171875
+            },
+            {
+              "text": " thou",
+              "start": 6.68,
+              "end": 6.86,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " else",
+              "start": 6.86,
+              "end": 7.12,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " In",
+              "start": 7.12,
+              "end": 7.26,
+              "probability": 0.3916015625
+            },
+            {
+              "text": " the",
+              "start": 7.26,
+              "end": 7.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dark",
+              "start": 7.38,
+              "end": 7.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " backward",
+              "start": 7.58,
+              "end": 8.02,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " and",
+              "start": 8.02,
+              "end": 8.28,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " abysm",
+              "start": 8.28,
+              "end": 8.68,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " of",
+              "start": 8.68,
+              "end": 8.82,
+              "probability": 0.814453125
+            },
+            {
+              "text": " time?",
+              "start": 8.82,
+              "end": 9.14,
+              "probability": 0.962890625
+            },
+            {
+              "text": " If",
+              "start": 9.78,
+              "end": 9.94,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " thou",
+              "start": 9.94,
+              "end": 10.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " remember'st",
+              "start": 10.1,
+              "end": 10.7,
+              "probability": 0.5836588541666666
+            },
+            {
+              "text": " aught",
+              "start": 10.7,
+              "end": 11.04,
+              "probability": 0.4509449005126953
+            },
+            {
+              "text": " ere",
+              "start": 11.04,
+              "end": 11.28,
+              "probability": 0.818115234375
+            },
+            {
+              "text": " thou",
+              "start": 11.28,
+              "end": 11.44,
+              "probability": 0.3681640625
+            }
+          ]
+        },
+        {
+          "text": " camest here, How thou camest here thou mayst.",
+          "start": 11.44,
+          "end": 14.22,
+          "words": [
+            {
+              "text": " camest",
+              "start": 11.44,
+              "end": 11.94,
+              "probability": 0.918701171875
+            },
+            {
+              "text": " here,",
+              "start": 11.94,
+              "end": 12.22,
+              "probability": 0.92578125
+            },
+            {
+              "text": " How",
+              "start": 12.58,
+              "end": 12.64,
+              "probability": 0.8515625
+            },
+            {
+              "text": " thou",
+              "start": 12.64,
+              "end": 12.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " camest",
+              "start": 12.8,
+              "end": 13.36,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " here",
+              "start": 13.36,
+              "end": 13.54,
+              "probability": 0.755859375
+            },
+            {
+              "text": " thou",
+              "start": 13.54,
+              "end": 13.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " mayst.",
+              "start": 13.74,
+              "end": 14.22,
+              "probability": 0.6522216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "thou",
+          "start": 1.38,
+          "end": 1.4
+        },
+        {
+          "raw": "hadst,",
+          "start": 1.4,
+          "end": 1.98
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "more,",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "raw": "Miranda.",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "raw": "But",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "how",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "is",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "it",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "That",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "this",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "raw": "lives",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "raw": "in",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "thy",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "raw": "mind?",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "raw": "What",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "raw": "seest",
+          "start": 6.3,
+          "end": 6.68
+        },
+        {
+          "raw": "thou",
+          "start": 6.68,
+          "end": 6.86
+        },
+        {
+          "raw": "else",
+          "start": 6.86,
+          "end": 7.12
+        },
+        {
+          "raw": "In",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "raw": "the",
+          "start": 7.26,
+          "end": 7.38
+        },
+        {
+          "raw": "dark",
+          "start": 7.38,
+          "end": 7.58
+        },
+        {
+          "raw": "backward",
+          "start": 7.58,
+          "end": 8.02
+        },
+        {
+          "raw": "and",
+          "start": 8.02,
+          "end": 8.28
+        },
+        {
+          "raw": "abysm",
+          "start": 8.28,
+          "end": 8.68
+        },
+        {
+          "raw": "of",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "raw": "time?",
+          "start": 8.82,
+          "end": 9.14
+        },
+        {
+          "raw": "If",
+          "start": 9.78,
+          "end": 9.94
+        },
+        {
+          "raw": "thou",
+          "start": 9.94,
+          "end": 10.1
+        },
+        {
+          "raw": "remember'st",
+          "start": 10.1,
+          "end": 10.7
+        },
+        {
+          "raw": "aught",
+          "start": 10.7,
+          "end": 11.04
+        },
+        {
+          "raw": "ere",
+          "start": 11.04,
+          "end": 11.28
+        },
+        {
+          "raw": "thou",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "raw": "camest",
+          "start": 11.44,
+          "end": 11.94
+        },
+        {
+          "raw": "here,",
+          "start": 11.94,
+          "end": 12.22
+        },
+        {
+          "raw": "How",
+          "start": 12.58,
+          "end": 12.64
+        },
+        {
+          "raw": "thou",
+          "start": 12.64,
+          "end": 12.8
+        },
+        {
+          "raw": "camest",
+          "start": 12.8,
+          "end": 13.36
+        },
+        {
+          "raw": "here",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "raw": "thou",
+          "start": 13.54,
+          "end": 13.74
+        },
+        {
+          "raw": "mayst.",
+          "start": 13.74,
+          "end": 14.22
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "Thou",
+        "hadst,",
+        "and",
+        "more,",
+        "Miranda.",
+        "But",
+        "how",
+        "is",
+        "it",
+        "That",
+        "this",
+        "lives",
+        "in",
+        "thy",
+        "mind?",
+        "What",
+        "seest",
+        "thou",
+        "else",
+        "In",
+        "the",
+        "dark",
+        "backward",
+        "and",
+        "abysm",
+        "of",
+        "time?",
+        "If",
+        "thou",
+        "remember'st",
+        "aught",
+        "ere",
+        "thou",
+        "camest",
+        "here,",
+        "How",
+        "thou",
+        "camest",
+        "here",
+        "thou",
+        "mayst."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "Thou",
+          "start": 1.38,
+          "end": 1.4
+        },
+        {
+          "text": "hadst,",
+          "start": 1.4,
+          "end": 1.98
+        },
+        {
+          "text": "and",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "more,",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "text": "Miranda.",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "text": "But",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "how",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "is",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "it",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "That",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "this",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "text": "lives",
+          "start": 4.56,
+          "end": 4.82
+        },
+        {
+          "text": "in",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "thy",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "text": "mind?",
+          "start": 5.16,
+          "end": 5.5
+        },
+        {
+          "text": "What",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "text": "seest",
+          "start": 6.3,
+          "end": 6.68
+        },
+        {
+          "text": "thou",
+          "start": 6.68,
+          "end": 6.86
+        },
+        {
+          "text": "else",
+          "start": 6.86,
+          "end": 7.12
+        },
+        {
+          "text": "In",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "text": "the",
+          "start": 7.26,
+          "end": 7.38
+        },
+        {
+          "text": "dark",
+          "start": 7.38,
+          "end": 7.58
+        },
+        {
+          "text": "backward",
+          "start": 7.58,
+          "end": 8.02
+        },
+        {
+          "text": "and",
+          "start": 8.02,
+          "end": 8.28
+        },
+        {
+          "text": "abysm",
+          "start": 8.28,
+          "end": 8.68
+        },
+        {
+          "text": "of",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "text": "time?",
+          "start": 8.82,
+          "end": 9.14
+        },
+        {
+          "text": "If",
+          "start": 9.78,
+          "end": 9.94
+        },
+        {
+          "text": "thou",
+          "start": 9.94,
+          "end": 10.1
+        },
+        {
+          "text": "remember'st",
+          "start": 10.1,
+          "end": 10.7
+        },
+        {
+          "text": "aught",
+          "start": 10.7,
+          "end": 11.04
+        },
+        {
+          "text": "ere",
+          "start": 11.04,
+          "end": 11.28
+        },
+        {
+          "text": "thou",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "text": "camest",
+          "start": 11.44,
+          "end": 11.94
+        },
+        {
+          "text": "here,",
+          "start": 11.94,
+          "end": 12.22
+        },
+        {
+          "text": "How",
+          "start": 12.58,
+          "end": 12.64
+        },
+        {
+          "text": "thou",
+          "start": 12.64,
+          "end": 12.8
+        },
+        {
+          "text": "camest",
+          "start": 12.8,
+          "end": 13.36
+        },
+        {
+          "text": "here",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "text": "thou",
+          "start": 13.54,
+          "end": 13.74
+        },
+        {
+          "text": "mayst.",
+          "start": 13.74,
+          "end": 14.22
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33128026127815247
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4eb733c912d3646b6af867b389594a5512ee2c5d667ba16763c1b3ab25d7f4cd",
+  "selected_reasons": []
+}

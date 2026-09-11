@@ -1,0 +1,340 @@
+{
+  "complete": true,
+  "signature": "bf773bb2271306d54d88f9833b92dcbee8d5a9161638eb28185f1857930d6cdb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1794702634215355,
+      "alignment_seconds": 8.676201105117798e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is true. He has annexed two limitations to it, to no purpose.",
+          "start": 0.02,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.921875
+            },
+            {
+              "text": " is",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " true.",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " He",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " has",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " annexed",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " two",
+              "start": 1.88,
+              "end": 2.2,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " limitations",
+              "start": 2.2,
+              "end": 2.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 2.66,
+              "end": 3.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it,",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.38,
+              "end": 3.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 3.46,
+              "end": 3.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " purpose.",
+              "start": 3.62,
+              "end": 3.98,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "true.",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "He",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "has",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "annexed",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "two",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "raw": "limitations",
+          "start": 2.2,
+          "end": 2.66
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "raw": "it,",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "to",
+          "start": 3.38,
+          "end": 3.46
+        },
+        {
+          "raw": "no",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "raw": "purpose.",
+          "start": 3.62,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "is",
+        "true,",
+        "he",
+        "has",
+        "annexed",
+        "two",
+        "limitations",
+        "to",
+        "it,",
+        "to",
+        "no",
+        "purpose:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "is",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "true,",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "text": "he",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "has",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "annexed",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "two",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "text": "limitations",
+          "start": 2.2,
+          "end": 2.66
+        },
+        {
+          "text": "to",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "text": "it,",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "to",
+          "start": 3.38,
+          "end": 3.46
+        },
+        {
+          "text": "no",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "text": "purpose:",
+          "start": 3.62,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1795976161956787
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "28079938043a2d821f4bec14d921a9c6d4e57317a74669cdc4b0e2e7d71e4001",
+  "selected_reasons": []
+}

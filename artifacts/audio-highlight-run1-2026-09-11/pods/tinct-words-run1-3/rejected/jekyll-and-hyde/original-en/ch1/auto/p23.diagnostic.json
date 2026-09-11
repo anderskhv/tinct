@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "69f193b416a61bbcd1f820fcfe6d880c00e5641a836b698023b1b389e6264f26",
+  "attempts": [
+    {
+      "asr_seconds": 0.10089229047298431,
+      "alignment_seconds": 5.99399209022522e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"My dear sir...\" began Enfield, surprised out of himself.",
+        "hotwords": "My, Enfield"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My dear sir... began Enfield, surprised out of himself.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.5703125
+            },
+            {
+              "text": " dear",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.958984375
+            },
+            {
+              "text": " sir...",
+              "start": 0.77,
+              "end": 1.79,
+              "probability": 0.4017219543457031
+            },
+            {
+              "text": " began",
+              "start": 1.79,
+              "end": 1.81,
+              "probability": 0.459228515625
+            },
+            {
+              "text": " Enfield,",
+              "start": 1.81,
+              "end": 2.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " surprised",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " out",
+              "start": 2.93,
+              "end": 3.21,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 3.21,
+              "end": 3.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself.",
+              "start": 3.31,
+              "end": 3.63,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "dear",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "sir...",
+          "start": 0.77,
+          "end": 1.79
+        },
+        {
+          "raw": "began",
+          "start": 1.79,
+          "end": 1.81
+        },
+        {
+          "raw": "Enfield,",
+          "start": 1.81,
+          "end": 2.39
+        },
+        {
+          "raw": "surprised",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "raw": "out",
+          "start": 2.93,
+          "end": 3.21
+        },
+        {
+          "raw": "of",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "raw": "himself.",
+          "start": 3.31,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "dear",
+        "sir...\"",
+        "began",
+        "Enfield,",
+        "surprised",
+        "out",
+        "of",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "dear",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "sir...\"",
+          "start": 0.77,
+          "end": 1.79
+        },
+        {
+          "text": "began",
+          "start": 1.79,
+          "end": 1.81
+        },
+        {
+          "text": "Enfield,",
+          "start": 1.81,
+          "end": 2.39
+        },
+        {
+          "text": "surprised",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "text": "out",
+          "start": 2.93,
+          "end": 3.21
+        },
+        {
+          "text": "of",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "text": "himself.",
+          "start": 3.31,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1009773537516594
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "667d3e01fe001fab4975c33ca14558f03cf489f3e625ae9b30cc87dfb10e4ea6",
+  "selected_reasons": []
+}

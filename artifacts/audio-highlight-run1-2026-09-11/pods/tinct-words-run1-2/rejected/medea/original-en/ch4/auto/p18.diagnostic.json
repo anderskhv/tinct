@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "65aa608c0f1f72764706bb47d50740e40bee2651592db77387bd7fba6ac0cebf",
+  "attempts": [
+    {
+      "asr_seconds": 0.13061676174402237,
+      "alignment_seconds": 0.00010970234870910645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. On thy house also, as chance falls, I am a living curse.",
+        "hotwords": "Medea, On, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, On thy house also, as chance falls, I am a living curse.",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.7359619140625
+            },
+            {
+              "text": " On",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.034576416015625
+            },
+            {
+              "text": " thy",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " house",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " also,",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " as",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.859375
+            },
+            {
+              "text": " chance",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " falls,",
+              "start": 2.61,
+              "end": 3.01,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 3.25,
+              "end": 3.35,
+              "probability": 0.951171875
+            },
+            {
+              "text": " am",
+              "start": 3.35,
+              "end": 3.43,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " a",
+              "start": 3.43,
+              "end": 3.51,
+              "probability": 0.990234375
+            },
+            {
+              "text": " living",
+              "start": 3.51,
+              "end": 3.69,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " curse.",
+              "start": 3.69,
+              "end": 4.03,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "On",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "thy",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "house",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "also,",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "as",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "chance",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "falls,",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "raw": "I",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "raw": "am",
+          "start": 3.35,
+          "end": 3.43
+        },
+        {
+          "raw": "a",
+          "start": 3.43,
+          "end": 3.51
+        },
+        {
+          "raw": "living",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "raw": "curse.",
+          "start": 3.69,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "On",
+        "thy",
+        "house",
+        "also,",
+        "as",
+        "chance",
+        "falls,",
+        "I",
+        "am",
+        "a",
+        "living",
+        "curse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "On",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "thy",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "house",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "also,",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "text": "as",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "chance",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "falls,",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "text": "I",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "text": "am",
+          "start": 3.35,
+          "end": 3.43
+        },
+        {
+          "text": "a",
+          "start": 3.43,
+          "end": 3.51
+        },
+        {
+          "text": "living",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "text": "curse.",
+          "start": 3.69,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1307782530784607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0b7104fb5b5ab6193a2eb82e8fe9f10b3178c477506dfb12cb8499b26e25321",
+  "selected_reasons": []
+}

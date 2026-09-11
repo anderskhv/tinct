@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "ea42950e4b48bb0e1c8db2e26c6592e84155628966f9313a4d07ecb029f3146f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10394070018082857,
+      "alignment_seconds": 6.853137165307999e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " PHAEDO, did you not hear of the proceedings at the trial?",
+          "start": 1.17,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " PHAEDO,",
+              "start": 1.17,
+              "end": 1.57,
+              "probability": 0.8548583984375
+            },
+            {
+              "text": " did",
+              "start": 1.97,
+              "end": 2.05,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hear",
+              "start": 2.37,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.71,
+              "end": 2.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " proceedings",
+              "start": 2.81,
+              "end": 3.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " trial?",
+              "start": 3.49,
+              "end": 3.77,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "PHAEDO,",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "raw": "did",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "not",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "hear",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "raw": "of",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "raw": "proceedings",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "raw": "at",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "trial?",
+          "start": 3.49,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "Phaedo:",
+        "Did",
+        "you",
+        "not",
+        "hear",
+        "of",
+        "the",
+        "proceedings",
+        "at",
+        "the",
+        "trial?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Phaedo:",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "text": "Did",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "not",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "hear",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "text": "of",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "text": "proceedings",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "text": "at",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "trial?",
+          "start": 3.49,
+          "end": 3.77
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10404014587402344
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40c41090d9eb80d109fcd0a2426c2d0be33b01a3cf8a9ad9ad7bafcd397ad935",
+  "selected_reasons": []
+}

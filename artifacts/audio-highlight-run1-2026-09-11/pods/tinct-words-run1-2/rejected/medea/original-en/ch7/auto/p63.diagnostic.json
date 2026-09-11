@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "83959e1db8cb7f0d23b4661b27305426b0689059c27ce754ee26d56f1febe79b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10593540966510773,
+      "alignment_seconds": 9.737163782119751e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jason. At the last, O God, to touch that tender brow!",
+        "hotwords": "Jason, At, O, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jason, At the last, O God, to touch that tender brow!",
+          "start": 0.02,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " Jason,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " At",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.04351806640625
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.8203125
+            },
+            {
+              "text": " last,",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " O",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " God,",
+              "start": 2.18,
+              "end": 2.44,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " to",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.5859375
+            },
+            {
+              "text": " touch",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " that",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " tender",
+              "start": 3.12,
+              "end": 3.48,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " brow!",
+              "start": 3.48,
+              "end": 3.78,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jason,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "At",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "last,",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "raw": "O",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "God,",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "touch",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "that",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "tender",
+          "start": 3.12,
+          "end": 3.48
+        },
+        {
+          "raw": "brow!",
+          "start": 3.48,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "Jason.",
+        "At",
+        "the",
+        "last,",
+        "O",
+        "God,",
+        "to",
+        "touch",
+        "that",
+        "tender",
+        "brow!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Jason.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "At",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "last,",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "text": "O",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "God,",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "text": "to",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "touch",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "that",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "tender",
+          "start": 3.12,
+          "end": 3.48
+        },
+        {
+          "text": "brow!",
+          "start": 3.48,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10607671737670898
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3121ec5738d29e005111376f86930963cc9d45c251283a96048ebc43b266dba5",
+  "selected_reasons": []
+}

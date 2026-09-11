@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "05f986aa092b2f8ed68eadd5957a8ce39d52170ee50d6147acc2c3849d648276",
+  "attempts": [
+    {
+      "asr_seconds": 0.18937962502241135,
+      "alignment_seconds": 8.635967969894409e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ferdinand. No; I will resist such entertainment till Mine enemy has more power.",
+        "hotwords": "Ferdinand, No, I, Mine"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ferdinand, No, I will resist such entertainment till Mine enemy has more power.",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Ferdinand,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " No,",
+              "start": 1.35,
+              "end": 1.75,
+              "probability": 0.047088623046875
+            },
+            {
+              "text": " I",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " will",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " resist",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " such",
+              "start": 2.67,
+              "end": 2.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " entertainment",
+              "start": 2.97,
+              "end": 3.47,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " till",
+              "start": 3.47,
+              "end": 3.81,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " Mine",
+              "start": 3.81,
+              "end": 4.11,
+              "probability": 0.034820556640625
+            },
+            {
+              "text": " enemy",
+              "start": 4.11,
+              "end": 4.41,
+              "probability": 0.423583984375
+            },
+            {
+              "text": " has",
+              "start": 4.41,
+              "end": 4.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " more",
+              "start": 4.73,
+              "end": 4.93,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " power.",
+              "start": 4.93,
+              "end": 5.25,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ferdinand,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "No,",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "will",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "resist",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "such",
+          "start": 2.67,
+          "end": 2.97
+        },
+        {
+          "raw": "entertainment",
+          "start": 2.97,
+          "end": 3.47
+        },
+        {
+          "raw": "till",
+          "start": 3.47,
+          "end": 3.81
+        },
+        {
+          "raw": "Mine",
+          "start": 3.81,
+          "end": 4.11
+        },
+        {
+          "raw": "enemy",
+          "start": 4.11,
+          "end": 4.41
+        },
+        {
+          "raw": "has",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "raw": "more",
+          "start": 4.73,
+          "end": 4.93
+        },
+        {
+          "raw": "power.",
+          "start": 4.93,
+          "end": 5.25
+        }
+      ],
+      "expected_tokens": [
+        "Ferdinand.",
+        "No;",
+        "I",
+        "will",
+        "resist",
+        "such",
+        "entertainment",
+        "till",
+        "Mine",
+        "enemy",
+        "has",
+        "more",
+        "power."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ferdinand.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "No;",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "text": "I",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "will",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "resist",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "such",
+          "start": 2.67,
+          "end": 2.97
+        },
+        {
+          "text": "entertainment",
+          "start": 2.97,
+          "end": 3.47
+        },
+        {
+          "text": "till",
+          "start": 3.47,
+          "end": 3.81
+        },
+        {
+          "text": "Mine",
+          "start": 3.81,
+          "end": 4.11
+        },
+        {
+          "text": "enemy",
+          "start": 4.11,
+          "end": 4.41
+        },
+        {
+          "text": "has",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "text": "more",
+          "start": 4.73,
+          "end": 4.93
+        },
+        {
+          "text": "power.",
+          "start": 4.93,
+          "end": 5.25
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18950631469488144
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a8c0b52e48ce4f677fb27175e829afbe78f1fb37b65160434ea9be61e6dfb3a",
+  "selected_reasons": []
+}

@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "e7c62af91540690fe22c62e482992557bf202005576884b5930c646c23e69f30",
+  "attempts": [
+    {
+      "asr_seconds": 0.08066202700138092,
+      "alignment_seconds": 0.00010326504707336426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Resumes his mantle]",
+        "hotwords": "Resumes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Resumes his mantle",
+          "start": 0.05,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Resumes",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.802001953125
+            },
+            {
+              "text": " his",
+              "start": 0.81,
+              "end": 0.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " mantle",
+              "start": 0.97,
+              "end": 1.33,
+              "probability": 0.9287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Resumes",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "his",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "raw": "mantle",
+          "start": 0.97,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "[Resumes",
+        "his",
+        "mantle]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Resumes",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "his",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "text": "mantle]",
+          "start": 0.97,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08079703152179718
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5b03ad37bc65430e0bfdf75484c13be571f1e34af309b260b1b6add55e025823",
+  "selected_reasons": []
+}

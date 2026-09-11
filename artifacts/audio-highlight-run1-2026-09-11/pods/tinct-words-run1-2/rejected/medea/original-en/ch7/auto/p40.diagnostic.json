@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "3137e392fcc81841709904690bef17fd1c4143e5e1ad0edb01ab86f6ea639c50",
+  "attempts": [
+    {
+      "asr_seconds": 2.905856393277645,
+      "alignment_seconds": 7.068365812301636e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. And love to women a slight thing should be?",
+        "hotwords": "Medea, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea. And love to women a slight thing should be?",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Medea.",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " And",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.701171875
+            },
+            {
+              "text": " love",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " to",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " women",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.931640625
+            },
+            {
+              "text": " slight",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thing",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " should",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be?",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "And",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "love",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "to",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "women",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "a",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "slight",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "thing",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "should",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "be?",
+          "start": 2.83,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "And",
+        "love",
+        "to",
+        "women",
+        "a",
+        "slight",
+        "thing",
+        "should",
+        "be?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "And",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "love",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "to",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "women",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "a",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "slight",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "thing",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "should",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "be?",
+          "start": 2.83,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.90596229583025
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e1bde3d27b283b5bf225d41503f08b4678ca1309d10ac16da74915133566918",
+  "selected_reasons": []
+}

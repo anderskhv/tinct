@@ -1,0 +1,255 @@
+{
+  "complete": true,
+  "signature": "ab629bcd1424bc8ebb5f4abe993d5360e8dbf4cdb045038f1acf879b34d62436",
+  "attempts": [
+    {
+      "asr_seconds": 0.14948463439941406,
+      "alignment_seconds": 0.00012468546628952026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, oh, widow Dido, I widow Dido.",
+          "start": 0.11,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.89,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " oh,",
+              "start": 1.47,
+              "end": 1.51,
+              "probability": 0.51904296875
+            },
+            {
+              "text": " widow",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " Dido,",
+              "start": 1.73,
+              "end": 2.23,
+              "probability": 0.60064697265625
+            },
+            {
+              "text": " I",
+              "start": 2.55,
+              "end": 2.61,
+              "probability": 0.900390625
+            },
+            {
+              "text": " widow",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " Dido.",
+              "start": 2.85,
+              "end": 3.53,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "raw": "oh,",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "raw": "widow",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "Dido,",
+          "start": 1.73,
+          "end": 2.23
+        },
+        {
+          "raw": "I",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "raw": "widow",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "Dido.",
+          "start": 2.85,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "O,",
+        "widow",
+        "Dido!",
+        "ay,",
+        "widow",
+        "Dido."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "text": "O,",
+          "start": 0.89,
+          "end": 1.27
+        },
+        {
+          "text": "widow",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "Dido!",
+          "start": 1.73,
+          "end": 2.23
+        },
+        {
+          "text": "ay,",
+          "start": 2.23,
+          "end": 2.42
+        },
+        {
+          "text": "widow",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "Dido.",
+          "start": 2.85,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14965930581092834
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6a8492f63d7c1bd71adc687239125fea89f34db1408f924972444f75c3373a4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

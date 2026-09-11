@@ -1,0 +1,744 @@
+{
+  "complete": true,
+  "signature": "2a14f832c64a3b4e8baf0dfd5bebbfe4d52ca092d2e749bc689313ebb7c575fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.19618677347898483,
+      "alignment_seconds": 8.863955736160278e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. Most happy tiding! Which thy name prefers Henceforth among my friends and well-wishers.",
+        "hotwords": "Medea, Most, Which, Henceforth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, Most happy tiding! Which thy name prefers Henceforth among my friends and well-wishers.",
+          "start": 0.05,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " Most",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " happy",
+              "start": 1.51,
+              "end": 1.83,
+              "probability": 0.12286376953125
+            },
+            {
+              "text": " tiding!",
+              "start": 1.83,
+              "end": 2.21,
+              "probability": 0.43597412109375
+            },
+            {
+              "text": " Which",
+              "start": 2.81,
+              "end": 2.91,
+              "probability": 0.357421875
+            },
+            {
+              "text": " thy",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " name",
+              "start": 3.11,
+              "end": 3.41,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " prefers",
+              "start": 3.41,
+              "end": 3.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Henceforth",
+              "start": 3.77,
+              "end": 4.41,
+              "probability": 0.48828125
+            },
+            {
+              "text": " among",
+              "start": 4.41,
+              "end": 4.71,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " my",
+              "start": 4.71,
+              "end": 4.97,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " friends",
+              "start": 4.97,
+              "end": 5.27,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " and",
+              "start": 5.27,
+              "end": 5.53,
+              "probability": 0.859375
+            },
+            {
+              "text": " well",
+              "start": 5.53,
+              "end": 5.71,
+              "probability": 0.9658203125
+            },
+            {
+              "text": "-wishers.",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.81787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Most",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "happy",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "raw": "tiding!",
+          "start": 1.83,
+          "end": 2.21
+        },
+        {
+          "raw": "Which",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "raw": "thy",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "name",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "raw": "prefers",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "raw": "Henceforth",
+          "start": 3.77,
+          "end": 4.41
+        },
+        {
+          "raw": "among",
+          "start": 4.41,
+          "end": 4.71
+        },
+        {
+          "raw": "my",
+          "start": 4.71,
+          "end": 4.97
+        },
+        {
+          "raw": "friends",
+          "start": 4.97,
+          "end": 5.27
+        },
+        {
+          "raw": "and",
+          "start": 5.27,
+          "end": 5.53
+        },
+        {
+          "raw": "well",
+          "start": 5.53,
+          "end": 5.71
+        },
+        {
+          "raw": "-wishers.",
+          "start": 5.71,
+          "end": 5.97
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Most",
+        "happy",
+        "tiding!",
+        "Which",
+        "thy",
+        "name",
+        "prefers",
+        "Henceforth",
+        "among",
+        "my",
+        "friends",
+        "and",
+        "well-wishers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Most",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "happy",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "text": "tiding!",
+          "start": 1.83,
+          "end": 2.21
+        },
+        {
+          "text": "Which",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "text": "thy",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "name",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "text": "prefers",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "text": "Henceforth",
+          "start": 3.77,
+          "end": 4.41
+        },
+        {
+          "text": "among",
+          "start": 4.41,
+          "end": 4.71
+        },
+        {
+          "text": "my",
+          "start": 4.71,
+          "end": 4.97
+        },
+        {
+          "text": "friends",
+          "start": 4.97,
+          "end": 5.27
+        },
+        {
+          "text": "and",
+          "start": 5.27,
+          "end": 5.53
+        },
+        {
+          "text": "well-wishers.",
+          "start": 5.53,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.1963173896074295
+    },
+    {
+      "asr_seconds": 0.18091975897550583,
+      "alignment_seconds": 8.226931095123291e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Medea, Most, Which, Henceforth"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Medea, Most Happy Tiding, Which thy name prefers henceforth among my friends and wellwishers.",
+          "start": 0.05,
+          "end": 5.99,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " Most",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " Happy",
+              "start": 1.51,
+              "end": 1.83,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " Tiding,",
+              "start": 1.83,
+              "end": 2.27,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " Which",
+              "start": 2.81,
+              "end": 2.91,
+              "probability": 0.4892578125
+            },
+            {
+              "text": " thy",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.457275390625
+            },
+            {
+              "text": " name",
+              "start": 3.11,
+              "end": 3.41,
+              "probability": 0.90625
+            },
+            {
+              "text": " prefers",
+              "start": 3.41,
+              "end": 3.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " henceforth",
+              "start": 3.77,
+              "end": 4.43,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " among",
+              "start": 4.43,
+              "end": 4.71,
+              "probability": 0.37060546875
+            },
+            {
+              "text": " my",
+              "start": 4.71,
+              "end": 4.97,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " friends",
+              "start": 4.97,
+              "end": 5.27,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " and",
+              "start": 5.27,
+              "end": 5.53,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " wellwishers.",
+              "start": 5.53,
+              "end": 5.99,
+              "probability": 0.8225911458333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Most",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "Happy",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "raw": "Tiding,",
+          "start": 1.83,
+          "end": 2.27
+        },
+        {
+          "raw": "Which",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "raw": "thy",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "name",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "raw": "prefers",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "raw": "henceforth",
+          "start": 3.77,
+          "end": 4.43
+        },
+        {
+          "raw": "among",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "raw": "my",
+          "start": 4.71,
+          "end": 4.97
+        },
+        {
+          "raw": "friends",
+          "start": 4.97,
+          "end": 5.27
+        },
+        {
+          "raw": "and",
+          "start": 5.27,
+          "end": 5.53
+        },
+        {
+          "raw": "wellwishers.",
+          "start": 5.53,
+          "end": 5.99
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Most",
+        "happy",
+        "tiding!",
+        "Which",
+        "thy",
+        "name",
+        "prefers",
+        "Henceforth",
+        "among",
+        "my",
+        "friends",
+        "and",
+        "well-wishers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Most",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "happy",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "text": "tiding!",
+          "start": 1.83,
+          "end": 2.27
+        },
+        {
+          "text": "Which",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "text": "thy",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "name",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "text": "prefers",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "text": "Henceforth",
+          "start": 3.77,
+          "end": 4.43
+        },
+        {
+          "text": "among",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "text": "my",
+          "start": 4.71,
+          "end": 4.97
+        },
+        {
+          "text": "friends",
+          "start": 4.97,
+          "end": 5.27
+        },
+        {
+          "text": "and",
+          "start": 5.27,
+          "end": 5.53
+        },
+        {
+          "text": "well-wishers.",
+          "start": 5.53,
+          "end": 5.99
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18104255199432373
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "a594fe269b68bc1c11c2bcba76c99bce8744c17995d6782abdd4a1b286f7f090",
+  "selected_reasons": []
+}

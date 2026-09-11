@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "df30c94b7a9e1133c4c85287624ef8016ce939efa8bcb096eb8e69fb5aaabe9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.08734862599521875,
+      "alignment_seconds": 8.390471339225769e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is not.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " is",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " not.",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "not.",
+          "start": 0.62,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "is",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "not.",
+          "start": 0.62,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08745746687054634
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a65e22329778042206571f097812344753629055673c9c563e7c71a3a2fe34b",
+  "selected_reasons": []
+}

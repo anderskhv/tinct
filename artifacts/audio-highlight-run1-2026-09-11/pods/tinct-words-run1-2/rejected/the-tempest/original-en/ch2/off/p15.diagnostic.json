@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "fe2dcd14f16cfcbaa1a81c15150c4564bd01f1635c8c828d11084ce725e895d8",
+  "attempts": [
+    {
+      "asr_seconds": 0.11461933702230453,
+      "alignment_seconds": 6.300956010818481e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miranda, but that I do not.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " but",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.98828125
+            },
+            {
+              "text": " that",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.962890625
+            },
+            {
+              "text": " do",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not.",
+              "start": 1.79,
+              "end": 2.07,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "but",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "that",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "I",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "do",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "not.",
+          "start": 1.79,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "But",
+        "that",
+        "I",
+        "do",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "But",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "that",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "I",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "do",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "not.",
+          "start": 1.79,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11471060663461685
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "465b5d6e08ca2f3c6f7a51e47c4974c59eda59983c0aa1fc365dcfdf7dd2c474",
+  "selected_reasons": []
+}

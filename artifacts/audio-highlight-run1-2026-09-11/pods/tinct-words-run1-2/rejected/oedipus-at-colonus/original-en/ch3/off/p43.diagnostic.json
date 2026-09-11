@@ -1,0 +1,223 @@
+{
+  "complete": true,
+  "signature": "2bf273d9bdf4976fd0121cd32573a009d4c3374e1fda9bed55f3cb2b823c98be",
+  "attempts": [
+    {
+      "asr_seconds": 0.16990109533071518,
+      "alignment_seconds": 0.0001288577914237976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ismeen, envoys who visited the Delphic hearth.",
+          "start": 0.08,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Ismeen,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.6900227864583334
+            },
+            {
+              "text": " envoys",
+              "start": 1.3,
+              "end": 1.74,
+              "probability": 0.934814453125
+            },
+            {
+              "text": " who",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " visited",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Delphic",
+              "start": 2.4,
+              "end": 2.78,
+              "probability": 0.9527994791666666
+            },
+            {
+              "text": " hearth.",
+              "start": 2.78,
+              "end": 3.24,
+              "probability": 0.7626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismeen,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "envoys",
+          "start": 1.3,
+          "end": 1.74
+        },
+        {
+          "raw": "who",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "visited",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "raw": "Delphic",
+          "start": 2.4,
+          "end": 2.78
+        },
+        {
+          "raw": "hearth.",
+          "start": 2.78,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Envoys",
+        "who",
+        "visited",
+        "the",
+        "Delphic",
+        "hearth."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.0,
+          "end": 0.65
+        },
+        {
+          "text": "Envoys",
+          "start": 1.3,
+          "end": 1.74
+        },
+        {
+          "text": "who",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "visited",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "text": "Delphic",
+          "start": 2.4,
+          "end": 2.78
+        },
+        {
+          "text": "hearth.",
+          "start": 2.78,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.17008120566606522
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9b56345ae2599d2b8677075e042a28c976bd171036fe22538384afeb0983e79e",
+  "selected_reasons": []
+}

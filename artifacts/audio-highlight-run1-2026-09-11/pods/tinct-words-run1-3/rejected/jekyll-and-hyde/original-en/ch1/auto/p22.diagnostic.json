@@ -1,0 +1,635 @@
+{
+  "complete": true,
+  "signature": "89cfc4cfa12f64269b9890992739ef762c727af6f90e3fd8c86cead7cb345a7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.21571213752031326,
+      "alignment_seconds": 0.00011337548494338989,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr. Utterson again walked some way in silence and obviously under a weight of consideration. \"You are sure he used a key?\" he inquired at last.",
+        "hotwords": "Mr, Utterson, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Utterson again walked some way in silence and obviously under a weight of consideration.",
+          "start": 0.02,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " Utterson",
+              "start": 0.88,
+              "end": 1.16,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " again",
+              "start": 1.16,
+              "end": 1.5,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " walked",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " some",
+              "start": 1.84,
+              "end": 2.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " way",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silence",
+              "start": 2.46,
+              "end": 2.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.8,
+              "end": 3.38,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " obviously",
+              "start": 3.38,
+              "end": 3.84,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " under",
+              "start": 3.84,
+              "end": 4.26,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " a",
+              "start": 4.26,
+              "end": 4.38,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " weight",
+              "start": 4.38,
+              "end": 4.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " consideration.",
+              "start": 4.7,
+              "end": 5.14,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " You are sure he used a key?\" he inquired at last.",
+          "start": 5.82,
+          "end": 9.12,
+          "words": [
+            {
+              "text": " You",
+              "start": 5.82,
+              "end": 6.32,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " are",
+              "start": 6.32,
+              "end": 6.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sure",
+              "start": 6.46,
+              "end": 6.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 6.72,
+              "end": 6.94,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " used",
+              "start": 6.94,
+              "end": 7.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 7.18,
+              "end": 7.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " key?\"",
+              "start": 7.3,
+              "end": 8.08,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " he",
+              "start": 8.08,
+              "end": 8.2,
+              "probability": 0.662109375
+            },
+            {
+              "text": " inquired",
+              "start": 8.2,
+              "end": 8.54,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " at",
+              "start": 8.54,
+              "end": 8.78,
+              "probability": 0.986328125
+            },
+            {
+              "text": " last.",
+              "start": 8.78,
+              "end": 9.12,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Utterson",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "raw": "again",
+          "start": 1.16,
+          "end": 1.5
+        },
+        {
+          "raw": "walked",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "raw": "some",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "raw": "way",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "in",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "silence",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "raw": "and",
+          "start": 2.8,
+          "end": 3.38
+        },
+        {
+          "raw": "obviously",
+          "start": 3.38,
+          "end": 3.84
+        },
+        {
+          "raw": "under",
+          "start": 3.84,
+          "end": 4.26
+        },
+        {
+          "raw": "a",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "raw": "weight",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "raw": "of",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "consideration.",
+          "start": 4.7,
+          "end": 5.14
+        },
+        {
+          "raw": "You",
+          "start": 5.82,
+          "end": 6.32
+        },
+        {
+          "raw": "are",
+          "start": 6.32,
+          "end": 6.46
+        },
+        {
+          "raw": "sure",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "raw": "he",
+          "start": 6.72,
+          "end": 6.94
+        },
+        {
+          "raw": "used",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "raw": "a",
+          "start": 7.18,
+          "end": 7.3
+        },
+        {
+          "raw": "key?\"",
+          "start": 7.3,
+          "end": 8.08
+        },
+        {
+          "raw": "he",
+          "start": 8.08,
+          "end": 8.2
+        },
+        {
+          "raw": "inquired",
+          "start": 8.2,
+          "end": 8.54
+        },
+        {
+          "raw": "at",
+          "start": 8.54,
+          "end": 8.78
+        },
+        {
+          "raw": "last.",
+          "start": 8.78,
+          "end": 9.12
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Utterson",
+        "again",
+        "walked",
+        "some",
+        "way",
+        "in",
+        "silence",
+        "and",
+        "obviously",
+        "under",
+        "a",
+        "weight",
+        "of",
+        "consideration.",
+        "\"You",
+        "are",
+        "sure",
+        "he",
+        "used",
+        "a",
+        "key?\"",
+        "he",
+        "inquired",
+        "at",
+        "last."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Utterson",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "text": "again",
+          "start": 1.16,
+          "end": 1.5
+        },
+        {
+          "text": "walked",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "text": "some",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "text": "way",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "in",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "text": "silence",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "text": "and",
+          "start": 2.8,
+          "end": 3.38
+        },
+        {
+          "text": "obviously",
+          "start": 3.38,
+          "end": 3.84
+        },
+        {
+          "text": "under",
+          "start": 3.84,
+          "end": 4.26
+        },
+        {
+          "text": "a",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "text": "weight",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "text": "of",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "consideration.",
+          "start": 4.7,
+          "end": 5.14
+        },
+        {
+          "text": "\"You",
+          "start": 5.82,
+          "end": 6.32
+        },
+        {
+          "text": "are",
+          "start": 6.32,
+          "end": 6.46
+        },
+        {
+          "text": "sure",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "text": "he",
+          "start": 6.72,
+          "end": 6.94
+        },
+        {
+          "text": "used",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "text": "a",
+          "start": 7.18,
+          "end": 7.3
+        },
+        {
+          "text": "key?\"",
+          "start": 7.3,
+          "end": 8.08
+        },
+        {
+          "text": "he",
+          "start": 8.08,
+          "end": 8.2
+        },
+        {
+          "text": "inquired",
+          "start": 8.2,
+          "end": 8.54
+        },
+        {
+          "text": "at",
+          "start": 8.54,
+          "end": 8.78
+        },
+        {
+          "text": "last.",
+          "start": 8.78,
+          "end": 9.12
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21587776392698288
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "786e0b737b0dff9b42e894a54ab0d853aa7fad686da9455e724697aa4df33add",
+  "selected_reasons": []
+}

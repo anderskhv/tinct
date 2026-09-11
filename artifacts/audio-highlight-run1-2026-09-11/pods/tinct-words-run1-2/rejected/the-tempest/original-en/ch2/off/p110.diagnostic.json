@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "a6c8370fcfbd941e8f06c6feb2ef13459a459f23b89b7382e8ae794b09570ff9",
+  "attempts": [
+    {
+      "asr_seconds": 0.0936790257692337,
+      "alignment_seconds": 7.797777652740479e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caliban, no pray thee.",
+          "start": 0.08,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " no",
+              "start": 1.08,
+              "end": 1.32,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " pray",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.84765625
+            },
+            {
+              "text": " thee.",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "no",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "raw": "pray",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "thee.",
+          "start": 1.56,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "No,",
+        "pray",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "No,",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "text": "pray",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "thee.",
+          "start": 1.56,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09378966689109802
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "323d5456d2267878167cfe126b4ea6f887be800f30631b8274c30ebe58b04f8e",
+  "selected_reasons": []
+}

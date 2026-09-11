@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "ead83dfe98c401840b6a47df2d36b0f72dbdcb470e6cb6c96e6c0bf579cf975d",
+  "attempts": [
+    {
+      "asr_seconds": 0.18483630567789078,
+      "alignment_seconds": 0.0001200363039970398,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oedipus, poor help to raise an old man fallen in youth.",
+          "start": 0.08,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " poor",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " help",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " raise",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " an",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " old",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 2.4,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fallen",
+              "start": 2.64,
+              "end": 3.0,
+              "probability": 0.984375
+            },
+            {
+              "text": " in",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " youth.",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "poor",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "help",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "raise",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "an",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "old",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "man",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "raw": "fallen",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "raw": "in",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "youth.",
+          "start": 3.22,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "Poor",
+        "help",
+        "to",
+        "raise",
+        "an",
+        "old",
+        "man",
+        "fallen",
+        "in",
+        "youth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Poor",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "help",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "raise",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "an",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "old",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "man",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "text": "fallen",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "text": "in",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "youth.",
+          "start": 3.22,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18500877916812897
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78e9a55dc66ce8c592c13753d3619cf753309d3410ee13fe020803b0724f48eb",
+  "selected_reasons": []
+}

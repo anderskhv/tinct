@@ -1,0 +1,545 @@
+{
+  "complete": true,
+  "signature": "1d27b7e51c31ea133b36de56594644f2c5c81a7b036af6dbf9e6eeb5e33c9b88",
+  "attempts": [
+    {
+      "asr_seconds": 0.20777763426303864,
+      "alignment_seconds": 0.00011412054300308228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quince, you Pyramus' father, myself, Thisbe's father, snug, the joiner, you, the lions part.",
+          "start": 0.0,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " Quince,",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " you",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Pyramus'",
+              "start": 1.1,
+              "end": 1.6,
+              "probability": 0.8096516927083334
+            },
+            {
+              "text": " father,",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " myself,",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " Thisbe's",
+              "start": 2.82,
+              "end": 3.18,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " father,",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " snug,",
+              "start": 4.28,
+              "end": 4.3,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " the",
+              "start": 4.58,
+              "end": 4.64,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " joiner,",
+              "start": 4.64,
+              "end": 5.06,
+              "probability": 0.751220703125
+            },
+            {
+              "text": " you,",
+              "start": 5.2,
+              "end": 5.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.38,
+              "end": 5.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lions",
+              "start": 5.44,
+              "end": 5.72,
+              "probability": 0.396240234375
+            },
+            {
+              "text": " part.",
+              "start": 5.72,
+              "end": 6.08,
+              "probability": 0.78857421875
+            }
+          ]
+        },
+        {
+          "text": " And I hope here is a play fitted.",
+          "start": 6.7,
+          "end": 8.1,
+          "words": [
+            {
+              "text": " And",
+              "start": 6.7,
+              "end": 6.8,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " I",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " hope",
+              "start": 6.94,
+              "end": 7.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 7.1,
+              "end": 7.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 7.36,
+              "end": 7.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 7.52,
+              "end": 7.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " play",
+              "start": 7.62,
+              "end": 7.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fitted.",
+              "start": 7.8,
+              "end": 8.1,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quince,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "you",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "raw": "Pyramus'",
+          "start": 1.1,
+          "end": 1.6
+        },
+        {
+          "raw": "father,",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "myself,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "raw": "Thisbe's",
+          "start": 2.82,
+          "end": 3.18
+        },
+        {
+          "raw": "father,",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "snug,",
+          "start": 4.28,
+          "end": 4.3
+        },
+        {
+          "raw": "the",
+          "start": 4.58,
+          "end": 4.64
+        },
+        {
+          "raw": "joiner,",
+          "start": 4.64,
+          "end": 5.06
+        },
+        {
+          "raw": "you,",
+          "start": 5.2,
+          "end": 5.26
+        },
+        {
+          "raw": "the",
+          "start": 5.38,
+          "end": 5.44
+        },
+        {
+          "raw": "lions",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "raw": "part.",
+          "start": 5.72,
+          "end": 6.08
+        },
+        {
+          "raw": "And",
+          "start": 6.7,
+          "end": 6.8
+        },
+        {
+          "raw": "I",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "hope",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "raw": "here",
+          "start": 7.1,
+          "end": 7.36
+        },
+        {
+          "raw": "is",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "raw": "a",
+          "start": 7.52,
+          "end": 7.62
+        },
+        {
+          "raw": "play",
+          "start": 7.62,
+          "end": 7.8
+        },
+        {
+          "raw": "fitted.",
+          "start": 7.8,
+          "end": 8.1
+        }
+      ],
+      "expected_tokens": [
+        "Quince.",
+        "You,",
+        "Pyramus'",
+        "father;",
+        "myself,",
+        "Thisbe's",
+        "father;",
+        "Snug,",
+        "the",
+        "joiner,",
+        "you,",
+        "the",
+        "lion's",
+        "part.",
+        "And,",
+        "I",
+        "hope",
+        "here",
+        "is",
+        "a",
+        "play",
+        "fitted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Quince.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "You,",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "text": "Pyramus'",
+          "start": 1.1,
+          "end": 1.6
+        },
+        {
+          "text": "father;",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "myself,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "text": "Thisbe's",
+          "start": 2.82,
+          "end": 3.18
+        },
+        {
+          "text": "father;",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "text": "Snug,",
+          "start": 4.28,
+          "end": 4.3
+        },
+        {
+          "text": "the",
+          "start": 4.58,
+          "end": 4.64
+        },
+        {
+          "text": "joiner,",
+          "start": 4.64,
+          "end": 5.06
+        },
+        {
+          "text": "you,",
+          "start": 5.2,
+          "end": 5.26
+        },
+        {
+          "text": "the",
+          "start": 5.38,
+          "end": 5.44
+        },
+        {
+          "text": "lion's",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "text": "part.",
+          "start": 5.72,
+          "end": 6.08
+        },
+        {
+          "text": "And,",
+          "start": 6.7,
+          "end": 6.8
+        },
+        {
+          "text": "I",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "hope",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "text": "here",
+          "start": 7.1,
+          "end": 7.36
+        },
+        {
+          "text": "is",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "text": "a",
+          "start": 7.52,
+          "end": 7.62
+        },
+        {
+          "text": "play",
+          "start": 7.62,
+          "end": 7.8
+        },
+        {
+          "text": "fitted.",
+          "start": 7.8,
+          "end": 8.1
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20794745534658432
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf37c3404666d776e451b50b30123a333c8b118a9b7996abb9324505a1516070",
+  "selected_reasons": []
+}

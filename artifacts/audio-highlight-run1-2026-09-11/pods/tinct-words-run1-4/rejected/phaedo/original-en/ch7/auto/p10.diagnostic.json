@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "475d33b5ea3ee5d090c4879a0d5e19855f38f3a3225ce2d86c046beaf9a083b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.14761102851480246,
+      "alignment_seconds": 6.438978016376495e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What shall I do with them? I said.",
+        "hotwords": "What, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What shall I do with them? I said.",
+          "start": 0.02,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.206298828125
+            },
+            {
+              "text": " shall",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " do",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 0.92,
+              "end": 1.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them?",
+              "start": 1.08,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 1.7,
+              "end": 1.74,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " said.",
+              "start": 1.74,
+              "end": 2.1,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "shall",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "do",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "with",
+          "start": 0.92,
+          "end": 1.08
+        },
+        {
+          "raw": "them?",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "raw": "I",
+          "start": 1.7,
+          "end": 1.74
+        },
+        {
+          "raw": "said.",
+          "start": 1.74,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "shall",
+        "I",
+        "do",
+        "with",
+        "them?",
+        "I",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "shall",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "do",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "with",
+          "start": 0.92,
+          "end": 1.08
+        },
+        {
+          "text": "them?",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "text": "I",
+          "start": 1.7,
+          "end": 1.74
+        },
+        {
+          "text": "said.",
+          "start": 1.74,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14770798571407795
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd5dec0f4dd42462950f6689ff399361a8527025128f3c5b3efdb888c47580cb",
+  "selected_reasons": []
+}

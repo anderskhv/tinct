@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "03ee04fbc7f0f5bbd337c0a3adc2d05ec7ddb793ac7d9e57826c980f7e1b9d4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1626831442117691,
+      "alignment_seconds": 8.418411016464233e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ferdinand, hark. Now I hear them ding-dong bell.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Ferdinand,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " hark.",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Now",
+              "start": 1.89,
+              "end": 1.97,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " I",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.939453125
+            },
+            {
+              "text": " hear",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " ding",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.978515625
+            },
+            {
+              "text": "-dong",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.8167317708333334
+            },
+            {
+              "text": " bell.",
+              "start": 2.83,
+              "end": 3.13,
+              "probability": 0.9326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ferdinand,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "hark.",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "Now",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "raw": "I",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "hear",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "them",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "ding",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "-dong",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "bell.",
+          "start": 2.83,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Ferdinand.",
+        "Hark!",
+        "now",
+        "I",
+        "hear",
+        "them,--Ding-dong,",
+        "bell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          8
+        ],
+        [
+          "equal",
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ferdinand.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Hark!",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "now",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "text": "I",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "hear",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "them,--Ding-dong,",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "bell.",
+          "start": 2.83,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.16280124336481094
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "785902ced839f7159345a48c81d144f51507ad5714616c9a95fc536d2d48f2b0",
+  "selected_reasons": []
+}

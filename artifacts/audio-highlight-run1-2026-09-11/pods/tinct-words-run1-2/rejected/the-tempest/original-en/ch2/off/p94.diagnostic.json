@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "77416d66575cf7a2c2d6b64c87d1ea378e25801057f67a34c7b97b4481039303",
+  "attempts": [
+    {
+      "asr_seconds": 0.12498369067907333,
+      "alignment_seconds": 0.00012673437595367432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caliban, within theirs, would enough within.",
+          "start": 0.08,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.6649169921875
+            },
+            {
+              "text": " within",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " theirs,",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " would",
+              "start": 1.92,
+              "end": 2.0,
+              "probability": 0.908203125
+            },
+            {
+              "text": " enough",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " within.",
+              "start": 2.24,
+              "end": 2.54,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "within",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "theirs,",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "would",
+          "start": 1.92,
+          "end": 2.0
+        },
+        {
+          "raw": "enough",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "within.",
+          "start": 2.24,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "[Within]",
+        "There's",
+        "wood",
+        "enough",
+        "within."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "[Within]",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "There's",
+          "start": 1.5,
+          "end": 1.75
+        },
+        {
+          "text": "wood",
+          "start": 1.75,
+          "end": 1.875
+        },
+        {
+          "text": "enough",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "within.",
+          "start": 2.24,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1251492202281952
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9a361e6c984b5e829385036fb119afc7da78113e4863aefd8e0deaac9b9e3b2c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

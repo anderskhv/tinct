@@ -1,0 +1,139 @@
+{
+  "complete": true,
+  "signature": "11d3b8159b8ea5b231a36dbc6b4b6033ea541ba72345e62c0bd95cc84ffa9a74",
+  "attempts": [
+    {
+      "asr_seconds": 0.1265916619449854,
+      "alignment_seconds": 0.00014484953135252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly, replied Seabes.",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Certainly,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.60009765625
+            },
+            {
+              "text": " replied",
+              "start": 1.22,
+              "end": 1.26,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Seabes.",
+              "start": 1.26,
+              "end": 1.82,
+              "probability": 0.6185709635416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "replied",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "raw": "Seabes.",
+          "start": 1.26,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Certainly,",
+        "replied",
+        "Cebes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Certainly,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "replied",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "text": "Cebes.",
+          "start": 1.26,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1267877323552966
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "417d4184c7dc0887b5f7f29170a292d9b49831310be0ba1b7b720cc3c98a5ab9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

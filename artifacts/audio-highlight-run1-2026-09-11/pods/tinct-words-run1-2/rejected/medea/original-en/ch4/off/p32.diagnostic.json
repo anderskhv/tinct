@@ -1,0 +1,267 @@
+{
+  "complete": true,
+  "signature": "5bac8878059f9761e63d68717f45b865d203d757b7c248df30fc6d128ca79d82",
+  "attempts": [
+    {
+      "asr_seconds": 0.13412581384181976,
+      "alignment_seconds": 7.71060585975647e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aegius, riddles too hard for mortal man to read.",
+          "start": 0.08,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " Aegius,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.3919677734375
+            },
+            {
+              "text": " riddles",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.920166015625
+            },
+            {
+              "text": " too",
+              "start": 1.64,
+              "end": 2.04,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " hard",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mortal",
+              "start": 2.5,
+              "end": 2.8,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " man",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " to",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " read.",
+              "start": 3.24,
+              "end": 3.56,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegius,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "riddles",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "too",
+          "start": 1.64,
+          "end": 2.04
+        },
+        {
+          "raw": "hard",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "raw": "for",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "mortal",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "raw": "man",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "to",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "read.",
+          "start": 3.24,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Riddles,",
+        "too",
+        "hard",
+        "for",
+        "mortal",
+        "man",
+        "to",
+        "read."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "Riddles,",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "too",
+          "start": 1.64,
+          "end": 2.04
+        },
+        {
+          "text": "hard",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "text": "for",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "mortal",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "text": "man",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "to",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "read.",
+          "start": 3.24,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.13423635810613632
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2d23f98383afe15452a36f778ea26584f8e690e04883c855754800d04f7150a3",
+  "selected_reasons": []
+}

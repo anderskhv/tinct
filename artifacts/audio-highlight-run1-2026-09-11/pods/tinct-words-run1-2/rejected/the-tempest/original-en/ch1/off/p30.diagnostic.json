@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "4ad62e722bb99b2f26d5fb5f377a0373c3d4bb230e5ab2326007bc8f2f52d1b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08205873519182205,
+      "alignment_seconds": 7.59810209274292e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Mariner's Wet.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Mariner's",
+              "start": 0.65,
+              "end": 1.15,
+              "probability": 0.7444661458333334
+            },
+            {
+              "text": " Wet.",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.51123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Mariner's",
+          "start": 0.65,
+          "end": 1.15
+        },
+        {
+          "raw": "Wet.",
+          "start": 1.15,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Mariners",
+        "wet]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Mariners",
+          "start": 0.65,
+          "end": 1.15
+        },
+        {
+          "text": "wet]",
+          "start": 1.15,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08216335624456406
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ad4449836350b6cf9c7e2c3f10611768d6aa7b124a8be12a0f1f1c6384bc83c2",
+  "selected_reasons": []
+}

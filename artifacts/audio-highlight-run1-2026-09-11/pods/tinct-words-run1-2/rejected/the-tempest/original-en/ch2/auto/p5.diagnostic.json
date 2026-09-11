@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "fd61dd2232d4b9291020c1c4a932ce6208ab073d4726f38e02ce6148366d6816",
+  "attempts": [
+    {
+      "asr_seconds": 0.12758810818195343,
+      "alignment_seconds": 7.923692464828491e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miranda. More to know Did never meddle with my thoughts.",
+        "hotwords": "Miranda, More, Did"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miranda, More to know Did never meddle with my thoughts.",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Miranda,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " More",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.0762939453125
+            },
+            {
+              "text": " to",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " know",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.720703125
+            },
+            {
+              "text": " Did",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.1043701171875
+            },
+            {
+              "text": " never",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.931640625
+            },
+            {
+              "text": " meddle",
+              "start": 2.31,
+              "end": 2.69,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " with",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " my",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thoughts.",
+              "start": 2.97,
+              "end": 3.25,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miranda,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "More",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "raw": "to",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "know",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "Did",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "never",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "meddle",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "raw": "with",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "my",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "thoughts.",
+          "start": 2.97,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "Miranda.",
+        "More",
+        "to",
+        "know",
+        "Did",
+        "never",
+        "meddle",
+        "with",
+        "my",
+        "thoughts."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Miranda.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "More",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "text": "to",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "know",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "Did",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "never",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "meddle",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "text": "with",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "my",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "thoughts.",
+          "start": 2.97,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12770099192857742
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6655848ebab4548028f0f21d879d1d18f1bc3a09474b0b3cffe065f99199f315",
+  "selected_reasons": []
+}

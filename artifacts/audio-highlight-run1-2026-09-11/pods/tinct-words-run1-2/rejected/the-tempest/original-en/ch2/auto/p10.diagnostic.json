@@ -1,0 +1,1002 @@
+{
+  "complete": true,
+  "signature": "2c951269441ec5625e4d12d0f76247235dfd4d3eb834d84c2942d481631322cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.28054966777563095,
+      "alignment_seconds": 0.0003309771418571472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. The hour's now come; The very minute bids thee ope thine ear; Obey and be attentive. Canst thou remember A time before we came unto this cell? I do not think thou canst, for then thou wast not Out three years old.",
+        "hotwords": "Prospero, The, Obey, A, I, Out"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, The hour's now come. The very minute bids thee ope thine ear, Obey and be attentive. Canst thou remember A time before we came unto this cell? I do not think thou canst, for then thou wast not Out three years old.",
+          "start": 0.58,
+          "end": 13.86,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.58,
+              "end": 1.02,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " The",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.05255126953125
+            },
+            {
+              "text": " hour's",
+              "start": 1.48,
+              "end": 1.9,
+              "probability": 0.454071044921875
+            },
+            {
+              "text": " now",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " come.",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " The",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.970703125
+            },
+            {
+              "text": " very",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " minute",
+              "start": 3.14,
+              "end": 3.36,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " bids",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " thee",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.0181732177734375
+            },
+            {
+              "text": " ope",
+              "start": 3.92,
+              "end": 4.24,
+              "probability": 0.601318359375
+            },
+            {
+              "text": " thine",
+              "start": 4.24,
+              "end": 4.4,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " ear,",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Obey",
+              "start": 5.18,
+              "end": 5.46,
+              "probability": 0.814697265625
+            },
+            {
+              "text": " and",
+              "start": 5.46,
+              "end": 5.72,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " be",
+              "start": 5.72,
+              "end": 5.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " attentive.",
+              "start": 5.84,
+              "end": 6.32,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Canst",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.779541015625
+            },
+            {
+              "text": " thou",
+              "start": 7.48,
+              "end": 7.64,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " remember",
+              "start": 7.64,
+              "end": 7.9,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " A",
+              "start": 7.9,
+              "end": 8.12,
+              "probability": 0.005096435546875
+            },
+            {
+              "text": " time",
+              "start": 8.12,
+              "end": 8.34,
+              "probability": 0.984375
+            },
+            {
+              "text": " before",
+              "start": 8.34,
+              "end": 8.68,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " we",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " came",
+              "start": 8.88,
+              "end": 9.06,
+              "probability": 0.984375
+            },
+            {
+              "text": " unto",
+              "start": 9.06,
+              "end": 9.26,
+              "probability": 0.966796875
+            },
+            {
+              "text": " this",
+              "start": 9.26,
+              "end": 9.48,
+              "probability": 0.978515625
+            },
+            {
+              "text": " cell?",
+              "start": 9.48,
+              "end": 9.74,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " I",
+              "start": 10.28,
+              "end": 10.38,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " do",
+              "start": 10.38,
+              "end": 10.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 10.48,
+              "end": 10.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " think",
+              "start": 10.64,
+              "end": 10.86,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " thou",
+              "start": 10.86,
+              "end": 11.06,
+              "probability": 0.904296875
+            },
+            {
+              "text": " canst,",
+              "start": 11.06,
+              "end": 11.56,
+              "probability": 0.951171875
+            },
+            {
+              "text": " for",
+              "start": 11.76,
+              "end": 11.84,
+              "probability": 0.168212890625
+            },
+            {
+              "text": " then",
+              "start": 11.84,
+              "end": 12.06,
+              "probability": 0.9765625
+            },
+            {
+              "text": " thou",
+              "start": 12.06,
+              "end": 12.24,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " wast",
+              "start": 12.24,
+              "end": 12.5,
+              "probability": 0.529296875
+            },
+            {
+              "text": " not",
+              "start": 12.5,
+              "end": 12.74,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Out",
+              "start": 12.74,
+              "end": 12.92,
+              "probability": 0.11126708984375
+            },
+            {
+              "text": " three",
+              "start": 12.92,
+              "end": 13.22,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " years",
+              "start": 13.22,
+              "end": 13.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " old.",
+              "start": 13.44,
+              "end": 13.86,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "raw": "The",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "hour's",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "raw": "now",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "come.",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "The",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "very",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "minute",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "raw": "bids",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "thee",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "ope",
+          "start": 3.92,
+          "end": 4.24
+        },
+        {
+          "raw": "thine",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "raw": "ear,",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "raw": "Obey",
+          "start": 5.18,
+          "end": 5.46
+        },
+        {
+          "raw": "and",
+          "start": 5.46,
+          "end": 5.72
+        },
+        {
+          "raw": "be",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "raw": "attentive.",
+          "start": 5.84,
+          "end": 6.32
+        },
+        {
+          "raw": "Canst",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "thou",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "raw": "remember",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "raw": "A",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "raw": "time",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "raw": "before",
+          "start": 8.34,
+          "end": 8.68
+        },
+        {
+          "raw": "we",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "came",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "raw": "unto",
+          "start": 9.06,
+          "end": 9.26
+        },
+        {
+          "raw": "this",
+          "start": 9.26,
+          "end": 9.48
+        },
+        {
+          "raw": "cell?",
+          "start": 9.48,
+          "end": 9.74
+        },
+        {
+          "raw": "I",
+          "start": 10.28,
+          "end": 10.38
+        },
+        {
+          "raw": "do",
+          "start": 10.38,
+          "end": 10.48
+        },
+        {
+          "raw": "not",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "raw": "think",
+          "start": 10.64,
+          "end": 10.86
+        },
+        {
+          "raw": "thou",
+          "start": 10.86,
+          "end": 11.06
+        },
+        {
+          "raw": "canst,",
+          "start": 11.06,
+          "end": 11.56
+        },
+        {
+          "raw": "for",
+          "start": 11.76,
+          "end": 11.84
+        },
+        {
+          "raw": "then",
+          "start": 11.84,
+          "end": 12.06
+        },
+        {
+          "raw": "thou",
+          "start": 12.06,
+          "end": 12.24
+        },
+        {
+          "raw": "wast",
+          "start": 12.24,
+          "end": 12.5
+        },
+        {
+          "raw": "not",
+          "start": 12.5,
+          "end": 12.74
+        },
+        {
+          "raw": "Out",
+          "start": 12.74,
+          "end": 12.92
+        },
+        {
+          "raw": "three",
+          "start": 12.92,
+          "end": 13.22
+        },
+        {
+          "raw": "years",
+          "start": 13.22,
+          "end": 13.44
+        },
+        {
+          "raw": "old.",
+          "start": 13.44,
+          "end": 13.86
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "The",
+        "hour's",
+        "now",
+        "come;",
+        "The",
+        "very",
+        "minute",
+        "bids",
+        "thee",
+        "ope",
+        "thine",
+        "ear;",
+        "Obey",
+        "and",
+        "be",
+        "attentive.",
+        "Canst",
+        "thou",
+        "remember",
+        "A",
+        "time",
+        "before",
+        "we",
+        "came",
+        "unto",
+        "this",
+        "cell?",
+        "I",
+        "do",
+        "not",
+        "think",
+        "thou",
+        "canst,",
+        "for",
+        "then",
+        "thou",
+        "wast",
+        "not",
+        "Out",
+        "three",
+        "years",
+        "old."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          43,
+          0,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "text": "The",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "hour's",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "text": "now",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "come;",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "The",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "very",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "minute",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "bids",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "text": "thee",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "ope",
+          "start": 3.92,
+          "end": 4.24
+        },
+        {
+          "text": "thine",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "text": "ear;",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "text": "Obey",
+          "start": 5.18,
+          "end": 5.46
+        },
+        {
+          "text": "and",
+          "start": 5.46,
+          "end": 5.72
+        },
+        {
+          "text": "be",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "text": "attentive.",
+          "start": 5.84,
+          "end": 6.32
+        },
+        {
+          "text": "Canst",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "thou",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "text": "remember",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "text": "A",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "text": "time",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "text": "before",
+          "start": 8.34,
+          "end": 8.68
+        },
+        {
+          "text": "we",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "came",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "text": "unto",
+          "start": 9.06,
+          "end": 9.26
+        },
+        {
+          "text": "this",
+          "start": 9.26,
+          "end": 9.48
+        },
+        {
+          "text": "cell?",
+          "start": 9.48,
+          "end": 9.74
+        },
+        {
+          "text": "I",
+          "start": 10.28,
+          "end": 10.38
+        },
+        {
+          "text": "do",
+          "start": 10.38,
+          "end": 10.48
+        },
+        {
+          "text": "not",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "text": "think",
+          "start": 10.64,
+          "end": 10.86
+        },
+        {
+          "text": "thou",
+          "start": 10.86,
+          "end": 11.06
+        },
+        {
+          "text": "canst,",
+          "start": 11.06,
+          "end": 11.56
+        },
+        {
+          "text": "for",
+          "start": 11.76,
+          "end": 11.84
+        },
+        {
+          "text": "then",
+          "start": 11.84,
+          "end": 12.06
+        },
+        {
+          "text": "thou",
+          "start": 12.06,
+          "end": 12.24
+        },
+        {
+          "text": "wast",
+          "start": 12.24,
+          "end": 12.5
+        },
+        {
+          "text": "not",
+          "start": 12.5,
+          "end": 12.74
+        },
+        {
+          "text": "Out",
+          "start": 12.74,
+          "end": 12.92
+        },
+        {
+          "text": "three",
+          "start": 12.92,
+          "end": 13.22
+        },
+        {
+          "text": "years",
+          "start": 13.22,
+          "end": 13.44
+        },
+        {
+          "text": "old.",
+          "start": 13.44,
+          "end": 13.86
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 43,
+        "matched_words": 43
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2809883654117584
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a4632c044655423287f5be8398ba079d21054fc1c995d8d02c74ae74e42b2b7",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e3e4ea622c194815f3cb0c88200ee59736c174a51fbfe4513b8f0cf887e3091c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09685974288731813,
+      "alignment_seconds": 6.129872053861618e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Indeed, I should, said Cebes, laughing.",
+        "hotwords": "Indeed, I, Cebes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Indeed, I should, said Cebes, laughing.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Indeed,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " I",
+              "start": 0.89,
+              "end": 0.91,
+              "probability": 0.990234375
+            },
+            {
+              "text": " should,",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " said",
+              "start": 1.37,
+              "end": 1.37,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Cebes,",
+              "start": 1.37,
+              "end": 1.79,
+              "probability": 0.1640625
+            },
+            {
+              "text": " laughing.",
+              "start": 1.85,
+              "end": 2.17,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Indeed,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 0.89,
+          "end": 0.91
+        },
+        {
+          "raw": "should,",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "said",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "raw": "Cebes,",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "raw": "laughing.",
+          "start": 1.85,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Indeed,",
+        "I",
+        "should,",
+        "said",
+        "Cebes,",
+        "laughing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Indeed,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "I",
+          "start": 0.89,
+          "end": 0.91
+        },
+        {
+          "text": "should,",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "said",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "text": "Cebes,",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "text": "laughing.",
+          "start": 1.85,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09694426506757736
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ee1028e131af8e805425a4543347cb9417bf27a3e9187fbfd743ce1e06975ce",
+  "selected_reasons": []
+}

@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "6809f7fcd7c1972eda3242f55f98ed6eb96168d44ab73ab154b23d9968e6ab0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1773839220404625,
+      "alignment_seconds": 0.00011800974607467651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Dire and beyond all healing is the hate When hearts that loved are turned to enmity.",
+        "hotwords": "Leader, Dire, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Dire and beyond all healing is the hate When hearts that loved are turned to enmity.",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " Dire",
+              "start": 1.51,
+              "end": 1.55,
+              "probability": 0.059051513671875
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " beyond",
+              "start": 1.85,
+              "end": 2.17,
+              "probability": 0.6484375
+            },
+            {
+              "text": " all",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " healing",
+              "start": 2.51,
+              "end": 2.85,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " is",
+              "start": 2.85,
+              "end": 3.27,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " the",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " hate",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " When",
+              "start": 3.61,
+              "end": 3.83,
+              "probability": 0.00472259521484375
+            },
+            {
+              "text": " hearts",
+              "start": 3.83,
+              "end": 4.13,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " that",
+              "start": 4.13,
+              "end": 4.35,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " loved",
+              "start": 4.35,
+              "end": 4.67,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " are",
+              "start": 4.67,
+              "end": 4.83,
+              "probability": 0.79296875
+            },
+            {
+              "text": " turned",
+              "start": 4.83,
+              "end": 5.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 5.07,
+              "end": 5.25,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " enmity.",
+              "start": 5.25,
+              "end": 5.63,
+              "probability": 0.9978841145833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Dire",
+          "start": 1.51,
+          "end": 1.55
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "raw": "beyond",
+          "start": 1.85,
+          "end": 2.17
+        },
+        {
+          "raw": "all",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "healing",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "raw": "is",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "raw": "the",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "hate",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "When",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "raw": "hearts",
+          "start": 3.83,
+          "end": 4.13
+        },
+        {
+          "raw": "that",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "raw": "loved",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "raw": "are",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "raw": "turned",
+          "start": 4.83,
+          "end": 5.07
+        },
+        {
+          "raw": "to",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "raw": "enmity.",
+          "start": 5.25,
+          "end": 5.63
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Dire",
+        "and",
+        "beyond",
+        "all",
+        "healing",
+        "is",
+        "the",
+        "hate",
+        "When",
+        "hearts",
+        "that",
+        "loved",
+        "are",
+        "turned",
+        "to",
+        "enmity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Dire",
+          "start": 1.51,
+          "end": 1.55
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "beyond",
+          "start": 1.85,
+          "end": 2.17
+        },
+        {
+          "text": "all",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "healing",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "text": "is",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "text": "the",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "hate",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "When",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "text": "hearts",
+          "start": 3.83,
+          "end": 4.13
+        },
+        {
+          "text": "that",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "text": "loved",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "text": "are",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "turned",
+          "start": 4.83,
+          "end": 5.07
+        },
+        {
+          "text": "to",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "text": "enmity.",
+          "start": 5.25,
+          "end": 5.63
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17755375057458878
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "022dced30fae6d71c9ae74ce3a3a2928839323ec11cb5d9f20c4f2f3c238cc02",
+  "selected_reasons": []
+}

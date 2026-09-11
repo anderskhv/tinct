@@ -1,0 +1,150 @@
+{
+  "complete": true,
+  "signature": "3c39430c8a4264cb36486cf40adcc931263753fbbd5f6f94e0dee04a5eac3cb3",
+  "attempts": [
+    {
+      "asr_seconds": 0.11704480648040771,
+      "alignment_seconds": 5.240738391876221e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Good night, Mr. Utterson.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " night,",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Utterson.",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "night,",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "Utterson.",
+          "start": 1.37,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "\"Good-night,",
+        "Mr.",
+        "Utterson.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Good-night,",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "Mr.",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "text": "Utterson.\"",
+          "start": 1.37,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11711408942937851
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1aa46d5d532c6c95383a9ac1f8a865201eb9831c858b2d19e420863e9b2c1512",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
