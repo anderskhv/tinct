@@ -1,0 +1,1239 @@
+{
+ "generatedFrom": "artifacts/audio-highlight-run1-2026-09-11 (run-queue.json, skipped.json, publication-journal.json, pods/*/collect-report.json, pods/*/cohort__cohort-dropped.json)",
+ "note": "No queued priority-1 chapter is left unattempted: every entry below failed for the stated reason and needs the named decision or repair before run 2 can publish it.",
+ "counts": {
+  "rejected-below-0.85-on-both-arms": 39,
+  "missing-paragraph-recording": 4,
+  "normalisation-class-1-underscore-tokens": 28
+ },
+ "audioHoursQueuedChapters": 32.6,
+ "chapters": [
+  {
+   "bookId": "communist-manifesto",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 1271.0,
+   "chaptersTotal": 5,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-1",
+   "paragraphsBelowGate": [
+    19
+   ],
+   "matchRatio": {
+    "auto": 0.9886327754973161,
+    "off": 0.9756867698137038
+   }
+  },
+  {
+   "bookId": "notes-from-underground",
+   "edition": "original-en",
+   "chapter": 17,
+   "durationSeconds": 1233.9,
+   "chaptersTotal": 21,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-1",
+   "paragraphsBelowGate": [
+    19,
+    22,
+    24,
+    28,
+    41,
+    42
+   ],
+   "matchRatio": {
+    "auto": 0.9898150629857947,
+    "off": 0.9790940766550522
+   }
+  },
+  {
+   "bookId": "second-treatise",
+   "edition": "original-en",
+   "chapter": 19,
+   "durationSeconds": 2803.4,
+   "chaptersTotal": 19,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    27,
+    34,
+    37,
+    38
+   ],
+   "matchRatio": {
+    "auto": 0.9514996809189534,
+    "off": 0.9387364390555201
+   }
+  },
+  {
+   "bookId": "medea",
+   "edition": "original-en",
+   "chapter": 4,
+   "durationSeconds": 1187.4,
+   "chaptersTotal": 7,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    17,
+    25,
+    26,
+    28,
+    36,
+    40,
+    41,
+    44,
+    46,
+    54,
+    56,
+    58,
+    61,
+    62,
+    63,
+    64,
+    68,
+    75,
+    76
+   ],
+   "matchRatio": {
+    "auto": 0.9508606329816769,
+    "off": 0.9242087729039422
+   }
+  },
+  {
+   "bookId": "medea",
+   "edition": "original-en",
+   "chapter": 7,
+   "durationSeconds": 992.8,
+   "chaptersTotal": 7,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    2,
+    10,
+    12,
+    13,
+    16,
+    25,
+    29,
+    38,
+    46,
+    58,
+    59
+   ],
+   "matchRatio": {
+    "auto": 0.9585145533623285,
+    "off": 0.9340916694546672
+   }
+  },
+  {
+   "bookId": "oedipus-at-colonus",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 428.9,
+   "chaptersTotal": 11,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    0,
+    3,
+    5,
+    8,
+    9,
+    11,
+    12,
+    17,
+    21,
+    25,
+    29,
+    37,
+    47
+   ],
+   "matchRatio": {
+    "auto": 0.9719789842381786,
+    "off": 0.9404553415061296
+   }
+  },
+  {
+   "bookId": "midsummer",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 299.4,
+   "chaptersTotal": 9,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    5,
+    9,
+    13,
+    15,
+    16,
+    20,
+    37
+   ],
+   "matchRatio": {
+    "auto": 0.9864029666254636,
+    "off": 0.9394313967861557
+   }
+  },
+  {
+   "bookId": "the-tempest",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 234.2,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    8,
+    9,
+    10,
+    18,
+    19,
+    20,
+    23,
+    24,
+    25,
+    26,
+    29,
+    40,
+    42
+   ],
+   "matchRatio": {
+    "auto": 0.978494623655914,
+    "off": 0.8817204301075269
+   }
+  },
+  {
+   "bookId": "the-tempest",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 1592.2,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    3,
+    25,
+    33,
+    49,
+    55,
+    57,
+    76,
+    78,
+    80,
+    88,
+    94,
+    96,
+    102,
+    115,
+    116,
+    117,
+    119,
+    122,
+    124,
+    137,
+    149,
+    153,
+    172
+   ],
+   "matchRatio": {
+    "auto": 0.983923578751165,
+    "off": 0.9438490214352283
+   }
+  },
+  {
+   "bookId": "the-tempest",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 1038.8,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-13",
+   "paragraphsBelowGate": [
+    2,
+    8,
+    14,
+    19,
+    28,
+    31,
+    34,
+    52,
+    55,
+    56,
+    62,
+    67,
+    73,
+    75,
+    77,
+    80,
+    85,
+    86,
+    93,
+    98,
+    101,
+    104,
+    106,
+    107,
+    115,
+    116,
+    124,
+    127,
+    131,
+    137,
+    149,
+    151,
+    161,
+    163,
+    167
+   ],
+   "matchRatio": {
+    "auto": 0.9868573637417859,
+    "off": 0.9381522999613452
+   }
+  },
+  {
+   "bookId": "the-tempest",
+   "edition": "original-en",
+   "chapter": 6,
+   "durationSeconds": 470.7,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-13",
+   "paragraphsBelowGate": [
+    0,
+    7,
+    9,
+    14,
+    18,
+    20,
+    26,
+    30,
+    35,
+    37,
+    41,
+    43,
+    45,
+    51,
+    56,
+    58,
+    59,
+    62,
+    65,
+    71,
+    72
+   ],
+   "matchRatio": {
+    "auto": 0.9852095316351684,
+    "off": 0.9104354971240756
+   }
+  },
+  {
+   "bookId": "the-tempest",
+   "edition": "original-en",
+   "chapter": 7,
+   "durationSeconds": 398.7,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-13",
+   "paragraphsBelowGate": [
+    9,
+    17,
+    18,
+    20,
+    25,
+    31
+   ],
+   "matchRatio": {
+    "auto": 0.9694364851957975,
+    "off": 0.9245463228271251
+   }
+  },
+  {
+   "bookId": "odyssey",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 1485.9,
+   "chaptersTotal": 24,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-2",
+   "paragraphsBelowGate": [
+    37
+   ],
+   "matchRatio": {
+    "auto": 0.9507962433646386,
+    "off": 0.9334422213148224
+   }
+  },
+  {
+   "bookId": "confessions",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 1226.8,
+   "chaptersTotal": 13,
+   "blocker": "missing-paragraph-recording",
+   "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+   "pod": "tinct-words-run1-3",
+   "missing": "p10.mp3 HTTP 404"
+  },
+  {
+   "bookId": "jekyll-and-hyde",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 753.3,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-3",
+   "paragraphsBelowGate": [
+    8
+   ],
+   "matchRatio": {
+    "auto": 0.9866332497911445,
+    "off": 0.9782790309106099
+   }
+  },
+  {
+   "bookId": "jekyll-and-hyde",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 991.6,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-3",
+   "paragraphsBelowGate": [
+    10,
+    47,
+    48
+   ],
+   "matchRatio": {
+    "auto": 0.9856801909307876,
+    "off": 0.9785202863961814
+   }
+  },
+  {
+   "bookId": "hume-enquiry",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 207.5,
+   "chaptersTotal": 19,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-3",
+   "paragraphsBelowGate": [
+    4,
+    5
+   ],
+   "matchRatio": {
+    "auto": 0.9753787878787878,
+    "off": 0.9659090909090909
+   }
+  },
+  {
+   "bookId": "hume-enquiry",
+   "edition": "original-en",
+   "chapter": 16,
+   "durationSeconds": 2049.4,
+   "chaptersTotal": 19,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-3",
+   "paragraphsBelowGate": [
+    2,
+    3
+   ],
+   "matchRatio": {
+    "auto": 0.9894793152639088,
+    "off": 0.9851997146932953
+   }
+  },
+  {
+   "bookId": "phaedo",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 991.5,
+   "chaptersTotal": 9,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-4",
+   "paragraphsBelowGate": [
+    1,
+    6,
+    14,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22,
+    31,
+    43,
+    45
+   ],
+   "matchRatio": {
+    "auto": 0.9887118193891102,
+    "off": 0.9644754316069057
+   }
+  },
+  {
+   "bookId": "phaedo",
+   "edition": "original-en",
+   "chapter": 7,
+   "durationSeconds": 2903.2,
+   "chaptersTotal": 9,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-4",
+   "paragraphsBelowGate": [
+    6,
+    40,
+    42,
+    104,
+    125,
+    130,
+    138,
+    141,
+    164,
+    202
+   ],
+   "matchRatio": {
+    "auto": 0.9911768076085711,
+    "off": 0.979145181620259
+   }
+  },
+  {
+   "bookId": "descartes-meditations",
+   "edition": "original-en",
+   "chapter": 6,
+   "durationSeconds": 2238.4,
+   "chaptersTotal": 9,
+   "blocker": "missing-paragraph-recording",
+   "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+   "pod": "tinct-words-run1-4",
+   "missing": "p6.mp3 HTTP 404"
+  },
+  {
+   "bookId": "iliad",
+   "edition": "original-en",
+   "chapter": 14,
+   "durationSeconds": 1526.8,
+   "chaptersTotal": 24,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-5",
+   "paragraphsBelowGate": [
+    33,
+    34,
+    35
+   ],
+   "matchRatio": {
+    "auto": 0.9123009019382077,
+    "off": 0.8900402993667242
+   }
+  },
+  {
+   "bookId": "beyond-good-and-evil",
+   "edition": "original-en",
+   "chapter": 5,
+   "durationSeconds": 1115.9,
+   "chaptersTotal": 11,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-5",
+   "paragraphsBelowGate": [
+    10,
+    19,
+    79,
+    84,
+    99,
+    111,
+    122
+   ],
+   "matchRatio": {
+    "auto": 0.9735491512041058,
+    "off": 0.9510461902881958
+   }
+  },
+  {
+   "bookId": "heart-of-darkness",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 3810.9,
+   "chaptersTotal": 3,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-19",
+   "paragraphsBelowGate": [
+    44,
+    69,
+    80,
+    82
+   ],
+   "matchRatio": {
+    "auto": 0.9780039679116709,
+    "off": 0.9717933235573191
+   }
+  },
+  {
+   "bookId": "fear-and-trembling",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 419.3,
+   "chaptersTotal": 8,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-6",
+   "paragraphsBelowGate": [
+    1,
+    4
+   ],
+   "matchRatio": {
+    "auto": 0.9088541666666666,
+    "off": 0.8923611111111112
+   }
+  },
+  {
+   "bookId": "jungle-book",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 2375.5,
+   "chaptersTotal": 7,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-7",
+   "paragraphsBelowGate": [
+    17,
+    22,
+    118,
+    149,
+    153
+   ],
+   "matchRatio": {
+    "auto": 0.9851340589328378,
+    "off": 0.9654897796655163
+   }
+  },
+  {
+   "bookId": "jungle-book",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 3022.2,
+   "chaptersTotal": 7,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-7",
+   "paragraphsBelowGate": [
+    6,
+    17,
+    26,
+    38,
+    52,
+    73,
+    88,
+    90,
+    92,
+    99,
+    105,
+    126,
+    127,
+    129,
+    147,
+    151,
+    155,
+    157,
+    164,
+    167,
+    175
+   ],
+   "matchRatio": {
+    "auto": 0.978161668839635,
+    "off": 0.9546936114732725
+   }
+  },
+  {
+   "bookId": "jungle-book",
+   "edition": "original-en",
+   "chapter": 4,
+   "durationSeconds": 2349.7,
+   "chaptersTotal": 7,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-7",
+   "paragraphsBelowGate": [
+    9,
+    17,
+    46,
+    61,
+    62,
+    68,
+    107,
+    114
+   ],
+   "matchRatio": {
+    "auto": 0.983724399837244,
+    "off": 0.9555133595551336
+   }
+  },
+  {
+   "bookId": "jungle-book",
+   "edition": "original-en",
+   "chapter": 6,
+   "durationSeconds": 2421.0,
+   "chaptersTotal": 7,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-7",
+   "paragraphsBelowGate": [
+    18,
+    20,
+    26,
+    58
+   ],
+   "matchRatio": {
+    "auto": 0.9817315329626688,
+    "off": 0.9428117553613979
+   }
+  },
+  {
+   "bookId": "jungle-book",
+   "edition": "original-en",
+   "chapter": 7,
+   "durationSeconds": 2013.3,
+   "chaptersTotal": 7,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-7",
+   "paragraphsBelowGate": [
+    12,
+    35,
+    115,
+    126,
+    153
+   ],
+   "matchRatio": {
+    "auto": 0.9754098360655737,
+    "off": 0.9664095146255224
+   }
+  },
+  {
+   "bookId": "peloponnesian-war",
+   "edition": "original-en",
+   "chapter": 16,
+   "durationSeconds": 4713.6,
+   "chaptersTotal": 26,
+   "blocker": "missing-paragraph-recording",
+   "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+   "pod": "tinct-words-run1-8",
+   "missing": "p59.mp3 HTTP 404"
+  },
+  {
+   "bookId": "peloponnesian-war",
+   "edition": "original-en",
+   "chapter": 24,
+   "durationSeconds": 3060.7,
+   "chaptersTotal": 26,
+   "blocker": "missing-paragraph-recording",
+   "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+   "pod": "tinct-words-run1-8",
+   "missing": "p1.mp3 HTTP 404"
+  },
+  {
+   "bookId": "nicomachean-ethics",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 3019.1,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-8",
+   "paragraphsBelowGate": [
+    78
+   ],
+   "matchRatio": {
+    "auto": 0.9903611788167516,
+    "off": 0.9811655218258365
+   }
+  },
+  {
+   "bookId": "genealogy-of-morals",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 1110.9,
+   "chaptersTotal": 4,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-8",
+   "paragraphsBelowGate": [
+    10
+   ],
+   "matchRatio": {
+    "auto": 0.9676343009676343,
+    "off": 0.9596262929596263
+   }
+  },
+  {
+   "bookId": "genealogy-of-morals",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 4026.6,
+   "chaptersTotal": 4,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-15",
+   "paragraphsBelowGate": [
+    19,
+    33
+   ],
+   "matchRatio": {
+    "auto": 0.9520336605890604,
+    "off": 0.9454885460495559
+   }
+  },
+  {
+   "bookId": "paradise-lost",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 2195.5,
+   "chaptersTotal": 12,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-15",
+   "paragraphsBelowGate": [
+    10,
+    40
+   ],
+   "matchRatio": {
+    "auto": 0.9746005046257359,
+    "off": 0.9488645920941968
+   }
+  },
+  {
+   "bookId": "paradise-lost",
+   "edition": "original-en",
+   "chapter": 11,
+   "durationSeconds": 2501.7,
+   "chaptersTotal": 12,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-10",
+   "paragraphsBelowGate": [
+    19,
+    58
+   ],
+   "matchRatio": {
+    "auto": 0.9841891499854947,
+    "off": 0.9605454017986655
+   }
+  },
+  {
+   "bookId": "the-aeneid",
+   "edition": "original-en",
+   "chapter": 6,
+   "durationSeconds": 3423.1,
+   "chaptersTotal": 12,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-19",
+   "paragraphsBelowGate": [
+    31
+   ],
+   "matchRatio": {
+    "auto": 0.9225221512466516,
+    "off": 0.9100556356892644
+   }
+  },
+  {
+   "bookId": "the-republic",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 4200.9,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-14",
+   "paragraphsBelowGate": [
+    11,
+    33,
+    84,
+    142,
+    145,
+    166,
+    173,
+    177,
+    288,
+    382,
+    441
+   ],
+   "matchRatio": {
+    "auto": 0.9943984413054068,
+    "off": 0.9799480435135574
+   }
+  },
+  {
+   "bookId": "the-republic",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 3935.6,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-14",
+   "paragraphsBelowGate": [
+    45,
+    53,
+    149,
+    182,
+    208,
+    263,
+    303,
+    310
+   ],
+   "matchRatio": {
+    "auto": 0.9902912621359223,
+    "off": 0.9792822468793343
+   }
+  },
+  {
+   "bookId": "the-republic",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 4821.9,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-14",
+   "paragraphsBelowGate": [
+    14,
+    76,
+    108,
+    130,
+    228,
+    252,
+    288,
+    496
+   ],
+   "matchRatio": {
+    "auto": 0.9943872778297475,
+    "off": 0.9851766568324098
+   }
+  },
+  {
+   "bookId": "the-republic",
+   "edition": "original-en",
+   "chapter": 5,
+   "durationSeconds": 4786.1,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-14",
+   "paragraphsBelowGate": [
+    8,
+    122,
+    236,
+    240,
+    241,
+    242,
+    298,
+    497
+   ],
+   "matchRatio": {
+    "auto": 0.9935998849417518,
+    "off": 0.9831008197900187
+   }
+  },
+  {
+   "bookId": "the-republic",
+   "edition": "original-en",
+   "chapter": 8,
+   "durationSeconds": 4021.1,
+   "chaptersTotal": 10,
+   "blocker": "rejected-below-0.85-on-both-arms",
+   "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+   "pod": "tinct-words-run1-12",
+   "paragraphsBelowGate": [
+    16,
+    55,
+    69,
+    79,
+    137,
+    161,
+    205,
+    209,
+    291
+   ],
+   "matchRatio": {
+    "auto": 0.9896377645912674,
+    "off": 0.978832698609512
+   }
+  },
+  {
+   "bookId": "communist-manifesto",
+   "edition": "original-en",
+   "chapter": 4,
+   "durationSeconds": 1353.9,
+   "chaptersTotal": 5,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "frederick-douglass",
+   "edition": "original-en",
+   "chapter": 11,
+   "durationSeconds": 1723.2,
+   "chaptersTotal": 12,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "frederick-douglass",
+   "edition": "original-en",
+   "chapter": 12,
+   "durationSeconds": 653.0,
+   "chaptersTotal": 12,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "notes-from-underground",
+   "edition": "original-en",
+   "chapter": 15,
+   "durationSeconds": 1212.7,
+   "chaptersTotal": 21,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "medea",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 411.4,
+   "chaptersTotal": 7,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "medea",
+   "edition": "original-en",
+   "chapter": 5,
+   "durationSeconds": 302.2,
+   "chaptersTotal": 7,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "medea",
+   "edition": "original-en",
+   "chapter": 6,
+   "durationSeconds": 805.6,
+   "chaptersTotal": 7,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 680.9,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 5,
+   "durationSeconds": 405.1,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 6,
+   "durationSeconds": 225.0,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 7,
+   "durationSeconds": 971.8,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 8,
+   "durationSeconds": 145.3,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 9,
+   "durationSeconds": 259.8,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 10,
+   "durationSeconds": 138.6,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "bacchae",
+   "edition": "original-en",
+   "chapter": 11,
+   "durationSeconds": 1263.1,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "oedipus-at-colonus",
+   "edition": "original-en",
+   "chapter": 5,
+   "durationSeconds": 374.3,
+   "chaptersTotal": 11,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "midsummer",
+   "edition": "original-en",
+   "chapter": 5,
+   "durationSeconds": 604.6,
+   "chaptersTotal": 9,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "midsummer",
+   "edition": "original-en",
+   "chapter": 9,
+   "durationSeconds": 1185.9,
+   "chaptersTotal": 9,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "jekyll-and-hyde",
+   "edition": "original-en",
+   "chapter": 9,
+   "durationSeconds": 906.6,
+   "chaptersTotal": 10,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "hume-enquiry",
+   "edition": "original-en",
+   "chapter": 7,
+   "durationSeconds": 1043.6,
+   "chaptersTotal": 19,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "frankenstein",
+   "edition": "original-en",
+   "chapter": 1,
+   "durationSeconds": 430.2,
+   "chaptersTotal": 28,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "frankenstein",
+   "edition": "original-en",
+   "chapter": 2,
+   "durationSeconds": 454.2,
+   "chaptersTotal": 28,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "frankenstein",
+   "edition": "original-en",
+   "chapter": 3,
+   "durationSeconds": 111.6,
+   "chaptersTotal": 28,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "frankenstein",
+   "edition": "original-en",
+   "chapter": 4,
+   "durationSeconds": 928.7,
+   "chaptersTotal": 28,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "frankenstein",
+   "edition": "original-en",
+   "chapter": 28,
+   "durationSeconds": 2793.3,
+   "chaptersTotal": 28,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "jungle-book",
+   "edition": "original-en",
+   "chapter": 5,
+   "durationSeconds": 1910.7,
+   "chaptersTotal": 7,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "nicomachean-ethics",
+   "edition": "original-en",
+   "chapter": 6,
+   "durationSeconds": 2685.2,
+   "chaptersTotal": 10,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  },
+  {
+   "bookId": "nicomachean-ethics",
+   "edition": "original-en",
+   "chapter": 7,
+   "durationSeconds": 3760.8,
+   "chaptersTotal": 10,
+   "blocker": "normalisation-class-1-underscore-tokens",
+   "unblockedBy": "the same tokenizer normalisation decision; measured per-paragraph ceiling below 0.85 before the run"
+  }
+ ]
+}

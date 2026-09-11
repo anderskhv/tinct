@@ -6,51 +6,147 @@ is the running report; it is rewritten at every push. Evidence lives in
 `artifacts/audio-highlight-run1-2026-09-11/`. The tables at the bottom are
 generated from that directory by `tools/audio-highlight/gpu/run_summary.py`.
 
-## Status at this push — 4: 120 chapters published; the guard on `main` is killing pods
+## Status at this push — 5, final: run 1 closed, 134 chapters published, nothing billing
 
-- **120 chapters published and verified**; **8 editions complete**: Crito,
-  Discourse on Inequality, Meditations, On Liberty, Phaedrus, Symposium,
-  U.S. Founding Documents, Utilitarianism.
-- Estimated spend **$1.11** of $25 across 16 pods (13 batches, three
-  relaunches). Every pod that finished was stopped and terminated.
-- 31 chapters failed the gate on both arms; 4 dropped for a missing
-  paragraph recording; 22 chapters still open and running now on pods
-  14–16 (The Republic, Paradise Lost, The Aeneid, Heart of Darkness,
-  Genealogy of Morals).
+Closed by a second session (`tinct-18`) that the coordinator spawned at 14:52
+UTC to take over; the original session was in fact still running, so the two
+coordinated through a note and the branch rather than racing on the pods.
+The original session harvested and published the last two pods and pushed
+`c825cb3c`; this push adds the closing accounting, the run-2 queue and the
+scheduled-workflow investigation.
 
-### Blocker for the coordinator: the guard on `main` stops every running pod
+- **134 chapters published and verified** (journal: 134 `published`, 33
+  re-run entries that found the object already there and left it alone).
+  The 14 chapters published after 14:00 UTC were re-fetched from
+  `tinct.app` at close and every one serves the journaled SHA-256.
+- **8 editions complete**: Crito, Discourse on Inequality, Meditations, On
+  Liberty, Phaedrus, Symposium, U.S. Founding Documents, Utilitarianism.
+  26 more editions advanced but stay incomplete for one of the reasons
+  below.
+- **Spend: $2.48 of $25** by the mandate's measure (every pod record's
+  `costPerHr × uptime`, 24 pod records, pods 14–19 included, table under
+  *Pods*). RunPod's `/billing/pods` has posted **$1.70** for this run's pods
+  so far; its hourly buckets lag, and the 15:00 hour that holds pods 18 and
+  19 (uptime estimate $0.47) was not yet posted at close, so the invoice
+  will land between those two numbers. The nine pre-existing exited pods
+  billed another $1.51 today for their stored volumes; that is not this
+  run's spend and is unchanged (see *One thing for Anders*).
+- **Not published, with reasons** — every one of the 177 queued chapters is
+  accounted for: 134 published, **39 rejected** below 0.85 on both arms,
+  **4 dropped** before alignment because a paragraph recording is missing
+  on production (`confessions` ch2, `descartes-meditations` ch6,
+  `peloponnesian-war` ch16 and ch24). Nothing was cut and left unattempted:
+  the six chapters the worker cap truncated on pods 2, 6, 10, 14, 15 and 16
+  were all re-run and either published or rejected on a later pod.
+- **Run-2 queue**: `artifacts/audio-highlight-run1-2026-09-11/run2-queue.json`,
+  71 chapters, each with the blocker it carries. 39 gate rejections, 28
+  chapters skipped before the run for the underscore class, 4 missing
+  recordings. **None can be re-run as is**: 67 wait on the tokenizer
+  normalisation decision already in front of Anders (hyphen compounds
+  split by the recogniser, spaced ellipses and double hyphens, bracketed
+  markers, underscore emphasis) and 4 wait on an audio repair. The
+  rejection digests from pods 14–19 repeat the earlier classes exactly:
+  "Fellow-rulers." heard as "Fellow -rulers." (ratio 0.00 on a one-token
+  paragraph), "well-being" as "well -being", "heart-broken" as "heartbroken".
+- **Nothing is billing.** `runpod_guard.py status` at 15:42:31 UTC
+  (`guard/closing-status.json`) lists no `tinct-*` pod RUNNING and no
+  unowned pod running; the original session's own closing check at 15:31:44
+  (`guard/final-status.json`) says the same. Every pod this run created was
+  stopped, confirmed not running, then terminated (HTTP 204 in each
+  `orchestrator.log`). The nine old volume-holding pods were not touched.
 
-At 13:56:23 UTC a `workflow_dispatch` of `audio-gpu-guard` (run
-`34607185546`) ran from `main` at `28891ab3` — a commit pushed by the
-coordinator's session that makes the guard **stop any RUNNING pod whose
-uptime it cannot measure**. Its uptime fallback parses `lastStartedAt` with
-`datetime.fromisoformat`, and RunPod returns
-`2026-09-11 12:35:42.57 +0000 UTC`, which `fromisoformat` rejects. So every
-running pod reads as "unmeasurable" and the run's log says exactly that:
+### What happened on pods 14–19
 
-```
-STOP ku0brnal1c6hzc tinct-words-run1-11: uptime is unmeasurable, so neither the deadline nor the envelope can be enforced for it
-STOP qh5dt0ws5o448i tinct-words-run1-9: uptime is unmeasurable, so neither the deadline nor the envelope can be enforced for it
-```
+Pods 14–16 in the committed record at push 4 were the first launches at
+14:01. After that push the original session relaunched and extended the
+round, and those records (`pods/tinct-words-run1-16-boot-timeout*`,
+`-16`, `-17`, `-18`, `-19`) came in with `c825cb3c`:
 
-Both pods were 27 and 38 minutes into their batches, within every limit, and
-because this run's pods keep no volume their partial results died with them
-(batch 9 and batch 11, ~16 audio hours of work, now re-queued on pods 15 and
-14). The same workflow runs on a five-minute schedule from `main`, so **any
-pod launched by anyone is at risk until `main`'s parser is fixed**. This
-session cannot merge to `main`.
+- **14** (Republic 1–7, RTX A4500): launcher deadline at 44.8 min with
+  results fetched; ch4 and ch6 published, ch1/2/3/5 rejected, ch7 cut and
+  re-run on pod 18 (published).
+- **15** (Genealogy 2–4, Paradise Lost 1–4, 6): done-with-errors at
+  48.3 min; Genealogy 3–4 and Paradise Lost 2 published, Genealogy 2 and
+  Paradise Lost 1 rejected, Paradise Lost 3 cut and re-run on pod 18.
+- **16** (Heart of Darkness 1–3, Aeneid 3, 6, 7, 9): two hosts never
+  answered on port 8000 (boot-timeout at 15 min each, $0.05 each); the third
+  host ran 22 min at $0.49/hr until `main`'s guard stopped it at 14:53 —
+  the orchestrator's four-minute snapshot from 14:53:28 still carried Heart
+  of Darkness 1–2, which were published; the rest went to pod 19.
+- **17** (the Aeneid remainder): stopped by the same guard run 3.5 min in,
+  no results, batch re-queued to pod 19.
+- **18** (Paradise Lost 3, 4, 6; Republic 7; NVIDIA L4): done at 21.7 min,
+  all four published.
+- **19** (Heart of Darkness 3; Aeneid 3, 6, 7, 9; NVIDIA L4): done at
+  35.1 min; Aeneid 3, 7, 9 published; Heart of Darkness 3 and Aeneid 6
+  rejected.
 
-The fix is on this branch already (`tools/audio-highlight/runpod_guard.py`,
-`seconds_since()`, commit `7376511c`): it parses RunPod's actual stamp and has
-a test pinned to that exact format. Merging this branch — or porting that
-parser into `main`'s `_age_seconds` — makes the `main` guard measure uptime
-correctly and stop only what it should. Until then, please do not dispatch the
-guard while `tinct-words-run1-*` pods are running.
+Why `main`'s guard stopped pods 16 and 17 at 14:53 (run `34612790906`,
+dispatched from `main` at `fc063f10`): `main` at `12f3fa90` fixed the
+timestamp parser reported at push 4 (`fromisoformat` rejected RunPod's
+`2026-09-11 12:35:42.57 +0000 UTC`, so every live pod read as unmeasurable
+and pods 9 and 11 were stopped mid-batch at 13:56), but its fallback now dates **exited**
+pods too, so the nine old volume-holding pods contribute their days-old
+start stamps as running time; the run's log reads
+`estimated spend this envelope: $242.63 of $25.00` and every live pod is
+stopped as over the envelope. This branch's `runpod_guard.py` falls back to
+the timestamp only for RUNNING pods and reads the same account as $0.00
+with nothing running. It should go to `main` with the branch.
 
-Mitigation taken here without changing the rules: `orchestrate.py` now
-snapshots each pod's output tree every four minutes while aligning, and if a
-pod is stopped from outside it extracts the last snapshot instead of losing
-the batch. Chapters cut mid-way are simply re-queued.
+The takeover session recovered the two live pods' status-server tokens from
+the pods' own environment through the RunPod API (they are placed there by
+`orchestrate.py` at creation), so a pod whose launcher is gone can be
+harvested rather than terminated blind; that is `tools/audio-highlight/gpu/
+adopt.py`, committed at `7c39c5f5` and merged by the original session. It
+was not needed in the end — the original session's orchestrators were
+still alive and did the harvest — and no token was printed or written.
+
+### Why `audio-gpu-guard`'s `*/5` schedule produced one run today
+
+What the run list shows (`GET /actions/workflows/audio-gpu-guard.yml/runs`,
+checked 14:57 UTC): nine runs, eight of them `workflow_dispatch`, one
+`schedule` — run 6 at 12:36:11 UTC (cron slot 12:35, 71 s late). The
+workflow's state is `active`, it exists on `main`, and the file has no
+branch condition, no `if:`, no `paths` filter and no environment gate that
+could suppress a scheduled run; `concurrency: cancel-in-progress` would
+leave cancelled runs in the list, and there are none. Rules checked against
+GitHub's documentation for `on.schedule`:
+
+| rule | applies here? |
+| --- | --- |
+| Schedules run only from the workflow file on the default branch | Satisfied: file is on `main` since `d8540bbd` (registered 07:56 UTC, the fast-forward of `main`). |
+| Scheduled workflows are disabled in forks and after 60 days without repository activity | Not the cause: state is `active` and one scheduled run did fire. |
+| The shortest allowed interval is five minutes | `*/5` is allowed. |
+| `[skip ci]` in the head commit | Affects `push` only, never `schedule`. |
+| "The schedule event can be delayed during periods of high loads of GitHub Actions workflow runs. High load times include the start of every hour. If the load is sufficiently high enough, some queued jobs may be dropped." | **This is the cause.** Scheduled runs are best-effort; GitHub queues them at low priority and drops them under load rather than catching up. |
+
+The repository-wide evidence points the same way: filtering every workflow
+by `event=schedule` returns that single run for the whole day, so
+`audio-highlight-audit`'s six-hourly cron (`17 */6 * * *`) also missed its
+12:17 slot. Nothing in either file explains that; the scheduler simply did
+not deliver. Five-minute crons are the most affected because every missed
+delivery is a full slot, and a private repository on a personal plan gets
+no priority.
+
+Fix (workflow file left untouched, as instructed):
+
+1. Do not let a billing guard depend on GitHub cron. The run's own
+   `guard-loop.sh` (the guard every five minutes from the executing session)
+   is what actually protected this run, and a Cloudflare Worker cron trigger
+   — Tinct already deploys Workers — is the reliable always-on option:
+   a `scheduled()` handler that calls RunPod's `/pods` and `/pods/{id}/stop`
+   with the key in a Worker secret. Cloudflare crons are not load-shed.
+2. Keep the GitHub workflow as a backstop but move it off the load-shed
+   minutes: `2-59/5 * * * *` (GitHub recommends avoiding the top of the
+   hour) and add a second job that fails when no `schedule` run has
+   completed in the last 30 minutes, so silence becomes visible.
+3. When `main`'s guard is next touched, take the branch's uptime rule with
+   it: `main` at `12f3fa90` fixed the timestamp parser but now derives an
+   age for **exited** pods too, so the nine old volume-holding pods count
+   their days-old start stamps as running time, the envelope reads $242.63
+   of $25, and every live pod is stopped as "over envelope" — that is what
+   killed pods 16 and 17 at 14:53 (run `34612790906`). This branch's
+   `runpod_guard.py` only falls back to the timestamp for RUNNING pods.
 
 ### Other operational notes
 
@@ -201,9 +297,15 @@ in full for rejected chapters.
 
 ### Next
 
-1. Harvest and publish pods 14–16; re-queue anything cut off; one more round
-   if needed.
-2. Final push with the guard's closing `status` and the billing cross-check.
+Run 1 is closed. Nothing in the run-2 queue is runnable with the unmodified
+aligner: 67 of its 71 chapters wait on the tokenizer normalisation decision
+recorded for Anders in the priority-1 artifact's README, and 4 wait on
+missing paragraph recordings. Once that decision lands, run 2 is the 71
+chapters in `run2-queue.json` (32.6 audio hours for the 43 that were queued
+this run, plus the 28 skipped up front), which at run 1's rate is about
+five pods and under $1. Before any pod is launched again, `main`'s guard
+needs this branch's uptime rule, and the guard needs a timer that GitHub's
+cron is not.
 
 ## Pods
 
@@ -218,20 +320,25 @@ in full for rejected chapters.
 | tinct-words-run1-7 | `f93pwrhxtctc66` | NVIDIA GeForce RTX 4090 | 0.34 | 13:15:20 | 13:16:47 | 1.4 | failed | 0.01 |
 | tinct-words-run1-7 | `y58l6eo16iu3hk` | NVIDIA RTX A4500 | 0.19 | 13:17:14 | 13:54:30 | 37.2 | done | 0.12 |
 | tinct-words-run1-8 | `xxgsezt160x3mg` | NVIDIA RTX 4000 Ada Generation | 0.2 | 13:18:25 | 13:50:11 | 31.7 | done | 0.11 |
-| tinct-words-run1-9 | `qh5dt0ws5o448i` | ? | 0.2 | 13:18:27 |  |  |  | 0.00 |
+| tinct-words-run1-9 | `qh5dt0ws5o448i` | ? | 0.2 | 13:18:27 | 14:02:39 | 44.1 | launcher-deadline | 0.15 |
 | tinct-words-run1-10 | `ggg4xioxgq77gu` | NVIDIA GeForce RTX 3090 | 0.22 | 13:18:29 | 13:55:58 | 37.4 | done-with-errors | 0.14 |
 | tinct-words-run1-11 | `2lw1gufmsu7h1q` | ? | 0.22 | 13:18:31 |  |  |  | 0.00 |
 | tinct-words-run1-12 | `8m3fs26kpahsjw` | NVIDIA GeForce RTX 3090 | 0.22 | 13:18:33 | 13:36:49 | 18.2 | done | 0.07 |
 | tinct-words-run1-13 | `2xyxo79cgn82hs` | NVIDIA GeForce RTX 3090 | 0.22 | 13:18:35 | 13:19:46 | 1.1 | failed | 0.00 |
-| tinct-words-run1-11 | `ku0brnal1c6hzc` | ? | 0.22 | 13:30:59 |  |  |  | 0.00 |
+| tinct-words-run1-11 | `ku0brnal1c6hzc` | ? | 0.22 | 13:30:59 | 14:15:16 | 44.2 | launcher-deadline | 0.16 |
 | tinct-words-run1-13 | `tn89pfz0m3gxi0` | NVIDIA GeForce RTX 3090 | 0.22 | 13:31:01 | 13:40:21 | 9.3 | done | 0.03 |
-| tinct-words-run1-14 | `j00rf2bd2rruex` | ? | 0.19 | 14:00:59 |  |  |  | 0.00 |
-| tinct-words-run1-15 | `09vju8q0a71jnb` | ? | 0.19 | 14:01:01 |  |  |  | 0.00 |
-| tinct-words-run1-16 | `fzfb3hb8zrc410` | ? | 0.19 | 14:01:03 |  |  |  | 0.00 |
+| tinct-words-run1-14 | `j00rf2bd2rruex` | NVIDIA RTX A4500 | 0.19 | 14:00:59 | 14:45:51 | 44.8 | launcher-deadline | 0.14 |
+| tinct-words-run1-15 | `09vju8q0a71jnb` | NVIDIA RTX A4500 | 0.19 | 14:01:01 | 14:49:25 | 48.3 | done-with-errors | 0.15 |
+| tinct-words-run1-16 | `fzfb3hb8zrc410` | ? | 0.19 | 14:01:03 | 14:16:16 | 15.1 |  | 0.05 |
+| tinct-words-run1-16 | `k44jptejfv6lpp` | ? | 0.19 | 14:16:25 | 14:31:40 | 15.2 |  | 0.05 |
+| tinct-words-run1-16 | `vkvg9inr5ci3g5` | ? | 0.49 | 14:31:59 | 14:54:06 | 22.0 | pod-exited-externally | 0.18 |
+| tinct-words-run1-17 | `tlkk2gwzprb3nm` | ? | 0.49 | 14:50:40 | 14:54:13 | 3.5 | pod-exited-externally | 0.03 |
+| tinct-words-run1-18 | `0nu7fumr0yks5b` | NVIDIA L4 | 0.49 | 14:55:28 | 15:17:16 | 21.7 | done | 0.18 |
+| tinct-words-run1-19 | `0i6fmn7okh7bxs` | NVIDIA L4 | 0.49 | 14:55:30 | 15:30:44 | 35.1 | done | 0.29 |
 
-Estimated spend across pods (costPerHr × uptime): **$1.11**.
+Estimated spend across pods (costPerHr × uptime): **$2.48**.
 
-## Published and verified — 120 chapters
+## Published and verified — 134 chapters
 
 | edition | ch | SHA-256 | bytes | at (UTC) |
 | --- | --- | --- | --- | --- |
@@ -355,6 +462,20 @@ Estimated spend across pods (costPerHr × uptime): **$1.11**.
 | `the-aeneid/original-en` | 1 | `2017b21c394e44566cc3d4ef87482d4bc7ec654783612de6d17e0c25759ef001` | 817771 | 13:56:19 |
 | `the-aeneid/original-en` | 10 | `f833c333c5db8346c8ed7509ae2aa33374ff62d9320a8dc7f6d3f151f7710d2c` | 1004392 | 13:56:21 |
 | `the-aeneid/original-en` | 12 | `0016d9691c97c015f9b96781c9fb418df2ad78cfe780907efa0ba320ddbf89e6` | 1061539 | 13:56:24 |
+| `the-republic/original-en` | 4 | `8cacc227399a750432135e1a8a5077cda8cd0f6de3d0b8480517659b099cab4c` | 1197642 | 14:45:57 |
+| `the-republic/original-en` | 6 | `20ce2b0281a72768ec40392459cf1af51f3b1f90984d8843d5fb7dab42d1e762` | 1228278 | 14:46:02 |
+| `genealogy-of-morals/original-en` | 3 | `ba1808c2c7d3fd476786dbee10d204916a93e87a454d02bc4622c6f3f025500c` | 1423654 | 14:49:36 |
+| `genealogy-of-morals/original-en` | 4 | `3ca99d57c5ccd743f0233bb800c1e0f9ae7ffc24d82536e834eeb0b124c841a6` | 2321674 | 14:49:40 |
+| `paradise-lost/original-en` | 2 | `65de0691409b5f00f78f6bd5eaefb86ad529a0c349dee5243d9b5ae30202ae63` | 782018 | 14:49:43 |
+| `heart-of-darkness/original-en` | 1 | `53592c832830d029b9793eb9e056e2fe2910d0017e6b1f09efd7ed2fbbd7d615` | 1392393 | 14:54:11 |
+| `heart-of-darkness/original-en` | 2 | `7a3117579d331e33438995ff38526fefe1a4ee9522755c044879d05a03c57b5c` | 1178175 | 14:54:15 |
+| `paradise-lost/original-en` | 3 | `ee07d8bdae645c91d293de87eeea8a7e5da3da0e0abfe23d4aceab4fd46b3b09` | 559625 | 15:17:25 |
+| `paradise-lost/original-en` | 4 | `ebd563a5a944c5fd10f544cd1d8a88b02100d4dddeb7f0097d048636078e728c` | 775804 | 15:17:29 |
+| `paradise-lost/original-en` | 6 | `eb49a04cfcfa1574a87cce9b4ffe8b242a8e1e075f65ddeef109b282e1cf4dc3` | 674515 | 15:17:31 |
+| `the-republic/original-en` | 7 | `b04b5a25265bd4d7f65226d3922a78e8bcb9aff3a19ef540926c04c9da167dae` | 1190237 | 15:17:34 |
+| `the-aeneid/original-en` | 3 | `7631b6dbbc607fc965257679f17314d3c0731a0121e23ec6f5048ee7aecce5e4` | 724805 | 15:31:09 |
+| `the-aeneid/original-en` | 7 | `f43f3b9d37030665e268d7146123f01082bec236f760022062197e68c1838aaf` | 843356 | 15:31:12 |
+| `the-aeneid/original-en` | 9 | `b9bc626414f684158ddfd5ed73edea043ec31c466f755f21b032f3f76c4d0bb2` | 855826 | 15:31:15 |
 
 33 journal entries are re-runs that found the object already published and were skipped (the uploader never overwrites).
 
@@ -367,6 +488,14 @@ Estimated spend across pods (costPerHr × uptime): **$1.11**.
 - `the-tempest/original-en/ch3` (tinct-words-run1-13) — paragraphs [2, 8, 14, 19, 28, 31, 34, 52, 55, 56, 62, 67, 73, 75, 77, 80, 85, 86, 93, 98, 101, 104, 106, 107, 115, 116, 124, 127, 131, 137, 149, 151, 161, 163, 167]: below 0.85 on every arm; not published
 - `the-tempest/original-en/ch6` (tinct-words-run1-13) — paragraphs [0, 7, 9, 14, 18, 20, 26, 30, 35, 37, 41, 43, 45, 51, 56, 58, 59, 62, 65, 71, 72]: below 0.85 on every arm; not published
 - `the-tempest/original-en/ch7` (tinct-words-run1-13) — paragraphs [9, 17, 18, 20, 25, 31]: below 0.85 on every arm; not published
+- `the-republic/original-en/ch1` (tinct-words-run1-14) — paragraphs [11, 33, 84, 142, 145, 166, 173, 177, 288, 382, 441]: below 0.85 on every arm; not published
+- `the-republic/original-en/ch2` (tinct-words-run1-14) — paragraphs [45, 53, 149, 182, 208, 263, 303, 310]: below 0.85 on every arm; not published
+- `the-republic/original-en/ch3` (tinct-words-run1-14) — paragraphs [14, 76, 108, 130, 228, 252, 288, 496]: below 0.85 on every arm; not published
+- `the-republic/original-en/ch5` (tinct-words-run1-14) — paragraphs [8, 122, 236, 240, 241, 242, 298, 497]: below 0.85 on every arm; not published
+- `genealogy-of-morals/original-en/ch2` (tinct-words-run1-15) — paragraphs [19, 33]: below 0.85 on every arm; not published
+- `paradise-lost/original-en/ch1` (tinct-words-run1-15) — paragraphs [10, 40]: below 0.85 on every arm; not published
+- `heart-of-darkness/original-en/ch3` (tinct-words-run1-19) — paragraphs [44, 69, 80, 82]: below 0.85 on every arm; not published
+- `the-aeneid/original-en/ch6` (tinct-words-run1-19) — paragraphs [31]: below 0.85 on every arm; not published
 - `medea/original-en/ch4` (tinct-words-run1-2) — paragraphs [17, 25, 26, 28, 36, 40, 41, 44, 46, 54, 56, 58, 61, 62, 63, 64, 68, 75, 76]: below 0.85 on every arm; not published
 - `medea/original-en/ch7` (tinct-words-run1-2) — paragraphs [2, 10, 12, 13, 16, 25, 29, 38, 46, 58, 59]: below 0.85 on every arm; not published
 - `midsummer/original-en/ch2` (tinct-words-run1-2) — paragraphs [5, 9, 13, 15, 16, 20, 37]: below 0.85 on every arm; not published
@@ -395,6 +524,9 @@ Estimated spend across pods (costPerHr × uptime): **$1.11**.
 ## Chapters cut off by the worker time cap and re-queued
 
 - `the-aeneid/original-en/ch3` (tinct-words-run1-10) — not a rejection; re-run in the leftovers batch
+- `the-republic/original-en/ch7` (tinct-words-run1-14) — not a rejection; re-run in the leftovers batch
+- `paradise-lost/original-en/ch3` (tinct-words-run1-15) — not a rejection; re-run in the leftovers batch
+- `heart-of-darkness/original-en/ch3` (tinct-words-run1-16) — not a rejection; re-run in the leftovers batch
 - `the-tempest/original-en/ch3` (tinct-words-run1-2) — not a rejection; re-run in the leftovers batch
 - `heart-of-darkness/original-en/ch1` (tinct-words-run1-6) — not a rejection; re-run in the leftovers batch
 
@@ -416,7 +548,7 @@ Estimated spend across pods (costPerHr × uptime): **$1.11**.
 - `us-founding-documents/original-en` — 4/4 chapters timed (4 added this run)
 - `utilitarianism/original-en` — 5/5 chapters timed (5 added this run)
 
-## Editions advanced but not complete — 24
+## Editions advanced but not complete — 26
 
 - `bacchae/original-en` — 3/11 timed (1 added; 0 queued chapters still open)
 - `beyond-good-and-evil/original-en` — 10/11 timed (5 added; 1 queued chapters still open)
@@ -425,6 +557,8 @@ Estimated spend across pods (costPerHr × uptime): **$1.11**.
 - `fear-and-trembling/original-en` — 7/8 timed (7 added; 1 queued chapters still open)
 - `frankenstein/original-en` — 23/28 timed (4 added; 0 queued chapters still open)
 - `frederick-douglass/original-en` — 10/12 timed (1 added; 0 queued chapters still open)
+- `genealogy-of-morals/original-en` — 2/4 timed (2 added; 2 queued chapters still open)
+- `heart-of-darkness/original-en` — 2/3 timed (2 added; 1 queued chapters still open)
 - `hume-enquiry/original-en` — 16/19 timed (4 added; 2 queued chapters still open)
 - `iliad/original-en` — 23/24 timed (4 added; 1 queued chapters still open)
 - `jekyll-and-hyde/original-en` — 7/10 timed (7 added; 2 queued chapters still open)
@@ -435,10 +569,10 @@ Estimated spend across pods (costPerHr × uptime): **$1.11**.
 - `notes-from-underground/original-en` — 19/21 timed (1 added; 1 queued chapters still open)
 - `odyssey/original-en` — 23/24 timed (4 added; 1 queued chapters still open)
 - `oedipus-at-colonus/original-en` — 9/11 timed (7 added; 1 queued chapters still open)
-- `paradise-lost/original-en` — 6/12 timed (2 added; 6 queued chapters still open)
+- `paradise-lost/original-en` — 10/12 timed (6 added; 2 queued chapters still open)
 - `peloponnesian-war/original-en` — 24/26 timed (4 added; 2 queued chapters still open)
 - `phaedo/original-en` — 7/9 timed (7 added; 2 queued chapters still open)
 - `second-treatise/original-en` — 18/19 timed (1 added; 1 queued chapters still open)
-- `the-aeneid/original-en` — 8/12 timed (3 added; 4 queued chapters still open)
-- `the-republic/original-en` — 2/10 timed (2 added; 8 queued chapters still open)
+- `the-aeneid/original-en` — 11/12 timed (6 added; 1 queued chapters still open)
+- `the-republic/original-en` — 5/10 timed (5 added; 5 queued chapters still open)
 - `the-tempest/original-en` — 5/10 timed (4 added; 5 queued chapters still open)
