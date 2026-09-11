@@ -1,0 +1,828 @@
+{
+  "bookId": "fear-and-trembling",
+  "contentVersion": "2026-09-11.1",
+  "coverage": "The Preface, Exordium, Eulogy on Abraham, Preliminary Expectoration, Problemata I-III, and Epilogue, in both English editions. Named biblical, classical, literary and historical figures Johannes de Silentio cites or retells by name. \"Sarah\" is the one real namesake collision: Abraham's wife everywhere except the Book of Tobit digression (7:40-7:46), where it names a different Sarah, daughter of Raguel and Edna -- see build_fear_and_trembling.py and the README. \"Kildevalle,\" a mediocre city poet named only in a quotation from Baggesen, could not be resolved from the text alone and is deliberately left unbound; see README.",
+  "entities": [
+    {
+      "id": "cartesius",
+      "name": "René Descartes",
+      "body": "The philosopher, praised in the Preface for having doubted honestly and for confining his method's claims to himself -- unlike, in Johannes de Silentio's telling, the philosophers of the present age.",
+      "aliases": [
+        "Cartesius",
+        "Descartes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "johannes-de-silentio",
+      "name": "Johannes de Silentio",
+      "body": "The pseudonym under which this book is written and signed; \"the present author\" who speaks throughout in the first person.",
+      "aliases": [
+        "Johannes de silentio",
+        "Johannes de Silentio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abraham",
+      "name": "Abraham",
+      "body": "The patriarch whose willingness to sacrifice Isaac at God's command is this book's subject throughout: the \"father of faith\" whom Johannes de Silentio admires but cannot understand.",
+      "aliases": [
+        "Abraham"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "isaac",
+      "name": "Isaac",
+      "body": "Abraham's son, born to Sarah in her old age against expectation, and the one Abraham is commanded to sacrifice on Mount Moriah.",
+      "aliases": [
+        "Isaac"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sarah",
+      "name": "Sarah",
+      "body": "Abraham's wife, who bore Isaac in her old age; in Problema III, one of the three -- with Eliezer and Isaac -- from whom Abraham conceals his undertaking.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sarah-tobit",
+      "name": "Sarah (Book of Tobit)",
+      "body": "A different Sarah: the daughter of Raguel and Edna in the Book of Tobit, given to seven husbands who each died on the wedding night before Tobias married her and survived. Kierkegaard calls her a heroine.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hagar",
+      "name": "Hagar",
+      "body": "Abraham's concubine, mother of his son Ishmael, whom Abraham drove out into the wilderness -- recalled in the Exordium's third retelling and again in Problema II.",
+      "aliases": [
+        "Hagar"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eliezer",
+      "name": "Eliezer",
+      "body": "Abraham's faithful servant, named in the Exordium and again in Problema III as one of the three from whom Abraham conceals his undertaking on the way to Moriah.",
+      "aliases": [
+        "Eliezer"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "moses",
+      "name": "Moses",
+      "body": "Recalled for having struck the rock with his staff without believing, contrasted with Abraham and Sarah's belief in the promise.",
+      "aliases": [
+        "Moses"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jacob",
+      "name": "Jacob",
+      "body": "Abraham's grandson, recalled as having had twelve sons and yet loving one -- Joseph -- as Abraham loved his only Isaac.",
+      "aliases": [
+        "Jacob"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "noureddin",
+      "name": "Noureddin",
+      "body": "A caliph of the Arabian Nights, invoked alongside Aladdin as an example of one who merely holds a magic ring of power, indifferent to how he came by it.",
+      "aliases": [
+        "Noureddin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aladdin",
+      "name": "Aladdin",
+      "body": "The Arabian Nights hero, invoked alongside Noureddin as an example of one who merely holds a magic ring of power, indifferent to how he came by it.",
+      "aliases": [
+        "Aladdin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "body": "The legendary musician, recalled as having been deceived by the gods with an airy phantom in place of his beloved -- Johannes de Silentio's image for getting nothing without working.",
+      "aliases": [
+        "Orpheus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "miltiades",
+      "name": "Miltiades",
+      "body": "The Athenian general at Marathon, whose famous triumphs, Johannes de Silentio notes, thousands knew by heart while only one man -- Themistocles, though unnamed here -- lost sleep over them.",
+      "aliases": [
+        "Miltiades"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "christ",
+      "name": "Jesus Christ",
+      "body": "Recalled as the one the rich young man met on his way, and later as the one it would be sweet to imagine walking the promised land -- forgetting how dreadful it actually was to have sat at table with God.",
+      "aliases": [
+        "Christ"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hegel",
+      "name": "G. W. F. Hegel",
+      "body": "The philosopher whose account of the single individual, the ethical, and inwardness Johannes de Silentio repeatedly takes up and disputes, faulting him above all for speaking of Abraham as a father of faith.",
+      "aliases": [
+        "Hegel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "esau",
+      "name": "Esau",
+      "body": "Jacob's brother, recalled only for the strength of his appetite, to which the knight of infinite resignation's wife-imagined roast lamb dinner is compared.",
+      "aliases": [
+        "Esau"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daub",
+      "name": "Karl Daub",
+      "body": "The German theologian, quoted on the strange thoughts of a lone sentry standing watch by a powder magazine on a stormy night.",
+      "aliases": [
+        "Daub"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "herod",
+      "name": "Herod",
+      "body": "Named alongside Pilate as a figure a young maiden's naive religious assurance might run to and sway with her prayers.",
+      "aliases": [
+        "Herod"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pilate",
+      "name": "Pontius Pilate",
+      "body": "Named alongside Herod as a figure a young maiden's naive religious assurance might run to and sway with her prayers.",
+      "aliases": [
+        "Pilate"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boileau",
+      "name": "Nicolas Boileau",
+      "body": "The French critic, quoted on how a fool always finds a bigger fool to admire him.",
+      "aliases": [
+        "Boileau"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agamemnon",
+      "name": "Agamemnon",
+      "body": "The Greek commander at Aulis, who must sacrifice his daughter Iphigenia to obtain a favorable wind for the fleet -- Johannes de Silentio's recurring tragic-hero counterpart to Abraham.",
+      "aliases": [
+        "Agamemnon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iphigenia",
+      "name": "Iphigenia",
+      "body": "Agamemnon's daughter, sacrificed (in Euripides's play) to secure the fleet's passage to Troy -- the tragic-hero's counterpart to Isaac, who unlike Isaac is told, weeps, and understands.",
+      "aliases": [
+        "Iphigenia"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jephthah",
+      "name": "Jephthah",
+      "body": "The judge of Israel who, bound by his own vow, sacrifices his daughter after she is granted two months to mourn her lost youth -- another of the tragic-hero counterparts to Abraham.",
+      "aliases": [
+        "Jephthah"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brutus",
+      "name": "Lucius Junius Brutus",
+      "body": "The Roman consul who, entrusted with judgment as a father, is said to have ordered the execution of his own son for treason against the young republic -- a third tragic-hero counterpart to Abraham.",
+      "aliases": [
+        "Brutus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "shakespeare",
+      "name": "William Shakespeare",
+      "body": "Addressed directly (\"great Shakespeare\") as the poet who could say anything, wondered at for never having given voice to Abraham's particular anguish -- and named again as the author of Richard III.",
+      "aliases": [
+        "Shakespeare"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pythagoras",
+      "name": "Pythagoras",
+      "body": "The Greek philosopher, cited for the saying that the odd number is more perfect than the even, and later for having chosen death over breaking his habitual silence.",
+      "aliases": [
+        "Pythagoras"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "judas",
+      "name": "Judas Iscariot",
+      "body": "Recalled as having sold his Lord for thirty pieces of silver -- the standard of contempt Johannes de Silentio measures against one who cheapens the story of Abraham by dwelling only on its outcome.",
+      "aliases": [
+        "Judas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mary",
+      "name": "The Virgin Mary",
+      "body": "Mother of Jesus, held up as another figure made great not by favor alone but by the distress, anguish, and paradox that favor brought her.",
+      "aliases": [
+        "Mary"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rousseau",
+      "name": "Jean-Jacques Rousseau",
+      "body": "Cited for a kind of misdirected love -- loving distant Kaffirs in place of one's actual neighbor -- that Johannes de Silentio compares to loving an abstracted \"God.\"",
+      "aliases": [
+        "Rousseau"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "body": "The Athenian philosopher, called the most interesting man who ever lived; his ironic reply to his own death sentence is discussed at length as the model of a fitting last word for an intellectual tragic hero.",
+      "aliases": [
+        "Socrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cain",
+      "name": "Cain",
+      "body": "The first murderer, invoked to distinguish Abraham from him: Abraham does not hate Isaac as Cain hated Abel, which is precisely what makes Abraham's willingness a sacrifice rather than a murder.",
+      "aliases": [
+        "Cain"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "master-jakel",
+      "name": "Master Jakel",
+      "body": "A stock puppet-theatre showman figure (comparable to Punch), invoked as a type for the sectarian who gathers a few admiring friends and mistakes them for the universal.",
+      "aliases": [
+        "Master Jakel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristotle",
+      "name": "Aristotle",
+      "body": "The philosopher, cited from the Poetics on recognition and reversal in tragedy, and from the Politics for the story of the bridegroom of Delphi used later in the same chapter.",
+      "aliases": [
+        "Aristotle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euripides",
+      "name": "Euripides",
+      "body": "The Greek tragedian, whose Iphigenia in Aulis supplies the Agamemnon example Johannes de Silentio analyzes at length.",
+      "aliases": [
+        "Euripides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clytemnestra",
+      "name": "Clytemnestra",
+      "body": "Agamemnon's wife and Iphigenia's mother, whose tears (and an old servant's disclosure to her) are part of the aesthetic apparatus of the Iphigenia story.",
+      "aliases": [
+        "Clytemnestra"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amor",
+      "name": "Amor (Cupid)",
+      "body": "The god of love in the myth of Cupid and Psyche, who leaves Psyche with the warning that her child will be divine only if she keeps his identity secret.",
+      "aliases": [
+        "Amor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "psyche",
+      "name": "Psyche",
+      "body": "Amor's beloved in the myth, warned that betraying his secret will cost her child its divinity -- Johannes de Silentio's image for how silence itself can be great.",
+      "aliases": [
+        "Psyche"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lessing",
+      "name": "Gotthold Ephraim Lessing",
+      "body": "The German critic and dramatist, thanked for his brief remarks on a possible Christian drama in the Hamburg Dramaturgy, and praised for never claiming to have understood more than he had.",
+      "aliases": [
+        "Lessing"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elizabeth",
+      "name": "Queen Elizabeth I",
+      "body": "The English queen, who signed the Earl of Essex's death warrant for the sake of the state -- and who, on learning too late that he had in fact sent her the ring she'd waited for, is said to have died in silence.",
+      "aliases": [
+        "Queen Elizabeth",
+        "Elizabeth"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "essex",
+      "name": "Robert Devereux, Earl of Essex",
+      "body": "Elizabeth I's favorite, whose death warrant she signed; his ring, sent to beg her mercy, was withheld from her by a lady-in-waiting's malice.",
+      "aliases": [
+        "Essex"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "axel",
+      "name": "Axel",
+      "body": "One half of the title pair of Oehlenschläger's tragedy Axel and Valborg, invoked as an example of lovers whom heaven itself separates equally, unlike the bridegroom of Delphi.",
+      "aliases": [
+        "Axel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "valborg",
+      "name": "Valborg",
+      "body": "The other half of the title pair of Oehlenschläger's tragedy Axel and Valborg, invoked as an example of lovers whom heaven itself separates equally, unlike the bridegroom of Delphi.",
+      "aliases": [
+        "Valborg"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laban",
+      "name": "Laban",
+      "body": "Jacob's father-in-law in Genesis, invoked as a type for the man in poetry who abandons one woman for her more \"ideal\" sister and thereby confuses trivial substitution for real passionate collision.",
+      "aliases": [
+        "Laban"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agnete",
+      "name": "Agnete (Agnes)",
+      "body": "The innocent girl of the Danish legend of Agnete and the Merman, whose steady, believing gaze -- in Johannes de Silentio's retelling -- disarms the Merman's power to seduce her.",
+      "aliases": [
+        "Agnete",
+        "Agnes"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "merman",
+      "name": "The Merman",
+      "body": "The seducer of the legend of Agnete and the Merman; Johannes de Silentio reworks the story twice, once as a demonic figure conquered by Agnete's innocence, once as a genuinely repentant figure who might be saved by her love.",
+      "aliases": [
+        "Merman",
+        "merman"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gloster",
+      "name": "Gloster (Richard III)",
+      "body": "Shakespeare's Richard, Duke of Gloucester and later Richard III, called the most demonic figure Shakespeare ever portrayed, made a demon by an inability to bear the compassion shown him from childhood for his deformity.",
+      "aliases": [
+        "Gloster",
+        "Gloucester",
+        "Richard the Third"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cumberland",
+      "name": "Richard Cumberland",
+      "body": "The English playwright; \"Cumberland's Jew\" refers to Sheva, the sympathetic Jewish character of Cumberland's 1794 play The Jew, cited here as another demonic figure despite doing what is good.",
+      "aliases": [
+        "Cumberland"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "baggesen",
+      "name": "Jens Baggesen",
+      "body": "The Danish poet, quoted on the immortality of a mediocre city poet named Kildevalle: \"if he becometh immortal, then become we all so.\"",
+      "aliases": [
+        "Baggesen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "faust",
+      "name": "Faust",
+      "body": "The doubter of German legend; Johannes de Silentio proposes his own version, one who loves Margaret but stays silent about his doubt out of sympathy for mankind, sacrificing himself for the universal.",
+      "aliases": [
+        "Faust"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "goethe",
+      "name": "Johann Wolfgang von Goethe",
+      "body": "The poet, whose interpretation of Faust Johannes de Silentio finds lacking in psychological insight into doubt's own inner conversations.",
+      "aliases": [
+        "Goethe"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mephistopheles",
+      "name": "Mephistopheles",
+      "body": "The demon of Goethe's Faust, whose \"concave mirror\" is contrasted with the clear, innocent way Johannes de Silentio's own imagined Faust sees Margaret.",
+      "aliases": [
+        "Mephistopheles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "margaret",
+      "name": "Margaret (Gretchen)",
+      "body": "Faust's beloved in Goethe's drama, seen here in her full innocence rather than through Mephistopheles's distorting mirror.",
+      "aliases": [
+        "Margaret"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristophanes",
+      "name": "Aristophanes",
+      "body": "The Greek comic playwright, imagined as the one who might, on purely ethical grounds, let laughter pass judgment on a bewildered age.",
+      "aliases": [
+        "Aristophanes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "munchausen",
+      "name": "Baron Munchausen",
+      "body": "The legendary teller of tall tales, invoked as the contrast to a man who has genuinely undergone spiritual trial: one can tell the difference by listening through the line of what is said.",
+      "aliases": [
+        "Munchausen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tamerlane",
+      "name": "Tamerlane",
+      "body": "The conqueror, whose power to terrify with his armies is compared to what Faust's doubt could do to men's security, if he chose to speak it.",
+      "aliases": [
+        "Tamerlane"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gregorius-riminensis",
+      "name": "Gregory of Rimini",
+      "body": "The medieval theologian nicknamed \"tortor infantium\" (\"torturer of infants\") for holding that unbaptized children are damned -- a nickname Johannes de Silentio borrows, calling himself \"tortor heroum,\" a torturer of heroes.",
+      "aliases": [
+        "Gregorius Riminensis",
+        "Gregory of Rimini"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tobias",
+      "name": "Tobias",
+      "body": "The young man of the Book of Tobit who marries Sarah, knowing the demon that killed her seven previous husbands on their wedding nights, and survives.",
+      "aliases": [
+        "Tobias"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "raguel",
+      "name": "Raguel",
+      "body": "Sarah's father in the Book of Tobit, who has a grave dug in the night in case Tobias too should die, and asks a maid to check whether he lives.",
+      "aliases": [
+        "Raguel"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "edna",
+      "name": "Edna",
+      "body": "Sarah's mother in the Book of Tobit, who prepares the bridal chamber, weeps with her daughter, and blesses her before the wedding night.",
+      "aliases": [
+        "Edna"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "longus",
+      "name": "Longus",
+      "body": "The Greek author of the pastoral romance Daphnis and Chloe, cited (as \"Longi Pastoralia\") for the line that no one has ever escaped Love, nor will, so long as beauty exists and eyes can see.",
+      "aliases": [
+        "Longi",
+        "Longus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "body": "Named among those present at Aulis -- with Clytemnestra, Iphigenia, and the chorus -- whose grief and argument the tragic hero Agamemnon must, and does, face and answer.",
+      "aliases": [
+        "Achilles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "edward-iv",
+      "name": "Edward IV",
+      "body": "The English king, quoted (in German) lamenting, on hearing of his brother Clarence's murder, that no one had pleaded for him -- the outcry Abraham is spared, since no one else can even argue with him.",
+      "aliases": [
+        "Edward IV"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clarence",
+      "name": "George, Duke of Clarence",
+      "body": "Edward IV's brother, whose murder -- from Shakespeare's Richard III -- prompts the king's lament that no one had pleaded on his behalf.",
+      "aliases": [
+        "Clarence"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calchas",
+      "name": "Calchas",
+      "body": "The seer who, in Euripides's play, is the one who actually draws the knife against Iphigenia -- not Agamemnon himself, which is why Agamemnon's silence does not demean him.",
+      "aliases": [
+        "Calchas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diogenes-laertius",
+      "name": "Diogenes Laërtius",
+      "body": "The ancient biographer of philosophers, cited by book and section number (\"Book 8, §39\") as the source for the anecdote of Pythagoras choosing death over breaking silence.",
+      "aliases": [
+        "Diogenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "body": "Cited for having \"poetically dispersed\" Socrates across so many dialogues that scholars differ on which of Socrates's lines should count as his decisive last word.",
+      "aliases": [
+        "Plato"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heraclitus",
+      "name": "Heraclitus",
+      "body": "The Greek philosopher of flux (\"the dark Heraclitus\"), who deposited his writings in the temple of Diana and held that one cannot step twice into the same river -- a saying his own disciple then took further still.",
+      "aliases": [
+        "Heraclitus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

@@ -21,7 +21,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Crime and Punishment (`crime-and-punishment`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Republic (`the-republic`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Meditations (`meditations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Divine Comedy (`divine-comedy`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Divine Comedy (`divine-comedy`) | in-progress | Lane B authoring in progress: 100 cantos, 4,812 paragraphs per edition — the largest source in the library. Cast is overwhelmingly historical and scriptural figures rather than invented characters |
 | Jane Eyre (`jane-eyre`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Aeneid (`the-aeneid`) | validated-package | Release owner: compare fingerprints, register both English editions and verify the three Pallases and the monster-named galleys in production |
 | Paradise Lost (`paradise-lost`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
@@ -59,7 +59,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | History of the Peloponnesian War (`peloponnesian-war`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Politics (`aristotle-politics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Leviathan (`leviathan`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Fear and Trembling (`fear-and-trembling`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Fear and Trembling (`fear-and-trembling`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Communist Manifesto (`communist-manifesto`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Second Treatise of Government (`second-treatise`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | An Enquiry Concerning Human Understanding (`hume-enquiry`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

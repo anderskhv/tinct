@@ -420,7 +420,7 @@
     {
       "bookId": "divine-comedy",
       "title": "The Divine Comedy",
-      "contentStatus": "not-started",
+      "contentStatus": "in-progress",
       "appStatus": "not-integrated",
       "reviewedEditions": [],
       "sources": [
@@ -440,7 +440,7 @@
         }
       ],
       "existingThreadCandidates": 22,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Lane B authoring in progress: 100 cantos, 4,812 paragraphs per edition — the largest source in the library. Cast is overwhelmingly historical and scriptural figures rather than invented characters"
     },
     {
       "bookId": "jane-eyre",
@@ -1433,9 +1433,12 @@
     {
       "bookId": "fear-and-trembling",
       "title": "Fear and Trembling",
-      "contentStatus": "not-started",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -1453,7 +1456,7 @@
         }
       ],
       "existingThreadCandidates": 8,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Consolidated release queue: integrate versioned asset and verify production"
     },
     {
       "bookId": "communist-manifesto",
