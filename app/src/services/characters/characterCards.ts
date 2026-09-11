@@ -13,7 +13,7 @@ export async function sha256(data: string | ArrayBuffer): Promise<string> {
   const bytes = typeof data === 'string' ? new TextEncoder().encode(data) : data
   return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), byte => byte.toString(16).padStart(2, '0')).join('')
 }
-const supportedEditions: Record<string, string[]> = { 'the-awakening': ['original-en', 'modern-en'], bible: ['kjv-en', 'web-en', 'modern-en'], hamlet: ['original-en', 'modern-en'], macbeth: ['original-en', 'modern-en'], crito: ['original-en', 'modern-en'], apology: ['original-en', 'modern-en'], 'the-manual': ['original-en', 'modern-en'], 'the-art-of-war': ['original-en', 'modern-en'] }
+const supportedEditions: Record<string, string[]> = { 'the-awakening': ['original-en', 'modern-en'], bible: ['kjv-en', 'web-en', 'modern-en'], hamlet: ['original-en', 'modern-en'], macbeth: ['original-en', 'modern-en'], crito: ['original-en', 'modern-en'], apology: ['original-en', 'modern-en'], 'the-manual': ['original-en', 'modern-en'], 'the-art-of-war': ['original-en', 'modern-en'], 'measure-for-measure': ['original-en', 'modern-en'], 'henry-v': ['original-en', 'modern-en'], 'winters-tale': ['original-en', 'modern-en'], 'cymbeline': ['original-en', 'modern-en'], 'coriolanus': ['original-en', 'modern-en'], 'antony-and-cleopatra': ['original-en', 'modern-en'], 'richard-iii': ['original-en', 'modern-en'], 'henry-iv-part-2': ['original-en', 'modern-en'], 'merry-wives-of-windsor': ['original-en', 'modern-en'] }
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
   if (!supportedEditions[bookId]?.includes(editionKey) || asset.bookId !== bookId || asset.schemaVersion !== 1 || asset.language !== 'en' || asset.normalization !== 'prose-reader-v1' || asset.offsetUnit !== 'utf16') return null
   const edition = asset.editions?.[editionKey]
@@ -44,7 +44,7 @@ export function loadCharacters(bookId?: string, editionKey?: string): Promise<Ve
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${['hamlet', 'macbeth', 'crito', 'apology', 'the-manual', 'the-art-of-war'].includes(bookId) ? '2026-09-10.1' : '2026-09-09.2'}`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
+      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${['hamlet', 'macbeth', 'crito', 'apology', 'the-manual', 'the-art-of-war', 'measure-for-measure', 'henry-v', 'winters-tale', 'cymbeline', 'coriolanus', 'antony-and-cleopatra', 'richard-iii', 'henry-iv-part-2', 'merry-wives-of-windsor'].includes(bookId) ? '2026-09-10.1' : '2026-09-09.2'}`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
       if (!asset.ok || !source.ok) return null
       return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
     } catch { return null }
@@ -81,8 +81,8 @@ export function wordSelectionOffsets(text: string, from: number, to: number): [n
   const words = Array.from(normalized.matchAll(/\S+/g))
   if (from < 0 || to <= from || !words[from] || !words[to - 1]) return null
   let start = words[from].index!, end = words[to - 1].index! + words[to - 1][0].length
-  while (start < end && /[“”"'([{]/.test(normalized[start])) start++
-  while (end > start && /[.,;:!?…”"')\]}]/.test(normalized[end - 1])) end--
+  while (start < end && /[“”"'([{_]/.test(normalized[start])) start++
+  while (end > start && /[.,;:!?…”"')\]}_]/.test(normalized[end - 1])) end--
   // A possessive suffix is grammar outside the reviewed name, never an alias guess.
   if (/[’']s$/.test(normalized.slice(start, end))) end -= 2
   return [start, end]
